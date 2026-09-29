@@ -1,13 +1,8 @@
-#  GetBroadcastStatsRequest
-# 
-#  R6 class representing a GetBroadcastStatsRequest TLRequest.
-# 
-# 
-#  @title GetBroadcastStatsRequest
-#  @description Telegram API type GetBroadcastStatsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBroadcastStatsRequest
+#' @description Telegram API request \code{stats.getBroadcastStats} (constructor \code{#ab42441a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBroadcastStatsRequest <- R6::R6Class(
   "GetBroadcastStatsRequest",
   inherit = TLRequest,
@@ -72,16 +67,11 @@ GetBroadcastStatsRequest <- R6::R6Class(
 )
 
 
-#  GetMegagroupStatsRequest
-# 
-#  R6 class representing a GetMegagroupStatsRequest TLRequest.
-# 
-# 
-#  @title GetMegagroupStatsRequest
-#  @description Telegram API type GetMegagroupStatsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMegagroupStatsRequest
+#' @description Telegram API request \code{stats.getMegagroupStats} (constructor \code{#dcdf8607}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMegagroupStatsRequest <- R6::R6Class(
   "GetMegagroupStatsRequest",
   inherit = TLRequest,
@@ -146,16 +136,11 @@ GetMegagroupStatsRequest <- R6::R6Class(
 )
 
 
-#  GetMessagePublicForwardsRequest
-# 
-#  R6 class representing a GetMessagePublicForwardsRequest TLRequest.
-# 
-# 
-#  @title GetMessagePublicForwardsRequest
-#  @description Telegram API type GetMessagePublicForwardsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessagePublicForwardsRequest
+#' @description Telegram API request \code{stats.getMessagePublicForwards} (constructor \code{#5f150144}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessagePublicForwardsRequest <- R6::R6Class(
   "GetMessagePublicForwardsRequest",
   inherit = TLRequest,
@@ -239,16 +224,11 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
 )
 
 
-#  GetMessageStatsRequest
-# 
-#  R6 class representing a GetMessageStatsRequest TLRequest.
-# 
-# 
-#  @title GetMessageStatsRequest
-#  @description Telegram API type GetMessageStatsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessageStatsRequest
+#' @description Telegram API request \code{stats.getMessageStats} (constructor \code{#b6e0a3f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessageStatsRequest <- R6::R6Class(
   "GetMessageStatsRequest",
   inherit = TLRequest,
@@ -319,16 +299,11 @@ GetMessageStatsRequest <- R6::R6Class(
   )
 )
 
-#  GetStoryPublicForwardsRequest
-# 
-#  R6 class representing a GetStoryPublicForwardsRequest TLRequest.
-# 
-# 
-#  @title GetStoryPublicForwardsRequest
-#  @description Telegram API type GetStoryPublicForwardsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoryPublicForwardsRequest
+#' @description Telegram API request \code{stats.getStoryPublicForwards} (constructor \code{#a6437ef6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoryPublicForwardsRequest <- R6::R6Class(
   "GetStoryPublicForwardsRequest",
   inherit = TLRequest,
@@ -412,16 +387,11 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
 )
 
 
-#  GetStoryStatsRequest
-# 
-#  R6 class representing a GetStoryStatsRequest TLRequest.
-# 
-# 
-#  @title GetStoryStatsRequest
-#  @description Telegram API type GetStoryStatsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoryStatsRequest
+#' @description Telegram API request \code{stats.getStoryStats} (constructor \code{#374fef40}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoryStatsRequest <- R6::R6Class(
   "GetStoryStatsRequest",
   inherit = TLRequest,
@@ -492,16 +462,11 @@ GetStoryStatsRequest <- R6::R6Class(
   )
 )
 
-#  LoadAsyncGraphRequest
-# 
-#  R6 class representing a LoadAsyncGraphRequest TLRequest.
-# 
-# 
-#  @title LoadAsyncGraphRequest
-#  @description Telegram API type LoadAsyncGraphRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title LoadAsyncGraphRequest
+#' @description Telegram API request \code{stats.loadAsyncGraph} (constructor \code{#621d5fa0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LoadAsyncGraphRequest <- R6::R6Class("LoadAsyncGraphRequest",
   inherit = TLRequest,
   public = list(

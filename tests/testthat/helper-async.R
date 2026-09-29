@@ -1,4 +1,24 @@
 value <- function(x, ...) {
+  # promises::promise objects (returned by the codecs / connection layer) have
+  # no future::value method. On the sequential plan their chains settle
+  # synchronously, so pump the later event loop until the promise resolves and
+  # return its value (or throw its rejection, so expect_error still works).
+  if (inherits(x, "promise")) {
+    val <- NULL; err <- NULL; done <- FALSE
+    promises::then(
+      x,
+      onFulfilled = function(v) { val <<- v; done <<- TRUE },
+      onRejected  = function(e) { err <<- e; done <<- TRUE }
+    )
+    guard <- 0L
+    while (!done && guard < 100000L) {
+      if (later::loop_empty()) break
+      later::run_now(timeoutSecs = 0)
+      guard <- guard + 1L
+    }
+    if (!is.null(err)) stop(err)
+    return(val)
+  }
   future::value(x, ...)
 }
 

@@ -8,13 +8,11 @@
   if (length(x) != 1 || (is.numeric(x) && is.na(x))) x <- 0
   packInt64(x)
 }
-# 
-#  Represents the TL request upload.GetCdnFileRequest.
-#  @title GetCdnFileRequest
-#  @description Telegram API type GetCdnFileRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetCdnFileRequest
+#' @description Telegram API request \code{upload.getCdnFile} (constructor \code{#395f69da}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetCdnFileRequest <- R6::R6Class(
   "GetCdnFileRequest",
   public = list(
@@ -80,14 +78,11 @@ GetCdnFileRequest <- R6::R6Class(
 )
 
 
-#  GetCdnFileHashesRequest R6 class
-# 
-#  Represents the TL request upload.GetCdnFileHashesRequest.
-#  @title GetCdnFileHashesRequest
-#  @description Telegram API type GetCdnFileHashesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetCdnFileHashesRequest
+#' @description Telegram API request \code{upload.getCdnFileHashes} (constructor \code{#91dc3f31}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetCdnFileHashesRequest <- R6::R6Class(
   "GetCdnFileHashesRequest",
   public = list(
@@ -145,14 +140,11 @@ GetCdnFileHashesRequest <- R6::R6Class(
 )
 
 
-#  GetFileRequest R6 class
-# 
-#  Represents the TL request upload.GetFileRequest.
-#  @title GetFileRequest
-#  @description Telegram API type GetFileRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFileRequest
+#' @description Telegram API request \code{upload.getFile} (constructor \code{#be5335be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFileRequest <- R6::R6Class(
   "GetFileRequest",
   public = list(
@@ -242,14 +234,11 @@ GetFileRequest <- R6::R6Class(
 )
 
 
-#  GetFileHashesRequest R6 class
-# 
-#  Represents the TL request upload.GetFileHashesRequest.
-#  @title GetFileHashesRequest
-#  @description Telegram API type GetFileHashesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFileHashesRequest
+#' @description Telegram API request \code{upload.getFileHashes} (constructor \code{#9156982a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFileHashesRequest <- R6::R6Class(
   "GetFileHashesRequest",
   public = list(
@@ -318,14 +307,11 @@ GetFileHashesRequest <- R6::R6Class(
 )
 
 
-#  GetWebFileRequest R6 class
-# 
-#  Represents the TL request upload.GetWebFileRequest.
-#  @title GetWebFileRequest
-#  @description Telegram API type GetWebFileRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetWebFileRequest
+#' @description Telegram API request \code{upload.getWebFile} (constructor \code{#24e6818d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetWebFileRequest <- R6::R6Class(
   "GetWebFileRequest",
   public = list(
@@ -401,14 +387,11 @@ GetWebFileRequest <- R6::R6Class(
 )
 
 
-#  ReuploadCdnFileRequest R6 class
-# 
-#  Represents the TL request upload.ReuploadCdnFileRequest.
-#  @title ReuploadCdnFileRequest
-#  @description Telegram API type ReuploadCdnFileRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReuploadCdnFileRequest
+#' @description Telegram API request \code{upload.reuploadCdnFile} (constructor \code{#9b2754a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReuploadCdnFileRequest <- R6::R6Class(
   "ReuploadCdnFileRequest",
   public = list(
@@ -467,14 +450,11 @@ ReuploadCdnFileRequest <- R6::R6Class(
 )
 
 
-#  SaveBigFilePartRequest R6 class
-# 
-#  Represents the TL request upload.SaveBigFilePartRequest.
-#  @title SaveBigFilePartRequest
-#  @description Telegram API type SaveBigFilePartRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SaveBigFilePartRequest
+#' @description Telegram API request \code{upload.saveBigFilePart} (constructor \code{#de7b673d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveBigFilePartRequest <- R6::R6Class(
   "SaveBigFilePartRequest",
   public = list(
@@ -552,14 +532,11 @@ SaveBigFilePartRequest <- R6::R6Class(
 )
 
 
-#  SaveFilePartRequest R6 class
-# 
-#  R6 representation of the Telegram TL request upload.SaveFilePartRequest.
-#  @title SaveFilePartRequest
-#  @description Telegram API type SaveFilePartRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SaveFilePartRequest
+#' @description Telegram API request \code{upload.saveFilePart} (constructor \code{#b304a621}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
   public = list(

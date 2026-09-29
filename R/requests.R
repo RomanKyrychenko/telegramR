@@ -177,15 +177,11 @@ GetFutureSaltsRequest_from_reader <- function(reader) {
 }
 
 
-#  InitConnectionRequest R6 class
-# 
-#  Represents a request to initialize a connection with the server.
-#  This class holds connection metadata and the inner `query` object to be
-#  serialized and sent. Optional `proxy` and `params` fields are included
-#  based on flags during serialization.
-# 
-#  @noRd
-#  @noRd
+#' @title InitConnectionRequest
+#' @description Telegram API request \code{initConnection} (constructor \code{#c1cd5ea9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InitConnectionRequest <- R6::R6Class(
   "InitConnectionRequest",
   public = list(
@@ -357,14 +353,11 @@ InitConnectionRequest_from_reader <- function(reader) {
   )
 }
 
-#  InvokeAfterMsgRequest R6 class
-# 
-#  Represents a request that will be invoked after a specific message ID.
-#  Holds the target message identifier and a nested \code{query} object which
-#  will be executed after the message with \code{msg_id}.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeAfterMsgRequest
+#' @description Telegram API request \code{invokeAfterMsg} (constructor \code{#cb9f372d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeAfterMsgRequest <- R6::R6Class(
   "InvokeAfterMsgRequest",
   public = list(
@@ -434,14 +427,11 @@ InvokeAfterMsgRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeAfterMsgsRequest
-# 
-#  R6 class representing a request to invoke a nested `query` after a collection
-#  of message identifiers (`msg_ids`). The class serializes the list of message
-#  ids and appends the serialized nested `query` bytes.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeAfterMsgsRequest
+#' @description Telegram API request \code{invokeAfterMsgs} (constructor \code{#3dc4b4f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeAfterMsgsRequest <- R6::R6Class(
   "InvokeAfterMsgsRequest",
   public = list(
@@ -528,14 +518,11 @@ InvokeAfterMsgsRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithApnsSecretRequest
-# 
-#  R6 class representing a request that wraps a nested `query` and provides
-#  Apple Push Notification Service (APNS) secret/nonce metadata. The nested
-#  `query` will be serialized after the `nonce` and `secret`.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithApnsSecretRequest
+#' @description Telegram API request \code{invokeWithApnsSecret} (constructor \code{#0dae54f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithApnsSecretRequest <- R6::R6Class(
   "InvokeWithApnsSecretRequest",
   public = list(
@@ -621,15 +608,11 @@ InvokeWithApnsSecretRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithBusinessConnectionRequest
-# 
-#  R6 class representing a request that wraps a nested `query` with a business
-#  connection identifier. The `connection_id` is typically a string used to
-#  identify a business connection context; `query` is a nested object that must
-#  implement `to_list()` and `to_bytes()`.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithBusinessConnectionRequest
+#' @description Telegram API request \code{invokeWithBusinessConnection} (constructor \code{#dd289f8e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithBusinessConnectionRequest <- R6::R6Class(
   "InvokeWithBusinessConnectionRequest",
   public = list(
@@ -701,14 +684,11 @@ InvokeWithBusinessConnectionRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithGooglePlayIntegrityRequest R6 class
-# 
-#  R6 class representing a request that wraps a nested `query` with Google
-#  Play Integrity metadata. The class stores a `nonce` and `token` and
-#  delegates serialization of the nested `query` to its `to_bytes()` method.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithGooglePlayIntegrityRequest
+#' @description Telegram API request \code{invokeWithGooglePlayIntegrity} (constructor \code{#1df92984}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
   "InvokeWithGooglePlayIntegrityRequest",
   public = list(
@@ -788,15 +768,11 @@ InvokeWithGooglePlayIntegrityRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithLayerRequest R6 class
-# 
-#  R6 class representing a request that wraps a nested `query` and specifies
-#  a protocol `layer`. The `layer` is an integer representing the API layer
-#  to invoke the nested `query` under. The nested `query` must implement
-#  `to_list()` and `to_bytes()`.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithLayerRequest
+#' @description Telegram API request \code{invokeWithLayer} (constructor \code{#da9b0d0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithLayerRequest <- R6::R6Class(
   "InvokeWithLayerRequest",
   public = list(
@@ -867,16 +843,11 @@ InvokeWithLayerRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithMessagesRangeRequest R6 class
-# 
-#  R6 class representing a request that wraps a nested `query` and applies it
-#  to a provided `range` of messages. The `range` is expected to be an object
-#  that implements `to_list()` and `to_bytes()` (e.g. a message range descriptor),
-#  and `query` is a nested Telegram-like object that also implements
-#  `to_list()` and `to_bytes()`.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithMessagesRangeRequest
+#' @description Telegram API request \code{invokeWithMessagesRange} (constructor \code{#365275f2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithMessagesRangeRequest <- R6::R6Class(
   "InvokeWithMessagesRangeRequest",
   public = list(
@@ -947,13 +918,11 @@ InvokeWithMessagesRangeRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithReCaptchaRequest R6 class
-# 
-#  R6 class representing a request that wraps a nested `query` with a ReCaptcha
-#  token. The nested `query` will be serialized after the `token`.
-# 
-#  @noRd
-#  @noRd
+#' @title InvokeWithReCaptchaRequest
+#' @description Telegram API request \code{invokeWithReCaptcha} (constructor \code{#adbb0f94}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithReCaptchaRequest <- R6::R6Class(
   "InvokeWithReCaptchaRequest",
   public = list(
@@ -1026,17 +995,11 @@ InvokeWithReCaptchaRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithTakeoutRequest R6 class
-# 
-#  R6 class representing a request that wraps a nested `query` with a takeout
-#  identifier. The `takeout_id` is typically an integer64 identifying a user's
-#  takeout/export session; `query` is a nested object that must implement
-#  `to_list()` and `to_bytes()`.
-# 
-# 
-#  @return An R6 object of class \code{InvokeWithTakeoutRequest}.
-#  @noRd
-#  @noRd
+#' @title InvokeWithTakeoutRequest
+#' @description Telegram API request \code{invokeWithTakeout} (constructor \code{#aca9fd2e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithTakeoutRequest <- R6::R6Class(
   "InvokeWithTakeoutRequest",
   public = list(
@@ -1113,15 +1076,11 @@ InvokeWithTakeoutRequest_from_reader <- function(reader) {
 }
 
 
-#  InvokeWithoutUpdatesRequest R6 class
-# 
-#  R6 class representing a request that invokes a nested `query` without producing
-#  any updates. The nested `query` object is expected to implement `to_list()`
-#  and `to_bytes()` for proper serialization.
-# 
-#  @return An R6 object of class \code{InvokeWithoutUpdatesRequest}.
-#  @noRd
-#  @noRd
+#' @title InvokeWithoutUpdatesRequest
+#' @description Telegram API request \code{invokeWithoutUpdates} (constructor \code{#bf9459b7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWithoutUpdatesRequest <- R6::R6Class(
   "InvokeWithoutUpdatesRequest",
   public = list(

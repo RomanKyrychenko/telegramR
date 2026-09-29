@@ -75,11 +75,11 @@ AccessPointRule <- R6::R6Class(
   )
 )
 
-#  @title AccountDaysTTL
-#  @description Telegram API type AccountDaysTTL
-#  @export
-#  @noRd
-#  @noRd
+#' @title AccountDaysTTL
+#' @description Telegram API type \code{accountDaysTTL} (constructor \code{#b8d0afdf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AccountDaysTTL <- R6::R6Class("AccountDaysTTL",
   inherit = TLObject,
   public = list(
@@ -119,6 +119,11 @@ AccountDaysTTL <- R6::R6Class("AccountDaysTTL",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBot
+#' @description Telegram API type \code{attachMenuBot} (constructor \code{#d90d8dfe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBot <- R6::R6Class("AttachMenuBot",
   inherit = TLObject,
   public = list(
@@ -216,6 +221,11 @@ AttachMenuBot <- R6::R6Class("AttachMenuBot",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBotIcon
+#' @description Telegram API type \code{attachMenuBotIcon} (constructor \code{#b2a7386b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBotIcon <- R6::R6Class("AttachMenuBotIcon",
   inherit = TLObject,
   public = list(
@@ -271,6 +281,11 @@ AttachMenuBotIcon <- R6::R6Class("AttachMenuBotIcon",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBotIconColor
+#' @description Telegram API type \code{attachMenuBotIconColor} (constructor \code{#4576f3f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBotIconColor <- R6::R6Class("AttachMenuBotIconColor",
   inherit = TLObject,
   public = list(
@@ -316,6 +331,11 @@ AttachMenuBotIconColor <- R6::R6Class("AttachMenuBotIconColor",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBots
+#' @description Telegram API type \code{attachMenuBots} (constructor \code{#3c4301c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBots <- R6::R6Class("AttachMenuBots",
   inherit = TLObject,
   public = list(
@@ -367,6 +387,11 @@ AttachMenuBots <- R6::R6Class("AttachMenuBots",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBotsBot
+#' @description Telegram API type \code{attachMenuBotsBot} (constructor \code{#93bf667f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBotsBot <- R6::R6Class("AttachMenuBotsBot",
   inherit = TLObject,
   public = list(
@@ -412,6 +437,11 @@ AttachMenuBotsBot <- R6::R6Class("AttachMenuBotsBot",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuBotsNotModified
+#' @description Telegram API type \code{attachMenuBotsNotModified} (constructor \code{#f1d88a5c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuBotsNotModified <- R6::R6Class("AttachMenuBotsNotModified",
   inherit = TLObject,
   public = list(
@@ -445,6 +475,11 @@ AttachMenuBotsNotModified <- R6::R6Class("AttachMenuBotsNotModified",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuPeerTypeBotPM
+#' @description Telegram API type \code{attachMenuPeerTypeBotPM} (constructor \code{#c32bfa1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuPeerTypeBotPM <- R6::R6Class("AttachMenuPeerTypeBotPM",
   inherit = TLObject,
   public = list(
@@ -478,6 +513,11 @@ AttachMenuPeerTypeBotPM <- R6::R6Class("AttachMenuPeerTypeBotPM",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuPeerTypeBroadcast
+#' @description Telegram API type \code{attachMenuPeerTypeBroadcast} (constructor \code{#7bfbdefc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuPeerTypeBroadcast <- R6::R6Class("AttachMenuPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
@@ -511,6 +551,11 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class("AttachMenuPeerTypeBroadcast",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuPeerTypeChat
+#' @description Telegram API type \code{attachMenuPeerTypeChat} (constructor \code{#0509113f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuPeerTypeChat <- R6::R6Class("AttachMenuPeerTypeChat",
   inherit = TLObject,
   public = list(
@@ -544,6 +589,11 @@ AttachMenuPeerTypeChat <- R6::R6Class("AttachMenuPeerTypeChat",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuPeerTypePM
+#' @description Telegram API type \code{attachMenuPeerTypePM} (constructor \code{#f146d31f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuPeerTypePM <- R6::R6Class("AttachMenuPeerTypePM",
   inherit = TLObject,
   public = list(
@@ -577,6 +627,11 @@ AttachMenuPeerTypePM <- R6::R6Class("AttachMenuPeerTypePM",
   lock_objects = FALSE
 )
 
+#' @title AttachMenuPeerTypeSameBotPM
+#' @description Telegram API type \code{attachMenuPeerTypeSameBotPM} (constructor \code{#7d6be90e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AttachMenuPeerTypeSameBotPM <- R6::R6Class("AttachMenuPeerTypeSameBotPM",
   inherit = TLObject,
   public = list(
@@ -610,6 +665,11 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class("AttachMenuPeerTypeSameBotPM",
   lock_objects = FALSE
 )
 
+#' @title Authorization
+#' @description Telegram API type \code{authorization} (constructor \code{#ad01d61d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Authorization <- R6::R6Class("Authorization",
   inherit = TLObject,
   public = list(
@@ -754,6 +814,11 @@ Authorization <- R6::R6Class("Authorization",
   lock_objects = FALSE
 )
 
+#' @title AutoDownloadSettings
+#' @description Telegram API type \code{autoDownloadSettings} (constructor \code{#baa57628}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AutoDownloadSettings <- R6::R6Class("AutoDownloadSettings",
   inherit = TLObject,
   public = list(
@@ -856,6 +921,11 @@ AutoDownloadSettings <- R6::R6Class("AutoDownloadSettings",
   lock_objects = FALSE
 )
 
+#' @title AutoSaveException
+#' @description Telegram API type \code{autoSaveException} (constructor \code{#81602d47}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AutoSaveException <- R6::R6Class("AutoSaveException",
   inherit = TLObject,
   public = list(
@@ -901,6 +971,11 @@ AutoSaveException <- R6::R6Class("AutoSaveException",
   lock_objects = FALSE
 )
 
+#' @title AutoSaveSettings
+#' @description Telegram API type \code{autoSaveSettings} (constructor \code{#c84834ce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AutoSaveSettings <- R6::R6Class("AutoSaveSettings",
   inherit = TLObject,
   public = list(
@@ -956,6 +1031,11 @@ AutoSaveSettings <- R6::R6Class("AutoSaveSettings",
   lock_objects = FALSE
 )
 
+#' @title AvailableEffect
+#' @description Telegram API type \code{availableEffect} (constructor \code{#93c3e27e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableEffect <- R6::R6Class("AvailableEffect",
   inherit = TLObject,
   public = list(
@@ -1030,6 +1110,11 @@ AvailableEffect <- R6::R6Class("AvailableEffect",
   lock_objects = FALSE
 )
 
+#' @title AvailableReaction
+#' @description Telegram API type \code{availableReaction} (constructor \code{#c077ec01}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableReaction <- R6::R6Class("AvailableReaction",
   inherit = TLObject,
   public = list(
@@ -1279,11 +1364,11 @@ BadServerSalt <- R6::R6Class(
   )
 )
 
-#  @title BankCardOpenUrl
-#  @description Telegram API type BankCardOpenUrl
-#  @export
-#  @noRd
-#  @noRd
+#' @title BankCardOpenUrl
+#' @description Telegram API type \code{bankCardOpenUrl} (constructor \code{#f568028a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BankCardOpenUrl <- R6::R6Class("BankCardOpenUrl",
   inherit = TLObject,
   public = list(
@@ -1329,6 +1414,11 @@ BankCardOpenUrl <- R6::R6Class("BankCardOpenUrl",
   lock_objects = FALSE
 )
 
+#' @title BaseThemeArctic
+#' @description Telegram API type \code{baseThemeArctic} (constructor \code{#5b11125a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BaseThemeArctic <- R6::R6Class("BaseThemeArctic",
   inherit = TLObject,
   public = list(
@@ -1362,6 +1452,11 @@ BaseThemeArctic <- R6::R6Class("BaseThemeArctic",
   lock_objects = FALSE
 )
 
+#' @title BaseThemeClassic
+#' @description Telegram API type \code{baseThemeClassic} (constructor \code{#c3a12462}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BaseThemeClassic <- R6::R6Class("BaseThemeClassic",
   inherit = TLObject,
   public = list(
@@ -1395,6 +1490,11 @@ BaseThemeClassic <- R6::R6Class("BaseThemeClassic",
   lock_objects = FALSE
 )
 
+#' @title BaseThemeDay
+#' @description Telegram API type \code{baseThemeDay} (constructor \code{#fbd81688}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BaseThemeDay <- R6::R6Class("BaseThemeDay",
   inherit = TLObject,
   public = list(
@@ -1428,6 +1528,11 @@ BaseThemeDay <- R6::R6Class("BaseThemeDay",
   lock_objects = FALSE
 )
 
+#' @title BaseThemeNight
+#' @description Telegram API type \code{baseThemeNight} (constructor \code{#b7b31ea8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BaseThemeNight <- R6::R6Class("BaseThemeNight",
   inherit = TLObject,
   public = list(
@@ -1461,6 +1566,11 @@ BaseThemeNight <- R6::R6Class("BaseThemeNight",
   lock_objects = FALSE
 )
 
+#' @title BaseThemeTinted
+#' @description Telegram API type \code{baseThemeTinted} (constructor \code{#6d5f77ee}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BaseThemeTinted <- R6::R6Class("BaseThemeTinted",
   inherit = TLObject,
   public = list(
@@ -1576,11 +1686,11 @@ BindAuthKeyInner <- R6::R6Class(
   )
 )
 
-#  @title Birthday
-#  @description Telegram API type Birthday
-#  @export
-#  @noRd
-#  @noRd
+#' @title Birthday
+#' @description Telegram API type \code{birthday} (constructor \code{#6c8e1e06}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Birthday <- R6::R6Class("Birthday",
   inherit = TLObject,
   public = list(
@@ -1636,6 +1746,11 @@ Birthday <- R6::R6Class("Birthday",
   lock_objects = FALSE
 )
 
+#' @title Boost
+#' @description Telegram API type \code{boost} (constructor \code{#4b3e14d6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Boost <- R6::R6Class("Boost",
   inherit = TLObject,
   public = list(
@@ -1743,6 +1858,11 @@ Boost <- R6::R6Class("Boost",
   lock_objects = FALSE
 )
 
+#' @title BotApp
+#' @description Telegram API type \code{botApp} (constructor \code{#95fcd1d6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotApp <- R6::R6Class("BotApp",
   inherit = TLObject,
   public = list(
@@ -1828,6 +1948,11 @@ BotApp <- R6::R6Class("BotApp",
   lock_objects = FALSE
 )
 
+#' @title BotAppNotModified
+#' @description Telegram API type \code{botAppNotModified} (constructor \code{#5da674b7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotAppNotModified <- R6::R6Class("BotAppNotModified",
   inherit = TLObject,
   public = list(
@@ -1861,6 +1986,11 @@ BotAppNotModified <- R6::R6Class("BotAppNotModified",
   lock_objects = FALSE
 )
 
+#' @title BotAppSettings
+#' @description Telegram API type \code{botAppSettings} (constructor \code{#c99b1950}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotAppSettings <- R6::R6Class("BotAppSettings",
   inherit = TLObject,
   public = list(
@@ -1932,6 +2062,11 @@ BotAppSettings <- R6::R6Class("BotAppSettings",
   lock_objects = FALSE
 )
 
+#' @title BotBusinessConnection
+#' @description Telegram API type \code{botBusinessConnection} (constructor \code{#8f34b2f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotBusinessConnection <- R6::R6Class("BotBusinessConnection",
   inherit = TLObject,
   public = list(
@@ -2005,6 +2140,11 @@ BotBusinessConnection <- R6::R6Class("BotBusinessConnection",
   lock_objects = FALSE
 )
 
+#' @title BotCommand
+#' @description Telegram API type \code{botCommand} (constructor \code{#9852d6d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommand <- R6::R6Class("BotCommand",
   inherit = TLObject,
   public = list(
@@ -2059,6 +2199,11 @@ BotCommand <- R6::R6Class("BotCommand",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopeChatAdmins
+#' @description Telegram API type \code{botCommandScopeChatAdmins} (constructor \code{#b9aa606a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopeChatAdmins <- R6::R6Class("BotCommandScopeChatAdmins",
   inherit = TLObject,
   public = list(
@@ -2092,6 +2237,11 @@ BotCommandScopeChatAdmins <- R6::R6Class("BotCommandScopeChatAdmins",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopeChats
+#' @description Telegram API type \code{botCommandScopeChats} (constructor \code{#6fe1a881}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopeChats <- R6::R6Class("BotCommandScopeChats",
   inherit = TLObject,
   public = list(
@@ -2125,6 +2275,11 @@ BotCommandScopeChats <- R6::R6Class("BotCommandScopeChats",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopeDefault
+#' @description Telegram API type \code{botCommandScopeDefault} (constructor \code{#2f6cb2ab}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopeDefault <- R6::R6Class("BotCommandScopeDefault",
   inherit = TLObject,
   public = list(
@@ -2158,6 +2313,11 @@ BotCommandScopeDefault <- R6::R6Class("BotCommandScopeDefault",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopePeer
+#' @description Telegram API type \code{botCommandScopePeer} (constructor \code{#db9d897d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopePeer <- R6::R6Class("BotCommandScopePeer",
   inherit = TLObject,
   public = list(
@@ -2197,6 +2357,11 @@ BotCommandScopePeer <- R6::R6Class("BotCommandScopePeer",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopePeerAdmins
+#' @description Telegram API type \code{botCommandScopePeerAdmins} (constructor \code{#3fd863d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopePeerAdmins <- R6::R6Class("BotCommandScopePeerAdmins",
   inherit = TLObject,
   public = list(
@@ -2236,6 +2401,11 @@ BotCommandScopePeerAdmins <- R6::R6Class("BotCommandScopePeerAdmins",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopePeerUser
+#' @description Telegram API type \code{botCommandScopePeerUser} (constructor \code{#0a1321f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopePeerUser <- R6::R6Class("BotCommandScopePeerUser",
   inherit = TLObject,
   public = list(
@@ -2281,6 +2451,11 @@ BotCommandScopePeerUser <- R6::R6Class("BotCommandScopePeerUser",
   lock_objects = FALSE
 )
 
+#' @title BotCommandScopeUsers
+#' @description Telegram API type \code{botCommandScopeUsers} (constructor \code{#3c4f04d8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCommandScopeUsers <- R6::R6Class("BotCommandScopeUsers",
   inherit = TLObject,
   public = list(
@@ -2314,6 +2489,11 @@ BotCommandScopeUsers <- R6::R6Class("BotCommandScopeUsers",
   lock_objects = FALSE
 )
 
+#' @title BotInfo
+#' @description Telegram API type \code{botInfo} (constructor \code{#4d8a0299}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInfo <- R6::R6Class("BotInfo",
   inherit = TLObject,
   public = list(
@@ -2419,6 +2599,11 @@ BotInfo <- R6::R6Class("BotInfo",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMediaResult
+#' @description Telegram API type \code{botInlineMediaResult} (constructor \code{#17db940b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMediaResult <- R6::R6Class("BotInlineMediaResult",
   inherit = TLObject,
   public = list(
@@ -2501,6 +2686,11 @@ BotInlineMediaResult <- R6::R6Class("BotInlineMediaResult",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaAuto
+#' @description Telegram API type \code{botInlineMessageMediaAuto} (constructor \code{#764cf810}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaAuto <- R6::R6Class("BotInlineMessageMediaAuto",
   inherit = TLObject,
   public = list(
@@ -2563,6 +2753,11 @@ BotInlineMessageMediaAuto <- R6::R6Class("BotInlineMessageMediaAuto",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaContact
+#' @description Telegram API type \code{botInlineMessageMediaContact} (constructor \code{#18d1cdc2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaContact <- R6::R6Class("BotInlineMessageMediaContact",
   inherit = TLObject,
   public = list(
@@ -2630,6 +2825,11 @@ BotInlineMessageMediaContact <- R6::R6Class("BotInlineMessageMediaContact",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaGeo
+#' @description Telegram API type \code{botInlineMessageMediaGeo} (constructor \code{#051846fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaGeo <- R6::R6Class("BotInlineMessageMediaGeo",
   inherit = TLObject,
   public = list(
@@ -2700,6 +2900,11 @@ BotInlineMessageMediaGeo <- R6::R6Class("BotInlineMessageMediaGeo",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaInvoice
+#' @description Telegram API type \code{botInlineMessageMediaInvoice} (constructor \code{#354a9b09}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaInvoice <- R6::R6Class("BotInlineMessageMediaInvoice",
   inherit = TLObject,
   public = list(
@@ -2786,6 +2991,11 @@ BotInlineMessageMediaInvoice <- R6::R6Class("BotInlineMessageMediaInvoice",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaVenue
+#' @description Telegram API type \code{botInlineMessageMediaVenue} (constructor \code{#8a86659c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaVenue <- R6::R6Class("BotInlineMessageMediaVenue",
   inherit = TLObject,
   public = list(
@@ -2865,6 +3075,11 @@ BotInlineMessageMediaVenue <- R6::R6Class("BotInlineMessageMediaVenue",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageMediaWebPage
+#' @description Telegram API type \code{botInlineMessageMediaWebPage} (constructor \code{#809ad9a6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageMediaWebPage <- R6::R6Class("BotInlineMessageMediaWebPage",
   inherit = TLObject,
   public = list(
@@ -2957,6 +3172,11 @@ BotInlineMessageMediaWebPage <- R6::R6Class("BotInlineMessageMediaWebPage",
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageText
+#' @description Telegram API type \code{botInlineMessageText} (constructor \code{#8c7f65e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageText <- R6::R6Class("BotInlineMessageText",
   inherit = TLObject,
   public = list(
@@ -3025,6 +3245,11 @@ BotInlineMessageText <- R6::R6Class("BotInlineMessageText",
   lock_objects = FALSE
 )
 
+#' @title BotInlineResult
+#' @description Telegram API type \code{botInlineResult} (constructor \code{#11965f3a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineResult <- R6::R6Class("BotInlineResult",
   inherit = TLObject,
   public = list(
@@ -3114,6 +3339,11 @@ BotInlineResult <- R6::R6Class("BotInlineResult",
   lock_objects = FALSE
 )
 
+#' @title BotMenuButton
+#' @description Telegram API type \code{botMenuButton} (constructor \code{#c7b57ce6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotMenuButton <- R6::R6Class("BotMenuButton",
   inherit = TLObject,
   public = list(
@@ -3159,6 +3389,11 @@ BotMenuButton <- R6::R6Class("BotMenuButton",
   lock_objects = FALSE
 )
 
+#' @title BotMenuButtonCommands
+#' @description Telegram API type \code{botMenuButtonCommands} (constructor \code{#4258c205}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotMenuButtonCommands <- R6::R6Class("BotMenuButtonCommands",
   inherit = TLObject,
   public = list(
@@ -3192,6 +3427,11 @@ BotMenuButtonCommands <- R6::R6Class("BotMenuButtonCommands",
   lock_objects = FALSE
 )
 
+#' @title BotMenuButtonDefault
+#' @description Telegram API type \code{botMenuButtonDefault} (constructor \code{#7533a588}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotMenuButtonDefault <- R6::R6Class("BotMenuButtonDefault",
   inherit = TLObject,
   public = list(
@@ -3225,6 +3465,11 @@ BotMenuButtonDefault <- R6::R6Class("BotMenuButtonDefault",
   lock_objects = FALSE
 )
 
+#' @title BotPreviewMedia
+#' @description Telegram API type \code{botPreviewMedia} (constructor \code{#23e91ba3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotPreviewMedia <- R6::R6Class("BotPreviewMedia",
   inherit = TLObject,
   public = list(
@@ -3270,6 +3515,11 @@ BotPreviewMedia <- R6::R6Class("BotPreviewMedia",
   lock_objects = FALSE
 )
 
+#' @title BotVerification
+#' @description Telegram API type \code{botVerification} (constructor \code{#f93cd45c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotVerification <- R6::R6Class("BotVerification",
   inherit = TLObject,
   public = list(
@@ -3321,6 +3571,11 @@ BotVerification <- R6::R6Class("BotVerification",
   lock_objects = FALSE
 )
 
+#' @title BotVerifierSettings
+#' @description Telegram API type \code{botVerifierSettings} (constructor \code{#b0cd6617}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotVerifierSettings <- R6::R6Class("BotVerifierSettings",
   inherit = TLObject,
   public = list(
@@ -3382,6 +3637,11 @@ BotVerifierSettings <- R6::R6Class("BotVerifierSettings",
   lock_objects = FALSE
 )
 
+#' @title BusinessAwayMessage
+#' @description Telegram API type \code{businessAwayMessage} (constructor \code{#ef156a5c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessAwayMessage <- R6::R6Class("BusinessAwayMessage",
   inherit = TLObject,
   public = list(
@@ -3442,6 +3702,11 @@ BusinessAwayMessage <- R6::R6Class("BusinessAwayMessage",
   lock_objects = FALSE
 )
 
+#' @title BusinessAwayMessageScheduleAlways
+#' @description Telegram API type \code{businessAwayMessageScheduleAlways} (constructor \code{#c9b9e2b9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessAwayMessageScheduleAlways <- R6::R6Class("BusinessAwayMessageScheduleAlways",
   inherit = TLObject,
   public = list(
@@ -3475,6 +3740,11 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class("BusinessAwayMessageScheduleAlw
   lock_objects = FALSE
 )
 
+#' @title BusinessAwayMessageScheduleCustom
+#' @description Telegram API type \code{businessAwayMessageScheduleCustom} (constructor \code{#cc4d9ecc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessAwayMessageScheduleCustom <- R6::R6Class("BusinessAwayMessageScheduleCustom",
   inherit = TLObject,
   public = list(
@@ -3520,6 +3790,11 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class("BusinessAwayMessageScheduleCus
   lock_objects = FALSE
 )
 
+#' @title BusinessAwayMessageScheduleOutsideWorkHours
+#' @description Telegram API type \code{businessAwayMessageScheduleOutsideWorkHours} (constructor \code{#c3f2f501}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class("BusinessAwayMessageScheduleOutsideWorkHours",
   inherit = TLObject,
   public = list(
@@ -3553,6 +3828,11 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class("BusinessAwayMessageS
   lock_objects = FALSE
 )
 
+#' @title BusinessBotRecipients
+#' @description Telegram API type \code{businessBotRecipients} (constructor \code{#b88cf373}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessBotRecipients <- R6::R6Class("BusinessBotRecipients",
   inherit = TLObject,
   public = list(
@@ -3633,6 +3913,11 @@ BusinessBotRecipients <- R6::R6Class("BusinessBotRecipients",
   lock_objects = FALSE
 )
 
+#' @title BusinessBotRights
+#' @description Telegram API type \code{businessBotRights} (constructor \code{#a0624cf7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessBotRights <- R6::R6Class("BusinessBotRights",
   inherit = TLObject,
   public = list(
@@ -3753,6 +4038,11 @@ BusinessBotRights <- R6::R6Class("BusinessBotRights",
   lock_objects = FALSE
 )
 
+#' @title BusinessChatLink
+#' @description Telegram API type \code{businessChatLink} (constructor \code{#b4ae666f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessChatLink <- R6::R6Class("BusinessChatLink",
   inherit = TLObject,
   public = list(
@@ -3821,6 +4111,11 @@ BusinessChatLink <- R6::R6Class("BusinessChatLink",
   lock_objects = FALSE
 )
 
+#' @title BusinessGreetingMessage
+#' @description Telegram API type \code{businessGreetingMessage} (constructor \code{#e519abab}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessGreetingMessage <- R6::R6Class("BusinessGreetingMessage",
   inherit = TLObject,
   public = list(
@@ -3872,6 +4167,11 @@ BusinessGreetingMessage <- R6::R6Class("BusinessGreetingMessage",
   lock_objects = FALSE
 )
 
+#' @title BusinessIntro
+#' @description Telegram API type \code{businessIntro} (constructor \code{#5a0a066d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessIntro <- R6::R6Class("BusinessIntro",
   inherit = TLObject,
   public = list(
@@ -3927,6 +4227,11 @@ BusinessIntro <- R6::R6Class("BusinessIntro",
   lock_objects = FALSE
 )
 
+#' @title BusinessLocation
+#' @description Telegram API type \code{businessLocation} (constructor \code{#ac5c1af7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessLocation <- R6::R6Class("BusinessLocation",
   inherit = TLObject,
   public = list(
@@ -3976,6 +4281,11 @@ BusinessLocation <- R6::R6Class("BusinessLocation",
   lock_objects = FALSE
 )
 
+#' @title BusinessRecipients
+#' @description Telegram API type \code{businessRecipients} (constructor \code{#21108ff7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessRecipients <- R6::R6Class("BusinessRecipients",
   inherit = TLObject,
   public = list(
@@ -4049,6 +4359,11 @@ BusinessRecipients <- R6::R6Class("BusinessRecipients",
   lock_objects = FALSE
 )
 
+#' @title BusinessWeeklyOpen
+#' @description Telegram API type \code{businessWeeklyOpen} (constructor \code{#120b1ab9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessWeeklyOpen <- R6::R6Class("BusinessWeeklyOpen",
   inherit = TLObject,
   public = list(
@@ -4094,6 +4409,11 @@ BusinessWeeklyOpen <- R6::R6Class("BusinessWeeklyOpen",
   lock_objects = FALSE
 )
 
+#' @title BusinessWorkHours
+#' @description Telegram API type \code{businessWorkHours} (constructor \code{#8c92b098}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessWorkHours <- R6::R6Class("BusinessWorkHours",
   inherit = TLObject,
   public = list(
@@ -4148,6 +4468,11 @@ BusinessWorkHours <- R6::R6Class("BusinessWorkHours",
   lock_objects = FALSE
 )
 
+#' @title CdnConfig
+#' @description Telegram API type \code{cdnConfig} (constructor \code{#5725e40a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CdnConfig <- R6::R6Class("CdnConfig",
   inherit = TLObject,
   public = list(
@@ -4187,6 +4512,11 @@ CdnConfig <- R6::R6Class("CdnConfig",
   lock_objects = FALSE
 )
 
+#' @title CdnPublicKey
+#' @description Telegram API type \code{cdnPublicKey} (constructor \code{#c982eaba}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CdnPublicKey <- R6::R6Class("CdnPublicKey",
   inherit = TLObject,
   public = list(
@@ -4232,6 +4562,11 @@ CdnPublicKey <- R6::R6Class("CdnPublicKey",
   lock_objects = FALSE
 )
 
+#' @title Channel
+#' @description Telegram API type \code{channel} (constructor \code{#d49f34c6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Channel <- R6::R6Class("Channel",
   inherit = TLObject,
   public = list(
@@ -4589,6 +4924,11 @@ Channel <- R6::R6Class("Channel",
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEvent
+#' @description Telegram API type \code{channelAdminLogEvent} (constructor \code{#1fad68cd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   inherit = TLObject,
   public = list(
@@ -4646,6 +4986,11 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeAbout
+#' @description Telegram API type \code{channelAdminLogEventActionChangeAbout} (constructor \code{#55188a2e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventActionChangeAbout",
   inherit = TLObject,
   public = list(
@@ -4691,6 +5036,11 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeAvailableReactions
+#' @description Telegram API type \code{channelAdminLogEventActionChangeAvailableReactions} (constructor \code{#be4e0ef8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminLogEventActionChangeAvailableReactions",
   inherit = TLObject,
   public = list(
@@ -4736,6 +5086,11 @@ ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminL
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeEmojiStatus
+#' @description Telegram API type \code{channelAdminLogEventActionChangeEmojiStatus} (constructor \code{#3ea9feb1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStatus",
   inherit = TLObject,
   public = list(
@@ -4781,6 +5136,11 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeEmojiStickerSet
+#' @description Telegram API type \code{channelAdminLogEventActionChangeEmojiStickerSet} (constructor \code{#46d840ab}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStickerSet",
   inherit = TLObject,
   public = list(
@@ -4826,6 +5186,11 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeHistoryTTL
+#' @description Telegram API type \code{channelAdminLogEventActionChangeHistoryTTL} (constructor \code{#6e941a38}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventActionChangeHistoryTTL",
   inherit = TLObject,
   public = list(
@@ -4871,6 +5236,11 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeLinkedChat
+#' @description Telegram API type \code{channelAdminLogEventActionChangeLinkedChat} (constructor \code{#050c7ac8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventActionChangeLinkedChat",
   inherit = TLObject,
   public = list(
@@ -4916,6 +5286,11 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeLocation
+#' @description Telegram API type \code{channelAdminLogEventActionChangeLocation} (constructor \code{#0e6b76ae}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventActionChangeLocation",
   inherit = TLObject,
   public = list(
@@ -4961,6 +5336,11 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangePeerColor
+#' @description Telegram API type \code{channelAdminLogEventActionChangePeerColor} (constructor \code{#5796e780}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangePeerColor",
   inherit = TLObject,
   public = list(
@@ -5006,6 +5386,11 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangePhoto
+#' @description Telegram API type \code{channelAdminLogEventActionChangePhoto} (constructor \code{#434bd2af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventActionChangePhoto",
   inherit = TLObject,
   public = list(
@@ -5051,6 +5436,11 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeProfilePeerColor
+#' @description Telegram API type \code{channelAdminLogEventActionChangeProfilePeerColor} (constructor \code{#5e477b25}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangeProfilePeerColor",
   inherit = TLObject,
   public = list(
@@ -5096,6 +5486,11 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeStickerSet
+#' @description Telegram API type \code{channelAdminLogEventActionChangeStickerSet} (constructor \code{#b1c3caa7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeStickerSet",
   inherit = TLObject,
   public = list(
@@ -5141,6 +5536,11 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeTitle
+#' @description Telegram API type \code{channelAdminLogEventActionChangeTitle} (constructor \code{#e6dfb825}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventActionChangeTitle",
   inherit = TLObject,
   public = list(
@@ -5186,6 +5586,11 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeUsername
+#' @description Telegram API type \code{channelAdminLogEventActionChangeUsername} (constructor \code{#6a4afc38}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventActionChangeUsername",
   inherit = TLObject,
   public = list(
@@ -5231,6 +5636,11 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeUsernames
+#' @description Telegram API type \code{channelAdminLogEventActionChangeUsernames} (constructor \code{#f04fb3a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventActionChangeUsernames",
   inherit = TLObject,
   public = list(
@@ -5276,6 +5686,11 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionChangeWallpaper
+#' @description Telegram API type \code{channelAdminLogEventActionChangeWallpaper} (constructor \code{#31bb5d52}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventActionChangeWallpaper",
   inherit = TLObject,
   public = list(
@@ -5321,6 +5736,11 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionCreateTopic
+#' @description Telegram API type \code{channelAdminLogEventActionCreateTopic} (constructor \code{#58707d28}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventActionCreateTopic",
   inherit = TLObject,
   public = list(
@@ -5360,6 +5780,11 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionDefaultBannedRights
+#' @description Telegram API type \code{channelAdminLogEventActionDefaultBannedRights} (constructor \code{#2df5fc0a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEventActionDefaultBannedRights",
   inherit = TLObject,
   public = list(
@@ -5405,6 +5830,11 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionDeleteMessage
+#' @description Telegram API type \code{channelAdminLogEventActionDeleteMessage} (constructor \code{#42e047bb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActionDeleteMessage",
   inherit = TLObject,
   public = list(
@@ -5444,6 +5874,11 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionDeleteTopic
+#' @description Telegram API type \code{channelAdminLogEventActionDeleteTopic} (constructor \code{#ae168909}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventActionDeleteTopic",
   inherit = TLObject,
   public = list(
@@ -5483,6 +5918,11 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionDiscardGroupCall
+#' @description Telegram API type \code{channelAdminLogEventActionDiscardGroupCall} (constructor \code{#db9f9140}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventActionDiscardGroupCall",
   inherit = TLObject,
   public = list(
@@ -5522,6 +5962,11 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionEditMessage
+#' @description Telegram API type \code{channelAdminLogEventActionEditMessage} (constructor \code{#709b2405}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventActionEditMessage",
   inherit = TLObject,
   public = list(
@@ -5567,6 +6012,11 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionEditTopic
+#' @description Telegram API type \code{channelAdminLogEventActionEditTopic} (constructor \code{#f06fe208}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEditTopic",
   inherit = TLObject,
   public = list(
@@ -5612,6 +6062,11 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteDelete
+#' @description Telegram API type \code{channelAdminLogEventActionExportedInviteDelete} (constructor \code{#5a50fca4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEventActionExportedInviteDelete",
   inherit = TLObject,
   public = list(
@@ -5651,6 +6106,11 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteEdit
+#' @description Telegram API type \code{channelAdminLogEventActionExportedInviteEdit} (constructor \code{#e90ebb59}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEventActionExportedInviteEdit",
   inherit = TLObject,
   public = list(
@@ -5696,6 +6156,11 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteRevoke
+#' @description Telegram API type \code{channelAdminLogEventActionExportedInviteRevoke} (constructor \code{#410a134e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEventActionExportedInviteRevoke",
   inherit = TLObject,
   public = list(
@@ -5735,6 +6200,11 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantInvite
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantInvite} (constructor \code{#e31c34d8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantInvite",
   inherit = TLObject,
   public = list(
@@ -5774,6 +6244,11 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoin
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantJoin} (constructor \code{#183040d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventActionParticipantJoin",
   inherit = TLObject,
   public = list(
@@ -5807,6 +6282,11 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoinByInvite
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantJoinByInvite} (constructor \code{#fe9fc158}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByInvite",
   inherit = TLObject,
   public = list(
@@ -5855,6 +6335,11 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoinByRequest
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantJoinByRequest} (constructor \code{#afb6144a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByRequest",
   inherit = TLObject,
   public = list(
@@ -5900,6 +6385,11 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantLeave
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantLeave} (constructor \code{#f89777f2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventActionParticipantLeave",
   inherit = TLObject,
   public = list(
@@ -5933,6 +6423,11 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantMute
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantMute} (constructor \code{#f92424d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventActionParticipantMute",
   inherit = TLObject,
   public = list(
@@ -5972,6 +6467,11 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantSubExtend
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantSubExtend} (constructor \code{#64642db3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEventActionParticipantSubExtend",
   inherit = TLObject,
   public = list(
@@ -6017,6 +6517,11 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantToggleAdmin
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantToggleAdmin} (constructor \code{#d5676710}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleAdmin",
   inherit = TLObject,
   public = list(
@@ -6062,6 +6567,11 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantToggleBan
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantToggleBan} (constructor \code{#e6d83d7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleBan",
   inherit = TLObject,
   public = list(
@@ -6107,6 +6617,11 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantUnmute
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantUnmute} (constructor \code{#e64429c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEventActionParticipantUnmute",
   inherit = TLObject,
   public = list(
@@ -6146,6 +6661,11 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantVolume
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantVolume} (constructor \code{#3e7f6847}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEventActionParticipantVolume",
   inherit = TLObject,
   public = list(
@@ -6185,6 +6705,11 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionPinTopic
+#' @description Telegram API type \code{channelAdminLogEventActionPinTopic} (constructor \code{#5d8d353b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
@@ -6235,6 +6760,11 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionSendMessage
+#' @description Telegram API type \code{channelAdminLogEventActionSendMessage} (constructor \code{#278f2868}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
@@ -6274,6 +6804,11 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionStartGroupCall
+#' @description Telegram API type \code{channelAdminLogEventActionStartGroupCall} (constructor \code{#23209745}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
@@ -6313,6 +6848,11 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionStopPoll
+#' @description Telegram API type \code{channelAdminLogEventActionStopPoll} (constructor \code{#8f079643}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
@@ -6352,6 +6892,11 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleAntiSpam
+#' @description Telegram API type \code{channelAdminLogEventActionToggleAntiSpam} (constructor \code{#64f36dfc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
@@ -6391,6 +6936,11 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleAutotranslation
+#' @description Telegram API type \code{channelAdminLogEventActionToggleAutotranslation} (constructor \code{#c517f77e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
@@ -6430,6 +6980,11 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleForum
+#' @description Telegram API type \code{channelAdminLogEventActionToggleForum} (constructor \code{#02cc6383}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
@@ -6469,6 +7024,11 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleGroupCallSetting
+#' @description Telegram API type \code{channelAdminLogEventActionToggleGroupCallSetting} (constructor \code{#56d6a247}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
@@ -6508,6 +7068,11 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleInvites
+#' @description Telegram API type \code{channelAdminLogEventActionToggleInvites} (constructor \code{#1b7907ae}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
@@ -6547,6 +7112,11 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleNoForwards
+#' @description Telegram API type \code{channelAdminLogEventActionToggleNoForwards} (constructor \code{#cb2ac766}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
@@ -6586,6 +7156,11 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionTogglePreHistoryHidden
+#' @description Telegram API type \code{channelAdminLogEventActionTogglePreHistoryHidden} (constructor \code{#5f5c95f1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
@@ -6625,6 +7200,11 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatureProfiles
+#' @description Telegram API type \code{channelAdminLogEventActionToggleSignatureProfiles} (constructor \code{#60a79c79}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
@@ -6664,6 +7244,11 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatures
+#' @description Telegram API type \code{channelAdminLogEventActionToggleSignatures} (constructor \code{#26ae0971}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
@@ -6703,6 +7288,11 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionToggleSlowMode
+#' @description Telegram API type \code{channelAdminLogEventActionToggleSlowMode} (constructor \code{#53909779}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
@@ -6748,6 +7338,11 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionUpdatePinned
+#' @description Telegram API type \code{channelAdminLogEventActionUpdatePinned} (constructor \code{#e9e82c18}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
@@ -6787,6 +7382,11 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventsFilter
+#' @description Telegram API type \code{channelAdminLogEventsFilter} (constructor \code{#ea107ae4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
@@ -6943,6 +7543,11 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   lock_objects = FALSE
 )
 
+#' @title ChannelForbidden
+#' @description Telegram API type \code{channelForbidden} (constructor \code{#17d493d5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
@@ -7022,6 +7627,11 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   lock_objects = FALSE
 )
 
+#' @title ChannelFull
+#' @description Telegram API type \code{channelFull} (constructor \code{#a04e8d3a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelFull <- R6::R6Class("ChannelFull",
   inherit = TLObject,
   public = list(
@@ -7506,6 +8116,11 @@ ChannelFull <- R6::R6Class("ChannelFull",
   lock_objects = FALSE
 )
 
+#' @title ChannelLocation
+#' @description Telegram API type \code{channelLocation} (constructor \code{#209b82db}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelLocation <- R6::R6Class("ChannelLocation",
   inherit = TLObject,
   public = list(
@@ -7551,6 +8166,11 @@ ChannelLocation <- R6::R6Class("ChannelLocation",
   lock_objects = FALSE
 )
 
+#' @title ChannelLocationEmpty
+#' @description Telegram API type \code{channelLocationEmpty} (constructor \code{#bfb5ad8b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   inherit = TLObject,
   public = list(
@@ -7584,6 +8204,11 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   lock_objects = FALSE
 )
 
+#' @title ChannelMessagesFilter
+#' @description Telegram API type \code{channelMessagesFilter} (constructor \code{#cd77d957}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   inherit = TLObject,
   public = list(
@@ -7632,6 +8257,11 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   lock_objects = FALSE
 )
 
+#' @title ChannelMessagesFilterEmpty
+#' @description Telegram API type \code{channelMessagesFilterEmpty} (constructor \code{#94d42ee7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
@@ -7665,6 +8295,11 @@ ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipant
+#' @description Telegram API type \code{channelParticipant} (constructor \code{#1bd54456}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipant <- R6::R6Class("ChannelParticipant",
   inherit = TLObject,
   public = list(
@@ -7727,6 +8362,11 @@ ChannelParticipant <- R6::R6Class("ChannelParticipant",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantAdmin
+#' @description Telegram API type \code{channelParticipantAdmin} (constructor \code{#34c3bb53}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantAdmin <- R6::R6Class("ChannelParticipantAdmin",
   inherit = TLObject,
   public = list(
@@ -7813,6 +8453,11 @@ ChannelParticipantAdmin <- R6::R6Class("ChannelParticipantAdmin",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantBanned
+#' @description Telegram API type \code{channelParticipantBanned} (constructor \code{#d5f0ad91}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantBanned <- R6::R6Class("ChannelParticipantBanned",
   inherit = TLObject,
   public = list(
@@ -7886,6 +8531,11 @@ ChannelParticipantBanned <- R6::R6Class("ChannelParticipantBanned",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantCreator
+#' @description Telegram API type \code{channelParticipantCreator} (constructor \code{#2fe601d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantCreator <- R6::R6Class("ChannelParticipantCreator",
   inherit = TLObject,
   public = list(
@@ -7941,6 +8591,11 @@ ChannelParticipantCreator <- R6::R6Class("ChannelParticipantCreator",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantLeft
+#' @description Telegram API type \code{channelParticipantLeft} (constructor \code{#1b03f006}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantLeft <- R6::R6Class("ChannelParticipantLeft",
   inherit = TLObject,
   public = list(
@@ -7980,6 +8635,11 @@ ChannelParticipantLeft <- R6::R6Class("ChannelParticipantLeft",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantSelf
+#' @description Telegram API type \code{channelParticipantSelf} (constructor \code{#a9478a1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantSelf <- R6::R6Class("ChannelParticipantSelf",
   inherit = TLObject,
   public = list(
@@ -8054,6 +8714,11 @@ ChannelParticipantSelf <- R6::R6Class("ChannelParticipantSelf",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsAdmins
+#' @description Telegram API type \code{channelParticipantsAdmins} (constructor \code{#b4608969}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsAdmins <- R6::R6Class("ChannelParticipantsAdmins",
   inherit = TLObject,
   public = list(
@@ -8087,6 +8752,11 @@ ChannelParticipantsAdmins <- R6::R6Class("ChannelParticipantsAdmins",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsBanned
+#' @description Telegram API type \code{channelParticipantsBanned} (constructor \code{#1427a5e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsBanned <- R6::R6Class("ChannelParticipantsBanned",
   inherit = TLObject,
   public = list(
@@ -8126,6 +8796,11 @@ ChannelParticipantsBanned <- R6::R6Class("ChannelParticipantsBanned",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsBots
+#' @description Telegram API type \code{channelParticipantsBots} (constructor \code{#b0d1865b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsBots <- R6::R6Class("ChannelParticipantsBots",
   inherit = TLObject,
   public = list(
@@ -8159,6 +8834,11 @@ ChannelParticipantsBots <- R6::R6Class("ChannelParticipantsBots",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsContacts
+#' @description Telegram API type \code{channelParticipantsContacts} (constructor \code{#bb6ae88d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsContacts <- R6::R6Class("ChannelParticipantsContacts",
   inherit = TLObject,
   public = list(
@@ -8198,6 +8878,11 @@ ChannelParticipantsContacts <- R6::R6Class("ChannelParticipantsContacts",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsKicked
+#' @description Telegram API type \code{channelParticipantsKicked} (constructor \code{#a3b54985}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsKicked <- R6::R6Class("ChannelParticipantsKicked",
   inherit = TLObject,
   public = list(
@@ -8237,6 +8922,11 @@ ChannelParticipantsKicked <- R6::R6Class("ChannelParticipantsKicked",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsMentions
+#' @description Telegram API type \code{channelParticipantsMentions} (constructor \code{#e04b5ceb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsMentions <- R6::R6Class("ChannelParticipantsMentions",
   inherit = TLObject,
   public = list(
@@ -8287,6 +8977,11 @@ ChannelParticipantsMentions <- R6::R6Class("ChannelParticipantsMentions",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsRecent
+#' @description Telegram API type \code{channelParticipantsRecent} (constructor \code{#de3f3c79}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsRecent <- R6::R6Class("ChannelParticipantsRecent",
   inherit = TLObject,
   public = list(
@@ -8320,6 +9015,11 @@ ChannelParticipantsRecent <- R6::R6Class("ChannelParticipantsRecent",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsSearch
+#' @description Telegram API type \code{channelParticipantsSearch} (constructor \code{#0656ac4b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsSearch <- R6::R6Class("ChannelParticipantsSearch",
   inherit = TLObject,
   public = list(
@@ -8359,6 +9059,11 @@ ChannelParticipantsSearch <- R6::R6Class("ChannelParticipantsSearch",
   lock_objects = FALSE
 )
 
+#' @title ChatAdminRights
+#' @description Telegram API type \code{chatAdminRights} (constructor \code{#5fb224d5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatAdminRights <- R6::R6Class("ChatAdminRights",
   inherit = TLObject,
   public = list(
@@ -8509,6 +9214,11 @@ ChatAdminRights <- R6::R6Class("ChatAdminRights",
   lock_objects = FALSE
 )
 
+#' @title ChatAdminWithInvites
+#' @description Telegram API type \code{chatAdminWithInvites} (constructor \code{#f2ecef23}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatAdminWithInvites <- R6::R6Class("ChatAdminWithInvites",
   inherit = TLObject,
   public = list(
@@ -8560,6 +9270,11 @@ ChatAdminWithInvites <- R6::R6Class("ChatAdminWithInvites",
   lock_objects = FALSE
 )
 
+#' @title ChatBannedRights
+#' @description Telegram API type \code{chatBannedRights} (constructor \code{#9f120418}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatBannedRights <- R6::R6Class("ChatBannedRights",
   inherit = TLObject,
   public = list(
@@ -8740,6 +9455,11 @@ ChatBannedRights <- R6::R6Class("ChatBannedRights",
   lock_objects = FALSE
 )
 
+#' @title ChatFull
+#' @description Telegram API type \code{chatFull} (constructor \code{#2633421b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatFull <- R6::R6Class("ChatFull",
   inherit = TLObject,
   public = list(
@@ -8915,6 +9635,11 @@ ChatFull <- R6::R6Class("ChatFull",
   lock_objects = FALSE
 )
 
+#' @title ChatInvite
+#' @description Telegram API type \code{chatInvite} (constructor \code{#5c9d3702}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInvite <- R6::R6Class("ChatInvite",
   inherit = TLObject,
   public = list(
@@ -9064,6 +9789,11 @@ ChatInvite <- R6::R6Class("ChatInvite",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteAlready
+#' @description Telegram API type \code{chatInviteAlready} (constructor \code{#5a686d7c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteAlready <- R6::R6Class("ChatInviteAlready",
   inherit = TLObject,
   public = list(
@@ -9103,6 +9833,11 @@ ChatInviteAlready <- R6::R6Class("ChatInviteAlready",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteExported
+#' @description Telegram API type \code{chatInviteExported} (constructor \code{#a22cbd96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteExported <- R6::R6Class("ChatInviteExported",
   inherit = TLObject,
   public = list(
@@ -9231,6 +9966,11 @@ ChatInviteExported <- R6::R6Class("ChatInviteExported",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteImporter
+#' @description Telegram API type \code{chatInviteImporter} (constructor \code{#8c5adfd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteImporter <- R6::R6Class("ChatInviteImporter",
   inherit = TLObject,
   public = list(
@@ -9305,6 +10045,11 @@ ChatInviteImporter <- R6::R6Class("ChatInviteImporter",
   lock_objects = FALSE
 )
 
+#' @title ChatInvitePeek
+#' @description Telegram API type \code{chatInvitePeek} (constructor \code{#61695cb0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInvitePeek <- R6::R6Class("ChatInvitePeek",
   inherit = TLObject,
   public = list(
@@ -9350,6 +10095,11 @@ ChatInvitePeek <- R6::R6Class("ChatInvitePeek",
   lock_objects = FALSE
 )
 
+#' @title ChatInvitePublicJoinRequests
+#' @description Telegram API type \code{chatInvitePublicJoinRequests} (constructor \code{#ed107ab7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInvitePublicJoinRequests <- R6::R6Class("ChatInvitePublicJoinRequests",
   inherit = TLObject,
   public = list(
@@ -9383,6 +10133,11 @@ ChatInvitePublicJoinRequests <- R6::R6Class("ChatInvitePublicJoinRequests",
   lock_objects = FALSE
 )
 
+#' @title ChatOnlines
+#' @description Telegram API type \code{chatOnlines} (constructor \code{#f041e250}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatOnlines <- R6::R6Class("ChatOnlines",
   inherit = TLObject,
   public = list(
@@ -9422,6 +10177,11 @@ ChatOnlines <- R6::R6Class("ChatOnlines",
   lock_objects = FALSE
 )
 
+#' @title ChatParticipant
+#' @description Telegram API type \code{chatParticipant} (constructor \code{#38e79fde}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatParticipant <- R6::R6Class("ChatParticipant",
   inherit = TLObject,
   public = list(
@@ -9483,6 +10243,11 @@ ChatParticipant <- R6::R6Class("ChatParticipant",
   lock_objects = FALSE
 )
 
+#' @title ChatParticipantAdmin
+#' @description Telegram API type \code{chatParticipantAdmin} (constructor \code{#0360d5d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatParticipantAdmin <- R6::R6Class("ChatParticipantAdmin",
   inherit = TLObject,
   public = list(
@@ -9544,6 +10309,11 @@ ChatParticipantAdmin <- R6::R6Class("ChatParticipantAdmin",
   lock_objects = FALSE
 )
 
+#' @title ChatParticipantCreator
+#' @description Telegram API type \code{chatParticipantCreator} (constructor \code{#e1f867b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatParticipantCreator <- R6::R6Class("ChatParticipantCreator",
   inherit = TLObject,
   public = list(
@@ -9593,6 +10363,11 @@ ChatParticipantCreator <- R6::R6Class("ChatParticipantCreator",
   lock_objects = FALSE
 )
 
+#' @title ChatParticipants
+#' @description Telegram API type \code{chatParticipants} (constructor \code{#3cbc93f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatParticipants <- R6::R6Class("ChatParticipants",
   inherit = TLObject,
   public = list(
@@ -9644,6 +10419,11 @@ ChatParticipants <- R6::R6Class("ChatParticipants",
   lock_objects = FALSE
 )
 
+#' @title ChatParticipantsForbidden
+#' @description Telegram API type \code{chatParticipantsForbidden} (constructor \code{#8763d3e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatParticipantsForbidden <- R6::R6Class("ChatParticipantsForbidden",
   inherit = TLObject,
   public = list(
@@ -9693,6 +10473,11 @@ ChatParticipantsForbidden <- R6::R6Class("ChatParticipantsForbidden",
   lock_objects = FALSE
 )
 
+#' @title ChatPhoto
+#' @description Telegram API type \code{chatPhoto} (constructor \code{#1c6e1c11}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatPhoto <- R6::R6Class("ChatPhoto",
   inherit = TLObject,
   public = list(
@@ -9754,6 +10539,11 @@ ChatPhoto <- R6::R6Class("ChatPhoto",
   lock_objects = FALSE
 )
 
+#' @title ChatPhotoEmpty
+#' @description Telegram API type \code{chatPhotoEmpty} (constructor \code{#37c1011c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatPhotoEmpty <- R6::R6Class("ChatPhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -9787,6 +10577,11 @@ ChatPhotoEmpty <- R6::R6Class("ChatPhotoEmpty",
   lock_objects = FALSE
 )
 
+#' @title ChatReactionsAll
+#' @description Telegram API type \code{chatReactionsAll} (constructor \code{#52928bca}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatReactionsAll <- R6::R6Class("ChatReactionsAll",
   inherit = TLObject,
   public = list(
@@ -9829,6 +10624,11 @@ ChatReactionsAll <- R6::R6Class("ChatReactionsAll",
   lock_objects = FALSE
 )
 
+#' @title ChatReactionsNone
+#' @description Telegram API type \code{chatReactionsNone} (constructor \code{#eafc32bc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatReactionsNone <- R6::R6Class("ChatReactionsNone",
   inherit = TLObject,
   public = list(
@@ -9862,6 +10662,11 @@ ChatReactionsNone <- R6::R6Class("ChatReactionsNone",
   lock_objects = FALSE
 )
 
+#' @title ChatReactionsSome
+#' @description Telegram API type \code{chatReactionsSome} (constructor \code{#661d4037}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatReactionsSome <- R6::R6Class("ChatReactionsSome",
   inherit = TLObject,
   public = list(
@@ -9901,6 +10706,11 @@ ChatReactionsSome <- R6::R6Class("ChatReactionsSome",
   lock_objects = FALSE
 )
 
+#' @title ChatTheme
+#' @description Telegram API type \code{chatTheme} (constructor \code{#c3dffc04}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatTheme <- R6::R6Class("ChatTheme",
   inherit = TLObject,
   public = list(
@@ -9940,6 +10750,11 @@ ChatTheme <- R6::R6Class("ChatTheme",
   lock_objects = FALSE
 )
 
+#' @title ChatThemeUniqueGift
+#' @description Telegram API type \code{chatThemeUniqueGift} (constructor \code{#3458f9c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatThemeUniqueGift <- R6::R6Class("ChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
@@ -10028,11 +10843,11 @@ ClientDHInnerData <- R6::R6Class(
   )
 )
 
-#  @title CodeSettings
-#  @description Telegram API type CodeSettings
-#  @export
-#  @noRd
-#  @noRd
+#' @title CodeSettings
+#' @description Telegram API type \code{codeSettings} (constructor \code{#ad253d78}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeSettings <- R6::R6Class("CodeSettings",
   inherit = TLObject,
   public = list(
@@ -10126,6 +10941,11 @@ CodeSettings <- R6::R6Class("CodeSettings",
   lock_objects = FALSE
 )
 
+#' @title Config
+#' @description Telegram API type \code{config} (constructor \code{#cc1a241e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Config <- R6::R6Class("Config",
   inherit = TLObject,
   public = list(
@@ -10455,6 +11275,11 @@ Config <- R6::R6Class("Config",
   lock_objects = FALSE
 )
 
+#' @title ConnectedBot
+#' @description Telegram API type \code{connectedBot} (constructor \code{#033ed001}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ConnectedBot <- R6::R6Class("ConnectedBot",
   inherit = TLObject,
   public = list(
@@ -10530,6 +11355,11 @@ ConnectedBot <- R6::R6Class("ConnectedBot",
   lock_objects = FALSE
 )
 
+#' @title ConnectedBotStarRef
+#' @description Telegram API type \code{connectedBotStarRef} (constructor \code{#19a13f71}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ConnectedBotStarRef <- R6::R6Class("ConnectedBotStarRef",
   inherit = TLObject,
   public = list(
@@ -10615,6 +11445,11 @@ ConnectedBotStarRef <- R6::R6Class("ConnectedBotStarRef",
   lock_objects = FALSE
 )
 
+#' @title Contact
+#' @description Telegram API type \code{contact} (constructor \code{#145ade0b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Contact <- R6::R6Class("Contact",
   inherit = TLObject,
   public = list(
@@ -10660,6 +11495,11 @@ Contact <- R6::R6Class("Contact",
   lock_objects = FALSE
 )
 
+#' @title ContactBirthday
+#' @description Telegram API type \code{contactBirthday} (constructor \code{#1d998733}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContactBirthday <- R6::R6Class("ContactBirthday",
   inherit = TLObject,
   public = list(
@@ -10705,6 +11545,11 @@ ContactBirthday <- R6::R6Class("ContactBirthday",
   lock_objects = FALSE
 )
 
+#' @title ContactStatus
+#' @description Telegram API type \code{contactStatus} (constructor \code{#16d9703b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContactStatus <- R6::R6Class("ContactStatus",
   inherit = TLObject,
   public = list(
@@ -10750,6 +11595,11 @@ ContactStatus <- R6::R6Class("ContactStatus",
   lock_objects = FALSE
 )
 
+#' @title DataJSON
+#' @description Telegram API type \code{dataJSON} (constructor \code{#7d748d04}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DataJSON <- R6::R6Class("DataJSON",
   inherit = TLObject,
   public = list(
@@ -10789,6 +11639,11 @@ DataJSON <- R6::R6Class("DataJSON",
   lock_objects = FALSE
 )
 
+#' @title DcOption
+#' @description Telegram API type \code{dcOption} (constructor \code{#18b7a10d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DcOption <- R6::R6Class("DcOption",
   inherit = TLObject,
   public = list(
@@ -10886,6 +11741,11 @@ DcOption <- R6::R6Class("DcOption",
   lock_objects = FALSE
 )
 
+#' @title DefaultHistoryTTL
+#' @description Telegram API type \code{defaultHistoryTTL} (constructor \code{#43b46b20}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DefaultHistoryTTL <- R6::R6Class("DefaultHistoryTTL",
   inherit = TLObject,
   public = list(
@@ -11208,11 +12068,11 @@ DhGenRetry <- R6::R6Class(
   )
 )
 
-#  @title Dialog
-#  @description Telegram API type Dialog
-#  @export
-#  @noRd
-#  @noRd
+#' @title Dialog
+#' @description Telegram API type \code{dialog} (constructor \code{#fc89f7f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Dialog <- R6::R6Class("Dialog",
   inherit = TLObject,
   public = list(
@@ -11349,6 +12209,11 @@ Dialog <- R6::R6Class("Dialog",
   lock_objects = FALSE
 )
 
+#' @title DialogFilter
+#' @description Telegram API type \code{dialogFilter} (constructor \code{#aa472651}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFilter <- R6::R6Class("DialogFilter",
   inherit = TLObject,
   public = list(
@@ -11483,6 +12348,11 @@ DialogFilter <- R6::R6Class("DialogFilter",
   lock_objects = FALSE
 )
 
+#' @title DialogFolder
+#' @description Telegram API type \code{dialogFolder} (constructor \code{#71bd134c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFolder <- R6::R6Class("DialogFolder",
   inherit = TLObject,
   public = list(
@@ -11567,6 +12437,11 @@ DialogFolder <- R6::R6Class("DialogFolder",
   lock_objects = FALSE
 )
 
+#' @title DialogFilterChatlist
+#' @description Telegram API type \code{dialogFilterChatlist} (constructor \code{#96537bd7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFilterChatlist <- R6::R6Class("DialogFilterChatlist",
   inherit = TLObject,
   public = list(
@@ -11653,6 +12528,11 @@ DialogFilterChatlist <- R6::R6Class("DialogFilterChatlist",
   lock_objects = FALSE
 )
 
+#' @title DialogFilterDefault
+#' @description Telegram API type \code{dialogFilterDefault} (constructor \code{#363293ae}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFilterDefault <- R6::R6Class("DialogFilterDefault",
   inherit = TLObject,
   public = list(
@@ -11686,6 +12566,11 @@ DialogFilterDefault <- R6::R6Class("DialogFilterDefault",
   lock_objects = FALSE
 )
 
+#' @title DialogFilterSuggested
+#' @description Telegram API type \code{dialogFilterSuggested} (constructor \code{#77744d4a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFilterSuggested <- R6::R6Class("DialogFilterSuggested",
   inherit = TLObject,
   public = list(
@@ -11731,6 +12616,11 @@ DialogFilterSuggested <- R6::R6Class("DialogFilterSuggested",
   lock_objects = FALSE
 )
 
+#' @title DialogPeer
+#' @description Telegram API type \code{dialogPeer} (constructor \code{#e56dbf05}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogPeer <- R6::R6Class("DialogPeer",
   inherit = TLObject,
   public = list(
@@ -11770,6 +12660,11 @@ DialogPeer <- R6::R6Class("DialogPeer",
   lock_objects = FALSE
 )
 
+#' @title DialogPeerFolder
+#' @description Telegram API type \code{dialogPeerFolder} (constructor \code{#514519e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogPeerFolder <- R6::R6Class("DialogPeerFolder",
   inherit = TLObject,
   public = list(
@@ -11809,6 +12704,11 @@ DialogPeerFolder <- R6::R6Class("DialogPeerFolder",
   lock_objects = FALSE
 )
 
+#' @title DisallowedGiftsSettings
+#' @description Telegram API type \code{disallowedGiftsSettings} (constructor \code{#71f276c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DisallowedGiftsSettings <- R6::R6Class("DisallowedGiftsSettings",
   inherit = TLObject,
   public = list(
@@ -11875,6 +12775,11 @@ DisallowedGiftsSettings <- R6::R6Class("DisallowedGiftsSettings",
   lock_objects = FALSE
 )
 
+#' @title Document
+#' @description Telegram API type \code{document} (constructor \code{#8fd4c4d8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Document <- R6::R6Class("Document",
   inherit = TLObject,
   public = list(
@@ -11973,6 +12878,11 @@ Document <- R6::R6Class("Document",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeAnimated
+#' @description Telegram API type \code{documentAttributeAnimated} (constructor \code{#11b58939}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeAnimated <- R6::R6Class("DocumentAttributeAnimated",
   inherit = TLObject,
   public = list(
@@ -12006,6 +12916,11 @@ DocumentAttributeAnimated <- R6::R6Class("DocumentAttributeAnimated",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeAudio
+#' @description Telegram API type \code{documentAttributeAudio} (constructor \code{#9852f9c6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeAudio <- R6::R6Class("DocumentAttributeAudio",
   inherit = TLObject,
   public = list(
@@ -12075,6 +12990,11 @@ DocumentAttributeAudio <- R6::R6Class("DocumentAttributeAudio",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeCustomEmoji
+#' @description Telegram API type \code{documentAttributeCustomEmoji} (constructor \code{#fd149899}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeCustomEmoji <- R6::R6Class("DocumentAttributeCustomEmoji",
   inherit = TLObject,
   public = list(
@@ -12135,6 +13055,11 @@ DocumentAttributeCustomEmoji <- R6::R6Class("DocumentAttributeCustomEmoji",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeFilename
+#' @description Telegram API type \code{documentAttributeFilename} (constructor \code{#15590068}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeFilename <- R6::R6Class("DocumentAttributeFilename",
   inherit = TLObject,
   public = list(
@@ -12174,6 +13099,11 @@ DocumentAttributeFilename <- R6::R6Class("DocumentAttributeFilename",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeHasStickers
+#' @description Telegram API type \code{documentAttributeHasStickers} (constructor \code{#9801d2f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeHasStickers <- R6::R6Class("DocumentAttributeHasStickers",
   inherit = TLObject,
   public = list(
@@ -12207,6 +13137,11 @@ DocumentAttributeHasStickers <- R6::R6Class("DocumentAttributeHasStickers",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeImageSize
+#' @description Telegram API type \code{documentAttributeImageSize} (constructor \code{#6c37c15c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeImageSize <- R6::R6Class("DocumentAttributeImageSize",
   inherit = TLObject,
   public = list(
@@ -12252,6 +13187,11 @@ DocumentAttributeImageSize <- R6::R6Class("DocumentAttributeImageSize",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeSticker
+#' @description Telegram API type \code{documentAttributeSticker} (constructor \code{#6319d612}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeSticker <- R6::R6Class("DocumentAttributeSticker",
   inherit = TLObject,
   public = list(
@@ -12313,6 +13253,11 @@ DocumentAttributeSticker <- R6::R6Class("DocumentAttributeSticker",
   lock_objects = FALSE
 )
 
+#' @title DocumentAttributeVideo
+#' @description Telegram API type \code{documentAttributeVideo} (constructor \code{#43c57c48}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentAttributeVideo <- R6::R6Class("DocumentAttributeVideo",
   inherit = TLObject,
   public = list(
@@ -12406,6 +13351,11 @@ DocumentAttributeVideo <- R6::R6Class("DocumentAttributeVideo",
   lock_objects = FALSE
 )
 
+#' @title DocumentEmpty
+#' @description Telegram API type \code{documentEmpty} (constructor \code{#36f8c871}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DocumentEmpty <- R6::R6Class("DocumentEmpty",
   inherit = TLObject,
   public = list(
@@ -12445,6 +13395,11 @@ DocumentEmpty <- R6::R6Class("DocumentEmpty",
   lock_objects = FALSE
 )
 
+#' @title DraftMessage
+#' @description Telegram API type \code{draftMessage} (constructor \code{#60fe3294}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DraftMessage <- R6::R6Class("DraftMessage",
   inherit = TLObject,
   public = list(
@@ -12547,6 +13502,11 @@ DraftMessage <- R6::R6Class("DraftMessage",
   lock_objects = FALSE
 )
 
+#' @title DraftMessageEmpty
+#' @description Telegram API type \code{draftMessageEmpty} (constructor \code{#1b0c841a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DraftMessageEmpty <- R6::R6Class("DraftMessageEmpty",
   inherit = TLObject,
   public = list(
@@ -12590,6 +13550,11 @@ DraftMessageEmpty <- R6::R6Class("DraftMessageEmpty",
   lock_objects = FALSE
 )
 
+#' @title EmailVerificationApple
+#' @description Telegram API type \code{emailVerificationApple} (constructor \code{#96d074fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerificationApple <- R6::R6Class("EmailVerificationApple",
   inherit = TLObject,
   public = list(
@@ -12629,6 +13594,11 @@ EmailVerificationApple <- R6::R6Class("EmailVerificationApple",
   lock_objects = FALSE
 )
 
+#' @title EmailVerificationCode
+#' @description Telegram API type \code{emailVerificationCode} (constructor \code{#922e55a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerificationCode <- R6::R6Class("EmailVerificationCode",
   inherit = TLObject,
   public = list(
@@ -12668,6 +13638,11 @@ EmailVerificationCode <- R6::R6Class("EmailVerificationCode",
   lock_objects = FALSE
 )
 
+#' @title EmailVerificationGoogle
+#' @description Telegram API type \code{emailVerificationGoogle} (constructor \code{#db909ec2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerificationGoogle <- R6::R6Class("EmailVerificationGoogle",
   inherit = TLObject,
   public = list(
@@ -12707,6 +13682,11 @@ EmailVerificationGoogle <- R6::R6Class("EmailVerificationGoogle",
   lock_objects = FALSE
 )
 
+#' @title EmailVerifyPurposeLoginChange
+#' @description Telegram API type \code{emailVerifyPurposeLoginChange} (constructor \code{#527d22eb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerifyPurposeLoginChange <- R6::R6Class("EmailVerifyPurposeLoginChange",
   inherit = TLObject,
   public = list(
@@ -12740,6 +13720,11 @@ EmailVerifyPurposeLoginChange <- R6::R6Class("EmailVerifyPurposeLoginChange",
   lock_objects = FALSE
 )
 
+#' @title EmailVerifyPurposeLoginSetup
+#' @description Telegram API type \code{emailVerifyPurposeLoginSetup} (constructor \code{#4345be73}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerifyPurposeLoginSetup <- R6::R6Class("EmailVerifyPurposeLoginSetup",
   inherit = TLObject,
   public = list(
@@ -12785,6 +13770,11 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class("EmailVerifyPurposeLoginSetup",
   lock_objects = FALSE
 )
 
+#' @title EmailVerifyPurposePassport
+#' @description Telegram API type \code{emailVerifyPurposePassport} (constructor \code{#bbf51685}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerifyPurposePassport <- R6::R6Class("EmailVerifyPurposePassport",
   inherit = TLObject,
   public = list(
@@ -12818,6 +13808,11 @@ EmailVerifyPurposePassport <- R6::R6Class("EmailVerifyPurposePassport",
   lock_objects = FALSE
 )
 
+#' @title EmojiGroup
+#' @description Telegram API type \code{emojiGroup} (constructor \code{#7a9abda9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGroup <- R6::R6Class("EmojiGroup",
   inherit = TLObject,
   public = list(
@@ -12869,6 +13864,11 @@ EmojiGroup <- R6::R6Class("EmojiGroup",
   lock_objects = FALSE
 )
 
+#' @title EmojiGroupGreeting
+#' @description Telegram API type \code{emojiGroupGreeting} (constructor \code{#80d26cc7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGroupGreeting <- R6::R6Class("EmojiGroupGreeting",
   inherit = TLObject,
   public = list(
@@ -12920,6 +13920,11 @@ EmojiGroupGreeting <- R6::R6Class("EmojiGroupGreeting",
   lock_objects = FALSE
 )
 
+#' @title EmojiGroupPremium
+#' @description Telegram API type \code{emojiGroupPremium} (constructor \code{#093bcf34}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGroupPremium <- R6::R6Class("EmojiGroupPremium",
   inherit = TLObject,
   public = list(
@@ -12965,6 +13970,11 @@ EmojiGroupPremium <- R6::R6Class("EmojiGroupPremium",
   lock_objects = FALSE
 )
 
+#' @title EmojiKeyword
+#' @description Telegram API type \code{emojiKeyword} (constructor \code{#d5b3b9f9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiKeyword <- R6::R6Class("EmojiKeyword",
   inherit = TLObject,
   public = list(
@@ -13010,6 +14020,11 @@ EmojiKeyword <- R6::R6Class("EmojiKeyword",
   lock_objects = FALSE
 )
 
+#' @title EmojiKeywordDeleted
+#' @description Telegram API type \code{emojiKeywordDeleted} (constructor \code{#236df622}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiKeywordDeleted <- R6::R6Class("EmojiKeywordDeleted",
   inherit = TLObject,
   public = list(
@@ -13055,6 +14070,11 @@ EmojiKeywordDeleted <- R6::R6Class("EmojiKeywordDeleted",
   lock_objects = FALSE
 )
 
+#' @title EmojiKeywordsDifference
+#' @description Telegram API type \code{emojiKeywordsDifference} (constructor \code{#5cc761bd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiKeywordsDifference <- R6::R6Class("EmojiKeywordsDifference",
   inherit = TLObject,
   public = list(
@@ -13112,6 +14132,11 @@ EmojiKeywordsDifference <- R6::R6Class("EmojiKeywordsDifference",
   lock_objects = FALSE
 )
 
+#' @title EmojiLanguage
+#' @description Telegram API type \code{emojiLanguage} (constructor \code{#b3fb5361}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiLanguage <- R6::R6Class("EmojiLanguage",
   inherit = TLObject,
   public = list(
@@ -13151,6 +14176,11 @@ EmojiLanguage <- R6::R6Class("EmojiLanguage",
   lock_objects = FALSE
 )
 
+#' @title EmojiList
+#' @description Telegram API type \code{emojiList} (constructor \code{#7a1e11d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiList <- R6::R6Class("EmojiList",
   inherit = TLObject,
   public = list(
@@ -13196,6 +14226,11 @@ EmojiList <- R6::R6Class("EmojiList",
   lock_objects = FALSE
 )
 
+#' @title EmojiListNotModified
+#' @description Telegram API type \code{emojiListNotModified} (constructor \code{#481eadfa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiListNotModified <- R6::R6Class("EmojiListNotModified",
   inherit = TLObject,
   public = list(
@@ -13229,6 +14264,11 @@ EmojiListNotModified <- R6::R6Class("EmojiListNotModified",
   lock_objects = FALSE
 )
 
+#' @title EmojiStatus
+#' @description Telegram API type \code{emojiStatus} (constructor \code{#e7ff068a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiStatus <- R6::R6Class("EmojiStatus",
   inherit = TLObject,
   public = list(
@@ -13278,6 +14318,11 @@ EmojiStatus <- R6::R6Class("EmojiStatus",
   lock_objects = FALSE
 )
 
+#' @title EmojiStatusCollectible
+#' @description Telegram API type \code{emojiStatusCollectible} (constructor \code{#7184603b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiStatusCollectible <- R6::R6Class("EmojiStatusCollectible",
   inherit = TLObject,
   public = list(
@@ -13375,6 +14420,11 @@ EmojiStatusCollectible <- R6::R6Class("EmojiStatusCollectible",
   lock_objects = FALSE
 )
 
+#' @title EmojiStatusEmpty
+#' @description Telegram API type \code{emojiStatusEmpty} (constructor \code{#2de11aae}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiStatusEmpty <- R6::R6Class("EmojiStatusEmpty",
   inherit = TLObject,
   public = list(
@@ -13408,6 +14458,11 @@ EmojiStatusEmpty <- R6::R6Class("EmojiStatusEmpty",
   lock_objects = FALSE
 )
 
+#' @title EmojiURL
+#' @description Telegram API type \code{emojiURL} (constructor \code{#a575739d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiURL <- R6::R6Class("EmojiURL",
   inherit = TLObject,
   public = list(
@@ -13447,6 +14502,11 @@ EmojiURL <- R6::R6Class("EmojiURL",
   lock_objects = FALSE
 )
 
+#' @title EncryptedChat
+#' @description Telegram API type \code{encryptedChat} (constructor \code{#61f0d4c7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedChat <- R6::R6Class("EncryptedChat",
   inherit = TLObject,
   public = list(
@@ -13522,6 +14582,11 @@ EncryptedChat <- R6::R6Class("EncryptedChat",
   lock_objects = FALSE
 )
 
+#' @title EncryptedChatDiscarded
+#' @description Telegram API type \code{encryptedChatDiscarded} (constructor \code{#1e1c7c45}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedChatDiscarded <- R6::R6Class("EncryptedChatDiscarded",
   inherit = TLObject,
   public = list(
@@ -13570,6 +14635,11 @@ EncryptedChatDiscarded <- R6::R6Class("EncryptedChatDiscarded",
   lock_objects = FALSE
 )
 
+#' @title EncryptedChatEmpty
+#' @description Telegram API type \code{encryptedChatEmpty} (constructor \code{#ab7ec0a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedChatEmpty <- R6::R6Class("EncryptedChatEmpty",
   inherit = TLObject,
   public = list(
@@ -13609,6 +14679,11 @@ EncryptedChatEmpty <- R6::R6Class("EncryptedChatEmpty",
   lock_objects = FALSE
 )
 
+#' @title EncryptedChatRequested
+#' @description Telegram API type \code{encryptedChatRequested} (constructor \code{#48f1d94c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedChatRequested <- R6::R6Class("EncryptedChatRequested",
   inherit = TLObject,
   public = list(
@@ -13688,6 +14763,11 @@ EncryptedChatRequested <- R6::R6Class("EncryptedChatRequested",
   lock_objects = FALSE
 )
 
+#' @title EncryptedChatWaiting
+#' @description Telegram API type \code{encryptedChatWaiting} (constructor \code{#66b25953}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedChatWaiting <- R6::R6Class("EncryptedChatWaiting",
   inherit = TLObject,
   public = list(
@@ -13751,6 +14831,11 @@ EncryptedChatWaiting <- R6::R6Class("EncryptedChatWaiting",
   lock_objects = FALSE
 )
 
+#' @title EncryptedFile
+#' @description Telegram API type \code{encryptedFile} (constructor \code{#a8008cd8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedFile <- R6::R6Class("EncryptedFile",
   inherit = TLObject,
   public = list(
@@ -13814,6 +14899,11 @@ EncryptedFile <- R6::R6Class("EncryptedFile",
   lock_objects = FALSE
 )
 
+#' @title EncryptedFileEmpty
+#' @description Telegram API type \code{encryptedFileEmpty} (constructor \code{#c21f497e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   inherit = TLObject,
   public = list(
@@ -13847,6 +14937,11 @@ EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   lock_objects = FALSE
 )
 
+#' @title EncryptedMessage
+#' @description Telegram API type \code{encryptedMessage} (constructor \code{#ed18c118}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedMessage <- R6::R6Class("EncryptedMessage",
   inherit = TLObject,
   public = list(
@@ -13910,6 +15005,11 @@ EncryptedMessage <- R6::R6Class("EncryptedMessage",
   lock_objects = FALSE
 )
 
+#' @title EncryptedMessageService
+#' @description Telegram API type \code{encryptedMessageService} (constructor \code{#23734b06}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   inherit = TLObject,
   public = list(
@@ -13967,6 +15067,11 @@ EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   lock_objects = FALSE
 )
 
+#' @title ExportedChatlistInvite
+#' @description Telegram API type \code{exportedChatlistInvite} (constructor \code{#0c5181ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   inherit = TLObject,
   public = list(
@@ -14021,6 +15126,11 @@ ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   lock_objects = FALSE
 )
 
+#' @title ExportedContactToken
+#' @description Telegram API type \code{exportedContactToken} (constructor \code{#41bf109b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedContactToken <- R6::R6Class("ExportedContactToken",
   inherit = TLObject,
   public = list(
@@ -14066,6 +15176,11 @@ ExportedContactToken <- R6::R6Class("ExportedContactToken",
   lock_objects = FALSE
 )
 
+#' @title ExportedMessageLink
+#' @description Telegram API type \code{exportedMessageLink} (constructor \code{#5dab1af4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   inherit = TLObject,
   public = list(
@@ -14111,6 +15226,11 @@ ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   lock_objects = FALSE
 )
 
+#' @title ExportedStoryLink
+#' @description Telegram API type \code{exportedStoryLink} (constructor \code{#3fc9053b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   inherit = TLObject,
   public = list(
@@ -14150,6 +15270,11 @@ ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   lock_objects = FALSE
 )
 
+#' @title FactCheck
+#' @description Telegram API type \code{factCheck} (constructor \code{#b89bfccf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FactCheck <- R6::R6Class("FactCheck",
   inherit = TLObject,
   public = list(
@@ -14212,6 +15337,11 @@ FactCheck <- R6::R6Class("FactCheck",
   lock_objects = FALSE
 )
 
+#' @title FileHash
+#' @description Telegram API type \code{fileHash} (constructor \code{#f39b035c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileHash <- R6::R6Class("FileHash",
   inherit = TLObject,
   public = list(
@@ -14263,6 +15393,11 @@ FileHash <- R6::R6Class("FileHash",
   lock_objects = FALSE
 )
 
+#' @title Folder
+#' @description Telegram API type \code{folder} (constructor \code{#ff544e65}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Folder <- R6::R6Class("Folder",
   inherit = TLObject,
   public = list(
@@ -14336,6 +15471,11 @@ Folder <- R6::R6Class("Folder",
   lock_objects = FALSE
 )
 
+#' @title FolderPeer
+#' @description Telegram API type \code{folderPeer} (constructor \code{#e9baa668}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FolderPeer <- R6::R6Class("FolderPeer",
   inherit = TLObject,
   public = list(
@@ -14381,6 +15521,11 @@ FolderPeer <- R6::R6Class("FolderPeer",
   lock_objects = FALSE
 )
 
+#' @title ForumTopic
+#' @description Telegram API type \code{forumTopic} (constructor \code{#fcdad815}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ForumTopic <- R6::R6Class("ForumTopic",
   inherit = TLObject,
   public = list(
@@ -14551,6 +15696,11 @@ ForumTopic <- R6::R6Class("ForumTopic",
   lock_objects = FALSE
 )
 
+#' @title ForumTopicDeleted
+#' @description Telegram API type \code{forumTopicDeleted} (constructor \code{#023f109b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   inherit = TLObject,
   public = list(
@@ -14590,6 +15740,11 @@ ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   lock_objects = FALSE
 )
 
+#' @title FoundStory
+#' @description Telegram API type \code{foundStory} (constructor \code{#e87acbc0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStory <- R6::R6Class("FoundStory",
   inherit = TLObject,
   public = list(
@@ -14723,11 +15878,11 @@ FutureSalts <- R6::R6Class("FutureSalts",
   )
 )
 
-#  @title Game
-#  @description Telegram API type Game
-#  @export
-#  @noRd
-#  @noRd
+#' @title Game
+#' @description Telegram API type \code{game} (constructor \code{#bdf9653b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Game <- R6::R6Class("Game",
   inherit = TLObject,
   public = list(
@@ -14807,6 +15962,11 @@ Game <- R6::R6Class("Game",
   lock_objects = FALSE
 )
 
+#' @title GeoPoint
+#' @description Telegram API type \code{geoPoint} (constructor \code{#b2a2f663}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GeoPoint <- R6::R6Class("GeoPoint",
   inherit = TLObject,
   public = list(
@@ -14868,6 +16028,11 @@ GeoPoint <- R6::R6Class("GeoPoint",
   lock_objects = FALSE
 )
 
+#' @title GeoPointAddress
+#' @description Telegram API type \code{geoPointAddress} (constructor \code{#de4c5d93}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GeoPointAddress <- R6::R6Class("GeoPointAddress",
   inherit = TLObject,
   public = list(
@@ -14931,6 +16096,11 @@ GeoPointAddress <- R6::R6Class("GeoPointAddress",
   lock_objects = FALSE
 )
 
+#' @title GeoPointEmpty
+#' @description Telegram API type \code{geoPointEmpty} (constructor \code{#1117dd5f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   inherit = TLObject,
   public = list(
@@ -14964,6 +16134,11 @@ GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   lock_objects = FALSE
 )
 
+#' @title GlobalPrivacySettings
+#' @description Telegram API type \code{globalPrivacySettings} (constructor \code{#fe41b34f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   inherit = TLObject,
   public = list(
@@ -15050,6 +16225,11 @@ GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   lock_objects = FALSE
 )
 
+#' @title GroupCall
+#' @description Telegram API type \code{groupCall} (constructor \code{#efb2b617}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCall <- R6::R6Class("GroupCall",
   inherit = TLObject,
   public = list(
@@ -15250,6 +16430,11 @@ GroupCall <- R6::R6Class("GroupCall",
   lock_objects = FALSE
 )
 
+#' @title GroupCallDiscarded
+#' @description Telegram API type \code{groupCallDiscarded} (constructor \code{#7780bcb4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallDiscarded <- R6::R6Class("GroupCallDiscarded",
   inherit = TLObject,
   public = list(
@@ -15301,6 +16486,11 @@ GroupCallDiscarded <- R6::R6Class("GroupCallDiscarded",
   lock_objects = FALSE
 )
 
+#' @title GroupCallParticipant
+#' @description Telegram API type \code{groupCallParticipant} (constructor \code{#2a3dc7ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallParticipant <- R6::R6Class("GroupCallParticipant",
   inherit = TLObject,
   public = list(
@@ -15464,6 +16654,11 @@ GroupCallParticipant <- R6::R6Class("GroupCallParticipant",
   lock_objects = FALSE
 )
 
+#' @title GroupCallParticipantVideo
+#' @description Telegram API type \code{groupCallParticipantVideo} (constructor \code{#67753ac8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallParticipantVideo <- R6::R6Class("GroupCallParticipantVideo",
   inherit = TLObject,
   public = list(
@@ -15525,6 +16720,11 @@ GroupCallParticipantVideo <- R6::R6Class("GroupCallParticipantVideo",
   lock_objects = FALSE
 )
 
+#' @title GroupCallParticipantVideoSourceGroup
+#' @description Telegram API type \code{groupCallParticipantVideoSourceGroup} (constructor \code{#dcb118b7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallParticipantVideoSourceGroup <- R6::R6Class("GroupCallParticipantVideoSourceGroup",
   inherit = TLObject,
   public = list(
@@ -15570,6 +16770,11 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class("GroupCallParticipantVideoSo
   lock_objects = FALSE
 )
 
+#' @title GroupCallStreamChannel
+#' @description Telegram API type \code{groupCallStreamChannel} (constructor \code{#80eb48af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallStreamChannel <- R6::R6Class("GroupCallStreamChannel",
   inherit = TLObject,
   public = list(
@@ -15621,6 +16826,11 @@ GroupCallStreamChannel <- R6::R6Class("GroupCallStreamChannel",
   lock_objects = FALSE
 )
 
+#' @title HighScore
+#' @description Telegram API type \code{highScore} (constructor \code{#73a379eb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HighScore <- R6::R6Class("HighScore",
   inherit = TLObject,
   public = list(
@@ -15705,11 +16915,11 @@ HttpWait <- R6::R6Class(
   )
 )
 
-#  @title ImportedContact
-#  @description Telegram API type ImportedContact
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportedContact
+#' @description Telegram API type \code{importedContact} (constructor \code{#c13e3c50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportedContact <- R6::R6Class("ImportedContact",
   inherit = TLObject,
   public = list(
@@ -15755,6 +16965,11 @@ ImportedContact <- R6::R6Class("ImportedContact",
   lock_objects = FALSE
 )
 
+#' @title InlineBotSwitchPM
+#' @description Telegram API type \code{inlineBotSwitchPM} (constructor \code{#3c20629f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineBotSwitchPM <- R6::R6Class("InlineBotSwitchPM",
   inherit = TLObject,
   public = list(
@@ -15800,6 +17015,11 @@ InlineBotSwitchPM <- R6::R6Class("InlineBotSwitchPM",
   lock_objects = FALSE
 )
 
+#' @title InlineBotWebView
+#' @description Telegram API type \code{inlineBotWebView} (constructor \code{#b57295d5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineBotWebView <- R6::R6Class("InlineBotWebView",
   inherit = TLObject,
   public = list(
@@ -15845,6 +17065,11 @@ InlineBotWebView <- R6::R6Class("InlineBotWebView",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypeBotPM
+#' @description Telegram API type \code{inlineQueryPeerTypeBotPM} (constructor \code{#0e3b2d0c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypeBotPM <- R6::R6Class("InlineQueryPeerTypeBotPM",
   inherit = TLObject,
   public = list(
@@ -15878,6 +17103,11 @@ InlineQueryPeerTypeBotPM <- R6::R6Class("InlineQueryPeerTypeBotPM",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypeBroadcast
+#' @description Telegram API type \code{inlineQueryPeerTypeBroadcast} (constructor \code{#6334ee9a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypeBroadcast <- R6::R6Class("InlineQueryPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
@@ -15911,6 +17141,11 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class("InlineQueryPeerTypeBroadcast",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypeChat
+#' @description Telegram API type \code{inlineQueryPeerTypeChat} (constructor \code{#d766c50a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypeChat <- R6::R6Class("InlineQueryPeerTypeChat",
   inherit = TLObject,
   public = list(
@@ -15944,6 +17179,11 @@ InlineQueryPeerTypeChat <- R6::R6Class("InlineQueryPeerTypeChat",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypeMegagroup
+#' @description Telegram API type \code{inlineQueryPeerTypeMegagroup} (constructor \code{#5ec4be43}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypeMegagroup <- R6::R6Class("InlineQueryPeerTypeMegagroup",
   inherit = TLObject,
   public = list(
@@ -15977,6 +17217,11 @@ InlineQueryPeerTypeMegagroup <- R6::R6Class("InlineQueryPeerTypeMegagroup",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypePM
+#' @description Telegram API type \code{inlineQueryPeerTypePM} (constructor \code{#833c0fac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypePM <- R6::R6Class("InlineQueryPeerTypePM",
   inherit = TLObject,
   public = list(
@@ -16010,6 +17255,11 @@ InlineQueryPeerTypePM <- R6::R6Class("InlineQueryPeerTypePM",
   lock_objects = FALSE
 )
 
+#' @title InlineQueryPeerTypeSameBotPM
+#' @description Telegram API type \code{inlineQueryPeerTypeSameBotPM} (constructor \code{#3081ed9d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineQueryPeerTypeSameBotPM <- R6::R6Class("InlineQueryPeerTypeSameBotPM",
   inherit = TLObject,
   public = list(
@@ -16043,6 +17293,11 @@ InlineQueryPeerTypeSameBotPM <- R6::R6Class("InlineQueryPeerTypeSameBotPM",
   lock_objects = FALSE
 )
 
+#' @title InputAppEvent
+#' @description Telegram API type \code{inputAppEvent} (constructor \code{#1d1b1245}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputAppEvent <- R6::R6Class("InputAppEvent",
   inherit = TLObject,
   public = list(
@@ -16100,6 +17355,11 @@ InputAppEvent <- R6::R6Class("InputAppEvent",
   lock_objects = FALSE
 )
 
+#' @title InputBotAppID
+#' @description Telegram API type \code{inputBotAppID} (constructor \code{#a920bd7a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotAppID <- R6::R6Class("InputBotAppID",
   inherit = TLObject,
   public = list(
@@ -16145,6 +17405,11 @@ InputBotAppID <- R6::R6Class("InputBotAppID",
   lock_objects = FALSE
 )
 
+#' @title InputBotAppShortName
+#' @description Telegram API type \code{inputBotAppShortName} (constructor \code{#908c0407}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotAppShortName <- R6::R6Class("InputBotAppShortName",
   inherit = TLObject,
   public = list(
@@ -16190,6 +17455,11 @@ InputBotAppShortName <- R6::R6Class("InputBotAppShortName",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageGame
+#' @description Telegram API type \code{inputBotInlineMessageGame} (constructor \code{#4b425864}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageGame <- R6::R6Class("InputBotInlineMessageGame",
   inherit = TLObject,
   public = list(
@@ -16233,6 +17503,11 @@ InputBotInlineMessageGame <- R6::R6Class("InputBotInlineMessageGame",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageID
+#' @description Telegram API type \code{inputBotInlineMessageID} (constructor \code{#890c3d89}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageID <- R6::R6Class("InputBotInlineMessageID",
   inherit = TLObject,
   public = list(
@@ -16284,6 +17559,11 @@ InputBotInlineMessageID <- R6::R6Class("InputBotInlineMessageID",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageID64
+#' @description Telegram API type \code{inputBotInlineMessageID64} (constructor \code{#b6d915d7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageID64 <- R6::R6Class("InputBotInlineMessageID64",
   inherit = TLObject,
   public = list(
@@ -16341,6 +17621,11 @@ InputBotInlineMessageID64 <- R6::R6Class("InputBotInlineMessageID64",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaAuto
+#' @description Telegram API type \code{inputBotInlineMessageMediaAuto} (constructor \code{#3380c786}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaAuto <- R6::R6Class("InputBotInlineMessageMediaAuto",
   inherit = TLObject,
   public = list(
@@ -16403,6 +17688,11 @@ InputBotInlineMessageMediaAuto <- R6::R6Class("InputBotInlineMessageMediaAuto",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaContact
+#' @description Telegram API type \code{inputBotInlineMessageMediaContact} (constructor \code{#a6edbffd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaContact <- R6::R6Class("InputBotInlineMessageMediaContact",
   inherit = TLObject,
   public = list(
@@ -16470,6 +17760,11 @@ InputBotInlineMessageMediaContact <- R6::R6Class("InputBotInlineMessageMediaCont
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaGeo
+#' @description Telegram API type \code{inputBotInlineMessageMediaGeo} (constructor \code{#96929a85}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaGeo <- R6::R6Class("InputBotInlineMessageMediaGeo",
   inherit = TLObject,
   public = list(
@@ -16540,6 +17835,11 @@ InputBotInlineMessageMediaGeo <- R6::R6Class("InputBotInlineMessageMediaGeo",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaInvoice
+#' @description Telegram API type \code{inputBotInlineMessageMediaInvoice} (constructor \code{#d7e78225}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaInvoice <- R6::R6Class("InputBotInlineMessageMediaInvoice",
   inherit = TLObject,
   public = list(
@@ -16626,6 +17926,11 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class("InputBotInlineMessageMediaInvo
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaVenue
+#' @description Telegram API type \code{inputBotInlineMessageMediaVenue} (constructor \code{#417bbf11}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaVenue <- R6::R6Class("InputBotInlineMessageMediaVenue",
   inherit = TLObject,
   public = list(
@@ -16705,6 +18010,11 @@ InputBotInlineMessageMediaVenue <- R6::R6Class("InputBotInlineMessageMediaVenue"
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageMediaWebPage
+#' @description Telegram API type \code{inputBotInlineMessageMediaWebPage} (constructor \code{#bddcc510}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageMediaWebPage <- R6::R6Class("InputBotInlineMessageMediaWebPage",
   inherit = TLObject,
   public = list(
@@ -16791,6 +18101,11 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class("InputBotInlineMessageMediaWebP
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageText
+#' @description Telegram API type \code{inputBotInlineMessageText} (constructor \code{#3dcd7a87}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageText <- R6::R6Class("InputBotInlineMessageText",
   inherit = TLObject,
   public = list(
@@ -16859,6 +18174,11 @@ InputBotInlineMessageText <- R6::R6Class("InputBotInlineMessageText",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineResult
+#' @description Telegram API type \code{inputBotInlineResult} (constructor \code{#88bf9319}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineResult <- R6::R6Class("InputBotInlineResult",
   inherit = TLObject,
   public = list(
@@ -16948,6 +18268,11 @@ InputBotInlineResult <- R6::R6Class("InputBotInlineResult",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineResultDocument
+#' @description Telegram API type \code{inputBotInlineResultDocument} (constructor \code{#fff8fdc4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineResultDocument <- R6::R6Class("InputBotInlineResultDocument",
   inherit = TLObject,
   public = list(
@@ -17022,6 +18347,11 @@ InputBotInlineResultDocument <- R6::R6Class("InputBotInlineResultDocument",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineResultGame
+#' @description Telegram API type \code{inputBotInlineResultGame} (constructor \code{#4fa417f2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineResultGame <- R6::R6Class("InputBotInlineResultGame",
   inherit = TLObject,
   public = list(
@@ -17073,6 +18403,11 @@ InputBotInlineResultGame <- R6::R6Class("InputBotInlineResultGame",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineResultPhoto
+#' @description Telegram API type \code{inputBotInlineResultPhoto} (constructor \code{#a8d864a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineResultPhoto <- R6::R6Class("InputBotInlineResultPhoto",
   inherit = TLObject,
   public = list(
@@ -17130,6 +18465,11 @@ InputBotInlineResultPhoto <- R6::R6Class("InputBotInlineResultPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessAwayMessage
+#' @description Telegram API type \code{inputBusinessAwayMessage} (constructor \code{#832175e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessAwayMessage <- R6::R6Class("InputBusinessAwayMessage",
   inherit = TLObject,
   public = list(
@@ -17190,6 +18530,11 @@ InputBusinessAwayMessage <- R6::R6Class("InputBusinessAwayMessage",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessBotRecipients
+#' @description Telegram API type \code{inputBusinessBotRecipients} (constructor \code{#c4e5921e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessBotRecipients <- R6::R6Class("InputBusinessBotRecipients",
   inherit = TLObject,
   public = list(
@@ -17270,6 +18615,11 @@ InputBusinessBotRecipients <- R6::R6Class("InputBusinessBotRecipients",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessChatLink
+#' @description Telegram API type \code{inputBusinessChatLink} (constructor \code{#11679fa7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessChatLink <- R6::R6Class("InputBusinessChatLink",
   inherit = TLObject,
   public = list(
@@ -17326,6 +18676,11 @@ InputBusinessChatLink <- R6::R6Class("InputBusinessChatLink",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessGreetingMessage
+#' @description Telegram API type \code{inputBusinessGreetingMessage} (constructor \code{#0194cb3b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessGreetingMessage <- R6::R6Class("InputBusinessGreetingMessage",
   inherit = TLObject,
   public = list(
@@ -17377,6 +18732,11 @@ InputBusinessGreetingMessage <- R6::R6Class("InputBusinessGreetingMessage",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessIntro
+#' @description Telegram API type \code{inputBusinessIntro} (constructor \code{#09c469cd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessIntro <- R6::R6Class("InputBusinessIntro",
   inherit = TLObject,
   public = list(
@@ -17432,6 +18792,11 @@ InputBusinessIntro <- R6::R6Class("InputBusinessIntro",
   lock_objects = FALSE
 )
 
+#' @title InputBusinessRecipients
+#' @description Telegram API type \code{inputBusinessRecipients} (constructor \code{#6f8b32aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBusinessRecipients <- R6::R6Class("InputBusinessRecipients",
   inherit = TLObject,
   public = list(
@@ -17505,6 +18870,11 @@ InputBusinessRecipients <- R6::R6Class("InputBusinessRecipients",
   lock_objects = FALSE
 )
 
+#' @title InputChannel
+#' @description Telegram API type \code{inputChannel} (constructor \code{#f35aec28}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChannel <- R6::R6Class("InputChannel",
   inherit = TLObject,
   public = list(
@@ -17550,6 +18920,11 @@ InputChannel <- R6::R6Class("InputChannel",
   lock_objects = FALSE
 )
 
+#' @title InputChannelEmpty
+#' @description Telegram API type \code{inputChannelEmpty} (constructor \code{#ee8c1e86}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChannelEmpty <- R6::R6Class("InputChannelEmpty",
   inherit = TLObject,
   public = list(
@@ -17583,6 +18958,11 @@ InputChannelEmpty <- R6::R6Class("InputChannelEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputChannelFromMessage
+#' @description Telegram API type \code{inputChannelFromMessage} (constructor \code{#5b934f9d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChannelFromMessage <- R6::R6Class("InputChannelFromMessage",
   inherit = TLObject,
   public = list(
@@ -17634,6 +19014,11 @@ InputChannelFromMessage <- R6::R6Class("InputChannelFromMessage",
   lock_objects = FALSE
 )
 
+#' @title InputChatPhoto
+#' @description Telegram API type \code{inputChatPhoto} (constructor \code{#8953ad37}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatPhoto <- R6::R6Class("InputChatPhoto",
   inherit = TLObject,
   public = list(
@@ -17673,6 +19058,11 @@ InputChatPhoto <- R6::R6Class("InputChatPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputChatPhotoEmpty
+#' @description Telegram API type \code{inputChatPhotoEmpty} (constructor \code{#1ca48f57}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatPhotoEmpty <- R6::R6Class("InputChatPhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -17706,6 +19096,11 @@ InputChatPhotoEmpty <- R6::R6Class("InputChatPhotoEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputChatTheme
+#' @description Telegram API type \code{inputChatTheme} (constructor \code{#c93de95c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatTheme <- R6::R6Class("InputChatTheme",
   inherit = TLObject,
   public = list(
@@ -17745,6 +19140,11 @@ InputChatTheme <- R6::R6Class("InputChatTheme",
   lock_objects = FALSE
 )
 
+#' @title InputChatThemeEmpty
+#' @description Telegram API type \code{inputChatThemeEmpty} (constructor \code{#83268483}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatThemeEmpty <- R6::R6Class("InputChatThemeEmpty",
   inherit = TLObject,
   public = list(
@@ -17778,6 +19178,11 @@ InputChatThemeEmpty <- R6::R6Class("InputChatThemeEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputChatThemeUniqueGift
+#' @description Telegram API type \code{inputChatThemeUniqueGift} (constructor \code{#87e5dfe4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatThemeUniqueGift <- R6::R6Class("InputChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
@@ -17817,6 +19222,11 @@ InputChatThemeUniqueGift <- R6::R6Class("InputChatThemeUniqueGift",
   lock_objects = FALSE
 )
 
+#' @title InputChatUploadedPhoto
+#' @description Telegram API type \code{inputChatUploadedPhoto} (constructor \code{#bdcdaec0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatUploadedPhoto <- R6::R6Class("InputChatUploadedPhoto",
   inherit = TLObject,
   public = list(
@@ -17881,6 +19291,11 @@ InputChatUploadedPhoto <- R6::R6Class("InputChatUploadedPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputChatlistDialogFilter
+#' @description Telegram API type \code{inputChatlistDialogFilter} (constructor \code{#f3e0da33}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputChatlistDialogFilter <- R6::R6Class("InputChatlistDialogFilter",
   inherit = TLObject,
   public = list(
@@ -17920,6 +19335,11 @@ InputChatlistDialogFilter <- R6::R6Class("InputChatlistDialogFilter",
   lock_objects = FALSE
 )
 
+#' @title InputCheckPasswordEmpty
+#' @description Telegram API type \code{inputCheckPasswordEmpty} (constructor \code{#9880f658}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputCheckPasswordEmpty <- R6::R6Class("InputCheckPasswordEmpty",
   inherit = TLObject,
   public = list(
@@ -17953,6 +19373,11 @@ InputCheckPasswordEmpty <- R6::R6Class("InputCheckPasswordEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputCheckPasswordSRP
+#' @description Telegram API type \code{inputCheckPasswordSRP} (constructor \code{#d27ff082}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputCheckPasswordSRP <- R6::R6Class("InputCheckPasswordSRP",
   inherit = TLObject,
   public = list(
@@ -18004,6 +19429,11 @@ InputCheckPasswordSRP <- R6::R6Class("InputCheckPasswordSRP",
   lock_objects = FALSE
 )
 
+#' @title InputClientProxy
+#' @description Telegram API type \code{inputClientProxy} (constructor \code{#75588b3f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputClientProxy <- R6::R6Class("InputClientProxy",
   inherit = TLObject,
   public = list(
@@ -18049,6 +19479,11 @@ InputClientProxy <- R6::R6Class("InputClientProxy",
   lock_objects = FALSE
 )
 
+#' @title InputCollectiblePhone
+#' @description Telegram API type \code{inputCollectiblePhone} (constructor \code{#a2e214a4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputCollectiblePhone <- R6::R6Class("InputCollectiblePhone",
   inherit = TLObject,
   public = list(
@@ -18088,6 +19523,11 @@ InputCollectiblePhone <- R6::R6Class("InputCollectiblePhone",
   lock_objects = FALSE
 )
 
+#' @title InputCollectibleUsername
+#' @description Telegram API type \code{inputCollectibleUsername} (constructor \code{#e39460a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputCollectibleUsername <- R6::R6Class("InputCollectibleUsername",
   inherit = TLObject,
   public = list(
@@ -18127,6 +19567,11 @@ InputCollectibleUsername <- R6::R6Class("InputCollectibleUsername",
   lock_objects = FALSE
 )
 
+#' @title InputDialogPeer
+#' @description Telegram API type \code{inputDialogPeer} (constructor \code{#fcaafeb7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDialogPeer <- R6::R6Class("InputDialogPeer",
   inherit = TLObject,
   public = list(
@@ -18166,6 +19611,11 @@ InputDialogPeer <- R6::R6Class("InputDialogPeer",
   lock_objects = FALSE
 )
 
+#' @title InputDialogPeerFolder
+#' @description Telegram API type \code{inputDialogPeerFolder} (constructor \code{#64600527}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDialogPeerFolder <- R6::R6Class("InputDialogPeerFolder",
   inherit = TLObject,
   public = list(
@@ -18205,6 +19655,11 @@ InputDialogPeerFolder <- R6::R6Class("InputDialogPeerFolder",
   lock_objects = FALSE
 )
 
+#' @title InputDocument
+#' @description Telegram API type \code{inputDocument} (constructor \code{#1abfb575}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDocument <- R6::R6Class("InputDocument",
   inherit = TLObject,
   public = list(
@@ -18256,6 +19711,11 @@ InputDocument <- R6::R6Class("InputDocument",
   lock_objects = FALSE
 )
 
+#' @title InputDocumentEmpty
+#' @description Telegram API type \code{inputDocumentEmpty} (constructor \code{#72f0eaae}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDocumentEmpty <- R6::R6Class("InputDocumentEmpty",
   inherit = TLObject,
   public = list(
@@ -18289,6 +19749,11 @@ InputDocumentEmpty <- R6::R6Class("InputDocumentEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputDocumentFileLocation
+#' @description Telegram API type \code{inputDocumentFileLocation} (constructor \code{#bad07584}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDocumentFileLocation <- R6::R6Class("InputDocumentFileLocation",
   inherit = TLObject,
   public = list(
@@ -18346,6 +19811,11 @@ InputDocumentFileLocation <- R6::R6Class("InputDocumentFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputEmojiStatusCollectible
+#' @description Telegram API type \code{inputEmojiStatusCollectible} (constructor \code{#07141dbf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEmojiStatusCollectible <- R6::R6Class("InputEmojiStatusCollectible",
   inherit = TLObject,
   public = list(
@@ -18395,6 +19865,11 @@ InputEmojiStatusCollectible <- R6::R6Class("InputEmojiStatusCollectible",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedChat
+#' @description Telegram API type \code{inputEncryptedChat} (constructor \code{#f141b5e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedChat <- R6::R6Class("InputEncryptedChat",
   inherit = TLObject,
   public = list(
@@ -18440,6 +19915,11 @@ InputEncryptedChat <- R6::R6Class("InputEncryptedChat",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedFile
+#' @description Telegram API type \code{inputEncryptedFile} (constructor \code{#5a17b5e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedFile <- R6::R6Class("InputEncryptedFile",
   inherit = TLObject,
   public = list(
@@ -18485,6 +19965,11 @@ InputEncryptedFile <- R6::R6Class("InputEncryptedFile",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedFileBigUploaded
+#' @description Telegram API type \code{inputEncryptedFileBigUploaded} (constructor \code{#2dc173c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedFileBigUploaded <- R6::R6Class("InputEncryptedFileBigUploaded",
   inherit = TLObject,
   public = list(
@@ -18536,6 +20021,11 @@ InputEncryptedFileBigUploaded <- R6::R6Class("InputEncryptedFileBigUploaded",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedFileEmpty
+#' @description Telegram API type \code{inputEncryptedFileEmpty} (constructor \code{#1837c364}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedFileEmpty <- R6::R6Class("InputEncryptedFileEmpty",
   inherit = TLObject,
   public = list(
@@ -18569,6 +20059,11 @@ InputEncryptedFileEmpty <- R6::R6Class("InputEncryptedFileEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedFileLocation
+#' @description Telegram API type \code{inputEncryptedFileLocation} (constructor \code{#f5235d55}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedFileLocation <- R6::R6Class("InputEncryptedFileLocation",
   inherit = TLObject,
   public = list(
@@ -18614,6 +20109,11 @@ InputEncryptedFileLocation <- R6::R6Class("InputEncryptedFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputEncryptedFileUploaded
+#' @description Telegram API type \code{inputEncryptedFileUploaded} (constructor \code{#64bd0306}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputEncryptedFileUploaded <- R6::R6Class("InputEncryptedFileUploaded",
   inherit = TLObject,
   public = list(
@@ -18671,6 +20171,11 @@ InputEncryptedFileUploaded <- R6::R6Class("InputEncryptedFileUploaded",
   lock_objects = FALSE
 )
 
+#' @title InputFile
+#' @description Telegram API type \code{inputFile} (constructor \code{#f52ff27f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputFile <- R6::R6Class("InputFile",
   inherit = TLObject,
   public = list(
@@ -18728,6 +20233,11 @@ InputFile <- R6::R6Class("InputFile",
   lock_objects = FALSE
 )
 
+#' @title InputFileBig
+#' @description Telegram API type \code{inputFileBig} (constructor \code{#fa4f0bb5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputFileBig <- R6::R6Class("InputFileBig",
   inherit = TLObject,
   public = list(
@@ -18779,6 +20289,11 @@ InputFileBig <- R6::R6Class("InputFileBig",
   lock_objects = FALSE
 )
 
+#' @title InputFileLocation
+#' @description Telegram API type \code{inputFileLocation} (constructor \code{#dfdaabe1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputFileLocation <- R6::R6Class("InputFileLocation",
   inherit = TLObject,
   public = list(
@@ -18836,6 +20351,11 @@ InputFileLocation <- R6::R6Class("InputFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputFileStoryDocument
+#' @description Telegram API type \code{inputFileStoryDocument} (constructor \code{#62dc8b48}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputFileStoryDocument <- R6::R6Class("InputFileStoryDocument",
   inherit = TLObject,
   public = list(
@@ -18875,6 +20395,11 @@ InputFileStoryDocument <- R6::R6Class("InputFileStoryDocument",
   lock_objects = FALSE
 )
 
+#' @title InputFolderPeer
+#' @description Telegram API type \code{inputFolderPeer} (constructor \code{#fbd2c296}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputFolderPeer <- R6::R6Class("InputFolderPeer",
   inherit = TLObject,
   public = list(
@@ -18920,6 +20445,11 @@ InputFolderPeer <- R6::R6Class("InputFolderPeer",
   lock_objects = FALSE
 )
 
+#' @title InputGameID
+#' @description Telegram API type \code{inputGameID} (constructor \code{#032c3e77}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGameID <- R6::R6Class("InputGameID",
   inherit = TLObject,
   public = list(
@@ -18965,6 +20495,11 @@ InputGameID <- R6::R6Class("InputGameID",
   lock_objects = FALSE
 )
 
+#' @title InputGameShortName
+#' @description Telegram API type \code{inputGameShortName} (constructor \code{#c331e80a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGameShortName <- R6::R6Class("InputGameShortName",
   inherit = TLObject,
   public = list(
@@ -19010,6 +20545,11 @@ InputGameShortName <- R6::R6Class("InputGameShortName",
   lock_objects = FALSE
 )
 
+#' @title InputGeoPoint
+#' @description Telegram API type \code{inputGeoPoint} (constructor \code{#48222faf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGeoPoint <- R6::R6Class("InputGeoPoint",
   inherit = TLObject,
   public = list(
@@ -19065,6 +20605,11 @@ InputGeoPoint <- R6::R6Class("InputGeoPoint",
   lock_objects = FALSE
 )
 
+#' @title InputGeoPointEmpty
+#' @description Telegram API type \code{inputGeoPointEmpty} (constructor \code{#e4c123d6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGeoPointEmpty <- R6::R6Class("InputGeoPointEmpty",
   inherit = TLObject,
   public = list(
@@ -19098,6 +20643,11 @@ InputGeoPointEmpty <- R6::R6Class("InputGeoPointEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputGroupCall
+#' @description Telegram API type \code{inputGroupCall} (constructor \code{#d8aa840f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGroupCall <- R6::R6Class("InputGroupCall",
   inherit = TLObject,
   public = list(
@@ -19143,6 +20693,11 @@ InputGroupCall <- R6::R6Class("InputGroupCall",
   lock_objects = FALSE
 )
 
+#' @title InputGroupCallInviteMessage
+#' @description Telegram API type \code{inputGroupCallInviteMessage} (constructor \code{#8c10603f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGroupCallInviteMessage <- R6::R6Class("InputGroupCallInviteMessage",
   inherit = TLObject,
   public = list(
@@ -19182,6 +20737,11 @@ InputGroupCallInviteMessage <- R6::R6Class("InputGroupCallInviteMessage",
   lock_objects = FALSE
 )
 
+#' @title InputGroupCallSlug
+#' @description Telegram API type \code{inputGroupCallSlug} (constructor \code{#fe06823f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGroupCallSlug <- R6::R6Class("InputGroupCallSlug",
   inherit = TLObject,
   public = list(
@@ -19221,6 +20781,11 @@ InputGroupCallSlug <- R6::R6Class("InputGroupCallSlug",
   lock_objects = FALSE
 )
 
+#' @title InputGroupCallStream
+#' @description Telegram API type \code{inputGroupCallStream} (constructor \code{#0598a92a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputGroupCallStream <- R6::R6Class("InputGroupCallStream",
   inherit = TLObject,
   public = list(
@@ -19289,6 +20854,11 @@ InputGroupCallStream <- R6::R6Class("InputGroupCallStream",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceBusinessBotTransferStars
+#' @description Telegram API type \code{inputInvoiceBusinessBotTransferStars} (constructor \code{#f4997e42}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceBusinessBotTransferStars <- R6::R6Class("InputInvoiceBusinessBotTransferStars",
   inherit = TLObject,
   public = list(
@@ -19334,6 +20904,11 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class("InputInvoiceBusinessBotTran
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceChatInviteSubscription
+#' @description Telegram API type \code{inputInvoiceChatInviteSubscription} (constructor \code{#34e793f1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceChatInviteSubscription <- R6::R6Class("InputInvoiceChatInviteSubscription",
   inherit = TLObject,
   public = list(
@@ -19373,6 +20948,11 @@ InputInvoiceChatInviteSubscription <- R6::R6Class("InputInvoiceChatInviteSubscri
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceMessage
+#' @description Telegram API type \code{inputInvoiceMessage} (constructor \code{#c5b56859}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceMessage <- R6::R6Class("InputInvoiceMessage",
   inherit = TLObject,
   public = list(
@@ -19418,6 +20998,11 @@ InputInvoiceMessage <- R6::R6Class("InputInvoiceMessage",
   lock_objects = FALSE
 )
 
+#' @title InputInvoicePremiumGiftCode
+#' @description Telegram API type \code{inputInvoicePremiumGiftCode} (constructor \code{#98986c0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoicePremiumGiftCode <- R6::R6Class("InputInvoicePremiumGiftCode",
   inherit = TLObject,
   public = list(
@@ -19463,6 +21048,11 @@ InputInvoicePremiumGiftCode <- R6::R6Class("InputInvoicePremiumGiftCode",
   lock_objects = FALSE
 )
 
+#' @title InputInvoicePremiumGiftStars
+#' @description Telegram API type \code{inputInvoicePremiumGiftStars} (constructor \code{#dabab2ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoicePremiumGiftStars <- R6::R6Class("InputInvoicePremiumGiftStars",
   inherit = TLObject,
   public = list(
@@ -19518,6 +21108,11 @@ InputInvoicePremiumGiftStars <- R6::R6Class("InputInvoicePremiumGiftStars",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceSlug
+#' @description Telegram API type \code{inputInvoiceSlug} (constructor \code{#c326caef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceSlug <- R6::R6Class("InputInvoiceSlug",
   inherit = TLObject,
   public = list(
@@ -19557,6 +21152,11 @@ InputInvoiceSlug <- R6::R6Class("InputInvoiceSlug",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGift
+#' @description Telegram API type \code{inputInvoiceStarGift} (constructor \code{#e8625e92}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGift <- R6::R6Class("InputInvoiceStarGift",
   inherit = TLObject,
   public = list(
@@ -19624,6 +21224,11 @@ InputInvoiceStarGift <- R6::R6Class("InputInvoiceStarGift",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftPrepaidUpgrade
+#' @description Telegram API type \code{inputInvoiceStarGiftPrepaidUpgrade} (constructor \code{#9a0b48b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class("InputInvoiceStarGiftPrepaidUpgrade",
   inherit = TLObject,
   public = list(
@@ -19669,6 +21274,11 @@ InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class("InputInvoiceStarGiftPrepaidUp
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftResale
+#' @description Telegram API type \code{inputInvoiceStarGiftResale} (constructor \code{#e9b0c658}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftResale <- R6::R6Class("InputInvoiceStarGiftResale",
   inherit = TLObject,
   public = list(
@@ -19736,6 +21346,11 @@ InputInvoiceStarGiftResale <- R6::R6Class("InputInvoiceStarGiftResale",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftTransfer
+#' @description Telegram API type \code{inputInvoiceStarGiftTransfer} (constructor \code{#4a5f5bd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftTransfer <- R6::R6Class("InputInvoiceStarGiftTransfer",
   inherit = TLObject,
   public = list(
@@ -19781,6 +21396,11 @@ InputInvoiceStarGiftTransfer <- R6::R6Class("InputInvoiceStarGiftTransfer",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftUpgrade
+#' @description Telegram API type \code{inputInvoiceStarGiftUpgrade} (constructor \code{#4d818d5d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftUpgrade <- R6::R6Class("InputInvoiceStarGiftUpgrade",
   inherit = TLObject,
   public = list(
@@ -19829,6 +21449,11 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class("InputInvoiceStarGiftUpgrade",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStars
+#' @description Telegram API type \code{inputInvoiceStars} (constructor \code{#65f00ce3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStars <- R6::R6Class("InputInvoiceStars",
   inherit = TLObject,
   public = list(
@@ -20031,11 +21656,11 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   )
 )
 
-#  @title InputMediaAreaChannelPost
-#  @description Telegram API type InputMediaAreaChannelPost
-#  @export
-#  @noRd
-#  @noRd
+#' @title InputMediaAreaChannelPost
+#' @description Telegram API type \code{inputMediaAreaChannelPost} (constructor \code{#2271f2bf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaAreaChannelPost <- R6::R6Class("InputMediaAreaChannelPost",
   inherit = TLObject,
   public = list(
@@ -20087,6 +21712,11 @@ InputMediaAreaChannelPost <- R6::R6Class("InputMediaAreaChannelPost",
   lock_objects = FALSE
 )
 
+#' @title InputMediaAreaVenue
+#' @description Telegram API type \code{inputMediaAreaVenue} (constructor \code{#b282217f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaAreaVenue <- R6::R6Class("InputMediaAreaVenue",
   inherit = TLObject,
   public = list(
@@ -20138,6 +21768,11 @@ InputMediaAreaVenue <- R6::R6Class("InputMediaAreaVenue",
   lock_objects = FALSE
 )
 
+#' @title InputMediaContact
+#' @description Telegram API type \code{inputMediaContact} (constructor \code{#f8ab7dfb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaContact <- R6::R6Class("InputMediaContact",
   inherit = TLObject,
   public = list(
@@ -20195,6 +21830,11 @@ InputMediaContact <- R6::R6Class("InputMediaContact",
   lock_objects = FALSE
 )
 
+#' @title InputMediaDice
+#' @description Telegram API type \code{inputMediaDice} (constructor \code{#e66fbf7b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaDice <- R6::R6Class("InputMediaDice",
   inherit = TLObject,
   public = list(
@@ -20234,6 +21874,11 @@ InputMediaDice <- R6::R6Class("InputMediaDice",
   lock_objects = FALSE
 )
 
+#' @title InputMediaDocument
+#' @description Telegram API type \code{inputMediaDocument} (constructor \code{#a8763ab5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaDocument <- R6::R6Class("InputMediaDocument",
   inherit = TLObject,
   public = list(
@@ -20310,6 +21955,11 @@ InputMediaDocument <- R6::R6Class("InputMediaDocument",
   lock_objects = FALSE
 )
 
+#' @title InputMediaDocumentExternal
+#' @description Telegram API type \code{inputMediaDocumentExternal} (constructor \code{#779600f9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaDocumentExternal <- R6::R6Class("InputMediaDocumentExternal",
   inherit = TLObject,
   public = list(
@@ -20379,6 +22029,11 @@ InputMediaDocumentExternal <- R6::R6Class("InputMediaDocumentExternal",
   lock_objects = FALSE
 )
 
+#' @title InputMediaEmpty
+#' @description Telegram API type \code{inputMediaEmpty} (constructor \code{#9664f57f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaEmpty <- R6::R6Class("InputMediaEmpty",
   inherit = TLObject,
   public = list(
@@ -20412,6 +22067,11 @@ InputMediaEmpty <- R6::R6Class("InputMediaEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputMediaGame
+#' @description Telegram API type \code{inputMediaGame} (constructor \code{#d33f43f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaGame <- R6::R6Class("InputMediaGame",
   inherit = TLObject,
   public = list(
@@ -20451,6 +22111,11 @@ InputMediaGame <- R6::R6Class("InputMediaGame",
   lock_objects = FALSE
 )
 
+#' @title InputMediaGeoLive
+#' @description Telegram API type \code{inputMediaGeoLive} (constructor \code{#971fa843}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaGeoLive <- R6::R6Class("InputMediaGeoLive",
   inherit = TLObject,
   public = list(
@@ -20520,6 +22185,11 @@ InputMediaGeoLive <- R6::R6Class("InputMediaGeoLive",
   lock_objects = FALSE
 )
 
+#' @title InputMediaGeoPoint
+#' @description Telegram API type \code{inputMediaGeoPoint} (constructor \code{#f9c44144}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaGeoPoint <- R6::R6Class("InputMediaGeoPoint",
   inherit = TLObject,
   public = list(
@@ -20559,6 +22229,11 @@ InputMediaGeoPoint <- R6::R6Class("InputMediaGeoPoint",
   lock_objects = FALSE
 )
 
+#' @title InputMediaInvoice
+#' @description Telegram API type \code{inputMediaInvoice} (constructor \code{#405fef0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaInvoice <- R6::R6Class("InputMediaInvoice",
   inherit = TLObject,
   public = list(
@@ -20653,6 +22328,11 @@ InputMediaInvoice <- R6::R6Class("InputMediaInvoice",
   lock_objects = FALSE
 )
 
+#' @title InputMediaPaidMedia
+#' @description Telegram API type \code{inputMediaPaidMedia} (constructor \code{#c4103386}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaPaidMedia <- R6::R6Class("InputMediaPaidMedia",
   inherit = TLObject,
   public = list(
@@ -20708,6 +22388,11 @@ InputMediaPaidMedia <- R6::R6Class("InputMediaPaidMedia",
   lock_objects = FALSE
 )
 
+#' @title InputMediaPhoto
+#' @description Telegram API type \code{inputMediaPhoto} (constructor \code{#e3af4434}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaPhoto <- R6::R6Class("InputMediaPhoto",
   inherit = TLObject,
   public = list(
@@ -20776,6 +22461,11 @@ InputMediaPhoto <- R6::R6Class("InputMediaPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputMediaPhotoExternal
+#' @description Telegram API type \code{inputMediaPhotoExternal} (constructor \code{#e5bbfe1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaPhotoExternal <- R6::R6Class("InputMediaPhotoExternal",
   inherit = TLObject,
   public = list(
@@ -20831,6 +22521,11 @@ InputMediaPhotoExternal <- R6::R6Class("InputMediaPhotoExternal",
   lock_objects = FALSE
 )
 
+#' @title InputMediaPoll
+#' @description Telegram API type \code{inputMediaPoll} (constructor \code{#883a4108}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaPoll <- R6::R6Class("InputMediaPoll",
   inherit = TLObject,
   public = list(
@@ -20908,6 +22603,11 @@ InputMediaPoll <- R6::R6Class("InputMediaPoll",
   lock_objects = FALSE
 )
 
+#' @title InputMediaStory
+#' @description Telegram API type \code{inputMediaStory} (constructor \code{#89fdd778}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaStory <- R6::R6Class("InputMediaStory",
   inherit = TLObject,
   public = list(
@@ -20953,6 +22653,11 @@ InputMediaStory <- R6::R6Class("InputMediaStory",
   lock_objects = FALSE
 )
 
+#' @title InputMediaTodo
+#' @description Telegram API type \code{inputMediaTodo} (constructor \code{#9fc55fde}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaTodo <- R6::R6Class("InputMediaTodo",
   inherit = TLObject,
   public = list(
@@ -20992,6 +22697,11 @@ InputMediaTodo <- R6::R6Class("InputMediaTodo",
   lock_objects = FALSE
 )
 
+#' @title InputMediaUploadedDocument
+#' @description Telegram API type \code{inputMediaUploadedDocument} (constructor \code{#037c9330}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaUploadedDocument <- R6::R6Class("InputMediaUploadedDocument",
   inherit = TLObject,
   public = list(
@@ -21099,6 +22809,11 @@ InputMediaUploadedDocument <- R6::R6Class("InputMediaUploadedDocument",
   lock_objects = FALSE
 )
 
+#' @title InputMediaUploadedPhoto
+#' @description Telegram API type \code{inputMediaUploadedPhoto} (constructor \code{#7d8375da}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaUploadedPhoto <- R6::R6Class("InputMediaUploadedPhoto",
   inherit = TLObject,
   public = list(
@@ -21174,6 +22889,11 @@ InputMediaUploadedPhoto <- R6::R6Class("InputMediaUploadedPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputMediaVenue
+#' @description Telegram API type \code{inputMediaVenue} (constructor \code{#c13d1c11}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaVenue <- R6::R6Class("InputMediaVenue",
   inherit = TLObject,
   public = list(
@@ -21243,6 +22963,11 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
   lock_objects = FALSE
 )
 
+#' @title InputMediaWebPage
+#' @description Telegram API type \code{inputMediaWebPage} (constructor \code{#c21b8849}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   inherit = TLObject,
   public = list(
@@ -21303,6 +23028,11 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   lock_objects = FALSE
 )
 
+#' @title InputMessageCallbackQuery
+#' @description Telegram API type \code{inputMessageCallbackQuery} (constructor \code{#acfa1a7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -21348,6 +23078,11 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   lock_objects = FALSE
 )
 
+#' @title InputMessageEntityMentionName
+#' @description Telegram API type \code{inputMessageEntityMentionName} (constructor \code{#208e68c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   inherit = TLObject,
   public = list(
@@ -21399,6 +23134,11 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   lock_objects = FALSE
 )
 
+#' @title InputMessageID
+#' @description Telegram API type \code{inputMessageID} (constructor \code{#a676a322}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessageID <- R6::R6Class("InputMessageID",
   inherit = TLObject,
   public = list(
@@ -21438,6 +23178,11 @@ InputMessageID <- R6::R6Class("InputMessageID",
   lock_objects = FALSE
 )
 
+#' @title InputMessagePinned
+#' @description Telegram API type \code{inputMessagePinned} (constructor \code{#86872538}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagePinned <- R6::R6Class("InputMessagePinned",
   inherit = TLObject,
   public = list(
@@ -21471,6 +23216,11 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
   lock_objects = FALSE
 )
 
+#' @title InputMessageReplyTo
+#' @description Telegram API type \code{inputMessageReplyTo} (constructor \code{#bad88395}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   inherit = TLObject,
   public = list(
@@ -21510,6 +23260,11 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterChatPhotos
+#' @description Telegram API type \code{inputMessagesFilterChatPhotos} (constructor \code{#3a20ecb8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   inherit = TLObject,
   public = list(
@@ -21543,6 +23298,11 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterContacts
+#' @description Telegram API type \code{inputMessagesFilterContacts} (constructor \code{#e062db83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   inherit = TLObject,
   public = list(
@@ -21576,6 +23336,11 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterDocument
+#' @description Telegram API type \code{inputMessagesFilterDocument} (constructor \code{#9eddf188}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   inherit = TLObject,
   public = list(
@@ -21609,6 +23374,11 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterEmpty
+#' @description Telegram API type \code{inputMessagesFilterEmpty} (constructor \code{#57e2f66c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
@@ -21642,6 +23412,11 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterGeo
+#' @description Telegram API type \code{inputMessagesFilterGeo} (constructor \code{#e7026d0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   inherit = TLObject,
   public = list(
@@ -21675,6 +23450,11 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterGif
+#' @description Telegram API type \code{inputMessagesFilterGif} (constructor \code{#ffc86587}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   inherit = TLObject,
   public = list(
@@ -21708,6 +23488,11 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterMusic
+#' @description Telegram API type \code{inputMessagesFilterMusic} (constructor \code{#3751b49e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   inherit = TLObject,
   public = list(
@@ -21741,6 +23526,11 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterMyMentions
+#' @description Telegram API type \code{inputMessagesFilterMyMentions} (constructor \code{#c1f8e69a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   inherit = TLObject,
   public = list(
@@ -21774,6 +23564,11 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterPhoneCalls
+#' @description Telegram API type \code{inputMessagesFilterPhoneCalls} (constructor \code{#80c99768}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterPhoneCalls <- R6::R6Class("InputMessagesFilterPhoneCalls",
   inherit = TLObject,
   public = list(
@@ -21816,6 +23611,11 @@ InputMessagesFilterPhoneCalls <- R6::R6Class("InputMessagesFilterPhoneCalls",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterPhotoVideo
+#' @description Telegram API type \code{inputMessagesFilterPhotoVideo} (constructor \code{#56e9f0e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterPhotoVideo <- R6::R6Class("InputMessagesFilterPhotoVideo",
   inherit = TLObject,
   public = list(
@@ -21849,6 +23649,11 @@ InputMessagesFilterPhotoVideo <- R6::R6Class("InputMessagesFilterPhotoVideo",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterPhotos
+#' @description Telegram API type \code{inputMessagesFilterPhotos} (constructor \code{#9609a51c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterPhotos <- R6::R6Class("InputMessagesFilterPhotos",
   inherit = TLObject,
   public = list(
@@ -21882,6 +23687,11 @@ InputMessagesFilterPhotos <- R6::R6Class("InputMessagesFilterPhotos",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterPinned
+#' @description Telegram API type \code{inputMessagesFilterPinned} (constructor \code{#1bb00451}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterPinned <- R6::R6Class("InputMessagesFilterPinned",
   inherit = TLObject,
   public = list(
@@ -21915,6 +23725,11 @@ InputMessagesFilterPinned <- R6::R6Class("InputMessagesFilterPinned",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterRoundVideo
+#' @description Telegram API type \code{inputMessagesFilterRoundVideo} (constructor \code{#b549da53}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterRoundVideo <- R6::R6Class("InputMessagesFilterRoundVideo",
   inherit = TLObject,
   public = list(
@@ -21948,6 +23763,11 @@ InputMessagesFilterRoundVideo <- R6::R6Class("InputMessagesFilterRoundVideo",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterRoundVoice
+#' @description Telegram API type \code{inputMessagesFilterRoundVoice} (constructor \code{#7a7c17a4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterRoundVoice <- R6::R6Class("InputMessagesFilterRoundVoice",
   inherit = TLObject,
   public = list(
@@ -21981,6 +23801,11 @@ InputMessagesFilterRoundVoice <- R6::R6Class("InputMessagesFilterRoundVoice",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterUrl
+#' @description Telegram API type \code{inputMessagesFilterUrl} (constructor \code{#7ef0dd87}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterUrl <- R6::R6Class("InputMessagesFilterUrl",
   inherit = TLObject,
   public = list(
@@ -22014,6 +23839,11 @@ InputMessagesFilterUrl <- R6::R6Class("InputMessagesFilterUrl",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterVideo
+#' @description Telegram API type \code{inputMessagesFilterVideo} (constructor \code{#9fc00e65}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterVideo <- R6::R6Class("InputMessagesFilterVideo",
   inherit = TLObject,
   public = list(
@@ -22047,6 +23877,11 @@ InputMessagesFilterVideo <- R6::R6Class("InputMessagesFilterVideo",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterVoice
+#' @description Telegram API type \code{inputMessagesFilterVoice} (constructor \code{#50f5c392}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterVoice <- R6::R6Class("InputMessagesFilterVoice",
   inherit = TLObject,
   public = list(
@@ -22080,6 +23915,11 @@ InputMessagesFilterVoice <- R6::R6Class("InputMessagesFilterVoice",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyBroadcasts
+#' @description Telegram API type \code{inputNotifyBroadcasts} (constructor \code{#b1db7c7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyBroadcasts <- R6::R6Class("InputNotifyBroadcasts",
   inherit = TLObject,
   public = list(
@@ -22113,6 +23953,11 @@ InputNotifyBroadcasts <- R6::R6Class("InputNotifyBroadcasts",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyChats
+#' @description Telegram API type \code{inputNotifyChats} (constructor \code{#4a95e84e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyChats <- R6::R6Class("InputNotifyChats",
   inherit = TLObject,
   public = list(
@@ -22146,6 +23991,11 @@ InputNotifyChats <- R6::R6Class("InputNotifyChats",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyForumTopic
+#' @description Telegram API type \code{inputNotifyForumTopic} (constructor \code{#5c467992}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyForumTopic <- R6::R6Class("InputNotifyForumTopic",
   inherit = TLObject,
   public = list(
@@ -22191,6 +24041,11 @@ InputNotifyForumTopic <- R6::R6Class("InputNotifyForumTopic",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyPeer
+#' @description Telegram API type \code{inputNotifyPeer} (constructor \code{#b8bc5b0c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyPeer <- R6::R6Class("InputNotifyPeer",
   inherit = TLObject,
   public = list(
@@ -22230,6 +24085,11 @@ InputNotifyPeer <- R6::R6Class("InputNotifyPeer",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyUsers
+#' @description Telegram API type \code{inputNotifyUsers} (constructor \code{#193b4417}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyUsers <- R6::R6Class("InputNotifyUsers",
   inherit = TLObject,
   public = list(
@@ -22263,6 +24123,11 @@ InputNotifyUsers <- R6::R6Class("InputNotifyUsers",
   lock_objects = FALSE
 )
 
+#' @title InputPaymentCredentials
+#' @description Telegram API type \code{inputPaymentCredentials} (constructor \code{#3417d728}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPaymentCredentials <- R6::R6Class("InputPaymentCredentials",
   inherit = TLObject,
   public = list(
@@ -22311,6 +24176,11 @@ InputPaymentCredentials <- R6::R6Class("InputPaymentCredentials",
   lock_objects = FALSE
 )
 
+#' @title InputPaymentCredentialsApplePay
+#' @description Telegram API type \code{inputPaymentCredentialsApplePay} (constructor \code{#0aa1c39f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPaymentCredentialsApplePay <- R6::R6Class("InputPaymentCredentialsApplePay",
   inherit = TLObject,
   public = list(
@@ -22350,6 +24220,11 @@ InputPaymentCredentialsApplePay <- R6::R6Class("InputPaymentCredentialsApplePay"
   lock_objects = FALSE
 )
 
+#' @title InputPaymentCredentialsGooglePay
+#' @description Telegram API type \code{inputPaymentCredentialsGooglePay} (constructor \code{#8ac32801}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPaymentCredentialsGooglePay <- R6::R6Class("InputPaymentCredentialsGooglePay",
   inherit = TLObject,
   public = list(
@@ -22389,6 +24264,11 @@ InputPaymentCredentialsGooglePay <- R6::R6Class("InputPaymentCredentialsGooglePa
   lock_objects = FALSE
 )
 
+#' @title InputPaymentCredentialsSaved
+#' @description Telegram API type \code{inputPaymentCredentialsSaved} (constructor \code{#c10eb2cf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPaymentCredentialsSaved <- R6::R6Class("InputPaymentCredentialsSaved",
   inherit = TLObject,
   public = list(
@@ -22434,6 +24314,11 @@ InputPaymentCredentialsSaved <- R6::R6Class("InputPaymentCredentialsSaved",
   lock_objects = FALSE
 )
 
+#' @title InputPeerChannel
+#' @description Telegram API type \code{inputPeerChannel} (constructor \code{#27bcbbfc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerChannel <- R6::R6Class("InputPeerChannel",
   inherit = TLObject,
   public = list(
@@ -22479,6 +24364,11 @@ InputPeerChannel <- R6::R6Class("InputPeerChannel",
   lock_objects = FALSE
 )
 
+#' @title InputPeerChannelFromMessage
+#' @description Telegram API type \code{inputPeerChannelFromMessage} (constructor \code{#bd2a0840}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerChannelFromMessage <- R6::R6Class("InputPeerChannelFromMessage",
   inherit = TLObject,
   public = list(
@@ -22530,6 +24420,11 @@ InputPeerChannelFromMessage <- R6::R6Class("InputPeerChannelFromMessage",
   lock_objects = FALSE
 )
 
+#' @title InputPeerChat
+#' @description Telegram API type \code{inputPeerChat} (constructor \code{#35a95cb9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerChat <- R6::R6Class("InputPeerChat",
   inherit = TLObject,
   public = list(
@@ -22569,6 +24464,11 @@ InputPeerChat <- R6::R6Class("InputPeerChat",
   lock_objects = FALSE
 )
 
+#' @title InputPeerEmpty
+#' @description Telegram API type \code{inputPeerEmpty} (constructor \code{#7f3b18ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerEmpty <- R6::R6Class("InputPeerEmpty",
   inherit = TLObject,
   public = list(
@@ -22602,6 +24502,11 @@ InputPeerEmpty <- R6::R6Class("InputPeerEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputPeerNotifySettings
+#' @description Telegram API type \code{inputPeerNotifySettings} (constructor \code{#cacb6ae2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerNotifySettings <- R6::R6Class("InputPeerNotifySettings",
   inherit = TLObject,
   public = list(
@@ -22687,6 +24592,11 @@ InputPeerNotifySettings <- R6::R6Class("InputPeerNotifySettings",
   lock_objects = FALSE
 )
 
+#' @title InputPeerPhotoFileLocation
+#' @description Telegram API type \code{inputPeerPhotoFileLocation} (constructor \code{#37257e99}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerPhotoFileLocation <- R6::R6Class("InputPeerPhotoFileLocation",
   inherit = TLObject,
   public = list(
@@ -22741,6 +24651,11 @@ InputPeerPhotoFileLocation <- R6::R6Class("InputPeerPhotoFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputPeerSelf
+#' @description Telegram API type \code{inputPeerSelf} (constructor \code{#7da07ec9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerSelf <- R6::R6Class("InputPeerSelf",
   inherit = TLObject,
   public = list(
@@ -22774,6 +24689,11 @@ InputPeerSelf <- R6::R6Class("InputPeerSelf",
   lock_objects = FALSE
 )
 
+#' @title InputPeerUser
+#' @description Telegram API type \code{inputPeerUser} (constructor \code{#dde8a54c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerUser <- R6::R6Class("InputPeerUser",
   inherit = TLObject,
   public = list(
@@ -22819,6 +24739,11 @@ InputPeerUser <- R6::R6Class("InputPeerUser",
   lock_objects = FALSE
 )
 
+#' @title InputPeerUserFromMessage
+#' @description Telegram API type \code{inputPeerUserFromMessage} (constructor \code{#a87b0a1c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerUserFromMessage <- R6::R6Class("InputPeerUserFromMessage",
   inherit = TLObject,
   public = list(
@@ -22870,6 +24795,11 @@ InputPeerUserFromMessage <- R6::R6Class("InputPeerUserFromMessage",
   lock_objects = FALSE
 )
 
+#' @title InputPhoneCall
+#' @description Telegram API type \code{inputPhoneCall} (constructor \code{#1e36fded}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhoneCall <- R6::R6Class("InputPhoneCall",
   inherit = TLObject,
   public = list(
@@ -22915,6 +24845,11 @@ InputPhoneCall <- R6::R6Class("InputPhoneCall",
   lock_objects = FALSE
 )
 
+#' @title InputPhoneContact
+#' @description Telegram API type \code{inputPhoneContact} (constructor \code{#6a1dc4be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhoneContact <- R6::R6Class("InputPhoneContact",
   inherit = TLObject,
   public = list(
@@ -22982,6 +24917,11 @@ InputPhoneContact <- R6::R6Class("InputPhoneContact",
   lock_objects = FALSE
 )
 
+#' @title InputPhoto
+#' @description Telegram API type \code{inputPhoto} (constructor \code{#3bb3b94a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhoto <- R6::R6Class("InputPhoto",
   inherit = TLObject,
   public = list(
@@ -23033,6 +24973,11 @@ InputPhoto <- R6::R6Class("InputPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputPhotoEmpty
+#' @description Telegram API type \code{inputPhotoEmpty} (constructor \code{#1cd7bf0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhotoEmpty <- R6::R6Class("InputPhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -23066,6 +25011,11 @@ InputPhotoEmpty <- R6::R6Class("InputPhotoEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputPhotoFileLocation
+#' @description Telegram API type \code{inputPhotoFileLocation} (constructor \code{#40181ffe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhotoFileLocation <- R6::R6Class("InputPhotoFileLocation",
   inherit = TLObject,
   public = list(
@@ -23123,6 +25073,11 @@ InputPhotoFileLocation <- R6::R6Class("InputPhotoFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputPhotoLegacyFileLocation
+#' @description Telegram API type \code{inputPhotoLegacyFileLocation} (constructor \code{#d83466f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPhotoLegacyFileLocation <- R6::R6Class("InputPhotoLegacyFileLocation",
   inherit = TLObject,
   public = list(
@@ -23192,6 +25147,11 @@ InputPhotoLegacyFileLocation <- R6::R6Class("InputPhotoLegacyFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyAbout
+#' @description Telegram API type \code{inputPrivacyKeyAbout} (constructor \code{#3823cc40}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyAbout <- R6::R6Class("InputPrivacyKeyAbout",
   inherit = TLObject,
   public = list(
@@ -23225,6 +25185,11 @@ InputPrivacyKeyAbout <- R6::R6Class("InputPrivacyKeyAbout",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyAddedByPhone
+#' @description Telegram API type \code{inputPrivacyKeyAddedByPhone} (constructor \code{#d1219bdd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyAddedByPhone <- R6::R6Class("InputPrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
@@ -23258,6 +25223,11 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class("InputPrivacyKeyAddedByPhone",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyBirthday
+#' @description Telegram API type \code{inputPrivacyKeyBirthday} (constructor \code{#d65a11cc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyBirthday <- R6::R6Class("InputPrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
@@ -23291,6 +25261,11 @@ InputPrivacyKeyBirthday <- R6::R6Class("InputPrivacyKeyBirthday",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyChatInvite
+#' @description Telegram API type \code{inputPrivacyKeyChatInvite} (constructor \code{#bdfb0426}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyChatInvite <- R6::R6Class("InputPrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
@@ -23324,6 +25299,11 @@ InputPrivacyKeyChatInvite <- R6::R6Class("InputPrivacyKeyChatInvite",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyForwards
+#' @description Telegram API type \code{inputPrivacyKeyForwards} (constructor \code{#a4dd4c08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyForwards <- R6::R6Class("InputPrivacyKeyForwards",
   inherit = TLObject,
   public = list(
@@ -23357,6 +25337,11 @@ InputPrivacyKeyForwards <- R6::R6Class("InputPrivacyKeyForwards",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyNoPaidMessages
+#' @description Telegram API type \code{inputPrivacyKeyNoPaidMessages} (constructor \code{#bdc597b4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyNoPaidMessages <- R6::R6Class("InputPrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
@@ -23390,6 +25375,11 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class("InputPrivacyKeyNoPaidMessages",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyPhoneCall
+#' @description Telegram API type \code{inputPrivacyKeyPhoneCall} (constructor \code{#fabadc5f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyPhoneCall <- R6::R6Class("InputPrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
@@ -23423,6 +25413,11 @@ InputPrivacyKeyPhoneCall <- R6::R6Class("InputPrivacyKeyPhoneCall",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyPhoneNumber
+#' @description Telegram API type \code{inputPrivacyKeyPhoneNumber} (constructor \code{#0352dafa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyPhoneNumber <- R6::R6Class("InputPrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
@@ -23456,6 +25451,11 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class("InputPrivacyKeyPhoneNumber",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyPhoneP2P
+#' @description Telegram API type \code{inputPrivacyKeyPhoneP2P} (constructor \code{#db9e70d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyPhoneP2P <- R6::R6Class("InputPrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
@@ -23489,6 +25489,11 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class("InputPrivacyKeyPhoneP2P",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyProfilePhoto
+#' @description Telegram API type \code{inputPrivacyKeyProfilePhoto} (constructor \code{#5719bacc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyProfilePhoto <- R6::R6Class("InputPrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -23522,6 +25527,11 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class("InputPrivacyKeyProfilePhoto",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyStarGiftsAutoSave
+#' @description Telegram API type \code{inputPrivacyKeyStarGiftsAutoSave} (constructor \code{#e1732341}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class("InputPrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
@@ -23555,6 +25565,11 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class("InputPrivacyKeyStarGiftsAutoSav
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyStatusTimestamp
+#' @description Telegram API type \code{inputPrivacyKeyStatusTimestamp} (constructor \code{#4f96cb18}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyStatusTimestamp <- R6::R6Class("InputPrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
@@ -23588,6 +25603,11 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class("InputPrivacyKeyStatusTimestamp",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeyVoiceMessages
+#' @description Telegram API type \code{inputPrivacyKeyVoiceMessages} (constructor \code{#aee69d68}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeyVoiceMessages <- R6::R6Class("InputPrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
@@ -23621,6 +25641,11 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class("InputPrivacyKeyVoiceMessages",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowAll
+#' @description Telegram API type \code{inputPrivacyValueAllowAll} (constructor \code{#184b35ce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowAll <- R6::R6Class("InputPrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
@@ -23654,6 +25679,11 @@ InputPrivacyValueAllowAll <- R6::R6Class("InputPrivacyValueAllowAll",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowBots
+#' @description Telegram API type \code{inputPrivacyValueAllowBots} (constructor \code{#5a4fcce5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowBots <- R6::R6Class("InputPrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
@@ -23687,6 +25717,11 @@ InputPrivacyValueAllowBots <- R6::R6Class("InputPrivacyValueAllowBots",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowChatParticipants
+#' @description Telegram API type \code{inputPrivacyValueAllowChatParticipants} (constructor \code{#840649cf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowChatParticipants <- R6::R6Class("InputPrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -23726,6 +25761,11 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class("InputPrivacyValueAllowCha
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowCloseFriends
+#' @description Telegram API type \code{inputPrivacyValueAllowCloseFriends} (constructor \code{#2f453e49}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowCloseFriends <- R6::R6Class("InputPrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
@@ -23759,6 +25799,11 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class("InputPrivacyValueAllowCloseFr
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowContacts
+#' @description Telegram API type \code{inputPrivacyValueAllowContacts} (constructor \code{#0d09e07b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowContacts <- R6::R6Class("InputPrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
@@ -23792,6 +25837,11 @@ InputPrivacyValueAllowContacts <- R6::R6Class("InputPrivacyValueAllowContacts",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowPremium
+#' @description Telegram API type \code{inputPrivacyValueAllowPremium} (constructor \code{#77cdc9f1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowPremium <- R6::R6Class("InputPrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
@@ -23825,6 +25875,11 @@ InputPrivacyValueAllowPremium <- R6::R6Class("InputPrivacyValueAllowPremium",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueAllowUsers
+#' @description Telegram API type \code{inputPrivacyValueAllowUsers} (constructor \code{#131cc67f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueAllowUsers <- R6::R6Class("InputPrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
@@ -23864,6 +25919,11 @@ InputPrivacyValueAllowUsers <- R6::R6Class("InputPrivacyValueAllowUsers",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueDisallowAll
+#' @description Telegram API type \code{inputPrivacyValueDisallowAll} (constructor \code{#d66b66c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueDisallowAll <- R6::R6Class("InputPrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
@@ -23897,6 +25957,11 @@ InputPrivacyValueDisallowAll <- R6::R6Class("InputPrivacyValueDisallowAll",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueDisallowBots
+#' @description Telegram API type \code{inputPrivacyValueDisallowBots} (constructor \code{#c4e57915}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueDisallowBots <- R6::R6Class("InputPrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
@@ -23930,6 +25995,11 @@ InputPrivacyValueDisallowBots <- R6::R6Class("InputPrivacyValueDisallowBots",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueDisallowChatParticipants
+#' @description Telegram API type \code{inputPrivacyValueDisallowChatParticipants} (constructor \code{#e94f0f86}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueDisallowChatParticipants <- R6::R6Class("InputPrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -23969,6 +26039,11 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class("InputPrivacyValueDisal
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueDisallowContacts
+#' @description Telegram API type \code{inputPrivacyValueDisallowContacts} (constructor \code{#0ba52007}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueDisallowContacts <- R6::R6Class("InputPrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
@@ -24002,6 +26077,11 @@ InputPrivacyValueDisallowContacts <- R6::R6Class("InputPrivacyValueDisallowConta
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyValueDisallowUsers
+#' @description Telegram API type \code{inputPrivacyValueDisallowUsers} (constructor \code{#90110467}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyValueDisallowUsers <- R6::R6Class("InputPrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
@@ -24041,6 +26121,11 @@ InputPrivacyValueDisallowUsers <- R6::R6Class("InputPrivacyValueDisallowUsers",
   lock_objects = FALSE
 )
 
+#' @title InputQuickReplyShortcut
+#' @description Telegram API type \code{inputQuickReplyShortcut} (constructor \code{#24596d41}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputQuickReplyShortcut <- R6::R6Class("InputQuickReplyShortcut",
   inherit = TLObject,
   public = list(
@@ -24080,6 +26165,11 @@ InputQuickReplyShortcut <- R6::R6Class("InputQuickReplyShortcut",
   lock_objects = FALSE
 )
 
+#' @title InputQuickReplyShortcutId
+#' @description Telegram API type \code{inputQuickReplyShortcutId} (constructor \code{#01190cf1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputQuickReplyShortcutId <- R6::R6Class("InputQuickReplyShortcutId",
   inherit = TLObject,
   public = list(
@@ -24119,6 +26209,11 @@ InputQuickReplyShortcutId <- R6::R6Class("InputQuickReplyShortcutId",
   lock_objects = FALSE
 )
 
+#' @title InputReplyToMessage
+#' @description Telegram API type \code{inputReplyToMessage} (constructor \code{#3bd4b7c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReplyToMessage <- R6::R6Class("InputReplyToMessage",
   inherit = TLObject,
   public = list(
@@ -24217,6 +26312,11 @@ InputReplyToMessage <- R6::R6Class("InputReplyToMessage",
   lock_objects = FALSE
 )
 
+#' @title InputReplyToMonoForum
+#' @description Telegram API type \code{inputReplyToMonoForum} (constructor \code{#69d66c45}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReplyToMonoForum <- R6::R6Class("InputReplyToMonoForum",
   inherit = TLObject,
   public = list(
@@ -24256,6 +26356,11 @@ InputReplyToMonoForum <- R6::R6Class("InputReplyToMonoForum",
   lock_objects = FALSE
 )
 
+#' @title InputReplyToStory
+#' @description Telegram API type \code{inputReplyToStory} (constructor \code{#5881323a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReplyToStory <- R6::R6Class("InputReplyToStory",
   inherit = TLObject,
   public = list(
@@ -24301,6 +26406,11 @@ InputReplyToStory <- R6::R6Class("InputReplyToStory",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonChildAbuse
+#' @description Telegram API type \code{inputReportReasonChildAbuse} (constructor \code{#adf44ee3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonChildAbuse <- R6::R6Class("InputReportReasonChildAbuse",
   inherit = TLObject,
   public = list(
@@ -24334,6 +26444,11 @@ InputReportReasonChildAbuse <- R6::R6Class("InputReportReasonChildAbuse",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonCopyright
+#' @description Telegram API type \code{inputReportReasonCopyright} (constructor \code{#9b89f93a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonCopyright <- R6::R6Class("InputReportReasonCopyright",
   inherit = TLObject,
   public = list(
@@ -24367,6 +26482,11 @@ InputReportReasonCopyright <- R6::R6Class("InputReportReasonCopyright",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonFake
+#' @description Telegram API type \code{inputReportReasonFake} (constructor \code{#f5ddd6e7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonFake <- R6::R6Class("InputReportReasonFake",
   inherit = TLObject,
   public = list(
@@ -24400,6 +26520,11 @@ InputReportReasonFake <- R6::R6Class("InputReportReasonFake",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonGeoIrrelevant
+#' @description Telegram API type \code{inputReportReasonGeoIrrelevant} (constructor \code{#dbd4feed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonGeoIrrelevant <- R6::R6Class("InputReportReasonGeoIrrelevant",
   inherit = TLObject,
   public = list(
@@ -24433,6 +26558,11 @@ InputReportReasonGeoIrrelevant <- R6::R6Class("InputReportReasonGeoIrrelevant",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonIllegalDrugs
+#' @description Telegram API type \code{inputReportReasonIllegalDrugs} (constructor \code{#0a8eb2be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonIllegalDrugs <- R6::R6Class("InputReportReasonIllegalDrugs",
   inherit = TLObject,
   public = list(
@@ -24466,6 +26596,11 @@ InputReportReasonIllegalDrugs <- R6::R6Class("InputReportReasonIllegalDrugs",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonOther
+#' @description Telegram API type \code{inputReportReasonOther} (constructor \code{#c1e4a2b1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonOther <- R6::R6Class("InputReportReasonOther",
   inherit = TLObject,
   public = list(
@@ -24499,6 +26634,11 @@ InputReportReasonOther <- R6::R6Class("InputReportReasonOther",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonPersonalDetails
+#' @description Telegram API type \code{inputReportReasonPersonalDetails} (constructor \code{#9ec7863d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonPersonalDetails <- R6::R6Class("InputReportReasonPersonalDetails",
   inherit = TLObject,
   public = list(
@@ -24532,6 +26672,11 @@ InputReportReasonPersonalDetails <- R6::R6Class("InputReportReasonPersonalDetail
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonPornography
+#' @description Telegram API type \code{inputReportReasonPornography} (constructor \code{#2e59d922}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonPornography <- R6::R6Class("InputReportReasonPornography",
   inherit = TLObject,
   public = list(
@@ -24565,6 +26710,11 @@ InputReportReasonPornography <- R6::R6Class("InputReportReasonPornography",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonSpam
+#' @description Telegram API type \code{inputReportReasonSpam} (constructor \code{#58dbcab8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonSpam <- R6::R6Class("InputReportReasonSpam",
   inherit = TLObject,
   public = list(
@@ -24598,6 +26748,11 @@ InputReportReasonSpam <- R6::R6Class("InputReportReasonSpam",
   lock_objects = FALSE
 )
 
+#' @title InputReportReasonViolence
+#' @description Telegram API type \code{inputReportReasonViolence} (constructor \code{#1e22c78d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReportReasonViolence <- R6::R6Class("InputReportReasonViolence",
   inherit = TLObject,
   public = list(
@@ -24631,6 +26786,11 @@ InputReportReasonViolence <- R6::R6Class("InputReportReasonViolence",
   lock_objects = FALSE
 )
 
+#' @title InputSavedStarGiftChat
+#' @description Telegram API type \code{inputSavedStarGiftChat} (constructor \code{#f101aa7f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSavedStarGiftChat <- R6::R6Class("InputSavedStarGiftChat",
   inherit = TLObject,
   public = list(
@@ -24676,6 +26836,11 @@ InputSavedStarGiftChat <- R6::R6Class("InputSavedStarGiftChat",
   lock_objects = FALSE
 )
 
+#' @title InputSavedStarGiftSlug
+#' @description Telegram API type \code{inputSavedStarGiftSlug} (constructor \code{#2085c238}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSavedStarGiftSlug <- R6::R6Class("InputSavedStarGiftSlug",
   inherit = TLObject,
   public = list(
@@ -24715,6 +26880,11 @@ InputSavedStarGiftSlug <- R6::R6Class("InputSavedStarGiftSlug",
   lock_objects = FALSE
 )
 
+#' @title InputSavedStarGiftUser
+#' @description Telegram API type \code{inputSavedStarGiftUser} (constructor \code{#69279795}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSavedStarGiftUser <- R6::R6Class("InputSavedStarGiftUser",
   inherit = TLObject,
   public = list(
@@ -24754,6 +26924,11 @@ InputSavedStarGiftUser <- R6::R6Class("InputSavedStarGiftUser",
   lock_objects = FALSE
 )
 
+#' @title InputSecureFile
+#' @description Telegram API type \code{inputSecureFile} (constructor \code{#5367e5be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSecureFile <- R6::R6Class("InputSecureFile",
   inherit = TLObject,
   public = list(
@@ -24799,6 +26974,11 @@ InputSecureFile <- R6::R6Class("InputSecureFile",
   lock_objects = FALSE
 )
 
+#' @title InputSecureFileLocation
+#' @description Telegram API type \code{inputSecureFileLocation} (constructor \code{#cbc7ee28}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSecureFileLocation <- R6::R6Class("InputSecureFileLocation",
   inherit = TLObject,
   public = list(
@@ -24844,6 +27024,11 @@ InputSecureFileLocation <- R6::R6Class("InputSecureFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputSecureFileUploaded
+#' @description Telegram API type \code{inputSecureFileUploaded} (constructor \code{#3334b0f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSecureFileUploaded <- R6::R6Class("InputSecureFileUploaded",
   inherit = TLObject,
   public = list(
@@ -24907,6 +27092,11 @@ InputSecureFileUploaded <- R6::R6Class("InputSecureFileUploaded",
   lock_objects = FALSE
 )
 
+#' @title InputSecureValue
+#' @description Telegram API type \code{inputSecureValue} (constructor \code{#db21d0a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSecureValue <- R6::R6Class("InputSecureValue",
   inherit = TLObject,
   public = list(
@@ -24998,6 +27188,11 @@ InputSecureValue <- R6::R6Class("InputSecureValue",
   lock_objects = FALSE
 )
 
+#' @title InputSingleMedia
+#' @description Telegram API type \code{inputSingleMedia} (constructor \code{#1cc6e91f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSingleMedia <- R6::R6Class("InputSingleMedia",
   inherit = TLObject,
   public = list(
@@ -25059,6 +27254,11 @@ InputSingleMedia <- R6::R6Class("InputSingleMedia",
   lock_objects = FALSE
 )
 
+#' @title InputStarsTransaction
+#' @description Telegram API type \code{inputStarsTransaction} (constructor \code{#206ae6d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStarsTransaction <- R6::R6Class("InputStarsTransaction",
   inherit = TLObject,
   public = list(
@@ -25107,6 +27307,11 @@ InputStarsTransaction <- R6::R6Class("InputStarsTransaction",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetAnimatedEmoji
+#' @description Telegram API type \code{inputStickerSetAnimatedEmoji} (constructor \code{#028703c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetAnimatedEmoji <- R6::R6Class("InputStickerSetAnimatedEmoji",
   inherit = TLObject,
   public = list(
@@ -25140,6 +27345,11 @@ InputStickerSetAnimatedEmoji <- R6::R6Class("InputStickerSetAnimatedEmoji",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetAnimatedEmojiAnimations
+#' @description Telegram API type \code{inputStickerSetAnimatedEmojiAnimations} (constructor \code{#0cde3739}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetAnimatedEmojiAnimations <- R6::R6Class("InputStickerSetAnimatedEmojiAnimations",
   inherit = TLObject,
   public = list(
@@ -25173,6 +27383,11 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class("InputStickerSetAnimatedEm
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetDice
+#' @description Telegram API type \code{inputStickerSetDice} (constructor \code{#e67f520e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetDice <- R6::R6Class("InputStickerSetDice",
   inherit = TLObject,
   public = list(
@@ -25212,6 +27427,11 @@ InputStickerSetDice <- R6::R6Class("InputStickerSetDice",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetEmojiChannelDefaultStatuses
+#' @description Telegram API type \code{inputStickerSetEmojiChannelDefaultStatuses} (constructor \code{#49748553}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class("InputStickerSetEmojiChannelDefaultStatuses",
   inherit = TLObject,
   public = list(
@@ -25245,6 +27465,11 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class("InputStickerSetEmojiC
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetEmojiDefaultStatuses
+#' @description Telegram API type \code{inputStickerSetEmojiDefaultStatuses} (constructor \code{#29d0f5ee}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetEmojiDefaultStatuses <- R6::R6Class("InputStickerSetEmojiDefaultStatuses",
   inherit = TLObject,
   public = list(
@@ -25278,6 +27503,11 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class("InputStickerSetEmojiDefaultS
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetEmojiDefaultTopicIcons
+#' @description Telegram API type \code{inputStickerSetEmojiDefaultTopicIcons} (constructor \code{#44c1f8e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class("InputStickerSetEmojiDefaultTopicIcons",
   inherit = TLObject,
   public = list(
@@ -25311,6 +27541,11 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class("InputStickerSetEmojiDefaul
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetEmojiGenericAnimations
+#' @description Telegram API type \code{inputStickerSetEmojiGenericAnimations} (constructor \code{#04c4d4ce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetEmojiGenericAnimations <- R6::R6Class("InputStickerSetEmojiGenericAnimations",
   inherit = TLObject,
   public = list(
@@ -25344,6 +27579,11 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class("InputStickerSetEmojiGeneri
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetEmpty
+#' @description Telegram API type \code{inputStickerSetEmpty} (constructor \code{#ffb62b95}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetEmpty <- R6::R6Class("InputStickerSetEmpty",
   inherit = TLObject,
   public = list(
@@ -25377,6 +27617,11 @@ InputStickerSetEmpty <- R6::R6Class("InputStickerSetEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetID
+#' @description Telegram API type \code{inputStickerSetID} (constructor \code{#9de7a269}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetID <- R6::R6Class("InputStickerSetID",
   inherit = TLObject,
   public = list(
@@ -25422,6 +27667,11 @@ InputStickerSetID <- R6::R6Class("InputStickerSetID",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetItem
+#' @description Telegram API type \code{inputStickerSetItem} (constructor \code{#32da9e9c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetItem <- R6::R6Class("InputStickerSetItem",
   inherit = TLObject,
   public = list(
@@ -25484,6 +27734,11 @@ InputStickerSetItem <- R6::R6Class("InputStickerSetItem",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetPremiumGifts
+#' @description Telegram API type \code{inputStickerSetPremiumGifts} (constructor \code{#c88b3b02}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetPremiumGifts <- R6::R6Class("InputStickerSetPremiumGifts",
   inherit = TLObject,
   public = list(
@@ -25517,6 +27772,11 @@ InputStickerSetPremiumGifts <- R6::R6Class("InputStickerSetPremiumGifts",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetShortName
+#' @description Telegram API type \code{inputStickerSetShortName} (constructor \code{#861cc8a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetShortName <- R6::R6Class("InputStickerSetShortName",
   inherit = TLObject,
   public = list(
@@ -25556,6 +27816,11 @@ InputStickerSetShortName <- R6::R6Class("InputStickerSetShortName",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetThumb
+#' @description Telegram API type \code{inputStickerSetThumb} (constructor \code{#9d84f3db}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetThumb <- R6::R6Class("InputStickerSetThumb",
   inherit = TLObject,
   public = list(
@@ -25601,6 +27866,11 @@ InputStickerSetThumb <- R6::R6Class("InputStickerSetThumb",
   lock_objects = FALSE
 )
 
+#' @title InputStickerSetTonGifts
+#' @description Telegram API type \code{inputStickerSetTonGifts} (constructor \code{#1cf671a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickerSetTonGifts <- R6::R6Class("InputStickerSetTonGifts",
   inherit = TLObject,
   public = list(
@@ -25634,6 +27904,11 @@ InputStickerSetTonGifts <- R6::R6Class("InputStickerSetTonGifts",
   lock_objects = FALSE
 )
 
+#' @title InputStickeredMediaDocument
+#' @description Telegram API type \code{inputStickeredMediaDocument} (constructor \code{#0438865b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickeredMediaDocument <- R6::R6Class("InputStickeredMediaDocument",
   inherit = TLObject,
   public = list(
@@ -25673,6 +27948,11 @@ InputStickeredMediaDocument <- R6::R6Class("InputStickeredMediaDocument",
   lock_objects = FALSE
 )
 
+#' @title InputStickeredMediaPhoto
+#' @description Telegram API type \code{inputStickeredMediaPhoto} (constructor \code{#4a992157}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStickeredMediaPhoto <- R6::R6Class("InputStickeredMediaPhoto",
   inherit = TLObject,
   public = list(
@@ -25712,6 +27992,11 @@ InputStickeredMediaPhoto <- R6::R6Class("InputStickeredMediaPhoto",
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentAuthCode
+#' @description Telegram API type \code{inputStorePaymentAuthCode} (constructor \code{#3fc18057}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentAuthCode <- R6::R6Class("InputStorePaymentAuthCode",
   inherit = TLObject,
   public = list(
@@ -25784,6 +28069,11 @@ InputStorePaymentAuthCode <- R6::R6Class("InputStorePaymentAuthCode",
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentGiftPremium
+#' @description Telegram API type \code{inputStorePaymentGiftPremium} (constructor \code{#616f7fe8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentGiftPremium <- R6::R6Class("InputStorePaymentGiftPremium",
   inherit = TLObject,
   public = list(
@@ -25835,6 +28125,11 @@ InputStorePaymentGiftPremium <- R6::R6Class("InputStorePaymentGiftPremium",
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentPremiumGiftCode
+#' @description Telegram API type \code{inputStorePaymentPremiumGiftCode} (constructor \code{#fb790393}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentPremiumGiftCode <- R6::R6Class("InputStorePaymentPremiumGiftCode",
   inherit = TLObject,
   public = list(
@@ -25903,6 +28198,11 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class("InputStorePaymentPremiumGiftCod
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentPremiumGiveaway
+#' @description Telegram API type \code{inputStorePaymentPremiumGiveaway} (constructor \code{#160544ca}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentPremiumGiveaway <- R6::R6Class("InputStorePaymentPremiumGiveaway",
   inherit = TLObject,
   public = list(
@@ -26002,6 +28302,11 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class("InputStorePaymentPremiumGiveawa
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentPremiumSubscription
+#' @description Telegram API type \code{inputStorePaymentPremiumSubscription} (constructor \code{#a6751e66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentPremiumSubscription <- R6::R6Class("InputStorePaymentPremiumSubscription",
   inherit = TLObject,
   public = list(
@@ -26050,6 +28355,11 @@ InputStorePaymentPremiumSubscription <- R6::R6Class("InputStorePaymentPremiumSub
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentStarsGift
+#' @description Telegram API type \code{inputStorePaymentStarsGift} (constructor \code{#1d741ef7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentStarsGift <- R6::R6Class("InputStorePaymentStarsGift",
   inherit = TLObject,
   public = list(
@@ -26107,6 +28417,11 @@ InputStorePaymentStarsGift <- R6::R6Class("InputStorePaymentStarsGift",
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentStarsGiveaway
+#' @description Telegram API type \code{inputStorePaymentStarsGiveaway} (constructor \code{#751f08fa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentStarsGiveaway <- R6::R6Class("InputStorePaymentStarsGiveaway",
   inherit = TLObject,
   public = list(
@@ -26218,6 +28533,11 @@ InputStorePaymentStarsGiveaway <- R6::R6Class("InputStorePaymentStarsGiveaway",
   lock_objects = FALSE
 )
 
+#' @title InputStorePaymentStarsTopup
+#' @description Telegram API type \code{inputStorePaymentStarsTopup} (constructor \code{#f9a2a6cb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStorePaymentStarsTopup <- R6::R6Class("InputStorePaymentStarsTopup",
   inherit = TLObject,
   public = list(
@@ -26279,6 +28599,11 @@ InputStorePaymentStarsTopup <- R6::R6Class("InputStorePaymentStarsTopup",
   lock_objects = FALSE
 )
 
+#' @title InputTakeoutFileLocation
+#' @description Telegram API type \code{inputTakeoutFileLocation} (constructor \code{#29be5899}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputTakeoutFileLocation <- R6::R6Class("InputTakeoutFileLocation",
   inherit = TLObject,
   public = list(
@@ -26312,6 +28637,11 @@ InputTakeoutFileLocation <- R6::R6Class("InputTakeoutFileLocation",
   lock_objects = FALSE
 )
 
+#' @title InputTheme
+#' @description Telegram API type \code{inputTheme} (constructor \code{#3c5693e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputTheme <- R6::R6Class("InputTheme",
   inherit = TLObject,
   public = list(
@@ -26357,6 +28687,11 @@ InputTheme <- R6::R6Class("InputTheme",
   lock_objects = FALSE
 )
 
+#' @title InputThemeSettings
+#' @description Telegram API type \code{inputThemeSettings} (constructor \code{#8fde504f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputThemeSettings <- R6::R6Class("InputThemeSettings",
   inherit = TLObject,
   public = list(
@@ -26439,6 +28774,11 @@ InputThemeSettings <- R6::R6Class("InputThemeSettings",
   lock_objects = FALSE
 )
 
+#' @title InputThemeSlug
+#' @description Telegram API type \code{inputThemeSlug} (constructor \code{#f5890df1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputThemeSlug <- R6::R6Class("InputThemeSlug",
   inherit = TLObject,
   public = list(
@@ -26478,6 +28818,11 @@ InputThemeSlug <- R6::R6Class("InputThemeSlug",
   lock_objects = FALSE
 )
 
+#' @title InputUser
+#' @description Telegram API type \code{inputUser} (constructor \code{#f21158c6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputUser <- R6::R6Class("InputUser",
   inherit = TLObject,
   public = list(
@@ -26523,6 +28868,11 @@ InputUser <- R6::R6Class("InputUser",
   lock_objects = FALSE
 )
 
+#' @title InputUserEmpty
+#' @description Telegram API type \code{inputUserEmpty} (constructor \code{#b98886cf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputUserEmpty <- R6::R6Class("InputUserEmpty",
   inherit = TLObject,
   public = list(
@@ -26556,6 +28906,11 @@ InputUserEmpty <- R6::R6Class("InputUserEmpty",
   lock_objects = FALSE
 )
 
+#' @title InputUserFromMessage
+#' @description Telegram API type \code{inputUserFromMessage} (constructor \code{#1da448e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputUserFromMessage <- R6::R6Class("InputUserFromMessage",
   inherit = TLObject,
   public = list(
@@ -26607,6 +28962,11 @@ InputUserFromMessage <- R6::R6Class("InputUserFromMessage",
   lock_objects = FALSE
 )
 
+#' @title InputUserSelf
+#' @description Telegram API type \code{inputUserSelf} (constructor \code{#f7c1b13f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputUserSelf <- R6::R6Class("InputUserSelf",
   inherit = TLObject,
   public = list(
@@ -26640,6 +29000,11 @@ InputUserSelf <- R6::R6Class("InputUserSelf",
   lock_objects = FALSE
 )
 
+#' @title InputWallPaper
+#' @description Telegram API type \code{inputWallPaper} (constructor \code{#e630b979}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWallPaper <- R6::R6Class("InputWallPaper",
   inherit = TLObject,
   public = list(
@@ -26685,6 +29050,11 @@ InputWallPaper <- R6::R6Class("InputWallPaper",
   lock_objects = FALSE
 )
 
+#' @title InputWallPaperNoFile
+#' @description Telegram API type \code{inputWallPaperNoFile} (constructor \code{#967a462e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWallPaperNoFile <- R6::R6Class("InputWallPaperNoFile",
   inherit = TLObject,
   public = list(
@@ -26724,6 +29094,11 @@ InputWallPaperNoFile <- R6::R6Class("InputWallPaperNoFile",
   lock_objects = FALSE
 )
 
+#' @title InputWallPaperSlug
+#' @description Telegram API type \code{inputWallPaperSlug} (constructor \code{#72091c80}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWallPaperSlug <- R6::R6Class("InputWallPaperSlug",
   inherit = TLObject,
   public = list(
@@ -26763,6 +29138,11 @@ InputWallPaperSlug <- R6::R6Class("InputWallPaperSlug",
   lock_objects = FALSE
 )
 
+#' @title InputWebDocument
+#' @description Telegram API type \code{inputWebDocument} (constructor \code{#9bed434d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWebDocument <- R6::R6Class("InputWebDocument",
   inherit = TLObject,
   public = list(
@@ -26820,6 +29200,11 @@ InputWebDocument <- R6::R6Class("InputWebDocument",
   lock_objects = FALSE
 )
 
+#' @title InputWebFileAudioAlbumThumbLocation
+#' @description Telegram API type \code{inputWebFileAudioAlbumThumbLocation} (constructor \code{#f46fe924}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWebFileAudioAlbumThumbLocation <- R6::R6Class("InputWebFileAudioAlbumThumbLocation",
   inherit = TLObject,
   public = list(
@@ -26883,6 +29268,11 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class("InputWebFileAudioAlbumThumbL
   lock_objects = FALSE
 )
 
+#' @title InputWebFileGeoPointLocation
+#' @description Telegram API type \code{inputWebFileGeoPointLocation} (constructor \code{#9f2221c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWebFileGeoPointLocation <- R6::R6Class("InputWebFileGeoPointLocation",
   inherit = TLObject,
   public = list(
@@ -26952,6 +29342,11 @@ InputWebFileGeoPointLocation <- R6::R6Class("InputWebFileGeoPointLocation",
   lock_objects = FALSE
 )
 
+#' @title InputWebFileLocation
+#' @description Telegram API type \code{inputWebFileLocation} (constructor \code{#c239d686}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputWebFileLocation <- R6::R6Class("InputWebFileLocation",
   inherit = TLObject,
   public = list(
@@ -26997,6 +29392,11 @@ InputWebFileLocation <- R6::R6Class("InputWebFileLocation",
   lock_objects = FALSE
 )
 
+#' @title Invoice
+#' @description Telegram API type \code{invoice} (constructor \code{#049ee584}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Invoice <- R6::R6Class("Invoice",
   inherit = TLObject,
   public = list(
@@ -27209,11 +29609,11 @@ IpPortSecret <- R6::R6Class(
   )
 )
 
-#  @title JsonArray
-#  @description Telegram API type JsonArray
-#  @export
-#  @noRd
-#  @noRd
+#' @title JsonArray
+#' @description Telegram API type \code{jsonArray} (constructor \code{#f7444763}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonArray <- R6::R6Class("JsonArray",
   inherit = TLObject,
   public = list(
@@ -27253,6 +29653,11 @@ JsonArray <- R6::R6Class("JsonArray",
   lock_objects = FALSE
 )
 
+#' @title JsonBool
+#' @description Telegram API type \code{jsonBool} (constructor \code{#c7345e6a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonBool <- R6::R6Class("JsonBool",
   inherit = TLObject,
   public = list(
@@ -27292,6 +29697,11 @@ JsonBool <- R6::R6Class("JsonBool",
   lock_objects = FALSE
 )
 
+#' @title JsonNull
+#' @description Telegram API type \code{jsonNull} (constructor \code{#3f6d7b68}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonNull <- R6::R6Class("JsonNull",
   inherit = TLObject,
   public = list(
@@ -27325,6 +29735,11 @@ JsonNull <- R6::R6Class("JsonNull",
   lock_objects = FALSE
 )
 
+#' @title JsonNumber
+#' @description Telegram API type \code{jsonNumber} (constructor \code{#2be0dfa4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonNumber <- R6::R6Class("JsonNumber",
   inherit = TLObject,
   public = list(
@@ -27364,6 +29779,11 @@ JsonNumber <- R6::R6Class("JsonNumber",
   lock_objects = FALSE
 )
 
+#' @title JsonObject
+#' @description Telegram API type \code{jsonObject} (constructor \code{#99c1d49d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonObject <- R6::R6Class("JsonObject",
   inherit = TLObject,
   public = list(
@@ -27403,6 +29823,11 @@ JsonObject <- R6::R6Class("JsonObject",
   lock_objects = FALSE
 )
 
+#' @title JsonObjectValue
+#' @description Telegram API type \code{jsonObjectValue} (constructor \code{#c0de1bd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonObjectValue <- R6::R6Class("JsonObjectValue",
   inherit = TLObject,
   public = list(
@@ -27448,6 +29873,11 @@ JsonObjectValue <- R6::R6Class("JsonObjectValue",
   lock_objects = FALSE
 )
 
+#' @title JsonString
+#' @description Telegram API type \code{jsonString} (constructor \code{#b71e767a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JsonString <- R6::R6Class("JsonString",
   inherit = TLObject,
   public = list(
@@ -27487,6 +29917,11 @@ JsonString <- R6::R6Class("JsonString",
   lock_objects = FALSE
 )
 
+#' @title KeyboardButton
+#' @description Telegram API type \code{keyboardButton} (constructor \code{#2f67a72f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 KeyboardButton <- R6::R6Class("KeyboardButton",
   inherit = TLObject,
   public = list(
@@ -27824,11 +30259,11 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   )
 )
 
-#  @title KeyboardButtonRow
-#  @description Telegram API type KeyboardButtonRow
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonRow
+#' @description Telegram API type \code{keyboardButtonRow} (constructor \code{#77608b83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   inherit = TLObject,
   public = list(
@@ -28087,11 +30522,11 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   )
 )
 
-#  @title KeyboardButton
-#  @description Telegram API type KeyboardButton
-#  @export
-#  @noRd
-#  @noRd
+#' @title LabeledPrice
+#' @description Telegram API type \code{labeledPrice} (constructor \code{#cb296bf8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LabeledPrice <- R6::R6Class("LabeledPrice",
   inherit = TLObject,
   public = list(
@@ -28137,6 +30572,11 @@ LabeledPrice <- R6::R6Class("LabeledPrice",
   lock_objects = FALSE
 )
 
+#' @title LangPackDifference
+#' @description Telegram API type \code{langPackDifference} (constructor \code{#f385c1f6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LangPackDifference <- R6::R6Class("LangPackDifference",
   inherit = TLObject,
   public = list(
@@ -28194,6 +30634,11 @@ LangPackDifference <- R6::R6Class("LangPackDifference",
   lock_objects = FALSE
 )
 
+#' @title LangPackLanguage
+#' @description Telegram API type \code{langPackLanguage} (constructor \code{#eeca5ce3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LangPackLanguage <- R6::R6Class("LangPackLanguage",
   inherit = TLObject,
   public = list(
@@ -28297,6 +30742,11 @@ LangPackLanguage <- R6::R6Class("LangPackLanguage",
   lock_objects = FALSE
 )
 
+#' @title LangPackString
+#' @description Telegram API type \code{langPackString} (constructor \code{#cad181f6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LangPackString <- R6::R6Class("LangPackString",
   inherit = TLObject,
   public = list(
@@ -28342,6 +30792,11 @@ LangPackString <- R6::R6Class("LangPackString",
   lock_objects = FALSE
 )
 
+#' @title LangPackStringDeleted
+#' @description Telegram API type \code{langPackStringDeleted} (constructor \code{#2979eeb2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LangPackStringDeleted <- R6::R6Class("LangPackStringDeleted",
   inherit = TLObject,
   public = list(
@@ -28381,6 +30836,11 @@ LangPackStringDeleted <- R6::R6Class("LangPackStringDeleted",
   lock_objects = FALSE
 )
 
+#' @title LangPackStringPluralized
+#' @description Telegram API type \code{langPackStringPluralized} (constructor \code{#6c47ac9f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LangPackStringPluralized <- R6::R6Class("LangPackStringPluralized",
   inherit = TLObject,
   public = list(
@@ -28464,6 +30924,11 @@ LangPackStringPluralized <- R6::R6Class("LangPackStringPluralized",
   lock_objects = FALSE
 )
 
+#' @title MaskCoords
+#' @description Telegram API type \code{maskCoords} (constructor \code{#aed6dbb2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MaskCoords <- R6::R6Class("MaskCoords",
   inherit = TLObject,
   public = list(
@@ -28521,6 +30986,11 @@ MaskCoords <- R6::R6Class("MaskCoords",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaChannelPost
+#' @description Telegram API type \code{mediaAreaChannelPost} (constructor \code{#770416af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaChannelPost <- R6::R6Class("MediaAreaChannelPost",
   inherit = TLObject,
   public = list(
@@ -28572,6 +31042,11 @@ MediaAreaChannelPost <- R6::R6Class("MediaAreaChannelPost",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaCoordinates
+#' @description Telegram API type \code{mediaAreaCoordinates} (constructor \code{#cfc9e002}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaCoordinates <- R6::R6Class("MediaAreaCoordinates",
   inherit = TLObject,
   public = list(
@@ -28645,6 +31120,11 @@ MediaAreaCoordinates <- R6::R6Class("MediaAreaCoordinates",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaGeoPoint
+#' @description Telegram API type \code{mediaAreaGeoPoint} (constructor \code{#cad5452d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   inherit = TLObject,
   public = list(
@@ -28700,6 +31180,11 @@ MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaStarGift
+#' @description Telegram API type \code{mediaAreaStarGift} (constructor \code{#5787686d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   inherit = TLObject,
   public = list(
@@ -28745,6 +31230,11 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaSuggestedReaction
+#' @description Telegram API type \code{mediaAreaSuggestedReaction} (constructor \code{#14455871}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   inherit = TLObject,
   public = list(
@@ -28805,6 +31295,11 @@ MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaUrl
+#' @description Telegram API type \code{mediaAreaUrl} (constructor \code{#37381085}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   inherit = TLObject,
   public = list(
@@ -28850,6 +31345,11 @@ MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaVenue
+#' @description Telegram API type \code{mediaAreaVenue} (constructor \code{#be82db9c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   inherit = TLObject,
   public = list(
@@ -28925,6 +31425,11 @@ MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   lock_objects = FALSE
 )
 
+#' @title MediaAreaWeather
+#' @description Telegram API type \code{mediaAreaWeather} (constructor \code{#49a6549c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   inherit = TLObject,
   public = list(
@@ -28982,6 +31487,11 @@ MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   lock_objects = FALSE
 )
 
+#' @title Message
+#' @description Telegram API type \code{message} (constructor \code{#7600b9d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Message <- R6::R6Class("Message",
   inherit = TLObject,
   public = list(
@@ -29345,6 +31855,11 @@ Message <- R6::R6Class("Message",
   lock_objects = FALSE
 )
 
+#' @title MessageActionBoostApply
+#' @description Telegram API type \code{messageActionBoostApply} (constructor \code{#cc02aa6d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionBoostApply <- R6::R6Class("MessageActionBoostApply",
   inherit = TLObject,
   public = list(
@@ -29384,6 +31899,11 @@ MessageActionBoostApply <- R6::R6Class("MessageActionBoostApply",
   lock_objects = FALSE
 )
 
+#' @title MessageActionBotAllowed
+#' @description Telegram API type \code{messageActionBotAllowed} (constructor \code{#c516d679}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionBotAllowed <- R6::R6Class("MessageActionBotAllowed",
   inherit = TLObject,
   public = list(
@@ -29446,6 +31966,11 @@ MessageActionBotAllowed <- R6::R6Class("MessageActionBotAllowed",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChannelCreate
+#' @description Telegram API type \code{messageActionChannelCreate} (constructor \code{#95d2ac92}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
@@ -29485,6 +32010,11 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChannelMigrateFrom
+#' @description Telegram API type \code{messageActionChannelMigrateFrom} (constructor \code{#ea3948e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
@@ -29530,6 +32060,11 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatAddUser
+#' @description Telegram API type \code{messageActionChatAddUser} (constructor \code{#15cefd00}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
@@ -29569,6 +32104,11 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatCreate
+#' @description Telegram API type \code{messageActionChatCreate} (constructor \code{#bd47cbad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   inherit = TLObject,
   public = list(
@@ -29614,6 +32154,11 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatDeletePhoto
+#' @description Telegram API type \code{messageActionChatDeletePhoto} (constructor \code{#95e3fbef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
@@ -29647,6 +32192,11 @@ MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatDeleteUser
+#' @description Telegram API type \code{messageActionChatDeleteUser} (constructor \code{#a43f30cc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
@@ -29686,6 +32236,11 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatEditPhoto
+#' @description Telegram API type \code{messageActionChatEditPhoto} (constructor \code{#7fcb13a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
@@ -29725,6 +32280,11 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatEditTitle
+#' @description Telegram API type \code{messageActionChatEditTitle} (constructor \code{#b5a1ce5a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
@@ -29764,6 +32324,11 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatJoinedByLink
+#' @description Telegram API type \code{messageActionChatJoinedByLink} (constructor \code{#031224c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
@@ -29803,6 +32368,11 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatJoinedByRequest
+#' @description Telegram API type \code{messageActionChatJoinedByRequest} (constructor \code{#ebbca3cb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
@@ -29836,6 +32406,11 @@ MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByReques
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatMigrateTo
+#' @description Telegram API type \code{messageActionChatMigrateTo} (constructor \code{#e1037f92}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
@@ -29875,6 +32450,11 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   lock_objects = FALSE
 )
 
+#' @title MessageActionConferenceCall
+#' @description Telegram API type \code{messageActionConferenceCall} (constructor \code{#2ffe2f7a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
@@ -29949,6 +32529,11 @@ MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   lock_objects = FALSE
 )
 
+#' @title MessageActionContactSignUp
+#' @description Telegram API type \code{messageActionContactSignUp} (constructor \code{#f3f25f76}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
@@ -29982,6 +32567,11 @@ MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   lock_objects = FALSE
 )
 
+#' @title MessageActionCustomAction
+#' @description Telegram API type \code{messageActionCustomAction} (constructor \code{#fae69f56}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   inherit = TLObject,
   public = list(
@@ -30021,6 +32611,11 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   lock_objects = FALSE
 )
 
+#' @title MessageActionEmpty
+#' @description Telegram API type \code{messageActionEmpty} (constructor \code{#b6aef7b0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   inherit = TLObject,
   public = list(
@@ -30054,6 +32649,11 @@ MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGameScore
+#' @description Telegram API type \code{messageActionGameScore} (constructor \code{#92a72876}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   inherit = TLObject,
   public = list(
@@ -30099,6 +32699,11 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGeoProximityReached
+#' @description Telegram API type \code{messageActionGeoProximityReached} (constructor \code{#98e0d697}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
@@ -30150,6 +32755,11 @@ MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReache
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiftCode
+#' @description Telegram API type \code{messageActionGiftCode} (constructor \code{#31c48347}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiftCode <- R6::R6Class("MessageActionGiftCode",
   inherit = TLObject,
   public = list(
@@ -30252,6 +32862,11 @@ MessageActionGiftCode <- R6::R6Class("MessageActionGiftCode",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiftPremium
+#' @description Telegram API type \code{messageActionGiftPremium} (constructor \code{#48e91302}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiftPremium <- R6::R6Class("MessageActionGiftPremium",
   inherit = TLObject,
   public = list(
@@ -30327,6 +32942,11 @@ MessageActionGiftPremium <- R6::R6Class("MessageActionGiftPremium",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiftStars
+#' @description Telegram API type \code{messageActionGiftStars} (constructor \code{#45d5b021}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiftStars <- R6::R6Class("MessageActionGiftStars",
   inherit = TLObject,
   public = list(
@@ -30402,6 +33022,11 @@ MessageActionGiftStars <- R6::R6Class("MessageActionGiftStars",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiftTon
+#' @description Telegram API type \code{messageActionGiftTon} (constructor \code{#a8a3c699}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiftTon <- R6::R6Class("MessageActionGiftTon",
   inherit = TLObject,
   public = list(
@@ -30469,6 +33094,11 @@ MessageActionGiftTon <- R6::R6Class("MessageActionGiftTon",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiveawayLaunch
+#' @description Telegram API type \code{messageActionGiveawayLaunch} (constructor \code{#a80f51e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiveawayLaunch <- R6::R6Class("MessageActionGiveawayLaunch",
   inherit = TLObject,
   public = list(
@@ -30512,6 +33142,11 @@ MessageActionGiveawayLaunch <- R6::R6Class("MessageActionGiveawayLaunch",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGiveawayResults
+#' @description Telegram API type \code{messageActionGiveawayResults} (constructor \code{#87e2f155}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGiveawayResults <- R6::R6Class("MessageActionGiveawayResults",
   inherit = TLObject,
   public = list(
@@ -30566,6 +33201,11 @@ MessageActionGiveawayResults <- R6::R6Class("MessageActionGiveawayResults",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGroupCall
+#' @description Telegram API type \code{messageActionGroupCall} (constructor \code{#7a0d7f42}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGroupCall <- R6::R6Class("MessageActionGroupCall",
   inherit = TLObject,
   public = list(
@@ -30615,6 +33255,11 @@ MessageActionGroupCall <- R6::R6Class("MessageActionGroupCall",
   lock_objects = FALSE
 )
 
+#' @title MessageActionGroupCallScheduled
+#' @description Telegram API type \code{messageActionGroupCallScheduled} (constructor \code{#b3a07661}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionGroupCallScheduled <- R6::R6Class("MessageActionGroupCallScheduled",
   inherit = TLObject,
   public = list(
@@ -30660,6 +33305,11 @@ MessageActionGroupCallScheduled <- R6::R6Class("MessageActionGroupCallScheduled"
   lock_objects = FALSE
 )
 
+#' @title MessageActionHistoryClear
+#' @description Telegram API type \code{messageActionHistoryClear} (constructor \code{#9fbab604}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionHistoryClear <- R6::R6Class("MessageActionHistoryClear",
   inherit = TLObject,
   public = list(
@@ -30693,6 +33343,11 @@ MessageActionHistoryClear <- R6::R6Class("MessageActionHistoryClear",
   lock_objects = FALSE
 )
 
+#' @title MessageActionInviteToGroupCall
+#' @description Telegram API type \code{messageActionInviteToGroupCall} (constructor \code{#502f92f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionInviteToGroupCall <- R6::R6Class("MessageActionInviteToGroupCall",
   inherit = TLObject,
   public = list(
@@ -30738,6 +33393,11 @@ MessageActionInviteToGroupCall <- R6::R6Class("MessageActionInviteToGroupCall",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPaidMessagesPrice
+#' @description Telegram API type \code{messageActionPaidMessagesPrice} (constructor \code{#84b88578}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPaidMessagesPrice <- R6::R6Class("MessageActionPaidMessagesPrice",
   inherit = TLObject,
   public = list(
@@ -30786,6 +33446,11 @@ MessageActionPaidMessagesPrice <- R6::R6Class("MessageActionPaidMessagesPrice",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPaidMessagesRefunded
+#' @description Telegram API type \code{messageActionPaidMessagesRefunded} (constructor \code{#ac1f1fcd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPaidMessagesRefunded <- R6::R6Class("MessageActionPaidMessagesRefunded",
   inherit = TLObject,
   public = list(
@@ -30831,6 +33496,11 @@ MessageActionPaidMessagesRefunded <- R6::R6Class("MessageActionPaidMessagesRefun
   lock_objects = FALSE
 )
 
+#' @title MessageActionPaymentRefunded
+#' @description Telegram API type \code{messageActionPaymentRefunded} (constructor \code{#41b3e202}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPaymentRefunded <- R6::R6Class("MessageActionPaymentRefunded",
   inherit = TLObject,
   public = list(
@@ -30898,6 +33568,11 @@ MessageActionPaymentRefunded <- R6::R6Class("MessageActionPaymentRefunded",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPaymentSent
+#' @description Telegram API type \code{messageActionPaymentSent} (constructor \code{#c624b16e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPaymentSent <- R6::R6Class("MessageActionPaymentSent",
   inherit = TLObject,
   public = list(
@@ -30972,6 +33647,11 @@ MessageActionPaymentSent <- R6::R6Class("MessageActionPaymentSent",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPaymentSentMe
+#' @description Telegram API type \code{messageActionPaymentSentMe} (constructor \code{#ffa00ccc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPaymentSentMe <- R6::R6Class("MessageActionPaymentSentMe",
   inherit = TLObject,
   public = list(
@@ -31065,6 +33745,11 @@ MessageActionPaymentSentMe <- R6::R6Class("MessageActionPaymentSentMe",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPhoneCall
+#' @description Telegram API type \code{messageActionPhoneCall} (constructor \code{#80e11a7f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPhoneCall <- R6::R6Class("MessageActionPhoneCall",
   inherit = TLObject,
   public = list(
@@ -31127,6 +33812,11 @@ MessageActionPhoneCall <- R6::R6Class("MessageActionPhoneCall",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPinMessage
+#' @description Telegram API type \code{messageActionPinMessage} (constructor \code{#94bd38ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPinMessage <- R6::R6Class("MessageActionPinMessage",
   inherit = TLObject,
   public = list(
@@ -31160,6 +33850,11 @@ MessageActionPinMessage <- R6::R6Class("MessageActionPinMessage",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPrizeStars
+#' @description Telegram API type \code{messageActionPrizeStars} (constructor \code{#b00c47a2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPrizeStars <- R6::R6Class("MessageActionPrizeStars",
   inherit = TLObject,
   public = list(
@@ -31226,6 +33921,11 @@ MessageActionPrizeStars <- R6::R6Class("MessageActionPrizeStars",
   lock_objects = FALSE
 )
 
+#' @title MessageActionRequestedPeer
+#' @description Telegram API type \code{messageActionRequestedPeer} (constructor \code{#31518e9b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionRequestedPeer <- R6::R6Class("MessageActionRequestedPeer",
   inherit = TLObject,
   public = list(
@@ -31271,6 +33971,11 @@ MessageActionRequestedPeer <- R6::R6Class("MessageActionRequestedPeer",
   lock_objects = FALSE
 )
 
+#' @title MessageActionRequestedPeerSentMe
+#' @description Telegram API type \code{messageActionRequestedPeerSentMe} (constructor \code{#93b31848}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionRequestedPeerSentMe <- R6::R6Class("MessageActionRequestedPeerSentMe",
   inherit = TLObject,
   public = list(
@@ -31316,6 +34021,11 @@ MessageActionRequestedPeerSentMe <- R6::R6Class("MessageActionRequestedPeerSentM
   lock_objects = FALSE
 )
 
+#' @title MessageActionScreenshotTaken
+#' @description Telegram API type \code{messageActionScreenshotTaken} (constructor \code{#4792929b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionScreenshotTaken <- R6::R6Class("MessageActionScreenshotTaken",
   inherit = TLObject,
   public = list(
@@ -31349,6 +34059,11 @@ MessageActionScreenshotTaken <- R6::R6Class("MessageActionScreenshotTaken",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSecureValuesSent
+#' @description Telegram API type \code{messageActionSecureValuesSent} (constructor \code{#d95c6154}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSecureValuesSent <- R6::R6Class("MessageActionSecureValuesSent",
   inherit = TLObject,
   public = list(
@@ -31388,6 +34103,11 @@ MessageActionSecureValuesSent <- R6::R6Class("MessageActionSecureValuesSent",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSecureValuesSentMe
+#' @description Telegram API type \code{messageActionSecureValuesSentMe} (constructor \code{#1b287353}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSecureValuesSentMe <- R6::R6Class("MessageActionSecureValuesSentMe",
   inherit = TLObject,
   public = list(
@@ -31433,6 +34153,11 @@ MessageActionSecureValuesSentMe <- R6::R6Class("MessageActionSecureValuesSentMe"
   lock_objects = FALSE
 )
 
+#' @title MessageActionSetChatTheme
+#' @description Telegram API type \code{messageActionSetChatTheme} (constructor \code{#b91bbd3a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSetChatTheme <- R6::R6Class("MessageActionSetChatTheme",
   inherit = TLObject,
   public = list(
@@ -31472,6 +34197,11 @@ MessageActionSetChatTheme <- R6::R6Class("MessageActionSetChatTheme",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSetChatWallPaper
+#' @description Telegram API type \code{messageActionSetChatWallPaper} (constructor \code{#5060a3f4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSetChatWallPaper <- R6::R6Class("MessageActionSetChatWallPaper",
   inherit = TLObject,
   public = list(
@@ -31526,6 +34256,11 @@ MessageActionSetChatWallPaper <- R6::R6Class("MessageActionSetChatWallPaper",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSetMessagesTTL
+#' @description Telegram API type \code{messageActionSetMessagesTTL} (constructor \code{#3c134d7b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSetMessagesTTL <- R6::R6Class("MessageActionSetMessagesTTL",
   inherit = TLObject,
   public = list(
@@ -31575,6 +34310,11 @@ MessageActionSetMessagesTTL <- R6::R6Class("MessageActionSetMessagesTTL",
   lock_objects = FALSE
 )
 
+#' @title MessageActionStarGift
+#' @description Telegram API type \code{messageActionStarGift} (constructor \code{#ea2c31d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionStarGift <- R6::R6Class("MessageActionStarGift",
   inherit = TLObject,
   public = list(
@@ -31748,6 +34488,11 @@ MessageActionStarGift <- R6::R6Class("MessageActionStarGift",
   lock_objects = FALSE
 )
 
+#' @title MessageActionStarGiftUnique
+#' @description Telegram API type \code{messageActionStarGiftUnique} (constructor \code{#7e1c1187}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionStarGiftUnique <- R6::R6Class("MessageActionStarGiftUnique",
   inherit = TLObject,
   public = list(
@@ -31921,6 +34666,11 @@ MessageActionStarGiftUnique <- R6::R6Class("MessageActionStarGiftUnique",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSuggestProfilePhoto
+#' @description Telegram API type \code{messageActionSuggestProfilePhoto} (constructor \code{#57de635e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSuggestProfilePhoto <- R6::R6Class("MessageActionSuggestProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -31960,6 +34710,11 @@ MessageActionSuggestProfilePhoto <- R6::R6Class("MessageActionSuggestProfilePhot
   lock_objects = FALSE
 )
 
+#' @title MessageActionSuggestedPostApproval
+#' @description Telegram API type \code{messageActionSuggestedPostApproval} (constructor \code{#ee7a1596}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSuggestedPostApproval <- R6::R6Class("MessageActionSuggestedPostApproval",
   inherit = TLObject,
   public = list(
@@ -32029,6 +34784,11 @@ MessageActionSuggestedPostApproval <- R6::R6Class("MessageActionSuggestedPostApp
   lock_objects = FALSE
 )
 
+#' @title MessageActionSuggestedPostRefund
+#' @description Telegram API type \code{messageActionSuggestedPostRefund} (constructor \code{#69f916f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSuggestedPostRefund <- R6::R6Class("MessageActionSuggestedPostRefund",
   inherit = TLObject,
   public = list(
@@ -32071,6 +34831,11 @@ MessageActionSuggestedPostRefund <- R6::R6Class("MessageActionSuggestedPostRefun
   lock_objects = FALSE
 )
 
+#' @title MessageActionSuggestedPostSuccess
+#' @description Telegram API type \code{messageActionSuggestedPostSuccess} (constructor \code{#95ddcf69}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSuggestedPostSuccess <- R6::R6Class("MessageActionSuggestedPostSuccess",
   inherit = TLObject,
   public = list(
@@ -32110,6 +34875,11 @@ MessageActionSuggestedPostSuccess <- R6::R6Class("MessageActionSuggestedPostSucc
   lock_objects = FALSE
 )
 
+#' @title MessageActionTodoAppendTasks
+#' @description Telegram API type \code{messageActionTodoAppendTasks} (constructor \code{#c7edbc83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionTodoAppendTasks <- R6::R6Class("MessageActionTodoAppendTasks",
   inherit = TLObject,
   public = list(
@@ -32149,6 +34919,11 @@ MessageActionTodoAppendTasks <- R6::R6Class("MessageActionTodoAppendTasks",
   lock_objects = FALSE
 )
 
+#' @title MessageActionTodoCompletions
+#' @description Telegram API type \code{messageActionTodoCompletions} (constructor \code{#cc7c5c89}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionTodoCompletions <- R6::R6Class("MessageActionTodoCompletions",
   inherit = TLObject,
   public = list(
@@ -32194,6 +34969,11 @@ MessageActionTodoCompletions <- R6::R6Class("MessageActionTodoCompletions",
   lock_objects = FALSE
 )
 
+#' @title MessageActionTopicCreate
+#' @description Telegram API type \code{messageActionTopicCreate} (constructor \code{#0d999256}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionTopicCreate <- R6::R6Class("MessageActionTopicCreate",
   inherit = TLObject,
   public = list(
@@ -32255,6 +35035,11 @@ MessageActionTopicCreate <- R6::R6Class("MessageActionTopicCreate",
   lock_objects = FALSE
 )
 
+#' @title MessageActionTopicEdit
+#' @description Telegram API type \code{messageActionTopicEdit} (constructor \code{#c0944820}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionTopicEdit <- R6::R6Class("MessageActionTopicEdit",
   inherit = TLObject,
   public = list(
@@ -32319,6 +35104,11 @@ MessageActionTopicEdit <- R6::R6Class("MessageActionTopicEdit",
   lock_objects = FALSE
 )
 
+#' @title MessageActionWebViewDataSent
+#' @description Telegram API type \code{messageActionWebViewDataSent} (constructor \code{#b4c38cb5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionWebViewDataSent <- R6::R6Class("MessageActionWebViewDataSent",
   inherit = TLObject,
   public = list(
@@ -32358,6 +35148,11 @@ MessageActionWebViewDataSent <- R6::R6Class("MessageActionWebViewDataSent",
   lock_objects = FALSE
 )
 
+#' @title MessageActionWebViewDataSentMe
+#' @description Telegram API type \code{messageActionWebViewDataSentMe} (constructor \code{#47dd8079}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionWebViewDataSentMe <- R6::R6Class("MessageActionWebViewDataSentMe",
   inherit = TLObject,
   public = list(
@@ -32403,6 +35198,11 @@ MessageActionWebViewDataSentMe <- R6::R6Class("MessageActionWebViewDataSentMe",
   lock_objects = FALSE
 )
 
+#' @title MessageEmpty
+#' @description Telegram API type \code{messageEmpty} (constructor \code{#90a6ca84}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEmpty <- R6::R6Class("MessageEmpty",
   inherit = TLObject,
   public = list(
@@ -32452,6 +35252,11 @@ MessageEmpty <- R6::R6Class("MessageEmpty",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityBankCard
+#' @description Telegram API type \code{messageEntityBankCard} (constructor \code{#761e6af4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityBankCard <- R6::R6Class("MessageEntityBankCard",
   inherit = TLObject,
   public = list(
@@ -32497,6 +35302,11 @@ MessageEntityBankCard <- R6::R6Class("MessageEntityBankCard",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityBlockquote
+#' @description Telegram API type \code{messageEntityBlockquote} (constructor \code{#f1ccaaac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityBlockquote <- R6::R6Class("MessageEntityBlockquote",
   inherit = TLObject,
   public = list(
@@ -32551,6 +35361,11 @@ MessageEntityBlockquote <- R6::R6Class("MessageEntityBlockquote",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityBold
+#' @description Telegram API type \code{messageEntityBold} (constructor \code{#bd610bc9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityBold <- R6::R6Class("MessageEntityBold",
   inherit = TLObject,
   public = list(
@@ -32596,6 +35411,11 @@ MessageEntityBold <- R6::R6Class("MessageEntityBold",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityBotCommand
+#' @description Telegram API type \code{messageEntityBotCommand} (constructor \code{#6cef8ac7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityBotCommand <- R6::R6Class("MessageEntityBotCommand",
   inherit = TLObject,
   public = list(
@@ -32641,6 +35461,11 @@ MessageEntityBotCommand <- R6::R6Class("MessageEntityBotCommand",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityCashtag
+#' @description Telegram API type \code{messageEntityCashtag} (constructor \code{#4c4e743f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityCashtag <- R6::R6Class("MessageEntityCashtag",
   inherit = TLObject,
   public = list(
@@ -32686,6 +35511,11 @@ MessageEntityCashtag <- R6::R6Class("MessageEntityCashtag",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityCode
+#' @description Telegram API type \code{messageEntityCode} (constructor \code{#28a20571}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityCode <- R6::R6Class("MessageEntityCode",
   inherit = TLObject,
   public = list(
@@ -32731,6 +35561,11 @@ MessageEntityCode <- R6::R6Class("MessageEntityCode",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityCustomEmoji
+#' @description Telegram API type \code{messageEntityCustomEmoji} (constructor \code{#c8cf05f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityCustomEmoji <- R6::R6Class("MessageEntityCustomEmoji",
   inherit = TLObject,
   public = list(
@@ -32782,6 +35617,11 @@ MessageEntityCustomEmoji <- R6::R6Class("MessageEntityCustomEmoji",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityEmail
+#' @description Telegram API type \code{messageEntityEmail} (constructor \code{#64e475c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityEmail <- R6::R6Class("MessageEntityEmail",
   inherit = TLObject,
   public = list(
@@ -32827,6 +35667,11 @@ MessageEntityEmail <- R6::R6Class("MessageEntityEmail",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityHashtag
+#' @description Telegram API type \code{messageEntityHashtag} (constructor \code{#6f635b0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityHashtag <- R6::R6Class("MessageEntityHashtag",
   inherit = TLObject,
   public = list(
@@ -32872,6 +35717,11 @@ MessageEntityHashtag <- R6::R6Class("MessageEntityHashtag",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityItalic
+#' @description Telegram API type \code{messageEntityItalic} (constructor \code{#826f8b60}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityItalic <- R6::R6Class("MessageEntityItalic",
   inherit = TLObject,
   public = list(
@@ -32917,6 +35767,11 @@ MessageEntityItalic <- R6::R6Class("MessageEntityItalic",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityMention
+#' @description Telegram API type \code{messageEntityMention} (constructor \code{#fa04579d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityMention <- R6::R6Class("MessageEntityMention",
   inherit = TLObject,
   public = list(
@@ -32962,6 +35817,11 @@ MessageEntityMention <- R6::R6Class("MessageEntityMention",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityMentionName
+#' @description Telegram API type \code{messageEntityMentionName} (constructor \code{#dc7b1140}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityMentionName <- R6::R6Class("MessageEntityMentionName",
   inherit = TLObject,
   public = list(
@@ -33013,6 +35873,11 @@ MessageEntityMentionName <- R6::R6Class("MessageEntityMentionName",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityPhone
+#' @description Telegram API type \code{messageEntityPhone} (constructor \code{#9b69e34b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityPhone <- R6::R6Class("MessageEntityPhone",
   inherit = TLObject,
   public = list(
@@ -33058,6 +35923,11 @@ MessageEntityPhone <- R6::R6Class("MessageEntityPhone",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityPre
+#' @description Telegram API type \code{messageEntityPre} (constructor \code{#73924be0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityPre <- R6::R6Class("MessageEntityPre",
   inherit = TLObject,
   public = list(
@@ -33109,6 +35979,11 @@ MessageEntityPre <- R6::R6Class("MessageEntityPre",
   lock_objects = FALSE
 )
 
+#' @title MessageEntitySpoiler
+#' @description Telegram API type \code{messageEntitySpoiler} (constructor \code{#32ca960f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntitySpoiler <- R6::R6Class("MessageEntitySpoiler",
   inherit = TLObject,
   public = list(
@@ -33154,6 +36029,11 @@ MessageEntitySpoiler <- R6::R6Class("MessageEntitySpoiler",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityStrike
+#' @description Telegram API type \code{messageEntityStrike} (constructor \code{#bf0693d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityStrike <- R6::R6Class("MessageEntityStrike",
   inherit = TLObject,
   public = list(
@@ -33199,6 +36079,11 @@ MessageEntityStrike <- R6::R6Class("MessageEntityStrike",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityTextUrl
+#' @description Telegram API type \code{messageEntityTextUrl} (constructor \code{#76a6d327}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityTextUrl <- R6::R6Class("MessageEntityTextUrl",
   inherit = TLObject,
   public = list(
@@ -33250,6 +36135,11 @@ MessageEntityTextUrl <- R6::R6Class("MessageEntityTextUrl",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityUnderline
+#' @description Telegram API type \code{messageEntityUnderline} (constructor \code{#9c4e7e8b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityUnderline <- R6::R6Class("MessageEntityUnderline",
   inherit = TLObject,
   public = list(
@@ -33295,6 +36185,11 @@ MessageEntityUnderline <- R6::R6Class("MessageEntityUnderline",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityUnknown
+#' @description Telegram API type \code{messageEntityUnknown} (constructor \code{#bb92ba95}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityUnknown <- R6::R6Class("MessageEntityUnknown",
   inherit = TLObject,
   public = list(
@@ -33340,6 +36235,11 @@ MessageEntityUnknown <- R6::R6Class("MessageEntityUnknown",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityUrl
+#' @description Telegram API type \code{messageEntityUrl} (constructor \code{#6ed02538}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityUrl <- R6::R6Class("MessageEntityUrl",
   inherit = TLObject,
   public = list(
@@ -33385,6 +36285,11 @@ MessageEntityUrl <- R6::R6Class("MessageEntityUrl",
   lock_objects = FALSE
 )
 
+#' @title MessageExtendedMedia
+#' @description Telegram API type \code{messageExtendedMedia} (constructor \code{#ee479c64}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageExtendedMedia <- R6::R6Class("MessageExtendedMedia",
   inherit = TLObject,
   public = list(
@@ -33424,6 +36329,11 @@ MessageExtendedMedia <- R6::R6Class("MessageExtendedMedia",
   lock_objects = FALSE
 )
 
+#' @title MessageExtendedMediaPreview
+#' @description Telegram API type \code{messageExtendedMediaPreview} (constructor \code{#ad628cc8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageExtendedMediaPreview <- R6::R6Class("MessageExtendedMediaPreview",
   inherit = TLObject,
   public = list(
@@ -33488,6 +36398,11 @@ MessageExtendedMediaPreview <- R6::R6Class("MessageExtendedMediaPreview",
   lock_objects = FALSE
 )
 
+#' @title MessageFwdHeader
+#' @description Telegram API type \code{messageFwdHeader} (constructor \code{#4e4df4bb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageFwdHeader <- R6::R6Class("MessageFwdHeader",
   inherit = TLObject,
   public = list(
@@ -33612,6 +36527,11 @@ MessageFwdHeader <- R6::R6Class("MessageFwdHeader",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaContact
+#' @description Telegram API type \code{messageMediaContact} (constructor \code{#70322949}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaContact <- R6::R6Class("MessageMediaContact",
   inherit = TLObject,
   public = list(
@@ -33675,6 +36595,11 @@ MessageMediaContact <- R6::R6Class("MessageMediaContact",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaDice
+#' @description Telegram API type \code{messageMediaDice} (constructor \code{#08cbec07}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaDice <- R6::R6Class("MessageMediaDice",
   inherit = TLObject,
   public = list(
@@ -33730,6 +36655,11 @@ MessageMediaDice <- R6::R6Class("MessageMediaDice",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaDocument
+#' @description Telegram API type \code{messageMediaDocument} (constructor \code{#52d8ccd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaDocument <- R6::R6Class("MessageMediaDocument",
   inherit = TLObject,
   public = list(
@@ -33831,6 +36761,11 @@ MessageMediaDocument <- R6::R6Class("MessageMediaDocument",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaEmpty
+#' @description Telegram API type \code{messageMediaEmpty} (constructor \code{#3ded6320}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaEmpty <- R6::R6Class("MessageMediaEmpty",
   inherit = TLObject,
   public = list(
@@ -33864,6 +36799,11 @@ MessageMediaEmpty <- R6::R6Class("MessageMediaEmpty",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaGame
+#' @description Telegram API type \code{messageMediaGame} (constructor \code{#fdb19008}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaGame <- R6::R6Class("MessageMediaGame",
   inherit = TLObject,
   public = list(
@@ -33903,6 +36843,11 @@ MessageMediaGame <- R6::R6Class("MessageMediaGame",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaGeo
+#' @description Telegram API type \code{messageMediaGeo} (constructor \code{#56e0d474}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaGeo <- R6::R6Class("MessageMediaGeo",
   inherit = TLObject,
   public = list(
@@ -33942,6 +36887,11 @@ MessageMediaGeo <- R6::R6Class("MessageMediaGeo",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaGeoLive
+#' @description Telegram API type \code{messageMediaGeoLive} (constructor \code{#b940c666}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaGeoLive <- R6::R6Class("MessageMediaGeoLive",
   inherit = TLObject,
   public = list(
@@ -34004,6 +36954,11 @@ MessageMediaGeoLive <- R6::R6Class("MessageMediaGeoLive",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaGiveaway
+#' @description Telegram API type \code{messageMediaGiveaway} (constructor \code{#aa073beb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaGiveaway <- R6::R6Class("MessageMediaGiveaway",
   inherit = TLObject,
   public = list(
@@ -34098,6 +37053,11 @@ MessageMediaGiveaway <- R6::R6Class("MessageMediaGiveaway",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaGiveawayResults
+#' @description Telegram API type \code{messageMediaGiveawayResults} (constructor \code{#ceaa3ea1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaGiveawayResults <- R6::R6Class("MessageMediaGiveawayResults",
   inherit = TLObject,
   public = list(
@@ -34210,6 +37170,11 @@ MessageMediaGiveawayResults <- R6::R6Class("MessageMediaGiveawayResults",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaInvoice
+#' @description Telegram API type \code{messageMediaInvoice} (constructor \code{#f6a548d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaInvoice <- R6::R6Class("MessageMediaInvoice",
   inherit = TLObject,
   public = list(
@@ -34309,6 +37274,11 @@ MessageMediaInvoice <- R6::R6Class("MessageMediaInvoice",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaPaidMedia
+#' @description Telegram API type \code{messageMediaPaidMedia} (constructor \code{#a8852491}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaPaidMedia <- R6::R6Class("MessageMediaPaidMedia",
   inherit = TLObject,
   public = list(
@@ -34354,6 +37324,11 @@ MessageMediaPaidMedia <- R6::R6Class("MessageMediaPaidMedia",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaPhoto
+#' @description Telegram API type \code{messageMediaPhoto} (constructor \code{#e216eb63}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaPhoto <- R6::R6Class("MessageMediaPhoto",
   inherit = TLObject,
   public = list(
@@ -34423,6 +37398,11 @@ MessageMediaPhoto <- R6::R6Class("MessageMediaPhoto",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaPoll
+#' @description Telegram API type \code{messageMediaPoll} (constructor \code{#773f4e66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaPoll <- R6::R6Class("MessageMediaPoll",
   inherit = TLObject,
   public = list(
@@ -34478,6 +37458,11 @@ MessageMediaPoll <- R6::R6Class("MessageMediaPoll",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaStory
+#' @description Telegram API type \code{messageMediaStory} (constructor \code{#68cb6283}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaStory <- R6::R6Class("MessageMediaStory",
   inherit = TLObject,
   public = list(
@@ -34539,6 +37524,11 @@ MessageMediaStory <- R6::R6Class("MessageMediaStory",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaToDo
+#' @description Telegram API type \code{messageMediaToDo} (constructor \code{#8a53b014}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaToDo <- R6::R6Class("MessageMediaToDo",
   inherit = TLObject,
   public = list(
@@ -34588,6 +37578,11 @@ MessageMediaToDo <- R6::R6Class("MessageMediaToDo",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaUnsupported
+#' @description Telegram API type \code{messageMediaUnsupported} (constructor \code{#9f84f49e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaUnsupported <- R6::R6Class("MessageMediaUnsupported",
   inherit = TLObject,
   public = list(
@@ -34621,6 +37616,11 @@ MessageMediaUnsupported <- R6::R6Class("MessageMediaUnsupported",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaVenue
+#' @description Telegram API type \code{messageMediaVenue} (constructor \code{#2ec0533f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaVenue <- R6::R6Class("MessageMediaVenue",
   inherit = TLObject,
   public = list(
@@ -34690,6 +37690,11 @@ MessageMediaVenue <- R6::R6Class("MessageMediaVenue",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaWebPage
+#' @description Telegram API type \code{messageMediaWebPage} (constructor \code{#ddf10c3b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaWebPage <- R6::R6Class("MessageMediaWebPage",
   inherit = TLObject,
   public = list(
@@ -34756,6 +37761,11 @@ MessageMediaWebPage <- R6::R6Class("MessageMediaWebPage",
   lock_objects = FALSE
 )
 
+#' @title MessagePeerReaction
+#' @description Telegram API type \code{messagePeerReaction} (constructor \code{#8c79b63c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagePeerReaction <- R6::R6Class("MessagePeerReaction",
   inherit = TLObject,
   public = list(
@@ -34828,6 +37838,11 @@ MessagePeerReaction <- R6::R6Class("MessagePeerReaction",
   lock_objects = FALSE
 )
 
+#' @title MessagePeerVote
+#' @description Telegram API type \code{messagePeerVote} (constructor \code{#b6cc2d5c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagePeerVote <- R6::R6Class("MessagePeerVote",
   inherit = TLObject,
   public = list(
@@ -34879,6 +37894,11 @@ MessagePeerVote <- R6::R6Class("MessagePeerVote",
   lock_objects = FALSE
 )
 
+#' @title MessagePeerVoteInputOption
+#' @description Telegram API type \code{messagePeerVoteInputOption} (constructor \code{#74cda504}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagePeerVoteInputOption <- R6::R6Class("MessagePeerVoteInputOption",
   inherit = TLObject,
   public = list(
@@ -34924,6 +37944,11 @@ MessagePeerVoteInputOption <- R6::R6Class("MessagePeerVoteInputOption",
   lock_objects = FALSE
 )
 
+#' @title MessagePeerVoteMultiple
+#' @description Telegram API type \code{messagePeerVoteMultiple} (constructor \code{#4628f6e6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagePeerVoteMultiple <- R6::R6Class("MessagePeerVoteMultiple",
   inherit = TLObject,
   public = list(
@@ -34975,6 +38000,11 @@ MessagePeerVoteMultiple <- R6::R6Class("MessagePeerVoteMultiple",
   lock_objects = FALSE
 )
 
+#' @title MessageRange
+#' @description Telegram API type \code{messageRange} (constructor \code{#0ae30253}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageRange <- R6::R6Class("MessageRange",
   inherit = TLObject,
   public = list(
@@ -35020,6 +38050,11 @@ MessageRange <- R6::R6Class("MessageRange",
   lock_objects = FALSE
 )
 
+#' @title MessageReactions
+#' @description Telegram API type \code{messageReactions} (constructor \code{#0a339f0b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReactions <- R6::R6Class("MessageReactions",
   inherit = TLObject,
   public = list(
@@ -35094,6 +38129,11 @@ MessageReactions <- R6::R6Class("MessageReactions",
   lock_objects = FALSE
 )
 
+#' @title MessageReactor
+#' @description Telegram API type \code{messageReactor} (constructor \code{#4ba3a95a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReactor <- R6::R6Class("MessageReactor",
   inherit = TLObject,
   public = list(
@@ -35161,6 +38201,11 @@ MessageReactor <- R6::R6Class("MessageReactor",
   lock_objects = FALSE
 )
 
+#' @title MessageReplies
+#' @description Telegram API type \code{messageReplies} (constructor \code{#83d60fc2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReplies <- R6::R6Class("MessageReplies",
   inherit = TLObject,
   public = list(
@@ -35243,6 +38288,11 @@ MessageReplies <- R6::R6Class("MessageReplies",
   lock_objects = FALSE
 )
 
+#' @title MessageReplyHeader
+#' @description Telegram API type \code{messageReplyHeader} (constructor \code{#1b97dd66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReplyHeader <- R6::R6Class("MessageReplyHeader",
   inherit = TLObject,
   public = list(
@@ -35373,6 +38423,11 @@ MessageReplyHeader <- R6::R6Class("MessageReplyHeader",
   lock_objects = FALSE
 )
 
+#' @title MessageReplyStoryHeader
+#' @description Telegram API type \code{messageReplyStoryHeader} (constructor \code{#0e5af939}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReplyStoryHeader <- R6::R6Class("MessageReplyStoryHeader",
   inherit = TLObject,
   public = list(
@@ -35418,6 +38473,11 @@ MessageReplyStoryHeader <- R6::R6Class("MessageReplyStoryHeader",
   lock_objects = FALSE
 )
 
+#' @title MessageReportOption
+#' @description Telegram API type \code{messageReportOption} (constructor \code{#7903e3d9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReportOption <- R6::R6Class("MessageReportOption",
   inherit = TLObject,
   public = list(
@@ -35463,6 +38523,11 @@ MessageReportOption <- R6::R6Class("MessageReportOption",
   lock_objects = FALSE
 )
 
+#' @title MessageService
+#' @description Telegram API type \code{messageService} (constructor \code{#7a800e0a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageService <- R6::R6Class("MessageService",
   inherit = TLObject,
   public = list(
@@ -35600,6 +38665,11 @@ MessageService <- R6::R6Class("MessageService",
   lock_objects = FALSE
 )
 
+#' @title MessageViews
+#' @description Telegram API type \code{messageViews} (constructor \code{#455b853d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageViews <- R6::R6Class("MessageViews",
   inherit = TLObject,
   public = list(
@@ -35657,6 +38727,11 @@ MessageViews <- R6::R6Class("MessageViews",
   lock_objects = FALSE
 )
 
+#' @title MissingInvitee
+#' @description Telegram API type \code{missingInvitee} (constructor \code{#628c9224}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MissingInvitee <- R6::R6Class("MissingInvitee",
   inherit = TLObject,
   public = list(
@@ -35711,6 +38786,11 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
   lock_objects = FALSE
 )
 
+#' @title MonoForumDialog
+#' @description Telegram API type \code{monoForumDialog} (constructor \code{#64407ea7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MonoForumDialog <- R6::R6Class("MonoForumDialog",
   inherit = TLObject,
   public = list(
@@ -36059,11 +39139,11 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
   class = TRUE
 )
 
-#  @title MyBoost
-#  @description Telegram API type MyBoost
-#  @export
-#  @noRd
-#  @noRd
+#' @title MyBoost
+#' @description Telegram API type \code{myBoost} (constructor \code{#c448415c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MyBoost <- R6::R6Class("MyBoost",
   inherit = TLObject,
   public = list(
@@ -36132,6 +39212,11 @@ MyBoost <- R6::R6Class("MyBoost",
   lock_objects = FALSE
 )
 
+#' @title NearestDc
+#' @description Telegram API type \code{nearestDc} (constructor \code{#8e1a1775}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NearestDc <- R6::R6Class("NearestDc",
   inherit = TLObject,
   public = list(
@@ -36213,11 +39298,11 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
   class = TRUE
 )
 
-#  @title NotificationSoundDefault
-#  @description Telegram API type NotificationSoundDefault
-#  @export
-#  @noRd
-#  @noRd
+#' @title NotificationSoundDefault
+#' @description Telegram API type \code{notificationSoundDefault} (constructor \code{#97e8bebe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   inherit = TLObject,
   public = list(
@@ -36251,6 +39336,11 @@ NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   lock_objects = FALSE
 )
 
+#' @title NotificationSoundLocal
+#' @description Telegram API type \code{notificationSoundLocal} (constructor \code{#830b9ae4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   inherit = TLObject,
   public = list(
@@ -36296,6 +39386,11 @@ NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   lock_objects = FALSE
 )
 
+#' @title NotificationSoundNone
+#' @description Telegram API type \code{notificationSoundNone} (constructor \code{#6f0c34df}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   inherit = TLObject,
   public = list(
@@ -36329,6 +39424,11 @@ NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   lock_objects = FALSE
 )
 
+#' @title NotificationSoundRingtone
+#' @description Telegram API type \code{notificationSoundRingtone} (constructor \code{#ff6c8049}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   inherit = TLObject,
   public = list(
@@ -36368,6 +39468,11 @@ NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   lock_objects = FALSE
 )
 
+#' @title NotifyBroadcasts
+#' @description Telegram API type \code{notifyBroadcasts} (constructor \code{#d612e8ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   inherit = TLObject,
   public = list(
@@ -36401,6 +39506,11 @@ NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   lock_objects = FALSE
 )
 
+#' @title NotifyChats
+#' @description Telegram API type \code{notifyChats} (constructor \code{#c007cec3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyChats <- R6::R6Class("NotifyChats",
   inherit = TLObject,
   public = list(
@@ -36434,6 +39544,11 @@ NotifyChats <- R6::R6Class("NotifyChats",
   lock_objects = FALSE
 )
 
+#' @title NotifyForumTopic
+#' @description Telegram API type \code{notifyForumTopic} (constructor \code{#226e6308}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   inherit = TLObject,
   public = list(
@@ -36479,6 +39594,11 @@ NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   lock_objects = FALSE
 )
 
+#' @title NotifyPeer
+#' @description Telegram API type \code{notifyPeer} (constructor \code{#9fd40bd8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyPeer <- R6::R6Class("NotifyPeer",
   inherit = TLObject,
   public = list(
@@ -36518,6 +39638,11 @@ NotifyPeer <- R6::R6Class("NotifyPeer",
   lock_objects = FALSE
 )
 
+#' @title NotifyUsers
+#' @description Telegram API type \code{notifyUsers} (constructor \code{#b4c83b4c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyUsers <- R6::R6Class("NotifyUsers",
   inherit = TLObject,
   public = list(
@@ -36551,6 +39676,11 @@ NotifyUsers <- R6::R6Class("NotifyUsers",
   lock_objects = FALSE
 )
 
+#' @title OutboxReadDate
+#' @description Telegram API type \code{outboxReadDate} (constructor \code{#3bb842ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 OutboxReadDate <- R6::R6Class("OutboxReadDate",
   inherit = TLObject,
   public = list(
@@ -36771,11 +39901,11 @@ PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   class = TRUE
 )
 
-#  @title PQInnerDataTempDc
-#  @description Telegram API type PQInnerDataTempDc
-#  @export
-#  @noRd
-#  @noRd
+#' @title Page
+#' @description Telegram API type \code{page} (constructor \code{#98657f0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Page <- R6::R6Class("Page",
   inherit = TLObject,
   public = list(
@@ -36861,6 +39991,11 @@ Page <- R6::R6Class("Page",
   lock_objects = FALSE
 )
 
+#' @title PageBlockAnchor
+#' @description Telegram API type \code{pageBlockAnchor} (constructor \code{#ce0d37b0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockAnchor <- R6::R6Class("PageBlockAnchor",
   inherit = TLObject,
   public = list(
@@ -36900,6 +40035,11 @@ PageBlockAnchor <- R6::R6Class("PageBlockAnchor",
   lock_objects = FALSE
 )
 
+#' @title PageBlockAudio
+#' @description Telegram API type \code{pageBlockAudio} (constructor \code{#804361ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockAudio <- R6::R6Class("PageBlockAudio",
   inherit = TLObject,
   public = list(
@@ -36945,6 +40085,11 @@ PageBlockAudio <- R6::R6Class("PageBlockAudio",
   lock_objects = FALSE
 )
 
+#' @title PageBlockAuthorDate
+#' @description Telegram API type \code{pageBlockAuthorDate} (constructor \code{#baafe5e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockAuthorDate <- R6::R6Class("PageBlockAuthorDate",
   inherit = TLObject,
   public = list(
@@ -36990,6 +40135,11 @@ PageBlockAuthorDate <- R6::R6Class("PageBlockAuthorDate",
   lock_objects = FALSE
 )
 
+#' @title PageBlockBlockquote
+#' @description Telegram API type \code{pageBlockBlockquote} (constructor \code{#66d1670b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockBlockquote <- R6::R6Class("PageBlockBlockquote",
   inherit = TLObject,
   public = list(
@@ -37044,6 +40194,11 @@ PageBlockBlockquote <- R6::R6Class("PageBlockBlockquote",
   lock_objects = FALSE
 )
 
+#' @title PageBlockChannel
+#' @description Telegram API type \code{pageBlockChannel} (constructor \code{#ef1751b5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockChannel <- R6::R6Class("PageBlockChannel",
   inherit = TLObject,
   public = list(
@@ -37083,6 +40238,11 @@ PageBlockChannel <- R6::R6Class("PageBlockChannel",
   lock_objects = FALSE
 )
 
+#' @title PageBlockCollage
+#' @description Telegram API type \code{pageBlockCollage} (constructor \code{#65a0fa4d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockCollage <- R6::R6Class("PageBlockCollage",
   inherit = TLObject,
   public = list(
@@ -37128,6 +40288,11 @@ PageBlockCollage <- R6::R6Class("PageBlockCollage",
   lock_objects = FALSE
 )
 
+#' @title PageBlockCover
+#' @description Telegram API type \code{pageBlockCover} (constructor \code{#39f23300}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockCover <- R6::R6Class("PageBlockCover",
   inherit = TLObject,
   public = list(
@@ -37167,6 +40332,11 @@ PageBlockCover <- R6::R6Class("PageBlockCover",
   lock_objects = FALSE
 )
 
+#' @title PageBlockDetails
+#' @description Telegram API type \code{pageBlockDetails} (constructor \code{#76768bed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockDetails <- R6::R6Class("PageBlockDetails",
   inherit = TLObject,
   public = list(
@@ -37221,6 +40391,11 @@ PageBlockDetails <- R6::R6Class("PageBlockDetails",
   lock_objects = FALSE
 )
 
+#' @title PageBlockDivider
+#' @description Telegram API type \code{pageBlockDivider} (constructor \code{#db20b188}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockDivider <- R6::R6Class("PageBlockDivider",
   inherit = TLObject,
   public = list(
@@ -37254,6 +40429,11 @@ PageBlockDivider <- R6::R6Class("PageBlockDivider",
   lock_objects = FALSE
 )
 
+#' @title PageBlockEmbed
+#' @description Telegram API type \code{pageBlockEmbed} (constructor \code{#a8718dc5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockEmbed <- R6::R6Class("PageBlockEmbed",
   inherit = TLObject,
   public = list(
@@ -37343,6 +40523,11 @@ PageBlockEmbed <- R6::R6Class("PageBlockEmbed",
   lock_objects = FALSE
 )
 
+#' @title PageBlockEmbedPost
+#' @description Telegram API type \code{pageBlockEmbedPost} (constructor \code{#f259a80b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockEmbedPost <- R6::R6Class("PageBlockEmbedPost",
   inherit = TLObject,
   public = list(
@@ -37418,6 +40603,11 @@ PageBlockEmbedPost <- R6::R6Class("PageBlockEmbedPost",
   lock_objects = FALSE
 )
 
+#' @title PageBlockFooter
+#' @description Telegram API type \code{pageBlockFooter} (constructor \code{#48870999}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockFooter <- R6::R6Class("PageBlockFooter",
   inherit = TLObject,
   public = list(
@@ -37457,6 +40647,11 @@ PageBlockFooter <- R6::R6Class("PageBlockFooter",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeader
+#' @description Telegram API type \code{pageBlockHeader} (constructor \code{#bfd064ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeader <- R6::R6Class("PageBlockHeader",
   inherit = TLObject,
   public = list(
@@ -37496,6 +40691,11 @@ PageBlockHeader <- R6::R6Class("PageBlockHeader",
   lock_objects = FALSE
 )
 
+#' @title PageBlockKicker
+#' @description Telegram API type \code{pageBlockKicker} (constructor \code{#1e148390}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockKicker <- R6::R6Class("PageBlockKicker",
   inherit = TLObject,
   public = list(
@@ -37535,6 +40735,11 @@ PageBlockKicker <- R6::R6Class("PageBlockKicker",
   lock_objects = FALSE
 )
 
+#' @title PageBlockList
+#' @description Telegram API type \code{pageBlockList} (constructor \code{#e4e88011}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockList <- R6::R6Class("PageBlockList",
   inherit = TLObject,
   public = list(
@@ -37574,6 +40779,11 @@ PageBlockList <- R6::R6Class("PageBlockList",
   lock_objects = FALSE
 )
 
+#' @title PageBlockMap
+#' @description Telegram API type \code{pageBlockMap} (constructor \code{#a44f3ef6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockMap <- R6::R6Class("PageBlockMap",
   inherit = TLObject,
   public = list(
@@ -37637,6 +40847,11 @@ PageBlockMap <- R6::R6Class("PageBlockMap",
   lock_objects = FALSE
 )
 
+#' @title PageBlockOrderedList
+#' @description Telegram API type \code{pageBlockOrderedList} (constructor \code{#1fd6f6c1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockOrderedList <- R6::R6Class("PageBlockOrderedList",
   inherit = TLObject,
   public = list(
@@ -37699,6 +40914,11 @@ PageBlockOrderedList <- R6::R6Class("PageBlockOrderedList",
   lock_objects = FALSE
 )
 
+#' @title PageBlockParagraph
+#' @description Telegram API type \code{pageBlockParagraph} (constructor \code{#467a0766}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockParagraph <- R6::R6Class("PageBlockParagraph",
   inherit = TLObject,
   public = list(
@@ -37738,6 +40958,11 @@ PageBlockParagraph <- R6::R6Class("PageBlockParagraph",
   lock_objects = FALSE
 )
 
+#' @title PageBlockPhoto
+#' @description Telegram API type \code{pageBlockPhoto} (constructor \code{#1759c560}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockPhoto <- R6::R6Class("PageBlockPhoto",
   inherit = TLObject,
   public = list(
@@ -37806,6 +41031,11 @@ PageBlockPhoto <- R6::R6Class("PageBlockPhoto",
   lock_objects = FALSE
 )
 
+#' @title PageBlockPreformatted
+#' @description Telegram API type \code{pageBlockPreformatted} (constructor \code{#c070d93e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockPreformatted <- R6::R6Class("PageBlockPreformatted",
   inherit = TLObject,
   public = list(
@@ -37851,6 +41081,11 @@ PageBlockPreformatted <- R6::R6Class("PageBlockPreformatted",
   lock_objects = FALSE
 )
 
+#' @title PageBlockPullquote
+#' @description Telegram API type \code{pageBlockPullquote} (constructor \code{#4f4456d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockPullquote <- R6::R6Class("PageBlockPullquote",
   inherit = TLObject,
   public = list(
@@ -37896,6 +41131,11 @@ PageBlockPullquote <- R6::R6Class("PageBlockPullquote",
   lock_objects = FALSE
 )
 
+#' @title PageBlockRelatedArticles
+#' @description Telegram API type \code{pageBlockRelatedArticles} (constructor \code{#16115a96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockRelatedArticles <- R6::R6Class("PageBlockRelatedArticles",
   inherit = TLObject,
   public = list(
@@ -37941,6 +41181,11 @@ PageBlockRelatedArticles <- R6::R6Class("PageBlockRelatedArticles",
   lock_objects = FALSE
 )
 
+#' @title PageBlockSlideshow
+#' @description Telegram API type \code{pageBlockSlideshow} (constructor \code{#031f9590}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockSlideshow <- R6::R6Class("PageBlockSlideshow",
   inherit = TLObject,
   public = list(
@@ -37986,6 +41231,11 @@ PageBlockSlideshow <- R6::R6Class("PageBlockSlideshow",
   lock_objects = FALSE
 )
 
+#' @title PageBlockSubheader
+#' @description Telegram API type \code{pageBlockSubheader} (constructor \code{#f12bb6e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockSubheader <- R6::R6Class("PageBlockSubheader",
   inherit = TLObject,
   public = list(
@@ -38025,6 +41275,11 @@ PageBlockSubheader <- R6::R6Class("PageBlockSubheader",
   lock_objects = FALSE
 )
 
+#' @title PageBlockSubtitle
+#' @description Telegram API type \code{pageBlockSubtitle} (constructor \code{#8ffa9a1f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockSubtitle <- R6::R6Class("PageBlockSubtitle",
   inherit = TLObject,
   public = list(
@@ -38064,6 +41319,11 @@ PageBlockSubtitle <- R6::R6Class("PageBlockSubtitle",
   lock_objects = FALSE
 )
 
+#' @title PageBlockTable
+#' @description Telegram API type \code{pageBlockTable} (constructor \code{#bf4dea82}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockTable <- R6::R6Class("PageBlockTable",
   inherit = TLObject,
   public = list(
@@ -38130,6 +41390,11 @@ PageBlockTable <- R6::R6Class("PageBlockTable",
   lock_objects = FALSE
 )
 
+#' @title PageBlockTitle
+#' @description Telegram API type \code{pageBlockTitle} (constructor \code{#70abc3fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockTitle <- R6::R6Class("PageBlockTitle",
   inherit = TLObject,
   public = list(
@@ -38169,6 +41434,11 @@ PageBlockTitle <- R6::R6Class("PageBlockTitle",
   lock_objects = FALSE
 )
 
+#' @title PageBlockUnsupported
+#' @description Telegram API type \code{pageBlockUnsupported} (constructor \code{#13567e8a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockUnsupported <- R6::R6Class("PageBlockUnsupported",
   inherit = TLObject,
   public = list(
@@ -38202,6 +41472,11 @@ PageBlockUnsupported <- R6::R6Class("PageBlockUnsupported",
   lock_objects = FALSE
 )
 
+#' @title PageBlockVideo
+#' @description Telegram API type \code{pageBlockVideo} (constructor \code{#7c8fe7b6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockVideo <- R6::R6Class("PageBlockVideo",
   inherit = TLObject,
   public = list(
@@ -38268,6 +41543,11 @@ PageBlockVideo <- R6::R6Class("PageBlockVideo",
   lock_objects = FALSE
 )
 
+#' @title PageCaption
+#' @description Telegram API type \code{pageCaption} (constructor \code{#6f747657}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageCaption <- R6::R6Class("PageCaption",
   inherit = TLObject,
   public = list(
@@ -38313,6 +41593,11 @@ PageCaption <- R6::R6Class("PageCaption",
   lock_objects = FALSE
 )
 
+#' @title PageListItemBlocks
+#' @description Telegram API type \code{pageListItemBlocks} (constructor \code{#63ca67aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   inherit = TLObject,
   public = list(
@@ -38367,6 +41652,11 @@ PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   lock_objects = FALSE
 )
 
+#' @title PageListItemText
+#' @description Telegram API type \code{pageListItemText} (constructor \code{#2f58683c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageListItemText <- R6::R6Class("PageListItemText",
   inherit = TLObject,
   public = list(
@@ -38421,6 +41711,11 @@ PageListItemText <- R6::R6Class("PageListItemText",
   lock_objects = FALSE
 )
 
+#' @title PageListOrderedItemBlocks
+#' @description Telegram API type \code{pageListOrderedItemBlocks} (constructor \code{#8ff2d5f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   inherit = TLObject,
   public = list(
@@ -38496,6 +41791,11 @@ PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   lock_objects = FALSE
 )
 
+#' @title PageListOrderedItemText
+#' @description Telegram API type \code{pageListOrderedItemText} (constructor \code{#15031189}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   inherit = TLObject,
   public = list(
@@ -38571,6 +41871,11 @@ PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   lock_objects = FALSE
 )
 
+#' @title PageRelatedArticle
+#' @description Telegram API type \code{pageRelatedArticle} (constructor \code{#b390dc08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   inherit = TLObject,
   public = list(
@@ -38654,6 +41959,11 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   lock_objects = FALSE
 )
 
+#' @title PageTableCell
+#' @description Telegram API type \code{pageTableCell} (constructor \code{#34566b6a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageTableCell <- R6::R6Class("PageTableCell",
   inherit = TLObject,
   public = list(
@@ -38741,6 +42051,11 @@ PageTableCell <- R6::R6Class("PageTableCell",
   lock_objects = FALSE
 )
 
+#' @title PageTableRow
+#' @description Telegram API type \code{pageTableRow} (constructor \code{#e0c0c5e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageTableRow <- R6::R6Class("PageTableRow",
   inherit = TLObject,
   public = list(
@@ -38780,6 +42095,11 @@ PageTableRow <- R6::R6Class("PageTableRow",
   lock_objects = FALSE
 )
 
+#' @title PaidReactionPrivacyAnonymous
+#' @description Telegram API type \code{paidReactionPrivacyAnonymous} (constructor \code{#1f0c1ad9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   inherit = TLObject,
   public = list(
@@ -38813,6 +42133,11 @@ PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   lock_objects = FALSE
 )
 
+#' @title PaidReactionPrivacyDefault
+#' @description Telegram API type \code{paidReactionPrivacyDefault} (constructor \code{#206ad49e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   inherit = TLObject,
   public = list(
@@ -38846,6 +42171,11 @@ PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   lock_objects = FALSE
 )
 
+#' @title PaidReactionPrivacyPeer
+#' @description Telegram API type \code{paidReactionPrivacyPeer} (constructor \code{#dc6cfcf0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   inherit = TLObject,
   public = list(
@@ -38885,6 +42215,11 @@ PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   lock_objects = FALSE
 )
 
+#' @title PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
+#' @description Telegram API type \code{passwordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow} (constructor \code{#3a912d4a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class("PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow",
   inherit = TLObject,
   public = list(
@@ -38942,6 +42277,11 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
   lock_objects = FALSE
 )
 
+#' @title PasswordKdfAlgoUnknown
+#' @description Telegram API type \code{passwordKdfAlgoUnknown} (constructor \code{#d45ab096}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
@@ -38975,6 +42315,11 @@ PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   lock_objects = FALSE
 )
 
+#' @title PaymentCharge
+#' @description Telegram API type \code{paymentCharge} (constructor \code{#ea02c27e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentCharge <- R6::R6Class("PaymentCharge",
   inherit = TLObject,
   public = list(
@@ -39020,6 +42365,11 @@ PaymentCharge <- R6::R6Class("PaymentCharge",
   lock_objects = FALSE
 )
 
+#' @title PaymentFormMethod
+#' @description Telegram API type \code{paymentFormMethod} (constructor \code{#88f8f21b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   inherit = TLObject,
   public = list(
@@ -39065,6 +42415,11 @@ PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   lock_objects = FALSE
 )
 
+#' @title PaymentRequestedInfo
+#' @description Telegram API type \code{paymentRequestedInfo} (constructor \code{#909c3f94}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   inherit = TLObject,
   public = list(
@@ -39129,6 +42484,11 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   lock_objects = FALSE
 )
 
+#' @title PaymentSavedCredentialsCard
+#' @description Telegram API type \code{paymentSavedCredentialsCard} (constructor \code{#cdc27a1f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   inherit = TLObject,
   public = list(
@@ -39174,6 +42534,11 @@ PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   lock_objects = FALSE
 )
 
+#' @title PeerBlocked
+#' @description Telegram API type \code{peerBlocked} (constructor \code{#e8fd8014}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerBlocked <- R6::R6Class("PeerBlocked",
   inherit = TLObject,
   public = list(
@@ -39219,6 +42584,11 @@ PeerBlocked <- R6::R6Class("PeerBlocked",
   lock_objects = FALSE
 )
 
+#' @title PeerChannel
+#' @description Telegram API type \code{peerChannel} (constructor \code{#a2a5371e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerChannel <- R6::R6Class("PeerChannel",
   inherit = TLObject,
   public = list(
@@ -39258,6 +42628,11 @@ PeerChannel <- R6::R6Class("PeerChannel",
   lock_objects = FALSE
 )
 
+#' @title PeerChat
+#' @description Telegram API type \code{peerChat} (constructor \code{#36c6019a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerChat <- R6::R6Class("PeerChat",
   inherit = TLObject,
   public = list(
@@ -39297,6 +42672,11 @@ PeerChat <- R6::R6Class("PeerChat",
   lock_objects = FALSE
 )
 
+#' @title PeerColor
+#' @description Telegram API type \code{peerColor} (constructor \code{#b54b5acf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColor <- R6::R6Class("PeerColor",
   inherit = TLObject,
   public = list(
@@ -39347,6 +42727,11 @@ PeerColor <- R6::R6Class("PeerColor",
   lock_objects = FALSE
 )
 
+#' @title PeerLocated
+#' @description Telegram API type \code{peerLocated} (constructor \code{#ca461b5d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerLocated <- R6::R6Class("PeerLocated",
   inherit = TLObject,
   public = list(
@@ -39398,6 +42783,11 @@ PeerLocated <- R6::R6Class("PeerLocated",
   lock_objects = FALSE
 )
 
+#' @title PeerNotifySettings
+#' @description Telegram API type \code{peerNotifySettings} (constructor \code{#99622c0c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   inherit = TLObject,
   public = list(
@@ -39511,6 +42901,11 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   lock_objects = FALSE
 )
 
+#' @title PeerSelfLocated
+#' @description Telegram API type \code{peerSelfLocated} (constructor \code{#f8ec284b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   inherit = TLObject,
   public = list(
@@ -39550,6 +42945,11 @@ PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   lock_objects = FALSE
 )
 
+#' @title PeerSettings
+#' @description Telegram API type \code{peerSettings} (constructor \code{#f47741f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerSettings <- R6::R6Class("PeerSettings",
   inherit = TLObject,
   public = list(
@@ -39722,6 +43122,11 @@ PeerSettings <- R6::R6Class("PeerSettings",
   lock_objects = FALSE
 )
 
+#' @title PeerStories
+#' @description Telegram API type \code{peerStories} (constructor \code{#9a35e999}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerStories <- R6::R6Class("PeerStories",
   inherit = TLObject,
   public = list(
@@ -39777,6 +43182,11 @@ PeerStories <- R6::R6Class("PeerStories",
   lock_objects = FALSE
 )
 
+#' @title PeerUser
+#' @description Telegram API type \code{peerUser} (constructor \code{#59511722}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerUser <- R6::R6Class("PeerUser",
   inherit = TLObject,
   public = list(
@@ -39816,6 +43226,11 @@ PeerUser <- R6::R6Class("PeerUser",
   lock_objects = FALSE
 )
 
+#' @title PendingSuggestion
+#' @description Telegram API type \code{pendingSuggestion} (constructor \code{#e7e82e12}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PendingSuggestion <- R6::R6Class("PendingSuggestion",
   inherit = TLObject,
   public = list(
@@ -39873,6 +43288,11 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
   lock_objects = FALSE
 )
 
+#' @title PhoneCall
+#' @description Telegram API type \code{phoneCall} (constructor \code{#30535af5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCall <- R6::R6Class("PhoneCall",
   inherit = TLObject,
   public = list(
@@ -39994,6 +43414,11 @@ PhoneCall <- R6::R6Class("PhoneCall",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallAccepted
+#' @description Telegram API type \code{phoneCallAccepted} (constructor \code{#3660c311}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   inherit = TLObject,
   public = list(
@@ -40078,6 +43503,11 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscardReasonBusy
+#' @description Telegram API type \code{phoneCallDiscardReasonBusy} (constructor \code{#faf7e8c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   inherit = TLObject,
   public = list(
@@ -40111,6 +43541,11 @@ PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscardReasonDisconnect
+#' @description Telegram API type \code{phoneCallDiscardReasonDisconnect} (constructor \code{#e095c1a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnect",
   inherit = TLObject,
   public = list(
@@ -40144,6 +43579,11 @@ PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnec
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscardReasonHangup
+#' @description Telegram API type \code{phoneCallDiscardReasonHangup} (constructor \code{#57adc690}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   inherit = TLObject,
   public = list(
@@ -40177,6 +43617,11 @@ PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscardReasonMigrateConferenceCall
+#' @description Telegram API type \code{phoneCallDiscardReasonMigrateConferenceCall} (constructor \code{#9fbbf1f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReasonMigrateConferenceCall",
   inherit = TLObject,
   public = list(
@@ -40216,6 +43661,11 @@ PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReas
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscardReasonMissed
+#' @description Telegram API type \code{phoneCallDiscardReasonMissed} (constructor \code{#85e42301}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   inherit = TLObject,
   public = list(
@@ -40249,6 +43699,11 @@ PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallDiscarded
+#' @description Telegram API type \code{phoneCallDiscarded} (constructor \code{#50ca4de1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   inherit = TLObject,
   public = list(
@@ -40323,6 +43778,11 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallEmpty
+#' @description Telegram API type \code{phoneCallEmpty} (constructor \code{#5366c915}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   inherit = TLObject,
   public = list(
@@ -40362,6 +43822,11 @@ PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallProtocol
+#' @description Telegram API type \code{phoneCallProtocol} (constructor \code{#fc878fc8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   inherit = TLObject,
   public = list(
@@ -40428,6 +43893,11 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallRequested
+#' @description Telegram API type \code{phoneCallRequested} (constructor \code{#14b0ed0c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   inherit = TLObject,
   public = list(
@@ -40512,6 +43982,11 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   lock_objects = FALSE
 )
 
+#' @title PhoneCallWaiting
+#' @description Telegram API type \code{phoneCallWaiting} (constructor \code{#c5226f17}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   inherit = TLObject,
   public = list(
@@ -40597,6 +44072,11 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   lock_objects = FALSE
 )
 
+#' @title PhoneConnection
+#' @description Telegram API type \code{phoneConnection} (constructor \code{#9cc123c7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneConnection <- R6::R6Class("PhoneConnection",
   inherit = TLObject,
   public = list(
@@ -40669,6 +44149,11 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
   lock_objects = FALSE
 )
 
+#' @title PhoneConnectionWebrtc
+#' @description Telegram API type \code{phoneConnectionWebrtc} (constructor \code{#635fe375}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   inherit = TLObject,
   public = list(
@@ -40753,6 +44238,11 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   lock_objects = FALSE
 )
 
+#' @title Photo
+#' @description Telegram API type \code{photo} (constructor \code{#fb197a65}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Photo <- R6::R6Class("Photo",
   inherit = TLObject,
   public = list(
@@ -40838,6 +44328,11 @@ Photo <- R6::R6Class("Photo",
   lock_objects = FALSE
 )
 
+#' @title PhotoCachedSize
+#' @description Telegram API type \code{photoCachedSize} (constructor \code{#021e1ad6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   inherit = TLObject,
   public = list(
@@ -40895,6 +44390,11 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   lock_objects = FALSE
 )
 
+#' @title PhotoEmpty
+#' @description Telegram API type \code{photoEmpty} (constructor \code{#2331b22d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoEmpty <- R6::R6Class("PhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -40934,6 +44434,11 @@ PhotoEmpty <- R6::R6Class("PhotoEmpty",
   lock_objects = FALSE
 )
 
+#' @title PhotoPathSize
+#' @description Telegram API type \code{photoPathSize} (constructor \code{#d8214d41}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoPathSize <- R6::R6Class("PhotoPathSize",
   inherit = TLObject,
   public = list(
@@ -40979,6 +44484,11 @@ PhotoPathSize <- R6::R6Class("PhotoPathSize",
   lock_objects = FALSE
 )
 
+#' @title PhotoSize
+#' @description Telegram API type \code{photoSize} (constructor \code{#75c78e60}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoSize <- R6::R6Class("PhotoSize",
   inherit = TLObject,
   public = list(
@@ -41036,6 +44546,11 @@ PhotoSize <- R6::R6Class("PhotoSize",
   lock_objects = FALSE
 )
 
+#' @title PhotoSizeEmpty
+#' @description Telegram API type \code{photoSizeEmpty} (constructor \code{#0e17e23c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   inherit = TLObject,
   public = list(
@@ -41075,6 +44590,11 @@ PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   lock_objects = FALSE
 )
 
+#' @title PhotoSizeProgressive
+#' @description Telegram API type \code{photoSizeProgressive} (constructor \code{#fa3efb95}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   inherit = TLObject,
   public = list(
@@ -41132,6 +44652,11 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   lock_objects = FALSE
 )
 
+#' @title PhotoStrippedSize
+#' @description Telegram API type \code{photoStrippedSize} (constructor \code{#e0b0bc2e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   inherit = TLObject,
   public = list(
@@ -41177,6 +44702,11 @@ PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   lock_objects = FALSE
 )
 
+#' @title Poll
+#' @description Telegram API type \code{poll} (constructor \code{#966e2dbf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Poll <- R6::R6Class("Poll",
   inherit = TLObject,
   public = list(
@@ -41318,6 +44848,11 @@ Poll <- R6::R6Class("Poll",
   lock_objects = FALSE
 )
 
+#' @title PollAnswer
+#' @description Telegram API type \code{pollAnswer} (constructor \code{#4b7d786a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PollAnswer <- R6::R6Class("PollAnswer",
   inherit = TLObject,
   public = list(
@@ -41387,6 +44922,11 @@ PollAnswer <- R6::R6Class("PollAnswer",
   lock_objects = FALSE
 )
 
+#' @title PollAnswerVoters
+#' @description Telegram API type \code{pollAnswerVoters} (constructor \code{#3645230a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   inherit = TLObject,
   public = list(
@@ -41455,6 +44995,11 @@ PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   lock_objects = FALSE
 )
 
+#' @title PollResults
+#' @description Telegram API type \code{pollResults} (constructor \code{#ba7bb15e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PollResults <- R6::R6Class("PollResults",
   inherit = TLObject,
   public = list(
@@ -41580,11 +45125,11 @@ Pong <- R6::R6Class("Pong",
   class = TRUE
 )
 
-#  @title PopularContact
-#  @description Telegram API type PopularContact
-#  @export
-#  @noRd
-#  @noRd
+#' @title PopularContact
+#' @description Telegram API type \code{popularContact} (constructor \code{#5ce14175}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PopularContact <- R6::R6Class("PopularContact",
   inherit = TLObject,
   public = list(
@@ -41630,6 +45175,11 @@ PopularContact <- R6::R6Class("PopularContact",
   lock_objects = FALSE
 )
 
+#' @title PostAddress
+#' @description Telegram API type \code{postAddress} (constructor \code{#1e8caaeb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PostAddress <- R6::R6Class("PostAddress",
   inherit = TLObject,
   public = list(
@@ -41699,6 +45249,11 @@ PostAddress <- R6::R6Class("PostAddress",
   lock_objects = FALSE
 )
 
+#' @title PostInteractionCountersMessage
+#' @description Telegram API type \code{postInteractionCountersMessage} (constructor \code{#e7058e7f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   inherit = TLObject,
   public = list(
@@ -41756,6 +45311,11 @@ PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   lock_objects = FALSE
 )
 
+#' @title PostInteractionCountersStory
+#' @description Telegram API type \code{postInteractionCountersStory} (constructor \code{#8a480e27}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   inherit = TLObject,
   public = list(
@@ -41813,6 +45373,11 @@ PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   lock_objects = FALSE
 )
 
+#' @title PremiumGiftCodeOption
+#' @description Telegram API type \code{premiumGiftCodeOption} (constructor \code{#257e962b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   inherit = TLObject,
   public = list(
@@ -41887,6 +45452,11 @@ PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   lock_objects = FALSE
 )
 
+#' @title PremiumSubscriptionOption
+#' @description Telegram API type \code{premiumSubscriptionOption} (constructor \code{#5f2d1df2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   inherit = TLObject,
   public = list(
@@ -41973,6 +45543,11 @@ PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   lock_objects = FALSE
 )
 
+#' @title PrepaidGiveaway
+#' @description Telegram API type \code{prepaidGiveaway} (constructor \code{#b2539d54}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   inherit = TLObject,
   public = list(
@@ -42030,6 +45605,11 @@ PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   lock_objects = FALSE
 )
 
+#' @title PrepaidStarsGiveaway
+#' @description Telegram API type \code{prepaidStarsGiveaway} (constructor \code{#9a9d77e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   inherit = TLObject,
   public = list(
@@ -42093,6 +45673,11 @@ PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyAbout
+#' @description Telegram API type \code{privacyKeyAbout} (constructor \code{#a486b761}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   inherit = TLObject,
   public = list(
@@ -42126,6 +45711,11 @@ PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyAddedByPhone
+#' @description Telegram API type \code{privacyKeyAddedByPhone} (constructor \code{#42ffd42b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
@@ -42159,6 +45749,11 @@ PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyBirthday
+#' @description Telegram API type \code{privacyKeyBirthday} (constructor \code{#2000a518}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
@@ -42192,6 +45787,11 @@ PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyChatInvite
+#' @description Telegram API type \code{privacyKeyChatInvite} (constructor \code{#500e6dfa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
@@ -42225,6 +45825,11 @@ PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyForwards
+#' @description Telegram API type \code{privacyKeyForwards} (constructor \code{#69ec56a3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   inherit = TLObject,
   public = list(
@@ -42258,6 +45863,11 @@ PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyNoPaidMessages
+#' @description Telegram API type \code{privacyKeyNoPaidMessages} (constructor \code{#17d348d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
@@ -42291,6 +45901,11 @@ PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyPhoneCall
+#' @description Telegram API type \code{privacyKeyPhoneCall} (constructor \code{#3d662b7b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
@@ -42324,6 +45939,11 @@ PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyPhoneNumber
+#' @description Telegram API type \code{privacyKeyPhoneNumber} (constructor \code{#d19ae46d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
@@ -42357,6 +45977,11 @@ PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyPhoneP2P
+#' @description Telegram API type \code{privacyKeyPhoneP2P} (constructor \code{#39491cc8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
@@ -42390,6 +46015,11 @@ PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyProfilePhoto
+#' @description Telegram API type \code{privacyKeyProfilePhoto} (constructor \code{#96151fed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -42423,6 +46053,11 @@ PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyStarGiftsAutoSave
+#' @description Telegram API type \code{privacyKeyStarGiftsAutoSave} (constructor \code{#2ca4fdf8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
@@ -42456,6 +46091,11 @@ PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyStatusTimestamp
+#' @description Telegram API type \code{privacyKeyStatusTimestamp} (constructor \code{#bc2eab30}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
@@ -42489,6 +46129,11 @@ PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeyVoiceMessages
+#' @description Telegram API type \code{privacyKeyVoiceMessages} (constructor \code{#0697f414}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
@@ -42522,6 +46167,11 @@ PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowAll
+#' @description Telegram API type \code{privacyValueAllowAll} (constructor \code{#65427b82}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
@@ -42555,6 +46205,11 @@ PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowBots
+#' @description Telegram API type \code{privacyValueAllowBots} (constructor \code{#21461b5d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
@@ -42588,6 +46243,11 @@ PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowChatParticipants
+#' @description Telegram API type \code{privacyValueAllowChatParticipants} (constructor \code{#6b134e8e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -42627,6 +46287,11 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowCloseFriends
+#' @description Telegram API type \code{privacyValueAllowCloseFriends} (constructor \code{#f7e8d89b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
@@ -42660,6 +46325,11 @@ PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowContacts
+#' @description Telegram API type \code{privacyValueAllowContacts} (constructor \code{#fffe1bac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
@@ -42693,6 +46363,11 @@ PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowPremium
+#' @description Telegram API type \code{privacyValueAllowPremium} (constructor \code{#ece9814b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
@@ -42726,6 +46401,11 @@ PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueAllowUsers
+#' @description Telegram API type \code{privacyValueAllowUsers} (constructor \code{#b8905fb2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
@@ -42765,6 +46445,11 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueDisallowAll
+#' @description Telegram API type \code{privacyValueDisallowAll} (constructor \code{#8b73e763}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
@@ -42798,6 +46483,11 @@ PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueDisallowBots
+#' @description Telegram API type \code{privacyValueDisallowBots} (constructor \code{#f6a5f82f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
@@ -42831,6 +46521,11 @@ PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueDisallowChatParticipants
+#' @description Telegram API type \code{privacyValueDisallowChatParticipants} (constructor \code{#41c87565}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -42870,6 +46565,11 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueDisallowContacts
+#' @description Telegram API type \code{privacyValueDisallowContacts} (constructor \code{#f888fa1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
@@ -42903,6 +46603,11 @@ PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   lock_objects = FALSE
 )
 
+#' @title PrivacyValueDisallowUsers
+#' @description Telegram API type \code{privacyValueDisallowUsers} (constructor \code{#e4621141}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
@@ -42942,6 +46647,11 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabFiles
+#' @description Telegram API type \code{profileTabFiles} (constructor \code{#ab339c00}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   inherit = TLObject,
   public = list(
@@ -42975,6 +46685,11 @@ ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabGifs
+#' @description Telegram API type \code{profileTabGifs} (constructor \code{#a2c0f695}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   inherit = TLObject,
   public = list(
@@ -43008,6 +46723,11 @@ ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabGifts
+#' @description Telegram API type \code{profileTabGifts} (constructor \code{#4d4bd46a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   inherit = TLObject,
   public = list(
@@ -43041,6 +46761,11 @@ ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabLinks
+#' @description Telegram API type \code{profileTabLinks} (constructor \code{#d3656499}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   inherit = TLObject,
   public = list(
@@ -43074,6 +46799,11 @@ ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabMedia
+#' @description Telegram API type \code{profileTabMedia} (constructor \code{#72c64955}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   inherit = TLObject,
   public = list(
@@ -43107,6 +46837,11 @@ ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabMusic
+#' @description Telegram API type \code{profileTabMusic} (constructor \code{#9f27d26e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   inherit = TLObject,
   public = list(
@@ -43140,6 +46875,11 @@ ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabPosts
+#' @description Telegram API type \code{profileTabPosts} (constructor \code{#b98cd696}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   inherit = TLObject,
   public = list(
@@ -43173,6 +46913,11 @@ ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   lock_objects = FALSE
 )
 
+#' @title ProfileTabVoice
+#' @description Telegram API type \code{profileTabVoice} (constructor \code{#e477092e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   inherit = TLObject,
   public = list(
@@ -43206,6 +46951,11 @@ ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   lock_objects = FALSE
 )
 
+#' @title PublicForwardMessage
+#' @description Telegram API type \code{publicForwardMessage} (constructor \code{#01f2bf4a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   inherit = TLObject,
   public = list(
@@ -43245,6 +46995,11 @@ PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   lock_objects = FALSE
 )
 
+#' @title PublicForwardStory
+#' @description Telegram API type \code{publicForwardStory} (constructor \code{#edf3add0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PublicForwardStory <- R6::R6Class("PublicForwardStory",
   inherit = TLObject,
   public = list(
@@ -43290,6 +47045,11 @@ PublicForwardStory <- R6::R6Class("PublicForwardStory",
   lock_objects = FALSE
 )
 
+#' @title QuickReply
+#' @description Telegram API type \code{quickReply} (constructor \code{#0697102b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 QuickReply <- R6::R6Class("QuickReply",
   inherit = TLObject,
   public = list(
@@ -43347,6 +47107,11 @@ QuickReply <- R6::R6Class("QuickReply",
   lock_objects = FALSE
 )
 
+#' @title ReactionCount
+#' @description Telegram API type \code{reactionCount} (constructor \code{#a3d1cb80}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionCount <- R6::R6Class("ReactionCount",
   inherit = TLObject,
   public = list(
@@ -43402,6 +47167,11 @@ ReactionCount <- R6::R6Class("ReactionCount",
   lock_objects = FALSE
 )
 
+#' @title ReactionCustomEmoji
+#' @description Telegram API type \code{reactionCustomEmoji} (constructor \code{#8935fc73}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   inherit = TLObject,
   public = list(
@@ -43441,6 +47211,11 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   lock_objects = FALSE
 )
 
+#' @title ReactionEmoji
+#' @description Telegram API type \code{reactionEmoji} (constructor \code{#1b2286b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionEmoji <- R6::R6Class("ReactionEmoji",
   inherit = TLObject,
   public = list(
@@ -43480,6 +47255,11 @@ ReactionEmoji <- R6::R6Class("ReactionEmoji",
   lock_objects = FALSE
 )
 
+#' @title ReactionEmpty
+#' @description Telegram API type \code{reactionEmpty} (constructor \code{#79f5d419}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionEmpty <- R6::R6Class("ReactionEmpty",
   inherit = TLObject,
   public = list(
@@ -43513,6 +47293,11 @@ ReactionEmpty <- R6::R6Class("ReactionEmpty",
   lock_objects = FALSE
 )
 
+#' @title ReactionNotificationsFromAll
+#' @description Telegram API type \code{reactionNotificationsFromAll} (constructor \code{#4b9e22a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   inherit = TLObject,
   public = list(
@@ -43546,6 +47331,11 @@ ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   lock_objects = FALSE
 )
 
+#' @title ReactionNotificationsFromContacts
+#' @description Telegram API type \code{reactionNotificationsFromContacts} (constructor \code{#bac3a61a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromContacts",
   inherit = TLObject,
   public = list(
@@ -43579,6 +47369,11 @@ ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromConta
   lock_objects = FALSE
 )
 
+#' @title ReactionPaid
+#' @description Telegram API type \code{reactionPaid} (constructor \code{#523da4eb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionPaid <- R6::R6Class("ReactionPaid",
   inherit = TLObject,
   public = list(
@@ -43612,6 +47407,11 @@ ReactionPaid <- R6::R6Class("ReactionPaid",
   lock_objects = FALSE
 )
 
+#' @title ReactionsNotifySettings
+#' @description Telegram API type \code{reactionsNotifySettings} (constructor \code{#71e4ea58}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   inherit = TLObject,
   public = list(
@@ -43681,6 +47481,11 @@ ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   lock_objects = FALSE
 )
 
+#' @title ReadParticipantDate
+#' @description Telegram API type \code{readParticipantDate} (constructor \code{#4a4ff172}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   inherit = TLObject,
   public = list(
@@ -43726,6 +47531,11 @@ ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   lock_objects = FALSE
 )
 
+#' @title ReceivedNotifyMessage
+#' @description Telegram API type \code{receivedNotifyMessage} (constructor \code{#a384b779}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   inherit = TLObject,
   public = list(
@@ -43771,6 +47581,11 @@ ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrlChat
+#' @description Telegram API type \code{recentMeUrlChat} (constructor \code{#b2da71d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   inherit = TLObject,
   public = list(
@@ -43816,6 +47631,11 @@ RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrlChatInvite
+#' @description Telegram API type \code{recentMeUrlChatInvite} (constructor \code{#eb49081d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   inherit = TLObject,
   public = list(
@@ -43861,6 +47681,11 @@ RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrlStickerSet
+#' @description Telegram API type \code{recentMeUrlStickerSet} (constructor \code{#bc0a57dc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   inherit = TLObject,
   public = list(
@@ -43906,6 +47731,11 @@ RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrlUnknown
+#' @description Telegram API type \code{recentMeUrlUnknown} (constructor \code{#46e1d13d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   inherit = TLObject,
   public = list(
@@ -43945,6 +47775,11 @@ RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrlUser
+#' @description Telegram API type \code{recentMeUrlUser} (constructor \code{#b92c09e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   inherit = TLObject,
   public = list(
@@ -43990,6 +47825,11 @@ RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   lock_objects = FALSE
 )
 
+#' @title ReplyInlineMarkup
+#' @description Telegram API type \code{replyInlineMarkup} (constructor \code{#b2b15770}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   inherit = TLObject,
   public = list(
@@ -44038,6 +47878,11 @@ ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   lock_objects = FALSE
 )
 
+#' @title ReplyKeyboardForceReply
+#' @description Telegram API type \code{replyKeyboardForceReply} (constructor \code{#86b40b08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   inherit = TLObject,
   public = list(
@@ -44093,6 +47938,11 @@ ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   lock_objects = FALSE
 )
 
+#' @title ReplyKeyboardHide
+#' @description Telegram API type \code{replyKeyboardHide} (constructor \code{#a03e5b85}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   inherit = TLObject,
   public = list(
@@ -44135,6 +47985,11 @@ ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   lock_objects = FALSE
 )
 
+#' @title ReplyKeyboardMarkup
+#' @description Telegram API type \code{replyKeyboardMarkup} (constructor \code{#85dd99d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   inherit = TLObject,
   public = list(
@@ -44214,6 +48069,11 @@ ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   lock_objects = FALSE
 )
 
+#' @title ReportResultAddComment
+#' @description Telegram API type \code{reportResultAddComment} (constructor \code{#6f09ac31}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   inherit = TLObject,
   public = list(
@@ -44262,6 +48122,11 @@ ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   lock_objects = FALSE
 )
 
+#' @title ReportResultChooseOption
+#' @description Telegram API type \code{reportResultChooseOption} (constructor \code{#f0e4e0b6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   inherit = TLObject,
   public = list(
@@ -44307,6 +48172,11 @@ ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   lock_objects = FALSE
 )
 
+#' @title ReportResultReported
+#' @description Telegram API type \code{reportResultReported} (constructor \code{#8db33c4b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportResultReported <- R6::R6Class("ReportResultReported",
   inherit = TLObject,
   public = list(
@@ -44340,6 +48210,11 @@ ReportResultReported <- R6::R6Class("ReportResultReported",
   lock_objects = FALSE
 )
 
+#' @title RequestPeerTypeBroadcast
+#' @description Telegram API type \code{requestPeerTypeBroadcast} (constructor \code{#339bef6c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
@@ -44403,6 +48278,11 @@ RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   lock_objects = FALSE
 )
 
+#' @title RequestPeerTypeChat
+#' @description Telegram API type \code{requestPeerTypeChat} (constructor \code{#c9f06e1b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   inherit = TLObject,
   public = list(
@@ -44479,6 +48359,11 @@ RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   lock_objects = FALSE
 )
 
+#' @title RequestPeerTypeUser
+#' @description Telegram API type \code{requestPeerTypeUser} (constructor \code{#5f3b8a00}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   inherit = TLObject,
   public = list(
@@ -44529,6 +48414,11 @@ RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   lock_objects = FALSE
 )
 
+#' @title RequestedPeerChannel
+#' @description Telegram API type \code{requestedPeerChannel} (constructor \code{#8ba403e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   inherit = TLObject,
   public = list(
@@ -44592,6 +48482,11 @@ RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   lock_objects = FALSE
 )
 
+#' @title RequestedPeerChat
+#' @description Telegram API type \code{requestedPeerChat} (constructor \code{#7307544f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   inherit = TLObject,
   public = list(
@@ -44648,6 +48543,11 @@ RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   lock_objects = FALSE
 )
 
+#' @title RequestedPeerUser
+#' @description Telegram API type \code{requestedPeerUser} (constructor \code{#d62ff46a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   inherit = TLObject,
   public = list(
@@ -44718,6 +48618,11 @@ RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   lock_objects = FALSE
 )
 
+#' @title RequirementToContactEmpty
+#' @description Telegram API type \code{requirementToContactEmpty} (constructor \code{#050a9839}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   inherit = TLObject,
   public = list(
@@ -44751,6 +48656,11 @@ RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   lock_objects = FALSE
 )
 
+#' @title RequirementToContactPaidMessages
+#' @description Telegram API type \code{requirementToContactPaidMessages} (constructor \code{#b4f67e93}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessages",
   inherit = TLObject,
   public = list(
@@ -44790,6 +48700,11 @@ RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessage
   lock_objects = FALSE
 )
 
+#' @title RequirementToContactPremium
+#' @description Telegram API type \code{requirementToContactPremium} (constructor \code{#e581e4e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   inherit = TLObject,
   public = list(
@@ -44860,11 +48775,11 @@ ResPQ <- R6::R6Class("ResPQ",
   class = TRUE
 )
 
-#  @title RestrictionReason
-#  @description Telegram API type RestrictionReason
-#  @export
-#  @noRd
-#  @noRd
+#' @title RestrictionReason
+#' @description Telegram API type \code{restrictionReason} (constructor \code{#d072acb4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RestrictionReason <- R6::R6Class("RestrictionReason",
   inherit = TLObject,
   public = list(
@@ -45023,11 +48938,11 @@ RpcError <- R6::R6Class("RpcError",
   class = TRUE
 )
 
-#  @title SavedDialog
-#  @description Telegram API type SavedDialog
-#  @export
-#  @noRd
-#  @noRd
+#' @title SavedDialog
+#' @description Telegram API type \code{savedDialog} (constructor \code{#bd87cb6c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedDialog <- R6::R6Class("SavedDialog",
   inherit = TLObject,
   public = list(
@@ -45082,6 +48997,11 @@ SavedDialog <- R6::R6Class("SavedDialog",
   lock_objects = FALSE
 )
 
+#' @title SavedPhoneContact
+#' @description Telegram API type \code{savedPhoneContact} (constructor \code{#1142bd56}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   inherit = TLObject,
   public = list(
@@ -45139,6 +49059,11 @@ SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   lock_objects = FALSE
 )
 
+#' @title SavedReactionTag
+#' @description Telegram API type \code{savedReactionTag} (constructor \code{#cb6ff828}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedReactionTag <- R6::R6Class("SavedReactionTag",
   inherit = TLObject,
   public = list(
@@ -45194,6 +49119,11 @@ SavedReactionTag <- R6::R6Class("SavedReactionTag",
   lock_objects = FALSE
 )
 
+#' @title SavedStarGift
+#' @description Telegram API type \code{savedStarGift} (constructor \code{#41df43fc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedStarGift <- R6::R6Class("SavedStarGift",
   inherit = TLObject,
   public = list(
@@ -45383,6 +49313,11 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
   lock_objects = FALSE
 )
 
+#' @title SearchPostsFlood
+#' @description Telegram API type \code{searchPostsFlood} (constructor \code{#3e0b5b6a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   inherit = TLObject,
   public = list(
@@ -45450,6 +49385,11 @@ SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   lock_objects = FALSE
 )
 
+#' @title SearchResultPosition
+#' @description Telegram API type \code{searchResultPosition} (constructor \code{#7f648b67}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchResultPosition <- R6::R6Class("SearchResultPosition",
   inherit = TLObject,
   public = list(
@@ -45501,6 +49441,11 @@ SearchResultPosition <- R6::R6Class("SearchResultPosition",
   lock_objects = FALSE
 )
 
+#' @title SearchResultsCalendarPeriod
+#' @description Telegram API type \code{searchResultsCalendarPeriod} (constructor \code{#c9b0539f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   inherit = TLObject,
   public = list(
@@ -45558,6 +49503,11 @@ SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   lock_objects = FALSE
 )
 
+#' @title SecureCredentialsEncrypted
+#' @description Telegram API type \code{secureCredentialsEncrypted} (constructor \code{#33f0ea47}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   inherit = TLObject,
   public = list(
@@ -45609,6 +49559,11 @@ SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   lock_objects = FALSE
 )
 
+#' @title SecureData
+#' @description Telegram API type \code{secureData} (constructor \code{#8aeabec3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureData <- R6::R6Class("SecureData",
   inherit = TLObject,
   public = list(
@@ -45660,6 +49615,11 @@ SecureData <- R6::R6Class("SecureData",
   lock_objects = FALSE
 )
 
+#' @title SecureFile
+#' @description Telegram API type \code{secureFile} (constructor \code{#7d09c27e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureFile <- R6::R6Class("SecureFile",
   inherit = TLObject,
   public = list(
@@ -45735,6 +49695,11 @@ SecureFile <- R6::R6Class("SecureFile",
   lock_objects = FALSE
 )
 
+#' @title SecureFileEmpty
+#' @description Telegram API type \code{secureFileEmpty} (constructor \code{#64199744}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   inherit = TLObject,
   public = list(
@@ -45768,6 +49733,11 @@ SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   lock_objects = FALSE
 )
 
+#' @title SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
+#' @description Telegram API type \code{securePasswordKdfAlgoPBKDF2HMACSHA512iter100000} (constructor \code{#bbf2dda0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000",
   inherit = TLObject,
   public = list(
@@ -45807,6 +49777,11 @@ SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKd
   lock_objects = FALSE
 )
 
+#' @title SecurePasswordKdfAlgoSHA512
+#' @description Telegram API type \code{securePasswordKdfAlgoSHA512} (constructor \code{#86471d92}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   inherit = TLObject,
   public = list(
@@ -45846,6 +49821,11 @@ SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   lock_objects = FALSE
 )
 
+#' @title SecurePasswordKdfAlgoUnknown
+#' @description Telegram API type \code{securePasswordKdfAlgoUnknown} (constructor \code{#004a8537}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
@@ -45879,6 +49859,11 @@ SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   lock_objects = FALSE
 )
 
+#' @title SecurePlainEmail
+#' @description Telegram API type \code{securePlainEmail} (constructor \code{#21ec5a5f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   inherit = TLObject,
   public = list(
@@ -45918,6 +49903,11 @@ SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   lock_objects = FALSE
 )
 
+#' @title SecurePlainPhone
+#' @description Telegram API type \code{securePlainPhone} (constructor \code{#7d6099dd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   inherit = TLObject,
   public = list(
@@ -45957,6 +49947,11 @@ SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   lock_objects = FALSE
 )
 
+#' @title SecureRequiredType
+#' @description Telegram API type \code{secureRequiredType} (constructor \code{#829d99da}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureRequiredType <- R6::R6Class("SecureRequiredType",
   inherit = TLObject,
   public = list(
@@ -46017,6 +50012,11 @@ SecureRequiredType <- R6::R6Class("SecureRequiredType",
   lock_objects = FALSE
 )
 
+#' @title SecureRequiredTypeOneOf
+#' @description Telegram API type \code{secureRequiredTypeOneOf} (constructor \code{#027477b4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   inherit = TLObject,
   public = list(
@@ -46056,6 +50056,11 @@ SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   lock_objects = FALSE
 )
 
+#' @title SecureSecretSettings
+#' @description Telegram API type \code{secureSecretSettings} (constructor \code{#1527bcac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   inherit = TLObject,
   public = list(
@@ -46107,6 +50112,11 @@ SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   lock_objects = FALSE
 )
 
+#' @title SecureValue
+#' @description Telegram API type \code{secureValue} (constructor \code{#187fa0ca}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValue <- R6::R6Class("SecureValue",
   inherit = TLObject,
   public = list(
@@ -46204,6 +50214,11 @@ SecureValue <- R6::R6Class("SecureValue",
   lock_objects = FALSE
 )
 
+#' @title SecureValueError
+#' @description Telegram API type \code{secureValueError} (constructor \code{#869d758f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueError <- R6::R6Class("SecureValueError",
   inherit = TLObject,
   public = list(
@@ -46255,6 +50270,11 @@ SecureValueError <- R6::R6Class("SecureValueError",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorData
+#' @description Telegram API type \code{secureValueErrorData} (constructor \code{#e8a40bd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   inherit = TLObject,
   public = list(
@@ -46312,6 +50332,11 @@ SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorFile
+#' @description Telegram API type \code{secureValueErrorFile} (constructor \code{#7a700873}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   inherit = TLObject,
   public = list(
@@ -46363,6 +50388,11 @@ SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorFiles
+#' @description Telegram API type \code{secureValueErrorFiles} (constructor \code{#666220e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   inherit = TLObject,
   public = list(
@@ -46414,6 +50444,11 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorFrontSide
+#' @description Telegram API type \code{secureValueErrorFrontSide} (constructor \code{#00be3dfa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   inherit = TLObject,
   public = list(
@@ -46465,6 +50500,11 @@ SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorReverseSide
+#' @description Telegram API type \code{secureValueErrorReverseSide} (constructor \code{#868a2aa5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   inherit = TLObject,
   public = list(
@@ -46516,6 +50556,11 @@ SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorSelfie
+#' @description Telegram API type \code{secureValueErrorSelfie} (constructor \code{#e537ced6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   inherit = TLObject,
   public = list(
@@ -46567,6 +50612,11 @@ SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorTranslationFile
+#' @description Telegram API type \code{secureValueErrorTranslationFile} (constructor \code{#a1144770}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile",
   inherit = TLObject,
   public = list(
@@ -46618,6 +50668,11 @@ SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile"
   lock_objects = FALSE
 )
 
+#' @title SecureValueErrorTranslationFiles
+#' @description Telegram API type \code{secureValueErrorTranslationFiles} (constructor \code{#34636dd8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFiles",
   inherit = TLObject,
   public = list(
@@ -46669,6 +50724,11 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
   lock_objects = FALSE
 )
 
+#' @title SecureValueHash
+#' @description Telegram API type \code{secureValueHash} (constructor \code{#ed1ecdb0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueHash <- R6::R6Class("SecureValueHash",
   inherit = TLObject,
   public = list(
@@ -46714,6 +50774,11 @@ SecureValueHash <- R6::R6Class("SecureValueHash",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeAddress
+#' @description Telegram API type \code{secureValueTypeAddress} (constructor \code{#cbe31e26}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   inherit = TLObject,
   public = list(
@@ -46747,6 +50812,11 @@ SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeBankStatement
+#' @description Telegram API type \code{secureValueTypeBankStatement} (constructor \code{#89137c0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   inherit = TLObject,
   public = list(
@@ -46780,6 +50850,11 @@ SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeDriverLicense
+#' @description Telegram API type \code{secureValueTypeDriverLicense} (constructor \code{#06e425c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   inherit = TLObject,
   public = list(
@@ -46813,6 +50888,11 @@ SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeEmail
+#' @description Telegram API type \code{secureValueTypeEmail} (constructor \code{#8e3ca7ee}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   inherit = TLObject,
   public = list(
@@ -46846,6 +50926,11 @@ SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeIdentityCard
+#' @description Telegram API type \code{secureValueTypeIdentityCard} (constructor \code{#a0d0744b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   inherit = TLObject,
   public = list(
@@ -46879,6 +50964,11 @@ SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeInternalPassport
+#' @description Telegram API type \code{secureValueTypeInternalPassport} (constructor \code{#99a48f23}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport",
   inherit = TLObject,
   public = list(
@@ -46912,6 +51002,11 @@ SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport"
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypePassport
+#' @description Telegram API type \code{secureValueTypePassport} (constructor \code{#3dac6a00}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   inherit = TLObject,
   public = list(
@@ -46945,6 +51040,11 @@ SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypePassportRegistration
+#' @description Telegram API type \code{secureValueTypePassportRegistration} (constructor \code{#99e3806a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegistration",
   inherit = TLObject,
   public = list(
@@ -46978,6 +51078,11 @@ SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegis
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypePersonalDetails
+#' @description Telegram API type \code{secureValueTypePersonalDetails} (constructor \code{#9d2a81e3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   inherit = TLObject,
   public = list(
@@ -47011,6 +51116,11 @@ SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypePhone
+#' @description Telegram API type \code{secureValueTypePhone} (constructor \code{#b320aadb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   inherit = TLObject,
   public = list(
@@ -47044,6 +51154,11 @@ SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeRentalAgreement
+#' @description Telegram API type \code{secureValueTypeRentalAgreement} (constructor \code{#8b883488}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   inherit = TLObject,
   public = list(
@@ -47077,6 +51192,11 @@ SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeTemporaryRegistration
+#' @description Telegram API type \code{secureValueTypeTemporaryRegistration} (constructor \code{#ea02ec33}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryRegistration",
   inherit = TLObject,
   public = list(
@@ -47110,6 +51230,11 @@ SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryReg
   lock_objects = FALSE
 )
 
+#' @title SecureValueTypeUtilityBill
+#' @description Telegram API type \code{secureValueTypeUtilityBill} (constructor \code{#fc36954e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   inherit = TLObject,
   public = list(
@@ -47143,6 +51268,11 @@ SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   lock_objects = FALSE
 )
 
+#' @title SendAsPeer
+#' @description Telegram API type \code{sendAsPeer} (constructor \code{#b81c7034}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendAsPeer <- R6::R6Class("SendAsPeer",
   inherit = TLObject,
   public = list(
@@ -47191,6 +51321,11 @@ SendAsPeer <- R6::R6Class("SendAsPeer",
   lock_objects = FALSE
 )
 
+#' @title SendMessageCancelAction
+#' @description Telegram API type \code{sendMessageCancelAction} (constructor \code{#fd5ec8f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   inherit = TLObject,
   public = list(
@@ -47224,6 +51359,11 @@ SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageChooseContactAction
+#' @description Telegram API type \code{sendMessageChooseContactAction} (constructor \code{#628cbc6f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   inherit = TLObject,
   public = list(
@@ -47257,6 +51397,11 @@ SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageChooseStickerAction
+#' @description Telegram API type \code{sendMessageChooseStickerAction} (constructor \code{#b05ac6b1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   inherit = TLObject,
   public = list(
@@ -47290,6 +51435,11 @@ SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageEmojiInteraction
+#' @description Telegram API type \code{sendMessageEmojiInteraction} (constructor \code{#25972bcb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   inherit = TLObject,
   public = list(
@@ -47341,6 +51491,11 @@ SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageEmojiInteractionSeen
+#' @description Telegram API type \code{sendMessageEmojiInteractionSeen} (constructor \code{#b665902e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen",
   inherit = TLObject,
   public = list(
@@ -47380,6 +51535,11 @@ SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen"
   lock_objects = FALSE
 )
 
+#' @title SendMessageGamePlayAction
+#' @description Telegram API type \code{sendMessageGamePlayAction} (constructor \code{#dd6a8f48}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   inherit = TLObject,
   public = list(
@@ -47413,6 +51573,11 @@ SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageGeoLocationAction
+#' @description Telegram API type \code{sendMessageGeoLocationAction} (constructor \code{#176f8ba1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   inherit = TLObject,
   public = list(
@@ -47446,6 +51611,11 @@ SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageHistoryImportAction
+#' @description Telegram API type \code{sendMessageHistoryImportAction} (constructor \code{#dbda9246}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   inherit = TLObject,
   public = list(
@@ -47485,6 +51655,11 @@ SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageRecordAudioAction
+#' @description Telegram API type \code{sendMessageRecordAudioAction} (constructor \code{#d52f73f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   inherit = TLObject,
   public = list(
@@ -47518,6 +51693,11 @@ SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageRecordRoundAction
+#' @description Telegram API type \code{sendMessageRecordRoundAction} (constructor \code{#88f27fbc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   inherit = TLObject,
   public = list(
@@ -47551,6 +51731,11 @@ SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageRecordVideoAction
+#' @description Telegram API type \code{sendMessageRecordVideoAction} (constructor \code{#a187d66f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   inherit = TLObject,
   public = list(
@@ -47584,6 +51769,11 @@ SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageTypingAction
+#' @description Telegram API type \code{sendMessageTypingAction} (constructor \code{#16bf744e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   inherit = TLObject,
   public = list(
@@ -47617,6 +51807,11 @@ SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageUploadAudioAction
+#' @description Telegram API type \code{sendMessageUploadAudioAction} (constructor \code{#f351d7ab}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   inherit = TLObject,
   public = list(
@@ -47656,6 +51851,11 @@ SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageUploadDocumentAction
+#' @description Telegram API type \code{sendMessageUploadDocumentAction} (constructor \code{#aa0cd9e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction",
   inherit = TLObject,
   public = list(
@@ -47695,6 +51895,11 @@ SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction"
   lock_objects = FALSE
 )
 
+#' @title SendMessageUploadPhotoAction
+#' @description Telegram API type \code{sendMessageUploadPhotoAction} (constructor \code{#d1d34a26}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   inherit = TLObject,
   public = list(
@@ -47734,6 +51939,11 @@ SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageUploadRoundAction
+#' @description Telegram API type \code{sendMessageUploadRoundAction} (constructor \code{#243e1c66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   inherit = TLObject,
   public = list(
@@ -47773,6 +51983,11 @@ SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   lock_objects = FALSE
 )
 
+#' @title SendMessageUploadVideoAction
+#' @description Telegram API type \code{sendMessageUploadVideoAction} (constructor \code{#e9763aec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   inherit = TLObject,
   public = list(
@@ -47949,11 +52164,11 @@ ServerDHParamsOk <- R6::R6Class(
   class = TRUE
 )
 
-#  @title ShippingOption
-#  @description Telegram API type ShippingOption
-#  @export
-#  @noRd
-#  @noRd
+#' @title ShippingOption
+#' @description Telegram API type \code{shippingOption} (constructor \code{#b6213cdf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ShippingOption <- R6::R6Class("ShippingOption",
   inherit = TLObject,
   public = list(
@@ -48005,6 +52220,11 @@ ShippingOption <- R6::R6Class("ShippingOption",
   lock_objects = FALSE
 )
 
+#' @title SmsJob
+#' @description Telegram API type \code{smsJob} (constructor \code{#e6a1eeb8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SmsJob <- R6::R6Class("SmsJob",
   inherit = TLObject,
   public = list(
@@ -48056,6 +52276,11 @@ SmsJob <- R6::R6Class("SmsJob",
   lock_objects = FALSE
 )
 
+#' @title SpeakingInGroupCallAction
+#' @description Telegram API type \code{speakingInGroupCallAction} (constructor \code{#d92c2285}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SpeakingInGroupCallAction <- R6::R6Class("SpeakingInGroupCallAction",
   inherit = TLObject,
   public = list(
@@ -48089,6 +52314,11 @@ SpeakingInGroupCallAction <- R6::R6Class("SpeakingInGroupCallAction",
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessage
+#' @description Telegram API type \code{sponsoredMessage} (constructor \code{#7dbf8673}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessage <- R6::R6Class("SponsoredMessage",
   inherit = TLObject,
   public = list(
@@ -48223,6 +52453,11 @@ SponsoredMessage <- R6::R6Class("SponsoredMessage",
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessageReportOption
+#' @description Telegram API type \code{sponsoredMessageReportOption} (constructor \code{#430d3150}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessageReportOption <- R6::R6Class("SponsoredMessageReportOption",
   inherit = TLObject,
   public = list(
@@ -48268,6 +52503,11 @@ SponsoredMessageReportOption <- R6::R6Class("SponsoredMessageReportOption",
   lock_objects = FALSE
 )
 
+#' @title SponsoredPeer
+#' @description Telegram API type \code{sponsoredPeer} (constructor \code{#c69708d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredPeer <- R6::R6Class("SponsoredPeer",
   inherit = TLObject,
   public = list(
@@ -48330,6 +52570,11 @@ SponsoredPeer <- R6::R6Class("SponsoredPeer",
   lock_objects = FALSE
 )
 
+#' @title StarGift
+#' @description Telegram API type \code{starGift} (constructor \code{#313a9547}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGift <- R6::R6Class("StarGift",
   inherit = TLObject,
   public = list(
@@ -48551,6 +52796,11 @@ StarGift <- R6::R6Class("StarGift",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeBackdrop
+#' @description Telegram API type \code{starGiftAttributeBackdrop} (constructor \code{#9f2504e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeBackdrop <- R6::R6Class("StarGiftAttributeBackdrop",
   inherit = TLObject,
   public = list(
@@ -48626,6 +52876,11 @@ StarGiftAttributeBackdrop <- R6::R6Class("StarGiftAttributeBackdrop",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeCounter
+#' @description Telegram API type \code{starGiftAttributeCounter} (constructor \code{#2eb1b658}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeCounter <- R6::R6Class("StarGiftAttributeCounter",
   inherit = TLObject,
   public = list(
@@ -48671,6 +52926,11 @@ StarGiftAttributeCounter <- R6::R6Class("StarGiftAttributeCounter",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeIdBackdrop
+#' @description Telegram API type \code{starGiftAttributeIdBackdrop} (constructor \code{#1f01c757}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeIdBackdrop <- R6::R6Class("StarGiftAttributeIdBackdrop",
   inherit = TLObject,
   public = list(
@@ -48710,6 +52970,11 @@ StarGiftAttributeIdBackdrop <- R6::R6Class("StarGiftAttributeIdBackdrop",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeIdModel
+#' @description Telegram API type \code{starGiftAttributeIdModel} (constructor \code{#48aaae3c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeIdModel <- R6::R6Class("StarGiftAttributeIdModel",
   inherit = TLObject,
   public = list(
@@ -48749,6 +53014,11 @@ StarGiftAttributeIdModel <- R6::R6Class("StarGiftAttributeIdModel",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeIdPattern
+#' @description Telegram API type \code{starGiftAttributeIdPattern} (constructor \code{#4a162433}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeIdPattern <- R6::R6Class("StarGiftAttributeIdPattern",
   inherit = TLObject,
   public = list(
@@ -48788,6 +53058,11 @@ StarGiftAttributeIdPattern <- R6::R6Class("StarGiftAttributeIdPattern",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeModel
+#' @description Telegram API type \code{starGiftAttributeModel} (constructor \code{#565251e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeModel <- R6::R6Class("StarGiftAttributeModel",
   inherit = TLObject,
   public = list(
@@ -48848,6 +53123,11 @@ StarGiftAttributeModel <- R6::R6Class("StarGiftAttributeModel",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeOriginalDetails
+#' @description Telegram API type \code{starGiftAttributeOriginalDetails} (constructor \code{#e0bff26c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeOriginalDetails <- R6::R6Class("StarGiftAttributeOriginalDetails",
   inherit = TLObject,
   public = list(
@@ -48910,6 +53190,11 @@ StarGiftAttributeOriginalDetails <- R6::R6Class("StarGiftAttributeOriginalDetail
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributePattern
+#' @description Telegram API type \code{starGiftAttributePattern} (constructor \code{#4e7085ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributePattern <- R6::R6Class("StarGiftAttributePattern",
   inherit = TLObject,
   public = list(
@@ -48961,6 +53246,11 @@ StarGiftAttributePattern <- R6::R6Class("StarGiftAttributePattern",
   lock_objects = FALSE
 )
 
+#' @title StarGiftCollection
+#' @description Telegram API type \code{starGiftCollection} (constructor \code{#9d6b13b0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftCollection <- R6::R6Class("StarGiftCollection",
   inherit = TLObject,
   public = list(
@@ -49028,6 +53318,11 @@ StarGiftCollection <- R6::R6Class("StarGiftCollection",
   lock_objects = FALSE
 )
 
+#' @title StarGiftUnique
+#' @description Telegram API type \code{starGiftUnique} (constructor \code{#85f0a9cd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftUnique <- R6::R6Class("StarGiftUnique",
   inherit = TLObject,
   public = list(
@@ -49240,6 +53535,11 @@ StarGiftUnique <- R6::R6Class("StarGiftUnique",
   lock_objects = FALSE
 )
 
+#' @title StarRefProgram
+#' @description Telegram API type \code{starRefProgram} (constructor \code{#dd0c66f2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarRefProgram <- R6::R6Class("StarRefProgram",
   inherit = TLObject,
   public = list(
@@ -49309,6 +53609,11 @@ StarRefProgram <- R6::R6Class("StarRefProgram",
   lock_objects = FALSE
 )
 
+#' @title StarsAmount
+#' @description Telegram API type \code{starsAmount} (constructor \code{#bbb6b4a3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsAmount <- R6::R6Class("StarsAmount",
   inherit = TLObject,
   public = list(
@@ -49354,6 +53659,11 @@ StarsAmount <- R6::R6Class("StarsAmount",
   lock_objects = FALSE
 )
 
+#' @title StarsGiftOption
+#' @description Telegram API type \code{starsGiftOption} (constructor \code{#5e0589f1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsGiftOption <- R6::R6Class("StarsGiftOption",
   inherit = TLObject,
   public = list(
@@ -49421,6 +53731,11 @@ StarsGiftOption <- R6::R6Class("StarsGiftOption",
   lock_objects = FALSE
 )
 
+#' @title StarsGiveawayOption
+#' @description Telegram API type \code{starsGiveawayOption} (constructor \code{#94ce852a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   inherit = TLObject,
   public = list(
@@ -49506,6 +53821,11 @@ StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   lock_objects = FALSE
 )
 
+#' @title StarsGiveawayWinnersOption
+#' @description Telegram API type \code{starsGiveawayWinnersOption} (constructor \code{#54236209}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   inherit = TLObject,
   public = list(
@@ -49560,6 +53880,11 @@ StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   lock_objects = FALSE
 )
 
+#' @title StarsRating
+#' @description Telegram API type \code{starsRating} (constructor \code{#1b0e4f07}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsRating <- R6::R6Class("StarsRating",
   inherit = TLObject,
   public = list(
@@ -49621,6 +53946,11 @@ StarsRating <- R6::R6Class("StarsRating",
   lock_objects = FALSE
 )
 
+#' @title StarsRevenueStatus
+#' @description Telegram API type \code{starsRevenueStatus} (constructor \code{#febe5491}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   inherit = TLObject,
   public = list(
@@ -49688,6 +54018,11 @@ StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   lock_objects = FALSE
 )
 
+#' @title StarsSubscription
+#' @description Telegram API type \code{starsSubscription} (constructor \code{#2e6eab1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsSubscription <- R6::R6Class("StarsSubscription",
   inherit = TLObject,
   public = list(
@@ -49800,6 +54135,11 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
   lock_objects = FALSE
 )
 
+#' @title StarsSubscriptionPricing
+#' @description Telegram API type \code{starsSubscriptionPricing} (constructor \code{#05416d58}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   inherit = TLObject,
   public = list(
@@ -49845,6 +54185,11 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   lock_objects = FALSE
 )
 
+#' @title StarsTonAmount
+#' @description Telegram API type \code{starsTonAmount} (constructor \code{#74aee3e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTonAmount <- R6::R6Class("StarsTonAmount",
   inherit = TLObject,
   public = list(
@@ -49884,6 +54229,11 @@ StarsTonAmount <- R6::R6Class("StarsTonAmount",
   lock_objects = FALSE
 )
 
+#' @title StarsTopupOption
+#' @description Telegram API type \code{starsTopupOption} (constructor \code{#0bd915c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTopupOption <- R6::R6Class("StarsTopupOption",
   inherit = TLObject,
   public = list(
@@ -49951,6 +54301,11 @@ StarsTopupOption <- R6::R6Class("StarsTopupOption",
   lock_objects = FALSE
 )
 
+#' @title StarsTransaction
+#' @description Telegram API type \code{starsTransaction} (constructor \code{#13659eb0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransaction <- R6::R6Class("StarsTransaction",
   inherit = TLObject,
   public = list(
@@ -50228,6 +54583,11 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeer
+#' @description Telegram API type \code{starsTransactionPeer} (constructor \code{#d80da15d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   inherit = TLObject,
   public = list(
@@ -50267,6 +54627,11 @@ StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerAPI
+#' @description Telegram API type \code{starsTransactionPeerAPI} (constructor \code{#f9677aad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   inherit = TLObject,
   public = list(
@@ -50300,6 +54665,11 @@ StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerAds
+#' @description Telegram API type \code{starsTransactionPeerAds} (constructor \code{#60682812}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   inherit = TLObject,
   public = list(
@@ -50333,6 +54703,11 @@ StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerAppStore
+#' @description Telegram API type \code{starsTransactionPeerAppStore} (constructor \code{#b457b375}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   inherit = TLObject,
   public = list(
@@ -50366,6 +54741,11 @@ StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerFragment
+#' @description Telegram API type \code{starsTransactionPeerFragment} (constructor \code{#e92fd902}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   inherit = TLObject,
   public = list(
@@ -50399,6 +54779,11 @@ StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerPlayMarket
+#' @description Telegram API type \code{starsTransactionPeerPlayMarket} (constructor \code{#7b560a0b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   inherit = TLObject,
   public = list(
@@ -50432,6 +54817,11 @@ StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerPremiumBot
+#' @description Telegram API type \code{starsTransactionPeerPremiumBot} (constructor \code{#250dbaf8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   inherit = TLObject,
   public = list(
@@ -50465,6 +54855,11 @@ StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   lock_objects = FALSE
 )
 
+#' @title StarsTransactionPeerUnsupported
+#' @description Telegram API type \code{starsTransactionPeerUnsupported} (constructor \code{#95f2bfe4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported",
   inherit = TLObject,
   public = list(
@@ -50498,6 +54893,11 @@ StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported"
   lock_objects = FALSE
 )
 
+#' @title StatsAbsValueAndPrev
+#' @description Telegram API type \code{statsAbsValueAndPrev} (constructor \code{#cb43acde}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   inherit = TLObject,
   public = list(
@@ -50543,6 +54943,11 @@ StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   lock_objects = FALSE
 )
 
+#' @title StatsDateRangeDays
+#' @description Telegram API type \code{statsDateRangeDays} (constructor \code{#b637edaf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   inherit = TLObject,
   public = list(
@@ -50588,6 +54993,11 @@ StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   lock_objects = FALSE
 )
 
+#' @title StatsGraph
+#' @description Telegram API type \code{statsGraph} (constructor \code{#8ea464b6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGraph <- R6::R6Class("StatsGraph",
   inherit = TLObject,
   public = list(
@@ -50637,6 +55047,11 @@ StatsGraph <- R6::R6Class("StatsGraph",
   lock_objects = FALSE
 )
 
+#' @title StatsGraphAsync
+#' @description Telegram API type \code{statsGraphAsync} (constructor \code{#4a27eb2d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   inherit = TLObject,
   public = list(
@@ -50676,6 +55091,11 @@ StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   lock_objects = FALSE
 )
 
+#' @title StatsGraphError
+#' @description Telegram API type \code{statsGraphError} (constructor \code{#bedc9822}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGraphError <- R6::R6Class("StatsGraphError",
   inherit = TLObject,
   public = list(
@@ -50715,6 +55135,11 @@ StatsGraphError <- R6::R6Class("StatsGraphError",
   lock_objects = FALSE
 )
 
+#' @title StatsGroupTopAdmin
+#' @description Telegram API type \code{statsGroupTopAdmin} (constructor \code{#d7584c87}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   inherit = TLObject,
   public = list(
@@ -50772,6 +55197,11 @@ StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   lock_objects = FALSE
 )
 
+#' @title StatsGroupTopInviter
+#' @description Telegram API type \code{statsGroupTopInviter} (constructor \code{#535f779d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   inherit = TLObject,
   public = list(
@@ -50817,6 +55247,11 @@ StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   lock_objects = FALSE
 )
 
+#' @title StatsGroupTopPoster
+#' @description Telegram API type \code{statsGroupTopPoster} (constructor \code{#9d04af9b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   inherit = TLObject,
   public = list(
@@ -50868,6 +55303,11 @@ StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   lock_objects = FALSE
 )
 
+#' @title StatsPercentValue
+#' @description Telegram API type \code{statsPercentValue} (constructor \code{#cbce2fe0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsPercentValue <- R6::R6Class("StatsPercentValue",
   inherit = TLObject,
   public = list(
@@ -50913,6 +55353,11 @@ StatsPercentValue <- R6::R6Class("StatsPercentValue",
   lock_objects = FALSE
 )
 
+#' @title StatsURL
+#' @description Telegram API type \code{statsURL} (constructor \code{#47a971e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StatsURL <- R6::R6Class("StatsURL",
   inherit = TLObject,
   public = list(
@@ -50952,6 +55397,11 @@ StatsURL <- R6::R6Class("StatsURL",
   lock_objects = FALSE
 )
 
+#' @title StickerKeyword
+#' @description Telegram API type \code{stickerKeyword} (constructor \code{#fcfeb29c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerKeyword <- R6::R6Class("StickerKeyword",
   inherit = TLObject,
   public = list(
@@ -50997,6 +55447,11 @@ StickerKeyword <- R6::R6Class("StickerKeyword",
   lock_objects = FALSE
 )
 
+#' @title StickerPack
+#' @description Telegram API type \code{stickerPack} (constructor \code{#12b299d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerPack <- R6::R6Class("StickerPack",
   inherit = TLObject,
   public = list(
@@ -51042,6 +55497,11 @@ StickerPack <- R6::R6Class("StickerPack",
   lock_objects = FALSE
 )
 
+#' @title StickerSet
+#' @description Telegram API type \code{stickerSet} (constructor \code{#2dd14edc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSet <- R6::R6Class("StickerSet",
   inherit = TLObject,
   public = list(
@@ -51191,6 +55651,11 @@ StickerSet <- R6::R6Class("StickerSet",
   lock_objects = FALSE
 )
 
+#' @title StickerSetCovered
+#' @description Telegram API type \code{stickerSetCovered} (constructor \code{#6410a5d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetCovered <- R6::R6Class("StickerSetCovered",
   inherit = TLObject,
   public = list(
@@ -51236,6 +55701,11 @@ StickerSetCovered <- R6::R6Class("StickerSetCovered",
   lock_objects = FALSE
 )
 
+#' @title StickerSetFullCovered
+#' @description Telegram API type \code{stickerSetFullCovered} (constructor \code{#40d13c0e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   inherit = TLObject,
   public = list(
@@ -51293,6 +55763,11 @@ StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   lock_objects = FALSE
 )
 
+#' @title StickerSetMultiCovered
+#' @description Telegram API type \code{stickerSetMultiCovered} (constructor \code{#3407e51b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   inherit = TLObject,
   public = list(
@@ -51338,6 +55813,11 @@ StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   lock_objects = FALSE
 )
 
+#' @title StickerSetNoCovered
+#' @description Telegram API type \code{stickerSetNoCovered} (constructor \code{#77b15d1c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   inherit = TLObject,
   public = list(
@@ -51377,6 +55857,11 @@ StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   lock_objects = FALSE
 )
 
+#' @title StoriesStealthMode
+#' @description Telegram API type \code{storiesStealthMode} (constructor \code{#712e27fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   inherit = TLObject,
   public = list(
@@ -51427,6 +55912,11 @@ StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   lock_objects = FALSE
 )
 
+#' @title StoryAlbum
+#' @description Telegram API type \code{storyAlbum} (constructor \code{#9325705a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryAlbum <- R6::R6Class("StoryAlbum",
   inherit = TLObject,
   public = list(
@@ -51489,6 +55979,11 @@ StoryAlbum <- R6::R6Class("StoryAlbum",
   lock_objects = FALSE
 )
 
+#' @title StoryFwdHeader
+#' @description Telegram API type \code{storyFwdHeader} (constructor \code{#b826e150}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   inherit = TLObject,
   public = list(
@@ -51552,6 +56047,11 @@ StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   lock_objects = FALSE
 )
 
+#' @title StoryItem
+#' @description Telegram API type \code{storyItem} (constructor \code{#16a4b93c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryItem <- R6::R6Class("StoryItem",
   inherit = TLObject,
   public = list(
@@ -51736,6 +56236,11 @@ StoryItem <- R6::R6Class("StoryItem",
   lock_objects = FALSE
 )
 
+#' @title StoryItemDeleted
+#' @description Telegram API type \code{storyItemDeleted} (constructor \code{#51e6ee4f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   inherit = TLObject,
   public = list(
@@ -51775,6 +56280,11 @@ StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   lock_objects = FALSE
 )
 
+#' @title StoryItemSkipped
+#' @description Telegram API type \code{storyItemSkipped} (constructor \code{#ffadc913}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   inherit = TLObject,
   public = list(
@@ -51841,6 +56351,11 @@ StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   lock_objects = FALSE
 )
 
+#' @title StoryReaction
+#' @description Telegram API type \code{storyReaction} (constructor \code{#6090d6d5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryReaction <- R6::R6Class("StoryReaction",
   inherit = TLObject,
   public = list(
@@ -51892,6 +56407,11 @@ StoryReaction <- R6::R6Class("StoryReaction",
   lock_objects = FALSE
 )
 
+#' @title StoryReactionPublicForward
+#' @description Telegram API type \code{storyReactionPublicForward} (constructor \code{#bbab2643}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   inherit = TLObject,
   public = list(
@@ -51931,6 +56451,11 @@ StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   lock_objects = FALSE
 )
 
+#' @title StoryReactionPublicRepost
+#' @description Telegram API type \code{storyReactionPublicRepost} (constructor \code{#cfcd0f13}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   inherit = TLObject,
   public = list(
@@ -51976,6 +56501,11 @@ StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   lock_objects = FALSE
 )
 
+#' @title StoryView
+#' @description Telegram API type \code{storyView} (constructor \code{#b0bdeac5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryView <- R6::R6Class("StoryView",
   inherit = TLObject,
   public = list(
@@ -52043,6 +56573,11 @@ StoryView <- R6::R6Class("StoryView",
   lock_objects = FALSE
 )
 
+#' @title StoryViewPublicForward
+#' @description Telegram API type \code{storyViewPublicForward} (constructor \code{#9083670b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   inherit = TLObject,
   public = list(
@@ -52097,6 +56632,11 @@ StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   lock_objects = FALSE
 )
 
+#' @title StoryViewPublicRepost
+#' @description Telegram API type \code{storyViewPublicRepost} (constructor \code{#bd74cf49}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   inherit = TLObject,
   public = list(
@@ -52157,6 +56697,11 @@ StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   lock_objects = FALSE
 )
 
+#' @title StoryViews
+#' @description Telegram API type \code{storyViews} (constructor \code{#8d595cd6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryViews <- R6::R6Class("StoryViews",
   inherit = TLObject,
   public = list(
@@ -52233,6 +56778,11 @@ StoryViews <- R6::R6Class("StoryViews",
   lock_objects = FALSE
 )
 
+#' @title SuggestedPost
+#' @description Telegram API type \code{suggestedPost} (constructor \code{#0e8e37e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SuggestedPost <- R6::R6Class("SuggestedPost",
   inherit = TLObject,
   public = list(
@@ -52295,6 +56845,11 @@ SuggestedPost <- R6::R6Class("SuggestedPost",
   lock_objects = FALSE
 )
 
+#' @title TextAnchor
+#' @description Telegram API type \code{textAnchor} (constructor \code{#35553762}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextAnchor <- R6::R6Class("TextAnchor",
   inherit = TLObject,
   public = list(
@@ -52340,6 +56895,11 @@ TextAnchor <- R6::R6Class("TextAnchor",
   lock_objects = FALSE
 )
 
+#' @title TextBold
+#' @description Telegram API type \code{textBold} (constructor \code{#6724abc4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextBold <- R6::R6Class("TextBold",
   inherit = TLObject,
   public = list(
@@ -52379,6 +56939,11 @@ TextBold <- R6::R6Class("TextBold",
   lock_objects = FALSE
 )
 
+#' @title TextConcat
+#' @description Telegram API type \code{textConcat} (constructor \code{#7e6260d7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextConcat <- R6::R6Class("TextConcat",
   inherit = TLObject,
   public = list(
@@ -52418,6 +56983,11 @@ TextConcat <- R6::R6Class("TextConcat",
   lock_objects = FALSE
 )
 
+#' @title TextEmail
+#' @description Telegram API type \code{textEmail} (constructor \code{#de5a0dd6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextEmail <- R6::R6Class("TextEmail",
   inherit = TLObject,
   public = list(
@@ -52463,6 +57033,11 @@ TextEmail <- R6::R6Class("TextEmail",
   lock_objects = FALSE
 )
 
+#' @title TextEmpty
+#' @description Telegram API type \code{textEmpty} (constructor \code{#dc3d824f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextEmpty <- R6::R6Class("TextEmpty",
   inherit = TLObject,
   public = list(
@@ -52496,6 +57071,11 @@ TextEmpty <- R6::R6Class("TextEmpty",
   lock_objects = FALSE
 )
 
+#' @title TextFixed
+#' @description Telegram API type \code{textFixed} (constructor \code{#6c3f19b9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextFixed <- R6::R6Class("TextFixed",
   inherit = TLObject,
   public = list(
@@ -52584,11 +57164,11 @@ TlsBlockZero <- R6::R6Class("TlsBlockZero",
   class = TRUE
 )
 
-#  @title TextImage
-#  @description Telegram API type TextImage
-#  @export
-#  @noRd
-#  @noRd
+#' @title TextImage
+#' @description Telegram API type \code{textImage} (constructor \code{#081ccf4f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextImage <- R6::R6Class("TextImage",
   inherit = TLObject,
   public = list(
@@ -52640,6 +57220,11 @@ TextImage <- R6::R6Class("TextImage",
   lock_objects = FALSE
 )
 
+#' @title TextItalic
+#' @description Telegram API type \code{textItalic} (constructor \code{#d912a59c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextItalic <- R6::R6Class("TextItalic",
   inherit = TLObject,
   public = list(
@@ -52679,6 +57264,11 @@ TextItalic <- R6::R6Class("TextItalic",
   lock_objects = FALSE
 )
 
+#' @title TextMarked
+#' @description Telegram API type \code{textMarked} (constructor \code{#034b8621}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextMarked <- R6::R6Class("TextMarked",
   inherit = TLObject,
   public = list(
@@ -52718,6 +57308,11 @@ TextMarked <- R6::R6Class("TextMarked",
   lock_objects = FALSE
 )
 
+#' @title TextPhone
+#' @description Telegram API type \code{textPhone} (constructor \code{#1ccb966a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextPhone <- R6::R6Class("TextPhone",
   inherit = TLObject,
   public = list(
@@ -52763,6 +57358,11 @@ TextPhone <- R6::R6Class("TextPhone",
   lock_objects = FALSE
 )
 
+#' @title TextPlain
+#' @description Telegram API type \code{textPlain} (constructor \code{#744694e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextPlain <- R6::R6Class("TextPlain",
   inherit = TLObject,
   public = list(
@@ -52802,6 +57402,11 @@ TextPlain <- R6::R6Class("TextPlain",
   lock_objects = FALSE
 )
 
+#' @title TextStrike
+#' @description Telegram API type \code{textStrike} (constructor \code{#9bf8bb95}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextStrike <- R6::R6Class("TextStrike",
   inherit = TLObject,
   public = list(
@@ -52841,6 +57446,11 @@ TextStrike <- R6::R6Class("TextStrike",
   lock_objects = FALSE
 )
 
+#' @title TextSubscript
+#' @description Telegram API type \code{textSubscript} (constructor \code{#ed6a8504}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextSubscript <- R6::R6Class("TextSubscript",
   inherit = TLObject,
   public = list(
@@ -52880,6 +57490,11 @@ TextSubscript <- R6::R6Class("TextSubscript",
   lock_objects = FALSE
 )
 
+#' @title TextSuperscript
+#' @description Telegram API type \code{textSuperscript} (constructor \code{#c7fb5e01}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextSuperscript <- R6::R6Class("TextSuperscript",
   inherit = TLObject,
   public = list(
@@ -52919,6 +57534,11 @@ TextSuperscript <- R6::R6Class("TextSuperscript",
   lock_objects = FALSE
 )
 
+#' @title TextUnderline
+#' @description Telegram API type \code{textUnderline} (constructor \code{#c12622c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextUnderline <- R6::R6Class("TextUnderline",
   inherit = TLObject,
   public = list(
@@ -52958,6 +57578,11 @@ TextUnderline <- R6::R6Class("TextUnderline",
   lock_objects = FALSE
 )
 
+#' @title TextUrl
+#' @description Telegram API type \code{textUrl} (constructor \code{#3c2884c1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextUrl <- R6::R6Class("TextUrl",
   inherit = TLObject,
   public = list(
@@ -53009,6 +57634,11 @@ TextUrl <- R6::R6Class("TextUrl",
   lock_objects = FALSE
 )
 
+#' @title TextWithEntities
+#' @description Telegram API type \code{textWithEntities} (constructor \code{#751f3146}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextWithEntities <- R6::R6Class("TextWithEntities",
   inherit = TLObject,
   public = list(
@@ -53054,6 +57684,11 @@ TextWithEntities <- R6::R6Class("TextWithEntities",
   lock_objects = FALSE
 )
 
+#' @title Theme
+#' @description Telegram API type \code{theme} (constructor \code{#a00e67d6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Theme <- R6::R6Class("Theme",
   inherit = TLObject,
   public = list(
@@ -53160,6 +57795,11 @@ Theme <- R6::R6Class("Theme",
   lock_objects = FALSE
 )
 
+#' @title ThemeSettings
+#' @description Telegram API type \code{themeSettings} (constructor \code{#fa58b6d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ThemeSettings <- R6::R6Class("ThemeSettings",
   inherit = TLObject,
   public = list(
@@ -53235,6 +57875,11 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
   lock_objects = FALSE
 )
 
+#' @title Timezone
+#' @description Telegram API type \code{timezone} (constructor \code{#ff9289f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Timezone <- R6::R6Class("Timezone",
   inherit = TLObject,
   public = list(
@@ -53461,11 +58106,11 @@ TlsClientHello <- R6::R6Class(
   )
 )
 
-#  @title TodoCompletion
-#  @description Telegram API type TodoCompletion
-#  @export
-#  @noRd
-#  @noRd
+#' @title TodoCompletion
+#' @description Telegram API type \code{todoCompletion} (constructor \code{#221bb5e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TodoCompletion <- R6::R6Class("TodoCompletion",
   inherit = TLObject,
   public = list(
@@ -53517,6 +58162,11 @@ TodoCompletion <- R6::R6Class("TodoCompletion",
   lock_objects = FALSE
 )
 
+#' @title TodoItem
+#' @description Telegram API type \code{todoItem} (constructor \code{#cba9a52f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TodoItem <- R6::R6Class("TodoItem",
   inherit = TLObject,
   public = list(
@@ -53562,6 +58212,11 @@ TodoItem <- R6::R6Class("TodoItem",
   lock_objects = FALSE
 )
 
+#' @title TodoList
+#' @description Telegram API type \code{todoList} (constructor \code{#49b92a26}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TodoList <- R6::R6Class("TodoList",
   inherit = TLObject,
   public = list(
@@ -53622,6 +58277,11 @@ TodoList <- R6::R6Class("TodoList",
   lock_objects = FALSE
 )
 
+#' @title TopPeer
+#' @description Telegram API type \code{topPeer} (constructor \code{#edcdc05b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeer <- R6::R6Class("TopPeer",
   inherit = TLObject,
   public = list(
@@ -53667,6 +58327,11 @@ TopPeer <- R6::R6Class("TopPeer",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryBotsApp
+#' @description Telegram API type \code{topPeerCategoryBotsApp} (constructor \code{#fd9e7bec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryBotsApp <- R6::R6Class("TopPeerCategoryBotsApp",
   inherit = TLObject,
   public = list(
@@ -53700,6 +58365,11 @@ TopPeerCategoryBotsApp <- R6::R6Class("TopPeerCategoryBotsApp",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryBotsInline
+#' @description Telegram API type \code{topPeerCategoryBotsInline} (constructor \code{#148677e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryBotsInline <- R6::R6Class("TopPeerCategoryBotsInline",
   inherit = TLObject,
   public = list(
@@ -53733,6 +58403,11 @@ TopPeerCategoryBotsInline <- R6::R6Class("TopPeerCategoryBotsInline",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryBotsPM
+#' @description Telegram API type \code{topPeerCategoryBotsPM} (constructor \code{#ab661b5b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryBotsPM <- R6::R6Class("TopPeerCategoryBotsPM",
   inherit = TLObject,
   public = list(
@@ -53766,6 +58441,11 @@ TopPeerCategoryBotsPM <- R6::R6Class("TopPeerCategoryBotsPM",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryChannels
+#' @description Telegram API type \code{topPeerCategoryChannels} (constructor \code{#161d9628}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryChannels <- R6::R6Class("TopPeerCategoryChannels",
   inherit = TLObject,
   public = list(
@@ -53799,6 +58479,11 @@ TopPeerCategoryChannels <- R6::R6Class("TopPeerCategoryChannels",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryCorrespondents
+#' @description Telegram API type \code{topPeerCategoryCorrespondents} (constructor \code{#0637b7ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryCorrespondents <- R6::R6Class("TopPeerCategoryCorrespondents",
   inherit = TLObject,
   public = list(
@@ -53832,6 +58517,11 @@ TopPeerCategoryCorrespondents <- R6::R6Class("TopPeerCategoryCorrespondents",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryForwardChats
+#' @description Telegram API type \code{topPeerCategoryForwardChats} (constructor \code{#fbeec0f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryForwardChats <- R6::R6Class("TopPeerCategoryForwardChats",
   inherit = TLObject,
   public = list(
@@ -53865,6 +58555,11 @@ TopPeerCategoryForwardChats <- R6::R6Class("TopPeerCategoryForwardChats",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryForwardUsers
+#' @description Telegram API type \code{topPeerCategoryForwardUsers} (constructor \code{#a8406ca9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryForwardUsers <- R6::R6Class("TopPeerCategoryForwardUsers",
   inherit = TLObject,
   public = list(
@@ -53898,6 +58593,11 @@ TopPeerCategoryForwardUsers <- R6::R6Class("TopPeerCategoryForwardUsers",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryGroups
+#' @description Telegram API type \code{topPeerCategoryGroups} (constructor \code{#bd17a14a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryGroups <- R6::R6Class("TopPeerCategoryGroups",
   inherit = TLObject,
   public = list(
@@ -53931,6 +58631,11 @@ TopPeerCategoryGroups <- R6::R6Class("TopPeerCategoryGroups",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryPeers
+#' @description Telegram API type \code{topPeerCategoryPeers} (constructor \code{#fb834291}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryPeers <- R6::R6Class("TopPeerCategoryPeers",
   inherit = TLObject,
   public = list(
@@ -53982,6 +58687,11 @@ TopPeerCategoryPeers <- R6::R6Class("TopPeerCategoryPeers",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryPhoneCalls
+#' @description Telegram API type \code{topPeerCategoryPhoneCalls} (constructor \code{#1e76a78c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryPhoneCalls <- R6::R6Class("TopPeerCategoryPhoneCalls",
   inherit = TLObject,
   public = list(
@@ -54015,6 +58725,11 @@ TopPeerCategoryPhoneCalls <- R6::R6Class("TopPeerCategoryPhoneCalls",
   lock_objects = FALSE
 )
 
+#' @title UpdateAttachMenuBots
+#' @description Telegram API type \code{updateAttachMenuBots} (constructor \code{#17b7a20b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateAttachMenuBots <- R6::R6Class("UpdateAttachMenuBots",
   inherit = TLObject,
   public = list(
@@ -54048,6 +58763,11 @@ UpdateAttachMenuBots <- R6::R6Class("UpdateAttachMenuBots",
   lock_objects = FALSE
 )
 
+#' @title UpdateAutoSaveSettings
+#' @description Telegram API type \code{updateAutoSaveSettings} (constructor \code{#ec05b097}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateAutoSaveSettings <- R6::R6Class("UpdateAutoSaveSettings",
   inherit = TLObject,
   public = list(
@@ -54081,6 +58801,11 @@ UpdateAutoSaveSettings <- R6::R6Class("UpdateAutoSaveSettings",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotBusinessConnect
+#' @description Telegram API type \code{updateBotBusinessConnect} (constructor \code{#8ae5c97a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotBusinessConnect <- R6::R6Class("UpdateBotBusinessConnect",
   inherit = TLObject,
   public = list(
@@ -54126,6 +58851,11 @@ UpdateBotBusinessConnect <- R6::R6Class("UpdateBotBusinessConnect",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotCallbackQuery
+#' @description Telegram API type \code{updateBotCallbackQuery} (constructor \code{#b9cfc48d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotCallbackQuery <- R6::R6Class("UpdateBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -54206,6 +58936,11 @@ UpdateBotCallbackQuery <- R6::R6Class("UpdateBotCallbackQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotChatBoost
+#' @description Telegram API type \code{updateBotChatBoost} (constructor \code{#904dd49c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotChatBoost <- R6::R6Class("UpdateBotChatBoost",
   inherit = TLObject,
   public = list(
@@ -54257,6 +58992,11 @@ UpdateBotChatBoost <- R6::R6Class("UpdateBotChatBoost",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotChatInviteRequester
+#' @description Telegram API type \code{updateBotChatInviteRequester} (constructor \code{#7cb34d79}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotChatInviteRequester <- R6::R6Class("UpdateBotChatInviteRequester",
   inherit = TLObject,
   public = list(
@@ -54336,6 +59076,11 @@ UpdateBotChatInviteRequester <- R6::R6Class("UpdateBotChatInviteRequester",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotCommands
+#' @description Telegram API type \code{updateBotCommands} (constructor \code{#4d712f2e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotCommands <- R6::R6Class("UpdateBotCommands",
   inherit = TLObject,
   public = list(
@@ -54387,6 +59132,11 @@ UpdateBotCommands <- R6::R6Class("UpdateBotCommands",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotDeleteBusinessMessage
+#' @description Telegram API type \code{updateBotDeleteBusinessMessage} (constructor \code{#a02a982e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotDeleteBusinessMessage <- R6::R6Class("UpdateBotDeleteBusinessMessage",
   inherit = TLObject,
   public = list(
@@ -54444,6 +59194,11 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class("UpdateBotDeleteBusinessMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotEditBusinessMessage
+#' @description Telegram API type \code{updateBotEditBusinessMessage} (constructor \code{#07df587c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotEditBusinessMessage <- R6::R6Class("UpdateBotEditBusinessMessage",
   inherit = TLObject,
   public = list(
@@ -54505,6 +59260,11 @@ UpdateBotEditBusinessMessage <- R6::R6Class("UpdateBotEditBusinessMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotInlineQuery
+#' @description Telegram API type \code{updateBotInlineQuery} (constructor \code{#496f379c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
   public = list(
@@ -54579,6 +59339,11 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotInlineSend
+#' @description Telegram API type \code{updateBotInlineSend} (constructor \code{#12f12a07}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
   public = list(
@@ -54647,6 +59412,11 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotMenuButton
+#' @description Telegram API type \code{updateBotMenuButton} (constructor \code{#14b85813}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
   public = list(
@@ -54692,6 +59462,11 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotMessageReaction
+#' @description Telegram API type \code{updateBotMessageReaction} (constructor \code{#ac21d3ce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
   public = list(
@@ -54767,6 +59542,11 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotMessageReactions
+#' @description Telegram API type \code{updateBotMessageReactions} (constructor \code{#09cb7759}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
   public = list(
@@ -54830,6 +59610,11 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotNewBusinessMessage
+#' @description Telegram API type \code{updateBotNewBusinessMessage} (constructor \code{#9ddb347c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
   public = list(
@@ -54891,6 +59676,11 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotPrecheckoutQuery
+#' @description Telegram API type \code{updateBotPrecheckoutQuery} (constructor \code{#8caa9a96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
   public = list(
@@ -54971,6 +59761,11 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotPurchasedPaidMedia
+#' @description Telegram API type \code{updateBotPurchasedPaidMedia} (constructor \code{#283bd312}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
   public = list(
@@ -55022,6 +59817,11 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotShippingQuery
+#' @description Telegram API type \code{updateBotShippingQuery} (constructor \code{#b5aefd7d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
   public = list(
@@ -55079,6 +59879,11 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotStopped
+#' @description Telegram API type \code{updateBotStopped} (constructor \code{#c4870a49}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
   public = list(
@@ -55136,6 +59941,11 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotWebhookJSON
+#' @description Telegram API type \code{updateBotWebhookJSON} (constructor \code{#8317c0c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
   public = list(
@@ -55175,6 +59985,11 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotWebhookJSONQuery
+#' @description Telegram API type \code{updateBotWebhookJSONQuery} (constructor \code{#9b9240a6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
   public = list(
@@ -55226,6 +60041,11 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateBusinessBotCallbackQuery
+#' @description Telegram API type \code{updateBusinessBotCallbackQuery} (constructor \code{#1ea2fda7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -55306,6 +60126,11 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannel
+#' @description Telegram API type \code{updateChannel} (constructor \code{#635b4c09}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
   public = list(
@@ -55345,6 +60170,11 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelAvailableMessages
+#' @description Telegram API type \code{updateChannelAvailableMessages} (constructor \code{#b23fc698}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
   public = list(
@@ -55390,6 +60220,11 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelMessageForwards
+#' @description Telegram API type \code{updateChannelMessageForwards} (constructor \code{#d29a27f4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
   public = list(
@@ -55441,6 +60276,11 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelMessageViews
+#' @description Telegram API type \code{updateChannelMessageViews} (constructor \code{#f226ac08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
   public = list(
@@ -55492,6 +60332,11 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelParticipant
+#' @description Telegram API type \code{updateChannelParticipant} (constructor \code{#985d3abb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
   public = list(
@@ -55675,11 +60520,11 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   class = TRUE
 )
 
-#  @title UpdateChannelReadMessagesContents
-#  @description Telegram API type UpdateChannelReadMessagesContents
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateChannelReadMessagesContents
+#' @description Telegram API type \code{updateChannelReadMessagesContents} (constructor \code{#25f324f7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
   public = list(
@@ -55742,6 +60587,11 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelTooLong
+#' @description Telegram API type \code{updateChannelTooLong} (constructor \code{#108d941f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
   public = list(
@@ -55791,6 +60641,11 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelUserTyping
+#' @description Telegram API type \code{updateChannelUserTyping} (constructor \code{#8c88c923}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
   public = list(
@@ -55852,6 +60707,11 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelViewForumAsMessages
+#' @description Telegram API type \code{updateChannelViewForumAsMessages} (constructor \code{#07b68920}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
   public = list(
@@ -55897,6 +60757,11 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
   lock_objects = FALSE
 )
 
+#' @title UpdateChannelWebPage
+#' @description Telegram API type \code{updateChannelWebPage} (constructor \code{#2f2ba99f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
   public = list(
@@ -55954,6 +60819,11 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   lock_objects = FALSE
 )
 
+#' @title UpdateChat
+#' @description Telegram API type \code{updateChat} (constructor \code{#f89a6a4e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
   public = list(
@@ -55993,6 +60863,11 @@ UpdateChat <- R6::R6Class("UpdateChat",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatDefaultBannedRights
+#' @description Telegram API type \code{updateChatDefaultBannedRights} (constructor \code{#54c01850}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
   public = list(
@@ -56044,6 +60919,11 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipant
+#' @description Telegram API type \code{updateChatParticipant} (constructor \code{#d087663a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
   public = list(
@@ -56131,6 +61011,11 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipantAdd
+#' @description Telegram API type \code{updateChatParticipantAdd} (constructor \code{#3dda5451}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
   public = list(
@@ -56194,6 +61079,11 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipantAdmin
+#' @description Telegram API type \code{updateChatParticipantAdmin} (constructor \code{#d7ca61a2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
   public = list(
@@ -56251,6 +61141,11 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipantDelete
+#' @description Telegram API type \code{updateChatParticipantDelete} (constructor \code{#e32f3d77}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   inherit = TLObject,
   public = list(
@@ -56302,6 +61197,11 @@ UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipants
+#' @description Telegram API type \code{updateChatParticipants} (constructor \code{#07761198}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   inherit = TLObject,
   public = list(
@@ -56341,6 +61241,11 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatUserTyping
+#' @description Telegram API type \code{updateChatUserTyping} (constructor \code{#83487af0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   inherit = TLObject,
   public = list(
@@ -56392,6 +61297,11 @@ UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   lock_objects = FALSE
 )
 
+#' @title UpdateConfig
+#' @description Telegram API type \code{updateConfig} (constructor \code{#a229dd06}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateConfig <- R6::R6Class("UpdateConfig",
   inherit = TLObject,
   public = list(
@@ -56425,6 +61335,11 @@ UpdateConfig <- R6::R6Class("UpdateConfig",
   lock_objects = FALSE
 )
 
+#' @title UpdateContactsReset
+#' @description Telegram API type \code{updateContactsReset} (constructor \code{#7084a7be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   inherit = TLObject,
   public = list(
@@ -56458,6 +61373,11 @@ UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   lock_objects = FALSE
 )
 
+#' @title UpdateDcOptions
+#' @description Telegram API type \code{updateDcOptions} (constructor \code{#8e5e9873}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   inherit = TLObject,
   public = list(
@@ -56497,6 +61417,11 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteChannelMessages
+#' @description Telegram API type \code{updateDeleteChannelMessages} (constructor \code{#c32d5b12}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   inherit = TLObject,
   public = list(
@@ -56554,6 +61479,11 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteMessages
+#' @description Telegram API type \code{updateDeleteMessages} (constructor \code{#a20db0e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   inherit = TLObject,
   public = list(
@@ -56605,6 +61535,11 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteQuickReply
+#' @description Telegram API type \code{updateDeleteQuickReply} (constructor \code{#53e6f1ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   inherit = TLObject,
   public = list(
@@ -56644,6 +61579,11 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteQuickReplyMessages
+#' @description Telegram API type \code{updateDeleteQuickReplyMessages} (constructor \code{#566fe7cd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   inherit = TLObject,
   public = list(
@@ -56689,6 +61629,11 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteScheduledMessages
+#' @description Telegram API type \code{updateDeleteScheduledMessages} (constructor \code{#f2a71983}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   inherit = TLObject,
   public = list(
@@ -56744,6 +61689,11 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateDialogFilter
+#' @description Telegram API type \code{updateDialogFilter} (constructor \code{#26ffde7d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   inherit = TLObject,
   public = list(
@@ -56793,6 +61743,11 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   lock_objects = FALSE
 )
 
+#' @title UpdateDialogFilterOrder
+#' @description Telegram API type \code{updateDialogFilterOrder} (constructor \code{#a5d72105}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   inherit = TLObject,
   public = list(
@@ -56832,6 +61787,11 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   lock_objects = FALSE
 )
 
+#' @title UpdateDialogFilters
+#' @description Telegram API type \code{updateDialogFilters} (constructor \code{#3504914f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   inherit = TLObject,
   public = list(
@@ -56865,6 +61825,11 @@ UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   lock_objects = FALSE
 )
 
+#' @title UpdateDialogPinned
+#' @description Telegram API type \code{updateDialogPinned} (constructor \code{#6e6fe51c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   inherit = TLObject,
   public = list(
@@ -56920,6 +61885,11 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   lock_objects = FALSE
 )
 
+#' @title UpdateDialogUnreadMark
+#' @description Telegram API type \code{updateDialogUnreadMark} (constructor \code{#b658f23e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   inherit = TLObject,
   public = list(
@@ -56975,6 +61945,11 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   lock_objects = FALSE
 )
 
+#' @title UpdateDraftMessage
+#' @description Telegram API type \code{updateDraftMessage} (constructor \code{#edfc111e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   inherit = TLObject,
   public = list(
@@ -57037,6 +62012,11 @@ UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateEditChannelMessage
+#' @description Telegram API type \code{updateEditChannelMessage} (constructor \code{#1b3f4df7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   inherit = TLObject,
   public = list(
@@ -57088,6 +62068,11 @@ UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateEditMessage
+#' @description Telegram API type \code{updateEditMessage} (constructor \code{#e40370a3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   inherit = TLObject,
   public = list(
@@ -57139,6 +62124,11 @@ UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateEncryptedChatTyping
+#' @description Telegram API type \code{updateEncryptedChatTyping} (constructor \code{#1710f156}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   inherit = TLObject,
   public = list(
@@ -57178,6 +62168,11 @@ UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   lock_objects = FALSE
 )
 
+#' @title UpdateEncryptedMessagesRead
+#' @description Telegram API type \code{updateEncryptedMessagesRead} (constructor \code{#38fe25b7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   inherit = TLObject,
   public = list(
@@ -57229,6 +62224,11 @@ UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   lock_objects = FALSE
 )
 
+#' @title UpdateEncryption
+#' @description Telegram API type \code{updateEncryption} (constructor \code{#b4a2e88d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEncryption <- R6::R6Class("UpdateEncryption",
   inherit = TLObject,
   public = list(
@@ -57274,6 +62274,11 @@ UpdateEncryption <- R6::R6Class("UpdateEncryption",
   lock_objects = FALSE
 )
 
+#' @title UpdateFavedStickers
+#' @description Telegram API type \code{updateFavedStickers} (constructor \code{#e511996d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   inherit = TLObject,
   public = list(
@@ -57307,6 +62312,11 @@ UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   lock_objects = FALSE
 )
 
+#' @title UpdateFolderPeers
+#' @description Telegram API type \code{updateFolderPeers} (constructor \code{#19360dc0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   inherit = TLObject,
   public = list(
@@ -57358,6 +62368,11 @@ UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   lock_objects = FALSE
 )
 
+#' @title UpdateGeoLiveViewed
+#' @description Telegram API type \code{updateGeoLiveViewed} (constructor \code{#871fb939}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   inherit = TLObject,
   public = list(
@@ -57403,6 +62418,11 @@ UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCall
+#' @description Telegram API type \code{updateGroupCall} (constructor \code{#9d2216e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   inherit = TLObject,
   public = list(
@@ -57458,6 +62478,11 @@ UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCallChainBlocks
+#' @description Telegram API type \code{updateGroupCallChainBlocks} (constructor \code{#a477288f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   inherit = TLObject,
   public = list(
@@ -57515,6 +62540,11 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCallConnection
+#' @description Telegram API type \code{updateGroupCallConnection} (constructor \code{#0b783982}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   inherit = TLObject,
   public = list(
@@ -57563,6 +62593,11 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCallParticipants
+#' @description Telegram API type \code{updateGroupCallParticipants} (constructor \code{#f2ebdb4e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   inherit = TLObject,
   public = list(
@@ -57614,6 +62649,11 @@ UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   lock_objects = FALSE
 )
 
+#' @title UpdateInlineBotCallbackQuery
+#' @description Telegram API type \code{updateInlineBotCallbackQuery} (constructor \code{#691e9052}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -57688,6 +62728,11 @@ UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateLangPack
+#' @description Telegram API type \code{updateLangPack} (constructor \code{#56022f4d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateLangPack <- R6::R6Class("UpdateLangPack",
   inherit = TLObject,
   public = list(
@@ -57727,6 +62772,11 @@ UpdateLangPack <- R6::R6Class("UpdateLangPack",
   lock_objects = FALSE
 )
 
+#' @title UpdateLangPackTooLong
+#' @description Telegram API type \code{updateLangPackTooLong} (constructor \code{#46560264}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   inherit = TLObject,
   public = list(
@@ -57766,6 +62816,11 @@ UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   lock_objects = FALSE
 )
 
+#' @title UpdateLoginToken
+#' @description Telegram API type \code{updateLoginToken} (constructor \code{#564fe691}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   inherit = TLObject,
   public = list(
@@ -57799,6 +62854,11 @@ UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   lock_objects = FALSE
 )
 
+#' @title UpdateMessageExtendedMedia
+#' @description Telegram API type \code{updateMessageExtendedMedia} (constructor \code{#d5a41724}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   inherit = TLObject,
   public = list(
@@ -57850,6 +62910,11 @@ UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   lock_objects = FALSE
 )
 
+#' @title UpdateMessageID
+#' @description Telegram API type \code{updateMessageID} (constructor \code{#4e90bfd6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMessageID <- R6::R6Class("UpdateMessageID",
   inherit = TLObject,
   public = list(
@@ -57895,6 +62960,11 @@ UpdateMessageID <- R6::R6Class("UpdateMessageID",
   lock_objects = FALSE
 )
 
+#' @title UpdateMessagePoll
+#' @description Telegram API type \code{updateMessagePoll} (constructor \code{#d64c522b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   inherit = TLObject,
   public = list(
@@ -57971,6 +63041,11 @@ UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   lock_objects = FALSE
 )
 
+#' @title UpdateMessagePollVote
+#' @description Telegram API type \code{updateMessagePollVote} (constructor \code{#7699f014}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   inherit = TLObject,
   public = list(
@@ -58034,6 +63109,11 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   lock_objects = FALSE
 )
 
+#' @title UpdateMessageReactions
+#' @description Telegram API type \code{updateMessageReactions} (constructor \code{#1e297bfa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   inherit = TLObject,
   public = list(
@@ -58102,6 +63182,11 @@ UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   lock_objects = FALSE
 )
 
+#' @title UpdateMonoForumNoPaidException
+#' @description Telegram API type \code{updateMonoForumNoPaidException} (constructor \code{#9f812b08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   inherit = TLObject,
   public = list(
@@ -58156,6 +63241,11 @@ UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   lock_objects = FALSE
 )
 
+#' @title UpdateMoveStickerSetToTop
+#' @description Telegram API type \code{updateMoveStickerSetToTop} (constructor \code{#86fccf85}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   inherit = TLObject,
   public = list(
@@ -58210,6 +63300,11 @@ UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewAuthorization
+#' @description Telegram API type \code{updateNewAuthorization} (constructor \code{#8951abef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   inherit = TLObject,
   public = list(
@@ -58279,6 +63374,11 @@ UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewChannelMessage
+#' @description Telegram API type \code{updateNewChannelMessage} (constructor \code{#62ba04d9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   inherit = TLObject,
   public = list(
@@ -58330,6 +63430,11 @@ UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewEncryptedMessage
+#' @description Telegram API type \code{updateNewEncryptedMessage} (constructor \code{#12bcbd9a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   inherit = TLObject,
   public = list(
@@ -58375,6 +63480,11 @@ UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewMessage
+#' @description Telegram API type \code{updateNewMessage} (constructor \code{#1f2b0afd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   inherit = TLObject,
   public = list(
@@ -58426,6 +63536,11 @@ UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewQuickReply
+#' @description Telegram API type \code{updateNewQuickReply} (constructor \code{#f53da717}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   inherit = TLObject,
   public = list(
@@ -58465,6 +63580,11 @@ UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewScheduledMessage
+#' @description Telegram API type \code{updateNewScheduledMessage} (constructor \code{#39a51dfb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   inherit = TLObject,
   public = list(
@@ -58504,6 +63624,11 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewStickerSet
+#' @description Telegram API type \code{updateNewStickerSet} (constructor \code{#688a30aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   inherit = TLObject,
   public = list(
@@ -58543,6 +63668,11 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewStoryReaction
+#' @description Telegram API type \code{updateNewStoryReaction} (constructor \code{#1824e40b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   inherit = TLObject,
   public = list(
@@ -58594,6 +63724,11 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   lock_objects = FALSE
 )
 
+#' @title UpdateNotifySettings
+#' @description Telegram API type \code{updateNotifySettings} (constructor \code{#bec268ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   inherit = TLObject,
   public = list(
@@ -58639,6 +63774,11 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   lock_objects = FALSE
 )
 
+#' @title UpdatePaidReactionPrivacy
+#' @description Telegram API type \code{updatePaidReactionPrivacy} (constructor \code{#8b725fce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   inherit = TLObject,
   public = list(
@@ -58678,6 +63818,11 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   lock_objects = FALSE
 )
 
+#' @title UpdatePeerBlocked
+#' @description Telegram API type \code{updatePeerBlocked} (constructor \code{#ebe07752}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   inherit = TLObject,
   public = list(
@@ -58732,6 +63877,11 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   lock_objects = FALSE
 )
 
+#' @title UpdatePeerHistoryTTL
+#' @description Telegram API type \code{updatePeerHistoryTTL} (constructor \code{#bb9bb9a5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   inherit = TLObject,
   public = list(
@@ -58781,6 +63931,11 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   lock_objects = FALSE
 )
 
+#' @title UpdatePeerLocated
+#' @description Telegram API type \code{updatePeerLocated} (constructor \code{#b4afcfb0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   inherit = TLObject,
   public = list(
@@ -58820,6 +63975,11 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   lock_objects = FALSE
 )
 
+#' @title UpdatePeerSettings
+#' @description Telegram API type \code{updatePeerSettings} (constructor \code{#6a7e7366}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   inherit = TLObject,
   public = list(
@@ -58865,6 +64025,11 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   lock_objects = FALSE
 )
 
+#' @title UpdatePeerWallpaper
+#' @description Telegram API type \code{updatePeerWallpaper} (constructor \code{#ae3f101d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   inherit = TLObject,
   public = list(
@@ -58920,6 +64085,11 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   lock_objects = FALSE
 )
 
+#' @title UpdatePendingJoinRequests
+#' @description Telegram API type \code{updatePendingJoinRequests} (constructor \code{#7063c3db}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   inherit = TLObject,
   public = list(
@@ -58971,6 +64141,11 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   lock_objects = FALSE
 )
 
+#' @title UpdatePhoneCall
+#' @description Telegram API type \code{updatePhoneCall} (constructor \code{#ab0f6b1e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   inherit = TLObject,
   public = list(
@@ -59010,6 +64185,11 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   lock_objects = FALSE
 )
 
+#' @title UpdatePhoneCallSignalingData
+#' @description Telegram API type \code{updatePhoneCallSignalingData} (constructor \code{#2661bf09}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   inherit = TLObject,
   public = list(
@@ -59055,6 +64235,11 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedChannelMessages
+#' @description Telegram API type \code{updatePinnedChannelMessages} (constructor \code{#5bb98608}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   inherit = TLObject,
   public = list(
@@ -59121,6 +64306,11 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedDialogs
+#' @description Telegram API type \code{updatePinnedDialogs} (constructor \code{#fa0f3ca2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   inherit = TLObject,
   public = list(
@@ -59171,6 +64361,11 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedMessages
+#' @description Telegram API type \code{updatePinnedMessages} (constructor \code{#ed85eab5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   inherit = TLObject,
   public = list(
@@ -59237,6 +64432,11 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedSavedDialogs
+#' @description Telegram API type \code{updatePinnedSavedDialogs} (constructor \code{#686c85a6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   inherit = TLObject,
   public = list(
@@ -59280,6 +64480,11 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   lock_objects = FALSE
 )
 
+#' @title UpdatePrivacy
+#' @description Telegram API type \code{updatePrivacy} (constructor \code{#ee3b272a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   inherit = TLObject,
   public = list(
@@ -59325,6 +64530,11 @@ UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   lock_objects = FALSE
 )
 
+#' @title UpdatePtsChanged
+#' @description Telegram API type \code{updatePtsChanged} (constructor \code{#3354678f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   inherit = TLObject,
   public = list(
@@ -59358,6 +64568,11 @@ UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   lock_objects = FALSE
 )
 
+#' @title UpdateQuickReplies
+#' @description Telegram API type \code{updateQuickReplies} (constructor \code{#f9470ab2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   inherit = TLObject,
   public = list(
@@ -59397,6 +64612,11 @@ UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   lock_objects = FALSE
 )
 
+#' @title UpdateQuickReplyMessage
+#' @description Telegram API type \code{updateQuickReplyMessage} (constructor \code{#3e050d0f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   inherit = TLObject,
   public = list(
@@ -59436,6 +64656,11 @@ UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadChannelDiscussionInbox
+#' @description Telegram API type \code{updateReadChannelDiscussionInbox} (constructor \code{#d6b19546}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbox",
   inherit = TLObject,
   public = list(
@@ -59504,6 +64729,11 @@ UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbo
   lock_objects = FALSE
 )
 
+#' @title UpdateReadChannelDiscussionOutbox
+#' @description Telegram API type \code{updateReadChannelDiscussionOutbox} (constructor \code{#695c9e7c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOutbox",
   inherit = TLObject,
   public = list(
@@ -59555,6 +64785,11 @@ UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOut
   lock_objects = FALSE
 )
 
+#' @title UpdateReadChannelInbox
+#' @description Telegram API type \code{updateReadChannelInbox} (constructor \code{#922e6e10}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   inherit = TLObject,
   public = list(
@@ -59622,6 +64857,11 @@ UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadChannelOutbox
+#' @description Telegram API type \code{updateReadChannelOutbox} (constructor \code{#b75f99a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   inherit = TLObject,
   public = list(
@@ -59667,6 +64907,11 @@ UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadFeaturedEmojiStickers
+#' @description Telegram API type \code{updateReadFeaturedEmojiStickers} (constructor \code{#fb4c496c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers",
   inherit = TLObject,
   public = list(
@@ -59700,6 +64945,11 @@ UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers"
   lock_objects = FALSE
 )
 
+#' @title UpdateReadFeaturedStickers
+#' @description Telegram API type \code{updateReadFeaturedStickers} (constructor \code{#571d2742}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   inherit = TLObject,
   public = list(
@@ -59733,6 +64983,11 @@ UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadHistoryInbox
+#' @description Telegram API type \code{updateReadHistoryInbox} (constructor \code{#9e84bc99}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   inherit = TLObject,
   public = list(
@@ -59813,6 +65068,11 @@ UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadHistoryOutbox
+#' @description Telegram API type \code{updateReadHistoryOutbox} (constructor \code{#2f2f21bf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   inherit = TLObject,
   public = list(
@@ -59870,6 +65130,11 @@ UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadMessagesContents
+#' @description Telegram API type \code{updateReadMessagesContents} (constructor \code{#f8227181}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   inherit = TLObject,
   public = list(
@@ -59931,6 +65196,11 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadMonoForumInbox
+#' @description Telegram API type \code{updateReadMonoForumInbox} (constructor \code{#77b0e372}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   inherit = TLObject,
   public = list(
@@ -59982,6 +65252,11 @@ UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadMonoForumOutbox
+#' @description Telegram API type \code{updateReadMonoForumOutbox} (constructor \code{#a4a79376}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   inherit = TLObject,
   public = list(
@@ -60033,6 +65308,11 @@ UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   lock_objects = FALSE
 )
 
+#' @title UpdateReadStories
+#' @description Telegram API type \code{updateReadStories} (constructor \code{#f74e932b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateReadStories <- R6::R6Class("UpdateReadStories",
   inherit = TLObject,
   public = list(
@@ -60078,6 +65358,11 @@ UpdateReadStories <- R6::R6Class("UpdateReadStories",
   lock_objects = FALSE
 )
 
+#' @title UpdateRecentEmojiStatuses
+#' @description Telegram API type \code{updateRecentEmojiStatuses} (constructor \code{#30f443db}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   inherit = TLObject,
   public = list(
@@ -60111,6 +65396,11 @@ UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   lock_objects = FALSE
 )
 
+#' @title UpdateRecentReactions
+#' @description Telegram API type \code{updateRecentReactions} (constructor \code{#6f7863f4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   inherit = TLObject,
   public = list(
@@ -60144,6 +65434,11 @@ UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   lock_objects = FALSE
 )
 
+#' @title UpdateRecentStickers
+#' @description Telegram API type \code{updateRecentStickers} (constructor \code{#9a422c20}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   inherit = TLObject,
   public = list(
@@ -60177,6 +65472,11 @@ UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   lock_objects = FALSE
 )
 
+#' @title UpdateSavedDialogPinned
+#' @description Telegram API type \code{updateSavedDialogPinned} (constructor \code{#aeaf9e74}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   inherit = TLObject,
   public = list(
@@ -60225,6 +65525,11 @@ UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   lock_objects = FALSE
 )
 
+#' @title UpdateSavedGifs
+#' @description Telegram API type \code{updateSavedGifs} (constructor \code{#9375341e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   inherit = TLObject,
   public = list(
@@ -60258,6 +65563,11 @@ UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   lock_objects = FALSE
 )
 
+#' @title UpdateSavedReactionTags
+#' @description Telegram API type \code{updateSavedReactionTags} (constructor \code{#39c67432}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   inherit = TLObject,
   public = list(
@@ -60291,6 +65601,11 @@ UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   lock_objects = FALSE
 )
 
+#' @title UpdateSavedRingtones
+#' @description Telegram API type \code{updateSavedRingtones} (constructor \code{#74d8be99}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   inherit = TLObject,
   public = list(
@@ -60324,6 +65639,11 @@ UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   lock_objects = FALSE
 )
 
+#' @title UpdateSentPhoneCode
+#' @description Telegram API type \code{updateSentPhoneCode} (constructor \code{#504aa18f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   inherit = TLObject,
   public = list(
@@ -60363,6 +65683,11 @@ UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   lock_objects = FALSE
 )
 
+#' @title UpdateSentStoryReaction
+#' @description Telegram API type \code{updateSentStoryReaction} (constructor \code{#7d627683}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   inherit = TLObject,
   public = list(
@@ -60414,6 +65739,11 @@ UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   lock_objects = FALSE
 )
 
+#' @title UpdateServiceNotification
+#' @description Telegram API type \code{updateServiceNotification} (constructor \code{#ebe46819}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   inherit = TLObject,
   public = list(
@@ -60493,6 +65823,11 @@ UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   lock_objects = FALSE
 )
 
+#' @title UpdateShort
+#' @description Telegram API type \code{updateShort} (constructor \code{#78d4dec1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateShort <- R6::R6Class("UpdateShort",
   inherit = TLObject,
   public = list(
@@ -60538,6 +65873,11 @@ UpdateShort <- R6::R6Class("UpdateShort",
   lock_objects = FALSE
 )
 
+#' @title UpdateShortChatMessage
+#' @description Telegram API type \code{updateShortChatMessage} (constructor \code{#4d6deea5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   inherit = TLObject,
   public = list(
@@ -60675,6 +66015,11 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateShortMessage
+#' @description Telegram API type \code{updateShortMessage} (constructor \code{#313bc7f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   inherit = TLObject,
   public = list(
@@ -60806,6 +66151,11 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateShortSentMessage
+#' @description Telegram API type \code{updateShortSentMessage} (constructor \code{#9015e101}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   inherit = TLObject,
   public = list(
@@ -60893,6 +66243,11 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateSmsJob
+#' @description Telegram API type \code{updateSmsJob} (constructor \code{#f16269d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   inherit = TLObject,
   public = list(
@@ -60932,6 +66287,11 @@ UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarsBalance
+#' @description Telegram API type \code{updateStarsBalance} (constructor \code{#4e80a379}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   inherit = TLObject,
   public = list(
@@ -60971,6 +66331,11 @@ UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarsRevenueStatus
+#' @description Telegram API type \code{updateStarsRevenueStatus} (constructor \code{#a584b019}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   inherit = TLObject,
   public = list(
@@ -61016,6 +66381,11 @@ UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   lock_objects = FALSE
 )
 
+#' @title UpdateStickerSets
+#' @description Telegram API type \code{updateStickerSets} (constructor \code{#31c24808}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   inherit = TLObject,
   public = list(
@@ -61064,6 +66434,11 @@ UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   lock_objects = FALSE
 )
 
+#' @title UpdateStickerSetsOrder
+#' @description Telegram API type \code{updateStickerSetsOrder} (constructor \code{#0bb2d201}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   inherit = TLObject,
   public = list(
@@ -61118,6 +66493,11 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   lock_objects = FALSE
 )
 
+#' @title UpdateStoriesStealthMode
+#' @description Telegram API type \code{updateStoriesStealthMode} (constructor \code{#2c084dc1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   inherit = TLObject,
   public = list(
@@ -61157,6 +66537,11 @@ UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   lock_objects = FALSE
 )
 
+#' @title UpdateStory
+#' @description Telegram API type \code{updateStory} (constructor \code{#75b3b798}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStory <- R6::R6Class("UpdateStory",
   inherit = TLObject,
   public = list(
@@ -61202,6 +66587,11 @@ UpdateStory <- R6::R6Class("UpdateStory",
   lock_objects = FALSE
 )
 
+#' @title UpdateStoryID
+#' @description Telegram API type \code{updateStoryID} (constructor \code{#1bf335b9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStoryID <- R6::R6Class("UpdateStoryID",
   inherit = TLObject,
   public = list(
@@ -61247,6 +66637,11 @@ UpdateStoryID <- R6::R6Class("UpdateStoryID",
   lock_objects = FALSE
 )
 
+#' @title UpdateTheme
+#' @description Telegram API type \code{updateTheme} (constructor \code{#8216fba3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateTheme <- R6::R6Class("UpdateTheme",
   inherit = TLObject,
   public = list(
@@ -61286,6 +66681,11 @@ UpdateTheme <- R6::R6Class("UpdateTheme",
   lock_objects = FALSE
 )
 
+#' @title UpdateTranscribedAudio
+#' @description Telegram API type \code{updateTranscribedAudio} (constructor \code{#0084cd5a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   inherit = TLObject,
   public = list(
@@ -61352,6 +66752,11 @@ UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   lock_objects = FALSE
 )
 
+#' @title UpdateUser
+#' @description Telegram API type \code{updateUser} (constructor \code{#20529438}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUser <- R6::R6Class("UpdateUser",
   inherit = TLObject,
   public = list(
@@ -61391,6 +66796,11 @@ UpdateUser <- R6::R6Class("UpdateUser",
   lock_objects = FALSE
 )
 
+#' @title UpdateUserEmojiStatus
+#' @description Telegram API type \code{updateUserEmojiStatus} (constructor \code{#28373599}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   inherit = TLObject,
   public = list(
@@ -61436,6 +66846,11 @@ UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   lock_objects = FALSE
 )
 
+#' @title UpdateUserName
+#' @description Telegram API type \code{updateUserName} (constructor \code{#a7848924}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserName <- R6::R6Class("UpdateUserName",
   inherit = TLObject,
   public = list(
@@ -61493,6 +66908,11 @@ UpdateUserName <- R6::R6Class("UpdateUserName",
   lock_objects = FALSE
 )
 
+#' @title UpdateUserPhone
+#' @description Telegram API type \code{updateUserPhone} (constructor \code{#05492a13}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   inherit = TLObject,
   public = list(
@@ -61538,6 +66958,11 @@ UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   lock_objects = FALSE
 )
 
+#' @title UpdateUserStatus
+#' @description Telegram API type \code{updateUserStatus} (constructor \code{#e5bdf8de}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   inherit = TLObject,
   public = list(
@@ -61583,6 +67008,11 @@ UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   lock_objects = FALSE
 )
 
+#' @title UpdateUserTyping
+#' @description Telegram API type \code{updateUserTyping} (constructor \code{#2a17bf5c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   inherit = TLObject,
   public = list(
@@ -61638,6 +67068,11 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   lock_objects = FALSE
 )
 
+#' @title UpdateWebPage
+#' @description Telegram API type \code{updateWebPage} (constructor \code{#7f891213}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateWebPage <- R6::R6Class("UpdateWebPage",
   inherit = TLObject,
   public = list(
@@ -61689,6 +67124,11 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
   lock_objects = FALSE
 )
 
+#' @title UpdateWebViewResultSent
+#' @description Telegram API type \code{updateWebViewResultSent} (constructor \code{#1592b79d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   inherit = TLObject,
   public = list(
@@ -61728,6 +67168,11 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   lock_objects = FALSE
 )
 
+#' @title Updates
+#' @description Telegram API type \code{updates} (constructor \code{#74ae4240}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Updates <- R6::R6Class("Updates",
   inherit = TLObject,
   public = list(
@@ -61791,6 +67236,11 @@ Updates <- R6::R6Class("Updates",
   lock_objects = FALSE
 )
 
+#' @title UpdatesCombined
+#' @description Telegram API type \code{updatesCombined} (constructor \code{#725b04c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatesCombined <- R6::R6Class("UpdatesCombined",
   inherit = TLObject,
   public = list(
@@ -61860,6 +67310,11 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
   lock_objects = FALSE
 )
 
+#' @title UpdatesTooLong
+#' @description Telegram API type \code{updatesTooLong} (constructor \code{#e317af7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   inherit = TLObject,
   public = list(
@@ -61893,6 +67348,11 @@ UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   lock_objects = FALSE
 )
 
+#' @title UrlAuthResultAccepted
+#' @description Telegram API type \code{urlAuthResultAccepted} (constructor \code{#623a8fa0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   inherit = TLObject,
   public = list(
@@ -61936,6 +67396,11 @@ UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   lock_objects = FALSE
 )
 
+#' @title UrlAuthResultDefault
+#' @description Telegram API type \code{urlAuthResultDefault} (constructor \code{#a9d6db1f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   inherit = TLObject,
   public = list(
@@ -61969,6 +67434,11 @@ UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   lock_objects = FALSE
 )
 
+#' @title UrlAuthResultRequest
+#' @description Telegram API type \code{urlAuthResultRequest} (constructor \code{#3cd623ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   inherit = TLObject,
   public = list(
@@ -62090,6 +67560,11 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   lock_objects = FALSE
 )
 
+#' @title User
+#' @description Telegram API type \code{user} (constructor \code{#b1b8cc83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 User <- R6::R6Class("User",
   inherit = TLObject,
   public = list(
@@ -62455,6 +67930,11 @@ User <- R6::R6Class("User",
   lock_objects = FALSE
 )
 
+#' @title UserEmpty
+#' @description Telegram API type \code{userEmpty} (constructor \code{#d3bc4b7a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserEmpty <- R6::R6Class("UserEmpty",
   inherit = TLObject,
   public = list(
@@ -62494,6 +67974,11 @@ UserEmpty <- R6::R6Class("UserEmpty",
   lock_objects = FALSE
 )
 
+#' @title UserFull
+#' @description Telegram API type \code{userFull} (constructor \code{#06cbe645}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserFull <- R6::R6Class("UserFull",
   inherit = TLObject,
   public = list(
@@ -62915,6 +68400,11 @@ UserFull <- R6::R6Class("UserFull",
   lock_objects = FALSE
 )
 
+#' @title UserProfilePhoto
+#' @description Telegram API type \code{userProfilePhoto} (constructor \code{#82d1f706}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -62982,6 +68472,11 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   lock_objects = FALSE
 )
 
+#' @title UserProfilePhotoEmpty
+#' @description Telegram API type \code{userProfilePhotoEmpty} (constructor \code{#4f11bae1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -63015,6 +68510,11 @@ UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   lock_objects = FALSE
 )
 
+#' @title UserStatusEmpty
+#' @description Telegram API type \code{userStatusEmpty} (constructor \code{#09d05049}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   inherit = TLObject,
   public = list(
@@ -63048,6 +68548,11 @@ UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   lock_objects = FALSE
 )
 
+#' @title UserStatusLastMonth
+#' @description Telegram API type \code{userStatusLastMonth} (constructor \code{#65899777}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
   public = list(
@@ -63090,6 +68595,11 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   lock_objects = FALSE
 )
 
+#' @title UserStatusLastWeek
+#' @description Telegram API type \code{userStatusLastWeek} (constructor \code{#541a1d1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
   public = list(
@@ -63132,6 +68642,11 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   lock_objects = FALSE
 )
 
+#' @title UserStatusOffline
+#' @description Telegram API type \code{userStatusOffline} (constructor \code{#008c703f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
   public = list(
@@ -63171,6 +68686,11 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
   lock_objects = FALSE
 )
 
+#' @title UserStatusOnline
+#' @description Telegram API type \code{userStatusOnline} (constructor \code{#edb93949}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
   public = list(
@@ -63210,6 +68730,11 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
   lock_objects = FALSE
 )
 
+#' @title UserStatusRecently
+#' @description Telegram API type \code{userStatusRecently} (constructor \code{#7b197dc8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
   public = list(
@@ -63252,6 +68777,11 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
   lock_objects = FALSE
 )
 
+#' @title Username
+#' @description Telegram API type \code{username} (constructor \code{#b4073647}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Username <- R6::R6Class("Username",
   inherit = TLObject,
   public = list(
@@ -63306,6 +68836,11 @@ Username <- R6::R6Class("Username",
   lock_objects = FALSE
 )
 
+#' @title VideoSize
+#' @description Telegram API type \code{videoSize} (constructor \code{#de33b094}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 VideoSize <- R6::R6Class("VideoSize",
   inherit = TLObject,
   public = list(
@@ -63373,6 +68908,11 @@ VideoSize <- R6::R6Class("VideoSize",
   lock_objects = FALSE
 )
 
+#' @title VideoSizeEmojiMarkup
+#' @description Telegram API type \code{videoSizeEmojiMarkup} (constructor \code{#f85c413c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   inherit = TLObject,
   public = list(
@@ -63418,6 +68958,11 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   lock_objects = FALSE
 )
 
+#' @title VideoSizeStickerMarkup
+#' @description Telegram API type \code{videoSizeStickerMarkup} (constructor \code{#0da082fe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   inherit = TLObject,
   public = list(
@@ -63469,6 +69014,11 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   lock_objects = FALSE
 )
 
+#' @title WallPaper
+#' @description Telegram API type \code{wallPaper} (constructor \code{#a437c3ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WallPaper <- R6::R6Class("WallPaper",
   inherit = TLObject,
   public = list(
@@ -63560,6 +69110,11 @@ WallPaper <- R6::R6Class("WallPaper",
   lock_objects = FALSE
 )
 
+#' @title WallPaperNoFile
+#' @description Telegram API type \code{wallPaperNoFile} (constructor \code{#e0804116}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   inherit = TLObject,
   public = list(
@@ -63621,6 +69176,11 @@ WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   lock_objects = FALSE
 )
 
+#' @title WallPaperSettings
+#' @description Telegram API type \code{wallPaperSettings} (constructor \code{#372efcd0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WallPaperSettings <- R6::R6Class("WallPaperSettings",
   inherit = TLObject,
   public = list(
@@ -63718,6 +69278,11 @@ WallPaperSettings <- R6::R6Class("WallPaperSettings",
   lock_objects = FALSE
 )
 
+#' @title WebAuthorization
+#' @description Telegram API type \code{webAuthorization} (constructor \code{#a6f8f452}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebAuthorization <- R6::R6Class("WebAuthorization",
   inherit = TLObject,
   public = list(
@@ -63805,6 +69370,11 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
   lock_objects = FALSE
 )
 
+#' @title WebDocument
+#' @description Telegram API type \code{webDocument} (constructor \code{#1c570ed1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebDocument <- R6::R6Class("WebDocument",
   inherit = TLObject,
   public = list(
@@ -63868,6 +69438,11 @@ WebDocument <- R6::R6Class("WebDocument",
   lock_objects = FALSE
 )
 
+#' @title WebDocumentNoProxy
+#' @description Telegram API type \code{webDocumentNoProxy} (constructor \code{#f9c8bcc6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   inherit = TLObject,
   public = list(
@@ -63925,6 +69500,11 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   lock_objects = FALSE
 )
 
+#' @title WebPage
+#' @description Telegram API type \code{webPage} (constructor \code{#e89c45b2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPage <- R6::R6Class("WebPage",
   inherit = TLObject,
   public = list(
@@ -64095,6 +69675,11 @@ WebPage <- R6::R6Class("WebPage",
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeStarGiftCollection
+#' @description Telegram API type \code{webPageAttributeStarGiftCollection} (constructor \code{#31cad303}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftCollection",
   inherit = TLObject,
   public = list(
@@ -64134,6 +69719,11 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeStickerSet
+#' @description Telegram API type \code{webPageAttributeStickerSet} (constructor \code{#50cc03d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   inherit = TLObject,
   public = list(
@@ -64188,6 +69778,11 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeStory
+#' @description Telegram API type \code{webPageAttributeStory} (constructor \code{#2e94c3e7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   inherit = TLObject,
   public = list(
@@ -64243,6 +69838,11 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeTheme
+#' @description Telegram API type \code{webPageAttributeTheme} (constructor \code{#54b56617}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   inherit = TLObject,
   public = list(
@@ -64293,6 +69893,11 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeUniqueStarGift
+#' @description Telegram API type \code{webPageAttributeUniqueStarGift} (constructor \code{#cf6f6db8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   inherit = TLObject,
   public = list(
@@ -64332,6 +69937,11 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   lock_objects = FALSE
 )
 
+#' @title WebPageEmpty
+#' @description Telegram API type \code{webPageEmpty} (constructor \code{#211a1788}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageEmpty <- R6::R6Class("WebPageEmpty",
   inherit = TLObject,
   public = list(
@@ -64381,6 +69991,11 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
   lock_objects = FALSE
 )
 
+#' @title WebPageNotModified
+#' @description Telegram API type \code{webPageNotModified} (constructor \code{#7311ca11}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageNotModified <- R6::R6Class("WebPageNotModified",
   inherit = TLObject,
   public = list(
@@ -64424,6 +70039,11 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
   lock_objects = FALSE
 )
 
+#' @title WebPagePending
+#' @description Telegram API type \code{webPagePending} (constructor \code{#b0d13e47}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPagePending <- R6::R6Class("WebPagePending",
   inherit = TLObject,
   public = list(
@@ -64479,6 +70099,11 @@ WebPagePending <- R6::R6Class("WebPagePending",
   lock_objects = FALSE
 )
 
+#' @title WebViewMessageSent
+#' @description Telegram API type \code{webViewMessageSent} (constructor \code{#0c94511c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   inherit = TLObject,
   public = list(
@@ -64522,6 +70147,11 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   lock_objects = FALSE
 )
 
+#' @title WebViewResultUrl
+#' @description Telegram API type \code{webViewResultUrl} (constructor \code{#4d22ff98}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   inherit = TLObject,
   public = list(
@@ -64589,6 +70219,11 @@ WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   lock_objects = FALSE
 )
 
+#' @title ContactsResolvedPeer
+#' @description Telegram API type \code{contacts.resolvedPeer} (constructor \code{#7f077ad9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContactsResolvedPeer <- R6::R6Class("ContactsResolvedPeer",
   inherit = TLObject,
   public = list(
@@ -65020,6 +70655,11 @@ TypeWebViewResult <- WebViewResultUrl
 
 # ---- Types added for layer-229 completeness (generated) ----
 
+#' @title BoolFalse
+#' @description Telegram API type \code{boolFalse} (constructor \code{#bc799737}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BoolFalse <- R6::R6Class("BoolFalse",
   inherit = TLObject,
   public = list(
@@ -65053,6 +70693,11 @@ BoolFalse <- R6::R6Class("BoolFalse",
   lock_objects = FALSE
 )
 
+#' @title BoolTrue
+#' @description Telegram API type \code{boolTrue} (constructor \code{#997275b5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BoolTrue <- R6::R6Class("BoolTrue",
   inherit = TLObject,
   public = list(
@@ -65086,6 +70731,11 @@ BoolTrue <- R6::R6Class("BoolTrue",
   lock_objects = FALSE
 )
 
+#' @title True
+#' @description Telegram API type \code{true} (constructor \code{#3fedd339}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 True <- R6::R6Class("True",
   inherit = TLObject,
   public = list(
@@ -65119,6 +70769,11 @@ True <- R6::R6Class("True",
   lock_objects = FALSE
 )
 
+#' @title Error
+#' @description Telegram API type \code{error} (constructor \code{#c4b9f9bb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Error <- R6::R6Class("Error",
   inherit = TLObject,
   public = list(
@@ -65164,6 +70819,11 @@ Error <- R6::R6Class("Error",
   lock_objects = FALSE
 )
 
+#' @title Null
+#' @description Telegram API type \code{null} (constructor \code{#56730bcc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Null <- R6::R6Class("Null",
   inherit = TLObject,
   public = list(
@@ -65197,6 +70857,11 @@ Null <- R6::R6Class("Null",
   lock_objects = FALSE
 )
 
+#' @title InputMediaStakeDice
+#' @description Telegram API type \code{inputMediaStakeDice} (constructor \code{#f3a9244a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMediaStakeDice <- R6::R6Class("InputMediaStakeDice",
   inherit = TLObject,
   public = list(
@@ -65248,6 +70913,11 @@ InputMediaStakeDice <- R6::R6Class("InputMediaStakeDice",
   lock_objects = FALSE
 )
 
+#' @title FileUnknown
+#' @description Telegram API type \code{storage.fileUnknown} (constructor \code{#aa963b05}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileUnknown <- R6::R6Class("FileUnknown",
   inherit = TLObject,
   public = list(
@@ -65281,6 +70951,11 @@ FileUnknown <- R6::R6Class("FileUnknown",
   lock_objects = FALSE
 )
 
+#' @title FilePartial
+#' @description Telegram API type \code{storage.filePartial} (constructor \code{#40bc6f52}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FilePartial <- R6::R6Class("FilePartial",
   inherit = TLObject,
   public = list(
@@ -65314,6 +70989,11 @@ FilePartial <- R6::R6Class("FilePartial",
   lock_objects = FALSE
 )
 
+#' @title FileJpeg
+#' @description Telegram API type \code{storage.fileJpeg} (constructor \code{#007efe0e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileJpeg <- R6::R6Class("FileJpeg",
   inherit = TLObject,
   public = list(
@@ -65347,6 +71027,11 @@ FileJpeg <- R6::R6Class("FileJpeg",
   lock_objects = FALSE
 )
 
+#' @title FileGif
+#' @description Telegram API type \code{storage.fileGif} (constructor \code{#cae1aadf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileGif <- R6::R6Class("FileGif",
   inherit = TLObject,
   public = list(
@@ -65380,6 +71065,11 @@ FileGif <- R6::R6Class("FileGif",
   lock_objects = FALSE
 )
 
+#' @title FilePng
+#' @description Telegram API type \code{storage.filePng} (constructor \code{#0a4f63c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FilePng <- R6::R6Class("FilePng",
   inherit = TLObject,
   public = list(
@@ -65413,6 +71103,11 @@ FilePng <- R6::R6Class("FilePng",
   lock_objects = FALSE
 )
 
+#' @title FilePdf
+#' @description Telegram API type \code{storage.filePdf} (constructor \code{#ae1e508d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FilePdf <- R6::R6Class("FilePdf",
   inherit = TLObject,
   public = list(
@@ -65446,6 +71141,11 @@ FilePdf <- R6::R6Class("FilePdf",
   lock_objects = FALSE
 )
 
+#' @title FileMp3
+#' @description Telegram API type \code{storage.fileMp3} (constructor \code{#528a0677}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileMp3 <- R6::R6Class("FileMp3",
   inherit = TLObject,
   public = list(
@@ -65479,6 +71179,11 @@ FileMp3 <- R6::R6Class("FileMp3",
   lock_objects = FALSE
 )
 
+#' @title FileMov
+#' @description Telegram API type \code{storage.fileMov} (constructor \code{#4b09ebbc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileMov <- R6::R6Class("FileMov",
   inherit = TLObject,
   public = list(
@@ -65512,6 +71217,11 @@ FileMov <- R6::R6Class("FileMov",
   lock_objects = FALSE
 )
 
+#' @title FileMp4
+#' @description Telegram API type \code{storage.fileMp4} (constructor \code{#b3cea0e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileMp4 <- R6::R6Class("FileMp4",
   inherit = TLObject,
   public = list(
@@ -65545,6 +71255,11 @@ FileMp4 <- R6::R6Class("FileMp4",
   lock_objects = FALSE
 )
 
+#' @title FileWebp
+#' @description Telegram API type \code{storage.fileWebp} (constructor \code{#1081464c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileWebp <- R6::R6Class("FileWebp",
   inherit = TLObject,
   public = list(
@@ -65578,6 +71293,11 @@ FileWebp <- R6::R6Class("FileWebp",
   lock_objects = FALSE
 )
 
+#' @title ChatEmpty
+#' @description Telegram API type \code{chatEmpty} (constructor \code{#29562865}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatEmpty <- R6::R6Class("ChatEmpty",
   inherit = TLObject,
   public = list(
@@ -65617,6 +71337,11 @@ ChatEmpty <- R6::R6Class("ChatEmpty",
   lock_objects = FALSE
 )
 
+#' @title Chat
+#' @description Telegram API type \code{chat} (constructor \code{#41cbf256}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Chat <- R6::R6Class("Chat",
   inherit = TLObject,
   public = list(
@@ -65746,6 +71471,11 @@ Chat <- R6::R6Class("Chat",
   lock_objects = FALSE
 )
 
+#' @title ChatForbidden
+#' @description Telegram API type \code{chatForbidden} (constructor \code{#6592a1a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatForbidden <- R6::R6Class("ChatForbidden",
   inherit = TLObject,
   public = list(
@@ -65791,6 +71521,11 @@ ChatForbidden <- R6::R6Class("ChatForbidden",
   lock_objects = FALSE
 )
 
+#' @title CommunityForbidden
+#' @description Telegram API type \code{communityForbidden} (constructor \code{#fd3cdab8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CommunityForbidden <- R6::R6Class("CommunityForbidden",
   inherit = TLObject,
   public = list(
@@ -65846,6 +71581,11 @@ CommunityForbidden <- R6::R6Class("CommunityForbidden",
   lock_objects = FALSE
 )
 
+#' @title Community
+#' @description Telegram API type \code{community} (constructor \code{#65efe954}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Community <- R6::R6Class("Community",
   inherit = TLObject,
   public = list(
@@ -65954,6 +71694,11 @@ Community <- R6::R6Class("Community",
   lock_objects = FALSE
 )
 
+#' @title CommunityFull
+#' @description Telegram API type \code{communityFull} (constructor \code{#cbb7a507}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CommunityFull <- R6::R6Class("CommunityFull",
   inherit = TLObject,
   public = list(
@@ -66035,6 +71780,11 @@ CommunityFull <- R6::R6Class("CommunityFull",
   lock_objects = FALSE
 )
 
+#' @title MessageMediaVideoStream
+#' @description Telegram API type \code{messageMediaVideoStream} (constructor \code{#ca5cab89}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageMediaVideoStream <- R6::R6Class("MessageMediaVideoStream",
   inherit = TLObject,
   public = list(
@@ -66083,6 +71833,11 @@ MessageMediaVideoStream <- R6::R6Class("MessageMediaVideoStream",
   lock_objects = FALSE
 )
 
+#' @title MessageActionSuggestBirthday
+#' @description Telegram API type \code{messageActionSuggestBirthday} (constructor \code{#2c8f2a25}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionSuggestBirthday <- R6::R6Class("MessageActionSuggestBirthday",
   inherit = TLObject,
   public = list(
@@ -66122,6 +71877,11 @@ MessageActionSuggestBirthday <- R6::R6Class("MessageActionSuggestBirthday",
   lock_objects = FALSE
 )
 
+#' @title MessageActionStarGiftPurchaseOffer
+#' @description Telegram API type \code{messageActionStarGiftPurchaseOffer} (constructor \code{#774278d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionStarGiftPurchaseOffer <- R6::R6Class("MessageActionStarGiftPurchaseOffer",
   inherit = TLObject,
   public = list(
@@ -66188,6 +71948,11 @@ MessageActionStarGiftPurchaseOffer <- R6::R6Class("MessageActionStarGiftPurchase
   lock_objects = FALSE
 )
 
+#' @title MessageActionStarGiftPurchaseOfferDeclined
+#' @description Telegram API type \code{messageActionStarGiftPurchaseOfferDeclined} (constructor \code{#73ada76b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionStarGiftPurchaseOfferDeclined <- R6::R6Class("MessageActionStarGiftPurchaseOfferDeclined",
   inherit = TLObject,
   public = list(
@@ -66242,6 +72007,11 @@ MessageActionStarGiftPurchaseOfferDeclined <- R6::R6Class("MessageActionStarGift
   lock_objects = FALSE
 )
 
+#' @title MessageActionNewCreatorPending
+#' @description Telegram API type \code{messageActionNewCreatorPending} (constructor \code{#b07ed085}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionNewCreatorPending <- R6::R6Class("MessageActionNewCreatorPending",
   inherit = TLObject,
   public = list(
@@ -66281,6 +72051,11 @@ MessageActionNewCreatorPending <- R6::R6Class("MessageActionNewCreatorPending",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChangeCreator
+#' @description Telegram API type \code{messageActionChangeCreator} (constructor \code{#e188503b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChangeCreator <- R6::R6Class("MessageActionChangeCreator",
   inherit = TLObject,
   public = list(
@@ -66320,6 +72095,11 @@ MessageActionChangeCreator <- R6::R6Class("MessageActionChangeCreator",
   lock_objects = FALSE
 )
 
+#' @title MessageActionNoForwardsToggle
+#' @description Telegram API type \code{messageActionNoForwardsToggle} (constructor \code{#bf7d6572}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionNoForwardsToggle <- R6::R6Class("MessageActionNoForwardsToggle",
   inherit = TLObject,
   public = list(
@@ -66365,6 +72145,11 @@ MessageActionNoForwardsToggle <- R6::R6Class("MessageActionNoForwardsToggle",
   lock_objects = FALSE
 )
 
+#' @title MessageActionNoForwardsRequest
+#' @description Telegram API type \code{messageActionNoForwardsRequest} (constructor \code{#3e2793ba}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionNoForwardsRequest <- R6::R6Class("MessageActionNoForwardsRequest",
   inherit = TLObject,
   public = list(
@@ -66419,6 +72204,11 @@ MessageActionNoForwardsRequest <- R6::R6Class("MessageActionNoForwardsRequest",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPollAppendAnswer
+#' @description Telegram API type \code{messageActionPollAppendAnswer} (constructor \code{#9da1cd6c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPollAppendAnswer <- R6::R6Class("MessageActionPollAppendAnswer",
   inherit = TLObject,
   public = list(
@@ -66458,6 +72248,11 @@ MessageActionPollAppendAnswer <- R6::R6Class("MessageActionPollAppendAnswer",
   lock_objects = FALSE
 )
 
+#' @title MessageActionPollDeleteAnswer
+#' @description Telegram API type \code{messageActionPollDeleteAnswer} (constructor \code{#399674dc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionPollDeleteAnswer <- R6::R6Class("MessageActionPollDeleteAnswer",
   inherit = TLObject,
   public = list(
@@ -66497,6 +72292,11 @@ MessageActionPollDeleteAnswer <- R6::R6Class("MessageActionPollDeleteAnswer",
   lock_objects = FALSE
 )
 
+#' @title MessageActionManagedBotCreated
+#' @description Telegram API type \code{messageActionManagedBotCreated} (constructor \code{#16605e3e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionManagedBotCreated <- R6::R6Class("MessageActionManagedBotCreated",
   inherit = TLObject,
   public = list(
@@ -66536,6 +72336,11 @@ MessageActionManagedBotCreated <- R6::R6Class("MessageActionManagedBotCreated",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChangeCommunity
+#' @description Telegram API type \code{messageActionChangeCommunity} (constructor \code{#5d20bae8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChangeCommunity <- R6::R6Class("MessageActionChangeCommunity",
   inherit = TLObject,
   public = list(
@@ -66579,6 +72384,11 @@ MessageActionChangeCommunity <- R6::R6Class("MessageActionChangeCommunity",
   lock_objects = FALSE
 )
 
+#' @title MessageActionChatJoinedViaCommunity
+#' @description Telegram API type \code{messageActionChatJoinedViaCommunity} (constructor \code{#4a8bfe80}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageActionChatJoinedViaCommunity <- R6::R6Class("MessageActionChatJoinedViaCommunity",
   inherit = TLObject,
   public = list(
@@ -66618,6 +72428,11 @@ MessageActionChatJoinedViaCommunity <- R6::R6Class("MessageActionChatJoinedViaCo
   lock_objects = FALSE
 )
 
+#' @title DialogCommunity
+#' @description Telegram API type \code{dialogCommunity} (constructor \code{#f78a0973}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogCommunity <- R6::R6Class("DialogCommunity",
   inherit = TLObject,
   public = list(
@@ -66672,6 +72487,11 @@ DialogCommunity <- R6::R6Class("DialogCommunity",
   lock_objects = FALSE
 )
 
+#' @title SentCode
+#' @description Telegram API type \code{auth.sentCode} (constructor \code{#5e002502}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCode <- R6::R6Class("SentCode",
   inherit = TLObject,
   public = list(
@@ -66734,6 +72554,11 @@ SentCode <- R6::R6Class("SentCode",
   lock_objects = FALSE
 )
 
+#' @title SentCodeSuccess
+#' @description Telegram API type \code{auth.sentCodeSuccess} (constructor \code{#2390fe44}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeSuccess <- R6::R6Class("SentCodeSuccess",
   inherit = TLObject,
   public = list(
@@ -66773,6 +72598,11 @@ SentCodeSuccess <- R6::R6Class("SentCodeSuccess",
   lock_objects = FALSE
 )
 
+#' @title SentCodePaymentRequired
+#' @description Telegram API type \code{auth.sentCodePaymentRequired} (constructor \code{#f8827ebf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodePaymentRequired <- R6::R6Class("SentCodePaymentRequired",
   inherit = TLObject,
   public = list(
@@ -66848,6 +72678,11 @@ SentCodePaymentRequired <- R6::R6Class("SentCodePaymentRequired",
   lock_objects = FALSE
 )
 
+#' @title AuthorizationSignUpRequired
+#' @description Telegram API type \code{auth.authorizationSignUpRequired} (constructor \code{#44747e9a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AuthorizationSignUpRequired <- R6::R6Class("AuthorizationSignUpRequired",
   inherit = TLObject,
   public = list(
@@ -66891,6 +72726,11 @@ AuthorizationSignUpRequired <- R6::R6Class("AuthorizationSignUpRequired",
   lock_objects = FALSE
 )
 
+#' @title ExportedAuthorization
+#' @description Telegram API type \code{auth.exportedAuthorization} (constructor \code{#b434e2b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedAuthorization <- R6::R6Class("ExportedAuthorization",
   inherit = TLObject,
   public = list(
@@ -66936,6 +72776,11 @@ ExportedAuthorization <- R6::R6Class("ExportedAuthorization",
   lock_objects = FALSE
 )
 
+#' @title InputNotifyCommunity
+#' @description Telegram API type \code{inputNotifyCommunity} (constructor \code{#27bb1adc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputNotifyCommunity <- R6::R6Class("InputNotifyCommunity",
   inherit = TLObject,
   public = list(
@@ -66975,6 +72820,11 @@ InputNotifyCommunity <- R6::R6Class("InputNotifyCommunity",
   lock_objects = FALSE
 )
 
+#' @title ContactsNotModified
+#' @description Telegram API type \code{contacts.contactsNotModified} (constructor \code{#b74ba9d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContactsNotModified <- R6::R6Class("ContactsNotModified",
   inherit = TLObject,
   public = list(
@@ -67008,6 +72858,11 @@ ContactsNotModified <- R6::R6Class("ContactsNotModified",
   lock_objects = FALSE
 )
 
+#' @title Contacts
+#' @description Telegram API type \code{contacts.contacts} (constructor \code{#eae87e42}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Contacts <- R6::R6Class("Contacts",
   inherit = TLObject,
   public = list(
@@ -67059,6 +72914,11 @@ Contacts <- R6::R6Class("Contacts",
   lock_objects = FALSE
 )
 
+#' @title ImportedContacts
+#' @description Telegram API type \code{contacts.importedContacts} (constructor \code{#77d01c3b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportedContacts <- R6::R6Class("ImportedContacts",
   inherit = TLObject,
   public = list(
@@ -67116,6 +72976,11 @@ ImportedContacts <- R6::R6Class("ImportedContacts",
   lock_objects = FALSE
 )
 
+#' @title Blocked
+#' @description Telegram API type \code{contacts.blocked} (constructor \code{#0ade1591}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Blocked <- R6::R6Class("Blocked",
   inherit = TLObject,
   public = list(
@@ -67167,6 +73032,11 @@ Blocked <- R6::R6Class("Blocked",
   lock_objects = FALSE
 )
 
+#' @title BlockedSlice
+#' @description Telegram API type \code{contacts.blockedSlice} (constructor \code{#e1664194}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BlockedSlice <- R6::R6Class("BlockedSlice",
   inherit = TLObject,
   public = list(
@@ -67224,6 +73094,11 @@ BlockedSlice <- R6::R6Class("BlockedSlice",
   lock_objects = FALSE
 )
 
+#' @title Dialogs
+#' @description Telegram API type \code{messages.dialogs} (constructor \code{#15ba6c40}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Dialogs <- R6::R6Class("Dialogs",
   inherit = TLObject,
   public = list(
@@ -67281,6 +73156,11 @@ Dialogs <- R6::R6Class("Dialogs",
   lock_objects = FALSE
 )
 
+#' @title DialogsSlice
+#' @description Telegram API type \code{messages.dialogsSlice} (constructor \code{#71e094f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogsSlice <- R6::R6Class("DialogsSlice",
   inherit = TLObject,
   public = list(
@@ -67344,6 +73224,11 @@ DialogsSlice <- R6::R6Class("DialogsSlice",
   lock_objects = FALSE
 )
 
+#' @title DialogsNotModified
+#' @description Telegram API type \code{messages.dialogsNotModified} (constructor \code{#f0e3e596}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogsNotModified <- R6::R6Class("DialogsNotModified",
   inherit = TLObject,
   public = list(
@@ -67383,6 +73268,11 @@ DialogsNotModified <- R6::R6Class("DialogsNotModified",
   lock_objects = FALSE
 )
 
+#' @title Messages
+#' @description Telegram API type \code{messages.messages} (constructor \code{#1d73e7ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Messages <- R6::R6Class("Messages",
   inherit = TLObject,
   public = list(
@@ -67440,6 +73330,11 @@ Messages <- R6::R6Class("Messages",
   lock_objects = FALSE
 )
 
+#' @title MessagesSlice
+#' @description Telegram API type \code{messages.messagesSlice} (constructor \code{#5f206716}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagesSlice <- R6::R6Class("MessagesSlice",
   inherit = TLObject,
   public = list(
@@ -67533,6 +73428,11 @@ MessagesSlice <- R6::R6Class("MessagesSlice",
   lock_objects = FALSE
 )
 
+#' @title ChannelMessages
+#' @description Telegram API type \code{messages.channelMessages} (constructor \code{#c776ba4e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelMessages <- R6::R6Class("ChannelMessages",
   inherit = TLObject,
   public = list(
@@ -67618,6 +73518,11 @@ ChannelMessages <- R6::R6Class("ChannelMessages",
   lock_objects = FALSE
 )
 
+#' @title MessagesNotModified
+#' @description Telegram API type \code{messages.messagesNotModified} (constructor \code{#74535f21}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessagesNotModified <- R6::R6Class("MessagesNotModified",
   inherit = TLObject,
   public = list(
@@ -67657,6 +73562,11 @@ MessagesNotModified <- R6::R6Class("MessagesNotModified",
   lock_objects = FALSE
 )
 
+#' @title Chats
+#' @description Telegram API type \code{messages.chats} (constructor \code{#64ff9fd5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Chats <- R6::R6Class("Chats",
   inherit = TLObject,
   public = list(
@@ -67696,6 +73606,11 @@ Chats <- R6::R6Class("Chats",
   lock_objects = FALSE
 )
 
+#' @title ChatsSlice
+#' @description Telegram API type \code{messages.chatsSlice} (constructor \code{#9cd81144}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatsSlice <- R6::R6Class("ChatsSlice",
   inherit = TLObject,
   public = list(
@@ -67741,6 +73656,11 @@ ChatsSlice <- R6::R6Class("ChatsSlice",
   lock_objects = FALSE
 )
 
+#' @title AffectedHistory
+#' @description Telegram API type \code{messages.affectedHistory} (constructor \code{#b45c69d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AffectedHistory <- R6::R6Class("AffectedHistory",
   inherit = TLObject,
   public = list(
@@ -67792,6 +73712,11 @@ AffectedHistory <- R6::R6Class("AffectedHistory",
   lock_objects = FALSE
 )
 
+#' @title InputMessagesFilterPoll
+#' @description Telegram API type \code{inputMessagesFilterPoll} (constructor \code{#fa2bc90a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessagesFilterPoll <- R6::R6Class("InputMessagesFilterPoll",
   inherit = TLObject,
   public = list(
@@ -67825,6 +73750,11 @@ InputMessagesFilterPoll <- R6::R6Class("InputMessagesFilterPoll",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCallMessage
+#' @description Telegram API type \code{updateGroupCallMessage} (constructor \code{#d8326f0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCallMessage <- R6::R6Class("UpdateGroupCallMessage",
   inherit = TLObject,
   public = list(
@@ -67870,6 +73800,11 @@ UpdateGroupCallMessage <- R6::R6Class("UpdateGroupCallMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateGroupCallEncryptedMessage
+#' @description Telegram API type \code{updateGroupCallEncryptedMessage} (constructor \code{#c957a766}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateGroupCallEncryptedMessage <- R6::R6Class("UpdateGroupCallEncryptedMessage",
   inherit = TLObject,
   public = list(
@@ -67921,6 +73856,11 @@ UpdateGroupCallEncryptedMessage <- R6::R6Class("UpdateGroupCallEncryptedMessage"
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedForumTopic
+#' @description Telegram API type \code{updatePinnedForumTopic} (constructor \code{#683b2c52}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedForumTopic <- R6::R6Class("UpdatePinnedForumTopic",
   inherit = TLObject,
   public = list(
@@ -67975,6 +73915,11 @@ UpdatePinnedForumTopic <- R6::R6Class("UpdatePinnedForumTopic",
   lock_objects = FALSE
 )
 
+#' @title UpdatePinnedForumTopics
+#' @description Telegram API type \code{updatePinnedForumTopics} (constructor \code{#def143d0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedForumTopics <- R6::R6Class("UpdatePinnedForumTopics",
   inherit = TLObject,
   public = list(
@@ -68024,6 +73969,11 @@ UpdatePinnedForumTopics <- R6::R6Class("UpdatePinnedForumTopics",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteGroupCallMessages
+#' @description Telegram API type \code{updateDeleteGroupCallMessages} (constructor \code{#3e85e92c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteGroupCallMessages <- R6::R6Class("UpdateDeleteGroupCallMessages",
   inherit = TLObject,
   public = list(
@@ -68069,6 +74019,11 @@ UpdateDeleteGroupCallMessages <- R6::R6Class("UpdateDeleteGroupCallMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarGiftAuctionState
+#' @description Telegram API type \code{updateStarGiftAuctionState} (constructor \code{#48e246c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarGiftAuctionState <- R6::R6Class("UpdateStarGiftAuctionState",
   inherit = TLObject,
   public = list(
@@ -68114,6 +74069,11 @@ UpdateStarGiftAuctionState <- R6::R6Class("UpdateStarGiftAuctionState",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarGiftAuctionUserState
+#' @description Telegram API type \code{updateStarGiftAuctionUserState} (constructor \code{#dc58f31e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarGiftAuctionUserState <- R6::R6Class("UpdateStarGiftAuctionUserState",
   inherit = TLObject,
   public = list(
@@ -68159,6 +74119,11 @@ UpdateStarGiftAuctionUserState <- R6::R6Class("UpdateStarGiftAuctionUserState",
   lock_objects = FALSE
 )
 
+#' @title UpdateEmojiGameInfo
+#' @description Telegram API type \code{updateEmojiGameInfo} (constructor \code{#fb9c547a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEmojiGameInfo <- R6::R6Class("UpdateEmojiGameInfo",
   inherit = TLObject,
   public = list(
@@ -68198,6 +74163,11 @@ UpdateEmojiGameInfo <- R6::R6Class("UpdateEmojiGameInfo",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarGiftCraftFail
+#' @description Telegram API type \code{updateStarGiftCraftFail} (constructor \code{#ac072444}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarGiftCraftFail <- R6::R6Class("UpdateStarGiftCraftFail",
   inherit = TLObject,
   public = list(
@@ -68231,6 +74201,11 @@ UpdateStarGiftCraftFail <- R6::R6Class("UpdateStarGiftCraftFail",
   lock_objects = FALSE
 )
 
+#' @title UpdateChatParticipantRank
+#' @description Telegram API type \code{updateChatParticipantRank} (constructor \code{#bd8367b9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateChatParticipantRank <- R6::R6Class("UpdateChatParticipantRank",
   inherit = TLObject,
   public = list(
@@ -68288,6 +74263,11 @@ UpdateChatParticipantRank <- R6::R6Class("UpdateChatParticipantRank",
   lock_objects = FALSE
 )
 
+#' @title UpdateManagedBot
+#' @description Telegram API type \code{updateManagedBot} (constructor \code{#4880ed9a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateManagedBot <- R6::R6Class("UpdateManagedBot",
   inherit = TLObject,
   public = list(
@@ -68339,6 +74319,11 @@ UpdateManagedBot <- R6::R6Class("UpdateManagedBot",
   lock_objects = FALSE
 )
 
+#' @title UpdateBotGuestChatQuery
+#' @description Telegram API type \code{updateBotGuestChatQuery} (constructor \code{#cdd4093d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotGuestChatQuery <- R6::R6Class("UpdateBotGuestChatQuery",
   inherit = TLObject,
   public = list(
@@ -68400,6 +74385,11 @@ UpdateBotGuestChatQuery <- R6::R6Class("UpdateBotGuestChatQuery",
   lock_objects = FALSE
 )
 
+#' @title UpdateAiComposeTones
+#' @description Telegram API type \code{updateAiComposeTones} (constructor \code{#8c0f91fb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateAiComposeTones <- R6::R6Class("UpdateAiComposeTones",
   inherit = TLObject,
   public = list(
@@ -68433,6 +74423,11 @@ UpdateAiComposeTones <- R6::R6Class("UpdateAiComposeTones",
   lock_objects = FALSE
 )
 
+#' @title UpdateJoinChatWebViewDecision
+#' @description Telegram API type \code{updateJoinChatWebViewDecision} (constructor \code{#bdac7e70}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateJoinChatWebViewDecision <- R6::R6Class("UpdateJoinChatWebViewDecision",
   inherit = TLObject,
   public = list(
@@ -68484,6 +74479,11 @@ UpdateJoinChatWebViewDecision <- R6::R6Class("UpdateJoinChatWebViewDecision",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewBotConnection
+#' @description Telegram API type \code{updateNewBotConnection} (constructor \code{#b22083a6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewBotConnection <- R6::R6Class("UpdateNewBotConnection",
   inherit = TLObject,
   public = list(
@@ -68553,6 +74553,11 @@ UpdateNewBotConnection <- R6::R6Class("UpdateNewBotConnection",
   lock_objects = FALSE
 )
 
+#' @title UpdateWebBrowserSettings
+#' @description Telegram API type \code{updateWebBrowserSettings} (constructor \code{#c39a2ade}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateWebBrowserSettings <- R6::R6Class("UpdateWebBrowserSettings",
   inherit = TLObject,
   public = list(
@@ -68601,6 +74606,11 @@ UpdateWebBrowserSettings <- R6::R6Class("UpdateWebBrowserSettings",
   lock_objects = FALSE
 )
 
+#' @title UpdateWebBrowserException
+#' @description Telegram API type \code{updateWebBrowserException} (constructor \code{#140502d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateWebBrowserException <- R6::R6Class("UpdateWebBrowserException",
   inherit = TLObject,
   public = list(
@@ -68656,6 +74666,11 @@ UpdateWebBrowserException <- R6::R6Class("UpdateWebBrowserException",
   lock_objects = FALSE
 )
 
+#' @title UpdateNewEphemeralMessage
+#' @description Telegram API type \code{updateNewEphemeralMessage} (constructor \code{#20bcbba1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateNewEphemeralMessage <- R6::R6Class("UpdateNewEphemeralMessage",
   inherit = TLObject,
   public = list(
@@ -68695,6 +74710,11 @@ UpdateNewEphemeralMessage <- R6::R6Class("UpdateNewEphemeralMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateDeleteEphemeralMessages
+#' @description Telegram API type \code{updateDeleteEphemeralMessages} (constructor \code{#56dbfcf8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDeleteEphemeralMessages <- R6::R6Class("UpdateDeleteEphemeralMessages",
   inherit = TLObject,
   public = list(
@@ -68740,6 +74760,11 @@ UpdateDeleteEphemeralMessages <- R6::R6Class("UpdateDeleteEphemeralMessages",
   lock_objects = FALSE
 )
 
+#' @title UpdateEditEphemeralMessage
+#' @description Telegram API type \code{updateEditEphemeralMessage} (constructor \code{#4bbb8f01}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEditEphemeralMessage <- R6::R6Class("UpdateEditEphemeralMessage",
   inherit = TLObject,
   public = list(
@@ -68779,6 +74804,11 @@ UpdateEditEphemeralMessage <- R6::R6Class("UpdateEditEphemeralMessage",
   lock_objects = FALSE
 )
 
+#' @title UpdateEphemeralBotCallbackQuery
+#' @description Telegram API type \code{updateEphemeralBotCallbackQuery} (constructor \code{#7c1079d6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateEphemeralBotCallbackQuery <- R6::R6Class("UpdateEphemeralBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -68859,6 +74889,11 @@ UpdateEphemeralBotCallbackQuery <- R6::R6Class("UpdateEphemeralBotCallbackQuery"
   lock_objects = FALSE
 )
 
+#' @title UpdateBotStarsSubscription
+#' @description Telegram API type \code{updateBotStarsSubscription} (constructor \code{#6c0d8e23}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateBotStarsSubscription <- R6::R6Class("UpdateBotStarsSubscription",
   inherit = TLObject,
   public = list(
@@ -68931,6 +74966,11 @@ UpdateBotStarsSubscription <- R6::R6Class("UpdateBotStarsSubscription",
   lock_objects = FALSE
 )
 
+#' @title State
+#' @description Telegram API type \code{updates.state} (constructor \code{#a56c2a3e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 State <- R6::R6Class("State",
   inherit = TLObject,
   public = list(
@@ -68994,6 +75034,11 @@ State <- R6::R6Class("State",
   lock_objects = FALSE
 )
 
+#' @title DifferenceEmpty
+#' @description Telegram API type \code{updates.differenceEmpty} (constructor \code{#5d75a138}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DifferenceEmpty <- R6::R6Class("DifferenceEmpty",
   inherit = TLObject,
   public = list(
@@ -69039,6 +75084,11 @@ DifferenceEmpty <- R6::R6Class("DifferenceEmpty",
   lock_objects = FALSE
 )
 
+#' @title Difference
+#' @description Telegram API type \code{updates.difference} (constructor \code{#00f49ca0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Difference <- R6::R6Class("Difference",
   inherit = TLObject,
   public = list(
@@ -69108,6 +75158,11 @@ Difference <- R6::R6Class("Difference",
   lock_objects = FALSE
 )
 
+#' @title DifferenceSlice
+#' @description Telegram API type \code{updates.differenceSlice} (constructor \code{#a8fb1981}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DifferenceSlice <- R6::R6Class("DifferenceSlice",
   inherit = TLObject,
   public = list(
@@ -69177,6 +75232,11 @@ DifferenceSlice <- R6::R6Class("DifferenceSlice",
   lock_objects = FALSE
 )
 
+#' @title DifferenceTooLong
+#' @description Telegram API type \code{updates.differenceTooLong} (constructor \code{#4afe8f6d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DifferenceTooLong <- R6::R6Class("DifferenceTooLong",
   inherit = TLObject,
   public = list(
@@ -69216,6 +75276,11 @@ DifferenceTooLong <- R6::R6Class("DifferenceTooLong",
   lock_objects = FALSE
 )
 
+#' @title Photos
+#' @description Telegram API type \code{photos.photos} (constructor \code{#8dca6aa5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Photos <- R6::R6Class("Photos",
   inherit = TLObject,
   public = list(
@@ -69261,6 +75326,11 @@ Photos <- R6::R6Class("Photos",
   lock_objects = FALSE
 )
 
+#' @title PhotosSlice
+#' @description Telegram API type \code{photos.photosSlice} (constructor \code{#15051f54}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PhotosSlice <- R6::R6Class("PhotosSlice",
   inherit = TLObject,
   public = list(
@@ -69312,6 +75382,11 @@ PhotosSlice <- R6::R6Class("PhotosSlice",
   lock_objects = FALSE
 )
 
+#' @title File
+#' @description Telegram API type \code{upload.file} (constructor \code{#096a18d5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 File <- R6::R6Class("File",
   inherit = TLObject,
   public = list(
@@ -69363,6 +75438,11 @@ File <- R6::R6Class("File",
   lock_objects = FALSE
 )
 
+#' @title FileCdnRedirect
+#' @description Telegram API type \code{upload.fileCdnRedirect} (constructor \code{#f18cda44}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FileCdnRedirect <- R6::R6Class("FileCdnRedirect",
   inherit = TLObject,
   public = list(
@@ -69426,6 +75506,11 @@ FileCdnRedirect <- R6::R6Class("FileCdnRedirect",
   lock_objects = FALSE
 )
 
+#' @title AppUpdate
+#' @description Telegram API type \code{help.appUpdate} (constructor \code{#ccbbce30}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AppUpdate <- R6::R6Class("AppUpdate",
   inherit = TLObject,
   public = list(
@@ -69513,6 +75598,11 @@ AppUpdate <- R6::R6Class("AppUpdate",
   lock_objects = FALSE
 )
 
+#' @title NoAppUpdate
+#' @description Telegram API type \code{help.noAppUpdate} (constructor \code{#c45a6536}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NoAppUpdate <- R6::R6Class("NoAppUpdate",
   inherit = TLObject,
   public = list(
@@ -69546,6 +75636,11 @@ NoAppUpdate <- R6::R6Class("NoAppUpdate",
   lock_objects = FALSE
 )
 
+#' @title InviteText
+#' @description Telegram API type \code{help.inviteText} (constructor \code{#18cb9f78}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InviteText <- R6::R6Class("InviteText",
   inherit = TLObject,
   public = list(
@@ -69585,6 +75680,11 @@ InviteText <- R6::R6Class("InviteText",
   lock_objects = FALSE
 )
 
+#' @title DhConfigNotModified
+#' @description Telegram API type \code{messages.dhConfigNotModified} (constructor \code{#c0e24635}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DhConfigNotModified <- R6::R6Class("DhConfigNotModified",
   inherit = TLObject,
   public = list(
@@ -69624,6 +75724,11 @@ DhConfigNotModified <- R6::R6Class("DhConfigNotModified",
   lock_objects = FALSE
 )
 
+#' @title DhConfig
+#' @description Telegram API type \code{messages.dhConfig} (constructor \code{#2c221edd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DhConfig <- R6::R6Class("DhConfig",
   inherit = TLObject,
   public = list(
@@ -69681,6 +75786,11 @@ DhConfig <- R6::R6Class("DhConfig",
   lock_objects = FALSE
 )
 
+#' @title SentEncryptedMessage
+#' @description Telegram API type \code{messages.sentEncryptedMessage} (constructor \code{#560f8935}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentEncryptedMessage <- R6::R6Class("SentEncryptedMessage",
   inherit = TLObject,
   public = list(
@@ -69720,6 +75830,11 @@ SentEncryptedMessage <- R6::R6Class("SentEncryptedMessage",
   lock_objects = FALSE
 )
 
+#' @title SentEncryptedFile
+#' @description Telegram API type \code{messages.sentEncryptedFile} (constructor \code{#9493ff32}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentEncryptedFile <- R6::R6Class("SentEncryptedFile",
   inherit = TLObject,
   public = list(
@@ -69765,6 +75880,11 @@ SentEncryptedFile <- R6::R6Class("SentEncryptedFile",
   lock_objects = FALSE
 )
 
+#' @title Support
+#' @description Telegram API type \code{help.support} (constructor \code{#17c6b5f6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Support <- R6::R6Class("Support",
   inherit = TLObject,
   public = list(
@@ -69810,6 +75930,11 @@ Support <- R6::R6Class("Support",
   lock_objects = FALSE
 )
 
+#' @title NotifyCommunity
+#' @description Telegram API type \code{notifyCommunity} (constructor \code{#be376999}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 NotifyCommunity <- R6::R6Class("NotifyCommunity",
   inherit = TLObject,
   public = list(
@@ -69849,6 +75974,11 @@ NotifyCommunity <- R6::R6Class("NotifyCommunity",
   lock_objects = FALSE
 )
 
+#' @title SendMessageTextDraftAction
+#' @description Telegram API type \code{sendMessageTextDraftAction} (constructor \code{#3630b85a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageTextDraftAction <- R6::R6Class("SendMessageTextDraftAction",
   inherit = TLObject,
   public = list(
@@ -69909,6 +76039,11 @@ SendMessageTextDraftAction <- R6::R6Class("SendMessageTextDraftAction",
   lock_objects = FALSE
 )
 
+#' @title InputSendMessageRichMessageDraftAction
+#' @description Telegram API type \code{inputSendMessageRichMessageDraftAction} (constructor \code{#a937c7be}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputSendMessageRichMessageDraftAction <- R6::R6Class("InputSendMessageRichMessageDraftAction",
   inherit = TLObject,
   public = list(
@@ -69969,6 +76104,11 @@ InputSendMessageRichMessageDraftAction <- R6::R6Class("InputSendMessageRichMessa
   lock_objects = FALSE
 )
 
+#' @title SendMessageRichMessageDraftAction
+#' @description Telegram API type \code{sendMessageRichMessageDraftAction} (constructor \code{#52564893}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageRichMessageDraftAction <- R6::R6Class("SendMessageRichMessageDraftAction",
   inherit = TLObject,
   public = list(
@@ -70029,6 +76169,11 @@ SendMessageRichMessageDraftAction <- R6::R6Class("SendMessageRichMessageDraftAct
   lock_objects = FALSE
 )
 
+#' @title SendMessageStopDraftAction
+#' @description Telegram API type \code{sendMessageStopDraftAction} (constructor \code{#fbf902b0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageStopDraftAction <- R6::R6Class("SendMessageStopDraftAction",
   inherit = TLObject,
   public = list(
@@ -70068,6 +76213,11 @@ SendMessageStopDraftAction <- R6::R6Class("SendMessageStopDraftAction",
   lock_objects = FALSE
 )
 
+#' @title Found
+#' @description Telegram API type \code{contacts.found} (constructor \code{#b3134d9d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Found <- R6::R6Class("Found",
   inherit = TLObject,
   public = list(
@@ -70125,6 +76275,11 @@ Found <- R6::R6Class("Found",
   lock_objects = FALSE
 )
 
+#' @title InputPrivacyKeySavedMusic
+#' @description Telegram API type \code{inputPrivacyKeySavedMusic} (constructor \code{#4dbe9226}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPrivacyKeySavedMusic <- R6::R6Class("InputPrivacyKeySavedMusic",
   inherit = TLObject,
   public = list(
@@ -70158,6 +76313,11 @@ InputPrivacyKeySavedMusic <- R6::R6Class("InputPrivacyKeySavedMusic",
   lock_objects = FALSE
 )
 
+#' @title PrivacyKeySavedMusic
+#' @description Telegram API type \code{privacyKeySavedMusic} (constructor \code{#ff7a571b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyKeySavedMusic <- R6::R6Class("PrivacyKeySavedMusic",
   inherit = TLObject,
   public = list(
@@ -70191,6 +76351,11 @@ PrivacyKeySavedMusic <- R6::R6Class("PrivacyKeySavedMusic",
   lock_objects = FALSE
 )
 
+#' @title PrivacyRules
+#' @description Telegram API type \code{account.privacyRules} (constructor \code{#50a04e45}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PrivacyRules <- R6::R6Class("PrivacyRules",
   inherit = TLObject,
   public = list(
@@ -70242,6 +76407,11 @@ PrivacyRules <- R6::R6Class("PrivacyRules",
   lock_objects = FALSE
 )
 
+#' @title StickersNotModified
+#' @description Telegram API type \code{messages.stickersNotModified} (constructor \code{#f1749a22}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickersNotModified <- R6::R6Class("StickersNotModified",
   inherit = TLObject,
   public = list(
@@ -70275,6 +76445,11 @@ StickersNotModified <- R6::R6Class("StickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title Stickers
+#' @description Telegram API type \code{messages.stickers} (constructor \code{#30a6ec7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Stickers <- R6::R6Class("Stickers",
   inherit = TLObject,
   public = list(
@@ -70320,6 +76495,11 @@ Stickers <- R6::R6Class("Stickers",
   lock_objects = FALSE
 )
 
+#' @title AllStickersNotModified
+#' @description Telegram API type \code{messages.allStickersNotModified} (constructor \code{#e86602c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AllStickersNotModified <- R6::R6Class("AllStickersNotModified",
   inherit = TLObject,
   public = list(
@@ -70353,6 +76533,11 @@ AllStickersNotModified <- R6::R6Class("AllStickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title AllStickers
+#' @description Telegram API type \code{messages.allStickers} (constructor \code{#cdbbcebb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AllStickers <- R6::R6Class("AllStickers",
   inherit = TLObject,
   public = list(
@@ -70398,6 +76583,11 @@ AllStickers <- R6::R6Class("AllStickers",
   lock_objects = FALSE
 )
 
+#' @title AffectedMessages
+#' @description Telegram API type \code{messages.affectedMessages} (constructor \code{#84d19185}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AffectedMessages <- R6::R6Class("AffectedMessages",
   inherit = TLObject,
   public = list(
@@ -70443,6 +76633,11 @@ AffectedMessages <- R6::R6Class("AffectedMessages",
   lock_objects = FALSE
 )
 
+#' @title Authorizations
+#' @description Telegram API type \code{account.authorizations} (constructor \code{#4bff8ea0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Authorizations <- R6::R6Class("Authorizations",
   inherit = TLObject,
   public = list(
@@ -70488,6 +76683,11 @@ Authorizations <- R6::R6Class("Authorizations",
   lock_objects = FALSE
 )
 
+#' @title Password
+#' @description Telegram API type \code{account.password} (constructor \code{#957b50fb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Password <- R6::R6Class("Password",
   inherit = TLObject,
   public = list(
@@ -70609,6 +76809,11 @@ Password <- R6::R6Class("Password",
   lock_objects = FALSE
 )
 
+#' @title PasswordSettings
+#' @description Telegram API type \code{account.passwordSettings} (constructor \code{#9a5c33e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasswordSettings <- R6::R6Class("PasswordSettings",
   inherit = TLObject,
   public = list(
@@ -70659,6 +76864,11 @@ PasswordSettings <- R6::R6Class("PasswordSettings",
   lock_objects = FALSE
 )
 
+#' @title PasswordInputSettings
+#' @description Telegram API type \code{account.passwordInputSettings} (constructor \code{#c23727c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasswordInputSettings <- R6::R6Class("PasswordInputSettings",
   inherit = TLObject,
   public = list(
@@ -70730,6 +76940,11 @@ PasswordInputSettings <- R6::R6Class("PasswordInputSettings",
   lock_objects = FALSE
 )
 
+#' @title PasswordRecovery
+#' @description Telegram API type \code{auth.passwordRecovery} (constructor \code{#137948a5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasswordRecovery <- R6::R6Class("PasswordRecovery",
   inherit = TLObject,
   public = list(
@@ -70769,6 +76984,11 @@ PasswordRecovery <- R6::R6Class("PasswordRecovery",
   lock_objects = FALSE
 )
 
+#' @title StickerSetNotModified
+#' @description Telegram API type \code{messages.stickerSetNotModified} (constructor \code{#d3f924eb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetNotModified <- R6::R6Class("StickerSetNotModified",
   inherit = TLObject,
   public = list(
@@ -70802,6 +77022,11 @@ StickerSetNotModified <- R6::R6Class("StickerSetNotModified",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityFormattedDate
+#' @description Telegram API type \code{messageEntityFormattedDate} (constructor \code{#904ac7c7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityFormattedDate <- R6::R6Class("MessageEntityFormattedDate",
   inherit = TLObject,
   public = list(
@@ -70892,6 +77117,11 @@ MessageEntityFormattedDate <- R6::R6Class("MessageEntityFormattedDate",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityDiffInsert
+#' @description Telegram API type \code{messageEntityDiffInsert} (constructor \code{#71777116}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityDiffInsert <- R6::R6Class("MessageEntityDiffInsert",
   inherit = TLObject,
   public = list(
@@ -70937,6 +77167,11 @@ MessageEntityDiffInsert <- R6::R6Class("MessageEntityDiffInsert",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityDiffReplace
+#' @description Telegram API type \code{messageEntityDiffReplace} (constructor \code{#c6c1e5a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityDiffReplace <- R6::R6Class("MessageEntityDiffReplace",
   inherit = TLObject,
   public = list(
@@ -70988,6 +77223,11 @@ MessageEntityDiffReplace <- R6::R6Class("MessageEntityDiffReplace",
   lock_objects = FALSE
 )
 
+#' @title MessageEntityDiffDelete
+#' @description Telegram API type \code{messageEntityDiffDelete} (constructor \code{#0652c1c5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEntityDiffDelete <- R6::R6Class("MessageEntityDiffDelete",
   inherit = TLObject,
   public = list(
@@ -71033,6 +77273,11 @@ MessageEntityDiffDelete <- R6::R6Class("MessageEntityDiffDelete",
   lock_objects = FALSE
 )
 
+#' @title ResolvedPeer
+#' @description Telegram API type \code{contacts.resolvedPeer} (constructor \code{#7f077ad9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResolvedPeer <- R6::R6Class("ResolvedPeer",
   inherit = TLObject,
   public = list(
@@ -71084,6 +77329,11 @@ ResolvedPeer <- R6::R6Class("ResolvedPeer",
   lock_objects = FALSE
 )
 
+#' @title ChannelDifferenceEmpty
+#' @description Telegram API type \code{updates.channelDifferenceEmpty} (constructor \code{#3e11affb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelDifferenceEmpty <- R6::R6Class("ChannelDifferenceEmpty",
   inherit = TLObject,
   public = list(
@@ -71139,6 +77389,11 @@ ChannelDifferenceEmpty <- R6::R6Class("ChannelDifferenceEmpty",
   lock_objects = FALSE
 )
 
+#' @title ChannelDifferenceTooLong
+#' @description Telegram API type \code{updates.channelDifferenceTooLong} (constructor \code{#a4bcc6fe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelDifferenceTooLong <- R6::R6Class("ChannelDifferenceTooLong",
   inherit = TLObject,
   public = list(
@@ -71212,6 +77467,11 @@ ChannelDifferenceTooLong <- R6::R6Class("ChannelDifferenceTooLong",
   lock_objects = FALSE
 )
 
+#' @title ChannelDifference
+#' @description Telegram API type \code{updates.channelDifference} (constructor \code{#2064674e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelDifference <- R6::R6Class("ChannelDifference",
   inherit = TLObject,
   public = list(
@@ -71291,6 +77551,11 @@ ChannelDifference <- R6::R6Class("ChannelDifference",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipants
+#' @description Telegram API type \code{channels.channelParticipants} (constructor \code{#9ab0feaf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipants <- R6::R6Class("ChannelParticipants",
   inherit = TLObject,
   public = list(
@@ -71348,6 +77613,11 @@ ChannelParticipants <- R6::R6Class("ChannelParticipants",
   lock_objects = FALSE
 )
 
+#' @title ChannelParticipantsNotModified
+#' @description Telegram API type \code{channels.channelParticipantsNotModified} (constructor \code{#f0173fe9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelParticipantsNotModified <- R6::R6Class("ChannelParticipantsNotModified",
   inherit = TLObject,
   public = list(
@@ -71381,6 +77651,11 @@ ChannelParticipantsNotModified <- R6::R6Class("ChannelParticipantsNotModified",
   lock_objects = FALSE
 )
 
+#' @title TermsOfService
+#' @description Telegram API type \code{help.termsOfService} (constructor \code{#780a0310}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TermsOfService <- R6::R6Class("TermsOfService",
   inherit = TLObject,
   public = list(
@@ -71448,6 +77723,11 @@ TermsOfService <- R6::R6Class("TermsOfService",
   lock_objects = FALSE
 )
 
+#' @title SavedGifsNotModified
+#' @description Telegram API type \code{messages.savedGifsNotModified} (constructor \code{#e8025ca2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedGifsNotModified <- R6::R6Class("SavedGifsNotModified",
   inherit = TLObject,
   public = list(
@@ -71481,6 +77761,11 @@ SavedGifsNotModified <- R6::R6Class("SavedGifsNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedGifs
+#' @description Telegram API type \code{messages.savedGifs} (constructor \code{#84a02a0d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedGifs <- R6::R6Class("SavedGifs",
   inherit = TLObject,
   public = list(
@@ -71526,6 +77811,11 @@ SavedGifs <- R6::R6Class("SavedGifs",
   lock_objects = FALSE
 )
 
+#' @title InputBotInlineMessageRichMessage
+#' @description Telegram API type \code{inputBotInlineMessageRichMessage} (constructor \code{#b43df56c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputBotInlineMessageRichMessage <- R6::R6Class("InputBotInlineMessageRichMessage",
   inherit = TLObject,
   public = list(
@@ -71575,6 +77865,11 @@ InputBotInlineMessageRichMessage <- R6::R6Class("InputBotInlineMessageRichMessag
   lock_objects = FALSE
 )
 
+#' @title BotInlineMessageRichMessage
+#' @description Telegram API type \code{botInlineMessageRichMessage} (constructor \code{#0a617e7b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotInlineMessageRichMessage <- R6::R6Class("BotInlineMessageRichMessage",
   inherit = TLObject,
   public = list(
@@ -71624,6 +77919,11 @@ BotInlineMessageRichMessage <- R6::R6Class("BotInlineMessageRichMessage",
   lock_objects = FALSE
 )
 
+#' @title BotResults
+#' @description Telegram API type \code{messages.botResults} (constructor \code{#e021f2f6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotResults <- R6::R6Class("BotResults",
   inherit = TLObject,
   public = list(
@@ -71711,6 +78011,11 @@ BotResults <- R6::R6Class("BotResults",
   lock_objects = FALSE
 )
 
+#' @title CodeTypeSms
+#' @description Telegram API type \code{auth.codeTypeSms} (constructor \code{#72a3158c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeTypeSms <- R6::R6Class("CodeTypeSms",
   inherit = TLObject,
   public = list(
@@ -71744,6 +78049,11 @@ CodeTypeSms <- R6::R6Class("CodeTypeSms",
   lock_objects = FALSE
 )
 
+#' @title CodeTypeCall
+#' @description Telegram API type \code{auth.codeTypeCall} (constructor \code{#741cd3e3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeTypeCall <- R6::R6Class("CodeTypeCall",
   inherit = TLObject,
   public = list(
@@ -71777,6 +78087,11 @@ CodeTypeCall <- R6::R6Class("CodeTypeCall",
   lock_objects = FALSE
 )
 
+#' @title CodeTypeFlashCall
+#' @description Telegram API type \code{auth.codeTypeFlashCall} (constructor \code{#226ccefb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeTypeFlashCall <- R6::R6Class("CodeTypeFlashCall",
   inherit = TLObject,
   public = list(
@@ -71810,6 +78125,11 @@ CodeTypeFlashCall <- R6::R6Class("CodeTypeFlashCall",
   lock_objects = FALSE
 )
 
+#' @title CodeTypeMissedCall
+#' @description Telegram API type \code{auth.codeTypeMissedCall} (constructor \code{#d61ad6ee}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeTypeMissedCall <- R6::R6Class("CodeTypeMissedCall",
   inherit = TLObject,
   public = list(
@@ -71843,6 +78163,11 @@ CodeTypeMissedCall <- R6::R6Class("CodeTypeMissedCall",
   lock_objects = FALSE
 )
 
+#' @title CodeTypeFragmentSms
+#' @description Telegram API type \code{auth.codeTypeFragmentSms} (constructor \code{#06ed998c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CodeTypeFragmentSms <- R6::R6Class("CodeTypeFragmentSms",
   inherit = TLObject,
   public = list(
@@ -71876,6 +78201,11 @@ CodeTypeFragmentSms <- R6::R6Class("CodeTypeFragmentSms",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeApp
+#' @description Telegram API type \code{auth.sentCodeTypeApp} (constructor \code{#3dbb5986}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeApp <- R6::R6Class("SentCodeTypeApp",
   inherit = TLObject,
   public = list(
@@ -71915,6 +78245,11 @@ SentCodeTypeApp <- R6::R6Class("SentCodeTypeApp",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeSms
+#' @description Telegram API type \code{auth.sentCodeTypeSms} (constructor \code{#c000bba2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeSms <- R6::R6Class("SentCodeTypeSms",
   inherit = TLObject,
   public = list(
@@ -71954,6 +78289,11 @@ SentCodeTypeSms <- R6::R6Class("SentCodeTypeSms",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeCall
+#' @description Telegram API type \code{auth.sentCodeTypeCall} (constructor \code{#5353e5a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeCall <- R6::R6Class("SentCodeTypeCall",
   inherit = TLObject,
   public = list(
@@ -71993,6 +78333,11 @@ SentCodeTypeCall <- R6::R6Class("SentCodeTypeCall",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeFlashCall
+#' @description Telegram API type \code{auth.sentCodeTypeFlashCall} (constructor \code{#ab03c6d9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeFlashCall <- R6::R6Class("SentCodeTypeFlashCall",
   inherit = TLObject,
   public = list(
@@ -72032,6 +78377,11 @@ SentCodeTypeFlashCall <- R6::R6Class("SentCodeTypeFlashCall",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeMissedCall
+#' @description Telegram API type \code{auth.sentCodeTypeMissedCall} (constructor \code{#82006484}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeMissedCall <- R6::R6Class("SentCodeTypeMissedCall",
   inherit = TLObject,
   public = list(
@@ -72077,6 +78427,11 @@ SentCodeTypeMissedCall <- R6::R6Class("SentCodeTypeMissedCall",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeEmailCode
+#' @description Telegram API type \code{auth.sentCodeTypeEmailCode} (constructor \code{#f450f59b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeEmailCode <- R6::R6Class("SentCodeTypeEmailCode",
   inherit = TLObject,
   public = list(
@@ -72151,6 +78506,11 @@ SentCodeTypeEmailCode <- R6::R6Class("SentCodeTypeEmailCode",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeSetUpEmailRequired
+#' @description Telegram API type \code{auth.sentCodeTypeSetUpEmailRequired} (constructor \code{#a5491dea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeSetUpEmailRequired <- R6::R6Class("SentCodeTypeSetUpEmailRequired",
   inherit = TLObject,
   public = list(
@@ -72199,6 +78559,11 @@ SentCodeTypeSetUpEmailRequired <- R6::R6Class("SentCodeTypeSetUpEmailRequired",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeFragmentSms
+#' @description Telegram API type \code{auth.sentCodeTypeFragmentSms} (constructor \code{#d9565c39}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeFragmentSms <- R6::R6Class("SentCodeTypeFragmentSms",
   inherit = TLObject,
   public = list(
@@ -72244,6 +78609,11 @@ SentCodeTypeFragmentSms <- R6::R6Class("SentCodeTypeFragmentSms",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeFirebaseSms
+#' @description Telegram API type \code{auth.sentCodeTypeFirebaseSms} (constructor \code{#009fd736}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeFirebaseSms <- R6::R6Class("SentCodeTypeFirebaseSms",
   inherit = TLObject,
   public = list(
@@ -72321,6 +78691,11 @@ SentCodeTypeFirebaseSms <- R6::R6Class("SentCodeTypeFirebaseSms",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeSmsWord
+#' @description Telegram API type \code{auth.sentCodeTypeSmsWord} (constructor \code{#a416ac81}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeSmsWord <- R6::R6Class("SentCodeTypeSmsWord",
   inherit = TLObject,
   public = list(
@@ -72364,6 +78739,11 @@ SentCodeTypeSmsWord <- R6::R6Class("SentCodeTypeSmsWord",
   lock_objects = FALSE
 )
 
+#' @title SentCodeTypeSmsPhrase
+#' @description Telegram API type \code{auth.sentCodeTypeSmsPhrase} (constructor \code{#b37794af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentCodeTypeSmsPhrase <- R6::R6Class("SentCodeTypeSmsPhrase",
   inherit = TLObject,
   public = list(
@@ -72407,6 +78787,11 @@ SentCodeTypeSmsPhrase <- R6::R6Class("SentCodeTypeSmsPhrase",
   lock_objects = FALSE
 )
 
+#' @title BotCallbackAnswer
+#' @description Telegram API type \code{messages.botCallbackAnswer} (constructor \code{#36585ea4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotCallbackAnswer <- R6::R6Class("BotCallbackAnswer",
   inherit = TLObject,
   public = list(
@@ -72481,6 +78866,11 @@ BotCallbackAnswer <- R6::R6Class("BotCallbackAnswer",
   lock_objects = FALSE
 )
 
+#' @title MessageEditData
+#' @description Telegram API type \code{messages.messageEditData} (constructor \code{#26b5dde6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageEditData <- R6::R6Class("MessageEditData",
   inherit = TLObject,
   public = list(
@@ -72523,6 +78913,11 @@ MessageEditData <- R6::R6Class("MessageEditData",
   lock_objects = FALSE
 )
 
+#' @title PeerDialogs
+#' @description Telegram API type \code{messages.peerDialogs} (constructor \code{#3371c354}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerDialogs <- R6::R6Class("PeerDialogs",
   inherit = TLObject,
   public = list(
@@ -72586,6 +78981,11 @@ PeerDialogs <- R6::R6Class("PeerDialogs",
   lock_objects = FALSE
 )
 
+#' @title TopPeerCategoryBotsGuestChat
+#' @description Telegram API type \code{topPeerCategoryBotsGuestChat} (constructor \code{#6c24f3dd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeerCategoryBotsGuestChat <- R6::R6Class("TopPeerCategoryBotsGuestChat",
   inherit = TLObject,
   public = list(
@@ -72619,6 +79019,11 @@ TopPeerCategoryBotsGuestChat <- R6::R6Class("TopPeerCategoryBotsGuestChat",
   lock_objects = FALSE
 )
 
+#' @title TopPeersNotModified
+#' @description Telegram API type \code{contacts.topPeersNotModified} (constructor \code{#de266ef5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeersNotModified <- R6::R6Class("TopPeersNotModified",
   inherit = TLObject,
   public = list(
@@ -72652,6 +79057,11 @@ TopPeersNotModified <- R6::R6Class("TopPeersNotModified",
   lock_objects = FALSE
 )
 
+#' @title TopPeers
+#' @description Telegram API type \code{contacts.topPeers} (constructor \code{#70b772a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeers <- R6::R6Class("TopPeers",
   inherit = TLObject,
   public = list(
@@ -72703,6 +79113,11 @@ TopPeers <- R6::R6Class("TopPeers",
   lock_objects = FALSE
 )
 
+#' @title TopPeersDisabled
+#' @description Telegram API type \code{contacts.topPeersDisabled} (constructor \code{#b52c939d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TopPeersDisabled <- R6::R6Class("TopPeersDisabled",
   inherit = TLObject,
   public = list(
@@ -72736,6 +79151,11 @@ TopPeersDisabled <- R6::R6Class("TopPeersDisabled",
   lock_objects = FALSE
 )
 
+#' @title FeaturedStickersNotModified
+#' @description Telegram API type \code{messages.featuredStickersNotModified} (constructor \code{#c6dc0c66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FeaturedStickersNotModified <- R6::R6Class("FeaturedStickersNotModified",
   inherit = TLObject,
   public = list(
@@ -72775,6 +79195,11 @@ FeaturedStickersNotModified <- R6::R6Class("FeaturedStickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title FeaturedStickers
+#' @description Telegram API type \code{messages.featuredStickers} (constructor \code{#be382906}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FeaturedStickers <- R6::R6Class("FeaturedStickers",
   inherit = TLObject,
   public = list(
@@ -72841,6 +79266,11 @@ FeaturedStickers <- R6::R6Class("FeaturedStickers",
   lock_objects = FALSE
 )
 
+#' @title RecentStickersNotModified
+#' @description Telegram API type \code{messages.recentStickersNotModified} (constructor \code{#0b17f890}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentStickersNotModified <- R6::R6Class("RecentStickersNotModified",
   inherit = TLObject,
   public = list(
@@ -72874,6 +79304,11 @@ RecentStickersNotModified <- R6::R6Class("RecentStickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title RecentStickers
+#' @description Telegram API type \code{messages.recentStickers} (constructor \code{#88d37c56}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentStickers <- R6::R6Class("RecentStickers",
   inherit = TLObject,
   public = list(
@@ -72931,6 +79366,11 @@ RecentStickers <- R6::R6Class("RecentStickers",
   lock_objects = FALSE
 )
 
+#' @title ArchivedStickers
+#' @description Telegram API type \code{messages.archivedStickers} (constructor \code{#4fcba9c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ArchivedStickers <- R6::R6Class("ArchivedStickers",
   inherit = TLObject,
   public = list(
@@ -72976,6 +79416,11 @@ ArchivedStickers <- R6::R6Class("ArchivedStickers",
   lock_objects = FALSE
 )
 
+#' @title StickerSetInstallResultSuccess
+#' @description Telegram API type \code{messages.stickerSetInstallResultSuccess} (constructor \code{#38641628}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetInstallResultSuccess <- R6::R6Class("StickerSetInstallResultSuccess",
   inherit = TLObject,
   public = list(
@@ -73009,6 +79454,11 @@ StickerSetInstallResultSuccess <- R6::R6Class("StickerSetInstallResultSuccess",
   lock_objects = FALSE
 )
 
+#' @title StickerSetInstallResultArchive
+#' @description Telegram API type \code{messages.stickerSetInstallResultArchive} (constructor \code{#35e410a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StickerSetInstallResultArchive <- R6::R6Class("StickerSetInstallResultArchive",
   inherit = TLObject,
   public = list(
@@ -73048,6 +79498,11 @@ StickerSetInstallResultArchive <- R6::R6Class("StickerSetInstallResultArchive",
   lock_objects = FALSE
 )
 
+#' @title HighScores
+#' @description Telegram API type \code{messages.highScores} (constructor \code{#9a3bfd99}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HighScores <- R6::R6Class("HighScores",
   inherit = TLObject,
   public = list(
@@ -73093,6 +79548,11 @@ HighScores <- R6::R6Class("HighScores",
   lock_objects = FALSE
 )
 
+#' @title TextMath
+#' @description Telegram API type \code{textMath} (constructor \code{#9d2eac97}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextMath <- R6::R6Class("TextMath",
   inherit = TLObject,
   public = list(
@@ -73132,6 +79592,11 @@ TextMath <- R6::R6Class("TextMath",
   lock_objects = FALSE
 )
 
+#' @title TextCustomEmoji
+#' @description Telegram API type \code{textCustomEmoji} (constructor \code{#a26156c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextCustomEmoji <- R6::R6Class("TextCustomEmoji",
   inherit = TLObject,
   public = list(
@@ -73177,6 +79642,11 @@ TextCustomEmoji <- R6::R6Class("TextCustomEmoji",
   lock_objects = FALSE
 )
 
+#' @title TextSpoiler
+#' @description Telegram API type \code{textSpoiler} (constructor \code{#4c2a5d62}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextSpoiler <- R6::R6Class("TextSpoiler",
   inherit = TLObject,
   public = list(
@@ -73216,6 +79686,11 @@ TextSpoiler <- R6::R6Class("TextSpoiler",
   lock_objects = FALSE
 )
 
+#' @title TextMention
+#' @description Telegram API type \code{textMention} (constructor \code{#cd24cf44}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextMention <- R6::R6Class("TextMention",
   inherit = TLObject,
   public = list(
@@ -73255,6 +79730,11 @@ TextMention <- R6::R6Class("TextMention",
   lock_objects = FALSE
 )
 
+#' @title TextHashtag
+#' @description Telegram API type \code{textHashtag} (constructor \code{#519524ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextHashtag <- R6::R6Class("TextHashtag",
   inherit = TLObject,
   public = list(
@@ -73294,6 +79774,11 @@ TextHashtag <- R6::R6Class("TextHashtag",
   lock_objects = FALSE
 )
 
+#' @title TextBotCommand
+#' @description Telegram API type \code{textBotCommand} (constructor \code{#02ff29d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextBotCommand <- R6::R6Class("TextBotCommand",
   inherit = TLObject,
   public = list(
@@ -73333,6 +79818,11 @@ TextBotCommand <- R6::R6Class("TextBotCommand",
   lock_objects = FALSE
 )
 
+#' @title TextCashtag
+#' @description Telegram API type \code{textCashtag} (constructor \code{#7b9e1801}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextCashtag <- R6::R6Class("TextCashtag",
   inherit = TLObject,
   public = list(
@@ -73372,6 +79862,11 @@ TextCashtag <- R6::R6Class("TextCashtag",
   lock_objects = FALSE
 )
 
+#' @title TextAutoUrl
+#' @description Telegram API type \code{textAutoUrl} (constructor \code{#ac6a83aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextAutoUrl <- R6::R6Class("TextAutoUrl",
   inherit = TLObject,
   public = list(
@@ -73411,6 +79906,11 @@ TextAutoUrl <- R6::R6Class("TextAutoUrl",
   lock_objects = FALSE
 )
 
+#' @title TextAutoEmail
+#' @description Telegram API type \code{textAutoEmail} (constructor \code{#c556a45d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextAutoEmail <- R6::R6Class("TextAutoEmail",
   inherit = TLObject,
   public = list(
@@ -73450,6 +79950,11 @@ TextAutoEmail <- R6::R6Class("TextAutoEmail",
   lock_objects = FALSE
 )
 
+#' @title TextAutoPhone
+#' @description Telegram API type \code{textAutoPhone} (constructor \code{#24c26789}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextAutoPhone <- R6::R6Class("TextAutoPhone",
   inherit = TLObject,
   public = list(
@@ -73489,6 +79994,11 @@ TextAutoPhone <- R6::R6Class("TextAutoPhone",
   lock_objects = FALSE
 )
 
+#' @title TextBankCard
+#' @description Telegram API type \code{textBankCard} (constructor \code{#b956812d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextBankCard <- R6::R6Class("TextBankCard",
   inherit = TLObject,
   public = list(
@@ -73528,6 +80038,11 @@ TextBankCard <- R6::R6Class("TextBankCard",
   lock_objects = FALSE
 )
 
+#' @title TextMentionName
+#' @description Telegram API type \code{textMentionName} (constructor \code{#01a9fbfc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextMentionName <- R6::R6Class("TextMentionName",
   inherit = TLObject,
   public = list(
@@ -73573,6 +80088,11 @@ TextMentionName <- R6::R6Class("TextMentionName",
   lock_objects = FALSE
 )
 
+#' @title TextDate
+#' @description Telegram API type \code{textDate} (constructor \code{#a5b45e2b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextDate <- R6::R6Class("TextDate",
   inherit = TLObject,
   public = list(
@@ -73657,6 +80177,11 @@ TextDate <- R6::R6Class("TextDate",
   lock_objects = FALSE
 )
 
+#' @title TextDiff
+#' @description Telegram API type \code{textDiff} (constructor \code{#9686cb50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextDiff <- R6::R6Class("TextDiff",
   inherit = TLObject,
   public = list(
@@ -73702,6 +80227,11 @@ TextDiff <- R6::R6Class("TextDiff",
   lock_objects = FALSE
 )
 
+#' @title TextButton
+#' @description Telegram API type \code{textButton} (constructor \code{#afc79cd6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TextButton <- R6::R6Class("TextButton",
   inherit = TLObject,
   public = list(
@@ -73757,6 +80287,11 @@ TextButton <- R6::R6Class("TextButton",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading1
+#' @description Telegram API type \code{pageBlockHeading1} (constructor \code{#baff072f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading1 <- R6::R6Class("PageBlockHeading1",
   inherit = TLObject,
   public = list(
@@ -73796,6 +80331,11 @@ PageBlockHeading1 <- R6::R6Class("PageBlockHeading1",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading2
+#' @description Telegram API type \code{pageBlockHeading2} (constructor \code{#096b2aec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading2 <- R6::R6Class("PageBlockHeading2",
   inherit = TLObject,
   public = list(
@@ -73835,6 +80375,11 @@ PageBlockHeading2 <- R6::R6Class("PageBlockHeading2",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading3
+#' @description Telegram API type \code{pageBlockHeading3} (constructor \code{#67e731ad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading3 <- R6::R6Class("PageBlockHeading3",
   inherit = TLObject,
   public = list(
@@ -73874,6 +80419,11 @@ PageBlockHeading3 <- R6::R6Class("PageBlockHeading3",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading4
+#' @description Telegram API type \code{pageBlockHeading4} (constructor \code{#b532772b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading4 <- R6::R6Class("PageBlockHeading4",
   inherit = TLObject,
   public = list(
@@ -73913,6 +80463,11 @@ PageBlockHeading4 <- R6::R6Class("PageBlockHeading4",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading5
+#' @description Telegram API type \code{pageBlockHeading5} (constructor \code{#dbbe6c6a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading5 <- R6::R6Class("PageBlockHeading5",
   inherit = TLObject,
   public = list(
@@ -73952,6 +80507,11 @@ PageBlockHeading5 <- R6::R6Class("PageBlockHeading5",
   lock_objects = FALSE
 )
 
+#' @title PageBlockHeading6
+#' @description Telegram API type \code{pageBlockHeading6} (constructor \code{#682a41a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockHeading6 <- R6::R6Class("PageBlockHeading6",
   inherit = TLObject,
   public = list(
@@ -73991,6 +80551,11 @@ PageBlockHeading6 <- R6::R6Class("PageBlockHeading6",
   lock_objects = FALSE
 )
 
+#' @title PageBlockMath
+#' @description Telegram API type \code{pageBlockMath} (constructor \code{#59080c20}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockMath <- R6::R6Class("PageBlockMath",
   inherit = TLObject,
   public = list(
@@ -74030,6 +80595,11 @@ PageBlockMath <- R6::R6Class("PageBlockMath",
   lock_objects = FALSE
 )
 
+#' @title PageBlockThinking
+#' @description Telegram API type \code{pageBlockThinking} (constructor \code{#3c29a3e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockThinking <- R6::R6Class("PageBlockThinking",
   inherit = TLObject,
   public = list(
@@ -74069,6 +80639,11 @@ PageBlockThinking <- R6::R6Class("PageBlockThinking",
   lock_objects = FALSE
 )
 
+#' @title InputPageBlockMap
+#' @description Telegram API type \code{inputPageBlockMap} (constructor \code{#574b617f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPageBlockMap <- R6::R6Class("InputPageBlockMap",
   inherit = TLObject,
   public = list(
@@ -74132,6 +80707,11 @@ InputPageBlockMap <- R6::R6Class("InputPageBlockMap",
   lock_objects = FALSE
 )
 
+#' @title PageBlockBlockquoteBlocks
+#' @description Telegram API type \code{pageBlockBlockquoteBlocks} (constructor \code{#0e6e47c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockBlockquoteBlocks <- R6::R6Class("PageBlockBlockquoteBlocks",
   inherit = TLObject,
   public = list(
@@ -74177,6 +80757,11 @@ PageBlockBlockquoteBlocks <- R6::R6Class("PageBlockBlockquoteBlocks",
   lock_objects = FALSE
 )
 
+#' @title PageBlockButtonRow
+#' @description Telegram API type \code{pageBlockButtonRow} (constructor \code{#6d640318}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockButtonRow <- R6::R6Class("PageBlockButtonRow",
   inherit = TLObject,
   public = list(
@@ -74237,6 +80822,11 @@ PageBlockButtonRow <- R6::R6Class("PageBlockButtonRow",
   lock_objects = FALSE
 )
 
+#' @title PageBlockDocument
+#' @description Telegram API type \code{pageBlockDocument} (constructor \code{#38fa3ba3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageBlockDocument <- R6::R6Class("PageBlockDocument",
   inherit = TLObject,
   public = list(
@@ -74282,6 +80872,11 @@ PageBlockDocument <- R6::R6Class("PageBlockDocument",
   lock_objects = FALSE
 )
 
+#' @title WebFile
+#' @description Telegram API type \code{upload.webFile} (constructor \code{#21e753bc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebFile <- R6::R6Class("WebFile",
   inherit = TLObject,
   public = list(
@@ -74345,6 +80940,11 @@ WebFile <- R6::R6Class("WebFile",
   lock_objects = FALSE
 )
 
+#' @title PaymentForm
+#' @description Telegram API type \code{payments.paymentForm} (constructor \code{#a0058751}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentForm <- R6::R6Class("PaymentForm",
   inherit = TLObject,
   public = list(
@@ -74483,6 +81083,11 @@ PaymentForm <- R6::R6Class("PaymentForm",
   lock_objects = FALSE
 )
 
+#' @title PaymentFormStars
+#' @description Telegram API type \code{payments.paymentFormStars} (constructor \code{#7bf6b15c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentFormStars <- R6::R6Class("PaymentFormStars",
   inherit = TLObject,
   public = list(
@@ -74562,6 +81167,11 @@ PaymentFormStars <- R6::R6Class("PaymentFormStars",
   lock_objects = FALSE
 )
 
+#' @title PaymentFormStarGift
+#' @description Telegram API type \code{payments.paymentFormStarGift} (constructor \code{#b425cfe1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentFormStarGift <- R6::R6Class("PaymentFormStarGift",
   inherit = TLObject,
   public = list(
@@ -74607,6 +81217,11 @@ PaymentFormStarGift <- R6::R6Class("PaymentFormStarGift",
   lock_objects = FALSE
 )
 
+#' @title ValidatedRequestedInfo
+#' @description Telegram API type \code{payments.validatedRequestedInfo} (constructor \code{#d1451883}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ValidatedRequestedInfo <- R6::R6Class("ValidatedRequestedInfo",
   inherit = TLObject,
   public = list(
@@ -74657,6 +81272,11 @@ ValidatedRequestedInfo <- R6::R6Class("ValidatedRequestedInfo",
   lock_objects = FALSE
 )
 
+#' @title PaymentResult
+#' @description Telegram API type \code{payments.paymentResult} (constructor \code{#4e5f810d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentResult <- R6::R6Class("PaymentResult",
   inherit = TLObject,
   public = list(
@@ -74696,6 +81316,11 @@ PaymentResult <- R6::R6Class("PaymentResult",
   lock_objects = FALSE
 )
 
+#' @title PaymentVerificationNeeded
+#' @description Telegram API type \code{payments.paymentVerificationNeeded} (constructor \code{#d8411139}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentVerificationNeeded <- R6::R6Class("PaymentVerificationNeeded",
   inherit = TLObject,
   public = list(
@@ -74735,6 +81360,11 @@ PaymentVerificationNeeded <- R6::R6Class("PaymentVerificationNeeded",
   lock_objects = FALSE
 )
 
+#' @title PaymentReceipt
+#' @description Telegram API type \code{payments.paymentReceipt} (constructor \code{#70c4fe03}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentReceipt <- R6::R6Class("PaymentReceipt",
   inherit = TLObject,
   public = list(
@@ -74859,6 +81489,11 @@ PaymentReceipt <- R6::R6Class("PaymentReceipt",
   lock_objects = FALSE
 )
 
+#' @title PaymentReceiptStars
+#' @description Telegram API type \code{payments.paymentReceiptStars} (constructor \code{#dabbf83a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaymentReceiptStars <- R6::R6Class("PaymentReceiptStars",
   inherit = TLObject,
   public = list(
@@ -74956,6 +81591,11 @@ PaymentReceiptStars <- R6::R6Class("PaymentReceiptStars",
   lock_objects = FALSE
 )
 
+#' @title SavedInfo
+#' @description Telegram API type \code{payments.savedInfo} (constructor \code{#fb8fe43c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedInfo <- R6::R6Class("SavedInfo",
   inherit = TLObject,
   public = list(
@@ -75005,6 +81645,11 @@ SavedInfo <- R6::R6Class("SavedInfo",
   lock_objects = FALSE
 )
 
+#' @title TmpPassword
+#' @description Telegram API type \code{account.tmpPassword} (constructor \code{#db64fd34}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TmpPassword <- R6::R6Class("TmpPassword",
   inherit = TLObject,
   public = list(
@@ -75050,6 +81695,11 @@ TmpPassword <- R6::R6Class("TmpPassword",
   lock_objects = FALSE
 )
 
+#' @title CdnFileReuploadNeeded
+#' @description Telegram API type \code{upload.cdnFileReuploadNeeded} (constructor \code{#eea8e46e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CdnFileReuploadNeeded <- R6::R6Class("CdnFileReuploadNeeded",
   inherit = TLObject,
   public = list(
@@ -75089,6 +81739,11 @@ CdnFileReuploadNeeded <- R6::R6Class("CdnFileReuploadNeeded",
   lock_objects = FALSE
 )
 
+#' @title CdnFile
+#' @description Telegram API type \code{upload.cdnFile} (constructor \code{#a99fca4f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CdnFile <- R6::R6Class("CdnFile",
   inherit = TLObject,
   public = list(
@@ -75128,6 +81783,11 @@ CdnFile <- R6::R6Class("CdnFile",
   lock_objects = FALSE
 )
 
+#' @title ChannelAdminLogEventActionParticipantEditRank
+#' @description Telegram API type \code{channelAdminLogEventActionParticipantEditRank} (constructor \code{#5806b4ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChannelAdminLogEventActionParticipantEditRank <- R6::R6Class("ChannelAdminLogEventActionParticipantEditRank",
   inherit = TLObject,
   public = list(
@@ -75179,6 +81839,11 @@ ChannelAdminLogEventActionParticipantEditRank <- R6::R6Class("ChannelAdminLogEve
   lock_objects = FALSE
 )
 
+#' @title AdminLogResults
+#' @description Telegram API type \code{channels.adminLogResults} (constructor \code{#ed8af74d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AdminLogResults <- R6::R6Class("AdminLogResults",
   inherit = TLObject,
   public = list(
@@ -75230,6 +81895,11 @@ AdminLogResults <- R6::R6Class("AdminLogResults",
   lock_objects = FALSE
 )
 
+#' @title FavedStickersNotModified
+#' @description Telegram API type \code{messages.favedStickersNotModified} (constructor \code{#9e8fa6d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FavedStickersNotModified <- R6::R6Class("FavedStickersNotModified",
   inherit = TLObject,
   public = list(
@@ -75263,6 +81933,11 @@ FavedStickersNotModified <- R6::R6Class("FavedStickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title FavedStickers
+#' @description Telegram API type \code{messages.favedStickers} (constructor \code{#2cb51097}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FavedStickers <- R6::R6Class("FavedStickers",
   inherit = TLObject,
   public = list(
@@ -75314,6 +81989,11 @@ FavedStickers <- R6::R6Class("FavedStickers",
   lock_objects = FALSE
 )
 
+#' @title RecentMeUrls
+#' @description Telegram API type \code{help.recentMeUrls} (constructor \code{#0e0310d7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentMeUrls <- R6::R6Class("RecentMeUrls",
   inherit = TLObject,
   public = list(
@@ -75365,6 +82045,11 @@ RecentMeUrls <- R6::R6Class("RecentMeUrls",
   lock_objects = FALSE
 )
 
+#' @title WebAuthorizations
+#' @description Telegram API type \code{account.webAuthorizations} (constructor \code{#ed56c9fc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebAuthorizations <- R6::R6Class("WebAuthorizations",
   inherit = TLObject,
   public = list(
@@ -75410,6 +82095,11 @@ WebAuthorizations <- R6::R6Class("WebAuthorizations",
   lock_objects = FALSE
 )
 
+#' @title InputDialogPeerCommunity
+#' @description Telegram API type \code{inputDialogPeerCommunity} (constructor \code{#69ef72c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputDialogPeerCommunity <- R6::R6Class("InputDialogPeerCommunity",
   inherit = TLObject,
   public = list(
@@ -75449,6 +82139,11 @@ InputDialogPeerCommunity <- R6::R6Class("InputDialogPeerCommunity",
   lock_objects = FALSE
 )
 
+#' @title DialogPeerCommunity
+#' @description Telegram API type \code{dialogPeerCommunity} (constructor \code{#2f65c8e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogPeerCommunity <- R6::R6Class("DialogPeerCommunity",
   inherit = TLObject,
   public = list(
@@ -75488,6 +82183,11 @@ DialogPeerCommunity <- R6::R6Class("DialogPeerCommunity",
   lock_objects = FALSE
 )
 
+#' @title FoundStickerSetsNotModified
+#' @description Telegram API type \code{messages.foundStickerSetsNotModified} (constructor \code{#0d54b65d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStickerSetsNotModified <- R6::R6Class("FoundStickerSetsNotModified",
   inherit = TLObject,
   public = list(
@@ -75521,6 +82221,11 @@ FoundStickerSetsNotModified <- R6::R6Class("FoundStickerSetsNotModified",
   lock_objects = FALSE
 )
 
+#' @title FoundStickerSets
+#' @description Telegram API type \code{messages.foundStickerSets} (constructor \code{#8af09dd2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStickerSets <- R6::R6Class("FoundStickerSets",
   inherit = TLObject,
   public = list(
@@ -75566,6 +82271,11 @@ FoundStickerSets <- R6::R6Class("FoundStickerSets",
   lock_objects = FALSE
 )
 
+#' @title TermsOfServiceUpdateEmpty
+#' @description Telegram API type \code{help.termsOfServiceUpdateEmpty} (constructor \code{#e3309f7f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TermsOfServiceUpdateEmpty <- R6::R6Class("TermsOfServiceUpdateEmpty",
   inherit = TLObject,
   public = list(
@@ -75605,6 +82315,11 @@ TermsOfServiceUpdateEmpty <- R6::R6Class("TermsOfServiceUpdateEmpty",
   lock_objects = FALSE
 )
 
+#' @title TermsOfServiceUpdate
+#' @description Telegram API type \code{help.termsOfServiceUpdate} (constructor \code{#28ecf961}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TermsOfServiceUpdate <- R6::R6Class("TermsOfServiceUpdate",
   inherit = TLObject,
   public = list(
@@ -75650,6 +82365,11 @@ TermsOfServiceUpdate <- R6::R6Class("TermsOfServiceUpdate",
   lock_objects = FALSE
 )
 
+#' @title AuthorizationForm
+#' @description Telegram API type \code{account.authorizationForm} (constructor \code{#ad2e1cd8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AuthorizationForm <- R6::R6Class("AuthorizationForm",
   inherit = TLObject,
   public = list(
@@ -75717,6 +82437,11 @@ AuthorizationForm <- R6::R6Class("AuthorizationForm",
   lock_objects = FALSE
 )
 
+#' @title SentEmailCode
+#' @description Telegram API type \code{account.sentEmailCode} (constructor \code{#811f854f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SentEmailCode <- R6::R6Class("SentEmailCode",
   inherit = TLObject,
   public = list(
@@ -75762,6 +82487,11 @@ SentEmailCode <- R6::R6Class("SentEmailCode",
   lock_objects = FALSE
 )
 
+#' @title DeepLinkInfoEmpty
+#' @description Telegram API type \code{help.deepLinkInfoEmpty} (constructor \code{#66afa166}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeepLinkInfoEmpty <- R6::R6Class("DeepLinkInfoEmpty",
   inherit = TLObject,
   public = list(
@@ -75795,6 +82525,11 @@ DeepLinkInfoEmpty <- R6::R6Class("DeepLinkInfoEmpty",
   lock_objects = FALSE
 )
 
+#' @title DeepLinkInfo
+#' @description Telegram API type \code{help.deepLinkInfo} (constructor \code{#6a4ee832}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeepLinkInfo <- R6::R6Class("DeepLinkInfo",
   inherit = TLObject,
   public = list(
@@ -75850,6 +82585,11 @@ DeepLinkInfo <- R6::R6Class("DeepLinkInfo",
   lock_objects = FALSE
 )
 
+#' @title Takeout
+#' @description Telegram API type \code{account.takeout} (constructor \code{#4dba4501}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Takeout <- R6::R6Class("Takeout",
   inherit = TLObject,
   public = list(
@@ -75889,6 +82629,11 @@ Takeout <- R6::R6Class("Takeout",
   lock_objects = FALSE
 )
 
+#' @title PassportConfigNotModified
+#' @description Telegram API type \code{help.passportConfigNotModified} (constructor \code{#bfb9f457}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PassportConfigNotModified <- R6::R6Class("PassportConfigNotModified",
   inherit = TLObject,
   public = list(
@@ -75922,6 +82667,11 @@ PassportConfigNotModified <- R6::R6Class("PassportConfigNotModified",
   lock_objects = FALSE
 )
 
+#' @title PassportConfig
+#' @description Telegram API type \code{help.passportConfig} (constructor \code{#a098d6af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PassportConfig <- R6::R6Class("PassportConfig",
   inherit = TLObject,
   public = list(
@@ -75967,6 +82717,11 @@ PassportConfig <- R6::R6Class("PassportConfig",
   lock_objects = FALSE
 )
 
+#' @title SupportName
+#' @description Telegram API type \code{help.supportName} (constructor \code{#8c05f1c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SupportName <- R6::R6Class("SupportName",
   inherit = TLObject,
   public = list(
@@ -76006,6 +82761,11 @@ SupportName <- R6::R6Class("SupportName",
   lock_objects = FALSE
 )
 
+#' @title UserInfoEmpty
+#' @description Telegram API type \code{help.userInfoEmpty} (constructor \code{#f3ae2eed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserInfoEmpty <- R6::R6Class("UserInfoEmpty",
   inherit = TLObject,
   public = list(
@@ -76039,6 +82799,11 @@ UserInfoEmpty <- R6::R6Class("UserInfoEmpty",
   lock_objects = FALSE
 )
 
+#' @title UserInfo
+#' @description Telegram API type \code{help.userInfo} (constructor \code{#01eb3758}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UserInfo <- R6::R6Class("UserInfo",
   inherit = TLObject,
   public = list(
@@ -76096,6 +82861,11 @@ UserInfo <- R6::R6Class("UserInfo",
   lock_objects = FALSE
 )
 
+#' @title InputPollAnswer
+#' @description Telegram API type \code{inputPollAnswer} (constructor \code{#199fed96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPollAnswer <- R6::R6Class("InputPollAnswer",
   inherit = TLObject,
   public = list(
@@ -76145,6 +82915,11 @@ InputPollAnswer <- R6::R6Class("InputPollAnswer",
   lock_objects = FALSE
 )
 
+#' @title WallPapersNotModified
+#' @description Telegram API type \code{account.wallPapersNotModified} (constructor \code{#1c199183}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WallPapersNotModified <- R6::R6Class("WallPapersNotModified",
   inherit = TLObject,
   public = list(
@@ -76178,6 +82953,11 @@ WallPapersNotModified <- R6::R6Class("WallPapersNotModified",
   lock_objects = FALSE
 )
 
+#' @title WallPapers
+#' @description Telegram API type \code{account.wallPapers} (constructor \code{#cdc3858c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WallPapers <- R6::R6Class("WallPapers",
   inherit = TLObject,
   public = list(
@@ -76223,6 +83003,11 @@ WallPapers <- R6::R6Class("WallPapers",
   lock_objects = FALSE
 )
 
+#' @title SearchCounter
+#' @description Telegram API type \code{messages.searchCounter} (constructor \code{#e844ebff}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchCounter <- R6::R6Class("SearchCounter",
   inherit = TLObject,
   public = list(
@@ -76277,6 +83062,11 @@ SearchCounter <- R6::R6Class("SearchCounter",
   lock_objects = FALSE
 )
 
+#' @title ThemesNotModified
+#' @description Telegram API type \code{account.themesNotModified} (constructor \code{#f41eb622}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ThemesNotModified <- R6::R6Class("ThemesNotModified",
   inherit = TLObject,
   public = list(
@@ -76310,6 +83100,11 @@ ThemesNotModified <- R6::R6Class("ThemesNotModified",
   lock_objects = FALSE
 )
 
+#' @title Themes
+#' @description Telegram API type \code{account.themes} (constructor \code{#9a3d8c6d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Themes <- R6::R6Class("Themes",
   inherit = TLObject,
   public = list(
@@ -76355,6 +83150,11 @@ Themes <- R6::R6Class("Themes",
   lock_objects = FALSE
 )
 
+#' @title LoginToken
+#' @description Telegram API type \code{auth.loginToken} (constructor \code{#629f1980}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LoginToken <- R6::R6Class("LoginToken",
   inherit = TLObject,
   public = list(
@@ -76400,6 +83200,11 @@ LoginToken <- R6::R6Class("LoginToken",
   lock_objects = FALSE
 )
 
+#' @title LoginTokenMigrateTo
+#' @description Telegram API type \code{auth.loginTokenMigrateTo} (constructor \code{#068e9916}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LoginTokenMigrateTo <- R6::R6Class("LoginTokenMigrateTo",
   inherit = TLObject,
   public = list(
@@ -76445,6 +83250,11 @@ LoginTokenMigrateTo <- R6::R6Class("LoginTokenMigrateTo",
   lock_objects = FALSE
 )
 
+#' @title LoginTokenSuccess
+#' @description Telegram API type \code{auth.loginTokenSuccess} (constructor \code{#390d5c5e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LoginTokenSuccess <- R6::R6Class("LoginTokenSuccess",
   inherit = TLObject,
   public = list(
@@ -76484,6 +83294,11 @@ LoginTokenSuccess <- R6::R6Class("LoginTokenSuccess",
   lock_objects = FALSE
 )
 
+#' @title ContentSettings
+#' @description Telegram API type \code{account.contentSettings} (constructor \code{#57e28221}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContentSettings <- R6::R6Class("ContentSettings",
   inherit = TLObject,
   public = list(
@@ -76532,6 +83347,11 @@ ContentSettings <- R6::R6Class("ContentSettings",
   lock_objects = FALSE
 )
 
+#' @title InactiveChats
+#' @description Telegram API type \code{messages.inactiveChats} (constructor \code{#a927fec5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InactiveChats <- R6::R6Class("InactiveChats",
   inherit = TLObject,
   public = list(
@@ -76583,6 +83403,11 @@ InactiveChats <- R6::R6Class("InactiveChats",
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeStarGiftAuction
+#' @description Telegram API type \code{webPageAttributeStarGiftAuction} (constructor \code{#01c641c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeStarGiftAuction <- R6::R6Class("WebPageAttributeStarGiftAuction",
   inherit = TLObject,
   public = list(
@@ -76628,6 +83453,11 @@ WebPageAttributeStarGiftAuction <- R6::R6Class("WebPageAttributeStarGiftAuction"
   lock_objects = FALSE
 )
 
+#' @title WebPageAttributeAiComposeTone
+#' @description Telegram API type \code{webPageAttributeAiComposeTone} (constructor \code{#7781fe18}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPageAttributeAiComposeTone <- R6::R6Class("WebPageAttributeAiComposeTone",
   inherit = TLObject,
   public = list(
@@ -76667,6 +83497,11 @@ WebPageAttributeAiComposeTone <- R6::R6Class("WebPageAttributeAiComposeTone",
   lock_objects = FALSE
 )
 
+#' @title VotesList
+#' @description Telegram API type \code{messages.votesList} (constructor \code{#4899484e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 VotesList <- R6::R6Class("VotesList",
   inherit = TLObject,
   public = list(
@@ -76734,6 +83569,11 @@ VotesList <- R6::R6Class("VotesList",
   lock_objects = FALSE
 )
 
+#' @title BankCardData
+#' @description Telegram API type \code{payments.bankCardData} (constructor \code{#3e24e573}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BankCardData <- R6::R6Class("BankCardData",
   inherit = TLObject,
   public = list(
@@ -76779,6 +83619,11 @@ BankCardData <- R6::R6Class("BankCardData",
   lock_objects = FALSE
 )
 
+#' @title BroadcastStats
+#' @description Telegram API type \code{stats.broadcastStats} (constructor \code{#396ca5fc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BroadcastStats <- R6::R6Class("BroadcastStats",
   inherit = TLObject,
   public = list(
@@ -76944,6 +83789,11 @@ BroadcastStats <- R6::R6Class("BroadcastStats",
   lock_objects = FALSE
 )
 
+#' @title PromoDataEmpty
+#' @description Telegram API type \code{help.promoDataEmpty} (constructor \code{#98f6ac75}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PromoDataEmpty <- R6::R6Class("PromoDataEmpty",
   inherit = TLObject,
   public = list(
@@ -76983,6 +83833,11 @@ PromoDataEmpty <- R6::R6Class("PromoDataEmpty",
   lock_objects = FALSE
 )
 
+#' @title PromoData
+#' @description Telegram API type \code{help.promoData} (constructor \code{#08a4d87a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PromoData <- R6::R6Class("PromoData",
   inherit = TLObject,
   public = list(
@@ -77083,6 +83938,11 @@ PromoData <- R6::R6Class("PromoData",
   lock_objects = FALSE
 )
 
+#' @title MegagroupStats
+#' @description Telegram API type \code{stats.megagroupStats} (constructor \code{#ef7ff916}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MegagroupStats <- R6::R6Class("MegagroupStats",
   inherit = TLObject,
   public = list(
@@ -77218,6 +84078,11 @@ MegagroupStats <- R6::R6Class("MegagroupStats",
   lock_objects = FALSE
 )
 
+#' @title CountryCode
+#' @description Telegram API type \code{help.countryCode} (constructor \code{#4203c5ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CountryCode <- R6::R6Class("CountryCode",
   inherit = TLObject,
   public = list(
@@ -77274,6 +84139,11 @@ CountryCode <- R6::R6Class("CountryCode",
   lock_objects = FALSE
 )
 
+#' @title Country
+#' @description Telegram API type \code{help.country} (constructor \code{#c3878e23}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Country <- R6::R6Class("Country",
   inherit = TLObject,
   public = list(
@@ -77341,6 +84211,11 @@ Country <- R6::R6Class("Country",
   lock_objects = FALSE
 )
 
+#' @title CountriesListNotModified
+#' @description Telegram API type \code{help.countriesListNotModified} (constructor \code{#93cc1f32}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CountriesListNotModified <- R6::R6Class("CountriesListNotModified",
   inherit = TLObject,
   public = list(
@@ -77374,6 +84249,11 @@ CountriesListNotModified <- R6::R6Class("CountriesListNotModified",
   lock_objects = FALSE
 )
 
+#' @title CountriesList
+#' @description Telegram API type \code{help.countriesList} (constructor \code{#87d0759e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CountriesList <- R6::R6Class("CountriesList",
   inherit = TLObject,
   public = list(
@@ -77419,6 +84299,11 @@ CountriesList <- R6::R6Class("CountriesList",
   lock_objects = FALSE
 )
 
+#' @title DiscussionMessage
+#' @description Telegram API type \code{messages.discussionMessage} (constructor \code{#a6341782}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DiscussionMessage <- R6::R6Class("DiscussionMessage",
   inherit = TLObject,
   public = list(
@@ -77500,6 +84385,11 @@ DiscussionMessage <- R6::R6Class("DiscussionMessage",
   lock_objects = FALSE
 )
 
+#' @title MessageStats
+#' @description Telegram API type \code{stats.messageStats} (constructor \code{#7fe91c14}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageStats <- R6::R6Class("MessageStats",
   inherit = TLObject,
   public = list(
@@ -77545,6 +84435,11 @@ MessageStats <- R6::R6Class("MessageStats",
   lock_objects = FALSE
 )
 
+#' @title GroupParticipants
+#' @description Telegram API type \code{phone.groupParticipants} (constructor \code{#f47751b6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupParticipants <- R6::R6Class("GroupParticipants",
   inherit = TLObject,
   public = list(
@@ -77614,6 +84509,11 @@ GroupParticipants <- R6::R6Class("GroupParticipants",
   lock_objects = FALSE
 )
 
+#' @title HistoryImport
+#' @description Telegram API type \code{messages.historyImport} (constructor \code{#1662af0b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HistoryImport <- R6::R6Class("HistoryImport",
   inherit = TLObject,
   public = list(
@@ -77653,6 +84553,11 @@ HistoryImport <- R6::R6Class("HistoryImport",
   lock_objects = FALSE
 )
 
+#' @title HistoryImportParsed
+#' @description Telegram API type \code{messages.historyImportParsed} (constructor \code{#5e0fb7b9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HistoryImportParsed <- R6::R6Class("HistoryImportParsed",
   inherit = TLObject,
   public = list(
@@ -77708,6 +84613,11 @@ HistoryImportParsed <- R6::R6Class("HistoryImportParsed",
   lock_objects = FALSE
 )
 
+#' @title AffectedFoundMessages
+#' @description Telegram API type \code{messages.affectedFoundMessages} (constructor \code{#ef8d3e6c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AffectedFoundMessages <- R6::R6Class("AffectedFoundMessages",
   inherit = TLObject,
   public = list(
@@ -77765,6 +84675,11 @@ AffectedFoundMessages <- R6::R6Class("AffectedFoundMessages",
   lock_objects = FALSE
 )
 
+#' @title ExportedChatInvites
+#' @description Telegram API type \code{messages.exportedChatInvites} (constructor \code{#bdc62dcc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedChatInvites <- R6::R6Class("ExportedChatInvites",
   inherit = TLObject,
   public = list(
@@ -77816,6 +84731,11 @@ ExportedChatInvites <- R6::R6Class("ExportedChatInvites",
   lock_objects = FALSE
 )
 
+#' @title ExportedChatInvite
+#' @description Telegram API type \code{messages.exportedChatInvite} (constructor \code{#1871be50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedChatInvite <- R6::R6Class("ExportedChatInvite",
   inherit = TLObject,
   public = list(
@@ -77861,6 +84781,11 @@ ExportedChatInvite <- R6::R6Class("ExportedChatInvite",
   lock_objects = FALSE
 )
 
+#' @title ExportedChatInviteReplaced
+#' @description Telegram API type \code{messages.exportedChatInviteReplaced} (constructor \code{#222600ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedChatInviteReplaced <- R6::R6Class("ExportedChatInviteReplaced",
   inherit = TLObject,
   public = list(
@@ -77912,6 +84837,11 @@ ExportedChatInviteReplaced <- R6::R6Class("ExportedChatInviteReplaced",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteImporters
+#' @description Telegram API type \code{messages.chatInviteImporters} (constructor \code{#81b6b00a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteImporters <- R6::R6Class("ChatInviteImporters",
   inherit = TLObject,
   public = list(
@@ -77963,6 +84893,11 @@ ChatInviteImporters <- R6::R6Class("ChatInviteImporters",
   lock_objects = FALSE
 )
 
+#' @title ChatAdminsWithInvites
+#' @description Telegram API type \code{messages.chatAdminsWithInvites} (constructor \code{#b69b72d7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatAdminsWithInvites <- R6::R6Class("ChatAdminsWithInvites",
   inherit = TLObject,
   public = list(
@@ -78008,6 +84943,11 @@ ChatAdminsWithInvites <- R6::R6Class("ChatAdminsWithInvites",
   lock_objects = FALSE
 )
 
+#' @title CheckedHistoryImportPeer
+#' @description Telegram API type \code{messages.checkedHistoryImportPeer} (constructor \code{#a24de717}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckedHistoryImportPeer <- R6::R6Class("CheckedHistoryImportPeer",
   inherit = TLObject,
   public = list(
@@ -78047,6 +84987,11 @@ CheckedHistoryImportPeer <- R6::R6Class("CheckedHistoryImportPeer",
   lock_objects = FALSE
 )
 
+#' @title JoinAsPeers
+#' @description Telegram API type \code{phone.joinAsPeers} (constructor \code{#afe5623f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinAsPeers <- R6::R6Class("JoinAsPeers",
   inherit = TLObject,
   public = list(
@@ -78098,6 +85043,11 @@ JoinAsPeers <- R6::R6Class("JoinAsPeers",
   lock_objects = FALSE
 )
 
+#' @title ExportedGroupCallInvite
+#' @description Telegram API type \code{phone.exportedGroupCallInvite} (constructor \code{#204bd158}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedGroupCallInvite <- R6::R6Class("ExportedGroupCallInvite",
   inherit = TLObject,
   public = list(
@@ -78137,6 +85087,11 @@ ExportedGroupCallInvite <- R6::R6Class("ExportedGroupCallInvite",
   lock_objects = FALSE
 )
 
+#' @title SuggestedShortName
+#' @description Telegram API type \code{stickers.suggestedShortName} (constructor \code{#85fea03f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SuggestedShortName <- R6::R6Class("SuggestedShortName",
   inherit = TLObject,
   public = list(
@@ -78176,6 +85131,11 @@ SuggestedShortName <- R6::R6Class("SuggestedShortName",
   lock_objects = FALSE
 )
 
+#' @title ResetPasswordFailedWait
+#' @description Telegram API type \code{account.resetPasswordFailedWait} (constructor \code{#e3779861}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetPasswordFailedWait <- R6::R6Class("ResetPasswordFailedWait",
   inherit = TLObject,
   public = list(
@@ -78215,6 +85175,11 @@ ResetPasswordFailedWait <- R6::R6Class("ResetPasswordFailedWait",
   lock_objects = FALSE
 )
 
+#' @title ResetPasswordRequestedWait
+#' @description Telegram API type \code{account.resetPasswordRequestedWait} (constructor \code{#e9effc7d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetPasswordRequestedWait <- R6::R6Class("ResetPasswordRequestedWait",
   inherit = TLObject,
   public = list(
@@ -78254,6 +85219,11 @@ ResetPasswordRequestedWait <- R6::R6Class("ResetPasswordRequestedWait",
   lock_objects = FALSE
 )
 
+#' @title ResetPasswordOk
+#' @description Telegram API type \code{account.resetPasswordOk} (constructor \code{#e926d63e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetPasswordOk <- R6::R6Class("ResetPasswordOk",
   inherit = TLObject,
   public = list(
@@ -78287,6 +85257,11 @@ ResetPasswordOk <- R6::R6Class("ResetPasswordOk",
   lock_objects = FALSE
 )
 
+#' @title ChatThemesNotModified
+#' @description Telegram API type \code{account.chatThemesNotModified} (constructor \code{#e011e1c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatThemesNotModified <- R6::R6Class("ChatThemesNotModified",
   inherit = TLObject,
   public = list(
@@ -78320,6 +85295,11 @@ ChatThemesNotModified <- R6::R6Class("ChatThemesNotModified",
   lock_objects = FALSE
 )
 
+#' @title ChatThemes
+#' @description Telegram API type \code{account.chatThemes} (constructor \code{#be098173}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatThemes <- R6::R6Class("ChatThemes",
   inherit = TLObject,
   public = list(
@@ -78387,6 +85367,11 @@ ChatThemes <- R6::R6Class("ChatThemes",
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessages
+#' @description Telegram API type \code{messages.sponsoredMessages} (constructor \code{#ffda656d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessages <- R6::R6Class("SponsoredMessages",
   inherit = TLObject,
   public = list(
@@ -78462,6 +85447,11 @@ SponsoredMessages <- R6::R6Class("SponsoredMessages",
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessagesEmpty
+#' @description Telegram API type \code{messages.sponsoredMessagesEmpty} (constructor \code{#1839490f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessagesEmpty <- R6::R6Class("SponsoredMessagesEmpty",
   inherit = TLObject,
   public = list(
@@ -78495,6 +85485,11 @@ SponsoredMessagesEmpty <- R6::R6Class("SponsoredMessagesEmpty",
   lock_objects = FALSE
 )
 
+#' @title SearchResultsCalendar
+#' @description Telegram API type \code{messages.searchResultsCalendar} (constructor \code{#147ee23c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchResultsCalendar <- R6::R6Class("SearchResultsCalendar",
   inherit = TLObject,
   public = list(
@@ -78586,6 +85581,11 @@ SearchResultsCalendar <- R6::R6Class("SearchResultsCalendar",
   lock_objects = FALSE
 )
 
+#' @title SearchResultsPositions
+#' @description Telegram API type \code{messages.searchResultsPositions} (constructor \code{#53b22baf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchResultsPositions <- R6::R6Class("SearchResultsPositions",
   inherit = TLObject,
   public = list(
@@ -78631,6 +85631,11 @@ SearchResultsPositions <- R6::R6Class("SearchResultsPositions",
   lock_objects = FALSE
 )
 
+#' @title SendAsPeers
+#' @description Telegram API type \code{channels.sendAsPeers} (constructor \code{#f496b0c6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendAsPeers <- R6::R6Class("SendAsPeers",
   inherit = TLObject,
   public = list(
@@ -78682,6 +85687,11 @@ SendAsPeers <- R6::R6Class("SendAsPeers",
   lock_objects = FALSE
 )
 
+#' @title LoggedOut
+#' @description Telegram API type \code{auth.loggedOut} (constructor \code{#c3a2835f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LoggedOut <- R6::R6Class("LoggedOut",
   inherit = TLObject,
   public = list(
@@ -78725,6 +85735,11 @@ LoggedOut <- R6::R6Class("LoggedOut",
   lock_objects = FALSE
 )
 
+#' @title MessageReactionsList
+#' @description Telegram API type \code{messages.messageReactionsList} (constructor \code{#31bd492d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MessageReactionsList <- R6::R6Class("MessageReactionsList",
   inherit = TLObject,
   public = list(
@@ -78792,6 +85807,11 @@ MessageReactionsList <- R6::R6Class("MessageReactionsList",
   lock_objects = FALSE
 )
 
+#' @title AvailableReactionsNotModified
+#' @description Telegram API type \code{messages.availableReactionsNotModified} (constructor \code{#9f071957}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableReactionsNotModified <- R6::R6Class("AvailableReactionsNotModified",
   inherit = TLObject,
   public = list(
@@ -78825,6 +85845,11 @@ AvailableReactionsNotModified <- R6::R6Class("AvailableReactionsNotModified",
   lock_objects = FALSE
 )
 
+#' @title AvailableReactions
+#' @description Telegram API type \code{messages.availableReactions} (constructor \code{#768e3aad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableReactions <- R6::R6Class("AvailableReactions",
   inherit = TLObject,
   public = list(
@@ -78870,6 +85895,11 @@ AvailableReactions <- R6::R6Class("AvailableReactions",
   lock_objects = FALSE
 )
 
+#' @title GroupCallStreamChannels
+#' @description Telegram API type \code{phone.groupCallStreamChannels} (constructor \code{#d0e482b2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallStreamChannels <- R6::R6Class("GroupCallStreamChannels",
   inherit = TLObject,
   public = list(
@@ -78909,6 +85939,11 @@ GroupCallStreamChannels <- R6::R6Class("GroupCallStreamChannels",
   lock_objects = FALSE
 )
 
+#' @title GroupCallStreamRtmpUrl
+#' @description Telegram API type \code{phone.groupCallStreamRtmpUrl} (constructor \code{#2dbf3432}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallStreamRtmpUrl <- R6::R6Class("GroupCallStreamRtmpUrl",
   inherit = TLObject,
   public = list(
@@ -78954,6 +85989,11 @@ GroupCallStreamRtmpUrl <- R6::R6Class("GroupCallStreamRtmpUrl",
   lock_objects = FALSE
 )
 
+#' @title SavedRingtonesNotModified
+#' @description Telegram API type \code{account.savedRingtonesNotModified} (constructor \code{#fbf6e8b1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedRingtonesNotModified <- R6::R6Class("SavedRingtonesNotModified",
   inherit = TLObject,
   public = list(
@@ -78987,6 +86027,11 @@ SavedRingtonesNotModified <- R6::R6Class("SavedRingtonesNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedRingtones
+#' @description Telegram API type \code{account.savedRingtones} (constructor \code{#c1e92cc5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedRingtones <- R6::R6Class("SavedRingtones",
   inherit = TLObject,
   public = list(
@@ -79032,6 +86077,11 @@ SavedRingtones <- R6::R6Class("SavedRingtones",
   lock_objects = FALSE
 )
 
+#' @title SavedRingtone
+#' @description Telegram API type \code{account.savedRingtone} (constructor \code{#b7263f6d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedRingtone <- R6::R6Class("SavedRingtone",
   inherit = TLObject,
   public = list(
@@ -79065,6 +86115,11 @@ SavedRingtone <- R6::R6Class("SavedRingtone",
   lock_objects = FALSE
 )
 
+#' @title SavedRingtoneConverted
+#' @description Telegram API type \code{account.savedRingtoneConverted} (constructor \code{#1f307eb7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedRingtoneConverted <- R6::R6Class("SavedRingtoneConverted",
   inherit = TLObject,
   public = list(
@@ -79104,6 +86159,11 @@ SavedRingtoneConverted <- R6::R6Class("SavedRingtoneConverted",
   lock_objects = FALSE
 )
 
+#' @title InputInvoicePremiumAuthCode
+#' @description Telegram API type \code{inputInvoicePremiumAuthCode} (constructor \code{#3e77f614}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoicePremiumAuthCode <- R6::R6Class("InputInvoicePremiumAuthCode",
   inherit = TLObject,
   public = list(
@@ -79143,6 +86203,11 @@ InputInvoicePremiumAuthCode <- R6::R6Class("InputInvoicePremiumAuthCode",
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftDropOriginalDetails
+#' @description Telegram API type \code{inputInvoiceStarGiftDropOriginalDetails} (constructor \code{#0923d8d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftDropOriginalDetails <- R6::R6Class("InputInvoiceStarGiftDropOriginalDetails",
   inherit = TLObject,
   public = list(
@@ -79182,6 +86247,11 @@ InputInvoiceStarGiftDropOriginalDetails <- R6::R6Class("InputInvoiceStarGiftDrop
   lock_objects = FALSE
 )
 
+#' @title InputInvoiceStarGiftAuctionBid
+#' @description Telegram API type \code{inputInvoiceStarGiftAuctionBid} (constructor \code{#1ecafa10}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInvoiceStarGiftAuctionBid <- R6::R6Class("InputInvoiceStarGiftAuctionBid",
   inherit = TLObject,
   public = list(
@@ -79256,6 +86326,11 @@ InputInvoiceStarGiftAuctionBid <- R6::R6Class("InputInvoiceStarGiftAuctionBid",
   lock_objects = FALSE
 )
 
+#' @title ExportedInvoice
+#' @description Telegram API type \code{payments.exportedInvoice} (constructor \code{#aed0cbd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedInvoice <- R6::R6Class("ExportedInvoice",
   inherit = TLObject,
   public = list(
@@ -79295,6 +86370,11 @@ ExportedInvoice <- R6::R6Class("ExportedInvoice",
   lock_objects = FALSE
 )
 
+#' @title TranscribedAudio
+#' @description Telegram API type \code{messages.transcribedAudio} (constructor \code{#cfb9d957}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TranscribedAudio <- R6::R6Class("TranscribedAudio",
   inherit = TLObject,
   public = list(
@@ -79363,6 +86443,11 @@ TranscribedAudio <- R6::R6Class("TranscribedAudio",
   lock_objects = FALSE
 )
 
+#' @title PremiumPromo
+#' @description Telegram API type \code{help.premiumPromo} (constructor \code{#5334759c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PremiumPromo <- R6::R6Class("PremiumPromo",
   inherit = TLObject,
   public = list(
@@ -79432,6 +86517,11 @@ PremiumPromo <- R6::R6Class("PremiumPromo",
   lock_objects = FALSE
 )
 
+#' @title EmojiStatusesNotModified
+#' @description Telegram API type \code{account.emojiStatusesNotModified} (constructor \code{#d08ce645}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiStatusesNotModified <- R6::R6Class("EmojiStatusesNotModified",
   inherit = TLObject,
   public = list(
@@ -79465,6 +86555,11 @@ EmojiStatusesNotModified <- R6::R6Class("EmojiStatusesNotModified",
   lock_objects = FALSE
 )
 
+#' @title EmojiStatuses
+#' @description Telegram API type \code{account.emojiStatuses} (constructor \code{#90c467d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiStatuses <- R6::R6Class("EmojiStatuses",
   inherit = TLObject,
   public = list(
@@ -79510,6 +86605,11 @@ EmojiStatuses <- R6::R6Class("EmojiStatuses",
   lock_objects = FALSE
 )
 
+#' @title ReactionsNotModified
+#' @description Telegram API type \code{messages.reactionsNotModified} (constructor \code{#b06fdbdf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReactionsNotModified <- R6::R6Class("ReactionsNotModified",
   inherit = TLObject,
   public = list(
@@ -79543,6 +86643,11 @@ ReactionsNotModified <- R6::R6Class("ReactionsNotModified",
   lock_objects = FALSE
 )
 
+#' @title Reactions
+#' @description Telegram API type \code{messages.reactions} (constructor \code{#eafdf716}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Reactions <- R6::R6Class("Reactions",
   inherit = TLObject,
   public = list(
@@ -79588,6 +86693,11 @@ Reactions <- R6::R6Class("Reactions",
   lock_objects = FALSE
 )
 
+#' @title EmailVerified
+#' @description Telegram API type \code{account.emailVerified} (constructor \code{#2b96cd1b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerified <- R6::R6Class("EmailVerified",
   inherit = TLObject,
   public = list(
@@ -79627,6 +86737,11 @@ EmailVerified <- R6::R6Class("EmailVerified",
   lock_objects = FALSE
 )
 
+#' @title EmailVerifiedLogin
+#' @description Telegram API type \code{account.emailVerifiedLogin} (constructor \code{#e1bb0d61}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmailVerifiedLogin <- R6::R6Class("EmailVerifiedLogin",
   inherit = TLObject,
   public = list(
@@ -79672,6 +86787,11 @@ EmailVerifiedLogin <- R6::R6Class("EmailVerifiedLogin",
   lock_objects = FALSE
 )
 
+#' @title ForumTopics
+#' @description Telegram API type \code{messages.forumTopics} (constructor \code{#367617d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ForumTopics <- R6::R6Class("ForumTopics",
   inherit = TLObject,
   public = list(
@@ -79750,6 +86870,11 @@ ForumTopics <- R6::R6Class("ForumTopics",
   lock_objects = FALSE
 )
 
+#' @title RequestPeerTypeCreateBot
+#' @description Telegram API type \code{requestPeerTypeCreateBot} (constructor \code{#3e81e078}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestPeerTypeCreateBot <- R6::R6Class("RequestPeerTypeCreateBot",
   inherit = TLObject,
   public = list(
@@ -79806,6 +86931,11 @@ RequestPeerTypeCreateBot <- R6::R6Class("RequestPeerTypeCreateBot",
   lock_objects = FALSE
 )
 
+#' @title EmojiGroupsNotModified
+#' @description Telegram API type \code{messages.emojiGroupsNotModified} (constructor \code{#6fb4ad87}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGroupsNotModified <- R6::R6Class("EmojiGroupsNotModified",
   inherit = TLObject,
   public = list(
@@ -79839,6 +86969,11 @@ EmojiGroupsNotModified <- R6::R6Class("EmojiGroupsNotModified",
   lock_objects = FALSE
 )
 
+#' @title EmojiGroups
+#' @description Telegram API type \code{messages.emojiGroups} (constructor \code{#881fb94b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGroups <- R6::R6Class("EmojiGroups",
   inherit = TLObject,
   public = list(
@@ -79884,6 +87019,11 @@ EmojiGroups <- R6::R6Class("EmojiGroups",
   lock_objects = FALSE
 )
 
+#' @title TranslateResult
+#' @description Telegram API type \code{messages.translateResult} (constructor \code{#33db32f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TranslateResult <- R6::R6Class("TranslateResult",
   inherit = TLObject,
   public = list(
@@ -79923,6 +87063,11 @@ TranslateResult <- R6::R6Class("TranslateResult",
   lock_objects = FALSE
 )
 
+#' @title AppConfigNotModified
+#' @description Telegram API type \code{help.appConfigNotModified} (constructor \code{#7cde641d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AppConfigNotModified <- R6::R6Class("AppConfigNotModified",
   inherit = TLObject,
   public = list(
@@ -79956,6 +87101,11 @@ AppConfigNotModified <- R6::R6Class("AppConfigNotModified",
   lock_objects = FALSE
 )
 
+#' @title AppConfig
+#' @description Telegram API type \code{help.appConfig} (constructor \code{#dd18782e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AppConfig <- R6::R6Class("AppConfig",
   inherit = TLObject,
   public = list(
@@ -80001,6 +87151,11 @@ AppConfig <- R6::R6Class("AppConfig",
   lock_objects = FALSE
 )
 
+#' @title ExportedInvites
+#' @description Telegram API type \code{chatlists.exportedInvites} (constructor \code{#10ab6dc7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedInvites <- R6::R6Class("ExportedInvites",
   inherit = TLObject,
   public = list(
@@ -80052,6 +87207,11 @@ ExportedInvites <- R6::R6Class("ExportedInvites",
   lock_objects = FALSE
 )
 
+#' @title ChatlistInviteAlready
+#' @description Telegram API type \code{chatlists.chatlistInviteAlready} (constructor \code{#fa87f659}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatlistInviteAlready <- R6::R6Class("ChatlistInviteAlready",
   inherit = TLObject,
   public = list(
@@ -80115,6 +87275,11 @@ ChatlistInviteAlready <- R6::R6Class("ChatlistInviteAlready",
   lock_objects = FALSE
 )
 
+#' @title ChatlistInvite
+#' @description Telegram API type \code{chatlists.chatlistInvite} (constructor \code{#f10ece2f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatlistInvite <- R6::R6Class("ChatlistInvite",
   inherit = TLObject,
   public = list(
@@ -80188,6 +87353,11 @@ ChatlistInvite <- R6::R6Class("ChatlistInvite",
   lock_objects = FALSE
 )
 
+#' @title ChatlistUpdates
+#' @description Telegram API type \code{chatlists.chatlistUpdates} (constructor \code{#93bd878d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatlistUpdates <- R6::R6Class("ChatlistUpdates",
   inherit = TLObject,
   public = list(
@@ -80239,6 +87409,11 @@ ChatlistUpdates <- R6::R6Class("ChatlistUpdates",
   lock_objects = FALSE
 )
 
+#' @title AllStoriesNotModified
+#' @description Telegram API type \code{stories.allStoriesNotModified} (constructor \code{#1158fe3e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AllStoriesNotModified <- R6::R6Class("AllStoriesNotModified",
   inherit = TLObject,
   public = list(
@@ -80287,6 +87462,11 @@ AllStoriesNotModified <- R6::R6Class("AllStoriesNotModified",
   lock_objects = FALSE
 )
 
+#' @title AllStories
+#' @description Telegram API type \code{stories.allStories} (constructor \code{#6efc5e81}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AllStories <- R6::R6Class("AllStories",
   inherit = TLObject,
   public = list(
@@ -80365,6 +87545,11 @@ AllStories <- R6::R6Class("AllStories",
   lock_objects = FALSE
 )
 
+#' @title Stories
+#' @description Telegram API type \code{stories.stories} (constructor \code{#63c3dd0a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Stories <- R6::R6Class("Stories",
   inherit = TLObject,
   public = list(
@@ -80432,6 +87617,11 @@ Stories <- R6::R6Class("Stories",
   lock_objects = FALSE
 )
 
+#' @title StoryViewsList
+#' @description Telegram API type \code{stories.storyViewsList} (constructor \code{#59d78fc5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryViewsList <- R6::R6Class("StoryViewsList",
   inherit = TLObject,
   public = list(
@@ -80517,6 +87707,11 @@ StoryViewsList <- R6::R6Class("StoryViewsList",
   lock_objects = FALSE
 )
 
+#' @title InputReplyToEphemeralMessage
+#' @description Telegram API type \code{inputReplyToEphemeralMessage} (constructor \code{#4119b95e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputReplyToEphemeralMessage <- R6::R6Class("InputReplyToEphemeralMessage",
   inherit = TLObject,
   public = list(
@@ -80556,6 +87751,11 @@ InputReplyToEphemeralMessage <- R6::R6Class("InputReplyToEphemeralMessage",
   lock_objects = FALSE
 )
 
+#' @title CheckedGiftCode
+#' @description Telegram API type \code{payments.checkedGiftCode} (constructor \code{#eb983f8f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckedGiftCode <- R6::R6Class("CheckedGiftCode",
   inherit = TLObject,
   public = list(
@@ -80650,6 +87850,11 @@ CheckedGiftCode <- R6::R6Class("CheckedGiftCode",
   lock_objects = FALSE
 )
 
+#' @title GiveawayInfo
+#' @description Telegram API type \code{payments.giveawayInfo} (constructor \code{#4367daa0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GiveawayInfo <- R6::R6Class("GiveawayInfo",
   inherit = TLObject,
   public = list(
@@ -80725,6 +87930,11 @@ GiveawayInfo <- R6::R6Class("GiveawayInfo",
   lock_objects = FALSE
 )
 
+#' @title GiveawayInfoResults
+#' @description Telegram API type \code{payments.giveawayInfoResults} (constructor \code{#e175e66f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GiveawayInfoResults <- R6::R6Class("GiveawayInfoResults",
   inherit = TLObject,
   public = list(
@@ -80812,6 +88022,11 @@ GiveawayInfoResults <- R6::R6Class("GiveawayInfoResults",
   lock_objects = FALSE
 )
 
+#' @title BoostsList
+#' @description Telegram API type \code{premium.boostsList} (constructor \code{#86f8613c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BoostsList <- R6::R6Class("BoostsList",
   inherit = TLObject,
   public = list(
@@ -80873,6 +88088,11 @@ BoostsList <- R6::R6Class("BoostsList",
   lock_objects = FALSE
 )
 
+#' @title MyBoosts
+#' @description Telegram API type \code{premium.myBoosts} (constructor \code{#9ae228e2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MyBoosts <- R6::R6Class("MyBoosts",
   inherit = TLObject,
   public = list(
@@ -80924,6 +88144,11 @@ MyBoosts <- R6::R6Class("MyBoosts",
   lock_objects = FALSE
 )
 
+#' @title BoostsStatus
+#' @description Telegram API type \code{premium.boostsStatus} (constructor \code{#4959427a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BoostsStatus <- R6::R6Class("BoostsStatus",
   inherit = TLObject,
   public = list(
@@ -81025,6 +88250,11 @@ BoostsStatus <- R6::R6Class("BoostsStatus",
   lock_objects = FALSE
 )
 
+#' @title StoryStats
+#' @description Telegram API type \code{stats.storyStats} (constructor \code{#50cd067c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryStats <- R6::R6Class("StoryStats",
   inherit = TLObject,
   public = list(
@@ -81070,6 +88300,11 @@ StoryStats <- R6::R6Class("StoryStats",
   lock_objects = FALSE
 )
 
+#' @title PublicForwards
+#' @description Telegram API type \code{stats.publicForwards} (constructor \code{#93037e20}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PublicForwards <- R6::R6Class("PublicForwards",
   inherit = TLObject,
   public = list(
@@ -81137,6 +88372,11 @@ PublicForwards <- R6::R6Class("PublicForwards",
   lock_objects = FALSE
 )
 
+#' @title PeerColorCollectible
+#' @description Telegram API type \code{peerColorCollectible} (constructor \code{#b9c0639a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColorCollectible <- R6::R6Class("PeerColorCollectible",
   inherit = TLObject,
   public = list(
@@ -81217,6 +88457,11 @@ PeerColorCollectible <- R6::R6Class("PeerColorCollectible",
   lock_objects = FALSE
 )
 
+#' @title InputPeerColorCollectible
+#' @description Telegram API type \code{inputPeerColorCollectible} (constructor \code{#b8ea86a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerColorCollectible <- R6::R6Class("InputPeerColorCollectible",
   inherit = TLObject,
   public = list(
@@ -81256,6 +88501,11 @@ InputPeerColorCollectible <- R6::R6Class("InputPeerColorCollectible",
   lock_objects = FALSE
 )
 
+#' @title PeerColorSet
+#' @description Telegram API type \code{help.peerColorSet} (constructor \code{#26219a58}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColorSet <- R6::R6Class("PeerColorSet",
   inherit = TLObject,
   public = list(
@@ -81295,6 +88545,11 @@ PeerColorSet <- R6::R6Class("PeerColorSet",
   lock_objects = FALSE
 )
 
+#' @title PeerColorProfileSet
+#' @description Telegram API type \code{help.peerColorProfileSet} (constructor \code{#767d61eb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColorProfileSet <- R6::R6Class("PeerColorProfileSet",
   inherit = TLObject,
   public = list(
@@ -81346,6 +88601,11 @@ PeerColorProfileSet <- R6::R6Class("PeerColorProfileSet",
   lock_objects = FALSE
 )
 
+#' @title PeerColorOption
+#' @description Telegram API type \code{help.peerColorOption} (constructor \code{#adec6ebe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColorOption <- R6::R6Class("PeerColorOption",
   inherit = TLObject,
   public = list(
@@ -81422,6 +88682,11 @@ PeerColorOption <- R6::R6Class("PeerColorOption",
   lock_objects = FALSE
 )
 
+#' @title PeerColorsNotModified
+#' @description Telegram API type \code{help.peerColorsNotModified} (constructor \code{#2ba1f5ce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColorsNotModified <- R6::R6Class("PeerColorsNotModified",
   inherit = TLObject,
   public = list(
@@ -81455,6 +88720,11 @@ PeerColorsNotModified <- R6::R6Class("PeerColorsNotModified",
   lock_objects = FALSE
 )
 
+#' @title PeerColors
+#' @description Telegram API type \code{help.peerColors} (constructor \code{#00f8ed08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerColors <- R6::R6Class("PeerColors",
   inherit = TLObject,
   public = list(
@@ -81500,6 +88770,11 @@ PeerColors <- R6::R6Class("PeerColors",
   lock_objects = FALSE
 )
 
+#' @title StoryReactionsList
+#' @description Telegram API type \code{stories.storyReactionsList} (constructor \code{#aa5f789c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StoryReactionsList <- R6::R6Class("StoryReactionsList",
   inherit = TLObject,
   public = list(
@@ -81567,6 +88842,11 @@ StoryReactionsList <- R6::R6Class("StoryReactionsList",
   lock_objects = FALSE
 )
 
+#' @title SavedDialogs
+#' @description Telegram API type \code{messages.savedDialogs} (constructor \code{#f83ae221}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedDialogs <- R6::R6Class("SavedDialogs",
   inherit = TLObject,
   public = list(
@@ -81624,6 +88904,11 @@ SavedDialogs <- R6::R6Class("SavedDialogs",
   lock_objects = FALSE
 )
 
+#' @title SavedDialogsSlice
+#' @description Telegram API type \code{messages.savedDialogsSlice} (constructor \code{#44ba9dd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedDialogsSlice <- R6::R6Class("SavedDialogsSlice",
   inherit = TLObject,
   public = list(
@@ -81687,6 +88972,11 @@ SavedDialogsSlice <- R6::R6Class("SavedDialogsSlice",
   lock_objects = FALSE
 )
 
+#' @title SavedDialogsNotModified
+#' @description Telegram API type \code{messages.savedDialogsNotModified} (constructor \code{#c01f6fe8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedDialogsNotModified <- R6::R6Class("SavedDialogsNotModified",
   inherit = TLObject,
   public = list(
@@ -81726,6 +89016,11 @@ SavedDialogsNotModified <- R6::R6Class("SavedDialogsNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedReactionTagsNotModified
+#' @description Telegram API type \code{messages.savedReactionTagsNotModified} (constructor \code{#889b59ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedReactionTagsNotModified <- R6::R6Class("SavedReactionTagsNotModified",
   inherit = TLObject,
   public = list(
@@ -81759,6 +89054,11 @@ SavedReactionTagsNotModified <- R6::R6Class("SavedReactionTagsNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedReactionTags
+#' @description Telegram API type \code{messages.savedReactionTags} (constructor \code{#3259950a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedReactionTags <- R6::R6Class("SavedReactionTags",
   inherit = TLObject,
   public = list(
@@ -81804,6 +89104,11 @@ SavedReactionTags <- R6::R6Class("SavedReactionTags",
   lock_objects = FALSE
 )
 
+#' @title EligibleToJoin
+#' @description Telegram API type \code{smsjobs.eligibleToJoin} (constructor \code{#dc8b44cf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EligibleToJoin <- R6::R6Class("EligibleToJoin",
   inherit = TLObject,
   public = list(
@@ -81849,6 +89154,11 @@ EligibleToJoin <- R6::R6Class("EligibleToJoin",
   lock_objects = FALSE
 )
 
+#' @title Status
+#' @description Telegram API type \code{smsjobs.status} (constructor \code{#2aee9191}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Status <- R6::R6Class("Status",
   inherit = TLObject,
   public = list(
@@ -81934,6 +89244,11 @@ Status <- R6::R6Class("Status",
   lock_objects = FALSE
 )
 
+#' @title TimezonesListNotModified
+#' @description Telegram API type \code{help.timezonesListNotModified} (constructor \code{#970708cc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TimezonesListNotModified <- R6::R6Class("TimezonesListNotModified",
   inherit = TLObject,
   public = list(
@@ -81967,6 +89282,11 @@ TimezonesListNotModified <- R6::R6Class("TimezonesListNotModified",
   lock_objects = FALSE
 )
 
+#' @title TimezonesList
+#' @description Telegram API type \code{help.timezonesList} (constructor \code{#7b74ed71}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TimezonesList <- R6::R6Class("TimezonesList",
   inherit = TLObject,
   public = list(
@@ -82012,6 +89332,11 @@ TimezonesList <- R6::R6Class("TimezonesList",
   lock_objects = FALSE
 )
 
+#' @title QuickReplies
+#' @description Telegram API type \code{messages.quickReplies} (constructor \code{#c68d6695}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 QuickReplies <- R6::R6Class("QuickReplies",
   inherit = TLObject,
   public = list(
@@ -82069,6 +89394,11 @@ QuickReplies <- R6::R6Class("QuickReplies",
   lock_objects = FALSE
 )
 
+#' @title QuickRepliesNotModified
+#' @description Telegram API type \code{messages.quickRepliesNotModified} (constructor \code{#5f91eb5b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 QuickRepliesNotModified <- R6::R6Class("QuickRepliesNotModified",
   inherit = TLObject,
   public = list(
@@ -82102,6 +89432,11 @@ QuickRepliesNotModified <- R6::R6Class("QuickRepliesNotModified",
   lock_objects = FALSE
 )
 
+#' @title ConnectedBots
+#' @description Telegram API type \code{account.connectedBots} (constructor \code{#17d7f87b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ConnectedBots <- R6::R6Class("ConnectedBots",
   inherit = TLObject,
   public = list(
@@ -82147,6 +89482,11 @@ ConnectedBots <- R6::R6Class("ConnectedBots",
   lock_objects = FALSE
 )
 
+#' @title DialogFilters
+#' @description Telegram API type \code{messages.dialogFilters} (constructor \code{#2ad93719}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DialogFilters <- R6::R6Class("DialogFilters",
   inherit = TLObject,
   public = list(
@@ -82195,6 +89535,11 @@ DialogFilters <- R6::R6Class("DialogFilters",
   lock_objects = FALSE
 )
 
+#' @title MyStickers
+#' @description Telegram API type \code{messages.myStickers} (constructor \code{#faff629d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MyStickers <- R6::R6Class("MyStickers",
   inherit = TLObject,
   public = list(
@@ -82240,6 +89585,11 @@ MyStickers <- R6::R6Class("MyStickers",
   lock_objects = FALSE
 )
 
+#' @title CollectibleInfo
+#' @description Telegram API type \code{fragment.collectibleInfo} (constructor \code{#6ebdff91}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CollectibleInfo <- R6::R6Class("CollectibleInfo",
   inherit = TLObject,
   public = list(
@@ -82309,6 +89659,11 @@ CollectibleInfo <- R6::R6Class("CollectibleInfo",
   lock_objects = FALSE
 )
 
+#' @title ContactBirthdays
+#' @description Telegram API type \code{contacts.contactBirthdays} (constructor \code{#114ff30d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ContactBirthdays <- R6::R6Class("ContactBirthdays",
   inherit = TLObject,
   public = list(
@@ -82354,6 +89709,11 @@ ContactBirthdays <- R6::R6Class("ContactBirthdays",
   lock_objects = FALSE
 )
 
+#' @title InvitedUsers
+#' @description Telegram API type \code{messages.invitedUsers} (constructor \code{#7f5defa6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvitedUsers <- R6::R6Class("InvitedUsers",
   inherit = TLObject,
   public = list(
@@ -82399,6 +89759,11 @@ InvitedUsers <- R6::R6Class("InvitedUsers",
   lock_objects = FALSE
 )
 
+#' @title BusinessChatLinks
+#' @description Telegram API type \code{account.businessChatLinks} (constructor \code{#ec43a2d1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BusinessChatLinks <- R6::R6Class("BusinessChatLinks",
   inherit = TLObject,
   public = list(
@@ -82450,6 +89815,11 @@ BusinessChatLinks <- R6::R6Class("BusinessChatLinks",
   lock_objects = FALSE
 )
 
+#' @title ResolvedBusinessChatLinks
+#' @description Telegram API type \code{account.resolvedBusinessChatLinks} (constructor \code{#9a23af21}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResolvedBusinessChatLinks <- R6::R6Class("ResolvedBusinessChatLinks",
   inherit = TLObject,
   public = list(
@@ -82517,6 +89887,11 @@ ResolvedBusinessChatLinks <- R6::R6Class("ResolvedBusinessChatLinks",
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessageReportResultChooseOption
+#' @description Telegram API type \code{channels.sponsoredMessageReportResultChooseOption} (constructor \code{#846f9e42}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessageReportResultChooseOption <- R6::R6Class("SponsoredMessageReportResultChooseOption",
   inherit = TLObject,
   public = list(
@@ -82562,6 +89937,11 @@ SponsoredMessageReportResultChooseOption <- R6::R6Class("SponsoredMessageReportR
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessageReportResultAdsHidden
+#' @description Telegram API type \code{channels.sponsoredMessageReportResultAdsHidden} (constructor \code{#3e3bcf2f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessageReportResultAdsHidden <- R6::R6Class("SponsoredMessageReportResultAdsHidden",
   inherit = TLObject,
   public = list(
@@ -82595,6 +89975,11 @@ SponsoredMessageReportResultAdsHidden <- R6::R6Class("SponsoredMessageReportResu
   lock_objects = FALSE
 )
 
+#' @title SponsoredMessageReportResultReported
+#' @description Telegram API type \code{channels.sponsoredMessageReportResultReported} (constructor \code{#ad798849}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredMessageReportResultReported <- R6::R6Class("SponsoredMessageReportResultReported",
   inherit = TLObject,
   public = list(
@@ -82628,6 +90013,11 @@ SponsoredMessageReportResultReported <- R6::R6Class("SponsoredMessageReportResul
   lock_objects = FALSE
 )
 
+#' @title AvailableEffectsNotModified
+#' @description Telegram API type \code{messages.availableEffectsNotModified} (constructor \code{#d1ed9a5b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableEffectsNotModified <- R6::R6Class("AvailableEffectsNotModified",
   inherit = TLObject,
   public = list(
@@ -82661,6 +90051,11 @@ AvailableEffectsNotModified <- R6::R6Class("AvailableEffectsNotModified",
   lock_objects = FALSE
 )
 
+#' @title AvailableEffects
+#' @description Telegram API type \code{messages.availableEffects} (constructor \code{#bddb616e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AvailableEffects <- R6::R6Class("AvailableEffects",
   inherit = TLObject,
   public = list(
@@ -82712,6 +90107,11 @@ AvailableEffects <- R6::R6Class("AvailableEffects",
   lock_objects = FALSE
 )
 
+#' @title StarsStatus
+#' @description Telegram API type \code{payments.starsStatus} (constructor \code{#6c9ce8ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsStatus <- R6::R6Class("StarsStatus",
   inherit = TLObject,
   public = list(
@@ -82801,6 +90201,11 @@ StarsStatus <- R6::R6Class("StarsStatus",
   lock_objects = FALSE
 )
 
+#' @title FoundStories
+#' @description Telegram API type \code{stories.foundStories} (constructor \code{#e2de7737}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStories <- R6::R6Class("FoundStories",
   inherit = TLObject,
   public = list(
@@ -82868,6 +90273,11 @@ FoundStories <- R6::R6Class("FoundStories",
   lock_objects = FALSE
 )
 
+#' @title StarsRevenueStats
+#' @description Telegram API type \code{payments.starsRevenueStats} (constructor \code{#6c207376}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsRevenueStats <- R6::R6Class("StarsRevenueStats",
   inherit = TLObject,
   public = list(
@@ -82929,6 +90339,11 @@ StarsRevenueStats <- R6::R6Class("StarsRevenueStats",
   lock_objects = FALSE
 )
 
+#' @title StarsRevenueWithdrawalUrl
+#' @description Telegram API type \code{payments.starsRevenueWithdrawalUrl} (constructor \code{#1dab80b7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsRevenueWithdrawalUrl <- R6::R6Class("StarsRevenueWithdrawalUrl",
   inherit = TLObject,
   public = list(
@@ -82968,6 +90383,11 @@ StarsRevenueWithdrawalUrl <- R6::R6Class("StarsRevenueWithdrawalUrl",
   lock_objects = FALSE
 )
 
+#' @title StarsRevenueAdsAccountUrl
+#' @description Telegram API type \code{payments.starsRevenueAdsAccountUrl} (constructor \code{#394e7f21}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarsRevenueAdsAccountUrl <- R6::R6Class("StarsRevenueAdsAccountUrl",
   inherit = TLObject,
   public = list(
@@ -83007,6 +90427,11 @@ StarsRevenueAdsAccountUrl <- R6::R6Class("StarsRevenueAdsAccountUrl",
   lock_objects = FALSE
 )
 
+#' @title PopularAppBots
+#' @description Telegram API type \code{bots.popularAppBots} (constructor \code{#1991b13b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PopularAppBots <- R6::R6Class("PopularAppBots",
   inherit = TLObject,
   public = list(
@@ -83056,6 +90481,11 @@ PopularAppBots <- R6::R6Class("PopularAppBots",
   lock_objects = FALSE
 )
 
+#' @title PreviewInfo
+#' @description Telegram API type \code{bots.previewInfo} (constructor \code{#0ca71d64}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PreviewInfo <- R6::R6Class("PreviewInfo",
   inherit = TLObject,
   public = list(
@@ -83101,6 +90531,11 @@ PreviewInfo <- R6::R6Class("PreviewInfo",
   lock_objects = FALSE
 )
 
+#' @title StarGiftsNotModified
+#' @description Telegram API type \code{payments.starGiftsNotModified} (constructor \code{#a388a368}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftsNotModified <- R6::R6Class("StarGiftsNotModified",
   inherit = TLObject,
   public = list(
@@ -83134,6 +90569,11 @@ StarGiftsNotModified <- R6::R6Class("StarGiftsNotModified",
   lock_objects = FALSE
 )
 
+#' @title StarGifts
+#' @description Telegram API type \code{payments.starGifts} (constructor \code{#2ed82995}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGifts <- R6::R6Class("StarGifts",
   inherit = TLObject,
   public = list(
@@ -83191,6 +90631,11 @@ StarGifts <- R6::R6Class("StarGifts",
   lock_objects = FALSE
 )
 
+#' @title BotPreparedInlineMessage
+#' @description Telegram API type \code{messages.botPreparedInlineMessage} (constructor \code{#8ecf0511}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BotPreparedInlineMessage <- R6::R6Class("BotPreparedInlineMessage",
   inherit = TLObject,
   public = list(
@@ -83236,6 +90681,11 @@ BotPreparedInlineMessage <- R6::R6Class("BotPreparedInlineMessage",
   lock_objects = FALSE
 )
 
+#' @title PreparedInlineMessage
+#' @description Telegram API type \code{messages.preparedInlineMessage} (constructor \code{#ff57708d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PreparedInlineMessage <- R6::R6Class("PreparedInlineMessage",
   inherit = TLObject,
   public = list(
@@ -83299,6 +90749,11 @@ PreparedInlineMessage <- R6::R6Class("PreparedInlineMessage",
   lock_objects = FALSE
 )
 
+#' @title ConnectedStarRefBots
+#' @description Telegram API type \code{payments.connectedStarRefBots} (constructor \code{#98d5ea1d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ConnectedStarRefBots <- R6::R6Class("ConnectedStarRefBots",
   inherit = TLObject,
   public = list(
@@ -83350,6 +90805,11 @@ ConnectedStarRefBots <- R6::R6Class("ConnectedStarRefBots",
   lock_objects = FALSE
 )
 
+#' @title SuggestedStarRefBots
+#' @description Telegram API type \code{payments.suggestedStarRefBots} (constructor \code{#b4d5d859}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SuggestedStarRefBots <- R6::R6Class("SuggestedStarRefBots",
   inherit = TLObject,
   public = list(
@@ -83411,6 +90871,11 @@ SuggestedStarRefBots <- R6::R6Class("SuggestedStarRefBots",
   lock_objects = FALSE
 )
 
+#' @title FoundStickersNotModified
+#' @description Telegram API type \code{messages.foundStickersNotModified} (constructor \code{#6010c534}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStickersNotModified <- R6::R6Class("FoundStickersNotModified",
   inherit = TLObject,
   public = list(
@@ -83454,6 +90919,11 @@ FoundStickersNotModified <- R6::R6Class("FoundStickersNotModified",
   lock_objects = FALSE
 )
 
+#' @title FoundStickers
+#' @description Telegram API type \code{messages.foundStickers} (constructor \code{#82c9e290}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FoundStickers <- R6::R6Class("FoundStickers",
   inherit = TLObject,
   public = list(
@@ -83509,6 +90979,11 @@ FoundStickers <- R6::R6Class("FoundStickers",
   lock_objects = FALSE
 )
 
+#' @title StarGiftUpgradePreview
+#' @description Telegram API type \code{payments.starGiftUpgradePreview} (constructor \code{#3de1dfed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftUpgradePreview <- R6::R6Class("StarGiftUpgradePreview",
   inherit = TLObject,
   public = list(
@@ -83560,6 +91035,11 @@ StarGiftUpgradePreview <- R6::R6Class("StarGiftUpgradePreview",
   lock_objects = FALSE
 )
 
+#' @title Users
+#' @description Telegram API type \code{users.users} (constructor \code{#62d706b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Users <- R6::R6Class("Users",
   inherit = TLObject,
   public = list(
@@ -83599,6 +91079,11 @@ Users <- R6::R6Class("Users",
   lock_objects = FALSE
 )
 
+#' @title UsersSlice
+#' @description Telegram API type \code{users.usersSlice} (constructor \code{#315a4974}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UsersSlice <- R6::R6Class("UsersSlice",
   inherit = TLObject,
   public = list(
@@ -83644,6 +91129,11 @@ UsersSlice <- R6::R6Class("UsersSlice",
   lock_objects = FALSE
 )
 
+#' @title UniqueStarGift
+#' @description Telegram API type \code{payments.uniqueStarGift} (constructor \code{#416c56e8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UniqueStarGift <- R6::R6Class("UniqueStarGift",
   inherit = TLObject,
   public = list(
@@ -83695,6 +91185,11 @@ UniqueStarGift <- R6::R6Class("UniqueStarGift",
   lock_objects = FALSE
 )
 
+#' @title WebPagePreview
+#' @description Telegram API type \code{messages.webPagePreview} (constructor \code{#8c9a88ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebPagePreview <- R6::R6Class("WebPagePreview",
   inherit = TLObject,
   public = list(
@@ -83746,6 +91241,11 @@ WebPagePreview <- R6::R6Class("WebPagePreview",
   lock_objects = FALSE
 )
 
+#' @title SavedStarGifts
+#' @description Telegram API type \code{payments.savedStarGifts} (constructor \code{#95f389b1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedStarGifts <- R6::R6Class("SavedStarGifts",
   inherit = TLObject,
   public = list(
@@ -83820,6 +91320,11 @@ SavedStarGifts <- R6::R6Class("SavedStarGifts",
   lock_objects = FALSE
 )
 
+#' @title StarGiftWithdrawalUrl
+#' @description Telegram API type \code{payments.starGiftWithdrawalUrl} (constructor \code{#84aa3a9c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftWithdrawalUrl <- R6::R6Class("StarGiftWithdrawalUrl",
   inherit = TLObject,
   public = list(
@@ -83859,6 +91364,11 @@ StarGiftWithdrawalUrl <- R6::R6Class("StarGiftWithdrawalUrl",
   lock_objects = FALSE
 )
 
+#' @title PaidMessagesRevenue
+#' @description Telegram API type \code{account.paidMessagesRevenue} (constructor \code{#1e109708}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PaidMessagesRevenue <- R6::R6Class("PaidMessagesRevenue",
   inherit = TLObject,
   public = list(
@@ -83898,6 +91408,11 @@ PaidMessagesRevenue <- R6::R6Class("PaidMessagesRevenue",
   lock_objects = FALSE
 )
 
+#' @title SponsoredPeersEmpty
+#' @description Telegram API type \code{contacts.sponsoredPeersEmpty} (constructor \code{#ea32b4b1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredPeersEmpty <- R6::R6Class("SponsoredPeersEmpty",
   inherit = TLObject,
   public = list(
@@ -83931,6 +91446,11 @@ SponsoredPeersEmpty <- R6::R6Class("SponsoredPeersEmpty",
   lock_objects = FALSE
 )
 
+#' @title SponsoredPeers
+#' @description Telegram API type \code{contacts.sponsoredPeers} (constructor \code{#eb032884}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SponsoredPeers <- R6::R6Class("SponsoredPeers",
   inherit = TLObject,
   public = list(
@@ -83982,6 +91502,11 @@ SponsoredPeers <- R6::R6Class("SponsoredPeers",
   lock_objects = FALSE
 )
 
+#' @title ResaleStarGifts
+#' @description Telegram API type \code{payments.resaleStarGifts} (constructor \code{#947a12df}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResaleStarGifts <- R6::R6Class("ResaleStarGifts",
   inherit = TLObject,
   public = list(
@@ -84070,6 +91595,11 @@ ResaleStarGifts <- R6::R6Class("ResaleStarGifts",
   lock_objects = FALSE
 )
 
+#' @title CanSendStoryCount
+#' @description Telegram API type \code{stories.canSendStoryCount} (constructor \code{#c387c04e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CanSendStoryCount <- R6::R6Class("CanSendStoryCount",
   inherit = TLObject,
   public = list(
@@ -84109,6 +91639,11 @@ CanSendStoryCount <- R6::R6Class("CanSendStoryCount",
   lock_objects = FALSE
 )
 
+#' @title StarGiftCollectionsNotModified
+#' @description Telegram API type \code{payments.starGiftCollectionsNotModified} (constructor \code{#a0ba4f17}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftCollectionsNotModified <- R6::R6Class("StarGiftCollectionsNotModified",
   inherit = TLObject,
   public = list(
@@ -84142,6 +91677,11 @@ StarGiftCollectionsNotModified <- R6::R6Class("StarGiftCollectionsNotModified",
   lock_objects = FALSE
 )
 
+#' @title StarGiftCollections
+#' @description Telegram API type \code{payments.starGiftCollections} (constructor \code{#8a2932f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftCollections <- R6::R6Class("StarGiftCollections",
   inherit = TLObject,
   public = list(
@@ -84181,6 +91721,11 @@ StarGiftCollections <- R6::R6Class("StarGiftCollections",
   lock_objects = FALSE
 )
 
+#' @title AlbumsNotModified
+#' @description Telegram API type \code{stories.albumsNotModified} (constructor \code{#564edaeb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AlbumsNotModified <- R6::R6Class("AlbumsNotModified",
   inherit = TLObject,
   public = list(
@@ -84214,6 +91759,11 @@ AlbumsNotModified <- R6::R6Class("AlbumsNotModified",
   lock_objects = FALSE
 )
 
+#' @title Albums
+#' @description Telegram API type \code{stories.albums} (constructor \code{#c3987a3a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Albums <- R6::R6Class("Albums",
   inherit = TLObject,
   public = list(
@@ -84259,6 +91809,11 @@ Albums <- R6::R6Class("Albums",
   lock_objects = FALSE
 )
 
+#' @title UniqueStarGiftValueInfo
+#' @description Telegram API type \code{payments.uniqueStarGiftValueInfo} (constructor \code{#512fe446}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UniqueStarGiftValueInfo <- R6::R6Class("UniqueStarGiftValueInfo",
   inherit = TLObject,
   public = list(
@@ -84386,6 +91941,11 @@ UniqueStarGiftValueInfo <- R6::R6Class("UniqueStarGiftValueInfo",
   lock_objects = FALSE
 )
 
+#' @title SavedMusicNotModified
+#' @description Telegram API type \code{users.savedMusicNotModified} (constructor \code{#e3878aa4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedMusicNotModified <- R6::R6Class("SavedMusicNotModified",
   inherit = TLObject,
   public = list(
@@ -84425,6 +91985,11 @@ SavedMusicNotModified <- R6::R6Class("SavedMusicNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedMusic
+#' @description Telegram API type \code{users.savedMusic} (constructor \code{#34a2f297}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedMusic <- R6::R6Class("SavedMusic",
   inherit = TLObject,
   public = list(
@@ -84470,6 +92035,11 @@ SavedMusic <- R6::R6Class("SavedMusic",
   lock_objects = FALSE
 )
 
+#' @title SavedMusicIdsNotModified
+#' @description Telegram API type \code{account.savedMusicIdsNotModified} (constructor \code{#4fc81d6e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedMusicIdsNotModified <- R6::R6Class("SavedMusicIdsNotModified",
   inherit = TLObject,
   public = list(
@@ -84503,6 +92073,11 @@ SavedMusicIdsNotModified <- R6::R6Class("SavedMusicIdsNotModified",
   lock_objects = FALSE
 )
 
+#' @title SavedMusicIds
+#' @description Telegram API type \code{account.savedMusicIds} (constructor \code{#998d6636}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavedMusicIds <- R6::R6Class("SavedMusicIds",
   inherit = TLObject,
   public = list(
@@ -84542,6 +92117,11 @@ SavedMusicIds <- R6::R6Class("SavedMusicIds",
   lock_objects = FALSE
 )
 
+#' @title CheckCanSendGiftResultOk
+#' @description Telegram API type \code{payments.checkCanSendGiftResultOk} (constructor \code{#374fa7ad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckCanSendGiftResultOk <- R6::R6Class("CheckCanSendGiftResultOk",
   inherit = TLObject,
   public = list(
@@ -84575,6 +92155,11 @@ CheckCanSendGiftResultOk <- R6::R6Class("CheckCanSendGiftResultOk",
   lock_objects = FALSE
 )
 
+#' @title CheckCanSendGiftResultFail
+#' @description Telegram API type \code{payments.checkCanSendGiftResultFail} (constructor \code{#d5e58274}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckCanSendGiftResultFail <- R6::R6Class("CheckCanSendGiftResultFail",
   inherit = TLObject,
   public = list(
@@ -84614,6 +92199,11 @@ CheckCanSendGiftResultFail <- R6::R6Class("CheckCanSendGiftResultFail",
   lock_objects = FALSE
 )
 
+#' @title StarGiftUpgradePrice
+#' @description Telegram API type \code{starGiftUpgradePrice} (constructor \code{#99ea331d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftUpgradePrice <- R6::R6Class("StarGiftUpgradePrice",
   inherit = TLObject,
   public = list(
@@ -84659,6 +92249,11 @@ StarGiftUpgradePrice <- R6::R6Class("StarGiftUpgradePrice",
   lock_objects = FALSE
 )
 
+#' @title GroupCallMessage
+#' @description Telegram API type \code{groupCallMessage} (constructor \code{#1a8afc7e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallMessage <- R6::R6Class("GroupCallMessage",
   inherit = TLObject,
   public = list(
@@ -84732,6 +92327,11 @@ GroupCallMessage <- R6::R6Class("GroupCallMessage",
   lock_objects = FALSE
 )
 
+#' @title GroupCallDonor
+#' @description Telegram API type \code{groupCallDonor} (constructor \code{#ee430c85}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallDonor <- R6::R6Class("GroupCallDonor",
   inherit = TLObject,
   public = list(
@@ -84793,6 +92393,11 @@ GroupCallDonor <- R6::R6Class("GroupCallDonor",
   lock_objects = FALSE
 )
 
+#' @title GroupCallStars
+#' @description Telegram API type \code{phone.groupCallStars} (constructor \code{#9d1dbd26}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GroupCallStars <- R6::R6Class("GroupCallStars",
   inherit = TLObject,
   public = list(
@@ -84850,6 +92455,11 @@ GroupCallStars <- R6::R6Class("GroupCallStars",
   lock_objects = FALSE
 )
 
+#' @title RecentStory
+#' @description Telegram API type \code{recentStory} (constructor \code{#711d692d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecentStory <- R6::R6Class("RecentStory",
   inherit = TLObject,
   public = list(
@@ -84899,6 +92509,11 @@ RecentStory <- R6::R6Class("RecentStory",
   lock_objects = FALSE
 )
 
+#' @title AuctionBidLevel
+#' @description Telegram API type \code{auctionBidLevel} (constructor \code{#310240cc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AuctionBidLevel <- R6::R6Class("AuctionBidLevel",
   inherit = TLObject,
   public = list(
@@ -84950,6 +92565,11 @@ AuctionBidLevel <- R6::R6Class("AuctionBidLevel",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionStateNotModified
+#' @description Telegram API type \code{starGiftAuctionStateNotModified} (constructor \code{#fe333952}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionStateNotModified <- R6::R6Class("StarGiftAuctionStateNotModified",
   inherit = TLObject,
   public = list(
@@ -84983,6 +92603,11 @@ StarGiftAuctionStateNotModified <- R6::R6Class("StarGiftAuctionStateNotModified"
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionState
+#' @description Telegram API type \code{starGiftAuctionState} (constructor \code{#771a4e66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionState <- R6::R6Class("StarGiftAuctionState",
   inherit = TLObject,
   public = list(
@@ -85088,6 +92713,11 @@ StarGiftAuctionState <- R6::R6Class("StarGiftAuctionState",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionStateFinished
+#' @description Telegram API type \code{starGiftAuctionStateFinished} (constructor \code{#972dabbf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionStateFinished <- R6::R6Class("StarGiftAuctionStateFinished",
   inherit = TLObject,
   public = list(
@@ -85163,6 +92793,11 @@ StarGiftAuctionStateFinished <- R6::R6Class("StarGiftAuctionStateFinished",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionUserState
+#' @description Telegram API type \code{starGiftAuctionUserState} (constructor \code{#2eeed1c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionUserState <- R6::R6Class("StarGiftAuctionUserState",
   inherit = TLObject,
   public = list(
@@ -85239,6 +92874,11 @@ StarGiftAuctionUserState <- R6::R6Class("StarGiftAuctionUserState",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionAcquiredGift
+#' @description Telegram API type \code{starGiftAuctionAcquiredGift} (constructor \code{#42b00348}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionAcquiredGift <- R6::R6Class("StarGiftAuctionAcquiredGift",
   inherit = TLObject,
   public = list(
@@ -85325,6 +92965,11 @@ StarGiftAuctionAcquiredGift <- R6::R6Class("StarGiftAuctionAcquiredGift",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionAcquiredGifts
+#' @description Telegram API type \code{payments.starGiftAuctionAcquiredGifts} (constructor \code{#7d5bd1f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionAcquiredGifts <- R6::R6Class("StarGiftAuctionAcquiredGifts",
   inherit = TLObject,
   public = list(
@@ -85376,6 +93021,11 @@ StarGiftAuctionAcquiredGifts <- R6::R6Class("StarGiftAuctionAcquiredGifts",
   lock_objects = FALSE
 )
 
+#' @title StarGiftActiveAuctionState
+#' @description Telegram API type \code{starGiftActiveAuctionState} (constructor \code{#d31bc45d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftActiveAuctionState <- R6::R6Class("StarGiftActiveAuctionState",
   inherit = TLObject,
   public = list(
@@ -85427,6 +93077,11 @@ StarGiftActiveAuctionState <- R6::R6Class("StarGiftActiveAuctionState",
   lock_objects = FALSE
 )
 
+#' @title StarGiftActiveAuctionsNotModified
+#' @description Telegram API type \code{payments.starGiftActiveAuctionsNotModified} (constructor \code{#db33dad0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftActiveAuctionsNotModified <- R6::R6Class("StarGiftActiveAuctionsNotModified",
   inherit = TLObject,
   public = list(
@@ -85460,6 +93115,11 @@ StarGiftActiveAuctionsNotModified <- R6::R6Class("StarGiftActiveAuctionsNotModif
   lock_objects = FALSE
 )
 
+#' @title StarGiftActiveAuctions
+#' @description Telegram API type \code{payments.starGiftActiveAuctions} (constructor \code{#aef6abbc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftActiveAuctions <- R6::R6Class("StarGiftActiveAuctions",
   inherit = TLObject,
   public = list(
@@ -85511,6 +93171,11 @@ StarGiftActiveAuctions <- R6::R6Class("StarGiftActiveAuctions",
   lock_objects = FALSE
 )
 
+#' @title InputStarGiftAuction
+#' @description Telegram API type \code{inputStarGiftAuction} (constructor \code{#02e16c98}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStarGiftAuction <- R6::R6Class("InputStarGiftAuction",
   inherit = TLObject,
   public = list(
@@ -85550,6 +93215,11 @@ InputStarGiftAuction <- R6::R6Class("InputStarGiftAuction",
   lock_objects = FALSE
 )
 
+#' @title InputStarGiftAuctionSlug
+#' @description Telegram API type \code{inputStarGiftAuctionSlug} (constructor \code{#7ab58308}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputStarGiftAuctionSlug <- R6::R6Class("InputStarGiftAuctionSlug",
   inherit = TLObject,
   public = list(
@@ -85589,6 +93259,11 @@ InputStarGiftAuctionSlug <- R6::R6Class("InputStarGiftAuctionSlug",
   lock_objects = FALSE
 )
 
+#' @title Passkey
+#' @description Telegram API type \code{passkey} (constructor \code{#98613ebf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Passkey <- R6::R6Class("Passkey",
   inherit = TLObject,
   public = list(
@@ -85657,6 +93332,11 @@ Passkey <- R6::R6Class("Passkey",
   lock_objects = FALSE
 )
 
+#' @title Passkeys
+#' @description Telegram API type \code{account.passkeys} (constructor \code{#f8e0aa1c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Passkeys <- R6::R6Class("Passkeys",
   inherit = TLObject,
   public = list(
@@ -85696,6 +93376,11 @@ Passkeys <- R6::R6Class("Passkeys",
   lock_objects = FALSE
 )
 
+#' @title PasskeyRegistrationOptions
+#' @description Telegram API type \code{account.passkeyRegistrationOptions} (constructor \code{#e16b5ce1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasskeyRegistrationOptions <- R6::R6Class("PasskeyRegistrationOptions",
   inherit = TLObject,
   public = list(
@@ -85735,6 +93420,11 @@ PasskeyRegistrationOptions <- R6::R6Class("PasskeyRegistrationOptions",
   lock_objects = FALSE
 )
 
+#' @title PasskeyLoginOptions
+#' @description Telegram API type \code{auth.passkeyLoginOptions} (constructor \code{#e2037789}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PasskeyLoginOptions <- R6::R6Class("PasskeyLoginOptions",
   inherit = TLObject,
   public = list(
@@ -85774,6 +93464,11 @@ PasskeyLoginOptions <- R6::R6Class("PasskeyLoginOptions",
   lock_objects = FALSE
 )
 
+#' @title InputPasskeyResponseRegister
+#' @description Telegram API type \code{inputPasskeyResponseRegister} (constructor \code{#3e63935c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPasskeyResponseRegister <- R6::R6Class("InputPasskeyResponseRegister",
   inherit = TLObject,
   public = list(
@@ -85819,6 +93514,11 @@ InputPasskeyResponseRegister <- R6::R6Class("InputPasskeyResponseRegister",
   lock_objects = FALSE
 )
 
+#' @title InputPasskeyResponseLogin
+#' @description Telegram API type \code{inputPasskeyResponseLogin} (constructor \code{#c31fc14a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPasskeyResponseLogin <- R6::R6Class("InputPasskeyResponseLogin",
   inherit = TLObject,
   public = list(
@@ -85876,6 +93576,11 @@ InputPasskeyResponseLogin <- R6::R6Class("InputPasskeyResponseLogin",
   lock_objects = FALSE
 )
 
+#' @title InputPasskeyCredentialPublicKey
+#' @description Telegram API type \code{inputPasskeyCredentialPublicKey} (constructor \code{#3c27b78f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPasskeyCredentialPublicKey <- R6::R6Class("InputPasskeyCredentialPublicKey",
   inherit = TLObject,
   public = list(
@@ -85927,6 +93632,11 @@ InputPasskeyCredentialPublicKey <- R6::R6Class("InputPasskeyCredentialPublicKey"
   lock_objects = FALSE
 )
 
+#' @title InputPasskeyCredentialFirebasePNV
+#' @description Telegram API type \code{inputPasskeyCredentialFirebasePNV} (constructor \code{#5b1ccb28}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPasskeyCredentialFirebasePNV <- R6::R6Class("InputPasskeyCredentialFirebasePNV",
   inherit = TLObject,
   public = list(
@@ -85966,6 +93676,11 @@ InputPasskeyCredentialFirebasePNV <- R6::R6Class("InputPasskeyCredentialFirebase
   lock_objects = FALSE
 )
 
+#' @title StarGiftBackground
+#' @description Telegram API type \code{starGiftBackground} (constructor \code{#aff56398}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftBackground <- R6::R6Class("StarGiftBackground",
   inherit = TLObject,
   public = list(
@@ -86017,6 +93732,11 @@ StarGiftBackground <- R6::R6Class("StarGiftBackground",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionRound
+#' @description Telegram API type \code{starGiftAuctionRound} (constructor \code{#3aae0528}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionRound <- R6::R6Class("StarGiftAuctionRound",
   inherit = TLObject,
   public = list(
@@ -86062,6 +93782,11 @@ StarGiftAuctionRound <- R6::R6Class("StarGiftAuctionRound",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAuctionRoundExtendable
+#' @description Telegram API type \code{starGiftAuctionRoundExtendable} (constructor \code{#0aa021e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAuctionRoundExtendable <- R6::R6Class("StarGiftAuctionRoundExtendable",
   inherit = TLObject,
   public = list(
@@ -86119,6 +93844,11 @@ StarGiftAuctionRoundExtendable <- R6::R6Class("StarGiftAuctionRoundExtendable",
   lock_objects = FALSE
 )
 
+#' @title StarGiftUpgradeAttributes
+#' @description Telegram API type \code{payments.starGiftUpgradeAttributes} (constructor \code{#46c6e36f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftUpgradeAttributes <- R6::R6Class("StarGiftUpgradeAttributes",
   inherit = TLObject,
   public = list(
@@ -86158,6 +93888,11 @@ StarGiftUpgradeAttributes <- R6::R6Class("StarGiftUpgradeAttributes",
   lock_objects = FALSE
 )
 
+#' @title EmojiGameOutcome
+#' @description Telegram API type \code{messages.emojiGameOutcome} (constructor \code{#da2ad647}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGameOutcome <- R6::R6Class("EmojiGameOutcome",
   inherit = TLObject,
   public = list(
@@ -86209,6 +93944,11 @@ EmojiGameOutcome <- R6::R6Class("EmojiGameOutcome",
   lock_objects = FALSE
 )
 
+#' @title EmojiGameUnavailable
+#' @description Telegram API type \code{messages.emojiGameUnavailable} (constructor \code{#59e65335}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGameUnavailable <- R6::R6Class("EmojiGameUnavailable",
   inherit = TLObject,
   public = list(
@@ -86242,6 +93982,11 @@ EmojiGameUnavailable <- R6::R6Class("EmojiGameUnavailable",
   lock_objects = FALSE
 )
 
+#' @title EmojiGameDiceInfo
+#' @description Telegram API type \code{messages.emojiGameDiceInfo} (constructor \code{#44e56023}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EmojiGameDiceInfo <- R6::R6Class("EmojiGameDiceInfo",
   inherit = TLObject,
   public = list(
@@ -86309,6 +94054,11 @@ EmojiGameDiceInfo <- R6::R6Class("EmojiGameDiceInfo",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeRarity
+#' @description Telegram API type \code{starGiftAttributeRarity} (constructor \code{#36437737}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeRarity <- R6::R6Class("StarGiftAttributeRarity",
   inherit = TLObject,
   public = list(
@@ -86348,6 +94098,11 @@ StarGiftAttributeRarity <- R6::R6Class("StarGiftAttributeRarity",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeRarityUncommon
+#' @description Telegram API type \code{starGiftAttributeRarityUncommon} (constructor \code{#dbce6389}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeRarityUncommon <- R6::R6Class("StarGiftAttributeRarityUncommon",
   inherit = TLObject,
   public = list(
@@ -86381,6 +94136,11 @@ StarGiftAttributeRarityUncommon <- R6::R6Class("StarGiftAttributeRarityUncommon"
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeRarityRare
+#' @description Telegram API type \code{starGiftAttributeRarityRare} (constructor \code{#f08d516b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeRarityRare <- R6::R6Class("StarGiftAttributeRarityRare",
   inherit = TLObject,
   public = list(
@@ -86414,6 +94174,11 @@ StarGiftAttributeRarityRare <- R6::R6Class("StarGiftAttributeRarityRare",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeRarityEpic
+#' @description Telegram API type \code{starGiftAttributeRarityEpic} (constructor \code{#78fbf3a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeRarityEpic <- R6::R6Class("StarGiftAttributeRarityEpic",
   inherit = TLObject,
   public = list(
@@ -86447,6 +94212,11 @@ StarGiftAttributeRarityEpic <- R6::R6Class("StarGiftAttributeRarityEpic",
   lock_objects = FALSE
 )
 
+#' @title StarGiftAttributeRarityLegendary
+#' @description Telegram API type \code{starGiftAttributeRarityLegendary} (constructor \code{#cef7e7a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StarGiftAttributeRarityLegendary <- R6::R6Class("StarGiftAttributeRarityLegendary",
   inherit = TLObject,
   public = list(
@@ -86480,6 +94250,11 @@ StarGiftAttributeRarityLegendary <- R6::R6Class("StarGiftAttributeRarityLegendar
   lock_objects = FALSE
 )
 
+#' @title KeyboardButtonStyle
+#' @description Telegram API type \code{keyboardButtonStyle} (constructor \code{#4fdd3430}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 KeyboardButtonStyle <- R6::R6Class("KeyboardButtonStyle",
   inherit = TLObject,
   public = list(
@@ -86541,6 +94316,11 @@ KeyboardButtonStyle <- R6::R6Class("KeyboardButtonStyle",
   lock_objects = FALSE
 )
 
+#' @title InputMessageReadMetric
+#' @description Telegram API type \code{inputMessageReadMetric} (constructor \code{#402b4495}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputMessageReadMetric <- R6::R6Class("InputMessageReadMetric",
   inherit = TLObject,
   public = list(
@@ -86610,6 +94390,11 @@ InputMessageReadMetric <- R6::R6Class("InputMessageReadMetric",
   lock_objects = FALSE
 )
 
+#' @title ExportedBotToken
+#' @description Telegram API type \code{bots.exportedBotToken} (constructor \code{#3c60b621}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportedBotToken <- R6::R6Class("ExportedBotToken",
   inherit = TLObject,
   public = list(
@@ -86649,6 +94434,11 @@ ExportedBotToken <- R6::R6Class("ExportedBotToken",
   lock_objects = FALSE
 )
 
+#' @title RequestedButton
+#' @description Telegram API type \code{bots.requestedButton} (constructor \code{#f13bbcd7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestedButton <- R6::R6Class("RequestedButton",
   inherit = TLObject,
   public = list(
@@ -86688,6 +94478,11 @@ RequestedButton <- R6::R6Class("RequestedButton",
   lock_objects = FALSE
 )
 
+#' @title ComposedMessageWithAI
+#' @description Telegram API type \code{messages.composedMessageWithAI} (constructor \code{#90d7adfa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ComposedMessageWithAI <- R6::R6Class("ComposedMessageWithAI",
   inherit = TLObject,
   public = list(
@@ -86737,6 +94532,11 @@ ComposedMessageWithAI <- R6::R6Class("ComposedMessageWithAI",
   lock_objects = FALSE
 )
 
+#' @title PollStats
+#' @description Telegram API type \code{stats.pollStats} (constructor \code{#2999beed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PollStats <- R6::R6Class("PollStats",
   inherit = TLObject,
   public = list(
@@ -86776,6 +94576,11 @@ PollStats <- R6::R6Class("PollStats",
   lock_objects = FALSE
 )
 
+#' @title InputAiComposeToneDefault
+#' @description Telegram API type \code{inputAiComposeToneDefault} (constructor \code{#1fe9a9bf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputAiComposeToneDefault <- R6::R6Class("InputAiComposeToneDefault",
   inherit = TLObject,
   public = list(
@@ -86815,6 +94620,11 @@ InputAiComposeToneDefault <- R6::R6Class("InputAiComposeToneDefault",
   lock_objects = FALSE
 )
 
+#' @title InputAiComposeToneID
+#' @description Telegram API type \code{inputAiComposeToneID} (constructor \code{#0773c080}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputAiComposeToneID <- R6::R6Class("InputAiComposeToneID",
   inherit = TLObject,
   public = list(
@@ -86860,6 +94670,11 @@ InputAiComposeToneID <- R6::R6Class("InputAiComposeToneID",
   lock_objects = FALSE
 )
 
+#' @title InputAiComposeToneSlug
+#' @description Telegram API type \code{inputAiComposeToneSlug} (constructor \code{#1fa01357}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputAiComposeToneSlug <- R6::R6Class("InputAiComposeToneSlug",
   inherit = TLObject,
   public = list(
@@ -86899,6 +94714,11 @@ InputAiComposeToneSlug <- R6::R6Class("InputAiComposeToneSlug",
   lock_objects = FALSE
 )
 
+#' @title InputAiComposeToneSingleUse
+#' @description Telegram API type \code{inputAiComposeToneSingleUse} (constructor \code{#0e0c35af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputAiComposeToneSingleUse <- R6::R6Class("InputAiComposeToneSingleUse",
   inherit = TLObject,
   public = list(
@@ -86938,6 +94758,11 @@ InputAiComposeToneSingleUse <- R6::R6Class("InputAiComposeToneSingleUse",
   lock_objects = FALSE
 )
 
+#' @title AiComposeTone
+#' @description Telegram API type \code{aiComposeTone} (constructor \code{#cff63ea9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AiComposeTone <- R6::R6Class("AiComposeTone",
   inherit = TLObject,
   public = list(
@@ -87039,6 +94864,11 @@ AiComposeTone <- R6::R6Class("AiComposeTone",
   lock_objects = FALSE
 )
 
+#' @title AiComposeToneDefault
+#' @description Telegram API type \code{aiComposeToneDefault} (constructor \code{#9bad6414}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AiComposeToneDefault <- R6::R6Class("AiComposeToneDefault",
   inherit = TLObject,
   public = list(
@@ -87090,6 +94920,11 @@ AiComposeToneDefault <- R6::R6Class("AiComposeToneDefault",
   lock_objects = FALSE
 )
 
+#' @title TonesNotModified
+#' @description Telegram API type \code{aicompose.tonesNotModified} (constructor \code{#c1f46103}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TonesNotModified <- R6::R6Class("TonesNotModified",
   inherit = TLObject,
   public = list(
@@ -87123,6 +94958,11 @@ TonesNotModified <- R6::R6Class("TonesNotModified",
   lock_objects = FALSE
 )
 
+#' @title Tones
+#' @description Telegram API type \code{aicompose.tones} (constructor \code{#6c9d0efe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 Tones <- R6::R6Class("Tones",
   inherit = TLObject,
   public = list(
@@ -87174,6 +95014,11 @@ Tones <- R6::R6Class("Tones",
   lock_objects = FALSE
 )
 
+#' @title AiComposeToneExample
+#' @description Telegram API type \code{aiComposeToneExample} (constructor \code{#f1d628ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AiComposeToneExample <- R6::R6Class("AiComposeToneExample",
   inherit = TLObject,
   public = list(
@@ -87219,6 +95064,11 @@ AiComposeToneExample <- R6::R6Class("AiComposeToneExample",
   lock_objects = FALSE
 )
 
+#' @title AccessSettings
+#' @description Telegram API type \code{bots.accessSettings} (constructor \code{#dd1fbf93}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AccessSettings <- R6::R6Class("AccessSettings",
   inherit = TLObject,
   public = list(
@@ -87268,6 +95118,11 @@ AccessSettings <- R6::R6Class("AccessSettings",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteJoinResultOk
+#' @description Telegram API type \code{messages.chatInviteJoinResultOk} (constructor \code{#445663a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteJoinResultOk <- R6::R6Class("ChatInviteJoinResultOk",
   inherit = TLObject,
   public = list(
@@ -87307,6 +95162,11 @@ ChatInviteJoinResultOk <- R6::R6Class("ChatInviteJoinResultOk",
   lock_objects = FALSE
 )
 
+#' @title ChatInviteJoinResultWebView
+#' @description Telegram API type \code{messages.chatInviteJoinResultWebView} (constructor \code{#61ca29d3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChatInviteJoinResultWebView <- R6::R6Class("ChatInviteJoinResultWebView",
   inherit = TLObject,
   public = list(
@@ -87358,6 +95218,11 @@ ChatInviteJoinResultWebView <- R6::R6Class("ChatInviteJoinResultWebView",
   lock_objects = FALSE
 )
 
+#' @title JoinChatBotResultApproved
+#' @description Telegram API type \code{joinChatBotResultApproved} (constructor \code{#ae152a69}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatBotResultApproved <- R6::R6Class("JoinChatBotResultApproved",
   inherit = TLObject,
   public = list(
@@ -87391,6 +95256,11 @@ JoinChatBotResultApproved <- R6::R6Class("JoinChatBotResultApproved",
   lock_objects = FALSE
 )
 
+#' @title JoinChatBotResultDeclined
+#' @description Telegram API type \code{joinChatBotResultDeclined} (constructor \code{#0efa0194}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatBotResultDeclined <- R6::R6Class("JoinChatBotResultDeclined",
   inherit = TLObject,
   public = list(
@@ -87424,6 +95294,11 @@ JoinChatBotResultDeclined <- R6::R6Class("JoinChatBotResultDeclined",
   lock_objects = FALSE
 )
 
+#' @title JoinChatBotResultQueued
+#' @description Telegram API type \code{joinChatBotResultQueued} (constructor \code{#98a3a840}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatBotResultQueued <- R6::R6Class("JoinChatBotResultQueued",
   inherit = TLObject,
   public = list(
@@ -87457,6 +95332,11 @@ JoinChatBotResultQueued <- R6::R6Class("JoinChatBotResultQueued",
   lock_objects = FALSE
 )
 
+#' @title JoinChatBotResultWebView
+#' @description Telegram API type \code{joinChatBotResultWebView} (constructor \code{#d6e3b813}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatBotResultWebView <- R6::R6Class("JoinChatBotResultWebView",
   inherit = TLObject,
   public = list(
@@ -87496,6 +95376,11 @@ JoinChatBotResultWebView <- R6::R6Class("JoinChatBotResultWebView",
   lock_objects = FALSE
 )
 
+#' @title WebDomainException
+#' @description Telegram API type \code{webDomainException} (constructor \code{#933ca597}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebDomainException <- R6::R6Class("WebDomainException",
   inherit = TLObject,
   public = list(
@@ -87557,6 +95442,11 @@ WebDomainException <- R6::R6Class("WebDomainException",
   lock_objects = FALSE
 )
 
+#' @title WebBrowserSettingsNotModified
+#' @description Telegram API type \code{account.webBrowserSettingsNotModified} (constructor \code{#c31c8f4e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebBrowserSettingsNotModified <- R6::R6Class("WebBrowserSettingsNotModified",
   inherit = TLObject,
   public = list(
@@ -87590,6 +95480,11 @@ WebBrowserSettingsNotModified <- R6::R6Class("WebBrowserSettingsNotModified",
   lock_objects = FALSE
 )
 
+#' @title WebBrowserSettings
+#' @description Telegram API type \code{account.webBrowserSettings} (constructor \code{#79eb8cb3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WebBrowserSettings <- R6::R6Class("WebBrowserSettings",
   inherit = TLObject,
   public = list(
@@ -87656,6 +95551,11 @@ WebBrowserSettings <- R6::R6Class("WebBrowserSettings",
   lock_objects = FALSE
 )
 
+#' @title InputRichFilePhoto
+#' @description Telegram API type \code{inputRichFilePhoto} (constructor \code{#9b00622b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputRichFilePhoto <- R6::R6Class("InputRichFilePhoto",
   inherit = TLObject,
   public = list(
@@ -87701,6 +95601,11 @@ InputRichFilePhoto <- R6::R6Class("InputRichFilePhoto",
   lock_objects = FALSE
 )
 
+#' @title InputRichFileDocument
+#' @description Telegram API type \code{inputRichFileDocument} (constructor \code{#83281dbd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputRichFileDocument <- R6::R6Class("InputRichFileDocument",
   inherit = TLObject,
   public = list(
@@ -87746,6 +95651,11 @@ InputRichFileDocument <- R6::R6Class("InputRichFileDocument",
   lock_objects = FALSE
 )
 
+#' @title InputRichMessage
+#' @description Telegram API type \code{inputRichMessage} (constructor \code{#e4c449fc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputRichMessage <- R6::R6Class("InputRichMessage",
   inherit = TLObject,
   public = list(
@@ -87821,6 +95731,11 @@ InputRichMessage <- R6::R6Class("InputRichMessage",
   lock_objects = FALSE
 )
 
+#' @title InputRichMessageHTML
+#' @description Telegram API type \code{inputRichMessageHTML} (constructor \code{#dacb836a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputRichMessageHTML <- R6::R6Class("InputRichMessageHTML",
   inherit = TLObject,
   public = list(
@@ -87882,6 +95797,11 @@ InputRichMessageHTML <- R6::R6Class("InputRichMessageHTML",
   lock_objects = FALSE
 )
 
+#' @title InputRichMessageMarkdown
+#' @description Telegram API type \code{inputRichMessageMarkdown} (constructor \code{#004b572c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputRichMessageMarkdown <- R6::R6Class("InputRichMessageMarkdown",
   inherit = TLObject,
   public = list(
@@ -87943,6 +95863,11 @@ InputRichMessageMarkdown <- R6::R6Class("InputRichMessageMarkdown",
   lock_objects = FALSE
 )
 
+#' @title RichMessage
+#' @description Telegram API type \code{richMessage} (constructor \code{#baf39d8b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RichMessage <- R6::R6Class("RichMessage",
   inherit = TLObject,
   public = list(
@@ -88009,6 +95934,11 @@ RichMessage <- R6::R6Class("RichMessage",
   lock_objects = FALSE
 )
 
+#' @title CommunityPeer
+#' @description Telegram API type \code{communityPeer} (constructor \code{#76141ebd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CommunityPeer <- R6::R6Class("CommunityPeer",
   inherit = TLObject,
   public = list(
@@ -88064,6 +95994,11 @@ CommunityPeer <- R6::R6Class("CommunityPeer",
   lock_objects = FALSE
 )
 
+#' @title CommunityPeerRequest
+#' @description Telegram API type \code{communityPeerRequest} (constructor \code{#7beafa85}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CommunityPeerRequest <- R6::R6Class("CommunityPeerRequest",
   inherit = TLObject,
   public = list(
@@ -88124,6 +96059,11 @@ CommunityPeerRequest <- R6::R6Class("CommunityPeerRequest",
   lock_objects = FALSE
 )
 
+#' @title PeerLinkRequests
+#' @description Telegram API type \code{communities.peerLinkRequests} (constructor \code{#2244afad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PeerLinkRequests <- R6::R6Class("PeerLinkRequests",
   inherit = TLObject,
   public = list(
@@ -88191,6 +96131,11 @@ PeerLinkRequests <- R6::R6Class("PeerLinkRequests",
   lock_objects = FALSE
 )
 
+#' @title EphemeralMessage
+#' @description Telegram API type \code{ephemeralMessage} (constructor \code{#dd27bee9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EphemeralMessage <- R6::R6Class("EphemeralMessage",
   inherit = TLObject,
   public = list(
@@ -88344,6 +96289,11 @@ EphemeralMessage <- R6::R6Class("EphemeralMessage",
   lock_objects = FALSE
 )
 
+#' @title ParticipantJoinedChats
+#' @description Telegram API type \code{communities.participantJoinedChats} (constructor \code{#8d78512a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ParticipantJoinedChats <- R6::R6Class("ParticipantJoinedChats",
   inherit = TLObject,
   public = list(
@@ -88401,6 +96351,11 @@ ParticipantJoinedChats <- R6::R6Class("ParticipantJoinedChats",
   lock_objects = FALSE
 )
 
+#' @title TranslatedRichMessage
+#' @description Telegram API type \code{messages.translatedRichMessage} (constructor \code{#4203998f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TranslatedRichMessage <- R6::R6Class("TranslatedRichMessage",
   inherit = TLObject,
   public = list(
@@ -88440,6 +96395,11 @@ TranslatedRichMessage <- R6::R6Class("TranslatedRichMessage",
   lock_objects = FALSE
 )
 
+#' @title ComposedRichMessageWithAI
+#' @description Telegram API type \code{messages.composedRichMessageWithAI} (constructor \code{#4c4537c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ComposedRichMessageWithAI <- R6::R6Class("ComposedRichMessageWithAI",
   inherit = TLObject,
   public = list(
@@ -88479,6 +96439,11 @@ ComposedRichMessageWithAI <- R6::R6Class("ComposedRichMessageWithAI",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeDefault
+#' @description Telegram API type \code{buttonTypeDefault} (constructor \code{#c9dd90e9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeDefault <- R6::R6Class("ButtonTypeDefault",
   inherit = TLObject,
   public = list(
@@ -88512,6 +96477,11 @@ ButtonTypeDefault <- R6::R6Class("ButtonTypeDefault",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeRequestPhone
+#' @description Telegram API type \code{buttonTypeRequestPhone} (constructor \code{#df3d36f9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeRequestPhone <- R6::R6Class("ButtonTypeRequestPhone",
   inherit = TLObject,
   public = list(
@@ -88545,6 +96515,11 @@ ButtonTypeRequestPhone <- R6::R6Class("ButtonTypeRequestPhone",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeRequestGeoLocation
+#' @description Telegram API type \code{buttonTypeRequestGeoLocation} (constructor \code{#9beee140}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeRequestGeoLocation <- R6::R6Class("ButtonTypeRequestGeoLocation",
   inherit = TLObject,
   public = list(
@@ -88578,6 +96553,11 @@ ButtonTypeRequestGeoLocation <- R6::R6Class("ButtonTypeRequestGeoLocation",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeRequestPoll
+#' @description Telegram API type \code{buttonTypeRequestPoll} (constructor \code{#aacfff84}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeRequestPoll <- R6::R6Class("ButtonTypeRequestPoll",
   inherit = TLObject,
   public = list(
@@ -88621,6 +96601,11 @@ ButtonTypeRequestPoll <- R6::R6Class("ButtonTypeRequestPoll",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeRequestPeer
+#' @description Telegram API type \code{buttonTypeRequestPeer} (constructor \code{#4f58a237}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeRequestPeer <- R6::R6Class("ButtonTypeRequestPeer",
   inherit = TLObject,
   public = list(
@@ -88675,6 +96660,11 @@ ButtonTypeRequestPeer <- R6::R6Class("ButtonTypeRequestPeer",
   lock_objects = FALSE
 )
 
+#' @title InputButtonTypeRequestPeer
+#' @description Telegram API type \code{inputButtonTypeRequestPeer} (constructor \code{#3fe268fe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputButtonTypeRequestPeer <- R6::R6Class("InputButtonTypeRequestPeer",
   inherit = TLObject,
   public = list(
@@ -88747,6 +96737,11 @@ InputButtonTypeRequestPeer <- R6::R6Class("InputButtonTypeRequestPeer",
   lock_objects = FALSE
 )
 
+#' @title ButtonTypeSimpleWebView
+#' @description Telegram API type \code{buttonTypeSimpleWebView} (constructor \code{#c01a597a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ButtonTypeSimpleWebView <- R6::R6Class("ButtonTypeSimpleWebView",
   inherit = TLObject,
   public = list(
@@ -88786,6 +96781,11 @@ ButtonTypeSimpleWebView <- R6::R6Class("ButtonTypeSimpleWebView",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeUrl
+#' @description Telegram API type \code{inlineButtonTypeUrl} (constructor \code{#eca4f8d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeUrl <- R6::R6Class("InlineButtonTypeUrl",
   inherit = TLObject,
   public = list(
@@ -88825,6 +96825,11 @@ InlineButtonTypeUrl <- R6::R6Class("InlineButtonTypeUrl",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeUrlAuth
+#' @description Telegram API type \code{inlineButtonTypeUrlAuth} (constructor \code{#bfd02da2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeUrlAuth <- R6::R6Class("InlineButtonTypeUrlAuth",
   inherit = TLObject,
   public = list(
@@ -88880,6 +96885,11 @@ InlineButtonTypeUrlAuth <- R6::R6Class("InlineButtonTypeUrlAuth",
   lock_objects = FALSE
 )
 
+#' @title InputInlineButtonTypeUrlAuth
+#' @description Telegram API type \code{inputInlineButtonTypeUrlAuth} (constructor \code{#9961bcb4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInlineButtonTypeUrlAuth <- R6::R6Class("InputInlineButtonTypeUrlAuth",
   inherit = TLObject,
   public = list(
@@ -88942,6 +96952,11 @@ InputInlineButtonTypeUrlAuth <- R6::R6Class("InputInlineButtonTypeUrlAuth",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeWebView
+#' @description Telegram API type \code{inlineButtonTypeWebView} (constructor \code{#3bcab5b4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeWebView <- R6::R6Class("InlineButtonTypeWebView",
   inherit = TLObject,
   public = list(
@@ -88981,6 +96996,11 @@ InlineButtonTypeWebView <- R6::R6Class("InlineButtonTypeWebView",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeCallback
+#' @description Telegram API type \code{inlineButtonTypeCallback} (constructor \code{#2955bc38}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeCallback <- R6::R6Class("InlineButtonTypeCallback",
   inherit = TLObject,
   public = list(
@@ -89029,6 +97049,11 @@ InlineButtonTypeCallback <- R6::R6Class("InlineButtonTypeCallback",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeGame
+#' @description Telegram API type \code{inlineButtonTypeGame} (constructor \code{#5cd3709d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeGame <- R6::R6Class("InlineButtonTypeGame",
   inherit = TLObject,
   public = list(
@@ -89062,6 +97087,11 @@ InlineButtonTypeGame <- R6::R6Class("InlineButtonTypeGame",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeBuy
+#' @description Telegram API type \code{inlineButtonTypeBuy} (constructor \code{#48bad7a5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeBuy <- R6::R6Class("InlineButtonTypeBuy",
   inherit = TLObject,
   public = list(
@@ -89095,6 +97125,11 @@ InlineButtonTypeBuy <- R6::R6Class("InlineButtonTypeBuy",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeSwitchInline
+#' @description Telegram API type \code{inlineButtonTypeSwitchInline} (constructor \code{#93773ff5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeSwitchInline <- R6::R6Class("InlineButtonTypeSwitchInline",
   inherit = TLObject,
   public = list(
@@ -89150,6 +97185,11 @@ InlineButtonTypeSwitchInline <- R6::R6Class("InlineButtonTypeSwitchInline",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeUserProfile
+#' @description Telegram API type \code{inlineButtonTypeUserProfile} (constructor \code{#3fa33fcf}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeUserProfile <- R6::R6Class("InlineButtonTypeUserProfile",
   inherit = TLObject,
   public = list(
@@ -89189,6 +97229,11 @@ InlineButtonTypeUserProfile <- R6::R6Class("InlineButtonTypeUserProfile",
   lock_objects = FALSE
 )
 
+#' @title InputInlineButtonTypeUserProfile
+#' @description Telegram API type \code{inputInlineButtonTypeUserProfile} (constructor \code{#53f3ce5a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputInlineButtonTypeUserProfile <- R6::R6Class("InputInlineButtonTypeUserProfile",
   inherit = TLObject,
   public = list(
@@ -89228,6 +97273,11 @@ InputInlineButtonTypeUserProfile <- R6::R6Class("InputInlineButtonTypeUserProfil
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeCopy
+#' @description Telegram API type \code{inlineButtonTypeCopy} (constructor \code{#b41d3272}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeCopy <- R6::R6Class("InlineButtonTypeCopy",
   inherit = TLObject,
   public = list(
@@ -89267,6 +97317,11 @@ InlineButtonTypeCopy <- R6::R6Class("InlineButtonTypeCopy",
   lock_objects = FALSE
 )
 
+#' @title InlineButtonTypeDisabled
+#' @description Telegram API type \code{inlineButtonTypeDisabled} (constructor \code{#a438619d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InlineButtonTypeDisabled <- R6::R6Class("InlineButtonTypeDisabled",
   inherit = TLObject,
   public = list(
@@ -89300,6 +97355,11 @@ InlineButtonTypeDisabled <- R6::R6Class("InlineButtonTypeDisabled",
   lock_objects = FALSE
 )
 
+#' @title KeyboardInlineButton
+#' @description Telegram API type \code{keyboardInlineButton} (constructor \code{#11c1a322}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 KeyboardInlineButton <- R6::R6Class("KeyboardInlineButton",
   inherit = TLObject,
   public = list(
@@ -89355,6 +97415,11 @@ KeyboardInlineButton <- R6::R6Class("KeyboardInlineButton",
   lock_objects = FALSE
 )
 
+#' @title KeyboardInlineButtonRow
+#' @description Telegram API type \code{keyboardInlineButtonRow} (constructor \code{#19420af6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 KeyboardInlineButtonRow <- R6::R6Class("KeyboardInlineButtonRow",
   inherit = TLObject,
   public = list(
@@ -89394,6 +97459,11 @@ KeyboardInlineButtonRow <- R6::R6Class("KeyboardInlineButtonRow",
   lock_objects = FALSE
 )
 
+#' @title RichButtonStyle
+#' @description Telegram API type \code{richButtonStyle} (constructor \code{#03c610bd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RichButtonStyle <- R6::R6Class("RichButtonStyle",
   inherit = TLObject,
   public = list(
@@ -89454,6 +97524,11 @@ RichButtonStyle <- R6::R6Class("RichButtonStyle",
   lock_objects = FALSE
 )
 
+#' @title PageButton
+#' @description Telegram API type \code{pageButton} (constructor \code{#692a5488}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 PageButton <- R6::R6Class("PageButton",
   inherit = TLObject,
   public = list(
@@ -89509,6 +97584,11 @@ PageButton <- R6::R6Class("PageButton",
   lock_objects = FALSE
 )
 
+#' @title WelcomeMessagesNotModified
+#' @description Telegram API type \code{ephemeral.welcomeMessagesNotModified} (constructor \code{#59ffdb31}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WelcomeMessagesNotModified <- R6::R6Class("WelcomeMessagesNotModified",
   inherit = TLObject,
   public = list(
@@ -89542,6 +97622,11 @@ WelcomeMessagesNotModified <- R6::R6Class("WelcomeMessagesNotModified",
   lock_objects = FALSE
 )
 
+#' @title WelcomeMessages
+#' @description Telegram API type \code{ephemeral.welcomeMessages} (constructor \code{#104fc872}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 WelcomeMessages <- R6::R6Class("WelcomeMessages",
   inherit = TLObject,
   public = list(
@@ -89587,6 +97672,11 @@ WelcomeMessages <- R6::R6Class("WelcomeMessages",
   lock_objects = FALSE
 )
 
+#' @title FirebasePnvIntent
+#' @description Telegram API type \code{auth.firebasePnvIntent} (constructor \code{#df5ac00c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FirebasePnvIntent <- R6::R6Class("FirebasePnvIntent",
   inherit = TLObject,
   public = list(

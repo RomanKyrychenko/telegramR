@@ -1,12 +1,8 @@
-#  CheckChatlistInviteRequest R6 class
-# 
-#  Request to check a chatlist invite by slug.
-# 
-#  @title CheckChatlistInviteRequest
-#  @description Telegram API type CheckChatlistInviteRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckChatlistInviteRequest
+#' @description Telegram API request \code{chatlists.checkChatlistInvite} (constructor \code{#41c10fff}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckChatlistInviteRequest <- R6::R6Class(
   "CheckChatlistInviteRequest",
   public = list(
@@ -77,15 +73,11 @@ CheckChatlistInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  DeleteExportedInviteRequest R6 class
-# 
-#  Request to delete an exported invite for a chatlist.
-# 
-#  @title DeleteExportedInviteRequest
-#  @description Telegram API type DeleteExportedInviteRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteExportedInviteRequest
+#' @description Telegram API request \code{chatlists.deleteExportedInvite} (constructor \code{#719c5c5e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteExportedInviteRequest <- R6::R6Class(
   "DeleteExportedInviteRequest",
   public = list(
@@ -167,15 +159,11 @@ DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  EditExportedInviteRequest R6 class
-# 
-#  Request to edit an exported invite for a chatlist (optional title and peers).
-# 
-#  @title EditExportedInviteRequest
-#  @description Telegram API type EditExportedInviteRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditExportedInviteRequest
+#' @description Telegram API request \code{chatlists.editExportedInvite} (constructor \code{#653db63d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditExportedInviteRequest <- R6::R6Class(
   "EditExportedInviteRequest",
   public = list(
@@ -345,15 +333,11 @@ EditExportedInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  ExportChatlistInviteRequest R6 class
-# 
-#  Request to export an invite for a chatlist with a title and list of peers.
-# 
-#  @title ExportChatlistInviteRequest
-#  @description Telegram API type ExportChatlistInviteRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ExportChatlistInviteRequest
+#' @description Telegram API request \code{chatlists.exportChatlistInvite} (constructor \code{#8472478e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportChatlistInviteRequest <- R6::R6Class(
   "ExportChatlistInviteRequest",
   public = list(
@@ -487,15 +471,11 @@ ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  GetChatlistUpdatesRequest R6 class
-# 
-#  Request to get updates for a chatlist.
-# 
-#  @title GetChatlistUpdatesRequest
-#  @description Telegram API type GetChatlistUpdatesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetChatlistUpdatesRequest
+#' @description Telegram API request \code{chatlists.getChatlistUpdates} (constructor \code{#89419521}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetChatlistUpdatesRequest <- R6::R6Class(
   "GetChatlistUpdatesRequest",
   public = list(
@@ -550,15 +530,11 @@ GetChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  GetExportedInvitesRequest R6 class
-# 
-#  Request to get exported invites for a chatlist.
-# 
-#  @title GetExportedInvitesRequest
-#  @description Telegram API type GetExportedInvitesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetExportedInvitesRequest
+#' @description Telegram API request \code{chatlists.getExportedInvites} (constructor \code{#ce03da83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetExportedInvitesRequest <- R6::R6Class(
   "GetExportedInvitesRequest",
   public = list(
@@ -613,15 +589,11 @@ GetExportedInvitesRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  GetLeaveChatlistSuggestionsRequest R6 class
-# 
-#  Request to get suggestions of peers to leave from a chatlist.
-# 
-#  @title GetLeaveChatlistSuggestionsRequest
-#  @description Telegram API type GetLeaveChatlistSuggestionsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetLeaveChatlistSuggestionsRequest
+#' @description Telegram API request \code{chatlists.getLeaveChatlistSuggestions} (constructor \code{#fdbcd714}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
   "GetLeaveChatlistSuggestionsRequest",
   public = list(
@@ -676,15 +648,11 @@ GetLeaveChatlistSuggestionsRequest$set("public", "from_reader", function(reader)
 })
 
 
-#  HideChatlistUpdatesRequest R6 class
-# 
-#  Request to hide updates for a chatlist.
-# 
-#  @title HideChatlistUpdatesRequest
-#  @description Telegram API type HideChatlistUpdatesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title HideChatlistUpdatesRequest
+#' @description Telegram API request \code{chatlists.hideChatlistUpdates} (constructor \code{#66e486fb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HideChatlistUpdatesRequest <- R6::R6Class(
   "HideChatlistUpdatesRequest",
   public = list(
@@ -740,15 +708,11 @@ HideChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  JoinChatlistInviteRequest R6 class
-# 
-#  Request to join a chatlist invite (by slug) with specific peers.
-# 
-#  @title JoinChatlistInviteRequest
-#  @description Telegram API type JoinChatlistInviteRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title JoinChatlistInviteRequest
+#' @description Telegram API request \code{chatlists.joinChatlistInvite} (constructor \code{#a6b1e39a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatlistInviteRequest <- R6::R6Class(
   "JoinChatlistInviteRequest",
   public = list(
@@ -876,15 +840,11 @@ JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  JoinChatlistUpdatesRequest R6 class
-# 
-#  Request to join a chatlist with specific peers.
-# 
-#  @title JoinChatlistUpdatesRequest
-#  @description Telegram API type JoinChatlistUpdatesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title JoinChatlistUpdatesRequest
+#' @description Telegram API request \code{chatlists.joinChatlistUpdates} (constructor \code{#e089f8f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 JoinChatlistUpdatesRequest <- R6::R6Class(
   "JoinChatlistUpdatesRequest",
   public = list(
@@ -989,15 +949,11 @@ JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  LeaveChatlistRequest R6 class
-# 
-#  Request to leave a chatlist for specific peers.
-# 
-#  @title LeaveChatlistRequest
-#  @description Telegram API type LeaveChatlistRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title LeaveChatlistRequest
+#' @description Telegram API request \code{chatlists.leaveChatlist} (constructor \code{#74fae13a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LeaveChatlistRequest <- R6::R6Class(
   "LeaveChatlistRequest",
   public = list(

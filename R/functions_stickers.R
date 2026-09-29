@@ -1,22 +1,8 @@
-#  AddStickerToSetRequest R6 class
-# 
-#  Represents a request to add a sticker to a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(stickerset, sticker): create instance.
-#  - resolve(client, utils): resolve friendly references to TL inputs (optional helper).
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  All methods are exported as part of the R6 object.
-# 
-#  @title AddStickerToSetRequest
-#  @description Telegram API type AddStickerToSetRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title AddStickerToSetRequest
+#' @description Telegram API request \code{stickers.addStickerToSet} (constructor \code{#8653febe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AddStickerToSetRequest <- R6::R6Class(
   "AddStickerToSetRequest",
   public = list(
@@ -112,25 +98,11 @@ AddStickerToSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  ChangeStickerRequest R6 class
-# 
-#  Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
-# 
-# 
-#  @section Methods:
-#  - initialize(sticker, emoji = NULL, mask_coords = NULL, keywords = NULL): create instance.
-#  - resolve(client, utils): resolve friendly references to TL inputs (documents).
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  All methods are exported as part of the R6 object.
-# 
-#  @title ChangeStickerRequest
-#  @description Telegram API type ChangeStickerRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ChangeStickerRequest
+#' @description Telegram API request \code{stickers.changeSticker} (constructor \code{#f5537ebc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChangeStickerRequest <- R6::R6Class(
   "ChangeStickerRequest",
   public = list(
@@ -267,25 +239,11 @@ ChangeStickerRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  ChangeStickerPositionRequest R6 class
-# 
-#  Represents a request to change a sticker's position within a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(sticker, position): create instance.
-#  - resolve(client, utils): resolve friendly references to TL inputs (documents).
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  All methods are exported as part of the R6 object.
-# 
-#  @title ChangeStickerPositionRequest
-#  @description Telegram API type ChangeStickerPositionRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ChangeStickerPositionRequest
+#' @description Telegram API request \code{stickers.changeStickerPosition} (constructor \code{#ffb6d4ca}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ChangeStickerPositionRequest <- R6::R6Class(
   "ChangeStickerPositionRequest",
   public = list(
@@ -383,22 +341,11 @@ ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  CheckShortNameRequest R6 class
-# 
-#  Represents a request to check whether a short name is available/valid.
-# 
-# 
-#  @section Methods:
-#  - initialize(short_name): create instance.
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title CheckShortNameRequest
-#  @description Telegram API type CheckShortNameRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckShortNameRequest
+#' @description Telegram API request \code{stickers.checkShortName} (constructor \code{#284b3639}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckShortNameRequest <- R6::R6Class(
   "CheckShortNameRequest",
   public = list(
@@ -469,25 +416,11 @@ CheckShortNameRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  CreateStickerSetRequest R6 class
-# 
-#  Represents a request to create a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(user_id, title, short_name, stickers, masks = NULL, emojis = NULL, text_color = NULL, thumb = NULL, software = NULL): create instance.
-#  - resolve(client, utils): resolve friendly references to TL inputs (documents / users).
-#  - to_list(): returns a list representation suitable for inspection/JSON.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): static-style constructor that reads values from a reader object.
-# 
-#  All methods are exported as part of the R6 object.
-# 
-#  @title CreateStickerSetRequest
-#  @description Telegram API type CreateStickerSetRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CreateStickerSetRequest
+#' @description Telegram API request \code{stickers.createStickerSet} (constructor \code{#9021ab67}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CreateStickerSetRequest <- R6::R6Class(
   "CreateStickerSetRequest",
   public = list(
@@ -702,22 +635,11 @@ CreateStickerSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  DeleteStickerSetRequest R6 class
-# 
-#  Represents a request to delete a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(stickerset): create instance.
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title DeleteStickerSetRequest
-#  @description Telegram API type DeleteStickerSetRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteStickerSetRequest
+#' @description Telegram API request \code{stickers.deleteStickerSet} (constructor \code{#87704394}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteStickerSetRequest <- R6::R6Class(
   "DeleteStickerSetRequest",
   public = list(
@@ -784,23 +706,11 @@ DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  RemoveStickerFromSetRequest R6 class
-# 
-#  Represents a request to remove a sticker from a set.
-# 
-# 
-#  @section Methods:
-#  - initialize(sticker): create instance.
-#  - resolve(client, utils): resolves the sticker to an InputDocument using utils.
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title RemoveStickerFromSetRequest
-#  @description Telegram API type RemoveStickerFromSetRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title RemoveStickerFromSetRequest
+#' @description Telegram API request \code{stickers.removeStickerFromSet} (constructor \code{#f7760f51}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RemoveStickerFromSetRequest <- R6::R6Class(
   "RemoveStickerFromSetRequest",
   public = list(
@@ -877,22 +787,11 @@ RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  RenameStickerSetRequest R6 class
-# 
-#  Represents a request to rename a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(stickerset, title): create instance.
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title RenameStickerSetRequest
-#  @description Telegram API type RenameStickerSetRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title RenameStickerSetRequest
+#' @description Telegram API request \code{stickers.renameStickerSet} (constructor \code{#124b1c00}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RenameStickerSetRequest <- R6::R6Class(
   "RenameStickerSetRequest",
   public = list(
@@ -983,23 +882,11 @@ RenameStickerSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  ReplaceStickerRequest R6 class
-# 
-#  Represents a request to replace a sticker with a new sticker item.
-# 
-# 
-#  @section Methods:
-#  - initialize(sticker, new_sticker): create instance.
-#  - resolve(client, utils): resolves references (e.g. ensure sticker is InputDocument).
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title ReplaceStickerRequest
-#  @description Telegram API type ReplaceStickerRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReplaceStickerRequest
+#' @description Telegram API request \code{stickers.replaceSticker} (constructor \code{#4696459a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReplaceStickerRequest <- R6::R6Class(
   "ReplaceStickerRequest",
   public = list(
@@ -1091,23 +978,11 @@ ReplaceStickerRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  SetStickerSetThumbRequest R6 class
-# 
-#  Represents a request to set a thumbnail for a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(stickerset, thumb = NULL, thumb_document_id = NULL): create instance.
-#  - resolve(client, utils): resolves references (e.g. ensure thumb is InputDocument).
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title SetStickerSetThumbRequest
-#  @description Telegram API type SetStickerSetThumbRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetStickerSetThumbRequest
+#' @description Telegram API request \code{stickers.setStickerSetThumb} (constructor \code{#a76a5392}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetStickerSetThumbRequest <- R6::R6Class(
   "SetStickerSetThumbRequest",
   public = list(
@@ -1241,22 +1116,11 @@ SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#  SuggestShortNameRequest R6 class
-# 
-#  Represents a request to suggest a short name for a sticker set.
-# 
-# 
-#  @section Methods:
-#  - initialize(title): create instance.
-#  - to_list(): returns a list representation suitable for JSON/inspection.
-#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#  - from_reader(reader): reads a request from a reader object and returns a new instance.
-# 
-#  @title SuggestShortNameRequest
-#  @description Telegram API type SuggestShortNameRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SuggestShortNameRequest
+#' @description Telegram API request \code{stickers.suggestShortName} (constructor \code{#4dafc503}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SuggestShortNameRequest <- R6::R6Class(
   "SuggestShortNameRequest",
   public = list(

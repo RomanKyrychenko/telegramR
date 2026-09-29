@@ -1,13 +1,8 @@
-#  GetCollectibleInfoRequest R6 class
-# 
-#  Request to retrieve collectible information (fragment.CollectibleInfo).
-# 
-#  @return R6 object of class GetCollectibleInfoRequest
-#  @title GetCollectibleInfoRequest
-#  @description Telegram API type GetCollectibleInfoRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetCollectibleInfoRequest
+#' @description Telegram API request \code{fragment.getCollectibleInfo} (constructor \code{#be1e85ba}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetCollectibleInfoRequest <- R6::R6Class(
   "GetCollectibleInfoRequest",
   inherit = TLRequest,

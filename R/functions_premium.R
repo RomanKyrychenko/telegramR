@@ -1,11 +1,8 @@
-#  ApplyBoostRequest R6 class
-# 
-#  Representation of the TL request "ApplyBoostRequest".
-#  @title ApplyBoostRequest
-#  @description Telegram API type ApplyBoostRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ApplyBoostRequest
+#' @description Telegram API request \code{premium.applyBoost} (constructor \code{#6b7da746}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ApplyBoostRequest <- R6::R6Class(
   "ApplyBoostRequest",
   public = list(
@@ -102,14 +99,11 @@ ApplyBoostRequest <- R6::R6Class(
 )
 
 
-#  GetBoostsListRequest R6 class
-# 
-#  Representation of the TL request "GetBoostsListRequest"
-#  @title GetBoostsListRequest
-#  @description Telegram API type GetBoostsListRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBoostsListRequest
+#' @description Telegram API request \code{premium.getBoostsList} (constructor \code{#60f67660}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBoostsListRequest <- R6::R6Class(
   "GetBoostsListRequest",
   public = list(
@@ -195,14 +189,11 @@ GetBoostsListRequest <- R6::R6Class(
 )
 
 
-#  GetBoostsStatusRequest R6 class
-# 
-#  Representation of the TL request "GetBoostsStatusRequest".
-#  @title GetBoostsStatusRequest
-#  @description Telegram API type GetBoostsStatusRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBoostsStatusRequest
+#' @description Telegram API request \code{premium.getBoostsStatus} (constructor \code{#042f1f61}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBoostsStatusRequest <- R6::R6Class(
   "GetBoostsStatusRequest",
   public = list(
@@ -261,14 +252,11 @@ GetBoostsStatusRequest <- R6::R6Class(
   )
 )
 
-#  GetMyBoostsRequest R6 class
-# 
-#  Representation of the TL request "GetMyBoostsRequest".
-#  @title GetMyBoostsRequest
-#  @description Telegram API type GetMyBoostsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMyBoostsRequest
+#' @description Telegram API request \code{premium.getMyBoosts} (constructor \code{#0be77b4a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMyBoostsRequest <- R6::R6Class(
   "GetMyBoostsRequest",
   public = list(
@@ -308,14 +296,11 @@ GetMyBoostsRequest <- R6::R6Class(
 )
 
 
-#  GetUserBoostsRequest R6 class
-# 
-#  Representation of the TL request "GetUserBoostsRequest".
-#  @title GetUserBoostsRequest
-#  @description Telegram API type GetUserBoostsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetUserBoostsRequest
+#' @description Telegram API request \code{premium.getUserBoosts} (constructor \code{#39854d1f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetUserBoostsRequest <- R6::R6Class(
   "GetUserBoostsRequest",
   public = list(

@@ -1,8 +1,8 @@
-#  @title AcceptEncryptionRequest
-#  @description Represents a request to accept encryption. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title AcceptEncryptionRequest
+#' @description Telegram API request \code{messages.acceptEncryption} (constructor \code{#3dbc0415}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AcceptEncryptionRequest <- R6::R6Class(
   "AcceptEncryptionRequest",
   inherit = TLRequest,
@@ -65,11 +65,11 @@ AcceptEncryptionRequest$fromReader <- function(reader) {
   AcceptEncryptionRequest$new(peer = peer, gB = gB, keyFingerprint = keyFingerprint)
 }
 
-#  @title AcceptUrlAuthRequest
-#  @description Represents a request to accept URL auth. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title AcceptUrlAuthRequest
+#' @description Telegram API request \code{messages.acceptUrlAuth} (constructor \code{#67a3f0de}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AcceptUrlAuthRequest <- R6::R6Class("AcceptUrlAuthRequest",
   inherit = TLRequest,
   public = list(
@@ -157,6 +157,11 @@ AcceptUrlAuthRequest <- R6::R6Class("AcceptUrlAuthRequest",
   lock_objects = FALSE
 )
 
+#' @title AddChatUserRequest
+#' @description Telegram API request \code{messages.addChatUser} (constructor \code{#cbc6d107}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AddChatUserRequest <- R6::R6Class(
   "AddChatUserRequest",
   inherit = TLRequest,
@@ -226,11 +231,11 @@ AddChatUserRequest$fromReader <- function(reader) {
 }
 
 
-#  @title AppendTodoListRequest
-#  @description Represents a request to append a todo list. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title AppendTodoListRequest
+#' @description Telegram API request \code{messages.appendTodoList} (constructor \code{#21a61057}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AppendTodoListRequest <- R6::R6Class(
   "AppendTodoListRequest",
   lock_objects = FALSE,
@@ -299,11 +304,11 @@ AppendTodoListRequest$fromReader <- function(reader) {
   AppendTodoListRequest$new(peer = peer, msgId = msgId, list = list)
 }
 
-#  @title CheckChatInviteRequest
-#  @description Represents a request to check a chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckChatInviteRequest
+#' @description Telegram API request \code{messages.checkChatInvite} (constructor \code{#3eadb1bb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckChatInviteRequest <- R6::R6Class(
   "CheckChatInviteRequest",
   inherit = TLRequest,
@@ -351,11 +356,11 @@ CheckChatInviteRequest$fromReader <- function(reader) {
   CheckChatInviteRequest$new(hash = hash)
 }
 
-#  @title CheckHistoryImportRequest
-#  @description Represents a request to check history import. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckHistoryImportRequest
+#' @description Telegram API request \code{messages.checkHistoryImport} (constructor \code{#43fe19f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckHistoryImportRequest <- R6::R6Class(
   "CheckHistoryImportRequest",
   lock_objects = FALSE,
@@ -403,11 +408,11 @@ CheckHistoryImportRequest$fromReader <- function(reader) {
 }
 
 
-#  @title CheckHistoryImportPeerRequest
-#  @description Represents a request to check history import peer. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckHistoryImportPeerRequest
+#' @description Telegram API request \code{messages.checkHistoryImportPeer} (constructor \code{#5dc60f03}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckHistoryImportPeerRequest <- R6::R6Class(
   "CheckHistoryImportPeerRequest",
   lock_objects = FALSE,
@@ -461,11 +466,11 @@ CheckHistoryImportPeerRequest$fromReader <- function(reader) {
   CheckHistoryImportPeerRequest$new(peer = peer)
 }
 
-#  @title CheckQuickReplyShortcutRequest
-#  @description Represents a request to check quick reply shortcut. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckQuickReplyShortcutRequest
+#' @description Telegram API request \code{messages.checkQuickReplyShortcut} (constructor \code{#f1d0fbd3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckQuickReplyShortcutRequest <- R6::R6Class(
   "CheckQuickReplyShortcutRequest",
   lock_objects = FALSE,
@@ -512,11 +517,11 @@ CheckQuickReplyShortcutRequest$fromReader <- function(reader) {
   CheckQuickReplyShortcutRequest$new(shortcut = shortcut)
 }
 
-#  @title ClearAllDraftsRequest
-#  @description Represents a request to clear all drafts. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ClearAllDraftsRequest
+#' @description Telegram API request \code{messages.clearAllDrafts} (constructor \code{#7e58ee9c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ClearAllDraftsRequest <- R6::R6Class(
   "ClearAllDraftsRequest",
   inherit = TLRequest,
@@ -550,11 +555,11 @@ ClearAllDraftsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title ClearRecentReactionsRequest
-#  @description Represents a request to clear recent reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ClearRecentReactionsRequest
+#' @description Telegram API request \code{messages.clearRecentReactions} (constructor \code{#9dfeefb4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ClearRecentReactionsRequest <- R6::R6Class(
   "ClearRecentReactionsRequest",
   inherit = TLRequest,
@@ -587,11 +592,11 @@ ClearRecentReactionsRequest$fromReader <- function(reader) {
   ClearRecentReactionsRequest$new()
 }
 
-#  @title ClearRecentStickersRequest
-#  @description Represents a request to clear recent stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ClearRecentStickersRequest
+#' @description Telegram API request \code{messages.clearRecentStickers} (constructor \code{#8999602d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ClearRecentStickersRequest <- R6::R6Class(
   "ClearRecentStickersRequest",
   lock_objects = FALSE,
@@ -640,11 +645,11 @@ ClearRecentStickersRequest$fromReader <- function(reader) {
   ClearRecentStickersRequest$new(attached = attached)
 }
 
-#  @title ClickSponsoredMessageRequest
-#  @description Represents a request to click a sponsored message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ClickSponsoredMessageRequest
+#' @description Telegram API request \code{messages.clickSponsoredMessage} (constructor \code{#8235057e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ClickSponsoredMessageRequest <- R6::R6Class(
   "ClickSponsoredMessageRequest",
   lock_objects = FALSE,
@@ -709,11 +714,11 @@ ClickSponsoredMessageRequest$fromReader <- function(reader) {
 }
 
 
-#  @title CreateChatRequest
-#  @description Represents a request to create a chat. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title CreateChatRequest
+#' @description Telegram API request \code{messages.createChat} (constructor \code{#92ceddd4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CreateChatRequest <- R6::R6Class(
   "CreateChatRequest",
   lock_objects = FALSE,
@@ -789,11 +794,11 @@ CreateChatRequest$fromReader <- function(reader) {
   CreateChatRequest$new(users = users, title = title, ttlPeriod = ttlPeriod)
 }
 
-#  @title DeleteChatRequest
-#  @description Represents a request to delete a chat. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteChatRequest
+#' @description Telegram API request \code{messages.deleteChat} (constructor \code{#5bd0ee50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteChatRequest <- R6::R6Class(
   "DeleteChatRequest",
   lock_objects = FALSE,
@@ -840,11 +845,11 @@ DeleteChatRequest$fromReader <- function(reader) {
   DeleteChatRequest$new(chatId = chatId)
 }
 
-#  @title DeleteChatUserRequest
-#  @description Represents a request to delete a user from a chat. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteChatUserRequest
+#' @description Telegram API request \code{messages.deleteChatUser} (constructor \code{#a2185cab}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteChatUserRequest <- R6::R6Class(
   "DeleteChatUserRequest",
   lock_objects = FALSE,
@@ -910,11 +915,11 @@ DeleteChatUserRequest$fromReader <- function(reader) {
 }
 
 
-#  @title DeleteExportedChatInviteRequest
-#  @description Represents a request to delete an exported chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteExportedChatInviteRequest
+#' @description Telegram API request \code{messages.deleteExportedChatInvite} (constructor \code{#d464a42b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteExportedChatInviteRequest <- R6::R6Class(
   "DeleteExportedChatInviteRequest",
   lock_objects = FALSE,
@@ -973,11 +978,11 @@ DeleteExportedChatInviteRequest$fromReader <- function(reader) {
   DeleteExportedChatInviteRequest$new(peer = peer, link = link)
 }
 
-#  @title DeleteFactCheckRequest
-#  @description Represents a request to delete a fact check. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteFactCheckRequest
+#' @description Telegram API request \code{messages.deleteFactCheck} (constructor \code{#d1da940c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteFactCheckRequest <- R6::R6Class(
   "DeleteFactCheckRequest",
   lock_objects = FALSE,
@@ -1036,11 +1041,11 @@ DeleteFactCheckRequest$fromReader <- function(reader) {
   DeleteFactCheckRequest$new(peer = peer, msgId = msgId)
 }
 
-#  @title DeleteHistoryRequest
-#  @description Represents a request to delete history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteHistoryRequest
+#' @description Telegram API request \code{messages.deleteHistory} (constructor \code{#b08f922a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteHistoryRequest <- R6::R6Class("DeleteHistoryRequest",
   inherit = TLRequest,
   public = list(
@@ -1119,6 +1124,11 @@ DeleteHistoryRequest <- R6::R6Class("DeleteHistoryRequest",
   lock_objects = FALSE
 )
 
+#' @title DeleteMessagesRequest
+#' @description Telegram API request \code{messages.deleteMessages} (constructor \code{#e58e95d2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteMessagesRequest <- R6::R6Class("DeleteMessagesRequest",
   inherit = TLRequest,
   public = list(
@@ -1167,6 +1177,11 @@ DeleteMessagesRequest <- R6::R6Class("DeleteMessagesRequest",
   lock_objects = FALSE
 )
 
+#' @title DeletePhoneCallHistoryRequest
+#' @description Telegram API request \code{messages.deletePhoneCallHistory} (constructor \code{#f9cbe409}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeletePhoneCallHistoryRequest <- R6::R6Class(
   "DeletePhoneCallHistoryRequest",
   lock_objects = FALSE,
@@ -1215,11 +1230,11 @@ DeletePhoneCallHistoryRequest$fromReader <- function(reader) {
   DeletePhoneCallHistoryRequest$new(revoke = revoke)
 }
 
-#  @title DeleteQuickReplyMessagesRequest
-#  @description Represents a request to delete quick reply messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteQuickReplyMessagesRequest
+#' @description Telegram API request \code{messages.deleteQuickReplyMessages} (constructor \code{#e105e910}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteQuickReplyMessagesRequest <- R6::R6Class(
   "DeleteQuickReplyMessagesRequest",
   lock_objects = FALSE,
@@ -1277,11 +1292,11 @@ DeleteQuickReplyMessagesRequest$fromReader <- function(reader) {
 }
 
 
-#  @title DeleteQuickReplyShortcutRequest
-#  @description Represents a request to delete a quick reply shortcut. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteQuickReplyShortcutRequest
+#' @description Telegram API request \code{messages.deleteQuickReplyShortcut} (constructor \code{#3cc04740}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteQuickReplyShortcutRequest <- R6::R6Class(
   "DeleteQuickReplyShortcutRequest",
   lock_objects = FALSE,
@@ -1328,11 +1343,11 @@ DeleteQuickReplyShortcutRequest$fromReader <- function(reader) {
   DeleteQuickReplyShortcutRequest$new(shortcutId = shortcutId)
 }
 
-#  @title DeleteRevokedExportedChatInvitesRequest
-#  @description Represents a request to delete revoked exported chat invites. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteRevokedExportedChatInvitesRequest
+#' @description Telegram API request \code{messages.deleteRevokedExportedChatInvites} (constructor \code{#56987bd5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
   "DeleteRevokedExportedChatInvitesRequest",
   lock_objects = FALSE,
@@ -1392,11 +1407,11 @@ DeleteRevokedExportedChatInvitesRequest$fromReader <- function(reader) {
   DeleteRevokedExportedChatInvitesRequest$new(peer = peer, adminId = adminId)
 }
 
-#  @title DeleteSavedHistoryRequest
-#  @description Represents a request to delete saved history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteSavedHistoryRequest
+#' @description Telegram API request \code{messages.deleteSavedHistory} (constructor \code{#4dc5085f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteSavedHistoryRequest <- R6::R6Class(
   "DeleteSavedHistoryRequest",
   lock_objects = FALSE,
@@ -1479,11 +1494,11 @@ DeleteSavedHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#  @title DeleteScheduledMessagesRequest
-#  @description Represents a request to delete scheduled messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteScheduledMessagesRequest
+#' @description Telegram API request \code{messages.deleteScheduledMessages} (constructor \code{#59ae2b16}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteScheduledMessagesRequest <- R6::R6Class(
   "DeleteScheduledMessagesRequest",
   lock_objects = FALSE,
@@ -1547,11 +1562,11 @@ DeleteScheduledMessagesRequest$fromReader <- function(reader) {
   DeleteScheduledMessagesRequest$new(peer = peer, id = id)
 }
 
-#  @title DiscardEncryptionRequest
-#  @description Represents a request to discard encryption. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title DiscardEncryptionRequest
+#' @description Telegram API request \code{messages.discardEncryption} (constructor \code{#f393aea0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DiscardEncryptionRequest <- R6::R6Class(
   "DiscardEncryptionRequest",
   lock_objects = FALSE,
@@ -1604,11 +1619,11 @@ DiscardEncryptionRequest$fromReader <- function(reader) {
   DiscardEncryptionRequest$new(chatId = chatId, deleteHistory = deleteHistory)
 }
 
-#  @title EditChatAboutRequest
-#  @description Represents a request to edit chat about. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditChatAboutRequest
+#' @description Telegram API request \code{messages.editChatAbout} (constructor \code{#def60797}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditChatAboutRequest <- R6::R6Class(
   "EditChatAboutRequest",
   lock_objects = FALSE,
@@ -1668,11 +1683,11 @@ EditChatAboutRequest$fromReader <- function(reader) {
 }
 
 
-#  @title EditChatAdminRequest
-#  @description Represents a request to edit chat admin. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditChatAdminRequest
+#' @description Telegram API request \code{messages.editChatAdmin} (constructor \code{#a85bd1c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditChatAdminRequest <- R6::R6Class(
   "EditChatAdminRequest",
   lock_objects = FALSE,
@@ -1736,11 +1751,11 @@ EditChatAdminRequest$fromReader <- function(reader) {
   EditChatAdminRequest$new(chatId = chatId, userId = userId, isAdmin = isAdmin)
 }
 
-#  @title EditChatDefaultBannedRightsRequest
-#  @description Represents a request to edit chat default banned rights. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditChatDefaultBannedRightsRequest
+#' @description Telegram API request \code{messages.editChatDefaultBannedRights} (constructor \code{#a5866b41}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditChatDefaultBannedRightsRequest <- R6::R6Class(
   "EditChatDefaultBannedRightsRequest",
   lock_objects = FALSE,
@@ -1799,11 +1814,11 @@ EditChatDefaultBannedRightsRequest$fromReader <- function(reader) {
   EditChatDefaultBannedRightsRequest$new(peer = peer, bannedRights = bannedRights)
 }
 
-#  @title EditChatPhotoRequest
-#  @description Represents a request to edit chat photo. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditChatPhotoRequest
+#' @description Telegram API request \code{messages.editChatPhoto} (constructor \code{#35ddd674}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditChatPhotoRequest <- R6::R6Class(
   "EditChatPhotoRequest",
   lock_objects = FALSE,
@@ -1863,11 +1878,11 @@ EditChatPhotoRequest$fromReader <- function(reader) {
 }
 
 
-#  @title EditChatTitleRequest
-#  @description Represents a request to edit a chat title. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditChatTitleRequest
+#' @description Telegram API request \code{messages.editChatTitle} (constructor \code{#73783ffd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditChatTitleRequest <- R6::R6Class(
   "EditChatTitleRequest",
   lock_objects = FALSE,
@@ -1919,11 +1934,11 @@ EditChatTitleRequest$fromReader <- function(reader) {
   EditChatTitleRequest$new(chatId = chatId, title = title)
 }
 
-#  @title EditExportedChatInviteRequest
-#  @description Represents a request to edit an exported chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditExportedChatInviteRequest
+#' @description Telegram API request \code{messages.editExportedChatInvite} (constructor \code{#bdca2f75}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditExportedChatInviteRequest <- R6::R6Class(
   "EditExportedChatInviteRequest",
   lock_objects = FALSE,
@@ -2013,11 +2028,11 @@ EditExportedChatInviteRequest$fromReader <- function(reader) {
   EditExportedChatInviteRequest$new(peer = peer, link = link, revoked = revoked, expireDate = expireDate, usageLimit = usageLimit, requestNeeded = requestNeeded, title = title)
 }
 
-#  @title EditFactCheckRequest
-#  @description Represents a request to edit a fact check. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditFactCheckRequest
+#' @description Telegram API request \code{messages.editFactCheck} (constructor \code{#0589ee75}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditFactCheckRequest <- R6::R6Class(
   "EditFactCheckRequest",
   lock_objects = FALSE,
@@ -2082,11 +2097,11 @@ EditFactCheckRequest$fromReader <- function(reader) {
 }
 
 
-#  @title EditInlineBotMessageRequest
-#  @description Represents a request to edit an inline bot message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditInlineBotMessageRequest
+#' @description Telegram API request \code{messages.editInlineBotMessage} (constructor \code{#a423bb51}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditInlineBotMessageRequest <- R6::R6Class("EditInlineBotMessageRequest",
   inherit = TLRequest,
   public = list(
@@ -2179,6 +2194,11 @@ EditInlineBotMessageRequest <- R6::R6Class("EditInlineBotMessageRequest",
   lock_objects = FALSE
 )
 
+#' @title EditMessageRequest
+#' @description Telegram API request \code{messages.editMessage} (constructor \code{#b106e66c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditMessageRequest <- R6::R6Class("EditMessageRequest",
   inherit = TLRequest,
   public = list(
@@ -2299,6 +2319,11 @@ EditMessageRequest <- R6::R6Class("EditMessageRequest",
   lock_objects = FALSE
 )
 
+#' @title EditQuickReplyShortcutRequest
+#' @description Telegram API request \code{messages.editQuickReplyShortcut} (constructor \code{#5c003cef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditQuickReplyShortcutRequest <- R6::R6Class(
   "EditQuickReplyShortcutRequest",
   lock_objects = FALSE,
@@ -2350,11 +2375,11 @@ EditQuickReplyShortcutRequest$fromReader <- function(reader) {
   EditQuickReplyShortcutRequest$new(shortcutId = shortcutId, shortcut = shortcut)
 }
 
-#  @title ExportChatInviteRequest
-#  @description Represents a request to export a chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ExportChatInviteRequest
+#' @description Telegram API request \code{messages.exportChatInvite} (constructor \code{#a455de90}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportChatInviteRequest <- R6::R6Class(
   "ExportChatInviteRequest",
   lock_objects = FALSE,
@@ -2445,11 +2470,11 @@ ExportChatInviteRequest$fromReader <- function(reader) {
 }
 
 
-#  @title FaveStickerRequest
-#  @description Represents a request to fave or unfave a sticker. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title FaveStickerRequest
+#' @description Telegram API request \code{messages.faveSticker} (constructor \code{#b9ffc55b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 FaveStickerRequest <- R6::R6Class(
   "FaveStickerRequest",
   lock_objects = FALSE,
@@ -2508,11 +2533,11 @@ FaveStickerRequest$fromReader <- function(reader) {
   FaveStickerRequest$new(id = id, unfave = unfave)
 }
 
-#  @title ForwardMessagesRequest
-#  @description Represents a request to forward messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ForwardMessagesRequest
+#' @description Telegram API request \code{messages.forwardMessages} (constructor \code{#13704a7c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ForwardMessagesRequest <- R6::R6Class("ForwardMessagesRequest",
   inherit = TLRequest,
   public = list(
@@ -2697,6 +2722,11 @@ ForwardMessagesRequest <- R6::R6Class("ForwardMessagesRequest",
   lock_objects = FALSE
 )
 
+#' @title GetAdminsWithInvitesRequest
+#' @description Telegram API request \code{messages.getAdminsWithInvites} (constructor \code{#3920e6ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAdminsWithInvitesRequest <- R6::R6Class(
   "GetAdminsWithInvitesRequest",
   lock_objects = FALSE,
@@ -2750,11 +2780,11 @@ GetAdminsWithInvitesRequest$fromReader <- function(reader) {
   GetAdminsWithInvitesRequest$new(peer = peer)
 }
 
-#  @title GetAllDraftsRequest
-#  @description Represents a request to get all drafts. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAllDraftsRequest
+#' @description Telegram API request \code{messages.getAllDrafts} (constructor \code{#6a3f8d65}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAllDraftsRequest <- R6::R6Class(
   "GetAllDraftsRequest",
   inherit = TLRequest,
@@ -2787,11 +2817,11 @@ GetAllDraftsRequest$fromReader <- function(reader) {
   GetAllDraftsRequest$new()
 }
 
-#  @title GetAllStickersRequest
-#  @description Represents a request to get all stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAllStickersRequest
+#' @description Telegram API request \code{messages.getAllStickers} (constructor \code{#b8a0a1a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAllStickersRequest <- R6::R6Class(
   "GetAllStickersRequest",
   inherit = TLRequest,
@@ -2839,11 +2869,11 @@ GetAllStickersRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetArchivedStickersRequest
-#  @description Represents a request to get archived stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetArchivedStickersRequest
+#' @description Telegram API request \code{messages.getArchivedStickers} (constructor \code{#57f17692}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetArchivedStickersRequest <- R6::R6Class(
   "GetArchivedStickersRequest",
   lock_objects = FALSE,
@@ -2909,11 +2939,11 @@ GetArchivedStickersRequest$fromReader <- function(reader) {
   GetArchivedStickersRequest$new(offsetId = offsetId, limit = limit, masks = masks, emojis = emojis)
 }
 
-#  @title GetAttachMenuBotRequest
-#  @description Represents a request to get attach menu bot. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAttachMenuBotRequest
+#' @description Telegram API request \code{messages.getAttachMenuBot} (constructor \code{#77216192}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAttachMenuBotRequest <- R6::R6Class(
   "GetAttachMenuBotRequest",
   lock_objects = FALSE,
@@ -2967,11 +2997,11 @@ GetAttachMenuBotRequest$fromReader <- function(reader) {
   GetAttachMenuBotRequest$new(bot = bot)
 }
 
-#  @title GetAttachMenuBotsRequest
-#  @description Represents a request to get attach menu bots. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAttachMenuBotsRequest
+#' @description Telegram API request \code{messages.getAttachMenuBots} (constructor \code{#16fcc2cb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAttachMenuBotsRequest <- R6::R6Class(
   "GetAttachMenuBotsRequest",
   inherit = TLRequest,
@@ -3018,11 +3048,11 @@ GetAttachMenuBotsRequest$fromReader <- function(reader) {
   GetAttachMenuBotsRequest$new(hash = hash)
 }
 
-#  @title GetAttachedStickersRequest
-#  @description Represents a request to get attached stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAttachedStickersRequest
+#' @description Telegram API request \code{messages.getAttachedStickers} (constructor \code{#cc5b67cc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAttachedStickersRequest <- R6::R6Class(
   "GetAttachedStickersRequest",
   lock_objects = FALSE,
@@ -3070,11 +3100,11 @@ GetAttachedStickersRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetAvailableEffectsRequest
-#  @description Represents a request to get available effects. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAvailableEffectsRequest
+#' @description Telegram API request \code{messages.getAvailableEffects} (constructor \code{#dea20a39}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAvailableEffectsRequest <- R6::R6Class(
   "GetAvailableEffectsRequest",
   lock_objects = FALSE,
@@ -3121,11 +3151,11 @@ GetAvailableEffectsRequest$fromReader <- function(reader) {
   GetAvailableEffectsRequest$new(hash = hash)
 }
 
-#  @title GetAvailableReactionsRequest
-#  @description Represents a request to get available reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAvailableReactionsRequest
+#' @description Telegram API request \code{messages.getAvailableReactions} (constructor \code{#18dea0ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAvailableReactionsRequest <- R6::R6Class(
   "GetAvailableReactionsRequest",
   lock_objects = FALSE,
@@ -3172,11 +3202,11 @@ GetAvailableReactionsRequest$fromReader <- function(reader) {
   GetAvailableReactionsRequest$new(hash = hash)
 }
 
-#  @title GetBotAppRequest
-#  @description Represents a request to get bot app. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotAppRequest
+#' @description Telegram API request \code{messages.getBotApp} (constructor \code{#34fdc5c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotAppRequest <- R6::R6Class(
   "GetBotAppRequest",
   lock_objects = FALSE,
@@ -3228,11 +3258,11 @@ GetBotAppRequest$fromReader <- function(reader) {
   GetBotAppRequest$new(app = app, hash = hash)
 }
 
-#  @title GetBotCallbackAnswerRequest
-#  @description Represents a request to get bot callback answer. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotCallbackAnswerRequest
+#' @description Telegram API request \code{messages.getBotCallbackAnswer} (constructor \code{#9342ca07}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotCallbackAnswerRequest <- R6::R6Class(
   "GetBotCallbackAnswerRequest",
   lock_objects = FALSE,
@@ -3311,11 +3341,11 @@ GetBotCallbackAnswerRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetChatInviteImportersRequest
-#  @description Represents a request to get chat invite importers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetChatInviteImportersRequest
+#' @description Telegram API request \code{messages.getChatInviteImporters} (constructor \code{#df04dd4e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetChatInviteImportersRequest <- R6::R6Class(
   "GetChatInviteImportersRequest",
   lock_objects = FALSE,
@@ -3409,11 +3439,11 @@ GetChatInviteImportersRequest$fromReader <- function(reader) {
   GetChatInviteImportersRequest$new(peer = peer, offsetDate = offsetDate, offsetUser = offsetUser, limit = limit, requested = requested, subscriptionExpired = subscriptionExpired, link = link, q = q)
 }
 
-#  @title GetChatsRequest
-#  @description Represents a request to get chats. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetChatsRequest
+#' @description Telegram API request \code{messages.getChats} (constructor \code{#49e9528f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetChatsRequest <- R6::R6Class(
   "GetChatsRequest",
   lock_objects = FALSE,
@@ -3467,11 +3497,11 @@ GetChatsRequest$fromReader <- function(reader) {
   GetChatsRequest$new(id = id)
 }
 
-#  @title GetCommonChatsRequest
-#  @description Represents a request to get common chats. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetCommonChatsRequest
+#' @description Telegram API request \code{messages.getCommonChats} (constructor \code{#e40ca104}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetCommonChatsRequest <- R6::R6Class(
   "GetCommonChatsRequest",
   lock_objects = FALSE,
@@ -3536,11 +3566,11 @@ GetCommonChatsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetCustomEmojiDocumentsRequest
-#  @description Represents a request to get custom emoji documents. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetCustomEmojiDocumentsRequest
+#' @description Telegram API request \code{messages.getCustomEmojiDocuments} (constructor \code{#d9ab0f54}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetCustomEmojiDocumentsRequest <- R6::R6Class(
   "GetCustomEmojiDocumentsRequest",
   lock_objects = FALSE,
@@ -3594,11 +3624,11 @@ GetCustomEmojiDocumentsRequest$fromReader <- function(reader) {
   GetCustomEmojiDocumentsRequest$new(documentId = documentId)
 }
 
-#  @title GetDefaultHistoryTTLRequest
-#  @description Represents a request to get default history TTL. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDefaultHistoryTTLRequest
+#' @description Telegram API request \code{messages.getDefaultHistoryTTL} (constructor \code{#658b7188}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDefaultHistoryTTLRequest <- R6::R6Class(
   "GetDefaultHistoryTTLRequest",
   inherit = TLRequest,
@@ -3631,11 +3661,11 @@ GetDefaultHistoryTTLRequest$fromReader <- function(reader) {
   GetDefaultHistoryTTLRequest$new()
 }
 
-#  @title GetDefaultTagReactionsRequest
-#  @description Represents a request to get default tag reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDefaultTagReactionsRequest
+#' @description Telegram API request \code{messages.getDefaultTagReactions} (constructor \code{#bdf93428}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDefaultTagReactionsRequest <- R6::R6Class(
   "GetDefaultTagReactionsRequest",
   lock_objects = FALSE,
@@ -3682,11 +3712,11 @@ GetDefaultTagReactionsRequest$fromReader <- function(reader) {
   GetDefaultTagReactionsRequest$new(hash = hash)
 }
 
-#  @title GetDhConfigRequest
-#  @description Represents a request to get DH config. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDhConfigRequest
+#' @description Telegram API request \code{messages.getDhConfig} (constructor \code{#26cf8950}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDhConfigRequest <- R6::R6Class(
   "GetDhConfigRequest",
   lock_objects = FALSE,
@@ -3739,11 +3769,11 @@ GetDhConfigRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetDialogFiltersRequest
-#  @description Represents a request to get dialog filters. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDialogFiltersRequest
+#' @description Telegram API request \code{messages.getDialogFilters} (constructor \code{#efd48c89}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDialogFiltersRequest <- R6::R6Class(
   "GetDialogFiltersRequest",
   inherit = TLRequest,
@@ -3776,11 +3806,11 @@ GetDialogFiltersRequest$fromReader <- function(reader) {
   GetDialogFiltersRequest$new()
 }
 
-#  @title GetDialogUnreadMarksRequest
-#  @description Represents a request to get dialog unread marks. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDialogUnreadMarksRequest
+#' @description Telegram API request \code{messages.getDialogUnreadMarks} (constructor \code{#21202222}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDialogUnreadMarksRequest <- R6::R6Class(
   "GetDialogUnreadMarksRequest",
   lock_objects = FALSE,
@@ -3839,11 +3869,11 @@ GetDialogUnreadMarksRequest$fromReader <- function(reader) {
   GetDialogUnreadMarksRequest$new(parentPeer = parentPeer)
 }
 
-#  @title GetDialogsRequest
-#  @description Represents a request to get dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDialogsRequest
+#' @description Telegram API request \code{messages.getDialogs} (constructor \code{#a0f4cb4f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDialogsRequest <- R6::R6Class(
   "GetDialogsRequest",
   lock_objects = FALSE,
@@ -3931,11 +3961,11 @@ GetDialogsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetDiscussionMessageRequest
-#  @description Represents a request to get discussion message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDiscussionMessageRequest
+#' @description Telegram API request \code{messages.getDiscussionMessage} (constructor \code{#446972fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDiscussionMessageRequest <- R6::R6Class(
   "GetDiscussionMessageRequest",
   lock_objects = FALSE,
@@ -3994,11 +4024,11 @@ GetDiscussionMessageRequest$fromReader <- function(reader) {
   GetDiscussionMessageRequest$new(peer = peer, msgId = msgId)
 }
 
-#  @title GetDocumentByHashRequest
-#  @description Represents a request to get document by hash. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetDocumentByHashRequest
+#' @description Telegram API request \code{messages.getDocumentByHash} (constructor \code{#b1f2061f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetDocumentByHashRequest <- R6::R6Class(
   "GetDocumentByHashRequest",
   lock_objects = FALSE,
@@ -4055,11 +4085,11 @@ GetDocumentByHashRequest$fromReader <- function(reader) {
   GetDocumentByHashRequest$new(sha256 = sha256, size = size, mimeType = mimeType)
 }
 
-#  @title GetEmojiGroupsRequest
-#  @description Represents a request to get emoji groups. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiGroupsRequest
+#' @description Telegram API request \code{messages.getEmojiGroups} (constructor \code{#7488ce5b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiGroupsRequest <- R6::R6Class(
   "GetEmojiGroupsRequest",
   lock_objects = FALSE,
@@ -4106,11 +4136,11 @@ GetEmojiGroupsRequest$fromReader <- function(reader) {
   GetEmojiGroupsRequest$new(hash = hash)
 }
 
-#  @title GetEmojiKeywordsRequest
-#  @description Represents a request to get emoji keywords. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiKeywordsRequest
+#' @description Telegram API request \code{messages.getEmojiKeywords} (constructor \code{#35a0e062}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiKeywordsRequest <- R6::R6Class(
   "GetEmojiKeywordsRequest",
   lock_objects = FALSE,
@@ -4158,11 +4188,11 @@ GetEmojiKeywordsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetEmojiKeywordsDifferenceRequest
-#  @description Represents a request to get emoji keywords difference. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiKeywordsDifferenceRequest
+#' @description Telegram API request \code{messages.getEmojiKeywordsDifference} (constructor \code{#1508b6af}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
   "GetEmojiKeywordsDifferenceRequest",
   lock_objects = FALSE,
@@ -4214,11 +4244,11 @@ GetEmojiKeywordsDifferenceRequest$fromReader <- function(reader) {
   GetEmojiKeywordsDifferenceRequest$new(langCode = langCode, fromVersion = fromVersion)
 }
 
-#  @title GetEmojiKeywordsLanguagesRequest
-#  @description Represents a request to get emoji keywords languages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiKeywordsLanguagesRequest
+#' @description Telegram API request \code{messages.getEmojiKeywordsLanguages} (constructor \code{#4e9963b2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
   "GetEmojiKeywordsLanguagesRequest",
   lock_objects = FALSE,
@@ -4272,11 +4302,11 @@ GetEmojiKeywordsLanguagesRequest$fromReader <- function(reader) {
   GetEmojiKeywordsLanguagesRequest$new(langCodes = langCodes)
 }
 
-#  @title GetEmojiProfilePhotoGroupsRequest
-#  @description Represents a request to get emoji profile photo groups. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiProfilePhotoGroupsRequest
+#' @description Telegram API request \code{messages.getEmojiProfilePhotoGroups} (constructor \code{#21a548f3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
   "GetEmojiProfilePhotoGroupsRequest",
   lock_objects = FALSE,
@@ -4323,11 +4353,11 @@ GetEmojiProfilePhotoGroupsRequest$fromReader <- function(reader) {
   GetEmojiProfilePhotoGroupsRequest$new(hash = hash)
 }
 
-#  @title GetEmojiStatusGroupsRequest
-#  @description Represents a request to get emoji status groups. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiStatusGroupsRequest
+#' @description Telegram API request \code{messages.getEmojiStatusGroups} (constructor \code{#2ecd56cd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiStatusGroupsRequest <- R6::R6Class(
   "GetEmojiStatusGroupsRequest",
   lock_objects = FALSE,
@@ -4375,11 +4405,11 @@ GetEmojiStatusGroupsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetEmojiStickerGroupsRequest
-#  @description Represents a request to get emoji sticker groups. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiStickerGroupsRequest
+#' @description Telegram API request \code{messages.getEmojiStickerGroups} (constructor \code{#1dd840f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiStickerGroupsRequest <- R6::R6Class(
   "GetEmojiStickerGroupsRequest",
   lock_objects = FALSE,
@@ -4426,11 +4456,11 @@ GetEmojiStickerGroupsRequest$fromReader <- function(reader) {
   GetEmojiStickerGroupsRequest$new(hash = hash)
 }
 
-#  @title GetEmojiStickersRequest
-#  @description Represents a request to get emoji stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiStickersRequest
+#' @description Telegram API request \code{messages.getEmojiStickers} (constructor \code{#fbfca18f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiStickersRequest <- R6::R6Class(
   "GetEmojiStickersRequest",
   lock_objects = FALSE,
@@ -4477,11 +4507,11 @@ GetEmojiStickersRequest$fromReader <- function(reader) {
   GetEmojiStickersRequest$new(hash = hash)
 }
 
-#  @title GetEmojiURLRequest
-#  @description Represents a request to get emoji URL. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetEmojiURLRequest
+#' @description Telegram API request \code{messages.getEmojiURL} (constructor \code{#d5b10c26}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetEmojiURLRequest <- R6::R6Class(
   "GetEmojiURLRequest",
   lock_objects = FALSE,
@@ -4528,11 +4558,11 @@ GetEmojiURLRequest$fromReader <- function(reader) {
   GetEmojiURLRequest$new(langCode = langCode)
 }
 
-#  @title GetExportedChatInviteRequest
-#  @description Represents a request to get exported chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetExportedChatInviteRequest
+#' @description Telegram API request \code{messages.getExportedChatInvite} (constructor \code{#73746f5c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetExportedChatInviteRequest <- R6::R6Class(
   "GetExportedChatInviteRequest",
   lock_objects = FALSE,
@@ -4592,11 +4622,11 @@ GetExportedChatInviteRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetExportedChatInvitesRequest
-#  @description Represents a request to get exported chat invites. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetExportedChatInvitesRequest
+#' @description Telegram API request \code{messages.getExportedChatInvites} (constructor \code{#a2b5a3f6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetExportedChatInvitesRequest <- R6::R6Class(
   "GetExportedChatInvitesRequest",
   lock_objects = FALSE,
@@ -4685,11 +4715,11 @@ GetExportedChatInvitesRequest$fromReader <- function(reader) {
   GetExportedChatInvitesRequest$new(peer = peer, adminId = adminId, limit = limit, revoked = revoked, offsetDate = offsetDate, offsetLink = offsetLink)
 }
 
-#  @title GetExtendedMediaRequest
-#  @description Represents a request to get extended media. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetExtendedMediaRequest
+#' @description Telegram API request \code{messages.getExtendedMedia} (constructor \code{#84f80814}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetExtendedMediaRequest <- R6::R6Class(
   "GetExtendedMediaRequest",
   lock_objects = FALSE,
@@ -4755,11 +4785,11 @@ GetExtendedMediaRequest$fromReader <- function(reader) {
   GetExtendedMediaRequest$new(peer = peer, id = id)
 }
 
-#  @title GetFactCheckRequest
-#  @description Represents a request to get fact check. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFactCheckRequest
+#' @description Telegram API request \code{messages.getFactCheck} (constructor \code{#b9cdc5ee}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFactCheckRequest <- R6::R6Class(
   "GetFactCheckRequest",
   lock_objects = FALSE,
@@ -4826,11 +4856,11 @@ GetFactCheckRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetFavedStickersRequest
-#  @description Represents a request to get faved stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFavedStickersRequest
+#' @description Telegram API request \code{messages.getFavedStickers} (constructor \code{#04f1aaa9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFavedStickersRequest <- R6::R6Class(
   "GetFavedStickersRequest",
   lock_objects = FALSE,
@@ -4877,11 +4907,11 @@ GetFavedStickersRequest$fromReader <- function(reader) {
   GetFavedStickersRequest$new(hash = hash)
 }
 
-#  @title GetFeaturedEmojiStickersRequest
-#  @description Represents a request to get featured emoji stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFeaturedEmojiStickersRequest
+#' @description Telegram API request \code{messages.getFeaturedEmojiStickers} (constructor \code{#0ecf6736}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFeaturedEmojiStickersRequest <- R6::R6Class(
   "GetFeaturedEmojiStickersRequest",
   lock_objects = FALSE,
@@ -4928,11 +4958,11 @@ GetFeaturedEmojiStickersRequest$fromReader <- function(reader) {
   GetFeaturedEmojiStickersRequest$new(hash = hash)
 }
 
-#  @title GetFeaturedStickersRequest
-#  @description Represents a request to get featured stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFeaturedStickersRequest
+#' @description Telegram API request \code{messages.getFeaturedStickers} (constructor \code{#64780b14}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFeaturedStickersRequest <- R6::R6Class(
   "GetFeaturedStickersRequest",
   lock_objects = FALSE,
@@ -4979,11 +5009,11 @@ GetFeaturedStickersRequest$fromReader <- function(reader) {
   GetFeaturedStickersRequest$new(hash = hash)
 }
 
-#  @title GetFullChatRequest
-#  @description Represents a request to get full chat information. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetFullChatRequest
+#' @description Telegram API request \code{messages.getFullChat} (constructor \code{#aeb00b34}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetFullChatRequest <- R6::R6Class(
   "GetFullChatRequest",
   lock_objects = FALSE,
@@ -5031,11 +5061,11 @@ GetFullChatRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetGameHighScoresRequest
-#  @description Represents a request to get game high scores. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetGameHighScoresRequest
+#' @description Telegram API request \code{messages.getGameHighScores} (constructor \code{#e822649d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetGameHighScoresRequest <- R6::R6Class(
   "GetGameHighScoresRequest",
   lock_objects = FALSE,
@@ -5100,11 +5130,11 @@ GetGameHighScoresRequest$fromReader <- function(reader) {
   GetGameHighScoresRequest$new(peer = peer, id = id, userId = userId)
 }
 
-#  @title GetHistoryRequest
-#  @description Represents a request to get history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetHistoryRequest
+#' @description Telegram API request \code{messages.getHistory} (constructor \code{#4423e6c5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetHistoryRequest <- R6::R6Class(
   "GetHistoryRequest",
   inherit = TLRequest,
@@ -5193,11 +5223,11 @@ GetHistoryRequest$fromReader <- function(reader) {
   GetHistoryRequest$new(peer = peer, offsetId = offsetId, offsetDate = offsetDate, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, hash = hash)
 }
 
-#  @title GetInlineBotResultsRequest
-#  @description Represents a request to get inline bot results. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetInlineBotResultsRequest
+#' @description Telegram API request \code{messages.getInlineBotResults} (constructor \code{#514e999d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetInlineBotResultsRequest <- R6::R6Class(
   "GetInlineBotResultsRequest",
   lock_objects = FALSE,
@@ -5276,11 +5306,11 @@ GetInlineBotResultsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetInlineGameHighScoresRequest
-#  @description Represents a request to get inline game high scores. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetInlineGameHighScoresRequest
+#' @description Telegram API request \code{messages.getInlineGameHighScores} (constructor \code{#0f635e1b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetInlineGameHighScoresRequest <- R6::R6Class(
   "GetInlineGameHighScoresRequest",
   lock_objects = FALSE,
@@ -5339,11 +5369,11 @@ GetInlineGameHighScoresRequest$fromReader <- function(reader) {
   GetInlineGameHighScoresRequest$new(id = id, userId = userId)
 }
 
-#  @title GetMaskStickersRequest
-#  @description Represents a request to get mask stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMaskStickersRequest
+#' @description Telegram API request \code{messages.getMaskStickers} (constructor \code{#640f82b8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMaskStickersRequest <- R6::R6Class(
   "GetMaskStickersRequest",
   lock_objects = FALSE,
@@ -5390,11 +5420,11 @@ GetMaskStickersRequest$fromReader <- function(reader) {
   GetMaskStickersRequest$new(hash = hash)
 }
 
-#  @title GetMessageEditDataRequest
-#  @description Represents a request to get message edit data. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessageEditDataRequest
+#' @description Telegram API request \code{messages.getMessageEditData} (constructor \code{#fda68d36}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessageEditDataRequest <- R6::R6Class(
   "GetMessageEditDataRequest",
   lock_objects = FALSE,
@@ -5454,11 +5484,11 @@ GetMessageEditDataRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetMessageReactionsListRequest
-#  @description Represents a request to get message reactions list. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessageReactionsListRequest
+#' @description Telegram API request \code{messages.getMessageReactionsList} (constructor \code{#461b3f48}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessageReactionsListRequest <- R6::R6Class(
   "GetMessageReactionsListRequest",
   lock_objects = FALSE,
@@ -5535,11 +5565,11 @@ GetMessageReactionsListRequest$fromReader <- function(reader) {
   GetMessageReactionsListRequest$new(peer = peer, id = id, limit = limit, reaction = reaction, offset = offset)
 }
 
-#  @title GetMessageReadParticipantsRequest
-#  @description Represents a request to get message read participants. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessageReadParticipantsRequest
+#' @description Telegram API request \code{messages.getMessageReadParticipants} (constructor \code{#31c1c44f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessageReadParticipantsRequest <- R6::R6Class(
   "GetMessageReadParticipantsRequest",
   lock_objects = FALSE,
@@ -5598,11 +5628,11 @@ GetMessageReadParticipantsRequest$fromReader <- function(reader) {
   GetMessageReadParticipantsRequest$new(peer = peer, msgId = msgId)
 }
 
-#  @title GetMessagesRequest
-#  @description Represents a request to get messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessagesRequest
+#' @description Telegram API request \code{messages.getMessages} (constructor \code{#63c66506}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessagesRequest <- R6::R6Class("GetMessagesRequest",
   inherit = TLRequest,
   public = list(
@@ -5645,6 +5675,11 @@ GetMessagesRequest <- R6::R6Class("GetMessagesRequest",
   lock_objects = FALSE
 )
 
+#' @title GetMessagesReactionsRequest
+#' @description Telegram API request \code{messages.getMessagesReactions} (constructor \code{#8bba90e6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessagesReactionsRequest <- R6::R6Class(
   "GetMessagesReactionsRequest",
   lock_objects = FALSE,
@@ -5710,11 +5745,11 @@ GetMessagesReactionsRequest$fromReader <- function(reader) {
   GetMessagesReactionsRequest$new(peer = peer, id = id)
 }
 
-#  @title GetMessagesViewsRequest
-#  @description Represents a request to get messages views. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMessagesViewsRequest
+#' @description Telegram API request \code{messages.getMessagesViews} (constructor \code{#5784d3e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMessagesViewsRequest <- R6::R6Class(
   "GetMessagesViewsRequest",
   inherit = TLRequest,
@@ -5790,11 +5825,11 @@ GetMessagesViewsRequest$fromReader <- function(reader) {
   GetMessagesViewsRequest$new(peer = peer, id = id, increment = increment)
 }
 
-#  @title GetMyStickersRequest
-#  @description Represents a request to get my stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetMyStickersRequest
+#' @description Telegram API request \code{messages.getMyStickers} (constructor \code{#d0b5e1fc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetMyStickersRequest <- R6::R6Class(
   "GetMyStickersRequest",
   lock_objects = FALSE,
@@ -5847,11 +5882,11 @@ GetMyStickersRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetOldFeaturedStickersRequest
-#  @description Represents a request to get old featured stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetOldFeaturedStickersRequest
+#' @description Telegram API request \code{messages.getOldFeaturedStickers} (constructor \code{#7ed094a1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetOldFeaturedStickersRequest <- R6::R6Class(
   "GetOldFeaturedStickersRequest",
   lock_objects = FALSE,
@@ -5908,11 +5943,11 @@ GetOldFeaturedStickersRequest$fromReader <- function(reader) {
   GetOldFeaturedStickersRequest$new(offset = offset, limit = limit, hash = hash)
 }
 
-#  @title GetOnlinesRequest
-#  @description Represents a request to get onlines. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetOnlinesRequest
+#' @description Telegram API request \code{messages.getOnlines} (constructor \code{#6e2be050}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetOnlinesRequest <- R6::R6Class(
   "GetOnlinesRequest",
   lock_objects = FALSE,
@@ -5966,11 +6001,11 @@ GetOnlinesRequest$fromReader <- function(reader) {
   GetOnlinesRequest$new(peer = peer)
 }
 
-#  @title GetOutboxReadDateRequest
-#  @description Represents a request to get outbox read date. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetOutboxReadDateRequest
+#' @description Telegram API request \code{messages.getOutboxReadDate} (constructor \code{#8c4bfe5d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetOutboxReadDateRequest <- R6::R6Class(
   "GetOutboxReadDateRequest",
   lock_objects = FALSE,
@@ -6029,11 +6064,11 @@ GetOutboxReadDateRequest$fromReader <- function(reader) {
   GetOutboxReadDateRequest$new(peer = peer, msgId = msgId)
 }
 
-#  @title GetPaidReactionPrivacyRequest
-#  @description Represents a request to get paid reaction privacy. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPaidReactionPrivacyRequest
+#' @description Telegram API request \code{messages.getPaidReactionPrivacy} (constructor \code{#472455aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPaidReactionPrivacyRequest <- R6::R6Class(
   "GetPaidReactionPrivacyRequest",
   inherit = TLRequest,
@@ -6069,11 +6104,11 @@ GetPaidReactionPrivacyRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetPeerDialogsRequest
-#  @description Represents a request to get peer dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPeerDialogsRequest
+#' @description Telegram API request \code{messages.getPeerDialogs} (constructor \code{#e470bcfd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPeerDialogsRequest <- R6::R6Class(
   "GetPeerDialogsRequest",
   lock_objects = FALSE,
@@ -6138,11 +6173,11 @@ GetPeerDialogsRequest$fromReader <- function(reader) {
   GetPeerDialogsRequest$new(peers = peers)
 }
 
-#  @title GetPeerSettingsRequest
-#  @description Represents a request to get peer settings. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPeerSettingsRequest
+#' @description Telegram API request \code{messages.getPeerSettings} (constructor \code{#efd9a6a2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPeerSettingsRequest <- R6::R6Class(
   "GetPeerSettingsRequest",
   lock_objects = FALSE,
@@ -6196,11 +6231,11 @@ GetPeerSettingsRequest$fromReader <- function(reader) {
   GetPeerSettingsRequest$new(peer = peer)
 }
 
-#  @title GetPinnedDialogsRequest
-#  @description Represents a request to get pinned dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPinnedDialogsRequest
+#' @description Telegram API request \code{messages.getPinnedDialogs} (constructor \code{#d6b94df2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPinnedDialogsRequest <- R6::R6Class(
   "GetPinnedDialogsRequest",
   lock_objects = FALSE,
@@ -6247,11 +6282,11 @@ GetPinnedDialogsRequest$fromReader <- function(reader) {
   GetPinnedDialogsRequest$new(folderId = folderId)
 }
 
-#  @title GetPinnedSavedDialogsRequest
-#  @description Represents a request to get pinned saved dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPinnedSavedDialogsRequest
+#' @description Telegram API request \code{messages.getPinnedSavedDialogs} (constructor \code{#d63d94e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPinnedSavedDialogsRequest <- R6::R6Class(
   "GetPinnedSavedDialogsRequest",
   inherit = TLRequest,
@@ -6290,11 +6325,11 @@ GetPinnedSavedDialogsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetPollResultsRequest
-#  @description Represents a request to get poll results. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPollResultsRequest
+#' @description Telegram API request \code{messages.getPollResults} (constructor \code{#eda3e33b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPollResultsRequest <- R6::R6Class("GetPollResultsRequest",
   inherit = TLRequest,
   public = list(
@@ -6350,6 +6385,11 @@ GetPollResultsRequest <- R6::R6Class("GetPollResultsRequest",
   lock_objects = FALSE
 )
 
+#' @title GetPollVotesRequest
+#' @description Telegram API request \code{messages.getPollVotes} (constructor \code{#b86e380e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPollVotesRequest <- R6::R6Class(
   "GetPollVotesRequest",
   lock_objects = FALSE,
@@ -6426,11 +6466,11 @@ GetPollVotesRequest$fromReader <- function(reader) {
   GetPollVotesRequest$new(peer = peer, id = id, limit = limit, option = option, offset = offset)
 }
 
-#  @title GetPreparedInlineMessageRequest
-#  @description Represents a request to get a prepared inline message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPreparedInlineMessageRequest
+#' @description Telegram API request \code{messages.getPreparedInlineMessage} (constructor \code{#857ebdb8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPreparedInlineMessageRequest <- R6::R6Class(
   "GetPreparedInlineMessageRequest",
   lock_objects = FALSE,
@@ -6490,11 +6530,11 @@ GetPreparedInlineMessageRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetQuickRepliesRequest
-#  @description Represents a request to get quick replies. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetQuickRepliesRequest
+#' @description Telegram API request \code{messages.getQuickReplies} (constructor \code{#d483f2a8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetQuickRepliesRequest <- R6::R6Class(
   "GetQuickRepliesRequest",
   lock_objects = FALSE,
@@ -6541,11 +6581,11 @@ GetQuickRepliesRequest$fromReader <- function(reader) {
   GetQuickRepliesRequest$new(hash = hash)
 }
 
-#  @title GetQuickReplyMessagesRequest
-#  @description Represents a request to get quick reply messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetQuickReplyMessagesRequest
+#' @description Telegram API request \code{messages.getQuickReplyMessages} (constructor \code{#94a495c3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetQuickReplyMessagesRequest <- R6::R6Class(
   "GetQuickReplyMessagesRequest",
   lock_objects = FALSE,
@@ -6614,11 +6654,11 @@ GetQuickReplyMessagesRequest$fromReader <- function(reader) {
   GetQuickReplyMessagesRequest$new(shortcutId = shortcutId, hash = hash, id = id)
 }
 
-#  @title GetRecentLocationsRequest
-#  @description Represents a request to get recent locations. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetRecentLocationsRequest
+#' @description Telegram API request \code{messages.getRecentLocations} (constructor \code{#702a40e0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetRecentLocationsRequest <- R6::R6Class(
   "GetRecentLocationsRequest",
   lock_objects = FALSE,
@@ -6683,11 +6723,11 @@ GetRecentLocationsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetRecentReactionsRequest
-#  @description Represents a request to get recent reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetRecentReactionsRequest
+#' @description Telegram API request \code{messages.getRecentReactions} (constructor \code{#39461db2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetRecentReactionsRequest <- R6::R6Class(
   "GetRecentReactionsRequest",
   lock_objects = FALSE,
@@ -6739,11 +6779,11 @@ GetRecentReactionsRequest$fromReader <- function(reader) {
   GetRecentReactionsRequest$new(limit = limit, hash = hash)
 }
 
-#  @title GetRecentStickersRequest
-#  @description Represents a request to get recent stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetRecentStickersRequest
+#' @description Telegram API request \code{messages.getRecentStickers} (constructor \code{#9da9403b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetRecentStickersRequest <- R6::R6Class(
   "GetRecentStickersRequest",
   lock_objects = FALSE,
@@ -6797,11 +6837,11 @@ GetRecentStickersRequest$fromReader <- function(reader) {
   GetRecentStickersRequest$new(hash = hash, attached = attached)
 }
 
-#  @title GetRepliesRequest
-#  @description Represents a request to get replies. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetRepliesRequest
+#' @description Telegram API request \code{messages.getReplies} (constructor \code{#22ddd30c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetRepliesRequest <- R6::R6Class(
   "GetRepliesRequest",
   inherit = TLRequest,
@@ -6895,11 +6935,11 @@ GetRepliesRequest$fromReader <- function(reader) {
   GetRepliesRequest$new(peer = peer, msgId = msgId, offsetId = offsetId, offsetDate = offsetDate, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, hash = hash)
 }
 
-#  @title GetSavedDialogsRequest
-#  @description Represents a request to get saved dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSavedDialogsRequest
+#' @description Telegram API request \code{messages.getSavedDialogs} (constructor \code{#1e91fc99}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSavedDialogsRequest <- R6::R6Class(
   "GetSavedDialogsRequest",
   lock_objects = FALSE,
@@ -6988,11 +7028,11 @@ GetSavedDialogsRequest$fromReader <- function(reader) {
   GetSavedDialogsRequest$new(offsetDate = offsetDate, offsetId = offsetId, offsetPeer = offsetPeer, limit = limit, hash = hash, excludePinned = excludePinned, parentPeer = parentPeer)
 }
 
-#  @title GetSavedDialogsByIDRequest
-#  @description Represents a request to get saved dialogs by ID. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSavedDialogsByIDRequest
+#' @description Telegram API request \code{messages.getSavedDialogsByID} (constructor \code{#6f6f9c96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSavedDialogsByIDRequest <- R6::R6Class(
   "GetSavedDialogsByIDRequest",
   lock_objects = FALSE,
@@ -7066,11 +7106,11 @@ GetSavedDialogsByIDRequest$fromReader <- function(reader) {
   GetSavedDialogsByIDRequest$new(ids = ids, parentPeer = parentPeer)
 }
 
-#  @title GetSavedGifsRequest
-#  @description Represents a request to get saved GIFs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSavedGifsRequest
+#' @description Telegram API request \code{messages.getSavedGifs} (constructor \code{#5cf09635}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSavedGifsRequest <- R6::R6Class(
   "GetSavedGifsRequest",
   lock_objects = FALSE,
@@ -7118,11 +7158,11 @@ GetSavedGifsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetSavedHistoryRequest
-#  @description Represents a request to get saved history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSavedHistoryRequest
+#' @description Telegram API request \code{messages.getSavedHistory} (constructor \code{#998ab009}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSavedHistoryRequest <- R6::R6Class(
   "GetSavedHistoryRequest",
   lock_objects = FALSE,
@@ -7222,11 +7262,11 @@ GetSavedHistoryRequest$fromReader <- function(reader) {
   GetSavedHistoryRequest$new(peer = peer, offset_id = offset_id, offset_date = offset_date, add_offset = add_offset, limit = limit, max_id = max_id, min_id = min_id, hash = hash, parent_peer = parent_peer)
 }
 
-#  @title GetSavedReactionTagsRequest
-#  @description Represents a request to get saved reaction tags. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSavedReactionTagsRequest
+#' @description Telegram API request \code{messages.getSavedReactionTags} (constructor \code{#3637e05b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSavedReactionTagsRequest <- R6::R6Class(
   "GetSavedReactionTagsRequest",
   lock_objects = FALSE,
@@ -7290,11 +7330,11 @@ GetSavedReactionTagsRequest$fromReader <- function(reader) {
   GetSavedReactionTagsRequest$new(hash = hash, peer = peer)
 }
 
-#  @title GetScheduledHistoryRequest
-#  @description Represents a request to get scheduled history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetScheduledHistoryRequest
+#' @description Telegram API request \code{messages.getScheduledHistory} (constructor \code{#f516760b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetScheduledHistoryRequest <- R6::R6Class(
   "GetScheduledHistoryRequest",
   inherit = TLRequest,
@@ -7354,11 +7394,11 @@ GetScheduledHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetScheduledMessagesRequest
-#  @description Represents a request to get scheduled messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetScheduledMessagesRequest
+#' @description Telegram API request \code{messages.getScheduledMessages} (constructor \code{#bdbb0464}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetScheduledMessagesRequest <- R6::R6Class(
   "GetScheduledMessagesRequest",
   lock_objects = FALSE,
@@ -7422,11 +7462,11 @@ GetScheduledMessagesRequest$fromReader <- function(reader) {
   GetScheduledMessagesRequest$new(peer = peer, id = id)
 }
 
-#  @title GetSearchCountersRequest
-#  @description Represents a request to get search counters. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSearchCountersRequest
+#' @description Telegram API request \code{messages.getSearchCounters} (constructor \code{#1bbcf300}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSearchCountersRequest <- R6::R6Class(
   "GetSearchCountersRequest",
   lock_objects = FALSE,
@@ -7506,11 +7546,11 @@ GetSearchCountersRequest$fromReader <- function(reader) {
   GetSearchCountersRequest$new(peer = peer, filters = filters, savedPeerId = savedPeerId, topMsgId = topMsgId)
 }
 
-#  @title GetSearchResultsCalendarRequest
-#  @description Represents a request to get search results calendar. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSearchResultsCalendarRequest
+#' @description Telegram API request \code{messages.getSearchResultsCalendar} (constructor \code{#6aa3f6bd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSearchResultsCalendarRequest <- R6::R6Class(
   "GetSearchResultsCalendarRequest",
   lock_objects = FALSE,
@@ -7591,11 +7631,11 @@ GetSearchResultsCalendarRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetSearchResultsPositionsRequest
-#  @description Represents a request to get search results positions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSearchResultsPositionsRequest
+#' @description Telegram API request \code{messages.getSearchResultsPositions} (constructor \code{#9c7f2f10}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSearchResultsPositionsRequest <- R6::R6Class(
   "GetSearchResultsPositionsRequest",
   lock_objects = FALSE,
@@ -7675,11 +7715,11 @@ GetSearchResultsPositionsRequest$fromReader <- function(reader) {
   GetSearchResultsPositionsRequest$new(peer = peer, filter = filter, offset_id = offsetId, limit = limit, saved_peer_id = savedPeerId)
 }
 
-#  @title GetSplitRangesRequest
-#  @description Represents a request to get split ranges. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSplitRangesRequest
+#' @description Telegram API request \code{messages.getSplitRanges} (constructor \code{#1cff7e08}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSplitRangesRequest <- R6::R6Class(
   "GetSplitRangesRequest",
   inherit = TLRequest,
@@ -7714,11 +7754,11 @@ GetSplitRangesRequest$fromReader <- function(reader) {
   GetSplitRangesRequest$new()
 }
 
-#  @title GetSponsoredMessagesRequest
-#  @description Represents a request to get sponsored messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSponsoredMessagesRequest
+#' @description Telegram API request \code{messages.getSponsoredMessages} (constructor \code{#3d6ce850}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSponsoredMessagesRequest <- R6::R6Class(
   "GetSponsoredMessagesRequest",
   lock_objects = FALSE,
@@ -7781,11 +7821,11 @@ GetSponsoredMessagesRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetStickerSetRequest
-#  @description Represents a request to get a sticker set. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStickerSetRequest
+#' @description Telegram API request \code{messages.getStickerSet} (constructor \code{#c8a0ec74}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStickerSetRequest <- R6::R6Class(
   "GetStickerSetRequest",
   lock_objects = FALSE,
@@ -7837,11 +7877,11 @@ GetStickerSetRequest$fromReader <- function(reader) {
   GetStickerSetRequest$new(stickerset = stickerset, hash = hash)
 }
 
-#  @title GetStickersRequest
-#  @description Represents a request to get stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStickersRequest
+#' @description Telegram API request \code{messages.getStickers} (constructor \code{#d5a5d3a1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStickersRequest <- R6::R6Class(
   "GetStickersRequest",
   lock_objects = FALSE,
@@ -7893,11 +7933,11 @@ GetStickersRequest$fromReader <- function(reader) {
   GetStickersRequest$new(emoticon = emoticon, hash = hash)
 }
 
-#  @title GetSuggestedDialogFiltersRequest
-#  @description Represents a request to get suggested dialog filters. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetSuggestedDialogFiltersRequest
+#' @description Telegram API request \code{messages.getSuggestedDialogFilters} (constructor \code{#a29cd42c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetSuggestedDialogFiltersRequest <- R6::R6Class(
   "GetSuggestedDialogFiltersRequest",
   inherit = TLRequest,
@@ -7932,11 +7972,11 @@ GetSuggestedDialogFiltersRequest$fromReader <- function(reader) {
   GetSuggestedDialogFiltersRequest$new()
 }
 
-#  @title GetTopReactionsRequest
-#  @description Represents a request to get top reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetTopReactionsRequest
+#' @description Telegram API request \code{messages.getTopReactions} (constructor \code{#bb8125ba}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetTopReactionsRequest <- R6::R6Class(
   "GetTopReactionsRequest",
   lock_objects = FALSE,
@@ -7989,11 +8029,11 @@ GetTopReactionsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetUnreadMentionsRequest
-#  @description Represents a request to get unread mentions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetUnreadMentionsRequest
+#' @description Telegram API request \code{messages.getUnreadMentions} (constructor \code{#f107e790}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetUnreadMentionsRequest <- R6::R6Class(
   "GetUnreadMentionsRequest",
   lock_objects = FALSE,
@@ -8080,11 +8120,11 @@ GetUnreadMentionsRequest$fromReader <- function(reader) {
   GetUnreadMentionsRequest$new(peer = peer, offsetId = offsetId, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, topMsgId = topMsgId)
 }
 
-#  @title GetUnreadReactionsRequest
-#  @description Represents a request to get unread reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetUnreadReactionsRequest
+#' @description Telegram API request \code{messages.getUnreadReactions} (constructor \code{#bd7f90ac}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetUnreadReactionsRequest <- R6::R6Class(
   "GetUnreadReactionsRequest",
   lock_objects = FALSE,
@@ -8179,11 +8219,11 @@ GetUnreadReactionsRequest$fromReader <- function(reader) {
   GetUnreadReactionsRequest$new(peer = peer, offsetId = offsetId, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, topMsgId = topMsgId, savedPeerId = savedPeerId)
 }
 
-#  @title GetWebPageRequest
-#  @description Represents a request to get a web page. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetWebPageRequest
+#' @description Telegram API request \code{messages.getWebPage} (constructor \code{#8d9692a3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetWebPageRequest <- R6::R6Class(
   "GetWebPageRequest",
   lock_objects = FALSE,
@@ -8236,11 +8276,11 @@ GetWebPageRequest$fromReader <- function(reader) {
 }
 
 
-#  @title GetWebPagePreviewRequest
-#  @description Represents a request to get a web page preview. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetWebPagePreviewRequest
+#' @description Telegram API request \code{messages.getWebPagePreview} (constructor \code{#570d6f6f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetWebPagePreviewRequest <- R6::R6Class(
   "GetWebPagePreviewRequest",
   lock_objects = FALSE,
@@ -8304,11 +8344,11 @@ GetWebPagePreviewRequest$fromReader <- function(reader) {
   GetWebPagePreviewRequest$new(message = message, entities = entities)
 }
 
-#  @title HideAllChatJoinRequestsRequest
-#  @description Represents a request to hide all chat join requests. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title HideAllChatJoinRequestsRequest
+#' @description Telegram API request \code{messages.hideAllChatJoinRequests} (constructor \code{#e085f4ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HideAllChatJoinRequestsRequest <- R6::R6Class(
   "HideAllChatJoinRequestsRequest",
   lock_objects = FALSE,
@@ -8374,11 +8414,11 @@ HideAllChatJoinRequestsRequest$fromReader <- function(reader) {
   HideAllChatJoinRequestsRequest$new(peer = peer, approved = approved, link = link)
 }
 
-#  @title HideChatJoinRequestRequest
-#  @description Represents a request to hide a chat join request. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title HideChatJoinRequestRequest
+#' @description Telegram API request \code{messages.hideChatJoinRequest} (constructor \code{#7fe7e815}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HideChatJoinRequestRequest <- R6::R6Class(
   "HideChatJoinRequestRequest",
   lock_objects = FALSE,
@@ -8446,11 +8486,11 @@ HideChatJoinRequestRequest$fromReader <- function(reader) {
 }
 
 
-#  @title HidePeerSettingsBarRequest
-#  @description Represents a request to hide peer settings bar. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title HidePeerSettingsBarRequest
+#' @description Telegram API request \code{messages.hidePeerSettingsBar} (constructor \code{#4facb138}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 HidePeerSettingsBarRequest <- R6::R6Class(
   "HidePeerSettingsBarRequest",
   lock_objects = FALSE,
@@ -8504,11 +8544,11 @@ HidePeerSettingsBarRequest$fromReader <- function(reader) {
   HidePeerSettingsBarRequest$new(peer = peer)
 }
 
-#  @title ImportChatInviteRequest
-#  @description Represents a request to import a chat invite. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportChatInviteRequest
+#' @description Telegram API request \code{messages.importChatInvite} (constructor \code{#de91436e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportChatInviteRequest <- R6::R6Class("ImportChatInviteRequest",
   inherit = TLRequest,
   public = list(
@@ -8548,6 +8588,11 @@ ImportChatInviteRequest <- R6::R6Class("ImportChatInviteRequest",
   lock_objects = FALSE
 )
 
+#' @title InitHistoryImportRequest
+#' @description Telegram API request \code{messages.initHistoryImport} (constructor \code{#34090c3b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InitHistoryImportRequest <- R6::R6Class(
   "InitHistoryImportRequest",
   lock_objects = FALSE,
@@ -8612,11 +8657,11 @@ InitHistoryImportRequest$fromReader <- function(reader) {
 }
 
 
-#  @title InstallStickerSetRequest
-#  @description Represents a request to install a sticker set. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title InstallStickerSetRequest
+#' @description Telegram API request \code{messages.installStickerSet} (constructor \code{#c78fe460}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InstallStickerSetRequest <- R6::R6Class(
   "InstallStickerSetRequest",
   lock_objects = FALSE,
@@ -8668,11 +8713,11 @@ InstallStickerSetRequest$fromReader <- function(reader) {
   InstallStickerSetRequest$new(stickerset = stickerset, archived = archived)
 }
 
-#  @title MarkDialogUnreadRequest
-#  @description Represents a request to mark a dialog as unread. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title MarkDialogUnreadRequest
+#' @description Telegram API request \code{messages.markDialogUnread} (constructor \code{#8c5006f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MarkDialogUnreadRequest <- R6::R6Class(
   "MarkDialogUnreadRequest",
   lock_objects = FALSE,
@@ -8743,11 +8788,11 @@ MarkDialogUnreadRequest$fromReader <- function(reader) {
   MarkDialogUnreadRequest$new(peer = peer, unread = unread, parentPeer = parentPeer)
 }
 
-#  @title MigrateChatRequest
-#  @description Represents a request to migrate a chat. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title MigrateChatRequest
+#' @description Telegram API request \code{messages.migrateChat} (constructor \code{#a2875319}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 MigrateChatRequest <- R6::R6Class(
   "MigrateChatRequest",
   lock_objects = FALSE,
@@ -8795,11 +8840,11 @@ MigrateChatRequest$fromReader <- function(reader) {
 }
 
 
-#  @title ProlongWebViewRequest
-#  @description Represents a request to prolong a web view. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ProlongWebViewRequest
+#' @description Telegram API request \code{messages.prolongWebView} (constructor \code{#b0d81a83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ProlongWebViewRequest <- R6::R6Class(
   "ProlongWebViewRequest",
   lock_objects = FALSE,
@@ -8887,11 +8932,11 @@ ProlongWebViewRequest$fromReader <- function(reader) {
   ProlongWebViewRequest$new(peer = peer, bot = bot, queryId = queryId, silent = silent, replyTo = replyTo, sendAs = sendAs)
 }
 
-#  @title RateTranscribedAudioRequest
-#  @description Represents a request to rate transcribed audio. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RateTranscribedAudioRequest
+#' @description Telegram API request \code{messages.rateTranscribedAudio} (constructor \code{#7f1d072f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RateTranscribedAudioRequest <- R6::R6Class(
   "RateTranscribedAudioRequest",
   lock_objects = FALSE,
@@ -8960,11 +9005,11 @@ RateTranscribedAudioRequest$fromReader <- function(reader) {
   RateTranscribedAudioRequest$new(peer = peer, msgId = msgId, transcriptionId = transcriptionId, good = good)
 }
 
-#  @title ReadDiscussionRequest
-#  @description Represents a request to read discussion. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadDiscussionRequest
+#' @description Telegram API request \code{messages.readDiscussion} (constructor \code{#f731a9f4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadDiscussionRequest <- R6::R6Class(
   "ReadDiscussionRequest",
   lock_objects = FALSE,
@@ -9029,11 +9074,11 @@ ReadDiscussionRequest$fromReader <- function(reader) {
 }
 
 
-#  @title ReadEncryptedHistoryRequest
-#  @description Represents a request to read encrypted history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadEncryptedHistoryRequest
+#' @description Telegram API request \code{messages.readEncryptedHistory} (constructor \code{#7f4b690a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadEncryptedHistoryRequest <- R6::R6Class(
   "ReadEncryptedHistoryRequest",
   lock_objects = FALSE,
@@ -9085,11 +9130,11 @@ ReadEncryptedHistoryRequest$fromReader <- function(reader) {
   ReadEncryptedHistoryRequest$new(peer = peer, maxDate = maxDate)
 }
 
-#  @title ReadFeaturedStickersRequest
-#  @description Represents a request to read featured stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadFeaturedStickersRequest
+#' @description Telegram API request \code{messages.readFeaturedStickers} (constructor \code{#5b118126}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadFeaturedStickersRequest <- R6::R6Class(
   "ReadFeaturedStickersRequest",
   lock_objects = FALSE,
@@ -9143,11 +9188,11 @@ ReadFeaturedStickersRequest$fromReader <- function(reader) {
   ReadFeaturedStickersRequest$new(id = id)
 }
 
-#  @title ReadHistoryRequest
-#  @description Represents a request to read history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadHistoryRequest
+#' @description Telegram API request \code{messages.readHistory} (constructor \code{#0e306d3a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadHistoryRequest <- R6::R6Class("ReadHistoryRequest",
   inherit = TLRequest,
   public = list(
@@ -9197,6 +9242,11 @@ ReadHistoryRequest <- R6::R6Class("ReadHistoryRequest",
   lock_objects = FALSE
 )
 
+#' @title ReadMentionsRequest
+#' @description Telegram API request \code{messages.readMentions} (constructor \code{#36e5bf4d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadMentionsRequest <- R6::R6Class(
   "ReadMentionsRequest",
   lock_objects = FALSE,
@@ -9258,11 +9308,11 @@ ReadMentionsRequest$fromReader <- function(reader) {
   ReadMentionsRequest$new(peer = peer, topMsgId = topMsgId)
 }
 
-#  @title ReadMessageContentsRequest
-#  @description Represents a request to read message contents. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadMessageContentsRequest
+#' @description Telegram API request \code{messages.readMessageContents} (constructor \code{#36a73f77}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadMessageContentsRequest <- R6::R6Class("ReadMessageContentsRequest",
   inherit = TLRequest,
   public = list(
@@ -9302,6 +9352,11 @@ ReadMessageContentsRequest <- R6::R6Class("ReadMessageContentsRequest",
   lock_objects = FALSE
 )
 
+#' @title ReadReactionsRequest
+#' @description Telegram API request \code{messages.readReactions} (constructor \code{#9ec44f93}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadReactionsRequest <- R6::R6Class(
   "ReadReactionsRequest",
   lock_objects = FALSE,
@@ -9374,11 +9429,11 @@ ReadReactionsRequest$fromReader <- function(reader) {
 }
 
 
-#  @title ReadSavedHistoryRequest
-#  @description Represents a request to read saved history. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadSavedHistoryRequest
+#' @description Telegram API request \code{messages.readSavedHistory} (constructor \code{#ba4a3b5b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadSavedHistoryRequest <- R6::R6Class(
   "ReadSavedHistoryRequest",
   lock_objects = FALSE,
@@ -9443,11 +9498,11 @@ ReadSavedHistoryRequest$fromReader <- function(reader) {
   ReadSavedHistoryRequest$new(parentPeer = parentPeer, peer = peer, maxId = maxId)
 }
 
-#  @title ReceivedMessagesRequest
-#  @description Represents a request to receive messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReceivedMessagesRequest
+#' @description Telegram API request \code{messages.receivedMessages} (constructor \code{#05a954c0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReceivedMessagesRequest <- R6::R6Class(
   "ReceivedMessagesRequest",
   lock_objects = FALSE,
@@ -9494,11 +9549,11 @@ ReceivedMessagesRequest$fromReader <- function(reader) {
   ReceivedMessagesRequest$new(maxId = maxId)
 }
 
-#  @title ReceivedQueueRequest
-#  @description Represents a request to receive queue. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReceivedQueueRequest
+#' @description Telegram API request \code{messages.receivedQueue} (constructor \code{#55a5bb66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReceivedQueueRequest <- R6::R6Class(
   "ReceivedQueueRequest",
   lock_objects = FALSE,
@@ -9556,11 +9611,11 @@ ReceivedQueueRequest$readResult <- function(reader) {
 }
 
 
-#  @title ReorderPinnedDialogsRequest
-#  @description Represents a request to reorder pinned dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderPinnedDialogsRequest
+#' @description Telegram API request \code{messages.reorderPinnedDialogs} (constructor \code{#3b1adf37}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderPinnedDialogsRequest <- R6::R6Class(
   "ReorderPinnedDialogsRequest",
   lock_objects = FALSE,
@@ -9637,11 +9692,11 @@ ReorderPinnedDialogsRequest$from_reader <- function(reader) {
   ReorderPinnedDialogsRequest$new(folder_id = folder_id, order = order, force = force)
 }
 
-#  @title ReorderPinnedSavedDialogsRequest
-#  @description Represents a request to reorder pinned saved dialogs. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderPinnedSavedDialogsRequest
+#' @description Telegram API request \code{messages.reorderPinnedSavedDialogs} (constructor \code{#8b716587}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderPinnedSavedDialogsRequest <- R6::R6Class(
   "ReorderPinnedSavedDialogsRequest",
   lock_objects = FALSE,
@@ -9713,11 +9768,11 @@ ReorderPinnedSavedDialogsRequest$from_reader <- function(reader) {
   ReorderPinnedSavedDialogsRequest$new(order = order, force = force)
 }
 
-#  @title ReorderQuickRepliesRequest
-#  @description Represents a request to reorder quick replies. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderQuickRepliesRequest
+#' @description Telegram API request \code{messages.reorderQuickReplies} (constructor \code{#60331907}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderQuickRepliesRequest <- R6::R6Class(
   "ReorderQuickRepliesRequest",
   lock_objects = FALSE,
@@ -9772,11 +9827,11 @@ ReorderQuickRepliesRequest$from_reader <- function(reader) {
 }
 
 
-#  @title ReorderStickerSetsRequest
-#  @description Represents a request to reorder sticker sets. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderStickerSetsRequest
+#' @description Telegram API request \code{messages.reorderStickerSets} (constructor \code{#78337739}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderStickerSetsRequest <- R6::R6Class(
   "ReorderStickerSetsRequest",
   lock_objects = FALSE,
@@ -9843,11 +9898,11 @@ ReorderStickerSetsRequest$fromReader <- function(reader) {
   ReorderStickerSetsRequest$new(order = order, masks = masks, emojis = emojis)
 }
 
-#  @title ReportRequest
-#  @description Represents a request to report messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportRequest
+#' @description Telegram API request \code{messages.report} (constructor \code{#fc78af9b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportRequest <- R6::R6Class("ReportRequest",
   inherit = TLRequest,
   public = list(
@@ -9909,6 +9964,11 @@ ReportRequest <- R6::R6Class("ReportRequest",
   lock_objects = FALSE
 )
 
+#' @title ReportEncryptedSpamRequest
+#' @description Telegram API request \code{messages.reportEncryptedSpam} (constructor \code{#4b0c8c0f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportEncryptedSpamRequest <- R6::R6Class(
   "ReportEncryptedSpamRequest",
   lock_objects = FALSE,
@@ -9956,11 +10016,11 @@ ReportEncryptedSpamRequest$fromReader <- function(reader) {
 }
 
 
-#  @title ReportMessagesDeliveryRequest
-#  @description Represents a request to report messages delivery. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportMessagesDeliveryRequest
+#' @description Telegram API request \code{messages.reportMessagesDelivery} (constructor \code{#5a6d7395}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportMessagesDeliveryRequest <- R6::R6Class(
   "ReportMessagesDeliveryRequest",
   lock_objects = FALSE,
@@ -10034,11 +10094,11 @@ ReportMessagesDeliveryRequest$from_reader <- function(reader) {
   ReportMessagesDeliveryRequest$new(peer = peer, id = id, push = push)
 }
 
-#  @title ReportReactionRequest
-#  @description Represents a request to report a reaction. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportReactionRequest
+#' @description Telegram API request \code{messages.reportReaction} (constructor \code{#3f64c076}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportReactionRequest <- R6::R6Class(
   "ReportReactionRequest",
   lock_objects = FALSE,
@@ -10103,11 +10163,11 @@ ReportReactionRequest$from_reader <- function(reader) {
   ReportReactionRequest$new(peer = peer, id = id, reaction_peer = reaction_peer)
 }
 
-#  @title ReportSpamRequest
-#  @description Represents a request to report spam. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportSpamRequest
+#' @description Telegram API request \code{messages.reportSpam} (constructor \code{#cf1592db}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportSpamRequest <- R6::R6Class("ReportSpamRequest",
   inherit = TLRequest,
   public = list(
@@ -10151,6 +10211,11 @@ ReportSpamRequest <- R6::R6Class("ReportSpamRequest",
   lock_objects = FALSE
 )
 
+#' @title ReportSponsoredMessageRequest
+#' @description Telegram API request \code{messages.reportSponsoredMessage} (constructor \code{#12cbf0c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportSponsoredMessageRequest <- R6::R6Class(
   "ReportSponsoredMessageRequest",
   lock_objects = FALSE,
@@ -10208,11 +10273,11 @@ ReportSponsoredMessageRequest$from_reader <- function(reader) {
   ReportSponsoredMessageRequest$new(option = option, randomId = randomId)
 }
 
-#  @title RequestAppWebViewRequest
-#  @description Represents a request to request an app web view. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestAppWebViewRequest
+#' @description Telegram API request \code{messages.requestAppWebView} (constructor \code{#53618bce}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestAppWebViewRequest <- R6::R6Class(
   "RequestAppWebViewRequest",
   lock_objects = FALSE,
@@ -10306,11 +10371,11 @@ RequestAppWebViewRequest$from_reader <- function(reader) {
   RequestAppWebViewRequest$new(peer = peer, app = app, platform = platform, writeAllowed = writeAllowed, compact = compact, fullscreen = fullscreen, startParam = startParam, themeParams = themeParams)
 }
 
-#  @title RequestEncryptionRequest
-#  @description Represents a request to request encryption. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestEncryptionRequest
+#' @description Telegram API request \code{messages.requestEncryption} (constructor \code{#f64daf43}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestEncryptionRequest <- R6::R6Class(
   "RequestEncryptionRequest",
   lock_objects = FALSE,
@@ -10380,11 +10445,11 @@ RequestEncryptionRequest$from_reader <- function(reader) {
 }
 
 
-#  @title RequestMainWebViewRequest
-#  @description Represents a request to request the main web view for a bot. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestMainWebViewRequest
+#' @description Telegram API request \code{messages.requestMainWebView} (constructor \code{#c9e01e7b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestMainWebViewRequest <- R6::R6Class(
   "RequestMainWebViewRequest",
   lock_objects = FALSE,
@@ -10474,11 +10539,11 @@ RequestMainWebViewRequest$from_reader <- function(reader) {
   RequestMainWebViewRequest$new(peer = peer, bot = bot, platform = platform, compact = compact, fullscreen = fullscreen, start_param = start_param, theme_params = theme_params)
 }
 
-#  @title RequestSimpleWebViewRequest
-#  @description Represents a request to request a simple web view for a bot. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestSimpleWebViewRequest
+#' @description Telegram API request \code{messages.requestSimpleWebView} (constructor \code{#413a3e73}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestSimpleWebViewRequest <- R6::R6Class(
   "RequestSimpleWebViewRequest",
   lock_objects = FALSE,
@@ -10578,11 +10643,11 @@ RequestSimpleWebViewRequest$from_reader <- function(reader) {
   RequestSimpleWebViewRequest$new(bot = bot, platform = platform, from_switch_webview = from_switch_webview, from_side_menu = from_side_menu, compact = compact, fullscreen = fullscreen, url = url, start_param = start_param, theme_params = theme_params)
 }
 
-#  @title RequestUrlAuthRequest
-#  @description Represents a request to request URL auth. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestUrlAuthRequest
+#' @description Telegram API request \code{messages.requestUrlAuth} (constructor \code{#894cc99c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestUrlAuthRequest <- R6::R6Class("RequestUrlAuthRequest",
   inherit = TLRequest,
   public = list(
@@ -10658,6 +10723,11 @@ RequestUrlAuthRequest <- R6::R6Class("RequestUrlAuthRequest",
   lock_objects = FALSE
 )
 
+#' @title RequestWebViewRequest
+#' @description Telegram API request \code{messages.requestWebView} (constructor \code{#269dc2c1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestWebViewRequest <- R6::R6Class(
   "RequestWebViewRequest",
   lock_objects = FALSE,
@@ -10798,11 +10868,11 @@ RequestWebViewRequest$from_reader <- function(reader) {
   RequestWebViewRequest$new(peer = peer, bot = bot, platform = platform, from_bot_menu = from_bot_menu, silent = silent, compact = compact, fullscreen = fullscreen, url = url, start_param = start_param, theme_params = theme_params, reply_to = reply_to, send_as = send_as)
 }
 
-#  @title SaveDefaultSendAsRequest
-#  @description Represents a request to save the default send-as peer for a chat. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SaveDefaultSendAsRequest
+#' @description Telegram API request \code{messages.saveDefaultSendAs} (constructor \code{#ccfddf96}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveDefaultSendAsRequest <- R6::R6Class(
   "SaveDefaultSendAsRequest",
   lock_objects = FALSE,
@@ -10862,11 +10932,11 @@ SaveDefaultSendAsRequest$from_reader <- function(reader) {
   SaveDefaultSendAsRequest$new(peer = peer, send_as = send_as)
 }
 
-#  @title SaveDraftRequest
-#  @description Represents a request to save a draft message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SaveDraftRequest
+#' @description Telegram API request \code{messages.saveDraft} (constructor \code{#ad0fa15c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveDraftRequest <- R6::R6Class("SaveDraftRequest",
   inherit = TLRequest,
   public = list(
@@ -10973,6 +11043,11 @@ SaveDraftRequest <- R6::R6Class("SaveDraftRequest",
   lock_objects = FALSE
 )
 
+#' @title SaveGifRequest
+#' @description Telegram API request \code{messages.saveGif} (constructor \code{#327a30cb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveGifRequest <- R6::R6Class(
   "SaveGifRequest",
   lock_objects = FALSE,
@@ -11031,11 +11106,11 @@ SaveGifRequest$from_reader <- function(reader) {
   SaveGifRequest$new(id = id, unsave = unsave)
 }
 
-#  @title SavePreparedInlineMessageRequest
-#  @description Represents a request to save a prepared inline message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SavePreparedInlineMessageRequest
+#' @description Telegram API request \code{messages.savePreparedInlineMessage} (constructor \code{#f21f7f2f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SavePreparedInlineMessageRequest <- R6::R6Class(
   "SavePreparedInlineMessageRequest",
   lock_objects = FALSE,
@@ -11119,11 +11194,11 @@ SavePreparedInlineMessageRequest$from_reader <- function(reader) {
   SavePreparedInlineMessageRequest$new(result = result, user_id = user_id, peer_types = peer_types)
 }
 
-#  @title SaveRecentStickerRequest
-#  @description Represents a request to save or unsave a recent sticker. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SaveRecentStickerRequest
+#' @description Telegram API request \code{messages.saveRecentSticker} (constructor \code{#392718f8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SaveRecentStickerRequest <- R6::R6Class(
   "SaveRecentStickerRequest",
   lock_objects = FALSE,
@@ -11191,11 +11266,11 @@ SaveRecentStickerRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SearchRequest
-#  @description Represents a request to search messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchRequest
+#' @description Telegram API request \code{messages.search} (constructor \code{#29ee847a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchRequest <- R6::R6Class("SearchRequest",
   inherit = TLRequest,
   public = list(
@@ -11332,6 +11407,11 @@ SearchRequest <- R6::R6Class("SearchRequest",
   lock_objects = FALSE
 )
 
+#' @title SearchCustomEmojiRequest
+#' @description Telegram API request \code{messages.searchCustomEmoji} (constructor \code{#2c11c0d7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchCustomEmojiRequest <- R6::R6Class(
   "SearchCustomEmojiRequest",
   inherit = TLRequest,
@@ -11383,11 +11463,11 @@ SearchCustomEmojiRequest$from_reader <- function(reader) {
   SearchCustomEmojiRequest$new(emoticon = emoticon, hash = hash)
 }
 
-#  @title SearchEmojiStickerSetsRequest
-#  @description Represents a request to search emoji sticker sets. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchEmojiStickerSetsRequest
+#' @description Telegram API request \code{messages.searchEmojiStickerSets} (constructor \code{#92b4494c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchEmojiStickerSetsRequest <- R6::R6Class(
   "SearchEmojiStickerSetsRequest",
   lock_objects = FALSE,
@@ -11448,11 +11528,11 @@ SearchEmojiStickerSetsRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SearchGlobalRequest
-#  @description Represents a request to search globally. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchGlobalRequest
+#' @description Telegram API request \code{messages.searchGlobal} (constructor \code{#6126a43c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchGlobalRequest <- R6::R6Class("SearchGlobalRequest",
   inherit = TLRequest,
   public = list(
@@ -11574,6 +11654,11 @@ SearchGlobalRequest <- R6::R6Class("SearchGlobalRequest",
   lock_objects = FALSE
 )
 
+#' @title SearchSentMediaRequest
+#' @description Telegram API request \code{messages.searchSentMedia} (constructor \code{#107e31a0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchSentMediaRequest <- R6::R6Class(
   "SearchSentMediaRequest",
   inherit = TLRequest,
@@ -11630,11 +11715,11 @@ SearchSentMediaRequest$from_reader <- function(reader) {
   SearchSentMediaRequest$new(q = q, filter = filter, limit = limit)
 }
 
-#  @title SearchStickerSetsRequest
-#  @description Represents a request to search sticker sets. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchStickerSetsRequest
+#' @description Telegram API request \code{messages.searchStickerSets} (constructor \code{#35705b8a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchStickerSetsRequest <- R6::R6Class(
   "SearchStickerSetsRequest",
   lock_objects = FALSE,
@@ -11694,11 +11779,11 @@ SearchStickerSetsRequest$from_reader <- function(reader) {
   SearchStickerSetsRequest$new(q = q, hash = hash, exclude_featured = exclude_featured)
 }
 
-#  @title SearchStickersRequest
-#  @description Represents a request to search for stickers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchStickersRequest
+#' @description Telegram API request \code{messages.searchStickers} (constructor \code{#29b1c66a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchStickersRequest <- R6::R6Class(
   "SearchStickersRequest",
   lock_objects = FALSE,
@@ -11783,11 +11868,11 @@ SearchStickersRequest$from_reader <- function(reader) {
   SearchStickersRequest$new(q = q, emoticon = emoticon, lang_code = lang_code, offset = offset, limit = limit, hash = hash, emojis = emojis)
 }
 
-#  @title SendBotRequestedPeerRequest
-#  @description Represents a request to send bot requested peers. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendBotRequestedPeerRequest
+#' @description Telegram API request \code{messages.sendBotRequestedPeer} (constructor \code{#6c5cf2a7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendBotRequestedPeerRequest <- R6::R6Class("SendBotRequestedPeerRequest",
   inherit = TLRequest,
   public = list(
@@ -11860,6 +11945,11 @@ SendBotRequestedPeerRequest <- R6::R6Class("SendBotRequestedPeerRequest",
   lock_objects = FALSE
 )
 
+#' @title SendEncryptedRequest
+#' @description Telegram API request \code{messages.sendEncrypted} (constructor \code{#44fa7a15}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendEncryptedRequest <- R6::R6Class(
   "SendEncryptedRequest",
   lock_objects = FALSE,
@@ -11924,11 +12014,11 @@ SendEncryptedRequest$from_reader <- function(reader) {
   SendEncryptedRequest$new(peer = peer, data = data, silent = silent, random_id = random_id)
 }
 
-#  @title SendEncryptedFileRequest
-#  @description Represents a request to send an encrypted file. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendEncryptedFileRequest
+#' @description Telegram API request \code{messages.sendEncryptedFile} (constructor \code{#5559481d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendEncryptedFileRequest <- R6::R6Class(
   "SendEncryptedFileRequest",
   lock_objects = FALSE,
@@ -11999,11 +12089,11 @@ SendEncryptedFileRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SendEncryptedServiceRequest
-#  @description Represents a request to send an encrypted service message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendEncryptedServiceRequest
+#' @description Telegram API request \code{messages.sendEncryptedService} (constructor \code{#32d439a4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendEncryptedServiceRequest <- R6::R6Class(
   "SendEncryptedServiceRequest",
   lock_objects = FALSE,
@@ -12067,11 +12157,11 @@ SendEncryptedServiceRequest$from_reader <- function(reader) {
   SendEncryptedServiceRequest$new(peer = peer, data = data, random_id = random_id)
 }
 
-#  @title SendInlineBotResultRequest
-#  @description Represents a request to send an inline bot result. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendInlineBotResultRequest
+#' @description Telegram API request \code{messages.sendInlineBotResult} (constructor \code{#c0cf7646}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendInlineBotResultRequest <- R6::R6Class(
   "SendInlineBotResultRequest",
   lock_objects = FALSE,
@@ -12197,11 +12287,11 @@ SendInlineBotResultRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SendMediaRequest
-#  @description Represents a request to send media. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendMediaRequest
+#' @description Telegram API request \code{messages.sendMedia} (constructor \code{#0330e77f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMediaRequest <- R6::R6Class("SendMediaRequest",
   inherit = TLRequest,
   public = list(
@@ -12379,6 +12469,11 @@ SendMediaRequest <- R6::R6Class("SendMediaRequest",
   lock_objects = FALSE
 )
 
+#' @title SendMessageRequest
+#' @description Telegram API request \code{messages.sendMessage} (constructor \code{#fef48f62}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMessageRequest <- R6::R6Class("SendMessageRequest",
   inherit = TLRequest,
   public = list(
@@ -12563,6 +12658,11 @@ SendMessageRequest <- R6::R6Class("SendMessageRequest",
   lock_objects = FALSE
 )
 
+#' @title SendMultiMediaRequest
+#' @description Telegram API request \code{messages.sendMultiMedia} (constructor \code{#1bf89d74}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendMultiMediaRequest <- R6::R6Class(
   "SendMultiMediaRequest",
   lock_objects = FALSE,
@@ -12705,11 +12805,11 @@ SendMultiMediaRequest$from_reader <- function(reader) {
   SendMultiMediaRequest$new(peer = peer, multi_media = multi_media, silent = silent, background = background, clear_draft = clear_draft, noforwards = noforwards, update_stickersets_order = update_stickersets_order, invert_media = invert_media, allow_paid_floodskip = allow_paid_floodskip, reply_to = reply_to, schedule_date = schedule_date, send_as = send_as, quick_reply_shortcut = quick_reply_shortcut, effect = effect, allow_paid_stars = allow_paid_stars)
 }
 
-#  @title SendPaidReactionRequest
-#  @description Represents a request to send a paid reaction. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendPaidReactionRequest
+#' @description Telegram API request \code{messages.sendPaidReaction} (constructor \code{#58bbcb50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendPaidReactionRequest <- R6::R6Class(
   "SendPaidReactionRequest",
   lock_objects = FALSE,
@@ -12788,11 +12888,11 @@ SendPaidReactionRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SendQuickReplyMessagesRequest
-#  @description Represents a request to send quick reply messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendQuickReplyMessagesRequest
+#' @description Telegram API request \code{messages.sendQuickReplyMessages} (constructor \code{#6c750de1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendQuickReplyMessagesRequest <- R6::R6Class(
   "SendQuickReplyMessagesRequest",
   lock_objects = FALSE,
@@ -12877,11 +12977,11 @@ SendQuickReplyMessagesRequest$from_reader <- function(reader) {
   SendQuickReplyMessagesRequest$new(peer = peer, shortcut_id = shortcut_id, id = id, random_id = random_id)
 }
 
-#  @title SendReactionRequest
-#  @description Represents a request to send a reaction. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendReactionRequest
+#' @description Telegram API request \code{messages.sendReaction} (constructor \code{#d30d78d4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendReactionRequest <- R6::R6Class("SendReactionRequest",
   inherit = TLRequest,
   public = list(
@@ -12953,6 +13053,11 @@ SendReactionRequest <- R6::R6Class("SendReactionRequest",
   lock_objects = FALSE
 )
 
+#' @title SendScheduledMessagesRequest
+#' @description Telegram API request \code{messages.sendScheduledMessages} (constructor \code{#bd38850a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendScheduledMessagesRequest <- R6::R6Class(
   "SendScheduledMessagesRequest",
   lock_objects = FALSE,
@@ -13018,11 +13123,11 @@ SendScheduledMessagesRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SendScreenshotNotificationRequest
-#  @description Represents a request to send a screenshot notification. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendScreenshotNotificationRequest
+#' @description Telegram API request \code{messages.sendScreenshotNotification} (constructor \code{#a1405817}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendScreenshotNotificationRequest <- R6::R6Class(
   "SendScreenshotNotificationRequest",
   lock_objects = FALSE,
@@ -13086,11 +13191,11 @@ SendScreenshotNotificationRequest$from_reader <- function(reader) {
   SendScreenshotNotificationRequest$new(peer = peer, reply_to = reply_to, random_id = random_id)
 }
 
-#  @title SendVoteRequest
-#  @description Represents a request to send a vote. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendVoteRequest
+#' @description Telegram API request \code{messages.sendVote} (constructor \code{#10ea6184}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendVoteRequest <- R6::R6Class(
   "SendVoteRequest",
   lock_objects = FALSE,
@@ -13160,11 +13265,11 @@ SendVoteRequest$from_reader <- function(reader) {
   SendVoteRequest$new(peer = peer, msg_id = msg_id, options = options)
 }
 
-#  @title SendWebViewDataRequest
-#  @description Represents a request to send web view data. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendWebViewDataRequest
+#' @description Telegram API request \code{messages.sendWebViewData} (constructor \code{#dc0242c8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendWebViewDataRequest <- R6::R6Class(
   "SendWebViewDataRequest",
   lock_objects = FALSE,
@@ -13234,11 +13339,11 @@ SendWebViewDataRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SendWebViewResultMessageRequest
-#  @description Represents a request to send a web view result message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendWebViewResultMessageRequest
+#' @description Telegram API request \code{messages.sendWebViewResultMessage} (constructor \code{#0a4314f5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendWebViewResultMessageRequest <- R6::R6Class(
   "SendWebViewResultMessageRequest",
   lock_objects = FALSE,
@@ -13290,11 +13395,11 @@ SendWebViewResultMessageRequest$from_reader <- function(reader) {
   SendWebViewResultMessageRequest$new(bot_query_id = bot_query_id, result = result)
 }
 
-#  @title SetBotCallbackAnswerRequest
-#  @description Represents a request to set bot callback answer. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotCallbackAnswerRequest
+#' @description Telegram API request \code{messages.setBotCallbackAnswer} (constructor \code{#d58f130a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotCallbackAnswerRequest <- R6::R6Class(
   "SetBotCallbackAnswerRequest",
   lock_objects = FALSE,
@@ -13366,11 +13471,11 @@ SetBotCallbackAnswerRequest$from_reader <- function(reader) {
   SetBotCallbackAnswerRequest$new(query_id = query_id, cache_time = cache_time, alert = alert, message = message, url = url)
 }
 
-#  @title SetBotPrecheckoutResultsRequest
-#  @description Represents a request to set bot precheckout results. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotPrecheckoutResultsRequest
+#' @description Telegram API request \code{messages.setBotPrecheckoutResults} (constructor \code{#09c2dd95}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotPrecheckoutResultsRequest <- R6::R6Class(
   "SetBotPrecheckoutResultsRequest",
   lock_objects = FALSE,
@@ -13432,11 +13537,11 @@ SetBotPrecheckoutResultsRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SetBotShippingResultsRequest
-#  @description Represents a request to set bot shipping results. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotShippingResultsRequest
+#' @description Telegram API request \code{messages.setBotShippingResults} (constructor \code{#e5f672fa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotShippingResultsRequest <- R6::R6Class(
   "SetBotShippingResultsRequest",
   lock_objects = FALSE,
@@ -13503,11 +13608,11 @@ SetBotShippingResultsRequest$from_reader <- function(reader) {
   SetBotShippingResultsRequest$new(query_id = query_id, error = error, shipping_options = shipping_options)
 }
 
-#  @title SetChatAvailableReactionsRequest
-#  @description Represents a request to set chat available reactions. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetChatAvailableReactionsRequest
+#' @description Telegram API request \code{messages.setChatAvailableReactions} (constructor \code{#864b2581}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetChatAvailableReactionsRequest <- R6::R6Class(
   "SetChatAvailableReactionsRequest",
   lock_objects = FALSE,
@@ -13581,11 +13686,11 @@ SetChatAvailableReactionsRequest$from_reader <- function(reader) {
   SetChatAvailableReactionsRequest$new(peer = peer, available_reactions = available_reactions, reactions_limit = reactions_limit, paid_enabled = paid_enabled)
 }
 
-#  @title SetChatThemeRequest
-#  @description Represents a request to set chat theme. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetChatThemeRequest
+#' @description Telegram API request \code{messages.setChatTheme} (constructor \code{#081202c9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetChatThemeRequest <- R6::R6Class(
   "SetChatThemeRequest",
   lock_objects = FALSE,
@@ -13645,11 +13750,11 @@ SetChatThemeRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SetChatWallPaperRequest
-#  @description Represents a request to set chat wallpaper. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetChatWallPaperRequest
+#' @description Telegram API request \code{messages.setChatWallPaper} (constructor \code{#8ffacae1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetChatWallPaperRequest <- R6::R6Class(
   "SetChatWallPaperRequest",
   lock_objects = FALSE,
@@ -13734,11 +13839,11 @@ SetChatWallPaperRequest$from_reader <- function(reader) {
   SetChatWallPaperRequest$new(peer = peer, for_both = for_both, revert = revert, wallpaper = wallpaper, settings = settings, id = id)
 }
 
-#  @title SetDefaultHistoryTTLRequest
-#  @description Represents a request to set default history TTL. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetDefaultHistoryTTLRequest
+#' @description Telegram API request \code{messages.setDefaultHistoryTTL} (constructor \code{#9eb51445}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetDefaultHistoryTTLRequest <- R6::R6Class(
   "SetDefaultHistoryTTLRequest",
   lock_objects = FALSE,
@@ -13785,11 +13890,11 @@ SetDefaultHistoryTTLRequest$from_reader <- function(reader) {
   SetDefaultHistoryTTLRequest$new(period = period)
 }
 
-#  @title SetDefaultReactionRequest
-#  @description Represents a request to set default reaction. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetDefaultReactionRequest
+#' @description Telegram API request \code{messages.setDefaultReaction} (constructor \code{#4f47a016}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetDefaultReactionRequest <- R6::R6Class(
   "SetDefaultReactionRequest",
   lock_objects = FALSE,
@@ -13837,11 +13942,11 @@ SetDefaultReactionRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SetEncryptedTypingRequest
-#  @description Represents a request to set encrypted typing. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetEncryptedTypingRequest
+#' @description Telegram API request \code{messages.setEncryptedTyping} (constructor \code{#791451ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetEncryptedTypingRequest <- R6::R6Class(
   "SetEncryptedTypingRequest",
   lock_objects = FALSE,
@@ -13893,11 +13998,11 @@ SetEncryptedTypingRequest$from_reader <- function(reader) {
   SetEncryptedTypingRequest$new(peer = peer, typing = typing)
 }
 
-#  @title SetGameScoreRequest
-#  @description Represents a request to set game score. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetGameScoreRequest
+#' @description Telegram API request \code{messages.setGameScore} (constructor \code{#8ef8ecc0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetGameScoreRequest <- R6::R6Class(
   "SetGameScoreRequest",
   lock_objects = FALSE,
@@ -13980,11 +14085,11 @@ SetGameScoreRequest$from_reader <- function(reader) {
   SetGameScoreRequest$new(peer = peer, id = id, user_id = user_id, score = score, edit_message = edit_message, force = force)
 }
 
-#  @title SetHistoryTTLRequest
-#  @description Represents a request to set history TTL. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetHistoryTTLRequest
+#' @description Telegram API request \code{messages.setHistoryTTL} (constructor \code{#b80e5fe4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetHistoryTTLRequest <- R6::R6Class(
   "SetHistoryTTLRequest",
   lock_objects = FALSE,
@@ -14044,11 +14149,11 @@ SetHistoryTTLRequest$from_reader <- function(reader) {
 }
 
 
-#  @title SetInlineBotResultsRequest
-#  @description Represents a request to set inline bot results. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetInlineBotResultsRequest
+#' @description Telegram API request \code{messages.setInlineBotResults} (constructor \code{#bb12a419}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetInlineBotResultsRequest <- R6::R6Class(
   "SetInlineBotResultsRequest",
   lock_objects = FALSE,
@@ -14142,11 +14247,11 @@ SetInlineBotResultsRequest$from_reader <- function(reader) {
   SetInlineBotResultsRequest$new(query_id = query_id, results = results, cache_time = cache_time, gallery = gallery, private = private, next_offset = next_offset, switch_pm = switch_pm, switch_webview = switch_webview)
 }
 
-#  @title SetInlineGameScoreRequest
-#  @description Represents a request to set inline game score. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetInlineGameScoreRequest
+#' @description Telegram API request \code{messages.setInlineGameScore} (constructor \code{#15ad9f64}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetInlineGameScoreRequest <- R6::R6Class(
   "SetInlineGameScoreRequest",
   lock_objects = FALSE,
@@ -14223,11 +14328,11 @@ SetInlineGameScoreRequest$from_reader <- function(reader) {
   SetInlineGameScoreRequest$new(id = id, user_id = user_id, score = score, edit_message = edit_message, force = force)
 }
 
-#  @title SetTypingRequest
-#  @description Represents a request to set typing. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetTypingRequest
+#' @description Telegram API request \code{messages.setTyping} (constructor \code{#58943ee2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetTypingRequest <- R6::R6Class(
   "SetTypingRequest",
   lock_objects = FALSE,
@@ -14296,11 +14401,11 @@ SetTypingRequest$from_reader <- function(reader) {
 }
 
 
-#  @title StartBotRequest
-#  @description Represents a request to start a bot. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title StartBotRequest
+#' @description Telegram API request \code{messages.startBot} (constructor \code{#e6df7378}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StartBotRequest <- R6::R6Class(
   "StartBotRequest",
   lock_objects = FALSE,
@@ -14374,11 +14479,11 @@ StartBotRequest$from_reader <- function(reader) {
   StartBotRequest$new(bot = bot, peer = peer, start_param = start_param, random_id = random_id)
 }
 
-#  @title StartHistoryImportRequest
-#  @description Represents a request to start history import. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title StartHistoryImportRequest
+#' @description Telegram API request \code{messages.startHistoryImport} (constructor \code{#b43df344}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 StartHistoryImportRequest <- R6::R6Class(
   "StartHistoryImportRequest",
   lock_objects = FALSE,
@@ -14437,11 +14542,11 @@ StartHistoryImportRequest$from_reader <- function(reader) {
   StartHistoryImportRequest$new(peer = peer, import_id = import_id)
 }
 
-#  @title ToggleBotInAttachMenuRequest
-#  @description Represents a request to toggle bot in attach menu. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleBotInAttachMenuRequest
+#' @description Telegram API request \code{messages.toggleBotInAttachMenu} (constructor \code{#69f59d69}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleBotInAttachMenuRequest <- R6::R6Class(
   "ToggleBotInAttachMenuRequest",
   lock_objects = FALSE,
@@ -14509,11 +14614,11 @@ ToggleBotInAttachMenuRequest$from_reader <- function(reader) {
 }
 
 
-#  @title ToggleDialogFilterTagsRequest
-#  @description Represents a request to toggle dialog filter tags. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleDialogFilterTagsRequest
+#' @description Telegram API request \code{messages.toggleDialogFilterTags} (constructor \code{#fd2dda49}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleDialogFilterTagsRequest <- R6::R6Class(
   "ToggleDialogFilterTagsRequest",
   lock_objects = FALSE,
@@ -14560,11 +14665,11 @@ ToggleDialogFilterTagsRequest$from_reader <- function(reader) {
   ToggleDialogFilterTagsRequest$new(enabled = enabled)
 }
 
-#  @title ToggleDialogPinRequest
-#  @description Represents a request to toggle dialog pin. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleDialogPinRequest
+#' @description Telegram API request \code{messages.toggleDialogPin} (constructor \code{#a731e257}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleDialogPinRequest <- R6::R6Class(
   "ToggleDialogPinRequest",
   lock_objects = FALSE,
@@ -14626,11 +14731,11 @@ ToggleDialogPinRequest$from_reader <- function(reader) {
   ToggleDialogPinRequest$new(peer = peer, pinned = pinned)
 }
 
-#  @title ToggleNoForwardsRequest
-#  @description Represents a request to toggle no forwards. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleNoForwardsRequest
+#' @description Telegram API request \code{messages.toggleNoForwards} (constructor \code{#b2081a35}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleNoForwardsRequest <- R6::R6Class("ToggleNoForwardsRequest",
   inherit = TLRequest,
   public = list(
@@ -14690,6 +14795,11 @@ ToggleNoForwardsRequest <- R6::R6Class("ToggleNoForwardsRequest",
   lock_objects = FALSE
 )
 
+#' @title TogglePaidReactionPrivacyRequest
+#' @description Telegram API request \code{messages.togglePaidReactionPrivacy} (constructor \code{#435885b5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TogglePaidReactionPrivacyRequest <- R6::R6Class(
   "TogglePaidReactionPrivacyRequest",
   lock_objects = FALSE,
@@ -14753,11 +14863,11 @@ TogglePaidReactionPrivacyRequest$from_reader <- function(reader) {
   TogglePaidReactionPrivacyRequest$new(peer = peer, msg_id = msg_id, private = private)
 }
 
-#  @title TogglePeerTranslationsRequest
-#  @description Represents a request to toggle peer translations. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title TogglePeerTranslationsRequest
+#' @description Telegram API request \code{messages.togglePeerTranslations} (constructor \code{#e47cb579}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TogglePeerTranslationsRequest <- R6::R6Class(
   "TogglePeerTranslationsRequest",
   lock_objects = FALSE,
@@ -14819,11 +14929,11 @@ TogglePeerTranslationsRequest$from_reader <- function(reader) {
   TogglePeerTranslationsRequest$new(peer = peer, disabled = disabled)
 }
 
-#  @title ToggleSavedDialogPinRequest
-#  @description Represents a request to toggle saved dialog pin. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleSavedDialogPinRequest
+#' @description Telegram API request \code{messages.toggleSavedDialogPin} (constructor \code{#ac81bbde}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleSavedDialogPinRequest <- R6::R6Class(
   "ToggleSavedDialogPinRequest",
   lock_objects = FALSE,
@@ -14886,11 +14996,11 @@ ToggleSavedDialogPinRequest$from_reader <- function(reader) {
 }
 
 
-#  @title ToggleStickerSetsRequest
-#  @description Represents a request to toggle sticker sets. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleStickerSetsRequest
+#' @description Telegram API request \code{messages.toggleStickerSets} (constructor \code{#b5052fea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleStickerSetsRequest <- R6::R6Class(
   "ToggleStickerSetsRequest",
   lock_objects = FALSE,
@@ -14961,11 +15071,11 @@ ToggleStickerSetsRequest$from_reader <- function(reader) {
   ToggleStickerSetsRequest$new(stickersets = stickersets, uninstall = uninstall, archive = archive, unarchive = unarchive)
 }
 
-#  @title ToggleSuggestedPostApprovalRequest
-#  @description Represents a request to toggle suggested post approval. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleSuggestedPostApprovalRequest
+#' @description Telegram API request \code{messages.toggleSuggestedPostApproval} (constructor \code{#8107455c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleSuggestedPostApprovalRequest <- R6::R6Class(
   "ToggleSuggestedPostApprovalRequest",
   lock_objects = FALSE,
@@ -15044,11 +15154,11 @@ ToggleSuggestedPostApprovalRequest$from_reader <- function(reader) {
   ToggleSuggestedPostApprovalRequest$new(peer = peer, msg_id = msg_id, reject = reject, schedule_date = schedule_date, reject_comment = reject_comment)
 }
 
-#  @title ToggleTodoCompletedRequest
-#  @description Represents a request to toggle todo completed status. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleTodoCompletedRequest
+#' @description Telegram API request \code{messages.toggleTodoCompleted} (constructor \code{#d3e03124}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleTodoCompletedRequest <- R6::R6Class(
   "ToggleTodoCompletedRequest",
   lock_objects = FALSE,
@@ -15130,11 +15240,11 @@ ToggleTodoCompletedRequest$from_reader <- function(reader) {
 }
 
 
-#  @title TranscribeAudioRequest
-#  @description Represents a request to transcribe audio. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title TranscribeAudioRequest
+#' @description Telegram API request \code{messages.transcribeAudio} (constructor \code{#269e9a49}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TranscribeAudioRequest <- R6::R6Class(
   "TranscribeAudioRequest",
   lock_objects = FALSE,
@@ -15193,11 +15303,11 @@ TranscribeAudioRequest$from_reader <- function(reader) {
   TranscribeAudioRequest$new(peer = peer, msg_id = msg_id)
 }
 
-#  @title TranslateTextRequest
-#  @description Represents a request to translate text. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title TranslateTextRequest
+#' @description Telegram API request \code{messages.translateText} (constructor \code{#a5eec345}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TranslateTextRequest <- R6::R6Class("TranslateTextRequest",
   inherit = TLRequest,
   public = list(
@@ -15272,6 +15382,11 @@ TranslateTextRequest <- R6::R6Class("TranslateTextRequest",
   lock_objects = FALSE
 )
 
+#' @title UninstallStickerSetRequest
+#' @description Telegram API request \code{messages.uninstallStickerSet} (constructor \code{#f96e55de}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UninstallStickerSetRequest <- R6::R6Class(
   "UninstallStickerSetRequest",
   lock_objects = FALSE,
@@ -15319,11 +15434,11 @@ UninstallStickerSetRequest$from_reader <- function(reader) {
 }
 
 
-#  @title UnpinAllMessagesRequest
-#  @description Represents a request to unpin all messages. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UnpinAllMessagesRequest
+#' @description Telegram API request \code{messages.unpinAllMessages} (constructor \code{#062dd747}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UnpinAllMessagesRequest <- R6::R6Class(
   "UnpinAllMessagesRequest",
   lock_objects = FALSE,
@@ -15395,11 +15510,11 @@ UnpinAllMessagesRequest$from_reader <- function(reader) {
   UnpinAllMessagesRequest$new(peer = peer, top_msg_id = top_msg_id, saved_peer_id = saved_peer_id)
 }
 
-#  @title UpdateDialogFilterRequest
-#  @description Represents a request to update a dialog filter. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateDialogFilterRequest
+#' @description Telegram API request \code{messages.updateDialogFilter} (constructor \code{#1ad4a04a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogFilterRequest <- R6::R6Class(
   "UpdateDialogFilterRequest",
   lock_objects = FALSE,
@@ -15455,11 +15570,11 @@ UpdateDialogFilterRequest$from_reader <- function(reader) {
   UpdateDialogFilterRequest$new(id = id, filter = filter)
 }
 
-#  @title UpdateDialogFiltersOrderRequest
-#  @description Represents a request to update the order of dialog filters. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateDialogFiltersOrderRequest
+#' @description Telegram API request \code{messages.updateDialogFiltersOrder} (constructor \code{#c563c1e4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateDialogFiltersOrderRequest <- R6::R6Class(
   "UpdateDialogFiltersOrderRequest",
   lock_objects = FALSE,
@@ -15513,11 +15628,11 @@ UpdateDialogFiltersOrderRequest$from_reader <- function(reader) {
 }
 
 
-#  @title UpdatePinnedMessageRequest
-#  @description Represents a request to update a pinned message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdatePinnedMessageRequest
+#' @description Telegram API request \code{messages.updatePinnedMessage} (constructor \code{#d2aaf7ec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdatePinnedMessageRequest <- R6::R6Class(
   "UpdatePinnedMessageRequest",
   lock_objects = FALSE,
@@ -15594,11 +15709,11 @@ UpdatePinnedMessageRequest$from_reader <- function(reader) {
   UpdatePinnedMessageRequest$new(peer = peer, id = id, silent = silent, unpin = unpin, pm_oneside = pm_oneside)
 }
 
-#  @title UpdateSavedReactionTagRequest
-#  @description Represents a request to update a saved reaction tag. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateSavedReactionTagRequest
+#' @description Telegram API request \code{messages.updateSavedReactionTag} (constructor \code{#60297dec}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateSavedReactionTagRequest <- R6::R6Class(
   "UpdateSavedReactionTagRequest",
   lock_objects = FALSE,
@@ -15654,11 +15769,11 @@ UpdateSavedReactionTagRequest$from_reader <- function(reader) {
   UpdateSavedReactionTagRequest$new(reaction = reaction, title = title)
 }
 
-#  @title UploadEncryptedFileRequest
-#  @description Represents a request to upload an encrypted file. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UploadEncryptedFileRequest
+#' @description Telegram API request \code{messages.uploadEncryptedFile} (constructor \code{#5057c497}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UploadEncryptedFileRequest <- R6::R6Class(
   "UploadEncryptedFileRequest",
   lock_objects = FALSE,
@@ -15711,11 +15826,11 @@ UploadEncryptedFileRequest$from_reader <- function(reader) {
 }
 
 
-#  @title UploadImportedMediaRequest
-#  @description Represents a request to upload imported media. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UploadImportedMediaRequest
+#' @description Telegram API request \code{messages.uploadImportedMedia} (constructor \code{#2a862092}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UploadImportedMediaRequest <- R6::R6Class(
   "UploadImportedMediaRequest",
   lock_objects = FALSE,
@@ -15785,11 +15900,11 @@ UploadImportedMediaRequest$from_reader <- function(reader) {
   UploadImportedMediaRequest$new(peer = peer, import_id = import_id, file_name = file_name, media = media)
 }
 
-#  @title UploadMediaRequest
-#  @description Represents a request to upload media. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title UploadMediaRequest
+#' @description Telegram API request \code{messages.uploadMedia} (constructor \code{#14967978}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UploadMediaRequest <- R6::R6Class(
   "UploadMediaRequest",
   lock_objects = FALSE,
@@ -15858,11 +15973,11 @@ UploadMediaRequest$from_reader <- function(reader) {
   UploadMediaRequest$new(peer = peer, media = media, business_connection_id = business_connection_id)
 }
 
-#  @title ViewSponsoredMessageRequest
-#  @description Represents a request to view a sponsored message. This class inherits from TLRequest.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ViewSponsoredMessageRequest
+#' @description Telegram API request \code{messages.viewSponsoredMessage} (constructor \code{#269e3643}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ViewSponsoredMessageRequest <- R6::R6Class(
   "ViewSponsoredMessageRequest",
   lock_objects = FALSE,

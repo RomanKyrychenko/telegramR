@@ -1,16 +1,8 @@
-#  AddPreviewMediaRequest R6 class
-# 
-#  Represents the AddPreviewMediaRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title AddPreviewMediaRequest
-#  @description Telegram API type AddPreviewMediaRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title AddPreviewMediaRequest
+#' @description Telegram API request \code{bots.addPreviewMedia} (constructor \code{#17aeb75a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AddPreviewMediaRequest <- R6::R6Class(
   "AddPreviewMediaRequest",
   public = list(
@@ -136,19 +128,11 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#  AllowSendMessageRequest R6 class
-# 
-#  Represents the AllowSendMessageRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title AllowSendMessageRequest
-#  @description Telegram API type AllowSendMessageRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title AllowSendMessageRequest
+#' @description Telegram API request \code{bots.allowSendMessage} (constructor \code{#f132e3ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AllowSendMessageRequest <- R6::R6Class(
   "AllowSendMessageRequest",
   public = list(
@@ -238,19 +222,11 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 }
 
 
-#  AnswerWebhookJSONQueryRequest R6 class
-# 
-#  Represents the AnswerWebhookJSONQueryRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title AnswerWebhookJSONQueryRequest
-#  @description Telegram API type AnswerWebhookJSONQueryRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title AnswerWebhookJSONQueryRequest
+#' @description Telegram API request \code{bots.answerWebhookJSONQuery} (constructor \code{#e6213f4d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AnswerWebhookJSONQueryRequest <- R6::R6Class(
   "AnswerWebhookJSONQueryRequest",
   public = list(
@@ -342,19 +318,11 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 }
 
 
-#  CanSendMessageRequest R6 class
-# 
-#  Represents the CanSendMessageRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title CanSendMessageRequest
-#  @description Telegram API type CanSendMessageRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CanSendMessageRequest
+#' @description Telegram API request \code{bots.canSendMessage} (constructor \code{#1359f4e6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CanSendMessageRequest <- R6::R6Class(
   "CanSendMessageRequest",
   public = list(
@@ -444,19 +412,11 @@ CanSendMessageRequest$from_reader <- function(reader) {
 }
 
 
-#  CheckDownloadFileParamsRequest R6 class
-# 
-#  Represents the CheckDownloadFileParamsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title CheckDownloadFileParamsRequest
-#  @description Telegram API type CheckDownloadFileParamsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckDownloadFileParamsRequest
+#' @description Telegram API request \code{bots.checkDownloadFileParams} (constructor \code{#50077589}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckDownloadFileParamsRequest <- R6::R6Class(
   "CheckDownloadFileParamsRequest",
   public = list(
@@ -561,19 +521,11 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 }
 
 
-#  DeletePreviewMediaRequest R6 class
-# 
-#  Represents the DeletePreviewMediaRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title DeletePreviewMediaRequest
-#  @description Telegram API type DeletePreviewMediaRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeletePreviewMediaRequest
+#' @description Telegram API request \code{bots.deletePreviewMedia} (constructor \code{#2d0135b3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeletePreviewMediaRequest <- R6::R6Class(
   "DeletePreviewMediaRequest",
   public = list(
@@ -724,19 +676,11 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#  EditPreviewMediaRequest R6 class
-# 
-#  Represents the EditPreviewMediaRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title EditPreviewMediaRequest
-#  @description Telegram API type EditPreviewMediaRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditPreviewMediaRequest
+#' @description Telegram API request \code{bots.editPreviewMedia} (constructor \code{#8525606f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditPreviewMediaRequest <- R6::R6Class(
   "EditPreviewMediaRequest",
   public = list(
@@ -890,11 +834,11 @@ EditPreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#  @title GetAdminedBotsRequest R6 class
-#  @description Represents the GetAdminedBotsRequest TL request.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAdminedBotsRequest
+#' @description Telegram API request \code{bots.getAdminedBots} (constructor \code{#b0711d83}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAdminedBotsRequest <- R6::R6Class(
   "GetAdminedBotsRequest",
   public = list(
@@ -925,19 +869,11 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 }
 
 
-#  GetBotCommandsRequest R6 class
-# 
-#  Represents the GetBotCommandsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetBotCommandsRequest
-#  @description Telegram API type GetBotCommandsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotCommandsRequest
+#' @description Telegram API request \code{bots.getBotCommands} (constructor \code{#e34c0dd6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotCommandsRequest <- R6::R6Class(
   "GetBotCommandsRequest",
   public = list(
@@ -1022,19 +958,11 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#  GetBotInfoRequest R6 class
-# 
-#  Represents the GetBotInfoRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetBotInfoRequest
-#  @description Telegram API type GetBotInfoRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotInfoRequest
+#' @description Telegram API request \code{bots.getBotInfo} (constructor \code{#dcd914fd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotInfoRequest <- R6::R6Class(
   "GetBotInfoRequest",
   public = list(
@@ -1142,19 +1070,11 @@ GetBotInfoRequest$from_reader <- function(reader) {
 }
 
 
-#  GetBotMenuButtonRequest R6 class
-# 
-#  Represents the GetBotMenuButtonRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetBotMenuButtonRequest
-#  @description Telegram API type GetBotMenuButtonRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotMenuButtonRequest
+#' @description Telegram API request \code{bots.getBotMenuButton} (constructor \code{#9c60eb28}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotMenuButtonRequest <- R6::R6Class(
   "GetBotMenuButtonRequest",
   public = list(
@@ -1245,19 +1165,11 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 }
 
 
-#  GetBotRecommendationsRequest R6 class
-# 
-#  Represents the GetBotRecommendationsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetBotRecommendationsRequest
-#  @description Telegram API type GetBotRecommendationsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetBotRecommendationsRequest
+#' @description Telegram API request \code{bots.getBotRecommendations} (constructor \code{#a1b70815}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetBotRecommendationsRequest <- R6::R6Class(
   "GetBotRecommendationsRequest",
   public = list(
@@ -1347,19 +1259,11 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 }
 
 
-#  GetPopularAppBotsRequest R6 class
-# 
-#  Represents the GetPopularAppBotsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetPopularAppBotsRequest
-#  @description Telegram API type GetPopularAppBotsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPopularAppBotsRequest
+#' @description Telegram API request \code{bots.getPopularAppBots} (constructor \code{#c2510192}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPopularAppBotsRequest <- R6::R6Class(
   "GetPopularAppBotsRequest",
   public = list(
@@ -1436,19 +1340,11 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 }
 
 
-#  GetPreviewInfoRequest R6 class
-# 
-#  Represents the GetPreviewInfoRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetPreviewInfoRequest
-#  @description Telegram API type GetPreviewInfoRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPreviewInfoRequest
+#' @description Telegram API request \code{bots.getPreviewInfo} (constructor \code{#423ab3ad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPreviewInfoRequest <- R6::R6Class(
   "GetPreviewInfoRequest",
   public = list(
@@ -1547,19 +1443,11 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 }
 
 
-#  GetPreviewMediasRequest R6 class
-# 
-#  Represents the GetPreviewMediasRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title GetPreviewMediasRequest
-#  @description Telegram API type GetPreviewMediasRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPreviewMediasRequest
+#' @description Telegram API request \code{bots.getPreviewMedias} (constructor \code{#a2a5594d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPreviewMediasRequest <- R6::R6Class(
   "GetPreviewMediasRequest",
   public = list(
@@ -1649,19 +1537,11 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 }
 
 
-#  InvokeWebViewCustomMethodRequest R6 class
-# 
-#  Represents the InvokeWebViewCustomMethodRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title InvokeWebViewCustomMethodRequest
-#  @description Telegram API type InvokeWebViewCustomMethodRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title InvokeWebViewCustomMethodRequest
+#' @description Telegram API request \code{bots.invokeWebViewCustomMethod} (constructor \code{#087fc5e7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InvokeWebViewCustomMethodRequest <- R6::R6Class(
   "InvokeWebViewCustomMethodRequest",
   public = list(
@@ -1783,19 +1663,11 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 }
 
 
-#  ReorderPreviewMediasRequest R6 class
-# 
-#  Represents the ReorderPreviewMediasRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title ReorderPreviewMediasRequest
-#  @description Telegram API type ReorderPreviewMediasRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderPreviewMediasRequest
+#' @description Telegram API request \code{bots.reorderPreviewMedias} (constructor \code{#b627f3aa}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderPreviewMediasRequest <- R6::R6Class(
   "ReorderPreviewMediasRequest",
   public = list(
@@ -1946,13 +1818,11 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 }
 
 
-#  ReorderUsernamesRequest R6 class
-# 
-#  @title ReorderUsernamesRequest
-#  @description Telegram API type ReorderUsernamesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderUsernamesRequest
+#' @description Telegram API request \code{bots.reorderUsernames} (constructor \code{#9709b1c2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderUsernamesRequest <- R6::R6Class("ReorderUsernamesRequest",
   inherit = TLObject,
   public = list(
@@ -2002,6 +1872,11 @@ ReorderUsernamesRequest <- R6::R6Class("ReorderUsernamesRequest",
   lock_objects = FALSE
 )
 
+#' @title ResetBotCommandsRequest
+#' @description Telegram API request \code{bots.resetBotCommands} (constructor \code{#3d8de0f9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetBotCommandsRequest <- R6::R6Class(
   "ResetBotCommandsRequest",
   public = list(
@@ -2099,19 +1974,11 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#  SendCustomRequestRequest R6 class
-# 
-#  Represents the SendCustomRequestRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SendCustomRequestRequest
-#  @description Telegram API type SendCustomRequestRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendCustomRequestRequest
+#' @description Telegram API request \code{bots.sendCustomRequest} (constructor \code{#aa2769ed}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendCustomRequestRequest <- R6::R6Class(
   "SendCustomRequestRequest",
   public = list(
@@ -2207,19 +2074,11 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 }
 
 
-#  SetBotBroadcastDefaultAdminRightsRequest R6 class
-# 
-#  Represents the SetBotBroadcastDefaultAdminRightsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SetBotBroadcastDefaultAdminRightsRequest
-#  @description Telegram API type SetBotBroadcastDefaultAdminRightsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotBroadcastDefaultAdminRightsRequest
+#' @description Telegram API request \code{bots.setBotBroadcastDefaultAdminRights} (constructor \code{#788464e1}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotBroadcastDefaultAdminRightsRequest",
   public = list(
@@ -2290,19 +2149,11 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 }
 
 
-#  SetBotCommandsRequest R6 class
-# 
-#  Represents the SetBotCommandsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SetBotCommandsRequest
-#  @description Telegram API type SetBotCommandsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotCommandsRequest
+#' @description Telegram API request \code{bots.setBotCommands} (constructor \code{#0517165a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotCommandsRequest <- R6::R6Class(
   "SetBotCommandsRequest",
   public = list(
@@ -2443,19 +2294,11 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#  SetBotGroupDefaultAdminRightsRequest R6 class
-# 
-#  Represents the SetBotGroupDefaultAdminRightsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SetBotGroupDefaultAdminRightsRequest
-#  @description Telegram API type SetBotGroupDefaultAdminRightsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotGroupDefaultAdminRightsRequest
+#' @description Telegram API request \code{bots.setBotGroupDefaultAdminRights} (constructor \code{#925ec9ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotGroupDefaultAdminRightsRequest",
   public = list(
@@ -2526,19 +2369,11 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 }
 
 
-#  SetBotInfoRequest R6 class
-# 
-#  Represents the SetBotInfoRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SetBotInfoRequest
-#  @description Telegram API type SetBotInfoRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotInfoRequest
+#' @description Telegram API request \code{bots.setBotInfo} (constructor \code{#10cf3123}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotInfoRequest <- R6::R6Class(
   "SetBotInfoRequest",
   public = list(
@@ -2664,19 +2499,11 @@ SetBotInfoRequest$from_reader <- function(reader) {
 }
 
 
-#  SetBotMenuButtonRequest R6 class
-# 
-#  Represents the SetBotMenuButtonRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title SetBotMenuButtonRequest
-#  @description Telegram API type SetBotMenuButtonRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetBotMenuButtonRequest
+#' @description Telegram API request \code{bots.setBotMenuButton} (constructor \code{#4504d54f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetBotMenuButtonRequest <- R6::R6Class(
   "SetBotMenuButtonRequest",
   public = list(
@@ -2789,17 +2616,11 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 }
 
 
-#  SetCustomVerificationRequest R6 class
-# 
-#  Represents the SetCustomVerificationRequest TL request.
-# 
-# 
-# 
-#  @title SetCustomVerificationRequest
-#  @description Telegram API type SetCustomVerificationRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SetCustomVerificationRequest
+#' @description Telegram API request \code{bots.setCustomVerification} (constructor \code{#8b89dfbd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SetCustomVerificationRequest <- R6::R6Class(
   "SetCustomVerificationRequest",
   public = list(
@@ -2939,19 +2760,11 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
   SetCustomVerificationRequest$new(peer = peer_obj, enabled = enabled_val, bot = bot_obj, custom_description = custom_description)
 }
 
-#  ToggleUserEmojiStatusPermissionRequest R6 class
-# 
-#  Represents the ToggleUserEmojiStatusPermissionRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title ToggleUserEmojiStatusPermissionRequest
-#  @description Telegram API type ToggleUserEmojiStatusPermissionRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleUserEmojiStatusPermissionRequest
+#' @description Telegram API request \code{bots.toggleUserEmojiStatusPermission} (constructor \code{#06de6392}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
   "ToggleUserEmojiStatusPermissionRequest",
   public = list(
@@ -3052,17 +2865,11 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 }
 
 
-#  ToggleUsernameRequest R6 class
-# 
-#  Represents the ToggleUsernameRequest TL request.
-# 
-# 
-# 
-#  @title ToggleUsernameRequest
-#  @description Telegram API type ToggleUsernameRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ToggleUsernameRequest
+#' @description Telegram API request \code{bots.toggleUsername} (constructor \code{#053ca973}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleUsernameRequest <- R6::R6Class("ToggleUsernameRequest",
   inherit = TLObject,
   public = list(
@@ -3118,6 +2925,11 @@ ToggleUsernameRequest <- R6::R6Class("ToggleUsernameRequest",
   lock_objects = FALSE
 )
 
+#' @title UpdateStarRefProgramRequest
+#' @description Telegram API request \code{bots.updateStarRefProgram} (constructor \code{#778b5ab3}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateStarRefProgramRequest <- R6::R6Class(
   "UpdateStarRefProgramRequest",
   public = list(
@@ -3228,17 +3040,11 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 }
 
 
-#  UpdateUserEmojiStatusRequest R6 class
-# 
-#  Represents the UpdateUserEmojiStatusRequest TL request.
-# 
-# 
-# 
-#  @title UpdateUserEmojiStatusRequest
-#  @description Telegram API type UpdateUserEmojiStatusRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateUserEmojiStatusRequest
+#' @description Telegram API request \code{bots.updateUserEmojiStatus} (constructor \code{#ed9f30c5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateUserEmojiStatusRequest <- R6::R6Class(
   "UpdateUserEmojiStatusRequest",
   public = list(

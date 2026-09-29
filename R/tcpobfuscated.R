@@ -59,7 +59,7 @@ ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
       )
 
       repeat {
-        random <- rand_bytes(64)
+        random <- openssl::rand_bytes(64)
         cond1 <- random[1] != as.raw(0xef)
         cond2 <- !any(sapply(keywords, function(kw) identical(random[1:4], kw)))
         cond3 <- !identical(random[5:8], as.raw(rep(0, 4)))

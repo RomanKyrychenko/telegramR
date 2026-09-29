@@ -946,14 +946,11 @@ ReqDHParamsRequest <- R6::R6Class(
   )
 )
 
-#  InputPeerEmpty Class
-# 
-# 
-#  @title InputPeerEmpty
-#  @description Telegram API type InputPeerEmpty
-#  @export
-#  @noRd
-#  @noRd
+#' @title InputPeerEmpty
+#' @description Telegram API type \code{inputPeerEmpty} (constructor \code{#7f3b18ea}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",
   inherit = TLObject,

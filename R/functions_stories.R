@@ -1,14 +1,8 @@
-#  ActivateStealthModeRequest R6 class
-# 
-#  Request to activate stealth mode with optional past/future flags.
-#  Returns Updates.
-#  @param past logical or NULL
-#  @param future logical or NULL
-#  @title ActivateStealthModeRequest
-#  @description Telegram API type ActivateStealthModeRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ActivateStealthModeRequest
+#' @description Telegram API request \code{stories.activateStealthMode} (constructor \code{#57bbd166}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ActivateStealthModeRequest <- R6::R6Class(
   "ActivateStealthModeRequest",
   inherit = TLRequest,
@@ -83,16 +77,11 @@ ActivateStealthModeRequest <- R6::R6Class(
 )
 
 
-#  CanSendStoryRequest R6 class
-# 
-#  Request to check whether a story can be sent to a given peer.
-#  Returns stories.CanSendStoryCount.
-#  @param peer TypeInputPeer
-#  @title CanSendStoryRequest
-#  @description Telegram API type CanSendStoryRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CanSendStoryRequest
+#' @description Telegram API request \code{stories.canSendStory} (constructor \code{#30eb63f0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CanSendStoryRequest <- R6::R6Class(
   "CanSendStoryRequest",
   inherit = TLRequest,
@@ -171,18 +160,11 @@ CanSendStoryRequest <- R6::R6Class(
 )
 
 
-#  CreateAlbumRequest R6 class
-# 
-#  Request to create a story album for a given peer with a title and list of story ids.
-#  Returns StoryAlbum.
-#  @param peer TypeInputPeer
-#  @param title character album title
-#  @param stories integer vector of story ids
-#  @title CreateAlbumRequest
-#  @description Telegram API type CreateAlbumRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CreateAlbumRequest
+#' @description Telegram API request \code{stories.createAlbum} (constructor \code{#a36396e5}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CreateAlbumRequest <- R6::R6Class(
   "CreateAlbumRequest",
   inherit = TLRequest,
@@ -302,16 +284,11 @@ CreateAlbumRequest <- R6::R6Class(
 )
 
 
-#  DeleteAlbumRequest R6 class
-# 
-#  Request to delete an album for a given peer. Returns Bool.
-#  @param peer TypeInputPeer
-#  @param album_id integer album id
-#  @title DeleteAlbumRequest
-#  @description Telegram API type DeleteAlbumRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteAlbumRequest
+#' @description Telegram API request \code{stories.deleteAlbum} (constructor \code{#8d3456d0}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteAlbumRequest <- R6::R6Class(
   "DeleteAlbumRequest",
   inherit = TLRequest,
@@ -398,16 +375,11 @@ DeleteAlbumRequest <- R6::R6Class(
 )
 
 
-#  DeleteStoriesRequest R6 class
-# 
-#  Request to delete one or more stories for a given peer. Returns Vector<int>.
-#  @param peer TypeInputPeer
-#  @param id integer vector of story ids
-#  @title DeleteStoriesRequest
-#  @description Telegram API type DeleteStoriesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DeleteStoriesRequest
+#' @description Telegram API request \code{stories.deleteStories} (constructor \code{#ae59db5f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DeleteStoriesRequest <- R6::R6Class(
   "DeleteStoriesRequest",
   inherit = TLRequest,
@@ -526,23 +498,11 @@ DeleteStoriesRequest <- R6::R6Class(
 )
 
 
-#  EditStoryRequest R6 class
-# 
-#  Request to edit an existing story. Depending on flags this may include media,
-#  media areas, caption+entities (both must be provided together) and privacy rules.
-#  Returns Updates.
-#  @param peer TypeInputPeer
-#  @param id integer story id
-#  @param media TypeInputMedia or NULL
-#  @param media_areas list of TypeMediaArea or NULL
-#  @param caption character or NULL (must be provided together with entities)
-#  @param entities list of TypeMessageEntity or NULL (must be provided together with caption)
-#  @param privacy_rules list of TypeInputPrivacyRule or NULL
-#  @title EditStoryRequest
-#  @description Telegram API type EditStoryRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditStoryRequest
+#' @description Telegram API request \code{stories.editStory} (constructor \code{#2c63a72b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 EditStoryRequest <- R6::R6Class("EditStoryRequest",
   inherit = TLRequest,
   public = list(
@@ -637,6 +597,11 @@ EditStoryRequest <- R6::R6Class("EditStoryRequest",
   lock_objects = FALSE
 )
 
+#' @title ExportStoryLinkRequest
+#' @description Telegram API request \code{stories.exportStoryLink} (constructor \code{#7b8def20}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
   inherit = TLRequest,
@@ -722,19 +687,11 @@ ExportStoryLinkRequest <- R6::R6Class(
 )
 
 
-#  GetAlbumStoriesRequest R6 class
-# 
-#  Request to get stories from an album for a given peer with paging (offset, limit).
-#  Returns stories.Stories.
-#  @param peer TypeInputPeer
-#  @param album_id integer album id
-#  @param offset integer offset id
-#  @param limit integer limit
-#  @title GetAlbumStoriesRequest
-#  @description Telegram API type GetAlbumStoriesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAlbumStoriesRequest
+#' @description Telegram API request \code{stories.getAlbumStories} (constructor \code{#ac806d61}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAlbumStoriesRequest <- R6::R6Class(
   "GetAlbumStoriesRequest",
   inherit = TLRequest,
@@ -834,16 +791,11 @@ GetAlbumStoriesRequest <- R6::R6Class(
 )
 
 
-#  GetAlbumsRequest R6 class
-# 
-#  Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
-#  @param peer TypeInputPeer
-#  @param hash numeric/int64 hash value
-#  @title GetAlbumsRequest
-#  @description Telegram API type GetAlbumsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAlbumsRequest
+#' @description Telegram API request \code{stories.getAlbums} (constructor \code{#25b3eac7}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAlbumsRequest <- R6::R6Class(
   "GetAlbumsRequest",
   inherit = TLRequest,
@@ -929,14 +881,11 @@ GetAlbumsRequest <- R6::R6Class(
 )
 
 
-#  GetAllReadPeerStoriesRequest R6 class
-# 
-#  Request without parameters; returns all read peer stories.
-#  @title GetAllReadPeerStoriesRequest
-#  @description Telegram API type GetAllReadPeerStoriesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAllReadPeerStoriesRequest
+#' @description Telegram API request \code{stories.getAllReadPeerStories} (constructor \code{#9b5ae7f9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
@@ -975,18 +924,11 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
 )
 
 
-#  GetAllStoriesRequest R6 class
-# 
-#  Request to get all stories with optional pagination/visibility/state.
-#  Returns stories.AllStories (or AllStoriesNotModified).
-#  @param next logical or NULL (controls paging)
-#  @param hidden logical or NULL (include hidden)
-#  @param state character or NULL state cursor
-#  @title GetAllStoriesRequest
-#  @description Telegram API type GetAllStoriesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetAllStoriesRequest
+#' @description Telegram API request \code{stories.getAllStories} (constructor \code{#eeb0d625}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
   inherit = TLRequest,
@@ -1079,14 +1021,11 @@ GetAllStoriesRequest <- R6::R6Class(
 )
 
 
-#  GetChatsToSendRequest R6 class
-# 
-#  Request without parameters; returns chats to send.
-#  @title GetChatsToSendRequest
-#  @description Telegram API type GetChatsToSendRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetChatsToSendRequest
+#' @description Telegram API request \code{stories.getChatsToSend} (constructor \code{#a56a8b60}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
@@ -1125,15 +1064,11 @@ GetChatsToSendRequest <- R6::R6Class(
 )
 
 
-#  GetPeerMaxIDsRequest R6 class
-# 
-#  Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
-#  @param id list of TypeInputPeer
-#  @title GetPeerMaxIDsRequest
-#  @description Telegram API type GetPeerMaxIDsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPeerMaxIDsRequest
+#' @description Telegram API request \code{stories.getPeerMaxIDs} (constructor \code{#78499170}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPeerMaxIDsRequest <- R6::R6Class("GetPeerMaxIDsRequest",
   inherit = TLRequest,
   public = list(
@@ -1176,6 +1111,11 @@ GetPeerMaxIDsRequest <- R6::R6Class("GetPeerMaxIDsRequest",
   lock_objects = FALSE
 )
 
+#' @title GetPeerStoriesRequest
+#' @description Telegram API request \code{stories.getPeerStories} (constructor \code{#2c4ada50}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
@@ -1253,13 +1193,11 @@ GetPeerStoriesRequest <- R6::R6Class(
 )
 
 
-#  GetPinnedStoriesRequest R6 class
-# 
-#  Request to get pinned stories for a peer with pagination (offset_id, limit).
-#  Returns stories.Stories.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetPinnedStoriesRequest
+#' @description Telegram API request \code{stories.getPinnedStories} (constructor \code{#5821a5dc}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
@@ -1354,13 +1292,11 @@ GetPinnedStoriesRequest <- R6::R6Class(
 )
 
 
-#  GetStoriesArchiveRequest R6 class
-# 
-#  Request to get archived stories for a peer with pagination (offset_id, limit).
-#  Returns stories.Stories.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoriesArchiveRequest
+#' @description Telegram API request \code{stories.getStoriesArchive} (constructor \code{#b4352016}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
@@ -1455,13 +1391,11 @@ GetStoriesArchiveRequest <- R6::R6Class(
 )
 
 
-#  GetStoriesByIDRequest R6 class
-# 
-#  Request to get stories by explicit ids for a given peer.
-#  Returns stories.Stories.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoriesByIDRequest
+#' @description Telegram API request \code{stories.getStoriesByID} (constructor \code{#5774ca74}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
@@ -1563,13 +1497,11 @@ GetStoriesByIDRequest <- R6::R6Class(
 )
 
 
-#  GetStoriesViewsRequest R6 class
-# 
-#  Request to get story views for a peer and a vector of story ids.
-#  Returns stories.StoryViews.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoriesViewsRequest
+#' @description Telegram API request \code{stories.getStoriesViews} (constructor \code{#28e16cc8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
@@ -1668,13 +1600,11 @@ GetStoriesViewsRequest <- R6::R6Class(
 )
 
 
-#  GetStoryReactionsListRequest R6 class
-# 
-#  Request to get a list of story reactions with optional filters.
-#  Returns stories.StoryReactionsList.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoryReactionsListRequest
+#' @description Telegram API request \code{stories.getStoryReactionsList} (constructor \code{#b9b2881f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
@@ -1828,13 +1758,11 @@ GetStoryReactionsListRequest <- R6::R6Class(
 )
 
 
-#  GetStoryViewsListRequest R6 class
-# 
-#  Request to get a list of story views with optional filters (just_contacts,
-#  reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
-#  @export
-#  @noRd
-#  @noRd
+#' @title GetStoryViewsListRequest
+#' @description Telegram API request \code{stories.getStoryViewsList} (constructor \code{#7ed23c57}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
@@ -1997,13 +1925,11 @@ GetStoryViewsListRequest <- R6::R6Class(
 )
 
 
-#  IncrementStoryViewsRequest R6 class
-# 
-#  Request to increment story views for a peer and a vector of ids.
-#  Returns Bool.
-#  @export
-#  @noRd
-#  @noRd
+#' @title IncrementStoryViewsRequest
+#' @description Telegram API request \code{stories.incrementStoryViews} (constructor \code{#b2028afb}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
@@ -2101,16 +2027,11 @@ IncrementStoryViewsRequest <- R6::R6Class(
 )
 
 
-#  ReadStoriesRequest R6 class
-# 
-#  Represents a TL request that reads stories up to a given max_id and
-#  returns a Vector<int> result.
-# 
-#  @docType class
-#  @name ReadStoriesRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReadStoriesRequest
+#' @description Telegram API request \code{stories.readStories} (constructor \code{#a556dac8}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
@@ -2210,15 +2131,11 @@ ReadStoriesRequest <- R6::R6Class(
 )
 
 
-#  ReorderAlbumsRequest R6 class
-# 
-#  Represents a TL request to reorder albums for a peer; returns Bool.
-# 
-#  @docType class
-#  @name ReorderAlbumsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReorderAlbumsRequest
+#' @description Telegram API request \code{stories.reorderAlbums} (constructor \code{#8535fbd9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
@@ -2317,15 +2234,11 @@ ReorderAlbumsRequest <- R6::R6Class(
 )
 
 
-#  ReportRequest R6 class
-# 
-#  Represents a TL request to report stories.
-# 
-#  @docType class
-#  @name ReportRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportRequest
+#' @description Telegram API request \code{stories.report} (constructor \code{#19d8eb45}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
@@ -2459,15 +2372,11 @@ ReportRequest <- R6::R6Class(
 )
 
 
-#  SearchPostsRequest R6 class
-# 
-#  Represents a TL request to search posts/stories (by hashtag/area/peer).
-# 
-#  @docType class
-#  @name SearchPostsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SearchPostsRequest
+#' @description Telegram API request \code{stories.searchPosts} (constructor \code{#d1810907}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -2615,15 +2524,11 @@ SearchPostsRequest <- R6::R6Class(
 )
 
 
-#  SendReactionRequest R6 class
-# 
-#  Represents a TL request to send a reaction to a story.
-# 
-#  @docType class
-#  @name SendReactionRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendReactionRequest
+#' @description Telegram API request \code{stories.sendReaction} (constructor \code{#7fd736b2}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
@@ -2747,15 +2652,11 @@ SendReactionRequest <- R6::R6Class(
 )
 
 
-#  SendStoryRequest R6 class
-# 
-#  Represents a TL request to send a story.
-# 
-#  @docType class
-#  @name SendStoryRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendStoryRequest
+#' @description Telegram API request \code{stories.sendStory} (constructor \code{#8f9e6898}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendStoryRequest <- R6::R6Class("SendStoryRequest",
   inherit = TLRequest,
   public = list(
@@ -2895,6 +2796,11 @@ SendStoryRequest <- R6::R6Class("SendStoryRequest",
   lock_objects = FALSE
 )
 
+#' @title ToggleAllStoriesHiddenRequest
+#' @description Telegram API request \code{stories.toggleAllStoriesHidden} (constructor \code{#7c2557c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
@@ -2954,15 +2860,11 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 )
 
 
-#  TogglePeerStoriesHiddenRequest R6 class
-# 
-#  Represents a TL request to toggle hidden state for stories of a particular peer.
-# 
-#  @docType class
-#  @name TogglePeerStoriesHiddenRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title TogglePeerStoriesHiddenRequest
+#' @description Telegram API request \code{stories.togglePeerStoriesHidden} (constructor \code{#bd0415c4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3052,15 +2954,11 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 )
 
 
-#  TogglePinnedRequest R6 class
-# 
-#  Represents a TL request to toggle pinned state for stories.
-# 
-#  @docType class
-#  @name TogglePinnedRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title TogglePinnedRequest
+#' @description Telegram API request \code{stories.togglePinned} (constructor \code{#9a75a1ef}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
@@ -3189,15 +3087,11 @@ TogglePinnedRequest <- R6::R6Class(
 )
 
 
-#  TogglePinnedToTopRequest R6 class
-# 
-#  Represents a TL request to toggle pinned-to-top state for stories.
-# 
-#  @docType class
-#  @name TogglePinnedToTopRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title TogglePinnedToTopRequest
+#' @description Telegram API request \code{stories.togglePinnedToTop} (constructor \code{#0b297e9b}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
@@ -3299,15 +3193,11 @@ TogglePinnedToTopRequest <- R6::R6Class(
 )
 
 
-#  UpdateAlbumRequest R6 class
-# 
-#  Represents a TL request to update a story album.
-# 
-#  @docType class
-#  @name UpdateAlbumRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateAlbumRequest
+#' @description Telegram API request \code{stories.updateAlbum} (constructor \code{#5e5259b6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,

@@ -1,11 +1,8 @@
-#  AcceptLoginTokenRequest R6 class
-# 
-#  Represents the TLRequest auth.AcceptLoginTokenRequest.
-#  @title AcceptLoginTokenRequest
-#  @description Telegram API type AcceptLoginTokenRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title AcceptLoginTokenRequest
+#' @description Telegram API request \code{auth.acceptLoginToken} (constructor \code{#e894ad4d}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 AcceptLoginTokenRequest <- R6::R6Class(
   "AcceptLoginTokenRequest",
   public = list(
@@ -52,14 +49,11 @@ AcceptLoginTokenRequest <- R6::R6Class(
 )
 
 
-#  BindTempAuthKeyRequest R6 class
-# 
-#  Represents the TLRequest auth.BindTempAuthKeyRequest.
-#  @title BindTempAuthKeyRequest
-#  @description Telegram API type BindTempAuthKeyRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title BindTempAuthKeyRequest
+#' @description Telegram API request \code{auth.bindTempAuthKey} (constructor \code{#cdd42a05}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 BindTempAuthKeyRequest <- R6::R6Class(
   "BindTempAuthKeyRequest",
   public = list(
@@ -139,14 +133,11 @@ BindTempAuthKeyRequest <- R6::R6Class(
 )
 
 
-#  CancelCodeRequest R6 class
-# 
-#  Represents the TLRequest auth.CancelCodeRequest.
-#  @title CancelCodeRequest
-#  @description Telegram API type CancelCodeRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CancelCodeRequest
+#' @description Telegram API request \code{auth.cancelCode} (constructor \code{#1f040578}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CancelCodeRequest <- R6::R6Class(
   "CancelCodeRequest",
   public = list(
@@ -203,14 +194,11 @@ CancelCodeRequest <- R6::R6Class(
 )
 
 
-#  CheckPasswordRequest R6 class
-# 
-#  Represents the TLRequest auth.CheckPasswordRequest.
-#  @title CheckPasswordRequest
-#  @description Telegram API type CheckPasswordRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckPasswordRequest
+#' @description Telegram API request \code{auth.checkPassword} (constructor \code{#d18b4d16}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckPasswordRequest <- R6::R6Class(
   "CheckPasswordRequest",
   public = list(
@@ -270,14 +258,11 @@ CheckPasswordRequest <- R6::R6Class(
 )
 
 
-#  CheckRecoveryPasswordRequest R6 class
-# 
-#  Represents the TLRequest auth.CheckRecoveryPasswordRequest.
-#  @title CheckRecoveryPasswordRequest
-#  @description Telegram API type CheckRecoveryPasswordRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title CheckRecoveryPasswordRequest
+#' @description Telegram API request \code{auth.checkRecoveryPassword} (constructor \code{#0d36bf79}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 CheckRecoveryPasswordRequest <- R6::R6Class(
   "CheckRecoveryPasswordRequest",
   public = list(
@@ -324,14 +309,11 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
 )
 
 
-#  DropTempAuthKeysRequest R6 class
-# 
-#  Represents the TLRequest auth.DropTempAuthKeysRequest.
-#  @title DropTempAuthKeysRequest
-#  @description Telegram API type DropTempAuthKeysRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title DropTempAuthKeysRequest
+#' @description Telegram API request \code{auth.dropTempAuthKeys} (constructor \code{#8e48a188}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 DropTempAuthKeysRequest <- R6::R6Class(
   "DropTempAuthKeysRequest",
   public = list(
@@ -412,14 +394,11 @@ DropTempAuthKeysRequest <- R6::R6Class(
 )
 
 
-#  ExportAuthorizationRequest R6 class
-# 
-#  Represents the TLRequest auth.ExportAuthorizationRequest.
-#  @title ExportAuthorizationRequest
-#  @description Telegram API type ExportAuthorizationRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ExportAuthorizationRequest
+#' @description Telegram API request \code{auth.exportAuthorization} (constructor \code{#e5bfffcd}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportAuthorizationRequest <- R6::R6Class(
   "ExportAuthorizationRequest",
   public = list(
@@ -475,14 +454,11 @@ ExportAuthorizationRequest <- R6::R6Class(
 )
 
 
-#  ExportLoginTokenRequest R6 class
-# 
-#  Represents the TLRequest auth.ExportLoginTokenRequest.
-#  @title ExportLoginTokenRequest
-#  @description Telegram API type ExportLoginTokenRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ExportLoginTokenRequest
+#' @description Telegram API request \code{auth.exportLoginToken} (constructor \code{#b7e085fe}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ExportLoginTokenRequest <- R6::R6Class(
   "ExportLoginTokenRequest",
   public = list(
@@ -581,14 +557,11 @@ ExportLoginTokenRequest <- R6::R6Class(
   )
 )
 
-#  ImportAuthorizationRequest R6 class
-# 
-#  Represents the TLRequest auth.ImportAuthorizationRequest.
-#  @title ImportAuthorizationRequest
-#  @description Telegram API type ImportAuthorizationRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportAuthorizationRequest
+#' @description Telegram API request \code{auth.importAuthorization} (constructor \code{#a57a7dad}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportAuthorizationRequest <- R6::R6Class(
   "ImportAuthorizationRequest",
   public = list(
@@ -652,14 +625,11 @@ ImportAuthorizationRequest <- R6::R6Class(
 )
 
 
-#  ImportBotAuthorizationRequest R6 class
-# 
-#  Represents the TLRequest auth.ImportBotAuthorizationRequest.
-#  @title ImportBotAuthorizationRequest
-#  @description Telegram API type ImportBotAuthorizationRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportBotAuthorizationRequest
+#' @description Telegram API request \code{auth.importBotAuthorization} (constructor \code{#67a3ff2c}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportBotAuthorizationRequest <- R6::R6Class(
   "ImportBotAuthorizationRequest",
   public = list(
@@ -742,14 +712,11 @@ ImportBotAuthorizationRequest <- R6::R6Class(
 )
 
 
-#  ImportLoginTokenRequest R6 class
-# 
-#  Represents the TLRequest auth.ImportLoginTokenRequest.
-#  @title ImportLoginTokenRequest
-#  @description Telegram API type ImportLoginTokenRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportLoginTokenRequest
+#' @description Telegram API request \code{auth.importLoginToken} (constructor \code{#95ac5ce4}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportLoginTokenRequest <- R6::R6Class(
   "ImportLoginTokenRequest",
   public = list(
@@ -796,14 +763,11 @@ ImportLoginTokenRequest <- R6::R6Class(
 )
 
 
-#  ImportWebTokenAuthorizationRequest R6 class
-# 
-#  Represents the TLRequest auth.ImportWebTokenAuthorizationRequest.
-#  @title ImportWebTokenAuthorizationRequest
-#  @description Telegram API type ImportWebTokenAuthorizationRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ImportWebTokenAuthorizationRequest
+#' @description Telegram API request \code{auth.importWebTokenAuthorization} (constructor \code{#2db873a9}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ImportWebTokenAuthorizationRequest <- R6::R6Class(
   "ImportWebTokenAuthorizationRequest",
   public = list(
@@ -877,14 +841,11 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
   )
 )
 
-#  LogOutRequest R6 class
-# 
-#  Represents the TLRequest auth.LogOutRequest.
-#  @title LogOutRequest
-#  @description Telegram API type LogOutRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title LogOutRequest
+#' @description Telegram API request \code{auth.logOut} (constructor \code{#3e72ba19}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 LogOutRequest <- R6::R6Class(
   "LogOutRequest",
   public = list(
@@ -925,14 +886,11 @@ LogOutRequest <- R6::R6Class(
 )
 
 
-#  RecoverPasswordRequest R6 class
-# 
-#  Represents the TLRequest auth.RecoverPasswordRequest.
-#  @title RecoverPasswordRequest
-#  @description Telegram API type RecoverPasswordRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title RecoverPasswordRequest
+#' @description Telegram API request \code{auth.recoverPassword} (constructor \code{#37096c70}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RecoverPasswordRequest <- R6::R6Class(
   "RecoverPasswordRequest",
   public = list(
@@ -1018,14 +976,11 @@ RecoverPasswordRequest <- R6::R6Class(
 )
 
 
-#  ReportMissingCodeRequest R6 class
-# 
-#  Represents the TLRequest auth.ReportMissingCodeRequest.
-#  @title ReportMissingCodeRequest
-#  @description Telegram API type ReportMissingCodeRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ReportMissingCodeRequest
+#' @description Telegram API request \code{auth.reportMissingCode} (constructor \code{#cb9deff6}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ReportMissingCodeRequest <- R6::R6Class(
   "ReportMissingCodeRequest",
   public = list(
@@ -1092,16 +1047,11 @@ ReportMissingCodeRequest <- R6::R6Class(
 )
 
 
-#  RequestFirebaseSmsRequest R6 class
-# 
-#  Represents the TLRequest auth.RequestFirebaseSmsRequest.
-# 
-#  Fields:
-#  @title RequestFirebaseSmsRequest
-#  @description Telegram API type RequestFirebaseSmsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestFirebaseSmsRequest
+#' @description Telegram API request \code{auth.requestFirebaseSms} (constructor \code{#8e39261e}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestFirebaseSmsRequest <- R6::R6Class(
   "RequestFirebaseSmsRequest",
   public = list(
@@ -1216,14 +1166,11 @@ RequestFirebaseSmsRequest <- R6::R6Class(
 )
 
 
-#  RequestPasswordRecoveryRequest R6 class
-# 
-#  Represents the TLRequest auth.RequestPasswordRecoveryRequest.
-#  @title RequestPasswordRecoveryRequest
-#  @description Telegram API type RequestPasswordRecoveryRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestPasswordRecoveryRequest
+#' @description Telegram API request \code{auth.requestPasswordRecovery} (constructor \code{#d897bc66}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 RequestPasswordRecoveryRequest <- R6::R6Class(
   "RequestPasswordRecoveryRequest",
   public = list(
@@ -1264,14 +1211,11 @@ RequestPasswordRecoveryRequest <- R6::R6Class(
 )
 
 
-#  ResendCodeRequest R6 class
-# 
-#  Represents the TLRequest auth.ResendCodeRequest.
-#  @title ResendCodeRequest
-#  @description Telegram API type ResendCodeRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ResendCodeRequest
+#' @description Telegram API request \code{auth.resendCode} (constructor \code{#cae47523}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResendCodeRequest <- R6::R6Class(
   "ResendCodeRequest",
   public = list(
@@ -1362,14 +1306,11 @@ ResendCodeRequest <- R6::R6Class(
 )
 
 
-#  ResetAuthorizationsRequest R6 class
-# 
-#  Represents the TLRequest auth.ResetAuthorizationsRequest.
-#  @title ResetAuthorizationsRequest
-#  @description Telegram API type ResetAuthorizationsRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ResetAuthorizationsRequest
+#' @description Telegram API request \code{auth.resetAuthorizations} (constructor \code{#9fab0d1a}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetAuthorizationsRequest <- R6::R6Class(
   "ResetAuthorizationsRequest",
   public = list(
@@ -1410,14 +1351,11 @@ ResetAuthorizationsRequest <- R6::R6Class(
 )
 
 
-#  ResetLoginEmailRequest R6 class
-# 
-#  Represents the TLRequest auth.ResetLoginEmailRequest.
-#  @title ResetLoginEmailRequest
-#  @description Telegram API type ResetLoginEmailRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title ResetLoginEmailRequest
+#' @description Telegram API request \code{auth.resetLoginEmail} (constructor \code{#7e960193}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 ResetLoginEmailRequest <- R6::R6Class(
   "ResetLoginEmailRequest",
   public = list(
@@ -1476,14 +1414,11 @@ ResetLoginEmailRequest <- R6::R6Class(
 )
 
 
-#  SendCodeRequest R6 class
-# 
-#  Represents the TLRequest auth.SendCodeRequest.
-#  @title SendCodeRequest
-#  @description Telegram API type SendCodeRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SendCodeRequest
+#' @description Telegram API request \code{auth.sendCode} (constructor \code{#a677244f}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SendCodeRequest <- R6::R6Class(
   "SendCodeRequest",
   public = list(
@@ -1609,14 +1544,11 @@ SendCodeRequest <- R6::R6Class(
 )
 
 
-#  SignInRequest R6 class
-# 
-#  Represents the TLRequest auth.SignInRequest.
-#  @title SignInRequest
-#  @description Telegram API type SignInRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SignInRequest
+#' @description Telegram API request \code{auth.signIn} (constructor \code{#8d52a951}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SignInRequest <- R6::R6Class(
   "SignInRequest",
   public = list(
@@ -1733,14 +1665,11 @@ SignInRequest <- R6::R6Class(
 )
 
 
-#  SignUpRequest R6 class
-# 
-#  Represents the TLRequest auth.SignUpRequest.
-#  @title SignUpRequest
-#  @description Telegram API type SignUpRequest
-#  @export
-#  @noRd
-#  @noRd
+#' @title SignUpRequest
+#' @description Telegram API request \code{auth.signUp} (constructor \code{#aac7b717}).
+#'   Auto-generated from the TL schema by \code{data-raw/generate_tl.R}; do not edit by hand.
+#' @keywords internal
+#' @noRd
 SignUpRequest <- R6::R6Class(
   "SignUpRequest",
   public = list(
