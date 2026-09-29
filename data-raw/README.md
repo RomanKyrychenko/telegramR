@@ -94,3 +94,37 @@ Use `generate_tl.py --emit NAME` to generate each class, `--audit` for stale
 constructor ids, and `--missing` for types to add. The emitter is validated;
 the remaining work is the hand-reader reconciliation and live validation of
 every message/dialog/media flow, one at a time.
+
+## Update: generator hardened; remaining work is per-type field-layout validation
+
+The generator/overwriter were hardened to handle every *structural* case found
+while attempting the full bump, all validated (e.g. `Channel`, which has two
+flag words, round-trips byte-for-byte):
+
+- multiple flag fields (`flags` and `flags2`), emitted/read in declaration order;
+- reserved R6 names (`self`/`private`/`super`) and method-name collisions
+  (a TL field literally named `bytes`, etc.) are sanitised with a trailing `_`;
+- type-vs-function name clashes (`updateNotifySettings` type vs
+  `account.updateNotifySettings` function) are disambiguated by the existing
+  class's inheritance;
+- namespaced-vs-bare pascal clashes (19 of them, e.g. `messages.webPage` vs
+  `webPage`, `messages.chatFull` vs `chatFull`) resolve to the **bare** type,
+  matching the repo's existing class names;
+- typed scalar vectors (`Vector<long>`/`int`/`string`) serialise per element.
+
+`--missing` also generates the ~491 absent type classes.
+
+A second full attempt (fix 102 stale ctors + add 491 missing types + LAYER 229)
+loaded and got much further live: `get_me`, media, reactions, username and
+profile photos passed, and message parsing now recognises `WebPage` and parses
+`Photo`/sizes. It still fails deep inside individual complex types' optional
+fields (e.g. `webPage`'s many `flags.N?` fields) with alignment errors.
+
+Conclusion: the structural generation is solved; what remains is **per-type
+field-layout validation against live data** for the complex parse-tree types
+(`WebPage`, `Message`, `Document`, `Page`, `ChannelFull`, `User`, ...), plus
+naming the 19 namespaced container types distinctly and removing the
+hand-written `.telegramR_read_*` readers once their generated counterparts are
+confirmed. That is an iterative, live-validated pass best done per type against
+`inst/integration/smoke.R`. Both full attempts were reverted; the package stays
+on its working layer where all documented flows pass live.

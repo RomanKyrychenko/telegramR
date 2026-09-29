@@ -261,11 +261,16 @@ def audit(path):
     import glob
     schema = parse_tl(path)
     idx = {}
+    def _put(k, x):
+        # prefer a bare (non-namespaced) definition on pascal-name collision
+        if k not in idx or "." not in x["full"]:
+            idx[k] = x
     for x in schema:
-        nm = pascal(x["full"]) + ("Request" if x["func"] else "")
-        idx[nm] = x
         if x["func"]:
-            idx[pascal(x["full"])] = x
+            _put(pascal(x["full"]) + "Request", x)
+            _put(pascal(x["full"]), x)
+        else:
+            _put(pascal(x["full"]), x)
     stale = []
     matched = 0
     for f in glob.glob("R/*.R"):

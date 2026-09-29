@@ -85,12 +85,16 @@ def main():
     dry = "--dry" in sys.argv
     schema = gen.parse_tl(api)
     type_idx, func_idx = {}, {}
+    def _put(idx, k, x):
+        if k not in idx or "." not in x["full"]:
+            idx[k] = x
     for x in schema:
         if x["func"]:
-            func_idx[gen.pascal(x["full"]) + "Request"] = x
-            func_idx.setdefault(gen.pascal(x["full"]), x)
+            _put(func_idx, gen.pascal(x["full"]) + "Request", x)
+            if gen.pascal(x["full"]) not in func_idx:
+                func_idx[gen.pascal(x["full"])] = x
         else:
-            type_idx[gen.pascal(x["full"])] = x
+            _put(type_idx, gen.pascal(x["full"]), x)
     stale = [l.split("\t")[0] for l in open(audit) if not l.startswith("#") and l.strip()]
     stale = list(dict.fromkeys(stale))  # de-dup, keep order
 
