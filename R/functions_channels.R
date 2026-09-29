@@ -60,76 +60,55 @@ CheckSearchPostsFloodRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-CheckUsernameRequest <- R6::R6Class(
-  "CheckUsernameRequest",
+CheckUsernameRequest <- R6::R6Class("CheckUsernameRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10e6bd2c,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #  @field channel Field.
     channel = NULL,
-    #  @field username Field.
     username = NULL,
-
-    #  @description Initialize the CheckUsernameRequest.
-    #  @param channel The input channel.
-    #  @param username The username.
     initialize = function(channel, username) {
       self$channel <- channel
       self$username <- username
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      if (inherits(self$channel, "InputChannel")) {
-        return(invisible(NULL))
-      }
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "CheckUsernameRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        username = self$username
+        `_` = "CheckUsernameRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "CheckUsernameRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username
+      )
+    },
     bytes = function() {
       c(
         as.raw(c(0x2c, 0xbd, 0xe6, 0x10)),
         self$channel$bytes(),
-        self$serialize_bytes(self$username)
+        serialize_bytes(self$username)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$channel <- reader$tgread_object()
+      self$username <- reader$tgread_string()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name CheckUsernameRequest_from_reader
-# @param reader The reader object.
-# @return An instance of CheckUsernameRequest.
-CheckUsernameRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  username <- reader$tgread_string()
-  CheckUsernameRequest$new(channel = channel, username = username)
-}
-
-#  @title ConvertToGigagroupRequest
-#  @description Represents a request to convert a channel to a gigagroup.
-#  @export
-#  @noRd
-#  @noRd
 ConvertToGigagroupRequest <- R6::R6Class(
   "ConvertToGigagroupRequest",
   inherit = TLRequest,
@@ -306,110 +285,92 @@ CreateChannelRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-CreateForumTopicRequest <- R6::R6Class(
-  "CreateForumTopicRequest",
+CreateForumTopicRequest <- R6::R6Class("CreateForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xf40c0224,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x2f98c3d5,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field title Field.
+    title_missing = NULL,
+    peer = NULL,
     title = NULL,
-    #  @field icon_color Field.
     icon_color = NULL,
-    #  @field icon_emoji_id Field.
     icon_emoji_id = NULL,
-    #  @field random_id Field.
     random_id = NULL,
-    #  @field send_as Field.
     send_as = NULL,
-
-    #  @description Initialize the CreateForumTopicRequest.
-    #  @param channel The input channel.
-    #  @param title The title of the topic.
-    #  @param icon_color The icon color (optional).
-    #  @param icon_emoji_id The icon emoji ID (optional).
-    #  @param random_id The random ID (optional).
-    #  @param send_as The send as peer (optional).
-    initialize = function(channel, title, icon_color = NULL, icon_emoji_id = NULL, random_id = NULL, send_as = NULL) {
-      self$channel <- channel
+    initialize = function(title_missing = NULL, peer, title, icon_color = NULL, icon_emoji_id = NULL, random_id, send_as = NULL) {
+      self$title_missing <- title_missing
+      self$peer <- peer
       self$title <- title
       self$icon_color <- icon_color
       self$icon_emoji_id <- icon_emoji_id
-      self$random_id <- if (is.null(random_id)) as.integer(runif(1) * 2^32) else random_id # Simplified random generation for 32-bit; adjust for 64-bit if needed
+      self$random_id <- random_id
       self$send_as <- send_as
     },
-
-    #  @description Resolve the channel and send_as entities.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
-      if (!is.null(self$send_as)) {
-        self$send_as <- utils$get_input_peer(client$get_input_entity(self$send_as))
-      }
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      if (!is.null(self$send_as)) self$send_as <- tryCatch(utils$get_input_peer(client$get_input_entity(self$send_as)), error = function(e) self$send_as)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "CreateForumTopicRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        title = self$title,
-        icon_color = self$icon_color,
-        icon_emoji_id = self$icon_emoji_id,
-        random_id = self$random_id,
-        send_as = if (inherits(self$send_as, "TLObject")) self$send_as$to_dict() else self$send_as
+        `_` = "CreateForumTopicRequest",
+        "title_missing" = if (inherits(self$title_missing, "TLObject")) self$title_missing$to_dict() else self$title_missing,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "title" = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title,
+        "icon_color" = if (inherits(self$icon_color, "TLObject")) self$icon_color$to_dict() else self$icon_color,
+        "icon_emoji_id" = if (inherits(self$icon_emoji_id, "TLObject")) self$icon_emoji_id$to_dict() else self$icon_emoji_id,
+        "random_id" = if (inherits(self$random_id, "TLObject")) self$random_id$to_dict() else self$random_id,
+        "send_as" = if (inherits(self$send_as, "TLObject")) self$send_as$to_dict() else self$send_as
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
-    bytes = function() {
-      flags <- (if (is.null(self$icon_color) || !self$icon_color) 0 else 1) |
-        (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 8) |
-        (if (is.null(self$send_as) || !self$send_as) 0 else 4)
-      c(
-        as.raw(c(0x24, 0x02, 0x0c, 0xf4)),
-        pack("<I", flags),
-        self$channel$bytes(),
-        self$serialize_bytes(self$title),
-        if (!is.null(self$icon_color) && self$icon_color) pack("<i", self$icon_color) else raw(0),
-        if (!is.null(self$icon_emoji_id) && self$icon_emoji_id) pack("<q", self$icon_emoji_id) else raw(0),
-        pack("<q", self$random_id),
-        if (!is.null(self$send_as) && self$send_as) self$send_as$bytes() else raw(0)
+    to_list = function() {
+      list(
+        `_` = "CreateForumTopicRequest",
+        "title_missing" = if (inherits(self$title_missing, "TLObject")) self$title_missing$to_dict() else self$title_missing,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "title" = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title,
+        "icon_color" = if (inherits(self$icon_color, "TLObject")) self$icon_color$to_dict() else self$icon_color,
+        "icon_emoji_id" = if (inherits(self$icon_emoji_id, "TLObject")) self$icon_emoji_id$to_dict() else self$icon_emoji_id,
+        "random_id" = if (inherits(self$random_id, "TLObject")) self$random_id$to_dict() else self$random_id,
+        "send_as" = if (inherits(self$send_as, "TLObject")) self$send_as$to_dict() else self$send_as
       )
+    },
+    bytes = function() {
+      flags <- 0L
+      if (isTRUE(self$title_missing)) flags <- bitwOr(flags, 16L)
+      if (!is.null(self$icon_color)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$icon_emoji_id)) flags <- bitwOr(flags, 8L)
+      if (!is.null(self$send_as)) flags <- bitwOr(flags, 4L)
+      c(
+        as.raw(c(0xd5, 0xc3, 0x98, 0x2f)),
+        pack("<I", flags),
+        self$peer$bytes(),
+        serialize_bytes(self$title),
+        if (!is.null(self$icon_color)) pack("<i", self$icon_color) else raw(0),
+        if (!is.null(self$icon_emoji_id)) packInt64(self$icon_emoji_id) else raw(0),
+        packInt64(self$random_id),
+        if (!is.null(self$send_as)) self$send_as$bytes() else raw(0)
+      )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$title_missing <- bitwAnd(flags, 16L) != 0
+      self$peer <- reader$tgread_object()
+      self$title <- reader$tgread_string()
+      self$icon_color <- if (bitwAnd(flags, 1L) != 0) reader$read_int() else NULL
+      self$icon_emoji_id <- if (bitwAnd(flags, 8L) != 0) reader$read_long() else NULL
+      self$random_id <- reader$read_long()
+      self$send_as <- if (bitwAnd(flags, 4L) != 0) reader$tgread_object() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name CreateForumTopicRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of CreateForumTopicRequest.
-CreateForumTopicRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  channel <- reader$tgread_object()
-  title <- reader$tgread_string()
-  icon_color <- if ((flags && 1) != 0) reader$read_int() else NULL
-  icon_emoji_id <- if ((flags && 8) != 0) reader$read_long() else NULL
-  random_id <- reader$read_long()
-  send_as <- if ((flags && 4) != 0) reader$tgread_object() else NULL
-  CreateForumTopicRequest$new(channel = channel, title = title, icon_color = icon_color, icon_emoji_id = icon_emoji_id, random_id = random_id, send_as = send_as)
-}
-
-#  @title DeactivateAllUsernamesRequest
-#  @description Represents a request to deactivate all usernames in a channel.
-#  @export
-#  @noRd
-#  @noRd
 DeactivateAllUsernamesRequest <- R6::R6Class(
   "DeactivateAllUsernamesRequest",
   inherit = TLRequest,
@@ -755,156 +716,121 @@ DeleteParticipantHistoryRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-DeleteTopicHistoryRequest <- R6::R6Class(
-  "DeleteTopicHistoryRequest",
+DeleteTopicHistoryRequest <- R6::R6Class("DeleteTopicHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x34435f2d,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0xd2816f10,
     SUBCLASS_OF_ID = 0x2c49c116,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field top_msg_id Field.
+    peer = NULL,
     top_msg_id = NULL,
-
-    #  @description Initialize the DeleteTopicHistoryRequest.
-    #  @param channel The input channel.
-    #  @param top_msg_id The top message ID.
-    initialize = function(channel, top_msg_id) {
-      self$channel <- channel
+    initialize = function(peer, top_msg_id) {
+      self$peer <- peer
       self$top_msg_id <- top_msg_id
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "DeleteTopicHistoryRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        top_msg_id = self$top_msg_id
+        `_` = "DeleteTopicHistoryRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "top_msg_id" = if (inherits(self$top_msg_id, "TLObject")) self$top_msg_id$to_dict() else self$top_msg_id
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "DeleteTopicHistoryRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "top_msg_id" = if (inherits(self$top_msg_id, "TLObject")) self$top_msg_id$to_dict() else self$top_msg_id
+      )
+    },
     bytes = function() {
       c(
-        as.raw(c(0x2d, 0x5f, 0x43, 0x34)),
-        self$channel$bytes(),
+        as.raw(c(0x10, 0x6f, 0x81, 0xd2)),
+        self$peer$bytes(),
         pack("<i", self$top_msg_id)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$peer <- reader$tgread_object()
+      self$top_msg_id <- reader$read_int()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name DeleteTopicHistoryRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeleteTopicHistoryRequest.
-DeleteTopicHistoryRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  top_msg_id <- reader$read_int()
-  DeleteTopicHistoryRequest$new(channel = channel, top_msg_id = top_msg_id)
-}
-
-#  @title EditAdminRequest
-#  @description Represents a request to edit admin rights for a user in a channel.
-#  @export
-#  @noRd
-#  @noRd
-EditAdminRequest <- R6::R6Class(
-  "EditAdminRequest",
+EditAdminRequest <- R6::R6Class("EditAdminRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xd33c8902,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x9a98ad68,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
     channel = NULL,
-    #  @field user_id Field.
     user_id = NULL,
-    #  @field admin_rights Field.
     admin_rights = NULL,
-    #  @field rank Field.
     rank = NULL,
-
-    #  @description Initialize the EditAdminRequest.
-    #  @param channel The input channel.
-    #  @param user_id The input user ID.
-    #  @param admin_rights The chat admin rights.
-    #  @param rank The rank string.
-    initialize = function(channel, user_id, admin_rights, rank) {
+    initialize = function(channel, user_id, admin_rights, rank = NULL) {
       self$channel <- channel
       self$user_id <- user_id
       self$admin_rights <- admin_rights
       self$rank <- rank
     },
-
-    #  @description Resolve the channel and user_id entities.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
-      self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      if (!is.null(self$user_id)) self$user_id <- tryCatch(utils$get_input_user(client$get_input_entity(self$user_id)), error = function(e) self$user_id)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "EditAdminRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
-        admin_rights = if (inherits(self$admin_rights, "TLObject")) self$admin_rights$to_dict() else self$admin_rights,
-        rank = self$rank
+        `_` = "EditAdminRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "user_id" = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
+        "admin_rights" = if (inherits(self$admin_rights, "TLObject")) self$admin_rights$to_dict() else self$admin_rights,
+        "rank" = if (inherits(self$rank, "TLObject")) self$rank$to_dict() else self$rank
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "EditAdminRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "user_id" = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
+        "admin_rights" = if (inherits(self$admin_rights, "TLObject")) self$admin_rights$to_dict() else self$admin_rights,
+        "rank" = if (inherits(self$rank, "TLObject")) self$rank$to_dict() else self$rank
+      )
+    },
     bytes = function() {
+      flags <- 0L
+      if (!is.null(self$rank)) flags <- bitwOr(flags, 1L)
       c(
-        as.raw(c(0x02, 0x89, 0x3c, 0xd3)),
+        as.raw(c(0x68, 0xad, 0x98, 0x9a)),
+        pack("<I", flags),
         self$channel$bytes(),
         self$user_id$bytes(),
         self$admin_rights$bytes(),
-        self$serialize_bytes(self$rank)
+        if (!is.null(self$rank)) serialize_bytes(self$rank) else raw(0)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$channel <- reader$tgread_object()
+      self$user_id <- reader$tgread_object()
+      self$admin_rights <- reader$tgread_object()
+      self$rank <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name EditAdminRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditAdminRequest.
-EditAdminRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  user_id <- reader$tgread_object()
-  admin_rights <- reader$tgread_object()
-  rank <- reader$tgread_string()
-  EditAdminRequest$new(channel = channel, user_id = user_id, admin_rights = admin_rights, rank = rank)
-}
-
-#  @title EditBannedRequest
-#  @description Represents a request to edit banned rights for a participant in a channel.
-#  @export
-#  @noRd
-#  @noRd
 EditBannedRequest <- R6::R6Class(
   "EditBannedRequest",
   inherit = TLRequest,
@@ -1056,107 +982,86 @@ EditCreatorRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-EditForumTopicRequest <- R6::R6Class(
-  "EditForumTopicRequest",
+EditForumTopicRequest <- R6::R6Class("EditForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xf4dfa185,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0xcecc1134,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field topic_id Field.
+    peer = NULL,
     topic_id = NULL,
-    #  @field title Field.
     title = NULL,
-    #  @field icon_emoji_id Field.
     icon_emoji_id = NULL,
-    #  @field closed Field.
     closed = NULL,
-    #  @field hidden Field.
     hidden = NULL,
-
-    #  @description Initialize the EditForumTopicRequest.
-    #  @param channel The input channel.
-    #  @param topic_id The topic ID.
-    #  @param title The title (optional).
-    #  @param icon_emoji_id The icon emoji ID (optional).
-    #  @param closed Whether the topic is closed (optional).
-    #  @param hidden Whether the topic is hidden (optional).
-    initialize = function(channel, topic_id, title = NULL, icon_emoji_id = NULL, closed = NULL, hidden = NULL) {
-      self$channel <- channel
+    initialize = function(peer, topic_id, title = NULL, icon_emoji_id = NULL, closed = NULL, hidden = NULL) {
+      self$peer <- peer
       self$topic_id <- topic_id
       self$title <- title
       self$icon_emoji_id <- icon_emoji_id
       self$closed <- closed
       self$hidden <- hidden
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "EditForumTopicRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        topic_id = self$topic_id,
-        title = self$title,
-        icon_emoji_id = self$icon_emoji_id,
-        closed = self$closed,
-        hidden = self$hidden
+        `_` = "EditForumTopicRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topic_id" = if (inherits(self$topic_id, "TLObject")) self$topic_id$to_dict() else self$topic_id,
+        "title" = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title,
+        "icon_emoji_id" = if (inherits(self$icon_emoji_id, "TLObject")) self$icon_emoji_id$to_dict() else self$icon_emoji_id,
+        "closed" = if (inherits(self$closed, "TLObject")) self$closed$to_dict() else self$closed,
+        "hidden" = if (inherits(self$hidden, "TLObject")) self$hidden$to_dict() else self$hidden
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
-    bytes = function() {
-      flags <- (if (is.null(self$title) || !self$title) 0 else 1) |
-        (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 2) |
-        (if (is.null(self$closed)) 0 else 4) |
-        (if (is.null(self$hidden)) 0 else 8)
-      c(
-        as.raw(c(0x85, 0xa1, 0xdf, 0xf4)),
-        pack("<I", flags),
-        self$channel$bytes(),
-        pack("<i", self$topic_id),
-        if (!is.null(self$title) && self$title) self$serialize_bytes(self$title) else raw(0),
-        if (!is.null(self$icon_emoji_id) && self$icon_emoji_id) pack("<q", self$icon_emoji_id) else raw(0),
-        if (!is.null(self$closed)) (if (self$closed) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))) else raw(0),
-        if (!is.null(self$hidden)) (if (self$hidden) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))) else raw(0)
+    to_list = function() {
+      list(
+        `_` = "EditForumTopicRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topic_id" = if (inherits(self$topic_id, "TLObject")) self$topic_id$to_dict() else self$topic_id,
+        "title" = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title,
+        "icon_emoji_id" = if (inherits(self$icon_emoji_id, "TLObject")) self$icon_emoji_id$to_dict() else self$icon_emoji_id,
+        "closed" = if (inherits(self$closed, "TLObject")) self$closed$to_dict() else self$closed,
+        "hidden" = if (inherits(self$hidden, "TLObject")) self$hidden$to_dict() else self$hidden
       )
+    },
+    bytes = function() {
+      flags <- 0L
+      if (!is.null(self$title)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$icon_emoji_id)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$closed)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$hidden)) flags <- bitwOr(flags, 8L)
+      c(
+        as.raw(c(0x34, 0x11, 0xcc, 0xce)),
+        pack("<I", flags),
+        self$peer$bytes(),
+        pack("<i", self$topic_id),
+        if (!is.null(self$title)) serialize_bytes(self$title) else raw(0),
+        if (!is.null(self$icon_emoji_id)) packInt64(self$icon_emoji_id) else raw(0),
+        if (!is.null(self$closed)) if (isTRUE(self$closed)) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
+        if (!is.null(self$hidden)) if (isTRUE(self$hidden)) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0)
+      )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$peer <- reader$tgread_object()
+      self$topic_id <- reader$read_int()
+      self$title <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
+      self$icon_emoji_id <- if (bitwAnd(flags, 2L) != 0) reader$read_long() else NULL
+      self$closed <- if (bitwAnd(flags, 4L) != 0) reader$tgread_bool() else NULL
+      self$hidden <- if (bitwAnd(flags, 8L) != 0) reader$tgread_bool() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name EditForumTopicRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditForumTopicRequest.
-EditForumTopicRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  channel <- reader$tgread_object()
-  topic_id <- reader$read_int()
-  title <- if ((flags && 1) != 0) reader$tgread_string() else NULL
-  icon_emoji_id <- if ((flags && 2) != 0) reader$read_long() else NULL
-  closed <- if ((flags && 4) != 0) reader$tgread_bool() else NULL
-  hidden <- if ((flags && 8) != 0) reader$tgread_bool() else NULL
-  EditForumTopicRequest$new(channel = channel, topic_id = topic_id, title = title, icon_emoji_id = icon_emoji_id, closed = closed, hidden = hidden)
-}
-
-#  @title EditLocationRequest
-#  @description Represents a request to edit the location of a channel.
-#  @export
-#  @noRd
-#  @noRd
 EditLocationRequest <- R6::R6Class(
   "EditLocationRequest",
   inherit = TLRequest,
@@ -1780,179 +1685,132 @@ GetChannelsRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-GetForumTopicsRequest <- R6::R6Class(
-  "GetForumTopicsRequest",
+GetForumTopicsRequest <- R6::R6Class("GetForumTopicsRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xde560d1,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x3ba47bff,
     SUBCLASS_OF_ID = 0x8e1d3e1e,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field offset_date Field.
-    offset_date = NULL,
-    #  @field offset_id Field.
-    offset_id = NULL,
-    #  @field offset_topic Field.
-    offset_topic = NULL,
-    #  @field limit Field.
-    limit = NULL,
-    #  @field q Field.
+    peer = NULL,
     q = NULL,
-
-    #  @description Initialize the GetForumTopicsRequest.
-    #  @param channel The input channel.
-    #  @param offset_date The offset date for pagination.
-    #  @param offset_id The offset ID for pagination.
-    #  @param offset_topic The offset topic for pagination.
-    #  @param limit The limit on the number of results.
-    #  @param q The query string (optional).
-    initialize = function(channel, offset_date, offset_id, offset_topic, limit, q = NULL) {
-      self$channel <- channel
+    offset_date = NULL,
+    offset_id = NULL,
+    offset_topic = NULL,
+    limit = NULL,
+    initialize = function(peer, q = NULL, offset_date, offset_id, offset_topic, limit) {
+      self$peer <- peer
+      self$q <- q
       self$offset_date <- offset_date
       self$offset_id <- offset_id
       self$offset_topic <- offset_topic
       self$limit <- limit
-      self$q <- q
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "GetForumTopicsRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        offset_date = self$offset_date,
-        offset_id = self$offset_id,
-        offset_topic = self$offset_topic,
-        limit = self$limit,
-        q = self$q
+        `_` = "GetForumTopicsRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "q" = if (inherits(self$q, "TLObject")) self$q$to_dict() else self$q,
+        "offset_date" = if (inherits(self$offset_date, "TLObject")) self$offset_date$to_dict() else self$offset_date,
+        "offset_id" = if (inherits(self$offset_id, "TLObject")) self$offset_id$to_dict() else self$offset_id,
+        "offset_topic" = if (inherits(self$offset_topic, "TLObject")) self$offset_topic$to_dict() else self$offset_topic,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$to_dict() else self$limit
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "GetForumTopicsRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "q" = if (inherits(self$q, "TLObject")) self$q$to_dict() else self$q,
+        "offset_date" = if (inherits(self$offset_date, "TLObject")) self$offset_date$to_dict() else self$offset_date,
+        "offset_id" = if (inherits(self$offset_id, "TLObject")) self$offset_id$to_dict() else self$offset_id,
+        "offset_topic" = if (inherits(self$offset_topic, "TLObject")) self$offset_topic$to_dict() else self$offset_topic,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$to_dict() else self$limit
+      )
+    },
     bytes = function() {
-      flags <- if (is.null(self$q) || !self$q) 0 else 1
+      flags <- 0L
+      if (!is.null(self$q)) flags <- bitwOr(flags, 1L)
       c(
-        as.raw(c(0xd1, 0x60, 0xe5, 0x0d)),
+        as.raw(c(0xff, 0x7b, 0xa4, 0x3b)),
         pack("<I", flags),
-        self$channel$bytes(),
-        if (!is.null(self$q) && self$q) self$serialize_bytes(self$q) else raw(0),
-        self$serialize_datetime(self$offset_date),
+        self$peer$bytes(),
+        if (!is.null(self$q)) serialize_bytes(self$q) else raw(0),
+        pack("<i", self$offset_date),
         pack("<i", self$offset_id),
         pack("<i", self$offset_topic),
         pack("<i", self$limit)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$peer <- reader$tgread_object()
+      self$q <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
+      self$offset_date <- reader$read_int()
+      self$offset_id <- reader$read_int()
+      self$offset_topic <- reader$read_int()
+      self$limit <- reader$read_int()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name GetForumTopicsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetForumTopicsRequest.
-GetForumTopicsRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  channel <- reader$tgread_object()
-  q <- if ((flags && 1) != 0) reader$tgread_string() else NULL
-  offset_date <- reader$tgread_date()
-  offset_id <- reader$read_int()
-  offset_topic <- reader$read_int()
-  limit <- reader$read_int()
-  GetForumTopicsRequest$new(channel = channel, offset_date = offset_date, offset_id = offset_id, offset_topic = offset_topic, limit = limit, q = q)
-}
-
-#  @title GetForumTopicsByIDRequest
-#  @description Represents a request to get forum topics by their IDs from a channel.
-#  @export
-#  @noRd
-#  @noRd
-GetForumTopicsByIDRequest <- R6::R6Class(
-  "GetForumTopicsByIDRequest",
+GetForumTopicsByIDRequest <- R6::R6Class("GetForumTopicsByIDRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xb0831eb9,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0xaf0a4a08,
     SUBCLASS_OF_ID = 0x8e1d3e1e,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field topics Field.
+    peer = NULL,
     topics = NULL,
-
-    #  @description Initialize the GetForumTopicsByIDRequest.
-    #  @param channel The input channel.
-    #  @param topics The list of topic IDs.
-    initialize = function(channel, topics) {
-      self$channel <- channel
+    initialize = function(peer, topics) {
+      self$peer <- peer
       self$topics <- topics
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "GetForumTopicsByIDRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        topics = if (is.null(self$topics)) list() else self$topics
+        `_` = "GetForumTopicsByIDRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topics" = if (inherits(self$topics, "TLObject")) self$topics$to_dict() else self$topics
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "GetForumTopicsByIDRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topics" = if (inherits(self$topics, "TLObject")) self$topics$to_dict() else self$topics
+      )
+    },
     bytes = function() {
       c(
-        as.raw(c(0xb9, 0x1e, 0x83, 0xb0)),
-        self$channel$bytes(),
-        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-        pack("<i", length(self$topics)),
-        do.call(c, lapply(self$topics, function(x) pack("<i", x)))
+        as.raw(c(0x08, 0x4a, 0x0a, 0xaf)),
+        self$peer$bytes(),
+        c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$topics)), if (length(self$topics) > 0) do.call(c, lapply(self$topics, function(x) pack("<i", x))) else raw(0))
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$peer <- reader$tgread_object()
+      self$topics <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name GetForumTopicsByIDRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetForumTopicsByIDRequest.
-GetForumTopicsByIDRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  reader$read_int()
-  topics <- list()
-  for (i in seq_len(reader$read_int())) {
-    x <- reader$read_int()
-    topics <- c(topics, x)
-  }
-  GetForumTopicsByIDRequest$new(channel = channel, topics = topics)
-}
-
-
-#  @title GetFullChannelRequest
-#  @description Represents a request to get full information about a channel.
-#  @export
-#  @noRd
-#  @noRd
 GetFullChannelRequest <- R6::R6Class(
   "GetFullChannelRequest",
   inherit = TLRequest,
@@ -2613,66 +2471,49 @@ InviteToChannelRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-JoinChannelRequest <- R6::R6Class(
-  "JoinChannelRequest",
+JoinChannelRequest <- R6::R6Class("JoinChannelRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x24b524c5,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
-    SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
+    CONSTRUCTOR_ID = 0x7f6a1e22,
+    SUBCLASS_OF_ID = 0x5d0ff992,
     channel = NULL,
-
-    #  @description Initialize the JoinChannelRequest.
-    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "JoinChannelRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel
+        `_` = "JoinChannelRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "JoinChannelRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel
+      )
+    },
     bytes = function() {
       c(
-        as.raw(c(0xc5, 0x24, 0xb5, 0x24)),
+        as.raw(c(0x22, 0x1e, 0x6a, 0x7f)),
         self$channel$bytes()
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$channel <- reader$tgread_object()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name JoinChannelRequest_from_reader
-# @param reader The reader object.
-# @return An instance of JoinChannelRequest.
-JoinChannelRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  JoinChannelRequest$new(channel = channel)
-}
-
-#  @title LeaveChannelRequest
-#  @description Represents a request to leave a channel.
-#  @export
-#  @noRd
-#  @noRd
 LeaveChannelRequest <- R6::R6Class(
   "LeaveChannelRequest",
   inherit = TLRequest,
@@ -2876,89 +2717,64 @@ ReadMessageContentsRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-ReorderPinnedForumTopicsRequest <- R6::R6Class(
-  "ReorderPinnedForumTopicsRequest",
+ReorderPinnedForumTopicsRequest <- R6::R6Class("ReorderPinnedForumTopicsRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x2950a18f,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x0e7841f0,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field order Field.
-    order = NULL,
-    #  @field force Field.
     force = NULL,
-
-    #  @description Initialize the ReorderPinnedForumTopicsRequest.
-    #  @param channel The input channel.
-    #  @param order The list of topic IDs in the new order.
-    #  @param force Whether to force the reorder.
-    initialize = function(channel, order, force = NULL) {
-      self$channel <- channel
-      self$order <- order
+    peer = NULL,
+    order = NULL,
+    initialize = function(force = NULL, peer, order) {
       self$force <- force
+      self$peer <- peer
+      self$order <- order
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "ReorderPinnedForumTopicsRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        order = if (is.null(self$order)) list() else self$order,
-        force = self$force
+        `_` = "ReorderPinnedForumTopicsRequest",
+        "force" = if (inherits(self$force, "TLObject")) self$force$to_dict() else self$force,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "order" = if (inherits(self$order, "TLObject")) self$order$to_dict() else self$order
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
-    bytes = function() {
-      flags <- if (is.null(self$force) || !self$force) 0 else 1
-      c(
-        as.raw(c(0x8f, 0xa1, 0x50, 0x29)),
-        pack("<I", flags),
-        self$channel$bytes(),
-        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-        pack("<i", length(self$order)),
-        do.call(c, lapply(self$order, function(x) pack("<i", x)))
+    to_list = function() {
+      list(
+        `_` = "ReorderPinnedForumTopicsRequest",
+        "force" = if (inherits(self$force, "TLObject")) self$force$to_dict() else self$force,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "order" = if (inherits(self$order, "TLObject")) self$order$to_dict() else self$order
       )
+    },
+    bytes = function() {
+      flags <- 0L
+      if (isTRUE(self$force)) flags <- bitwOr(flags, 1L)
+      c(
+        as.raw(c(0xf0, 0x41, 0x78, 0x0e)),
+        pack("<I", flags),
+        self$peer$bytes(),
+        c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$order)), if (length(self$order) > 0) do.call(c, lapply(self$order, function(x) pack("<i", x))) else raw(0))
+      )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$force <- bitwAnd(flags, 1L) != 0
+      self$peer <- reader$tgread_object()
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name ReorderPinnedForumTopicsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReorderPinnedForumTopicsRequest.
-ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  force <- (flags & 1) != 0
-  channel <- reader$tgread_object()
-  reader$read_int()
-  order <- list()
-  for (i in seq_len(reader$read_int())) {
-    x <- reader$read_int()
-    order <- c(order, x)
-  }
-  ReorderPinnedForumTopicsRequest$new(channel = channel, order = order, force = force)
-}
-
-#  @title ReorderUsernamesRequest
-#  @description Represents a request to reorder usernames in a channel.
-#  @export
-#  @noRd
-#  @noRd
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   inherit = TLRequest,
@@ -3251,113 +3067,91 @@ RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-SearchPostsRequest <- R6::R6Class(
-  "SearchPostsRequest",
+SearchPostsRequest <- R6::R6Class("SearchPostsRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2c4f24d,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4b40b5e,
-    #  @field offset_rate Field.
-    offset_rate = NULL,
-    #  @field offset_peer Field.
-    offset_peer = NULL,
-    #  @field offset_id Field.
-    offset_id = NULL,
-    #  @field limit Field.
-    limit = NULL,
-    #  @field hashtag Field.
     hashtag = NULL,
-    #  @field query Field.
     query = NULL,
-    #  @field allow_paid_stars Field.
+    offset_rate = NULL,
+    offset_peer = NULL,
+    offset_id = NULL,
+    limit = NULL,
     allow_paid_stars = NULL,
-
-    #  @description Initialize the SearchPostsRequest.
-    #  @param offset_rate The offset rate for pagination.
-    #  @param offset_peer The offset peer for pagination.
-    #  @param offset_id The offset ID for pagination.
-    #  @param limit The limit on the number of results.
-    #  @param hashtag The hashtag to search for (optional).
-    #  @param query The query string to search for (optional).
-    #  @param allow_paid_stars The number of allowed paid stars (optional).
-    initialize = function(offset_rate, offset_peer, offset_id, limit, hashtag = NULL, query = NULL, allow_paid_stars = NULL) {
+    initialize = function(hashtag = NULL, query = NULL, offset_rate, offset_peer, offset_id, limit, allow_paid_stars = NULL) {
+      self$hashtag <- hashtag
+      self$query <- query
       self$offset_rate <- offset_rate
       self$offset_peer <- offset_peer
       self$offset_id <- offset_id
       self$limit <- limit
-      self$hashtag <- hashtag
-      self$query <- query
       self$allow_paid_stars <- allow_paid_stars
     },
-
-    #  @description Resolve the offset_peer entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$offset_peer <- utils$get_input_peer(client$get_input_entity(self$offset_peer))
+      if (!is.null(self$offset_peer)) self$offset_peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$offset_peer)), error = function(e) self$offset_peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "SearchPostsRequest",
-        offset_rate = self$offset_rate,
-        offset_peer = if (inherits(self$offset_peer, "TLObject")) self$offset_peer$to_dict() else self$offset_peer,
-        offset_id = self$offset_id,
-        limit = self$limit,
-        hashtag = self$hashtag,
-        query = self$query,
-        allow_paid_stars = self$allow_paid_stars
+        `_` = "SearchPostsRequest",
+        "hashtag" = if (inherits(self$hashtag, "TLObject")) self$hashtag$to_dict() else self$hashtag,
+        "query" = if (inherits(self$query, "TLObject")) self$query$to_dict() else self$query,
+        "offset_rate" = if (inherits(self$offset_rate, "TLObject")) self$offset_rate$to_dict() else self$offset_rate,
+        "offset_peer" = if (inherits(self$offset_peer, "TLObject")) self$offset_peer$to_dict() else self$offset_peer,
+        "offset_id" = if (inherits(self$offset_id, "TLObject")) self$offset_id$to_dict() else self$offset_id,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$to_dict() else self$limit,
+        "allow_paid_stars" = if (inherits(self$allow_paid_stars, "TLObject")) self$allow_paid_stars$to_dict() else self$allow_paid_stars
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "SearchPostsRequest",
+        "hashtag" = if (inherits(self$hashtag, "TLObject")) self$hashtag$to_dict() else self$hashtag,
+        "query" = if (inherits(self$query, "TLObject")) self$query$to_dict() else self$query,
+        "offset_rate" = if (inherits(self$offset_rate, "TLObject")) self$offset_rate$to_dict() else self$offset_rate,
+        "offset_peer" = if (inherits(self$offset_peer, "TLObject")) self$offset_peer$to_dict() else self$offset_peer,
+        "offset_id" = if (inherits(self$offset_id, "TLObject")) self$offset_id$to_dict() else self$offset_id,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$to_dict() else self$limit,
+        "allow_paid_stars" = if (inherits(self$allow_paid_stars, "TLObject")) self$allow_paid_stars$to_dict() else self$allow_paid_stars
+      )
+    },
     bytes = function() {
-      flags <- (if (is.null(self$hashtag) || !self$hashtag) 0 else 1) |
-        (if (is.null(self$query) || !self$query) 0 else 2) |
-        (if (is.null(self$allow_paid_stars) || !self$allow_paid_stars) 0 else 4)
+      flags <- 0L
+      if (!is.null(self$hashtag)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$query)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$allow_paid_stars)) flags <- bitwOr(flags, 4L)
       c(
         as.raw(c(0x4d, 0xf2, 0xc4, 0xf2)),
         pack("<I", flags),
-        if (!is.null(self$hashtag) && self$hashtag) self$serialize_bytes(self$hashtag) else raw(0),
-        if (!is.null(self$query) && self$query) self$serialize_bytes(self$query) else raw(0),
+        if (!is.null(self$hashtag)) serialize_bytes(self$hashtag) else raw(0),
+        if (!is.null(self$query)) serialize_bytes(self$query) else raw(0),
         pack("<i", self$offset_rate),
         self$offset_peer$bytes(),
         pack("<i", self$offset_id),
         pack("<i", self$limit),
-        if (!is.null(self$allow_paid_stars) && self$allow_paid_stars) pack("<q", self$allow_paid_stars) else raw(0)
+        if (!is.null(self$allow_paid_stars)) packInt64(self$allow_paid_stars) else raw(0)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$hashtag <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
+      self$query <- if (bitwAnd(flags, 2L) != 0) reader$tgread_string() else NULL
+      self$offset_rate <- reader$read_int()
+      self$offset_peer <- reader$tgread_object()
+      self$offset_id <- reader$read_int()
+      self$limit <- reader$read_int()
+      self$allow_paid_stars <- if (bitwAnd(flags, 4L) != 0) reader$read_long() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name SearchPostsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SearchPostsRequest.
-SearchPostsRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  hashtag <- if ((flags && 1) != 0) reader$tgread_string() else NULL
-  query <- if ((flags && 2) != 0) reader$tgread_string() else NULL
-  offset_rate <- reader$read_int()
-  offset_peer <- reader$tgread_object()
-  offset_id <- reader$read_int()
-  limit <- reader$read_int()
-  allow_paid_stars <- if ((flags && 4) != 0) reader$read_long() else NULL
-  SearchPostsRequest$new(offset_rate = offset_rate, offset_peer = offset_peer, offset_id = offset_id, limit = limit, hashtag = hashtag, query = query, allow_paid_stars = allow_paid_stars)
-}
-
-#  @title SetBoostsToUnblockRestrictionsRequest
-#  @description Represents a request to set the number of boosts to unblock restrictions in a channel.
-#  @export
-#  @noRd
-#  @noRd
 SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   "SetBoostsToUnblockRestrictionsRequest",
   inherit = TLRequest,
@@ -3561,74 +3355,55 @@ SetEmojiStickersRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-SetMainProfileTabRequest <- R6::R6Class(
-  "SetMainProfileTabRequest",
+SetMainProfileTabRequest <- R6::R6Class("SetMainProfileTabRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3583fcb1,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #  @field channel Field.
     channel = NULL,
-    #  @field tab Field.
     tab = NULL,
-
-    #  @description Initialize the SetMainProfileTabRequest.
-    #  @param channel The input channel.
-    #  @param tab The profile tab.
     initialize = function(channel, tab) {
       self$channel <- channel
       self$tab <- tab
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "SetMainProfileTabRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        tab = if (inherits(self$tab, "TLObject")) self$tab$to_dict() else self$tab
+        `_` = "SetMainProfileTabRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "tab" = if (inherits(self$tab, "TLObject")) self$tab$to_dict() else self$tab
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "SetMainProfileTabRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "tab" = if (inherits(self$tab, "TLObject")) self$tab$to_dict() else self$tab
+      )
+    },
     bytes = function() {
       c(
         as.raw(c(0xb1, 0xfc, 0x83, 0x35)),
         self$channel$bytes(),
         self$tab$bytes()
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$channel <- reader$tgread_object()
+      self$tab <- reader$tgread_object()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name SetMainProfileTabRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SetMainProfileTabRequest.
-SetMainProfileTabRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  tab <- reader$tgread_object()
-  SetMainProfileTabRequest$new(channel = channel, tab = tab)
-}
-
-
-#  @title SetStickersRequest
-#  @description Represents a request to set stickers for a channel.
-#  @export
-#  @noRd
-#  @noRd
 SetStickersRequest <- R6::R6Class(
   "SetStickersRequest",
   inherit = TLRequest,
@@ -3905,73 +3680,72 @@ ToggleForumRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-ToggleJoinRequestRequest <- R6::R6Class(
-  "ToggleJoinRequestRequest",
+ToggleJoinRequestRequest <- R6::R6Class("ToggleJoinRequestRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x4c2985b6,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x0ecc2618,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
+    apply_to_invites = NULL,
     channel = NULL,
-    #  @field enabled Field.
     enabled = NULL,
-
-    #  @description Initialize the ToggleJoinRequestRequest.
-    #  @param channel The input channel.
-    #  @param enabled Whether join requests are enabled.
-    initialize = function(channel, enabled) {
+    guard_bot = NULL,
+    initialize = function(apply_to_invites = NULL, channel, enabled, guard_bot = NULL) {
+      self$apply_to_invites <- apply_to_invites
       self$channel <- channel
       self$enabled <- enabled
+      self$guard_bot <- guard_bot
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      if (!is.null(self$guard_bot)) self$guard_bot <- tryCatch(utils$get_input_user(client$get_input_entity(self$guard_bot)), error = function(e) self$guard_bot)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "ToggleJoinRequestRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        enabled = self$enabled
+        `_` = "ToggleJoinRequestRequest",
+        "apply_to_invites" = if (inherits(self$apply_to_invites, "TLObject")) self$apply_to_invites$to_dict() else self$apply_to_invites,
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "enabled" = if (inherits(self$enabled, "TLObject")) self$enabled$to_dict() else self$enabled,
+        "guard_bot" = if (inherits(self$guard_bot, "TLObject")) self$guard_bot$to_dict() else self$guard_bot
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
-    bytes = function() {
-      c(
-        as.raw(c(0xb6, 0x85, 0x29, 0x4c)),
-        self$channel$bytes(),
-        if (self$enabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
+    to_list = function() {
+      list(
+        `_` = "ToggleJoinRequestRequest",
+        "apply_to_invites" = if (inherits(self$apply_to_invites, "TLObject")) self$apply_to_invites$to_dict() else self$apply_to_invites,
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "enabled" = if (inherits(self$enabled, "TLObject")) self$enabled$to_dict() else self$enabled,
+        "guard_bot" = if (inherits(self$guard_bot, "TLObject")) self$guard_bot$to_dict() else self$guard_bot
       )
+    },
+    bytes = function() {
+      flags <- 0L
+      if (isTRUE(self$apply_to_invites)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$guard_bot)) flags <- bitwOr(flags, 1L)
+      c(
+        as.raw(c(0x18, 0x26, 0xcc, 0x0e)),
+        pack("<I", flags),
+        self$channel$bytes(),
+        if (isTRUE(self$enabled)) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)),
+        if (!is.null(self$guard_bot)) self$guard_bot$bytes() else raw(0)
+      )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$apply_to_invites <- bitwAnd(flags, 2L) != 0
+      self$channel <- reader$tgread_object()
+      self$enabled <- reader$tgread_bool()
+      self$guard_bot <- if (bitwAnd(flags, 1L) != 0) reader$tgread_object() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name ToggleJoinRequestRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleJoinRequestRequest.
-ToggleJoinRequestRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  enabled <- reader$tgread_bool()
-  ToggleJoinRequestRequest$new(channel = channel, enabled = enabled)
-}
-
-#  @title ToggleJoinToSendRequest
-#  @description Represents a request to toggle join to send in a channel.
-#  @export
-#  @noRd
-#  @noRd
 ToggleJoinToSendRequest <- R6::R6Class(
   "ToggleJoinToSendRequest",
   inherit = TLRequest,
@@ -4460,158 +4234,121 @@ ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-UpdateColorRequest <- R6::R6Class(
-  "UpdateColorRequest",
+UpdateColorRequest <- R6::R6Class("UpdateColorRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd8aa3671,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field for_profile Field.
     for_profile = NULL,
-    #  @field color Field.
+    channel = NULL,
     color = NULL,
-    #  @field background_emoji_id Field.
     background_emoji_id = NULL,
-
-    #  @description Initialize the UpdateColorRequest.
-    #  @param channel The input channel.
-    #  @param for_profile Whether the color is for the profile.
-    #  @param color The color value.
-    #  @param background_emoji_id The background emoji ID.
-    initialize = function(channel, for_profile = NULL, color = NULL, background_emoji_id = NULL) {
-      self$channel <- channel
+    initialize = function(for_profile = NULL, channel, color = NULL, background_emoji_id = NULL) {
       self$for_profile <- for_profile
+      self$channel <- channel
       self$color <- color
       self$background_emoji_id <- background_emoji_id
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "UpdateColorRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        for_profile = self$for_profile,
-        color = self$color,
-        background_emoji_id = self$background_emoji_id
+        `_` = "UpdateColorRequest",
+        "for_profile" = if (inherits(self$for_profile, "TLObject")) self$for_profile$to_dict() else self$for_profile,
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "color" = if (inherits(self$color, "TLObject")) self$color$to_dict() else self$color,
+        "background_emoji_id" = if (inherits(self$background_emoji_id, "TLObject")) self$background_emoji_id$to_dict() else self$background_emoji_id
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "UpdateColorRequest",
+        "for_profile" = if (inherits(self$for_profile, "TLObject")) self$for_profile$to_dict() else self$for_profile,
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "color" = if (inherits(self$color, "TLObject")) self$color$to_dict() else self$color,
+        "background_emoji_id" = if (inherits(self$background_emoji_id, "TLObject")) self$background_emoji_id$to_dict() else self$background_emoji_id
+      )
+    },
     bytes = function() {
-      flags <- (if (is.null(self$for_profile) || !self$for_profile) 0 else 2) |
-        (if (is.null(self$color) || !self$color) 0 else 4) |
-        (if (is.null(self$background_emoji_id) || !self$background_emoji_id) 0 else 1)
+      flags <- 0L
+      if (isTRUE(self$for_profile)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$color)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$background_emoji_id)) flags <- bitwOr(flags, 1L)
       c(
         as.raw(c(0x71, 0x36, 0xaa, 0xd8)),
         pack("<I", flags),
         self$channel$bytes(),
-        if (!is.null(self$color) && self$color) pack("<i", self$color) else raw(0),
-        if (!is.null(self$background_emoji_id) && self$background_emoji_id) pack("<q", self$background_emoji_id) else raw(0)
+        if (!is.null(self$color)) pack("<i", self$color) else raw(0),
+        if (!is.null(self$background_emoji_id)) packInt64(self$background_emoji_id) else raw(0)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$for_profile <- bitwAnd(flags, 2L) != 0
+      self$channel <- reader$tgread_object()
+      self$color <- if (bitwAnd(flags, 4L) != 0) reader$read_int() else NULL
+      self$background_emoji_id <- if (bitwAnd(flags, 1L) != 0) reader$read_long() else NULL
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name UpdateColorRequest_from_reader
-# @param reader The reader object.
-# @return An instance of UpdateColorRequest.
-UpdateColorRequest$from_reader <- function(reader) {
-  flags <- reader$read_int()
-  for_profile <- (flags & 2) != 0
-  channel <- reader$tgread_object()
-  color <- if ((flags && 4) != 0) reader$read_int() else NULL
-  background_emoji_id <- if ((flags && 1) != 0) reader$read_long() else NULL
-  UpdateColorRequest$new(channel = channel, for_profile = for_profile, color = color, background_emoji_id = background_emoji_id)
-}
-
-#  @title UpdateEmojiStatusRequest
-#  @description Represents a request to update the emoji status of a channel.
-#  @export
-#  @noRd
-#  @noRd
-UpdateEmojiStatusRequest <- R6::R6Class(
-  "UpdateEmojiStatusRequest",
+UpdateEmojiStatusRequest <- R6::R6Class("UpdateEmojiStatusRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf0d3e6a8,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
     channel = NULL,
-    #  @field emoji_status Field.
     emoji_status = NULL,
-
-    #  @description Initialize the UpdateEmojiStatusRequest.
-    #  @param channel The input channel.
-    #  @param emoji_status The emoji status.
     initialize = function(channel, emoji_status) {
       self$channel <- channel
       self$emoji_status <- emoji_status
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "UpdateEmojiStatusRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        emoji_status = if (inherits(self$emoji_status, "TLObject")) self$emoji_status$to_dict() else self$emoji_status
+        `_` = "UpdateEmojiStatusRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "emoji_status" = if (inherits(self$emoji_status, "TLObject")) self$emoji_status$to_dict() else self$emoji_status
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "UpdateEmojiStatusRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "emoji_status" = if (inherits(self$emoji_status, "TLObject")) self$emoji_status$to_dict() else self$emoji_status
+      )
+    },
     bytes = function() {
       c(
         as.raw(c(0xa8, 0xe6, 0xd3, 0xf0)),
         self$channel$bytes(),
         self$emoji_status$bytes()
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$channel <- reader$tgread_object()
+      self$emoji_status <- reader$tgread_object()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name UpdateEmojiStatusRequest_from_reader
-# @param reader The reader object.
-# @return An instance of UpdateEmojiStatusRequest.
-UpdateEmojiStatusRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  emoji_status <- reader$tgread_object()
-  UpdateEmojiStatusRequest$new(channel = channel, emoji_status = emoji_status)
-}
-
-#  @title UpdatePaidMessagesPriceRequest
-#  @description Represents a request to update the paid messages price for a channel.
-#  @export
-#  @noRd
-#  @noRd
 UpdatePaidMessagesPriceRequest <- R6::R6Class(
   "UpdatePaidMessagesPriceRequest",
   inherit = TLRequest,
@@ -4689,138 +4426,107 @@ UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-UpdatePinnedForumTopicRequest <- R6::R6Class(
-  "UpdatePinnedForumTopicRequest",
+UpdatePinnedForumTopicRequest <- R6::R6Class("UpdatePinnedForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x6c2d9026,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x175df251,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field channel Field.
-    channel = NULL,
-    #  @field topic_id Field.
+    peer = NULL,
     topic_id = NULL,
-    #  @field pinned Field.
     pinned = NULL,
-
-    #  @description Initialize the UpdatePinnedForumTopicRequest.
-    #  @param channel The input channel.
-    #  @param topic_id The ID of the topic.
-    #  @param pinned Whether the topic is pinned.
-    initialize = function(channel, topic_id, pinned) {
-      self$channel <- channel
+    initialize = function(peer, topic_id, pinned) {
+      self$peer <- peer
       self$topic_id <- topic_id
       self$pinned <- pinned
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "UpdatePinnedForumTopicRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        topic_id = self$topic_id,
-        pinned = self$pinned
+        `_` = "UpdatePinnedForumTopicRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topic_id" = if (inherits(self$topic_id, "TLObject")) self$topic_id$to_dict() else self$topic_id,
+        "pinned" = if (inherits(self$pinned, "TLObject")) self$pinned$to_dict() else self$pinned
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "UpdatePinnedForumTopicRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "topic_id" = if (inherits(self$topic_id, "TLObject")) self$topic_id$to_dict() else self$topic_id,
+        "pinned" = if (inherits(self$pinned, "TLObject")) self$pinned$to_dict() else self$pinned
+      )
+    },
     bytes = function() {
       c(
-        as.raw(c(0x26, 0x90, 0x2d, 0x6c)),
-        self$channel$bytes(),
+        as.raw(c(0x51, 0xf2, 0x5d, 0x17)),
+        self$peer$bytes(),
         pack("<i", self$topic_id),
-        if (self$pinned) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
+        if (isTRUE(self$pinned)) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$peer <- reader$tgread_object()
+      self$topic_id <- reader$read_int()
+      self$pinned <- reader$tgread_bool()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name UpdatePinnedForumTopicRequest_from_reader
-# @param reader The reader object.
-# @return An instance of UpdatePinnedForumTopicRequest.
-UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  topic_id <- reader$read_int()
-  pinned <- reader$tgread_bool()
-  UpdatePinnedForumTopicRequest$new(channel = channel, topic_id = topic_id, pinned = pinned)
-}
-
-#  @title UpdateUsernameRequest
-#  @description Represents a request to update the username of a channel.
-#  @export
-#  @noRd
-#  @noRd
-UpdateUsernameRequest <- R6::R6Class(
-  "UpdateUsernameRequest",
+UpdateUsernameRequest <- R6::R6Class("UpdateUsernameRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3514b3de,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #  @field channel Field.
     channel = NULL,
-    #  @field username Field.
     username = NULL,
-
-    #  @description Initialize the UpdateUsernameRequest.
-    #  @param channel The input channel.
-    #  @param username The new username.
     initialize = function(channel, username) {
       self$channel <- channel
       self$username <- username
     },
-
-    #  @description Resolve the channel entity.
-    #  @param client The client object.
-    #  @param utils The utilities object.
     resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      if (!is.null(self$channel)) self$channel <- tryCatch(utils$get_input_channel(client$get_input_entity(self$channel)), error = function(e) self$channel)
+      invisible(self)
     },
-
-    #  @description Convert the object to a dictionary.
-    #  @return A list representing the object.
     to_dict = function() {
       list(
-        "_" = "UpdateUsernameRequest",
-        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
-        username = self$username
+        `_` = "UpdateUsernameRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username
       )
     },
-
-    #  @description Serialize the object to bytes.
-    #  @return A raw vector of bytes.
+    to_list = function() {
+      list(
+        `_` = "UpdateUsernameRequest",
+        "channel" = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username
+      )
+    },
     bytes = function() {
       c(
         as.raw(c(0xde, 0xb3, 0x14, 0x35)),
         self$channel$bytes(),
-        self$serialize_bytes(self$username)
+        serialize_bytes(self$username)
       )
+    },
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$channel <- reader$tgread_object()
+      self$username <- reader$tgread_string()
+      self
     }
   ),
-  #  @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Deserialize from a reader.
-# @name UpdateUsernameRequest_from_reader
-# @param reader The reader object.
-# @return An instance of UpdateUsernameRequest.
-UpdateUsernameRequest$from_reader <- function(reader) {
-  channel <- reader$tgread_object()
-  username <- reader$tgread_string()
-  UpdateUsernameRequest$new(channel = channel, username = username)
-}

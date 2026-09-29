@@ -51,6 +51,7 @@ def emit_class(d, existing):
         dict_method=existing["dict_method"],
         has_resolve=existing["has_resolve"],
         lock_objects=existing["lock_objects"],
+        ser_name=existing.get("ser_name", "bytes"),
     )
 
 
@@ -77,6 +78,7 @@ def existing_meta(body):
         dict_method=dict_method,
         has_resolve=bool(re.search(r"\bresolve = function", body)),
         lock_objects="lock_objects = FALSE" in body,
+        ser_name="to_bytes" if re.search(r"\bto_bytes = function", body) else "bytes",
     )
 
 
@@ -84,19 +86,47 @@ def main():
     api, audit = sys.argv[1], sys.argv[2]
     dry = "--dry" in sys.argv
     schema = gen.parse_tl(api)
-    type_idx, func_idx = {}, {}
+    type_idx = {}
+    func_cands = {}   # name -> [defs]  (namespace collisions produce several)
     def _put(idx, k, x):
         if k not in idx or "." not in x["full"]:
             idx[k] = x
     for x in schema:
         if x["func"]:
-            _put(func_idx, gen.pascal(x["full"]) + "Request", x)
-            if gen.pascal(x["full"]) not in func_idx:
-                func_idx[gen.pascal(x["full"])] = x
+            func_cands.setdefault(gen.pascal(x["full"]) + "Request", []).append(x)
+            func_cands.setdefault(gen.pascal(x["full"]), []).append(x)
         else:
             _put(type_idx, gen.pascal(x["full"]), x)
-    stale = [l.split("\t")[0] for l in open(audit) if not l.startswith("#") and l.strip()]
-    stale = list(dict.fromkeys(stale))  # de-dup, keep order
+    def pick_func(name, existing_args):
+        cands = func_cands.get(name)
+        if not cands:
+            return None
+        if len(cands) == 1:
+            return cands[0]
+        # disambiguate namespace collisions by overlap with the existing args
+        ea = {norm(a) for a in existing_args}
+        best, score = cands[0], -1
+        for c in cands:
+            fa = {norm(a["name"]) for a in c["args"] if a["type"] != "#"}
+            ov = len(ea & fa)
+            if ov > score:
+                best, score = c, ov
+        return best
+    if "--all-types" in sys.argv:
+        # regenerate EVERY existing TYPE class that has a schema match
+        stale = []
+        for f in glob.glob("R/*.R"):
+            for m in re.finditer(r'^([A-Za-z0-9]+) <- R6::R6Class\(\s*"\1",(.*?)(?=^[A-Za-z0-9]+ <- R6::R6Class\(|\Z)', open(f).read(), re.S | re.M):
+                nm, bd = m.group(1), m.group(2)
+                # regenerate any class whose name is a schema TYPE, regardless
+                # of how it was originally written (some lack an inherit line or
+                # use placeholder serializers).
+                if nm in type_idx and "inherit = TLRequest" not in bd:
+                    stale.append(nm)
+        stale = list(dict.fromkeys(stale))
+    else:
+        stale = [l.split("\t")[0] for l in open(audit) if not l.startswith("#") and l.strip()]
+        stale = list(dict.fromkeys(stale))
 
     # group targets by file
     files = {}
@@ -119,9 +149,10 @@ def main():
         span = find_class_span(s, name)
         body = s[span[0]:span[1]]
         meta = existing_meta(body)
-        d = func_idx.get(name) if meta["inherit"] == "TLRequest" else type_idx.get(name)
-        if d is None:
-            d = type_idx.get(name) or func_idx.get(name)
+        if meta["inherit"] == "TLRequest":
+            d = pick_func(name, meta["args"])
+        else:
+            d = type_idx.get(name) or pick_func(name, meta["args"])
         if d is None:
             print(f"  SKIP (no schema): {name}")
             continue

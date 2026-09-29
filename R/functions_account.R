@@ -2780,68 +2780,57 @@ GetTmpPasswordRequest <- R6::R6Class(
 #  @export
 #  @noRd
 #  @noRd
-GetUniqueGiftChatThemesRequest <- R6::R6Class(
-  "GetUniqueGiftChatThemesRequest",
+GetUniqueGiftChatThemesRequest <- R6::R6Class("GetUniqueGiftChatThemesRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID The constructor ID for the request.
-    CONSTRUCTOR_ID = 0xfe74ef9f,
-    #  @field SUBCLASS_OF_ID The subclass ID.
+    CONSTRUCTOR_ID = 0xe42ce9c9,
     SUBCLASS_OF_ID = 0x15c14aa8,
-
-    #  @description Initialize the GetUniqueGiftChatThemesRequest.
-    #  @param offset The offset for pagination.
-    #  @param limit The limit for the number of themes.
-    #  @param hash The hash for caching.
+    offset = NULL,
+    limit = NULL,
+    hash = NULL,
     initialize = function(offset, limit, hash) {
       self$offset <- offset
       self$limit <- limit
       self$hash <- hash
     },
-
-    #  @description Convert to dictionary.
-    #  @return A list representing the object.
     toDict = function() {
       list(
-        "_" = "GetUniqueGiftChatThemesRequest",
-        offset = self$offset,
-        limit = self$limit,
-        hash = self$hash
+        `_` = "GetUniqueGiftChatThemesRequest",
+        "offset" = if (inherits(self$offset, "TLObject")) self$offset$toDict() else self$offset,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$toDict() else self$limit,
+        "hash" = if (inherits(self$hash, "TLObject")) self$hash$toDict() else self$hash
       )
     },
-
-    #  @description Serialize to bytes.
-    #  @return Raw bytes.
+    to_list = function() {
+      list(
+        `_` = "GetUniqueGiftChatThemesRequest",
+        "offset" = if (inherits(self$offset, "TLObject")) self$offset$toDict() else self$offset,
+        "limit" = if (inherits(self$limit, "TLObject")) self$limit$toDict() else self$limit,
+        "hash" = if (inherits(self$hash, "TLObject")) self$hash$toDict() else self$hash
+      )
+    },
     bytes = function() {
       c(
-        as.raw(c(0x9f, 0xef, 0x74, 0xfe)),
-        writeBin(as.integer(self$offset), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$limit), raw(), size = 4, endian = "little"),
+        as.raw(c(0xc9, 0xe9, 0x2c, 0xe4)),
+        serialize_bytes(self$offset),
+        pack("<i", self$limit),
         packInt64(self$hash)
       )
     },
-
-    #  @description Create from reader.
-    #  @param reader The reader object.
-    #  @return An instance of GetUniqueGiftChatThemesRequest.
-    fromReader = function(reader) {
-      offset <- readBin(reader$readRaw(4), "integer", size = 4, endian = "little")
-      limit <- readBin(reader$readRaw(4), "integer", size = 4, endian = "little")
-      hash <- readBin(reader$readRaw(8), "integer", size = 8, endian = "little")
-      GetUniqueGiftChatThemesRequest$new(offset = offset, limit = limit, hash = hash)
+    serialize = function() self$bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$offset <- reader$tgread_string()
+      self$limit <- reader$read_int()
+      self$hash <- reader$read_long()
+      self
     }
   ),
-  private = list(),
-  active = list(),
+  class = TRUE,
   lock_objects = FALSE
 )
 
-#  @title GetWallPaperRequest
-#  @description R6 class representing a GetWallPaperRequest.
-#  @details This class handles requesting a wallpaper.
-#  @export
-#  @noRd
-#  @noRd
 GetWallPaperRequest <- R6::R6Class(
   "GetWallPaperRequest",
   inherit = TLRequest,

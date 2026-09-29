@@ -5008,8 +5008,8 @@ TelegramClient <- R6::R6Class(
         if (is.null(private$authorized)) {
           tryCatch(
             {
-              # Any request that requires authorization will work
-              future::value(self$call(GetStateRequest$new()))
+              res <- self$call(GetStateRequest$new())
+              if (inherits(res, c("Future", "promise"))) future::value(res)
               private$authorized <- TRUE
             },
             error = function(e) {

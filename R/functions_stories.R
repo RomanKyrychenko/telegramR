@@ -543,276 +543,100 @@ DeleteStoriesRequest <- R6::R6Class(
 #  @export
 #  @noRd
 #  @noRd
-EditStoryRequest <- R6::R6Class(
-  "EditStoryRequest",
+EditStoryRequest <- R6::R6Class("EditStoryRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xb583ba46,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x2c63a72b,
     SUBCLASS_OF_ID = 0x8af52aac,
-
-    #  @field peer Field.
     peer = NULL,
-    #  @field id Field.
     id = NULL,
-    #  @field media Field.
     media = NULL,
-    #  @field media_areas Field.
     media_areas = NULL,
-    #  @field caption Field.
     caption = NULL,
-    #  @field entities Field.
     entities = NULL,
-    #  @field privacy_rules Field.
     privacy_rules = NULL,
-
-    #  @description Initialize EditStoryRequest
-    # 
-    #  @param peer TypeInputPeer
-    #  @param id integer
-    #  @param media TypeInputMedia or NULL
-    #  @param media_areas list or NULL
-    #  @param caption character or NULL (must be provided together with entities)
-    #  @param entities list or NULL (must be provided together with caption)
-    #  @param privacy_rules list or NULL
-    initialize = function(peer, id, media = NULL, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules = NULL) {
+    music = NULL,
+    initialize = function(peer, id, media = NULL, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules = NULL, music = NULL) {
       self$peer <- peer
-      self$id <- as.integer(id)
-      self$media <- if (!is.null(media)) media else NULL
-      self$media_areas <- if (!is.null(media_areas)) media_areas else NULL
-      self$caption <- if (!is.null(caption)) as.character(caption) else NULL
-      self$entities <- if (!is.null(entities)) entities else NULL
-      self$privacy_rules <- if (!is.null(privacy_rules)) privacy_rules else NULL
-
-      # enforce caption and entities to be both present or both NULL (they share the same flag)
-      if (!((is.null(self$caption) && is.null(self$entities)) || (!is.null(self$caption) && !is.null(self$entities)))) {
-        stop("caption and entities parameters must be either both NULL or both provided")
-      }
-
-      invisible(self)
+      self$id <- id
+      self$media <- media
+      self$media_areas <- media_areas
+      self$caption <- caption
+      self$entities <- entities
+      self$privacy_rules <- privacy_rules
+      self$music <- music
     },
-
-    #  @description Resolve peer/media references
-    # 
-    #  Convert high-level references to input forms using client/utils.
-    #  @param client client with get_input_entity
-    #  @param utils utils with get_input_peer and get_input_media
     resolve = function(client, utils) {
-      input_entity <- client$get_input_entity(self$peer)
-      self$peer <- get_input_peer(input_entity)
-      if (!is.null(self$media)) {
-        self$media <- get_input_media(self$media)
-      }
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
       invisible(self)
     },
-
-    #  @description Convert to list
-    #  @return list
+    to_dict = function() {
+      list(
+        `_` = "EditStoryRequest",
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id,
+        "media" = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media,
+        "media_areas" = if (inherits(self$media_areas, "TLObject")) self$media_areas$to_dict() else self$media_areas,
+        "caption" = if (inherits(self$caption, "TLObject")) self$caption$to_dict() else self$caption,
+        "entities" = if (inherits(self$entities, "TLObject")) self$entities$to_dict() else self$entities,
+        "privacy_rules" = if (inherits(self$privacy_rules, "TLObject")) self$privacy_rules$to_dict() else self$privacy_rules,
+        "music" = if (inherits(self$music, "TLObject")) self$music$to_dict() else self$music
+      )
+    },
     to_list = function() {
       list(
         `_` = "EditStoryRequest",
-        peer = if (inherits(self$peer, "TLObject") && is.function(self$peer$to_list)) self$peer$to_list() else self$peer,
-        id = self$id,
-        media = if (inherits(self$media, "TLObject") && is.function(self$media$to_list)) self$media$to_list() else self$media,
-        media_areas = if (is.null(self$media_areas)) list() else lapply(self$media_areas, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x),
-        caption = self$caption,
-        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x),
-        privacy_rules = if (is.null(self$privacy_rules)) list() else lapply(self$privacy_rules, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x)
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id,
+        "media" = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media,
+        "media_areas" = if (inherits(self$media_areas, "TLObject")) self$media_areas$to_dict() else self$media_areas,
+        "caption" = if (inherits(self$caption, "TLObject")) self$caption$to_dict() else self$caption,
+        "entities" = if (inherits(self$entities, "TLObject")) self$entities$to_dict() else self$entities,
+        "privacy_rules" = if (inherits(self$privacy_rules, "TLObject")) self$privacy_rules$to_dict() else self$privacy_rules,
+        "music" = if (inherits(self$music, "TLObject")) self$music$to_dict() else self$music
       )
     },
-
-    #  @description Serialize to raw TL bytes
-    # 
-    #  @return raw
     to_bytes = function() {
-      # constructor bytes little-endian for 0xb583ba46 -> 0x46 0xba 0x83 0xb5
-      parts <- list()
-      parts[[1]] <- as.raw(c(0x46, 0xba, 0x83, 0xb5))
-
-      # flags: media=1, caption+entities=2 (must be both), privacy_rules=4, media_areas=8
-      flagsVal <- 0L
-      if (!is.null(self$media)) flagsVal <- bitwOr(flagsVal, 1L)
-      if (!is.null(self$caption) && !is.null(self$entities)) flagsVal <- bitwOr(flagsVal, 2L)
-      if (!is.null(self$privacy_rules)) flagsVal <- bitwOr(flagsVal, 4L)
-      if (!is.null(self$media_areas)) flagsVal <- bitwOr(flagsVal, 8L)
-
-      parts[[length(parts) + 1]] <- writeBin(as.integer(flagsVal), raw(), size = 4, endian = "little")
-
-      # peer bytes
-      if (is.function(self$peer$to_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$to_bytes()
-      } else if (is.function(self$peer$bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else {
-        stop("peer object must provide a to_bytes/bytes/_bytes method")
-      }
-
-      # id int32 little-endian
-      parts[[length(parts) + 1]] <- writeBin(as.integer(self$id), raw(), size = 4, endian = "little")
-
-      # optional media
-      if (!is.null(self$media)) {
-        if (is.function(self$media$to_bytes)) {
-          parts[[length(parts) + 1]] <- self$media$to_bytes()
-        } else if (is.function(self$media$bytes)) {
-          parts[[length(parts) + 1]] <- self$media$bytes()
-        } else if (is.function(self$media$.bytes)) {
-          parts[[length(parts) + 1]] <- self$media$.bytes()
-        } else {
-          stop("media object must provide a to_bytes/bytes/_bytes method")
-        }
-      }
-
-      # optional media_areas vector
-      if (!is.null(self$media_areas)) {
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$media_areas)), raw(), size = 4, endian = "little")
-        for (ma in self$media_areas) {
-          if (is.function(ma$to_bytes)) {
-            parts[[length(parts) + 1]] <- ma$to_bytes()
-          } else if (is.function(ma$bytes)) {
-            parts[[length(parts) + 1]] <- ma$bytes()
-          } else if (is.function(ma$.bytes)) {
-            parts[[length(parts) + 1]] <- ma$.bytes()
-          } else {
-            stop("media_area element must provide to_bytes/bytes/_bytes")
-          }
-        }
-      }
-
-      # caption and entities share a flag -> both must be present or both NULL
-      if (!is.null(self$caption) && !is.null(self$entities)) {
-        if (is.function(self$serialize_bytes)) {
-          parts[[length(parts) + 1]] <- self$serialize_bytes(self$caption)
-        } else {
-          sraw <- charToRaw(enc2utf8(self$caption))
-          parts[[length(parts) + 1]] <- writeBin(as.integer(length(sraw)), raw(), size = 1, endian = "little")
-          parts[[length(parts) + 1]] <- sraw
-        }
-
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$entities)), raw(), size = 4, endian = "little")
-        for (ent in self$entities) {
-          if (is.function(ent$to_bytes)) {
-            parts[[length(parts) + 1]] <- ent$to_bytes()
-          } else if (is.function(ent$bytes)) {
-            parts[[length(parts) + 1]] <- ent$bytes()
-          } else if (is.function(ent$.bytes)) {
-            parts[[length(parts) + 1]] <- ent$.bytes()
-          } else {
-            stop("entity element must provide to_bytes/bytes/_bytes")
-          }
-        }
-      }
-
-      # optional privacy_rules vector
-      if (!is.null(self$privacy_rules)) {
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$privacy_rules)), raw(), size = 4, endian = "little")
-        for (pr in self$privacy_rules) {
-          if (is.function(pr$to_bytes)) {
-            parts[[length(parts) + 1]] <- pr$to_bytes()
-          } else if (is.function(pr$bytes)) {
-            parts[[length(parts) + 1]] <- pr$bytes()
-          } else if (is.function(pr$.bytes)) {
-            parts[[length(parts) + 1]] <- pr$.bytes()
-          } else {
-            stop("privacy_rule element must provide to_bytes/bytes/_bytes")
-          }
-        }
-      }
-
-      do.call(c, parts)
+      flags <- 0L
+      if (!is.null(self$media)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$media_areas)) flags <- bitwOr(flags, 8L)
+      if (!is.null(self$caption)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$entities)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$privacy_rules)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$music)) flags <- bitwOr(flags, 16L)
+      c(
+        as.raw(c(0x2b, 0xa7, 0x63, 0x2c)),
+        pack("<I", flags),
+        self$peer$bytes(),
+        pack("<i", self$id),
+        if (!is.null(self$media)) self$media$bytes() else raw(0),
+        if (!is.null(self$media_areas)) .telegramR_tl_vector(self$media_areas) else raw(0),
+        if (!is.null(self$caption)) serialize_bytes(self$caption) else raw(0),
+        if (!is.null(self$entities)) .telegramR_tl_vector(self$entities) else raw(0),
+        if (!is.null(self$privacy_rules)) .telegramR_tl_vector(self$privacy_rules) else raw(0),
+        if (!is.null(self$music)) self$music$bytes() else raw(0)
+      )
+    },
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$peer <- reader$tgread_object()
+      self$id <- reader$read_int()
+      self$media <- if (bitwAnd(flags, 1L) != 0) reader$tgread_object() else NULL
+      self$media_areas <- if (bitwAnd(flags, 8L) != 0) reader$tgread_vector() else NULL
+      self$caption <- if (bitwAnd(flags, 2L) != 0) reader$tgread_string() else NULL
+      self$entities <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
+      self$privacy_rules <- if (bitwAnd(flags, 4L) != 0) reader$tgread_vector() else NULL
+      self$music <- if (bitwAnd(flags, 16L) != 0) reader$tgread_object() else NULL
+      self
     }
   ),
-  class = list(
-    #  @description Read an EditStoryRequest instance from a reader
-    # 
-    #  reader expected to implement: read_int(), tgread_object(), tgread_string()
-    #  @param reader reader object
-    #  @return EditStoryRequest
-    from_reader = function(reader) {
-      flagsVal <- reader$read_int()
-
-      peerObj <- reader$tgread_object()
-      idVal <- reader$read_int()
-
-      mediaObj <- NULL
-      if (bitwAnd(flagsVal, 1L) != 0L) {
-        mediaObj <- reader$tgread_object()
-      }
-
-      mediaAreasList <- NULL
-      if (bitwAnd(flagsVal, 8L) != 0L) {
-        # vector constructor id (ignored)
-        nma <- reader$read_int()
-        if (nma > 0) {
-          mediaAreasList <- vector("list", nma)
-          for (i in seq_len(nma)) mediaAreasList[[i]] <- reader$tgread_object()
-        } else {
-          mediaAreasList <- list()
-        }
-      }
-
-      captionVal <- NULL
-      entitiesList <- NULL
-      if (bitwAnd(flagsVal, 2L) != 0L) {
-        captionVal <- reader$tgread_string()
-
-        # read entities vector
-        # vector constructor id (ignored)
-        ne <- reader$read_int()
-        if (ne > 0) {
-          entitiesList <- vector("list", ne)
-          for (i in seq_len(ne)) entitiesList[[i]] <- reader$tgread_object()
-        } else {
-          entitiesList <- list()
-        }
-      }
-
-      privacyRulesList <- NULL
-      if (bitwAnd(flagsVal, 4L) != 0L) {
-        # vector constructor id (ignored)
-        npr <- reader$read_int()
-        if (npr > 0) {
-          privacyRulesList <- vector("list", npr)
-          for (i in seq_len(npr)) privacyRulesList[[i]] <- reader$tgread_object()
-        } else {
-          privacyRulesList <- list()
-        }
-      }
-
-      EditStoryRequest$new(
-        peer = peerObj,
-        id = idVal,
-        media = mediaObj,
-        media_areas = mediaAreasList,
-        caption = captionVal,
-        entities = entitiesList,
-        privacy_rules = privacyRulesList
-      )
-    }
-  )
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-
-#  ExportStoryLinkRequest R6 class
-# 
-#  Request to export a story link for a given peer and story id.
-#  Returns stories.ExportedStoryLink.
-#  @param peer TypeInputPeer
-#  @param id integer story id
-#  @title ExportStoryLinkRequest
-#  @description Telegram API type ExportStoryLinkRequest
-#  @export
-#  @noRd
-#  @noRd
 ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
   inherit = TLRequest,
@@ -1310,127 +1134,48 @@ GetChatsToSendRequest <- R6::R6Class(
 #  @export
 #  @noRd
 #  @noRd
-GetPeerMaxIDsRequest <- R6::R6Class(
-  "GetPeerMaxIDsRequest",
+GetPeerMaxIDsRequest <- R6::R6Class("GetPeerMaxIDsRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x535983c3,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
-    SUBCLASS_OF_ID = 0x5026710f,
-
-    #  @field id Field.
+    CONSTRUCTOR_ID = 0x78499170,
+    SUBCLASS_OF_ID = 0x1cb5c415,
     id = NULL,
-
-    #  @description Initialize GetPeerMaxIDsRequest
-    # 
-    #  @param id list of TypeInputPeer
     initialize = function(id) {
-      self$id <- if (!is.null(id)) id else list()
-      invisible(self)
+      self$id <- id
     },
-
-    #  @description Resolve peer references
-    # 
-    #  Convert high-level peer references to input peers using client/utils.
-    #  @param client client with get_input_entity
-    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
-      resolved_list <- list()
-      if (length(self$id) > 0) {
-        for (i in seq_along(self$id)) {
-          input_entity <- client$get_input_entity(self$id[[i]])
-          resolved_list[[i]] <- get_input_peer(input_entity)
-        }
-      }
-      self$id <- resolved_list
       invisible(self)
     },
-
-    #  @description Convert to list
-    # 
-    #  @return list
+    to_dict = function() {
+      list(
+        `_` = "GetPeerMaxIDsRequest",
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id
+      )
+    },
     to_list = function() {
       list(
         `_` = "GetPeerMaxIDsRequest",
-        id = if (is.null(self$id)) list() else lapply(self$id, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x)
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id
       )
     },
-
-    #  @description Serialize to raw TL bytes
-    # 
-    #  @return raw
     to_bytes = function() {
-      parts <- list()
-      # constructor bytes little-endian for 0x535983c3 -> 0xc3 0x83 0x59 0x53
-      parts[[1]] <- as.raw(c(0xc3, 0x83, 0x59, 0x53))
-
-      # vector tag + length + objects
-      vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-      parts[[length(parts) + 1]] <- vec_tag
-      parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$id)), raw(), size = 4, endian = "little")
-
-      if (length(self$id) > 0) {
-        for (elem in self$id) {
-          if (is.function(elem$to_bytes)) {
-            parts[[length(parts) + 1]] <- elem$to_bytes()
-          } else if (is.function(elem$bytes)) {
-            parts[[length(parts) + 1]] <- elem$bytes()
-          } else if (is.function(elem$.bytes)) {
-            parts[[length(parts) + 1]] <- elem$.bytes()
-          } else {
-            stop("id elements must provide to_bytes/bytes/_bytes method")
-          }
-        }
-      }
-
-      do.call(c, parts)
+      c(
+        as.raw(c(0x70, 0x91, 0x49, 0x78)),
+        .telegramR_tl_vector(self$id)
+      )
+    },
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$id <- reader$tgread_vector()
+      self
     }
   ),
-  class = list(
-    #  @description Read a GetPeerMaxIDsRequest instance from a reader
-    # 
-    #  reader expected to implement: tgread_object(), read_int()
-    #  @param reader reader object
-    #  @return GetPeerMaxIDsRequest
-    from_reader = function(reader) {
-      # read and ignore vector constructor id
-      .vec_tag <- reader$read_int()
-      n <- reader$read_int()
-      if (n <= 0) {
-        id_list <- list()
-      } else {
-        id_list <- vector("list", n)
-        for (i in seq_len(n)) id_list[[i]] <- reader$tgread_object()
-      }
-      GetPeerMaxIDsRequest$new(id = id_list)
-    },
-
-    #  @description Read result (Vector<int>) from reader
-    # 
-    #  @param reader reader with read_int method
-    #  @return integer vector
-    read_result = function(reader) {
-      # read vector constructor id (ignored)
-
-      n <- reader$read_int()
-      if (n <= 0) {
-        return(integer(0))
-      }
-      out <- integer(n)
-      for (i in seq_len(n)) out[i] <- reader$read_int()
-      out
-    }
-  )
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-
-#  GetPeerStoriesRequest R6 class
-# 
-#  Request to get stories for a given peer. Returns stories.PeerStories.
-#  @export
-#  @noRd
-#  @noRd
 GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
@@ -3011,377 +2756,145 @@ SendReactionRequest <- R6::R6Class(
 #  @export
 #  @noRd
 #  @noRd
-SendStoryRequest <- R6::R6Class(
-  "SendStoryRequest",
+SendStoryRequest <- R6::R6Class("SendStoryRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x737fc2ec,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x8f9e6898,
     SUBCLASS_OF_ID = 0x8af52aac,
-
-    #  @field peer Field.
-    peer = NULL,
-    #  @field media Field.
-    media = NULL,
-    #  @field privacy_rules Field.
-    privacy_rules = NULL,
-    #  @field pinned Field.
     pinned = NULL,
-    #  @field noforwards Field.
     noforwards = NULL,
-    #  @field fwd_modified Field.
     fwd_modified = NULL,
-    #  @field media_areas Field.
+    peer = NULL,
+    media = NULL,
     media_areas = NULL,
-    #  @field caption Field.
     caption = NULL,
-    #  @field entities Field.
     entities = NULL,
-    #  @field random_id Field.
+    privacy_rules = NULL,
     random_id = NULL,
-    #  @field period Field.
     period = NULL,
-    #  @field fwd_from_id Field.
     fwd_from_id = NULL,
-    #  @field fwd_from_story Field.
     fwd_from_story = NULL,
-    #  @field albums Field.
     albums = NULL,
-
-    #  @description Initialize SendStoryRequest
-    # 
-    #  @param peer TypeInputPeer
-    #  @param media TypeInputMedia
-    #  @param privacy_rules list
-    #  @param pinned logical or NULL
-    #  @param noforwards logical or NULL
-    #  @param fwd_modified logical or NULL
-    #  @param media_areas list or NULL
-    #  @param caption character or NULL
-    #  @param entities list or NULL
-    #  @param random_id numeric/integer or NULL (auto-generated when NULL)
-    #  @param period integer or NULL
-    #  @param fwd_from_id TypeInputPeer or NULL
-    #  @param fwd_from_story integer or NULL
-    #  @param albums integer vector or NULL
-    initialize = function(peer, media, privacy_rules, pinned = NULL, noforwards = NULL,
-                          fwd_modified = NULL, media_areas = NULL, caption = NULL,
-                          entities = NULL, random_id = NULL, period = NULL,
-                          fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL) {
+    music = NULL,
+    initialize = function(pinned = NULL, noforwards = NULL, fwd_modified = NULL, peer, media, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules, random_id, period = NULL, fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL, music = NULL) {
+      self$pinned <- pinned
+      self$noforwards <- noforwards
+      self$fwd_modified <- fwd_modified
       self$peer <- peer
       self$media <- media
-      self$privacy_rules <- if (is.null(privacy_rules)) list() else privacy_rules
-      self$pinned <- if (!is.null(pinned)) as.logical(pinned) else NULL
-      self$noforwards <- if (!is.null(noforwards)) as.logical(noforwards) else NULL
-      self$fwd_modified <- if (!is.null(fwd_modified)) as.logical(fwd_modified) else NULL
-      self$media_areas <- if (!is.null(media_areas)) media_areas else NULL
-      self$caption <- if (!is.null(caption)) as.character(caption) else NULL
-      self$entities <- if (!is.null(entities)) entities else NULL
-
-      # random_id: generate 8 random bytes -> signed 64-bit integer (readBin)
-      if (is.null(random_id)) {
-        rnd_raw <- as.raw(sample(0:255, 8, replace = TRUE))
-        # read as signed 64-bit big-endian to mimic Python's int.from_bytes(..., 'big', signed=TRUE)
-        random_val <- readBin(rnd_raw, "integer", size = 8, signed = TRUE, endian = "big")
-        self$random_id <- random_val
-      } else {
-        self$random_id <- random_id
-      }
-
-      self$period <- if (!is.null(period)) as.integer(period) else NULL
-      self$fwd_from_id <- if (!is.null(fwd_from_id)) fwd_from_id else NULL
-      self$fwd_from_story <- if (!is.null(fwd_from_story)) as.integer(fwd_from_story) else NULL
-      self$albums <- if (!is.null(albums)) as.integer(albums) else NULL
+      self$media_areas <- media_areas
+      self$caption <- caption
+      self$entities <- entities
+      self$privacy_rules <- privacy_rules
+      self$random_id <- random_id
+      self$period <- period
+      self$fwd_from_id <- fwd_from_id
+      self$fwd_from_story <- fwd_from_story
+      self$albums <- albums
+      self$music <- music
     },
-
-    #  @description Resolve peer and forward references
-    # 
-    #  @param client client object with get_input_entity
-    #  @param utils utils object with get_input_peer / get_input_media
     resolve = function(client, utils) {
-      input_entity <- client$get_input_entity(self$peer)
-      self$peer <- get_input_peer(input_entity)
-      self$media <- get_input_media(self$media)
-      if (!is.null(self$fwd_from_id)) {
-        input_entity2 <- client$get_input_entity(self$fwd_from_id)
-        self$fwd_from_id <- get_input_peer(input_entity2)
-      }
+      if (!is.null(self$peer)) self$peer <- tryCatch(utils$get_input_peer(client$get_input_entity(self$peer)), error = function(e) self$peer)
+      if (!is.null(self$fwd_from_id)) self$fwd_from_id <- tryCatch(utils$get_input_peer(client$get_input_entity(self$fwd_from_id)), error = function(e) self$fwd_from_id)
       invisible(self)
     },
-
-    #  @description Convert to list (similar to to_dict)
-    # 
-    #  @return list
+    to_dict = function() {
+      list(
+        `_` = "SendStoryRequest",
+        "pinned" = if (inherits(self$pinned, "TLObject")) self$pinned$to_dict() else self$pinned,
+        "noforwards" = if (inherits(self$noforwards, "TLObject")) self$noforwards$to_dict() else self$noforwards,
+        "fwd_modified" = if (inherits(self$fwd_modified, "TLObject")) self$fwd_modified$to_dict() else self$fwd_modified,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "media" = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media,
+        "media_areas" = if (inherits(self$media_areas, "TLObject")) self$media_areas$to_dict() else self$media_areas,
+        "caption" = if (inherits(self$caption, "TLObject")) self$caption$to_dict() else self$caption,
+        "entities" = if (inherits(self$entities, "TLObject")) self$entities$to_dict() else self$entities,
+        "privacy_rules" = if (inherits(self$privacy_rules, "TLObject")) self$privacy_rules$to_dict() else self$privacy_rules,
+        "random_id" = if (inherits(self$random_id, "TLObject")) self$random_id$to_dict() else self$random_id,
+        "period" = if (inherits(self$period, "TLObject")) self$period$to_dict() else self$period,
+        "fwd_from_id" = if (inherits(self$fwd_from_id, "TLObject")) self$fwd_from_id$to_dict() else self$fwd_from_id,
+        "fwd_from_story" = if (inherits(self$fwd_from_story, "TLObject")) self$fwd_from_story$to_dict() else self$fwd_from_story,
+        "albums" = if (inherits(self$albums, "TLObject")) self$albums$to_dict() else self$albums,
+        "music" = if (inherits(self$music, "TLObject")) self$music$to_dict() else self$music
+      )
+    },
     to_list = function() {
       list(
         `_` = "SendStoryRequest",
-        peer = if (inherits(self$peer, "TLObject") && is.function(self$peer$to_list)) self$peer$to_list() else self$peer,
-        media = if (inherits(self$media, "TLObject") && is.function(self$media$to_list)) self$media$to_list() else self$media,
-        privacy_rules = if (is.null(self$privacy_rules)) list() else lapply(self$privacy_rules, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x),
-        pinned = self$pinned,
-        noforwards = self$noforwards,
-        fwd_modified = self$fwd_modified,
-        media_areas = if (is.null(self$media_areas)) list() else lapply(self$media_areas, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x),
-        caption = self$caption,
-        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject") && is.function(x$to_list)) x$to_list() else x),
-        random_id = self$random_id,
-        period = self$period,
-        fwd_from_id = if (inherits(self$fwd_from_id, "TLObject") && is.function(self$fwd_from_id$to_list)) self$fwd_from_id$to_list() else self$fwd_from_id,
-        fwd_from_story = self$fwd_from_story,
-        albums = if (is.null(self$albums)) integer(0) else as.integer(self$albums)
+        "pinned" = if (inherits(self$pinned, "TLObject")) self$pinned$to_dict() else self$pinned,
+        "noforwards" = if (inherits(self$noforwards, "TLObject")) self$noforwards$to_dict() else self$noforwards,
+        "fwd_modified" = if (inherits(self$fwd_modified, "TLObject")) self$fwd_modified$to_dict() else self$fwd_modified,
+        "peer" = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        "media" = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media,
+        "media_areas" = if (inherits(self$media_areas, "TLObject")) self$media_areas$to_dict() else self$media_areas,
+        "caption" = if (inherits(self$caption, "TLObject")) self$caption$to_dict() else self$caption,
+        "entities" = if (inherits(self$entities, "TLObject")) self$entities$to_dict() else self$entities,
+        "privacy_rules" = if (inherits(self$privacy_rules, "TLObject")) self$privacy_rules$to_dict() else self$privacy_rules,
+        "random_id" = if (inherits(self$random_id, "TLObject")) self$random_id$to_dict() else self$random_id,
+        "period" = if (inherits(self$period, "TLObject")) self$period$to_dict() else self$period,
+        "fwd_from_id" = if (inherits(self$fwd_from_id, "TLObject")) self$fwd_from_id$to_dict() else self$fwd_from_id,
+        "fwd_from_story" = if (inherits(self$fwd_from_story, "TLObject")) self$fwd_from_story$to_dict() else self$fwd_from_story,
+        "albums" = if (inherits(self$albums, "TLObject")) self$albums$to_dict() else self$albums,
+        "music" = if (inherits(self$music, "TLObject")) self$music$to_dict() else self$music
       )
     },
-
-    #  @description Serialize to raw bytes
-    # 
-    #  Produces a raw vector matching TL binary layout for this request.
-    #  Expects helper serialization methods on peer/media/privacy_rules/media_areas/entities/fwd_from_id.
-    # 
-    #  @return raw
     to_bytes = function() {
-      # compute flags as in original spec
       flags <- 0L
-      if (!is.null(self$pinned) && isTRUE(self$pinned)) flags <- bitwOr(flags, 4L)
-      if (!is.null(self$noforwards) && isTRUE(self$noforwards)) flags <- bitwOr(flags, 16L)
-      if (!is.null(self$fwd_modified) && isTRUE(self$fwd_modified)) flags <- bitwOr(flags, 128L)
+      if (isTRUE(self$pinned)) flags <- bitwOr(flags, 4L)
+      if (isTRUE(self$noforwards)) flags <- bitwOr(flags, 16L)
+      if (isTRUE(self$fwd_modified)) flags <- bitwOr(flags, 128L)
       if (!is.null(self$media_areas)) flags <- bitwOr(flags, 32L)
       if (!is.null(self$caption)) flags <- bitwOr(flags, 1L)
       if (!is.null(self$entities)) flags <- bitwOr(flags, 2L)
       if (!is.null(self$period)) flags <- bitwOr(flags, 8L)
-      if (!is.null(self$fwd_from_id) || !is.null(self$fwd_from_story)) flags <- bitwOr(flags, 64L)
+      if (!is.null(self$fwd_from_id)) flags <- bitwOr(flags, 64L)
+      if (!is.null(self$fwd_from_story)) flags <- bitwOr(flags, 64L)
       if (!is.null(self$albums)) flags <- bitwOr(flags, 256L)
-
-      parts <- list()
-      # constructor bytes: b'\xec\xc2\x7fs'
-      parts[[1]] <- as.raw(c(0xec, 0xc2, 0x7f, 0x73))
-      # flags (uint32 little-endian)
-      parts[[2]] <- writeBin(as.integer(flags), raw(), size = 4, endian = "little")
-
-      # peer bytes
-      if (is.function(self$peer$to_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$to_bytes()
-      } else if (is.function(self$peer$bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else {
-        stop("peer object must provide a to_bytes/bytes/_bytes method")
-      }
-
-      # media bytes
-      if (is.function(self$media$to_bytes)) {
-        parts[[length(parts) + 1]] <- self$media$to_bytes()
-      } else if (is.function(self$media$bytes)) {
-        parts[[length(parts) + 1]] <- self$media$bytes()
-      } else if (is.function(self$media$.bytes)) {
-        parts[[length(parts) + 1]] <- self$media$.bytes()
-      } else {
-        stop("media object must provide a to_bytes/bytes/_bytes method")
-      }
-
-      # optional media_areas vector
-      if (!is.null(self$media_areas)) {
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$media_areas)), raw(), size = 4, endian = "little")
-        for (ma in self$media_areas) {
-          if (is.function(ma$to_bytes)) {
-            parts[[length(parts) + 1]] <- ma$to_bytes()
-          } else if (is.function(ma$bytes)) {
-            parts[[length(parts) + 1]] <- ma$bytes()
-          } else if (is.function(ma$.bytes)) {
-            parts[[length(parts) + 1]] <- ma$.bytes()
-          } else {
-            stop("media_area element must provide to_bytes/bytes/_bytes")
-          }
-        }
-      }
-
-      # caption
-      if (!is.null(self$caption)) {
-        # prefer serialize_bytes if available on TLRequest base class
-        if (is.function(self$serialize_bytes)) {
-          parts[[length(parts) + 1]] <- self$serialize_bytes(self$caption)
-        } else {
-          sraw <- charToRaw(enc2utf8(self$caption))
-          # simple TL string encoding fallback (length as 1 byte if <254), minimal implementation
-          parts[[length(parts) + 1]] <- writeBin(as.integer(length(sraw)), raw(), size = 1, endian = "little")
-          parts[[length(parts) + 1]] <- sraw
-        }
-      }
-
-      # entities vector
-      if (!is.null(self$entities)) {
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$entities)), raw(), size = 4, endian = "little")
-        for (ent in self$entities) {
-          if (is.function(ent$to_bytes)) {
-            parts[[length(parts) + 1]] <- ent$to_bytes()
-          } else if (is.function(ent$bytes)) {
-            parts[[length(parts) + 1]] <- ent$bytes()
-          } else if (is.function(ent$.bytes)) {
-            parts[[length(parts) + 1]] <- ent$.bytes()
-          } else {
-            stop("entity element must provide to_bytes/bytes/_bytes")
-          }
-        }
-      }
-
-      # privacy_rules vector (required)
-      vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-      parts[[length(parts) + 1]] <- vec_tag
-      parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$privacy_rules)), raw(), size = 4, endian = "little")
-      for (pr in self$privacy_rules) {
-        if (is.function(pr$to_bytes)) {
-          parts[[length(parts) + 1]] <- pr$to_bytes()
-        } else if (is.function(pr$bytes)) {
-          parts[[length(parts) + 1]] <- pr$bytes()
-        } else if (is.function(pr$.bytes)) {
-          parts[[length(parts) + 1]] <- pr$.bytes()
-        } else {
-          stop("privacy_rule element must provide to_bytes/bytes/_bytes")
-        }
-      }
-
-      # random_id as 64-bit little-endian
-      parts[[length(parts) + 1]] <- packInt64(self$random_id)
-
-      # period
-      if (!is.null(self$period)) {
-        parts[[length(parts) + 1]] <- writeBin(as.integer(self$period), raw(), size = 4, endian = "little")
-      }
-
-      # fwd_from_id
-      if (!is.null(self$fwd_from_id)) {
-        if (is.function(self$fwd_from_id$to_bytes)) {
-          parts[[length(parts) + 1]] <- self$fwd_from_id$to_bytes()
-        } else if (is.function(self$fwd_from_id$bytes)) {
-          parts[[length(parts) + 1]] <- self$fwd_from_id$bytes()
-        } else if (is.function(self$fwd_from_id$.bytes)) {
-          parts[[length(parts) + 1]] <- self$fwd_from_id$.bytes()
-        } else {
-          stop("fwd_from_id must provide to_bytes/bytes/_bytes")
-        }
-      }
-
-      # fwd_from_story
-      if (!is.null(self$fwd_from_story)) {
-        parts[[length(parts) + 1]] <- writeBin(as.integer(self$fwd_from_story), raw(), size = 4, endian = "little")
-      }
-
-      # albums vector
-      if (!is.null(self$albums)) {
-        vec_tag <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
-        parts[[length(parts) + 1]] <- vec_tag
-        parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$albums)), raw(), size = 4, endian = "little")
-        for (a in self$albums) parts[[length(parts) + 1]] <- writeBin(as.integer(a), raw(), size = 4, endian = "little")
-      }
-
-      do.call(c, parts)
+      if (!is.null(self$music)) flags <- bitwOr(flags, 512L)
+      c(
+        as.raw(c(0x98, 0x68, 0x9e, 0x8f)),
+        pack("<I", flags),
+        self$peer$bytes(),
+        self$media$bytes(),
+        if (!is.null(self$media_areas)) .telegramR_tl_vector(self$media_areas) else raw(0),
+        if (!is.null(self$caption)) serialize_bytes(self$caption) else raw(0),
+        if (!is.null(self$entities)) .telegramR_tl_vector(self$entities) else raw(0),
+        .telegramR_tl_vector(self$privacy_rules),
+        packInt64(self$random_id),
+        if (!is.null(self$period)) pack("<i", self$period) else raw(0),
+        if (!is.null(self$fwd_from_id)) self$fwd_from_id$bytes() else raw(0),
+        if (!is.null(self$fwd_from_story)) pack("<i", self$fwd_from_story) else raw(0),
+        if (!is.null(self$albums)) c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$albums)), if (length(self$albums) > 0) do.call(c, lapply(self$albums, function(x) pack("<i", x))) else raw(0)) else raw(0),
+        if (!is.null(self$music)) self$music$bytes() else raw(0)
+      )
+    },
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$pinned <- bitwAnd(flags, 4L) != 0
+      self$noforwards <- bitwAnd(flags, 16L) != 0
+      self$fwd_modified <- bitwAnd(flags, 128L) != 0
+      self$peer <- reader$tgread_object()
+      self$media <- reader$tgread_object()
+      self$media_areas <- if (bitwAnd(flags, 32L) != 0) reader$tgread_vector() else NULL
+      self$caption <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
+      self$entities <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
+      self$privacy_rules <- reader$tgread_vector()
+      self$random_id <- reader$read_long()
+      self$period <- if (bitwAnd(flags, 8L) != 0) reader$read_int() else NULL
+      self$fwd_from_id <- if (bitwAnd(flags, 64L) != 0) reader$tgread_object() else NULL
+      self$fwd_from_story <- if (bitwAnd(flags, 64L) != 0) reader$read_int() else NULL
+      self$albums <- if (bitwAnd(flags, 256L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$music <- if (bitwAnd(flags, 512L) != 0) reader$tgread_object() else NULL
+      self
     }
   ),
-  class = list(
-    #  @description Read a SendStoryRequest instance from a reader
-    # 
-    #  reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
-    #  @param reader an object with read_int, tgread_object, tgread_string, read_long methods
-    #  @return SendStoryRequest
-    from_reader = function(reader) {
-      flagsVal <- reader$read_int()
-      pinnedVal <- bitwAnd(flagsVal, 4L) != 0L
-      noforwardsVal <- bitwAnd(flagsVal, 16L) != 0L
-      fwdModifiedVal <- bitwAnd(flagsVal, 128L) != 0L
-
-      peerObj <- reader$tgread_object()
-      mediaObj <- reader$tgread_object()
-
-      # media_areas
-      mediaAreasVal <- NULL
-      if (bitwAnd(flagsVal, 32L) != 0L) {
-        # vector constructor
-        nma <- reader$read_int()
-        if (nma > 0) {
-          mediaAreasVal <- vector("list", nma)
-          for (i in seq_len(nma)) mediaAreasVal[[i]] <- reader$tgread_object()
-        } else {
-          mediaAreasVal <- list()
-        }
-      }
-
-      # caption
-      captionVal <- if (bitwAnd(flagsVal, 1L) != 0L) reader$tgread_string() else NULL
-
-      # entities
-      entitiesVal <- NULL
-      if (bitwAnd(flagsVal, 2L) != 0L) {
-        ne <- reader$read_int()
-        if (ne > 0) {
-          entitiesVal <- vector("list", ne)
-          for (i in seq_len(ne)) entitiesVal[[i]] <- reader$tgread_object()
-        } else {
-          entitiesVal <- list()
-        }
-      }
-
-      # privacy_rules (vector)
-
-      npr <- reader$read_int()
-      privacyRulesVal <- list()
-      if (npr > 0) {
-        privacyRulesVal <- vector("list", npr)
-        for (i in seq_len(npr)) privacyRulesVal[[i]] <- reader$tgread_object()
-      }
-
-      randomIdVal <- reader$read_long()
-
-      periodVal <- if (bitwAnd(flagsVal, 8L) != 0L) reader$read_int() else NULL
-
-      fwdFromIdVal <- if (bitwAnd(flagsVal, 64L) != 0L) reader$tgread_object() else NULL
-      fwdFromStoryVal <- if (bitwAnd(flagsVal, 64L) != 0L) reader$read_int() else NULL
-
-      albumsVal <- NULL
-      if (bitwAnd(flagsVal, 256L) != 0L) {
-        na <- reader$read_int()
-        if (na > 0) {
-          albumsVal <- integer(na)
-          for (i in seq_len(na)) albumsVal[i] <- reader$read_int()
-        } else {
-          albumsVal <- integer(0)
-        }
-      }
-
-      SendStoryRequest$new(
-        peer = peerObj,
-        media = mediaObj,
-        privacy_rules = privacyRulesVal,
-        pinned = if (bitwAnd(flagsVal, 4L) != 0L) pinnedVal else NULL,
-        noforwards = if (bitwAnd(flagsVal, 16L) != 0L) noforwardsVal else NULL,
-        fwd_modified = if (bitwAnd(flagsVal, 128L) != 0L) fwdModifiedVal else NULL,
-        media_areas = mediaAreasVal,
-        caption = captionVal,
-        entities = entitiesVal,
-        random_id = randomIdVal,
-        period = periodVal,
-        fwd_from_id = fwdFromIdVal,
-        fwd_from_story = fwdFromStoryVal,
-        albums = albumsVal
-      )
-    }
-  )
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-
-#  ToggleAllStoriesHiddenRequest R6 class
-# 
-#  Represents a TL request to toggle the "all stories hidden" flag.
-# 
-#  @docType class
-#  @name ToggleAllStoriesHiddenRequest
-#  @export
-#  @noRd
-#  @noRd
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,

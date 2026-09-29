@@ -10,7 +10,7 @@ DEFAULT_IPV6_IP <- "2001:67c:4e8:f002::a"
 DEFAULT_PORT <- 443
 
 # Global variables
-LAYER <- 216 # Telegram API layer (aligned with recent Telethon layer)
+LAYER <- 229 # regenerated from Telethon v1 api.tl (data-raw/api.tl)
 
 # Time in seconds before disconnecting exported senders
 DISCONNECT_EXPORTED_AFTER <- 60

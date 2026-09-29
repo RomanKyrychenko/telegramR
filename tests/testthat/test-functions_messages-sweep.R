@@ -149,7 +149,7 @@ test_that("single-string request classes serialize and read back", {
                   list(serialize_bytes = serialize_bytes))
     expect_equal(
       call_with_self(cls$public_methods$bytes, self_obj),
-      c(as.raw(spec$cid), serialize_bytes("xyz")),
+      c({ x <- as.numeric(cls$public_fields$CONSTRUCTOR_ID); as.raw(c(x%%256,(x%/%256)%%256,(x%/%65536)%%256,(x%/%16777216)%%256)) }, serialize_bytes("xyz")),
       info = paste("bytes mismatch for", spec$name)
     )
     expect_equal(call_with_self(cls$public_methods$toDict, self_obj)[[spec$dict]], "xyz")

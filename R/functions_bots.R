@@ -1953,131 +1953,55 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-ReorderUsernamesRequest <- R6::R6Class(
-  "ReorderUsernamesRequest",
+ReorderUsernamesRequest <- R6::R6Class("ReorderUsernamesRequest",
+  inherit = TLObject,
   public = list(
-    #  @field bot Field.
+    CONSTRUCTOR_ID = 0x9709b1c2,
+    SUBCLASS_OF_ID = 0xf5b399ac,
     bot = NULL,
-    #  @field order Field.
     order = NULL,
-
-    #  @description Initialize ReorderUsernamesRequest
-    # 
-    #  @param bot TypeInputUser or identifier
-    #  @param order list of character
     initialize = function(bot, order) {
       self$bot <- bot
-      self$order <- if (is.null(order)) list() else order
+      self$order <- order
+    },
+    resolve = function(client, utils) {
+      if (!is.null(self$bot)) self$bot <- tryCatch(utils$get_input_user(client$get_input_entity(self$bot)), error = function(e) self$bot)
       invisible(self)
     },
-
-    #  @description Resolve references (convert entities via client/utils)
-    # 
-    #  @param client client with get_input_entity method
-    #  @return invisible(self)
-    resolve = function(client) {
-      input_entity <- client$get_input_entity(self$bot)
-      self$bot <- get_input_user(input_entity)
-      invisible(self)
-    },
-
-    #  @description Convert to list (dictionary-like)
-    # 
-    #  @return list
-    to_list = function() {
-      bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
-        self$bot$to_list()
-      } else {
-        self$bot
-      }
+    to_dict = function() {
       list(
         `_` = "ReorderUsernamesRequest",
-        bot = bot_val,
-        order = self$order
+        "bot" = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
+        "order" = if (inherits(self$order, "TLObject")) self$order$to_dict() else self$order
       )
     },
-
-    #  @description Serialize to bytes (raw vector)
-    # 
-    #  @return raw
+    to_list = function() {
+      list(
+        `_` = "ReorderUsernamesRequest",
+        "bot" = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
+        "order" = if (inherits(self$order, "TLObject")) self$order$to_dict() else self$order
+      )
+    },
     to_bytes = function() {
-      pack_int32 <- function(x) {
-        con <- rawConnection(raw(0), "r+")
-        on.exit(close(con))
-        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
-        writeBin(as.integer(x), con, size = 4L, endian = "little")
-        rawConnectionValue(con)
-      }
-      serialize_string_simple <- function(s) {
-        if (is.null(s)) {
-          return(raw(0))
-        }
-        s_raw <- charToRaw(enc2utf8(as.character(s)))
-        c(pack_int32(length(s_raw)), s_raw)
-      }
-
-      # constructor id bytes (from Python: b'\xc2\xb1\t\x97')
-      ctor <- as.raw(c(0xC2, 0xB1, 0x09, 0x97))
-
-      # bot bytes
-      bot_bytes <- raw(0)
-      if (!is.null(self$bot)) {
-        if (inherits(self$bot, "R6") && "to_bytes" %in% names(self$bot)) {
-          bot_bytes <- self$bot$to_bytes()
-        } else if (inherits(self$bot, "R6") && "_bytes" %in% names(self$bot)) {
-          bot_bytes <- self$bot$`_bytes`()
-        } else if (is.raw(self$bot)) {
-          bot_bytes <- self$bot
-        } else {
-          bot_bytes <- serialize_string_simple(as.character(self$bot))
-        }
-      }
-
-      # vector header for order: constructor 0x1cb5c415 stored as b'\x15\xc4\xb5\x1c'
-      vector_magic <- as.raw(c(0x15, 0xC4, 0xB5, 0x1C))
-      count <- length(self$order)
-      order_bytes <- raw(0)
-      if (count > 0) {
-        name_bytes_list <- lapply(self$order, function(nm) {
-          serialize_string_simple(as.character(nm))
-        })
-        order_bytes <- do.call(c, name_bytes_list)
-      }
-
-      c(ctor, bot_bytes, vector_magic, pack_int32(count), order_bytes)
+      c(
+        as.raw(c(0xc2, 0xb1, 0x09, 0x97)),
+        self$bot$bytes(),
+        c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$order)), if (length(self$order) > 0) do.call(c, lapply(self$order, function(x) serialize_bytes(x))) else raw(0))
+      )
+    },
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$bot <- reader$tgread_object()
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self
     }
-  )
+  ),
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# static-like constructor from reader
-ReorderUsernamesRequest$from_reader <- function(reader) {
-  bot_obj <- reader$tgread_object()
-  # read vector magic then count
-  reader$read_int()
-  count_val <- reader$read_int()
-  name_list <- list()
-  if (count_val > 0) {
-    for (i in seq_len(count_val)) {
-      name_list[[i]] <- reader$tgread_string()
-    }
-  }
-  ReorderUsernamesRequest$new(bot = bot_obj, order = name_list)
-}
-
-
-#  ResetBotCommandsRequest R6 class
-# 
-#  Represents the ResetBotCommandsRequest TL request.
-# 
-# 
-# 
-#  Each method is documented inline below.
-# 
-#  @title ResetBotCommandsRequest
-#  @description Telegram API type ResetBotCommandsRequest
-#  @export
-#  @noRd
-#  @noRd
 ResetBotCommandsRequest <- R6::R6Class(
   "ResetBotCommandsRequest",
   public = list(
@@ -3139,124 +3063,61 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-ToggleUsernameRequest <- R6::R6Class(
-  "ToggleUsernameRequest",
+ToggleUsernameRequest <- R6::R6Class("ToggleUsernameRequest",
+  inherit = TLObject,
   public = list(
-    #  @field bot Field.
+    CONSTRUCTOR_ID = 0x053ca973,
+    SUBCLASS_OF_ID = 0xf5b399ac,
     bot = NULL,
-    #  @field username Field.
     username = NULL,
-    #  @field active Field.
     active = NULL,
-
-    #  @description Initialize ToggleUsernameRequest
-    # 
-    #  @param bot TypeInputUser or identifier
-    #  @param username character
-    #  @param active logical
     initialize = function(bot, username, active) {
       self$bot <- bot
-      self$username <- as.character(username)
-      self$active <- as.logical(active)
-      invisible(self)
+      self$username <- username
+      self$active <- active
     },
-
-    #  Resolve references (convert entities via client/utils)
-    # 
-    #  @param client client with get_input_entity method
-    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
-      input_entity <- client$get_input_entity(self$bot)
-      self$bot <- utils$get_input_user(input_entity)
+      if (!is.null(self$bot)) self$bot <- tryCatch(utils$get_input_user(client$get_input_entity(self$bot)), error = function(e) self$bot)
       invisible(self)
     },
-
-    #  Convert to list (dictionary-like)
-    # 
-    #  @return list
-    to_list = function() {
-      bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
-        self$bot$to_list()
-      } else {
-        self$bot
-      }
+    to_dict = function() {
       list(
         `_` = "ToggleUsernameRequest",
-        bot = bot_val,
-        username = self$username,
-        active = self$active
+        "bot" = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username,
+        "active" = if (inherits(self$active, "TLObject")) self$active$to_dict() else self$active
       )
     },
-
-    #  Serialize to bytes (raw vector)
-    # 
-    #  @return raw
+    to_list = function() {
+      list(
+        `_` = "ToggleUsernameRequest",
+        "bot" = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
+        "username" = if (inherits(self$username, "TLObject")) self$username$to_dict() else self$username,
+        "active" = if (inherits(self$active, "TLObject")) self$active$to_dict() else self$active
+      )
+    },
     to_bytes = function() {
-      pack_int32 <- function(x) {
-        con <- rawConnection(raw(0), "r+")
-        on.exit(close(con))
-        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
-        writeBin(as.integer(x), con, size = 4L, endian = "little")
-        rawConnectionValue(con)
-      }
-      serialize_string_simple <- function(s) {
-        if (is.null(s)) {
-          return(raw(0))
-        }
-        s_raw <- charToRaw(enc2utf8(as.character(s)))
-        c(pack_int32(length(s_raw)), s_raw)
-      }
-
-      # constructor id bytes (from Python: b's\xa9<\x05')
-      ctor <- as.raw(c(0x73, 0xA9, 0x3C, 0x05))
-
-      # bot bytes
-      bot_bytes <- raw(0)
-      if (!is.null(self$bot)) {
-        if (inherits(self$bot, "R6") && "to_bytes" %in% names(self$bot)) {
-          bot_bytes <- self$bot$to_bytes()
-        } else if (inherits(self$bot, "R6") && "_bytes" %in% names(self$bot)) {
-          bot_bytes <- self$bot$`_bytes`()
-        } else if (is.raw(self$bot)) {
-          bot_bytes <- self$bot
-        } else {
-          bot_bytes <- serialize_string_simple(as.character(self$bot))
-        }
-      }
-
-      username_bytes <- serialize_string_simple(self$username)
-
-      active_bytes <- if (isTRUE(self$active)) {
-        as.raw(c(0xB5, 0x75, 0x72, 0x99)) # b'\xb5ur\x99'
-      } else {
-        as.raw(c(0x37, 0x97, 0x79, 0xBC)) # b'7\x97y\xbc'
-      }
-
-      c(ctor, bot_bytes, username_bytes, active_bytes)
+      c(
+        as.raw(c(0x73, 0xa9, 0x3c, 0x05)),
+        self$bot$bytes(),
+        serialize_bytes(self$username),
+        if (isTRUE(self$active)) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
+      )
+    },
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$bot <- reader$tgread_object()
+      self$username <- reader$tgread_string()
+      self$active <- reader$tgread_bool()
+      self
     }
-  )
+  ),
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# static-like constructor from reader
-ToggleUsernameRequest$from_reader <- function(reader) {
-  bot_obj <- reader$tgread_object()
-  username_val <- reader$tgread_string()
-  active_val <- reader$tgread_bool()
-  ToggleUsernameRequest$new(bot = bot_obj, username = username_val, active = active_val)
-}
-
-
-#  UpdateStarRefProgramRequest R6 class
-# 
-#  Represents the UpdateStarRefProgramRequest TL request.
-# 
-# 
-# 
-#  @title UpdateStarRefProgramRequest
-#  @description Telegram API type UpdateStarRefProgramRequest
-#  @export
-#  @noRd
-#  @noRd
 UpdateStarRefProgramRequest <- R6::R6Class(
   "UpdateStarRefProgramRequest",
   public = list(

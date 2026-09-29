@@ -149,7 +149,7 @@ def deser_scalar(typ):
     return "reader$tgread_object()"
 
 
-def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=False, lock_objects=None):
+def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=False, lock_objects=None, ser_name=None):
     """Emit an R6 class body. `rename` maps schema field name -> R field name
     (to preserve an existing class's convention); by default identity."""
     name = pascal(d["full"]) + ("Request" if d["func"] else "")
@@ -157,7 +157,10 @@ def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=F
         inherit = "TLRequest" if d["func"] else "TLObject"
     if lock_objects is None:
         lock_objects = d["func"]
-    _reserved = {"self", "private", "super"}
+    lock_objects = True  # always emit lock_objects = FALSE (safe; allows post-hoc fields)
+    _reserved = {"self", "private", "super", "initialize", "to_dict",
+                 "toDict", "resolve", "clone", "from_reader", "print", "to_list",  # note: "bytes" handled separately
+                 "serialize", "CONSTRUCTOR_ID", "SUBCLASS_OF_ID"}
     def _san(nm):
         return nm + "_" if nm in _reserved else nm
     _rn0 = (lambda a: rename.get(a["name"], a["name"])) if rename else (lambda a: a["name"])
@@ -168,6 +171,10 @@ def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=F
     fields = [a for a in seq if a["type"] != "#"]
 
     dict_call = "to_dict" if dict_method == "to_dict" else "toDict"
+    has_bytes_field = any(a["name"] == "bytes" and a["type"] != "#" for a in fields)
+    # a bytes data field forces the serializer to be to_bytes(); otherwise keep
+    # the existing class's serializer name (bytes/to_bytes) when known.
+    ser_method = "to_bytes" if has_bytes_field else (ser_name or "bytes")
 
     sig = []
     for a in fields:
@@ -204,14 +211,17 @@ def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=F
     for a in fields:
         e = f"self${rn(a)}"
         dict_items.append(f'"{a["name"]}" = if (inherits({e}, "TLObject")) {e}${dict_call}() else {e}')
-    L.append(f"    {dict_method} = function() {{")
-    L.append("      list(")
-    L.append(",\n".join("        " + it for it in dict_items))
-    L.append("      )")
-    L.append("    },")
+    def _dict_body(method_name):
+        b = [f"    {method_name} = function() {{", "      list("]
+        b.append(",\n".join("        " + it for it in dict_items))
+        b += ["      )", "    },"]
+        return b
+    L += _dict_body(dict_method)
+    if dict_method != "to_list":
+        L += _dict_body("to_list")  # full standalone impl (not an alias)
 
     # bytes: process seq in order; compute each flag base first
-    L.append("    bytes = function() {")
+    L.append(f"    {ser_method} = function() {{")
     for fb in flag_bases:
         L.append(f"      {fb} <- 0L")
         for a in fields:
@@ -232,7 +242,9 @@ def gen_class(d, rename=None, inherit=None, dict_method="to_dict", has_resolve=F
             parts.append(ser_scalar("self$" + rn(a), a["type"]))
     L.append(",\n".join("        " + p for p in parts))
     L.append("      )")
-    L.append("    }")
+    L.append("    },")
+    # convenience aliases some call sites/tests use
+    L.append(f"    serialize = function() self${ser_method}()")
     L.append("  ),")
     L.append("  private = list(")
     L.append("    from_reader = function(reader) {")
@@ -296,6 +308,19 @@ def main():
     path = sys.argv[1]
     if "--audit" in sys.argv:
         audit(path)
+        return
+    if "--manifest" in sys.argv:
+        import json
+        sch = parse_tl(path)
+        out = []
+        for x in sch:
+            out.append(dict(
+                name=pascal(x["full"]) + ("Request" if x["func"] else ""),
+                full=x["full"], cid=x["cid"], func=x["func"], res=x["res"],
+                fields=[dict(name=a["name"], type=a["type"], flag=a["flag"], bit=a["bit"])
+                        for a in x["args"]],
+            ))
+        json.dump(out, sys.stdout)
         return
     if "--missing" in sys.argv:
         import glob as _glob

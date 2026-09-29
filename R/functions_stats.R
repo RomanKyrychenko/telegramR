@@ -502,74 +502,52 @@ GetStoryStatsRequest <- R6::R6Class(
 #  @export
 #  @noRd
 #  @noRd
-LoadAsyncGraphRequest <- R6::R6Class(
-  "LoadAsyncGraphRequest",
+LoadAsyncGraphRequest <- R6::R6Class("LoadAsyncGraphRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xa05f1d62,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0x621d5fa0,
     SUBCLASS_OF_ID = 0x9b903153,
-    #  @field token Field.
     token = NULL,
-    #  @field x Field.
     x = NULL,
-
-    #  @description Initializes a new LoadAsyncGraphRequest.
-    #  @param token character token
-    #  @param x integer64 or numeric; optional x
     initialize = function(token, x = NULL) {
-      self$token <- as.character(token)
-      self$x <- if (!is.null(x)) as.numeric(x) else NULL
+      self$token <- token
+      self$x <- x
     },
-
-    #  @description Initialize a new LoadAsyncGraphRequest.
-    #  @return List representing the request.
+    to_dict = function() {
+      list(
+        `_` = "LoadAsyncGraphRequest",
+        "token" = if (inherits(self$token, "TLObject")) self$token$to_dict() else self$token,
+        "x" = if (inherits(self$x, "TLObject")) self$x$to_dict() else self$x
+      )
+    },
     to_list = function() {
       list(
         `_` = "LoadAsyncGraphRequest",
-        token = self$token,
-        x = self$x
+        "token" = if (inherits(self$token, "TLObject")) self$token$to_dict() else self$token,
+        "x" = if (inherits(self$x, "TLObject")) self$x$to_dict() else self$x
       )
     },
-
-    #  @description Convert to a plain list (like to_dict)
-    #  @return A list representing the request.
     to_bytes = function() {
-      con <- rawConnection(raw(), "r+")
-      on.exit(close(con))
-      # constructor bytes: 0xa0 0x5f 0x1d 0x62
-      writeBin(as.raw(c(0xa0, 0x5f, 0x1d, 0x62)), con)
-      flags <- as.integer(ifelse(is.null(self$x) || identical(self$x, FALSE), 0L, 1L))
-      writeBin(flags, con, size = 4, endian = "little")
-      # serialize token using parent helper serialize_bytes if available
-      if (!is.null(self$serialize_bytes)) {
-        writeBin(self$serialize_bytes(self$token), con)
-      } else {
-        # fallback: write string length + bytes (UTF-8) similar to tg serialization
-        token_raw <- charToRaw(enc2utf8(self$token))
-        writeBin(as.integer(length(token_raw)), con, size = 4, endian = "little")
-        writeBin(token_raw, con)
-      }
-      if (!is.null(self$x)) {
-        # write 8-byte little-endian integer (may be written as double)
-        writeBin(packInt64(self$x), con)
-      }
-      rawConnectionValue(con)
+      flags <- 0L
+      if (!is.null(self$x)) flags <- bitwOr(flags, 1L)
+      c(
+        as.raw(c(0xa0, 0x5f, 0x1d, 0x62)),
+        pack("<I", flags),
+        serialize_bytes(self$token),
+        if (!is.null(self$x)) packInt64(self$x) else raw(0)
+      )
     },
-
-    #  @description Serialize to raw bytes (relies on token serialization and helper utils in parent)
-    #  @param reader A reader object to read the serialized data.
-    #  @return A raw vector representing the serialized request.
+    serialize = function() self$to_bytes()
+  ),
+  private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
-      token_val <- reader$tgread_string()
-      if (bitwAnd(flags, 1L) != 0L) {
-        x_val <- reader$read_long()
-      } else {
-        x_val <- NULL
-      }
-      LoadAsyncGraphRequest$new(token = token_val, x = x_val)
+      self$token <- reader$tgread_string()
+      self$x <- if (bitwAnd(flags, 1L) != 0) reader$read_long() else NULL
+      self
     }
-  )
+  ),
+  class = TRUE,
+  lock_objects = FALSE
 )
+

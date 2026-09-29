@@ -96,167 +96,83 @@ AcceptContactRequest$from_reader <- function(reader) {
 #  @export
 #  @noRd
 #  @noRd
-AddContactRequest <- R6::R6Class(
-  "AddContactRequest",
+AddContactRequest <- R6::R6Class("AddContactRequest",
   inherit = TLRequest,
   public = list(
-    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xe8f463d0,
-    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    CONSTRUCTOR_ID = 0xd9ba2e54,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #  @field id Field.
-    id = NULL,
-    #  @field first_name Field.
-    first_name = NULL,
-    #  @field last_name Field.
-    last_name = NULL,
-    #  @field phone Field.
-    phone = NULL,
-    #  @field add_phone_privacy_exception Field.
     add_phone_privacy_exception = NULL,
-
-    #  @description Initialize AddContactRequest
-    # 
-    #  @param id input user object or identifier
-    #  @param first_name character
-    #  @param last_name character
-    #  @param phone character
-    #  @param add_phone_privacy_exception logical or NULL
-    initialize = function(id, first_name, last_name, phone, add_phone_privacy_exception = NULL) {
+    id = NULL,
+    first_name = NULL,
+    last_name = NULL,
+    phone = NULL,
+    note = NULL,
+    initialize = function(add_phone_privacy_exception = NULL, id, first_name, last_name, phone, note = NULL) {
+      self$add_phone_privacy_exception <- add_phone_privacy_exception
       self$id <- id
-      self$first_name <- as.character(first_name)
-      self$last_name <- as.character(last_name)
-      self$phone <- as.character(phone)
-      if (!is.null(add_phone_privacy_exception)) self$add_phone_privacy_exception <- as.logical(add_phone_privacy_exception) else self$add_phone_privacy_exception <- NULL
+      self$first_name <- first_name
+      self$last_name <- last_name
+      self$phone <- phone
+      self$note <- note
     },
-
-    #  Resolve entities using client and utils
-    # 
-    #  Replaces `id` with utils$get_input_user(client$get_input_entity(id))
-    #  @param client client object with method get_input_entity()
-    #  @param utils utils object with method get_input_user()
     resolve = function(client, utils) {
-      entity <- client$get_input_entity(self$id)
-      self$id <- utils$get_input_user(entity)
-      invisible(NULL)
+      if (!is.null(self$id)) self$id <- tryCatch(utils$get_input_user(client$get_input_entity(self$id)), error = function(e) self$id)
+      invisible(self)
     },
-
-    #  Convert to list
-    #  @return list
-    to_list = function() {
-      id_repr <- if (!is.null(self$id) && is.function(self$id$to_list)) self$id$to_list() else self$id
+    to_dict = function() {
       list(
         `_` = "AddContactRequest",
-        id = id_repr,
-        first_name = self$first_name,
-        last_name = self$last_name,
-        phone = self$phone,
-        add_phone_privacy_exception = self$add_phone_privacy_exception
+        "add_phone_privacy_exception" = if (inherits(self$add_phone_privacy_exception, "TLObject")) self$add_phone_privacy_exception$to_dict() else self$add_phone_privacy_exception,
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id,
+        "first_name" = if (inherits(self$first_name, "TLObject")) self$first_name$to_dict() else self$first_name,
+        "last_name" = if (inherits(self$last_name, "TLObject")) self$last_name$to_dict() else self$last_name,
+        "phone" = if (inherits(self$phone, "TLObject")) self$phone$to_dict() else self$phone,
+        "note" = if (inherits(self$note, "TLObject")) self$note$to_dict() else self$note
       )
     },
-
-    #  Serialize to bytes (raw vector)
-    #  @return raw
+    to_list = function() {
+      list(
+        `_` = "AddContactRequest",
+        "add_phone_privacy_exception" = if (inherits(self$add_phone_privacy_exception, "TLObject")) self$add_phone_privacy_exception$to_dict() else self$add_phone_privacy_exception,
+        "id" = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id,
+        "first_name" = if (inherits(self$first_name, "TLObject")) self$first_name$to_dict() else self$first_name,
+        "last_name" = if (inherits(self$last_name, "TLObject")) self$last_name$to_dict() else self$last_name,
+        "phone" = if (inherits(self$phone, "TLObject")) self$phone$to_dict() else self$phone,
+        "note" = if (inherits(self$note, "TLObject")) self$note$to_dict() else self$note
+      )
+    },
     to_bytes = function() {
-      # little-endian of 0xe8f463d0 -> 0xd0 0x63 0xf4 0xe8
-      prefix <- as.raw(c(0xd0, 0x63, 0xf4, 0xe8))
-      flags_val <- 0L
-      if (!is.null(self$add_phone_privacy_exception) && isTRUE(self$add_phone_privacy_exception)) flags_val <- bitwOr(flags_val, 1L)
-      flags_raw <- private$int_to_le_raw(as.integer(flags_val), size = 4L)
-
-      id_bytes <- NULL
-      if (!is.null(self$id) && is.function(self$id$to_bytes)) {
-        id_bytes <- self$id$to_bytes()
-      } else if (!is.null(self$id) && is.raw(self$id)) {
-        id_bytes <- self$id
-      } else {
-        stop("id must provide to_bytes() or be a raw vector")
-      }
-
-      first_name_bytes <- private$serialize_string_tl(self$first_name)
-      last_name_bytes <- private$serialize_string_tl(self$last_name)
-      phone_bytes <- private$serialize_string_tl(self$phone)
-
-      c(prefix, flags_raw, id_bytes, first_name_bytes, last_name_bytes, phone_bytes)
-    }
+      flags <- 0L
+      if (isTRUE(self$add_phone_privacy_exception)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$note)) flags <- bitwOr(flags, 2L)
+      c(
+        as.raw(c(0x54, 0x2e, 0xba, 0xd9)),
+        pack("<I", flags),
+        self$id$bytes(),
+        serialize_bytes(self$first_name),
+        serialize_bytes(self$last_name),
+        serialize_bytes(self$phone),
+        if (!is.null(self$note)) self$note$bytes() else raw(0)
+      )
+    },
+    serialize = function() self$to_bytes()
   ),
   private = list(
-    #  Convert integer to little-endian raw vector of given size (bytes)
-    int_to_le_raw = function(x, size = 4L) {
-      xi <- as.integer(x)
-      v <- raw(size)
-      for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
-      }
-      v
-    },
-
-    #  Serialize an R string to TL string bytes (per Telegram TL encoding)
-    serialize_string_tl = function(s) {
-      if (is.null(s)) {
-        return(raw(0))
-      }
-      sb <- charToRaw(enc2utf8(as.character(s)))
-      ln <- length(sb)
-      if (ln < 254L) {
-        header <- as.raw(ln)
-        payload <- sb
-        total <- 1 + ln
-      } else {
-        header <- as.raw(c(
-          254L,
-          as.raw(bitwAnd(ln, 0xff)),
-          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
-        ))
-        payload <- sb
-        total <- 4 + ln
-      }
-      pad_len <- (4L - (total %% 4L)) %% 4L
-      padding <- if (pad_len > 0L) as.raw(rep(0, pad_len)) else raw(0)
-      c(header, payload, padding)
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      self$add_phone_privacy_exception <- bitwAnd(flags, 1L) != 0
+      self$id <- reader$tgread_object()
+      self$first_name <- reader$tgread_string()
+      self$last_name <- reader$tgread_string()
+      self$phone <- reader$tgread_string()
+      self$note <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
+      self
     }
   ),
-  active = list(),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
-# Create AddContactRequest from reader
-# @name AddContactRequest_from_reader
-#
-# @param reader object with methods read_int(), tgread_object(), tgread_string()
-# @return AddContactRequest
-AddContactRequest$from_reader <- function(reader) {
-  flagsVal <- reader$read_int()
-  addPhonePrivacyExceptionFlag <- bitwAnd(flagsVal, 1L) != 0L
-  id_val <- reader$tgread_object()
-  firstNameVal <- reader$tgread_string()
-  lastNameVal <- reader$tgread_string()
-  phoneVal <- reader$tgread_string()
-  AddContactRequest$new(
-    id = id_val,
-    first_name = firstNameVal,
-    last_name = lastNameVal,
-    phone = phoneVal,
-    add_phone_privacy_exception = addPhonePrivacyExceptionFlag
-  )
-}
-
-
-#  BlockRequest
-# 
-#  R6 representation of the TL request: BlockRequest
-# 
-# 
-#  @description
-#  Methods:
-#  - initialize(id, my_stories_from = NULL): create new request
-#  - resolve(client, utils): resolve id into input_peer using client and utils
-#  - to_list(): return a list representation suitable for JSON/dumping
-#  - to_bytes(): return raw vector of bytes for the TL request
-#  @export
-#  @noRd
-#  @noRd
 BlockRequest <- R6::R6Class(
   "BlockRequest",
   inherit = TLRequest,
