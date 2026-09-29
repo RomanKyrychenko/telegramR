@@ -128,7 +128,7 @@ test_that("GetChatsRequest covers 64-bit id vectors", {
   expect_equal(
     messages_call_method_with_self(GetChatsRequest$public_methods$bytes, self_obj),
     c(
-      as.raw(c(0x49, 0xe9, 0x52, 0x8f)),
+      as.raw(c(0x8f, 0x52, 0xe9, 0x49)),
       as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
       pack("<i", 2L),
       pack("<q", 1),

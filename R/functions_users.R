@@ -254,7 +254,7 @@ GetSavedMusicRequest <- R6::R6Class(
       writeBin(as.integer(self$limit), con, size = 4, endian = "little")
 
       # hash (int64 little-endian). Represented as numeric in R; may lose precision for very large values.
-      writeBin(as.numeric(self$hash), con, size = 8, endian = "little")
+      writeBin(packInt64(self$hash), con)
 
       rawConnectionValue(con)
     },

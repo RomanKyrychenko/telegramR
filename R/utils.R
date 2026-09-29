@@ -137,34 +137,22 @@ pack <- function(format, ...) {
       writeBin(as.integer(v), con, size = 4, endian = "little")
     } else if (fmt == "I") { # 4-byte unsigned int
       writeBin(as.integer(v), con, size = 4, endian = "little")
-    } else if (fmt == "q") { # 8-byte signed long
-      # Use gmp for 64-bit if it's large, but writeBin works for numerics too
-      if (inherits(v, "bigz")) {
-        # Normalize to unsigned representation for packing
-        if (v < 0) v <- v + gmp::as.bigz("18446744073709551616") # 2^64
-        hex <- as.character(v, b = 16)
-        hex <- sub("^0x", "", hex)
-        if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
-        bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
-        bytes <- rev(bytes) # little endian
-        if (length(bytes) < 8) bytes <- c(bytes, rep(as.raw(0), 8 - length(bytes)))
-        writeBin(bytes[1:8], con)
-      } else {
-        writeBin(as.numeric(v), con, size = 8, endian = "little")
+    } else if (fmt == "q" || fmt == "Q") { # 8-byte long (signed/unsigned)
+      # writeBin(<double>, size = 8) emits an IEEE-754 double, not an integer,
+      # which corrupts 64-bit ids. Encode every value as a true int64: bigz
+      # keeps full precision; plain numerics are coerced without scientific
+      # notation.
+      if (!inherits(v, "bigz")) {
+        v <- gmp::as.bigz(if (is.character(v)) v else sprintf("%.0f", as.numeric(v)))
       }
-    } else if (fmt == "Q") { # 8-byte unsigned long
-      if (inherits(v, "bigz")) {
-        if (v < 0) v <- v + gmp::as.bigz("18446744073709551616") # 2^64
-        hex <- as.character(v, b = 16)
-        hex <- sub("^0x", "", hex)
-        if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
-        bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
-        bytes <- rev(bytes) # little endian
-        if (length(bytes) < 8) bytes <- c(bytes, rep(as.raw(0), 8 - length(bytes)))
-        writeBin(bytes[1:8], con)
-      } else {
-        writeBin(as.numeric(v), con, size = 8, endian = "little")
-      }
+      if (v < 0) v <- v + gmp::as.bigz("18446744073709551616") # 2^64
+      hex <- as.character(v, b = 16)
+      hex <- sub("^0x", "", hex)
+      if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
+      bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
+      bytes <- rev(bytes) # little endian
+      if (length(bytes) < 8) bytes <- c(bytes, rep(as.raw(0), 8 - length(bytes)))
+      writeBin(bytes[1:8], con)
     } else if (fmt == "f") { # 4-byte float
       writeBin(as.numeric(v), con, size = 4, endian = "little")
     } else if (fmt == "d") { # 8-byte double
@@ -290,7 +278,8 @@ get_display_name <- function(entity) {
 entity_type <- function(entity) {
   if (inherits(entity, c(
     "User", "UserEmpty", "InputUser", "InputPeerUser", "PeerUser",
-    "InputPeerUserFromMessage", "InputUserFromMessage"
+    "InputPeerUserFromMessage", "InputUserFromMessage",
+    "InputPeerSelf", "InputUserSelf", "UserFull"
   ))) {
     return(EntityType$USER)
   }
@@ -1402,7 +1391,7 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
 
   # Guess MIME type if not provided
   if (is.null(mime_type)) {
-    mime_type <- mimetypes$guess_type(name)[[1]]
+    mime_type <- tryCatch(unname(mime::guess_type(name)), error = function(e) "application/octet-stream")
   }
 
   # Initialize attributes list
@@ -1483,7 +1472,7 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
     mime_type <- "application/octet-stream"
   }
 
-  return(list(attributes_list, mime_type))
+  return(list(attributes = attributes_list, mime_type = mime_type))
 }
 
 
@@ -1689,7 +1678,7 @@ is_gif <- function(file) {
 #  @return A logical value indicating whether the file is audio.
 is_audio <- function(file) {
   ext <- get_extension(file)
-  if (!ext) {
+  if (!nzchar(ext)) {
     metadata <- get_metadata(file)
     if (!is.null(metadata) && metadata$has("mime_type")) {
       return(startsWith(metadata$get("mime_type"), "audio/"))
@@ -1698,7 +1687,7 @@ is_audio <- function(file) {
     }
   } else {
     dummy_file <- paste0("a", ext)
-    mime_type <- mimetypes$guess_type(dummy_file)[[1]]
+    mime_type <- tryCatch(unname(mime::guess_type(dummy_file)), error = function(e) "")
     return(startsWith(mime_type %||% "", "audio/"))
   }
 }
@@ -1712,7 +1701,7 @@ is_audio <- function(file) {
 #  @return A logical value indicating whether the file is video.
 is_video <- function(file) {
   ext <- get_extension(file)
-  if (!ext) {
+  if (!nzchar(ext)) {
     metadata <- get_metadata(file)
     if (!is.null(metadata) && metadata$has("mime_type")) {
       return(startsWith(metadata$get("mime_type"), "video/"))
@@ -1721,7 +1710,7 @@ is_video <- function(file) {
     }
   } else {
     dummy_file <- paste0("a", ext)
-    mime_type <- mimetypes$guess_type(dummy_file)[[1]]
+    mime_type <- tryCatch(unname(mime::guess_type(dummy_file)), error = function(e) "")
     return(startsWith(mime_type %||% "", "video/"))
   }
 }
@@ -2243,8 +2232,8 @@ pack_bot_file_id <- function(file) {
     con <- rawConnection(raw(0), "wb")
     writeBin(as.integer(file_type), con, size = 4, endian = "little")
     writeBin(as.integer(file$dc_id), con, size = 4, endian = "little")
-    writeBin(as.integer(file$id), con, size = 8, endian = "little")
-    writeBin(as.integer(file$access_hash), con, size = 8, endian = "little")
+    writeBin(packInt64(file$id), con)
+    writeBin(packInt64(file$access_hash), con)
     writeBin(as.integer(2), con, size = 1, endian = "little")
     data <- rawConnectionValue(con)
     close(con)
@@ -2269,10 +2258,10 @@ pack_bot_file_id <- function(file) {
     con <- rawConnection(raw(0), "wb")
     writeBin(as.integer(2), con, size = 4, endian = "little")
     writeBin(as.integer(file$dc_id), con, size = 4, endian = "little")
-    writeBin(as.integer(file$id), con, size = 8, endian = "little")
-    writeBin(as.integer(file$access_hash), con, size = 8, endian = "little")
-    writeBin(as.integer(size$volume_id), con, size = 8, endian = "little")
-    writeBin(as.integer(0), con, size = 8, endian = "little")
+    writeBin(packInt64(file$id), con)
+    writeBin(packInt64(file$access_hash), con)
+    writeBin(packInt64(size$volume_id), con)
+    writeBin(packInt64(0), con)
     writeBin(as.integer(size$local_id), con, size = 4, endian = "little")
     writeBin(as.integer(2), con, size = 1, endian = "little")
     data <- rawConnectionValue(con)

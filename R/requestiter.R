@@ -89,7 +89,8 @@ RequestIter <- R6::R6Class(
         if (is.null(item)) {
           break
         }
-        result <- c(result, item)
+        # Wrap each item: c() would splice list-like items into the result.
+        result <- c(result, list(item))
       }
       return(result)
     },

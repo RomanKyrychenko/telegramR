@@ -207,7 +207,7 @@ GetBoostsStatusRequest <- R6::R6Class(
   "GetBoostsStatusRequest",
   public = list(
     #  @field CONSTRUCTOR_ID Constructor ID for the request
-    CONSTRUCTOR_ID = 0x061f2f04, # note: bytes b'a\x1f/\x04' -> 0x61 0x1f 0x2f 0x04, but integer shown here for reference
+    CONSTRUCTOR_ID = 0x042f1f61,
 
     #  @field SUBCLASS_OF_ID Subclass ID for the request
     SUBCLASS_OF_ID = 0xc31b1ab9,

@@ -641,7 +641,12 @@ IDsIter <- R6::R6Class(
         # Validate that the message belongs to the requested entity if from_id is known
         if (!is.null(from_id) && !is.null(msg)) {
           peer_id <- tryCatch(msg$peer_id, error = function(e) NULL)
-          if (!is.null(peer_id) && !identical(peer_id, from_id)) {
+          # Compare by marked peer id: R6 objects are never identical()
+          same_peer <- tryCatch(
+            identical(as.character(get_peer_id(peer_id)), as.character(get_peer_id(from_id))),
+            error = function(e) TRUE
+          )
+          if (!is.null(peer_id) && !same_peer) {
             msg <- NULL
           }
         }

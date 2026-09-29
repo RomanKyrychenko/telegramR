@@ -553,7 +553,7 @@ LoadAsyncGraphRequest <- R6::R6Class(
       }
       if (!is.null(self$x)) {
         # write 8-byte little-endian integer (may be written as double)
-        writeBin(as.numeric(self$x), con, size = 8, endian = "little")
+        writeBin(packInt64(self$x), con)
       }
       rawConnectionValue(con)
     },

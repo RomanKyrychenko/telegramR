@@ -3,22 +3,10 @@
 #  Internal helper to pack 64-bit integers in little-endian.
 #  Uses numeric arithmetic (good for offsets/file sizes within 2^53).
 .pack_int64_le_safe <- function(x) {
-  if (inherits(x, "bigz")) {
-    x <- as.numeric(x)
-  }
-  if (length(x) != 1 || is.na(x)) {
-    x <- 0
-  }
-  if (x < 0) {
-    x <- x + 2^64
-  }
-  low <- as.integer(x %% 2^32)
-  high <- as.integer(floor(x / 2^32))
-  con <- rawConnection(raw(), "wb")
-  on.exit(close(con))
-  writeBin(low, con, size = 4L, endian = "little")
-  writeBin(high, con, size = 4L, endian = "little")
-  rawConnectionValue(con)
+  # Delegate to packInt64(): correct for numeric, bigz and character ids,
+  # including values above 2^31 that as.integer() would turn into NA.
+  if (length(x) != 1 || (is.numeric(x) && is.na(x))) x <- 0
+  packInt64(x)
 }
 # 
 #  Represents the TL request upload.GetCdnFileRequest.
@@ -85,24 +73,8 @@ GetCdnFileRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("file_token must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      if (len > 0) writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -166,24 +138,8 @@ GetCdnFileHashesRequest <- R6::R6Class(
     constructor_id = as.raw(c(0x31, 0x3f, 0xdc, 0x91)),
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("file_token must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      if (len > 0) writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -355,24 +311,8 @@ GetFileHashesRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("bytes must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      if (len > 0) writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -454,24 +394,8 @@ GetWebFileRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("bytes must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      if (len > 0) writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -536,24 +460,8 @@ ReuploadCdnFileRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("bytes must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      if (len > 0) writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -637,24 +545,8 @@ SaveBigFilePartRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("bytes_data must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )
@@ -731,24 +623,8 @@ SaveFilePartRequest <- R6::R6Class(
     pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
     pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
-      if (is.raw(b)) {
-        b_raw <- b
-      } else if (is.character(b)) {
-        b_raw <- charToRaw(b)
-      } else if (is.numeric(b) || is.integer(b)) {
-        b_raw <- as.raw(as.integer(b) %% 256)
-      } else {
-        stop("bytes_data must be raw, integer or character")
-      }
-
-      len <- length(b_raw)
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(len), con, size = 4L, endian = "little")
-      writeBin(b_raw, con, size = 1L)
-      pad <- (4 - (len %% 4)) %% 4
-      if (pad > 0) writeBin(rep(as.raw(0x00), pad), con, size = 1L)
-      rawConnectionValue(con)
+      b_raw <- if (is.raw(b)) b else if (is.character(b)) charToRaw(b) else if (is.numeric(b)) as.raw(as.integer(b) %% 256) else stop("bytes_data must be raw, character or numeric")
+      serialize_bytes(b_raw)
     }
   )
 )

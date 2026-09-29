@@ -238,6 +238,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #  @field time_offset Time offset with server
     time_offset = NULL,
 
+    #  @field dc_id Data centre this sender is connected to (set for exported senders).
+    dc_id = NULL,
+
     # disconnected = future::future(NULL, seed = TRUE),
 
     #  @description
@@ -473,8 +476,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$user_connected <- FALSE
         return(future::future(NULL))
       }
-      result <- future(private$disconnect())
-      return(result)
+      # Run synchronously: closing the socket inside a future() triggers
+      # future's modified-connections warning. Return a resolved future
+      # so callers can still future::value() the result.
+      private$.disconnect()
+      return(future::future(NULL))
     },
 
     #  @description
@@ -827,6 +833,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     },
     .connect = function() {
       private$log$info("Connecting to %s...", private$connection$to_string())
+      # Keep the encryption state bound to the current auth_key object in
+      # case a caller replaced self$auth_key (e.g. during a DC switch).
+      if (!is.null(private$state) && !identical(private$state$auth_key, self$auth_key)) {
+        private$state$auth_key <- self$auth_key
+      }
 
       connected <- FALSE
       last_connect_error <- NULL

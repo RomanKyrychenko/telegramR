@@ -3469,7 +3469,7 @@ SetDiscussionGroupRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xb2, 0x5b, 0x58, 0x40)),
+        as.raw(c(0xb2, 0x2b, 0x58, 0x40)),
         self$broadcast$bytes(),
         self$group$bytes()
       )

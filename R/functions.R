@@ -100,7 +100,7 @@ DestroySessionRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # NOTE: writeBin on numeric with size=8 uses IEEE754 double; for exact 64-bit two's-complement
       # preservation, replace with a dedicated 64-bit writer.
-      writeBin(as.numeric(self$session_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$session_id), conn)
       rawConnectionValue(conn)
     }
   ),
@@ -518,7 +518,7 @@ InvokeAfterMsgRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # NOTE: writeBin on numeric with size=8 uses IEEE754 double; if you need exact
       # two's-complement 64-bit integer, replace this with a proper 64-bit writer.
-      writeBin(as.numeric(self$msg_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$msg_id), conn)
       # nested query bytes: prefer query$to_raw(), else if raw, write directly
       if (is.raw(self$query)) {
         if (length(self$query) > 0) writeBin(self$query, conn)
@@ -632,7 +632,7 @@ InvokeAfterMsgsRequest <- R6::R6Class(
         for (v in self$msg_ids) {
           # NOTE: writeBin on numeric with size=8 uses IEEE754 double;
           # for exact 64-bit representation, replace with a proper 64-bit writer.
-          writeBin(as.numeric(v), conn, size = 8, endian = "little")
+          writeBin(packInt64(v), conn)
         }
       }
       # nested query bytes: prefer query$to_raw(), else if raw, write directly
@@ -1416,7 +1416,7 @@ InvokeWithTakeoutRequest <- R6::R6Class(
       on.exit(close(conn))
       writeBin(constructor_bytes, conn)
       # write takeout_id as 8-byte little-endian (placeholder via numeric)
-      writeBin(as.numeric(self$takeout_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$takeout_id), conn)
       # write nested query bytes: prefer query$to_raw(), else if raw, write directly
       if (is.raw(self$query)) {
         if (length(self$query) > 0) writeBin(self$query, conn)
@@ -1600,7 +1600,7 @@ PingRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # NOTE: writeBin on numeric with size=8 uses IEEE754 double; if you need exact
       # two's-complement 64-bit integer, replace this with a proper 64-bit writer.
-      writeBin(as.numeric(self$ping_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$ping_id), conn)
       rawConnectionValue(conn)
     }
   ),
@@ -1679,7 +1679,7 @@ PingDelayDisconnectRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # NOTE: writeBin on numeric with size=8 uses IEEE754 double; if you need exact
       # two's-complement 64-bit integer, replace this with a proper 64-bit writer.
-      writeBin(as.numeric(self$ping_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$ping_id), conn)
       # write 4-byte integer for disconnect_delay
       writeBin(as.integer(self$disconnect_delay), conn, size = 4, endian = "little")
       rawConnectionValue(conn)
@@ -1817,7 +1817,7 @@ ReqDHParamsRequest <- R6::R6Class(
       write_tl_bytes(self$p)
       write_tl_bytes(self$q)
       # public_key_fingerprint as 8-byte little endian
-      writeBin(as.numeric(self$public_key_fingerprint), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$public_key_fingerprint), conn)
       write_tl_bytes(self$encrypted_data)
 
       rawConnectionValue(conn)
@@ -2055,7 +2055,7 @@ RpcDropAnswerRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # NOTE: writeBin on numeric with size=8 uses IEEE754 double; if you need exact
       # two's-complement 64-bit integer, replace this with a proper 64-bit writer.
-      writeBin(as.numeric(self$req_msg_id), conn, size = 8, endian = "little")
+      writeBin(packInt64(self$req_msg_id), conn)
       rawConnectionValue(conn)
     }
   ),

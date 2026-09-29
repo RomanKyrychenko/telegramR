@@ -45,7 +45,7 @@ AcceptAuthorizationRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x73, 0x4c, 0xed, 0xf3)),
-        writeBin(as.integer(self$botId), raw(), size = 8, endian = "little"),
+        packInt64(self$botId),
         self$serialize_bytes(self$scope),
         self$serialize_bytes(self$publicKey),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -166,7 +166,7 @@ ChangeAuthorizationSettingsRequest <- R6::R6Class(
       c(
         as.raw(c(0x62, 0x84, 0xf4, 0x40)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little"),
+        packInt64(self$hash),
         if (!is.null(self$encryptedRequestsDisabled)) if (self$encryptedRequestsDisabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(),
         if (!is.null(self$callRequestsDisabled)) if (self$callRequestsDisabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw()
       )
@@ -1101,7 +1101,7 @@ GetAuthorizationFormRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x7a, 0x59, 0x29, 0xa9)),
-        writeBin(as.integer(self$botId), raw(), size = 8, endian = "little"),
+        packInt64(self$botId),
         self$serialize_bytes(self$scope),
         self$serialize_bytes(self$publicKey)
       )
@@ -1387,7 +1387,7 @@ GetChannelDefaultEmojiStatusesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xd5, 0xa7, 0x27, 0x77)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1439,7 +1439,7 @@ GetChannelRestrictedStatusEmojisRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xd5, 0xe0, 0xa9, 0x35)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1491,7 +1491,7 @@ GetChatThemesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x89, 0xde, 0x38, 0xd6)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1544,7 +1544,7 @@ GetCollectibleEmojiStatusesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x43, 0x45, 0x7b, 0x2e)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1720,7 +1720,7 @@ GetDefaultBackgroundEmojisRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xce, 0xb9, 0x0a, 0xa6)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1772,7 +1772,7 @@ GetDefaultEmojiStatusesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x86, 0x33, 0x75, 0xd6)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1824,7 +1824,7 @@ GetDefaultGroupPhotoEmojisRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xae, 0x60, 0x58, 0x91)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -1877,7 +1877,7 @@ GetDefaultProfilePhotoEmojisRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x28, 0x03, 0x75, 0xe2)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2370,7 +2370,7 @@ GetReactionsNotifySettingsRequest <- R6::R6Class(
     #  @description Serialize to bytes.
     #  @return Raw bytes.
     bytes = function() {
-      as.raw(c(0x4c, 0xd6, 0xdd, 0x06))
+      as.raw(c(0x4c, 0x65, 0xdd, 0x06))
     },
 
     #  @description Create from reader.
@@ -2421,7 +2421,7 @@ GetRecentEmojiStatusesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x05, 0x81, 0x57, 0x0f)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2473,7 +2473,7 @@ GetSavedMusicIdsRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xaf, 0x5f, 0x9d, 0xe0)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2525,7 +2525,7 @@ GetSavedRingtonesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x88, 0x22, 0x90, 0xe1)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2698,7 +2698,7 @@ GetThemesRequest <- R6::R6Class(
       c(
         as.raw(c(0x58, 0xe4, 0x06, 0x72)),
         self$serialize_bytes(self$format),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2817,7 +2817,7 @@ GetUniqueGiftChatThemesRequest <- R6::R6Class(
         as.raw(c(0x9f, 0xef, 0x74, 0xfe)),
         writeBin(as.integer(self$offset), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$limit), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -2924,7 +2924,7 @@ GetWallPapersRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x36, 0x7d, 0x96, 0x07)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -3043,7 +3043,7 @@ InitTakeoutSessionRequest <- R6::R6Class(
       c(
         as.raw(c(0xb0, 0xea, 0xf3, 0x8e)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        if (!is.null(self$fileMaxSize) && self$fileMaxSize != 0) writeBin(as.integer(self$fileMaxSize), raw(), size = 8, endian = "little") else raw()
+        if (!is.null(self$fileMaxSize) && self$fileMaxSize != 0) packInt64(self$fileMaxSize) else raw()
       )
     },
 
@@ -3315,7 +3315,7 @@ RegisterDeviceRequest <- R6::R6Class(
         self$serialize_bytes(self$secret),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$otherUids), raw(), size = 4, endian = "little"),
-        do.call(c, lapply(self$otherUids, function(x) writeBin(as.integer(x), raw(), size = 8, endian = "little")))
+        do.call(c, lapply(self$otherUids, function(x) packInt64(x)))
       )
     },
 
@@ -3623,7 +3623,7 @@ ResetAuthorizationRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xbc, 0xf3, 0x77, 0xdf)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -3799,7 +3799,7 @@ ResetWebAuthorizationRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xef, 0xb9, 0x01, 0x2d)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     },
 
@@ -4203,7 +4203,7 @@ SaveSecureValueRequest <- R6::R6Class(
       c(
         as.raw(c(0x1d, 0xe3, 0x9f, 0x89)),
         self$value$bytes(),
-        writeBin(as.integer(self$secureSecretId), raw(), size = 8, endian = "little")
+        packInt64(self$secureSecretId)
       )
     },
 
@@ -5206,7 +5206,7 @@ UnregisterDeviceRequest <- R6::R6Class(
         self$serialize_bytes(self$token),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(as.integer(length(self$otherUids)), raw(), size = 4, endian = "little"),
-        do.call(c, lapply(self$otherUids, function(x) writeBin(as.numeric(x), raw(), size = 8, endian = "little")))
+        do.call(c, lapply(self$otherUids, function(x) packInt64(x)))
       )
     },
 
@@ -5576,7 +5576,7 @@ UpdateColorRequest <- R6::R6Class(
         as.raw(c(0x5d, 0xa1, 0xef, 0x7c)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$color)) writeBin(as.integer(self$color), raw(), size = 4, endian = "little") else raw(),
-        if (!is.null(self$backgroundEmojiId)) writeBin(as.integer(self$backgroundEmojiId), raw(), size = 8, endian = "little") else raw()
+        if (!is.null(self$backgroundEmojiId)) packInt64(self$backgroundEmojiId) else raw()
       )
     },
 

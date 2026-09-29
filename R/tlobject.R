@@ -327,6 +327,14 @@ TLObject <- R6::R6Class(
     #  Serialize data to bytes.
     #  @param data The data to be serialized.
     #  @return A raw vector representing the serialized data.
+    #  @description
+    #  Alias of serialize_bytes(); the generated TL classes call
+    #  self$serializebytes() in ~300 places.
+    #  @param data Raw vector or string to serialize.
+    serializebytes = function(data) {
+      self$serialize_bytes(data)
+    },
+
     serialize_bytes = function(data) {
       if (!is.raw(data)) {
         if (is.character(data)) {
@@ -411,6 +419,24 @@ TLObject <- R6::R6Class(
     #  @return A raw vector representing the byte array.
     .bytes = function() {
       stop("Not implemented")
+    },
+
+    #  @description
+    #  Serialize to bytes. Generated classes define either bytes() or
+    #  to_bytes(); these base methods delegate to whichever a subclass
+    #  actually implements, so callers can use either name on any TLObject.
+    #  @return A raw vector.
+    to_bytes = function() {
+      if (.telegramR_defines(self, "bytes")) return(self$bytes())
+      stop(sprintf("Not implemented: %s defines neither bytes() nor to_bytes()", class(self)[1]))
+    },
+
+    #  @description
+    #  Serialize to bytes (alias of to_bytes()). See to_bytes().
+    #  @return A raw vector.
+    bytes = function() {
+      if (.telegramR_defines(self, "to_bytes")) return(self$to_bytes())
+      stop(sprintf("Not implemented: %s defines neither bytes() nor to_bytes()", class(self)[1]))
     },
 
     #  @description
@@ -961,3 +987,25 @@ InputPeerEmpty <- R6::R6Class(
     }
   )
 )
+
+
+# TRUE if `obj` overrides `method` with its own implementation (i.e. the bound
+# method differs from TLObject's base delegator). Used by TLObject$to_bytes()/
+# bytes() to delegate to a real implementation without infinite recursion.
+# Works for any class, including ad-hoc R6 subclasses defined outside the package.
+.telegramR_defines <- function(obj, method) {
+  f <- tryCatch(obj[[method]], error = function(e) NULL)
+  if (!is.function(f)) return(FALSE)
+  base_f <- TLObject$public_methods[[method]]
+  if (is.null(base_f)) return(TRUE)
+  !identical(body(f), body(base_f))
+}
+
+# Serialize an R list as a TL Vector<T>: 0x1cb5c415 + count + each item's bytes().
+.telegramR_tl_vector <- function(items) {
+  items <- items %||% list()
+  c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(items)),
+    if (length(items) > 0) do.call(c, lapply(items, function(e) {
+      if (is.raw(e)) e else if (is.function(e$bytes)) e$bytes() else e$to_bytes()
+    })) else raw(0))
+}

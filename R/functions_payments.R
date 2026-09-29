@@ -343,7 +343,7 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$canceled)) 0 else 1
-      canceled_bytes <- if (is.null(self$canceled)) raw() else if (self$canceled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
+      canceled_bytes <- if (is.null(self$canceled)) raw() else if (self$canceled) as.raw(c(0x78, 0x08, 0x77, 0xc7)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       c(
         as.raw(c(0x78, 0x08, 0x77, 0xc7)),
         pack("<I", flags),
@@ -1980,7 +1980,7 @@ GetStarGiftsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x90, 0x53, 0x56, 0xc4)),
+        as.raw(c(0x90, 0x35, 0x56, 0xc4)),
         pack("<i", self$hash)
       )
     },

@@ -1050,7 +1050,7 @@ LeaveChatlistRequest <- R6::R6Class(
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
       parts <- list()
-      parts[[length(parts) + 1]] <- as.raw(c(0x3a, 0xe1, 0x7f, 0x74)) # b':\xe1\xfat'
+      parts[[length(parts) + 1]] <- as.raw(c(0x3a, 0xe1, 0xfa, 0x74)) # b':\xe1\xfat'
       if (!is.null(self$chatlist) && is.function(self$chatlist$bytes)) {
         parts[[length(parts) + 1]] <- self$chatlist$bytes()
       } else {

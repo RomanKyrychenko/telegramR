@@ -275,7 +275,7 @@ AttachMenuBot <- R6::R6Class(
       result <- list(
         as.raw(c(0xfe, 0x8d, 0x0d, 0xd9)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$bot_id), raw(), size = 8, endian = "little"),
+        packInt64(self$bot_id),
         self$serializebytes(self$short_name)
       )
 
@@ -549,7 +549,7 @@ AttachMenuBots <- R6::R6Class(
     bytes = function() {
       return(do.call(c, list(
         as.raw(c(0xc0, 0x01, 0x43, 0x3c)),
-        writeBin(as.numeric(self$hash), raw(), size = 8, endian = "little"),
+        packInt64(self$hash),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(as.integer(length(self$bots)), raw(), size = 4, endian = "little"),
         do.call(c, lapply(self$bots, function(x) x$bytes())),
@@ -1057,7 +1057,7 @@ Authorization <- R6::R6Class(
       return(do.call(c, list(
         as.raw(c(0x1d, 0xd6, 0x01, 0xad)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$hash), raw(), size = 8, endian = "little"),
+        packInt64(self$hash),
         self$serializebytes(self$device_model),
         self$serializebytes(self$platform),
         self$serializebytes(self$system_version),
@@ -1221,8 +1221,8 @@ AutoDownloadSettings <- R6::R6Class(
         as.raw(c(0x28, 0x76, 0xa5, 0xba)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$photo_size_max), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$video_size_max), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$file_size_max), raw(), size = 8, endian = "little"),
+        packInt64(self$video_size_max),
+        packInt64(self$file_size_max),
         writeBin(as.integer(self$video_upload_maxbitrate), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$small_queue_active_operations_max), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$large_queue_active_operations_max), raw(), size = 4, endian = "little")
@@ -1385,7 +1385,7 @@ AutoSaveSettings <- R6::R6Class(
 
       if (!is.null(self$video_max_size)) {
         result <- append(result, list(
-          writeBin(as.numeric(self$video_max_size), raw(), size = 8, endian = "little")
+          packInt64(self$video_max_size)
         ))
       }
 
@@ -1486,23 +1486,23 @@ AvailableEffect <- R6::R6Class(
       result <- list(
         as.raw(c(0x7e, 0xe2, 0xc3, 0x93)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
         self$serializebytes(self$emoticon)
       )
 
       if (!is.null(self$static_icon_id)) {
         result <- append(result, list(
-          writeBin(as.numeric(self$static_icon_id), raw(), size = 8, endian = "little")
+          packInt64(self$static_icon_id)
         ))
       }
 
       result <- append(result, list(
-        writeBin(as.numeric(self$effect_sticker_id), raw(), size = 8, endian = "little")
+        packInt64(self$effect_sticker_id)
       ))
 
       if (!is.null(self$effect_animation_id)) {
         result <- append(result, list(
-          writeBin(as.numeric(self$effect_animation_id), raw(), size = 8, endian = "little")
+          packInt64(self$effect_animation_id)
         ))
       }
 
@@ -1760,7 +1760,7 @@ BadMsgNotification <- R6::R6Class(
     bytes = function() {
       return(do.call(c, list(
         as.raw(c(0x11, 0xf8, 0xef, 0xa7)),
-        writeBin(as.numeric(self$bad_msg_id), raw(), size = 8, endian = "little"),
+        packInt64(self$bad_msg_id),
         writeBin(as.integer(self$bad_msg_seqno), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$error_code), raw(), size = 4, endian = "little")
       )))
@@ -1836,10 +1836,10 @@ BadServerSalt <- R6::R6Class(
     bytes = function() {
       return(do.call(c, list(
         as.raw(c(0x7b, 0x44, 0xab, 0xed)),
-        writeBin(as.numeric(self$bad_msg_id), raw(), size = 8, endian = "little"),
+        packInt64(self$bad_msg_id),
         writeBin(as.integer(self$bad_msg_seqno), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$error_code), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$new_server_salt), raw(), size = 8, endian = "little")
+        packInt64(self$new_server_salt)
       )))
     }
   ),
@@ -2190,10 +2190,10 @@ BindAuthKeyInner <- R6::R6Class(
     bytes = function() {
       return(do.call(c, list(
         as.raw(c(0x65, 0xf7, 0xa3, 0x75)),
-        writeBin(as.numeric(self$nonce), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$temp_auth_key_id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$perm_auth_key_id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$temp_session_id), raw(), size = 8, endian = "little"),
+        packInt64(self$nonce),
+        packInt64(self$temp_auth_key_id),
+        packInt64(self$perm_auth_key_id),
+        packInt64(self$temp_session_id),
         self$serialize_datetime(self$expires_at)
       )))
     }
@@ -2407,7 +2407,7 @@ Boost <- R6::R6Class(
       )
 
       if (!is.null(self$user_id)) {
-        result <- append(result, list(writeBin(as.numeric(self$user_id), raw(), size = 8, endian = "little")))
+        result <- append(result, list(packInt64(self$user_id)))
       }
       if (!is.null(self$giveaway_msg_id)) {
         result <- append(result, list(writeBin(as.integer(self$giveaway_msg_id), raw(), size = 4, endian = "little")))
@@ -2425,7 +2425,7 @@ Boost <- R6::R6Class(
         result <- append(result, list(writeBin(as.integer(self$multiplier), raw(), size = 4, endian = "little")))
       }
       if (!is.null(self$stars)) {
-        result <- append(result, list(writeBin(as.numeric(self$stars), raw(), size = 8, endian = "little")))
+        result <- append(result, list(packInt64(self$stars)))
       }
 
       return(do.call(c, result))
@@ -2571,8 +2571,8 @@ BotApp <- R6::R6Class(
       result <- list(
         as.raw(c(0xd6, 0xd1, 0xfc, 0x95)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
+        packInt64(self$access_hash),
         self$serializebytes(self$short_name),
         self$serializebytes(self$title),
         self$serializebytes(self$description),
@@ -2583,7 +2583,7 @@ BotApp <- R6::R6Class(
         result <- append(result, list(self$document$`bytes`()))
       }
 
-      result <- append(result, list(writeBin(as.numeric(self$hash), raw(), size = 8, endian = "little")))
+      result <- append(result, list(packInt64(self$hash)))
 
       return(do.call(c, result))
     }
@@ -2874,7 +2874,7 @@ BotBusinessConnection <- R6::R6Class(
         as.raw(c(0xf5, 0xb2, 0x34, 0x8f)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         self$serializebytes(self$connection_id),
-        writeBin(as.numeric(self$user_id), raw(), size = 8, endian = "little"),
+        packInt64(self$user_id),
         writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
         self$serialize_datetime(self$date)
       )
@@ -3450,7 +3450,7 @@ BotInfo <- R6::R6Class(
       )
 
       if (!is.null(self$user_id)) {
-        result <- append(result, list(writeBin(as.numeric(self$user_id), raw(), size = 8, endian = "little")))
+        result <- append(result, list(packInt64(self$user_id)))
       }
       if (!is.null(self$description)) {
         result <- append(result, list(self$serializebytes(self$description)))
@@ -4183,7 +4183,7 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
 
       result <- append(result, list(
         self$serializebytes(self$currency),
-        writeBin(as.numeric(self$total_amount), raw(), size = 8, endian = "little")
+        packInt64(self$total_amount)
       ))
 
       if (!is.null(self$reply_markup)) {
@@ -4935,8 +4935,8 @@ BotVerification <- R6::R6Class(
     serialize = function() {
       result <- c(
         packInt32(self$CONSTRUCTOR_ID),
-        writeBin(self$bot_id, raw(), size = 8, endian = "little"),
-        writeBin(self$icon, raw(), size = 8, endian = "little"),
+        packInt64(self$bot_id),
+        packInt64(self$icon),
         self$serializebytes(self$description)
       )
       result
@@ -5000,7 +5000,7 @@ BotVerifierSettings <- R6::R6Class(
       result <- c(
         packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
-        writeBin(self$icon, raw(), size = 8, endian = "little"),
+        packInt64(self$icon),
         self$serializebytes(self$company)
       )
 
@@ -5290,7 +5290,7 @@ BusinessBotRecipients <- R6::R6Class(
           result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$users), raw(), size = 4, endian = "little"),
-          unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+          unlist(lapply(self$users, function(x) packInt64(x)))
         )
       }
 
@@ -5299,7 +5299,7 @@ BusinessBotRecipients <- R6::R6Class(
           result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$exclude_users), raw(), size = 4, endian = "little"),
-          unlist(lapply(self$exclude_users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+          unlist(lapply(self$exclude_users, function(x) packInt64(x)))
         )
       }
 
@@ -5820,7 +5820,7 @@ BusinessRecipients <- R6::R6Class(
           result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$users), raw(), size = 4, endian = "little"),
-          unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+          unlist(lapply(self$users, function(x) packInt64(x)))
         )
       }
 
@@ -6292,7 +6292,7 @@ Channel <- R6::R6Class("Channel",
       # Simplified - in practice, would need proper binary serialization
       # For now, just return a placeholder
       warning("bytes not fully implemented for R")
-      as.raw(c(0xfe, 0x68, 0x53, 0x55)) # CONSTRUCTOR_ID
+      as.raw(c(0x55, 0x53, 0x68, 0xfe)) # CONSTRUCTOR_ID
     }
   ),
   private = list(
@@ -6463,7 +6463,7 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x1f, 0xad, 0x68, 0xcd))
+      as.raw(c(0xcd, 0x68, 0xad, 0x1f))
     }
   ),
   #  @field class Field.
@@ -6500,7 +6500,7 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x55, 0x18, 0x8a, 0x2e))
+      as.raw(c(0x2e, 0x8a, 0x18, 0x55))
     }
   ),
   #  @field class Field.
@@ -6537,7 +6537,7 @@ ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminL
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xbe, 0x4e, 0x0e, 0xf8))
+      as.raw(c(0xf8, 0x0e, 0x4e, 0xbe))
     }
   ),
   #  @field class Field.
@@ -6571,7 +6571,7 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x3e, 0xa9, 0xfe, 0xb1))
+      as.raw(c(0xb1, 0xfe, 0xa9, 0x3e))
     }
   ),
   #  @field class Field.
@@ -6607,7 +6607,7 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x46, 0xd8, 0x40, 0xab))
+      as.raw(c(0xab, 0x40, 0xd8, 0x46))
     }
   ),
   #  @field class Field.
@@ -6643,7 +6643,7 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x6e, 0x94, 0x1a, 0x38))
+      as.raw(c(0x38, 0x1a, 0x94, 0x6e))
     }
   ),
   #  @field class Field.
@@ -6679,7 +6679,7 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x05, 0x0c, 0x7a, 0xc8))
+      as.raw(c(0xc8, 0x7a, 0x0c, 0x05))
     }
   ),
   #  @field class Field.
@@ -6715,7 +6715,7 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x0e, 0x6b, 0x76, 0xae))
+      as.raw(c(0xae, 0x76, 0x6b, 0x0e))
     }
   ),
   #  @field class Field.
@@ -6751,7 +6751,7 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x57, 0x96, 0xe7, 0x80))
+      as.raw(c(0x80, 0xe7, 0x96, 0x57))
     }
   ),
   #  @field class Field.
@@ -6787,7 +6787,7 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x43, 0x4b, 0xd2, 0xaf))
+      as.raw(c(0xaf, 0xd2, 0x4b, 0x43))
     }
   ),
   #  @field class Field.
@@ -6823,7 +6823,7 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x5e, 0x47, 0x7b, 0x25))
+      as.raw(c(0x25, 0x7b, 0x47, 0x5e))
     }
   ),
   #  @field class Field.
@@ -6859,7 +6859,7 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xb1, 0xc3, 0xca, 0xa7))
+      as.raw(c(0xa7, 0xca, 0xc3, 0xb1))
     }
   ),
   #  @field class Field.
@@ -6895,7 +6895,7 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xe6, 0xdf, 0xb8, 0x25))
+      as.raw(c(0x25, 0xb8, 0xdf, 0xe6))
     }
   ),
   #  @field class Field.
@@ -6931,7 +6931,7 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x6a, 0x4a, 0xfc, 0x38))
+      as.raw(c(0x38, 0xfc, 0x4a, 0x6a))
     }
   ),
   #  @field class Field.
@@ -6967,7 +6967,7 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xf0, 0x4f, 0xb3, 0xa9))
+      as.raw(c(0xa9, 0xb3, 0x4f, 0xf0))
     }
   ),
   #  @field class Field.
@@ -7003,7 +7003,7 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x31, 0xbb, 0x5d, 0x52))
+      as.raw(c(0x52, 0x5d, 0xbb, 0x31))
     }
   ),
   #  @field class Field.
@@ -7035,7 +7035,7 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x58, 0x70, 0x7d, 0x28))
+      as.raw(c(0x28, 0x7d, 0x70, 0x58))
     }
   ),
   #  @field class Field.
@@ -7071,7 +7071,7 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x2d, 0xf5, 0xfc, 0x0a))
+      as.raw(c(0x0a, 0xfc, 0xf5, 0x2d))
     }
   ),
   #  @field class Field.
@@ -7103,7 +7103,7 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x42, 0xe0, 0x47, 0xbb))
+      as.raw(c(0xbb, 0x47, 0xe0, 0x42))
     }
   ),
   #  @field class Field.
@@ -7135,7 +7135,7 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xae, 0x16, 0x89, 0x09))
+      as.raw(c(0x09, 0x89, 0x16, 0xae))
     }
   ),
   #  @field class Field.
@@ -7167,7 +7167,7 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xdb, 0x9f, 0x91, 0x40))
+      as.raw(c(0x40, 0x91, 0x9f, 0xdb))
     }
   ),
   #  @field class Field.
@@ -7203,7 +7203,7 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x70, 0x9b, 0x24, 0x05))
+      as.raw(c(0x05, 0x24, 0x9b, 0x70))
     }
   ),
   #  @field class Field.
@@ -7239,7 +7239,7 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xf0, 0x6f, 0xe2, 0x08))
+      as.raw(c(0x08, 0xe2, 0x6f, 0xf0))
     }
   ),
   #  @field class Field.
@@ -7271,7 +7271,7 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x5a, 0x50, 0xfc, 0xa4))
+      as.raw(c(0xa4, 0xfc, 0x50, 0x5a))
     }
   ),
   #  @field class Field.
@@ -7307,7 +7307,7 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xe9, 0x0e, 0xbb, 0x59))
+      as.raw(c(0x59, 0xbb, 0x0e, 0xe9))
     }
   ),
   #  @field class Field.
@@ -7339,7 +7339,7 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x41, 0x0a, 0x13, 0x4e))
+      as.raw(c(0x4e, 0x13, 0x0a, 0x41))
     }
   ),
   #  @field class Field.
@@ -7371,7 +7371,7 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xe3, 0x1c, 0x34, 0xd8))
+      as.raw(c(0xd8, 0x34, 0x1c, 0xe3))
     }
   ),
   #  @field class Field.
@@ -7398,7 +7398,7 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x18, 0x30, 0x40, 0xd3))
+      as.raw(c(0xd3, 0x40, 0x30, 0x18))
     }
   ),
   #  @field class Field.
@@ -7434,7 +7434,7 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xfe, 0x9f, 0xc1, 0x58))
+      as.raw(c(0x58, 0xc1, 0x9f, 0xfe))
     }
   ),
   #  @field class Field.
@@ -7470,7 +7470,7 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xaf, 0xb6, 0x14, 0x4a))
+      as.raw(c(0x4a, 0x14, 0xb6, 0xaf))
     }
   ),
   #  @field class Field.
@@ -7497,7 +7497,7 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xf8, 0x97, 0x77, 0xf2))
+      as.raw(c(0xf2, 0x77, 0x97, 0xf8))
     }
   ),
   #  @field class Field.
@@ -7529,7 +7529,7 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xf9, 0x24, 0x24, 0xd2))
+      as.raw(c(0xd2, 0x24, 0x24, 0xf9))
     }
   ),
   #  @field class Field.
@@ -7565,7 +7565,7 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x64, 0x64, 0x2d, 0xb3))
+      as.raw(c(0xb3, 0x2d, 0x64, 0x64))
     }
   ),
   #  @field class Field.
@@ -7601,7 +7601,7 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xd5, 0x67, 0x67, 0x10))
+      as.raw(c(0x10, 0x67, 0x67, 0xd5))
     }
   ),
   #  @field class Field.
@@ -7637,7 +7637,7 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xe6, 0xd8, 0x3d, 0x7e))
+      as.raw(c(0x7e, 0x3d, 0xd8, 0xe6))
     }
   ),
   #  @field class Field.
@@ -7669,7 +7669,7 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0xe6, 0x44, 0x29, 0xc0))
+      as.raw(c(0xc0, 0x29, 0x44, 0xe6))
     }
   ),
   #  @field class Field.
@@ -7701,7 +7701,7 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
     },
     bytes = function() {
       warning("bytes not fully implemented for R")
-      as.raw(c(0x3e, 0x7f, 0x68, 0x47))
+      as.raw(c(0x47, 0x68, 0x7f, 0x3e))
     }
   ),
   #  @field class Field.
@@ -7714,6 +7714,7 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7750,6 +7751,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7782,6 +7784,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7814,6 +7817,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7846,6 +7850,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7878,6 +7883,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7910,6 +7916,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7942,6 +7949,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -7974,6 +7982,7 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8006,6 +8015,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8038,6 +8048,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8070,6 +8081,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8102,6 +8114,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8134,6 +8147,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8170,6 +8184,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8202,6 +8217,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
 #  @noRd
 #  @noRd
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8309,6 +8325,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
 #  @noRd
 #  @noRd
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8666,6 +8683,7 @@ ChannelFull <- R6::R6Class("ChannelFull",
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8716,6 +8734,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8752,6 +8771,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8788,6 +8808,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8824,6 +8845,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8860,6 +8882,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8896,6 +8919,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8932,6 +8956,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -8969,6 +8994,7 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9005,6 +9031,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9041,6 +9068,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9077,6 +9105,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9113,6 +9142,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9149,6 +9179,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9189,6 +9220,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
 #  @noRd
 #  @noRd
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9225,6 +9257,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
 #  @noRd
 #  @noRd
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9316,6 +9349,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
 #  @noRd
 #  @noRd
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -9345,8 +9379,8 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
       c(
         writeBin(as.integer(0x17d493d5), raw(), size = 4, endian = "little"),
         writeBin(as.integer((if (is.null(self$broadcast) || !self$broadcast) 0 else 32) | (if (is.null(self$megagroup) || !self$megagroup) 0 else 256) | (if (is.null(self$until_date) || !self$until_date) 0 else 65536)), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
+        packInt64(self$access_hash),
         self$serializebytes(self$title),
         if (is.null(self$until_date) || !self$until_date) raw() else self$serialize_datetime(self$until_date)
       )
@@ -9866,7 +9900,7 @@ ChannelParticipant <- R6::R6Class(
       c(
         as.raw(c(0x19, 0x76, 0x39, 0xcb)),
         writeBin(as.integer(if (is.null(self$subscription_until_date) || identical(self$subscription_until_date, FALSE)) 0 else 1), raw(), size = 4),
-        writeBin(as.numeric(self$user_id), raw(), size = 8),
+        packInt64(self$user_id),
         self$serialize_datetime(self$date),
         if (is.null(self$subscription_until_date) || identical(self$subscription_until_date, FALSE)) raw() else self$serialize_datetime(self$subscription_until_date)
       )
@@ -9948,9 +9982,9 @@ ChannelParticipantAdmin <- R6::R6Class(
       c(
         as.raw(c(0x53, 0xbb, 0xc3, 0x34)),
         writeBin(as.integer(flags), raw(), size = 4),
-        writeBin(as.numeric(self$user_id), raw(), size = 8),
-        if (is.null(self$inviter_id) || identical(self$inviter_id, FALSE)) raw() else writeBin(as.numeric(self$inviter_id), raw(), size = 8),
-        writeBin(as.numeric(self$promoted_by), raw(), size = 8),
+        packInt64(self$user_id),
+        if (is.null(self$inviter_id) || identical(self$inviter_id, FALSE)) raw() else packInt64(self$inviter_id),
+        packInt64(self$promoted_by),
         self$serialize_datetime(self$date),
         self$admin_rights$bytes(),
         if (is.null(self$rank) || identical(self$rank, FALSE)) raw() else self$serializebytes(self$rank)
@@ -10022,7 +10056,7 @@ ChannelParticipantBanned <- R6::R6Class(
         as.raw(c(0x4e, 0x01, 0xf8, 0x6d)),
         writeBin(as.integer(flags), raw(), size = 4),
         self$peer$bytes(),
-        writeBin(as.numeric(self$kicked_by), raw(), size = 8),
+        packInt64(self$kicked_by),
         self$serialize_datetime(self$date),
         self$banned_rights$bytes()
       )
@@ -10077,7 +10111,7 @@ ChannelParticipantCreator <- R6::R6Class(
       b <- c(
         as.raw(c(0xd3, 0x01, 0xe6, 0x2f)),
         writeBin(as.integer(!is.null(self$rank)), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$user_id), raw(), size = 8, endian = "little"),
+        packInt64(self$user_id),
         self$admin_rights$`bytes`()
       )
       if (!is.null(self$rank)) {
@@ -10182,8 +10216,8 @@ ChannelParticipantSelf <- R6::R6Class(
       b <- c(
         as.raw(c(0xef, 0x7b, 0x60, 0x4f)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$user_id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$inviter_id), raw(), size = 8, endian = "little"),
+        packInt64(self$user_id),
+        packInt64(self$inviter_id),
         self$serialize_datetime(self$date)
       )
       if (!is.null(self$subscription_until_date)) {
@@ -10434,7 +10468,7 @@ ChannelParticipantsRecent <- R6::R6Class(
       list("_" = "ChannelParticipantsRecent")
     },
     bytes = function() {
-      as.raw(c(0x79, 0x3f, 0x3f, 0xde))
+      as.raw(c(0x79, 0x3c, 0x3f, 0xde))
     }
   ),
   private = list(
@@ -11379,8 +11413,8 @@ ChatParticipant <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x07, 0x40, 0x2D, 0xC0)),
-        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$inviter_id), raw(), size = 8, endian = "little"),
+        packInt64(self$user_id),
+        packInt64(self$inviter_id),
         self$serialize_datetime(self$date)
       )
     },
@@ -11428,8 +11462,8 @@ ChatParticipantAdmin <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x5B, 0x3F, 0x93, 0xA0)),
-        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$inviter_id), raw(), size = 8, endian = "little"),
+        packInt64(self$user_id),
+        packInt64(self$inviter_id),
         self$serialize_datetime(self$date)
       )
     },
@@ -11469,7 +11503,7 @@ ChatParticipantCreator <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xE4, 0xCE, 0x6B, 0xE4)),
-        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little")
+        packInt64(self$user_id)
       )
     },
     from_reader = function(reader) {
@@ -11514,7 +11548,7 @@ ChatParticipants <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xF8, 0x93, 0xBC, 0x3C)),
-        writeBin(as.integer(self$chat_id), raw(), size = 8, endian = "little"),
+        packInt64(self$chat_id),
         as.raw(c(0x15, 0xC4, 0xB5, 0x1C)),
         writeBin(as.integer(length(self$participants)), raw(), size = 4, endian = "little"),
         unlist(lapply(self$participants, function(x) x$bytes())),
@@ -11566,7 +11600,7 @@ ChatParticipantsForbidden <- R6::R6Class(
       c(
         as.raw(c(0xe1, 0xd3, 0x63, 0x87)),
         writeBin(as.integer(if (is.null(self$self_participant) || identical(self$self_participant, FALSE)) 0 else 1), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$chat_id), raw(), size = 8, endian = "little"),
+        packInt64(self$chat_id),
         if (is.null(self$self_participant) || identical(self$self_participant, FALSE)) raw() else self$self_participant$bytes()
       )
     }
@@ -11622,7 +11656,7 @@ ChatPhoto <- R6::R6Class(
       c(
         as.raw(c(0x11, 0x1c, 0x6e, 0x1c)),
         as.raw(ifelse(is.null(self$has_video) || !self$has_video, 0, 1) | ifelse(is.null(self$stripped_thumb), 0, 2)),
-        writeBin(as.integer(self$photo_id), raw(), size = 8),
+        packInt64(self$photo_id),
         if (!is.null(self$stripped_thumb)) self$stripped_thumb else raw(),
         writeBin(as.integer(self$dc_id), raw(), size = 4)
       )
@@ -11864,7 +11898,7 @@ ClientDHInnerData <- R6::R6Class(
         as.raw(c(0x54, 0xb6, 0x43, 0x66)),
         writeBin(as.integer(self$nonce), raw(), size = 16, endian = "little"),
         writeBin(as.integer(self$server_nonce), raw(), size = 16, endian = "little"),
-        writeBin(as.integer(self$retry_id), raw(), size = 8, endian = "little"),
+        packInt64(self$retry_id),
         self$serialize_bytes(self$g_b)
       )
     }
@@ -13476,7 +13510,15 @@ DocumentAttributeAudio <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$voice)) flags <- bitwOr(flags, 1024L)
+      if (!is.null(self$title)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$performer)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$waveform)) flags <- bitwOr(flags, 4L)
+      c(as.raw(c(0xc6, 0xf9, 0x52, 0x98)), pack("<I", flags), pack("<i", as.integer(self$duration)),
+        if (!is.null(self$title)) serialize_bytes(self$title) else raw(0),
+        if (!is.null(self$performer)) serialize_bytes(self$performer) else raw(0),
+        if (!is.null(self$waveform)) serialize_bytes(self$waveform) else raw(0))
     }
   ),
   private = list(
@@ -13569,7 +13611,7 @@ DocumentAttributeFilename <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      c(as.raw(c(0x68, 0x00, 0x59, 0x15)), serialize_bytes(self$file_name))
     }
   ),
   private = list(
@@ -13597,7 +13639,7 @@ DocumentAttributeHasStickers <- R6::R6Class(
       list("_" = "DocumentAttributeHasStickers")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0xf7, 0xd2, 0x01, 0x98))
     }
   ),
   private = list(
@@ -13636,7 +13678,7 @@ DocumentAttributeImageSize <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      c(as.raw(c(0x5c, 0xc1, 0x37, 0x6c)), pack("<i", as.integer(self$w)), pack("<i", as.integer(self$h)))
     }
   ),
   private = list(
@@ -13757,7 +13799,19 @@ DocumentAttributeVideo <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$round_message)) flags <- bitwOr(flags, 1L)
+      if (isTRUE(self$supports_streaming)) flags <- bitwOr(flags, 2L)
+      if (isTRUE(self$nosound)) flags <- bitwOr(flags, 8L)
+      if (!is.null(self$preload_prefix_size)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$video_start_ts)) flags <- bitwOr(flags, 16L)
+      if (!is.null(self$video_codec)) flags <- bitwOr(flags, 32L)
+      c(as.raw(c(0x48, 0x7c, 0xc5, 0x43)), pack("<I", flags),
+        writeBin(as.double(self$duration), raw(), size = 8, endian = "little"),
+        pack("<i", as.integer(self$w)), pack("<i", as.integer(self$h)),
+        if (!is.null(self$preload_prefix_size)) pack("<i", as.integer(self$preload_prefix_size)) else raw(0),
+        if (!is.null(self$video_start_ts)) writeBin(as.double(self$video_start_ts), raw(), size = 8, endian = "little") else raw(0),
+        if (!is.null(self$video_codec)) serialize_bytes(self$video_codec) else raw(0))
     }
   ),
   private = list(
@@ -14047,7 +14101,7 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
       list("_" = "EmailVerifyPurposeLoginChange")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0xeb, 0x22, 0x7d, 0x52))
     }
   ),
   private = list(
@@ -14113,7 +14167,7 @@ EmailVerifyPurposePassport <- R6::R6Class(
       list("_" = "EmailVerifyPurposePassport")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x85, 0x16, 0xf5, 0xbb))
     }
   ),
   private = list(
@@ -14245,7 +14299,7 @@ EmojiGroupPremium <- R6::R6Class(
       c(
         as.raw(c(0x34, 0xcf, 0x3b, 0x09)),
         serialize_bytes(self$title),
-        writeBin(as.integer(self$icon_emoji_id), raw(), size = 8, endian = "little")
+        packInt64(self$icon_emoji_id)
       )
     }
   )
@@ -14407,7 +14461,7 @@ EmojiLanguage <- R6::R6Class(
     },
     bytes = function() {
       c(
-        as.raw(c(0xb3, 0xfb, 0x53, 0x61)),
+        as.raw(c(0x61, 0x53, 0xfb, 0xb3)),
         serialize_bytes(self$lang_code)
       )
     }
@@ -14445,10 +14499,10 @@ EmojiList <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xd1, 0x11, 0x1e, 0x7a)),
-        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little"),
+        packInt64(self$hash),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(as.integer(length(self$document_id)), raw(), size = 4, endian = "little"),
-        unlist(lapply(self$document_id, function(x) writeBin(as.integer(x), raw(), size = 8, endian = "little")))
+        unlist(lapply(self$document_id, function(x) packInt64(x)))
       )
     }
   )
@@ -14501,7 +14555,7 @@ EmojiStatus <- R6::R6Class(
       c(
         as.raw(c(0x8a, 0x06, 0xff, 0xe7)),
         as.raw(flags),
-        writeBin(as.integer(self$document_id), raw(), size = 8, endian = "little"),
+        packInt64(self$document_id),
         if (!is.null(self$until)) serialize_datetime(self$until) else raw()
       )
     }
@@ -14677,12 +14731,12 @@ EncryptedChat <- R6::R6Class(
       c(
         as.raw(c(0xc7, 0xd4, 0xf0, 0x61)),
         writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        packInt64(self$access_hash),
         self$serialize_datetime(self$date),
-        writeBin(as.numeric(self$admin_id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$participant_id), raw(), size = 8, endian = "little"),
+        packInt64(self$admin_id),
+        packInt64(self$participant_id),
         self$serialize_bytes(self$g_a_or_b),
-        writeBin(as.numeric(self$key_fingerprint), raw(), size = 8, endian = "little")
+        packInt64(self$key_fingerprint)
       )
     }
   ),
@@ -14843,7 +14897,7 @@ EncryptedChatRequested <- R6::R6Class(
     },
     bytes = function() {
       c(
-        as.raw(c(0x48, 0xf1, 0xd9, 0x4c)),
+        as.raw(c(0x4c, 0xd9, 0xf1, 0x48)),
         if (is.null(self$folder_id)) as.raw(0) else as.raw(1),
         if (!is.null(self$folder_id)) writeBin(as.integer(self$folder_id), raw(), size = 4),
         writeBin(as.integer(self$id), raw(), size = 4),
@@ -14920,10 +14974,10 @@ EncryptedChatWaiting <- R6::R6Class(
       c(
         as.raw(c(0x53, 0xB2, 0x66)),
         writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        packInt64(self$access_hash),
         serialize_datetime(self$date),
-        writeBin(as.numeric(self$admin_id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$participant_id), raw(), size = 8, endian = "little")
+        packInt64(self$admin_id),
+        packInt64(self$participant_id)
       )
     }
   )
@@ -14968,9 +15022,9 @@ EncryptedFile <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xD8, 0x8C, 0x00, 0xA8)),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$size), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
+        packInt64(self$access_hash),
+        packInt64(self$size),
         writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
       )
@@ -16104,7 +16158,7 @@ GroupCallStreamChannel <- R6::R6Class(
         as.raw(c(0xaf, 0x48, 0xeb, 0x80)),
         writeBin(as.integer(self$channel), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$scale), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$lastTimestampMs), raw(), size = 8, endian = "little")
+        packInt64(self$lastTimestampMs)
       )
     }
   )
@@ -16141,7 +16195,7 @@ HighScore <- R6::R6Class(
       c(
         as.raw(c(0xeb, 0x79, 0xa3, 0x73)),
         writeBin(as.integer(self$pos), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$userId), raw(), size = 8, endian = "little"),
+        packInt64(self$userId),
         writeBin(as.integer(self$score), raw(), size = 4, endian = "little")
       )
     }
@@ -16212,8 +16266,8 @@ ImportedContact <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x50, 0x3c, 0x3e, 0xc1)),
-        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$client_id), raw(), size = 8, endian = "little")
+        packInt64(self$user_id),
+        packInt64(self$client_id)
       )
     }
   )
@@ -16449,7 +16503,7 @@ InputAppEvent <- R6::R6Class(
         as.raw(c(0x1d, 0x1b, 0x12, 0x45)),
         writeBin(self$time, raw(), size = 8),
         serialize_bytes(self$type),
-        writeBin(self$peer, raw(), size = 8),
+        packInt64(self$peer),
         self$data$bytes()
       )
     }
@@ -16482,8 +16536,8 @@ InputBotAppID <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xa9, 0x20, 0xbd, 0x7a)),
-        writeBin(self$id, raw(), size = 8),
-        writeBin(self$access_hash, raw(), size = 8)
+        packInt64(self$id),
+        packInt64(self$access_hash)
       )
     }
   )
@@ -16599,8 +16653,8 @@ InputBotInlineMessageID <- R6::R6Class(
       rawToBits(c(
         as.raw(0x89), as.raw(0x3d), as.raw(0x0c), as.raw(0x89),
         writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$id),
+        packInt64(self$access_hash)
       ))
     }
   )
@@ -16642,9 +16696,9 @@ InputBotInlineMessageID64 <- R6::R6Class(
       rawToBits(c(
         as.raw(0xd7), as.raw(0x15), as.raw(0xd9), as.raw(0xb6),
         writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$owner_id), raw(), size = 8, endian = "little"),
+        packInt64(self$owner_id),
         writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
-        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$access_hash)
       ))
     }
   )
@@ -17948,7 +18002,7 @@ InputChannelFromMessage <- R6::R6Class(
         as.raw(c(0x9d, 0x4f, 0x93, 0x5b)),
         self$peer$bytes(),
         writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$channel_id), raw(), size = 8, endian = "little")
+        packInt64(self$channel_id)
       )
     }
   )
@@ -18253,7 +18307,7 @@ InputCheckPasswordSRP <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x82, 0xf0, 0x7f, 0xd2)),
-        writeBin(as.numeric(self$srp_id), raw(), size = 8, endian = "little"),
+        packInt64(self$srp_id),
         serialize_bytes(self$A),
         serialize_bytes(self$M1)
       )
@@ -18466,8 +18520,8 @@ InputDocument <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x75, 0xb5, 0xbf, 0x1a)),
-        writeBin(self$id, raw(), size = 8, endian = "little"),
-        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        packInt64(self$id),
+        packInt64(self$access_hash),
         self$serialize_bytes(self$file_reference)
       )
     }
@@ -18663,7 +18717,7 @@ InputEncryptedChat <- R6::R6Class(
       c(
         as.raw(c(0xe1, 0xb5, 0x41, 0xf1)),
         writeBin(as.integer(self$chat_id), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$access_hash)
       )
     }
   )
@@ -18700,8 +18754,8 @@ InputEncryptedFile <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xe5, 0xb5, 0x17, 0x5a)),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$id),
+        packInt64(self$access_hash)
       )
     }
   )
@@ -18737,7 +18791,7 @@ InputEncryptedFileBigUploaded <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xc8, 0x73, 0xc1, 0x2d)),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
         writeBin(as.integer(self$parts), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
       )
@@ -18788,8 +18842,8 @@ InputEncryptedFileLocation <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xf5, 0x23, 0x5d, 0x55)),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$id),
+        packInt64(self$access_hash)
       )
     }
   )
@@ -18829,7 +18883,7 @@ InputEncryptedFileUploaded <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x64, 0xbd, 0x03, 0x06)),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        packInt64(self$id),
         writeBin(as.integer(self$parts), raw(), size = 4, endian = "little"),
         charToRaw(self$md5_checksum),
         writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
@@ -18870,13 +18924,9 @@ InputFile <- R6::R6Class(
       )
     },
     bytes = function() {
-      paste0(
-        as.raw(c(0x7f, 0xf2, 0x2f, 0xf5)),
-        serialize(self$id, NULL),
-        serialize(self$parts, NULL),
-        serialize(self$name, NULL),
-        serialize(self$md5_checksum, NULL)
-      )
+      c(as.raw(c(0x7f, 0xf2, 0x2f, 0xf5)),
+        packInt64(self$id), pack("<i", as.integer(self$parts)),
+        serialize_bytes(self$name), serialize_bytes(self$md5_checksum %||% ""))
     }
   )
 )
@@ -18909,12 +18959,9 @@ InputFileBig <- R6::R6Class(
       )
     },
     bytes = function() {
-      paste0(
-        as.raw(c(0xb5, 0x0b, 0x4f, 0xfa)),
-        serialize(self$id, NULL),
-        serialize(self$parts, NULL),
-        serialize(self$name, NULL)
-      )
+      c(as.raw(c(0xb5, 0x0b, 0x4f, 0xfa)),
+        packInt64(self$id), pack("<i", as.integer(self$parts)),
+        serialize_bytes(self$name))
     }
   )
 )
@@ -18953,9 +19000,9 @@ InputFileLocation <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xdf, 0xda, 0xab, 0xe1)),
-        writeBin(as.integer(self$volume_id), raw(), size = 8),
+        packInt64(self$volume_id),
         writeBin(as.integer(self$local_id), raw(), size = 4),
-        writeBin(as.integer(self$secret), raw(), size = 8),
+        packInt64(self$secret),
         charToRaw(self$file_reference)
       )
     }
@@ -19049,8 +19096,8 @@ InputGameID <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x77, 0x3e, 0x2c, 0x03)),
-        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$id),
+        packInt64(self$access_hash)
       )
     }
   )
@@ -19301,7 +19348,7 @@ InputGroupCallStream <- R6::R6Class(
         as.raw(c(0x05, 0xA9, 0x98, 0x2A)),
         as.raw(ifelse(is.null(self$video_channel), 0, 1) | ifelse(is.null(self$video_quality), 0, 1)),
         self$call$bytes(),
-        writeBin(self$time_ms, raw(), size = 8, endian = "little"),
+        packInt64(self$time_ms),
         writeBin(self$scale, raw(), size = 4, endian = "little"),
         if (!is.null(self$video_channel)) writeBin(self$video_channel, raw(), size = 4, endian = "little") else raw(),
         if (!is.null(self$video_quality)) writeBin(self$video_quality, raw(), size = 4, endian = "little") else raw()
@@ -19337,7 +19384,7 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class(
       c(
         as.raw(c(0xF4, 0x99, 0x7E, 0x42)),
         self$bot$bytes(),
-        writeBin(self$stars, raw(), size = 8, endian = "little")
+        packInt64(self$stars)
       )
     }
   )
@@ -20018,7 +20065,7 @@ InputMediaAreaVenue <- R6::R6Class(
       c(
         as.raw(c(0x7f, 0x21, 0x82, 0xb2)),
         self$coordinates$bytes(),
-        writeBin(as.integer(self$query_id), raw(), size = 8, endian = "little"),
+        packInt64(self$query_id),
         serialize(self$result_id, NULL)
       )
     }
@@ -20225,7 +20272,15 @@ InputMediaDocumentExternal <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$spoiler)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$ttl_seconds)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$video_cover)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$video_timestamp)) flags <- bitwOr(flags, 8L)
+      c(as.raw(c(0xf9, 0x00, 0x96, 0x77)), pack("<I", flags), serialize_bytes(self$url),
+        if (!is.null(self$ttl_seconds)) pack("<i", as.integer(self$ttl_seconds)) else raw(0),
+        if (!is.null(self$video_cover)) self$video_cover$bytes() else raw(0),
+        if (!is.null(self$video_timestamp)) pack("<i", as.integer(self$video_timestamp)) else raw(0))
     }
   ),
   private = list(
@@ -20255,7 +20310,7 @@ InputMediaEmpty <- R6::R6Class(
       list("_" = "InputMediaEmpty")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x7f, 0xf5, 0x64, 0x96))
     }
   ),
   private = list(
@@ -20569,7 +20624,11 @@ InputMediaPhotoExternal <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$spoiler)) flags <- bitwOr(flags, 2L)
+      if (!is.null(self$ttl_seconds)) flags <- bitwOr(flags, 1L)
+      c(as.raw(c(0x1a, 0xfe, 0xbb, 0xe5)), pack("<I", flags), serialize_bytes(self$url),
+        if (!is.null(self$ttl_seconds)) pack("<i", as.integer(self$ttl_seconds)) else raw(0))
     }
   ),
   private = list(
@@ -20769,7 +20828,24 @@ InputMediaUploadedDocument <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$nosound_video)) flags <- bitwOr(flags, 8L)
+      if (isTRUE(self$force_file)) flags <- bitwOr(flags, 16L)
+      if (isTRUE(self$spoiler)) flags <- bitwOr(flags, 32L)
+      if (!is.null(self$thumb)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$stickers)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$video_cover)) flags <- bitwOr(flags, 64L)
+      if (!is.null(self$video_timestamp)) flags <- bitwOr(flags, 128L)
+      if (!is.null(self$ttl_seconds)) flags <- bitwOr(flags, 2L)
+      c(as.raw(c(0x30, 0x93, 0x7c, 0x03)), pack("<I", flags),
+        self$file$bytes(),
+        if (!is.null(self$thumb)) self$thumb$bytes() else raw(0),
+        serialize_bytes(self$mime_type),
+        .telegramR_tl_vector(self$attributes),
+        if (!is.null(self$stickers)) .telegramR_tl_vector(self$stickers) else raw(0),
+        if (!is.null(self$video_cover)) self$video_cover$bytes() else raw(0),
+        if (!is.null(self$video_timestamp)) pack("<i", as.integer(self$video_timestamp)) else raw(0),
+        if (!is.null(self$ttl_seconds)) pack("<i", as.integer(self$ttl_seconds)) else raw(0))
     }
   ),
   private = list(
@@ -20817,7 +20893,14 @@ InputMediaUploadedPhoto <- R6::R6Class(
       )
     },
     bytes = function() {
-      NULL
+      flags <- 0L
+      if (isTRUE(self$spoiler)) flags <- bitwOr(flags, 4L)
+      if (!is.null(self$stickers)) flags <- bitwOr(flags, 1L)
+      if (!is.null(self$ttl_seconds)) flags <- bitwOr(flags, 2L)
+      c(as.raw(c(0x04, 0x7d, 0x28, 0x1e)), pack("<I", flags),
+        self$file$bytes(),
+        if (!is.null(self$stickers)) .telegramR_tl_vector(self$stickers) else raw(0),
+        if (!is.null(self$ttl_seconds)) pack("<i", as.integer(self$ttl_seconds)) else raw(0))
     }
   ),
   private = list(
@@ -21060,7 +21143,7 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
       list("_" = "InputMessagePinned")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x38, 0x25, 0x87, 0x86))
     }
   ),
   private = list(
@@ -21118,7 +21201,7 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
       list("_" = "InputMessagesFilterChatPhotos")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0xb8, 0xec, 0x20, 0x3a))
     }
   ),
   private = list(
@@ -21145,7 +21228,7 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
       list("_" = "InputMessagesFilterContacts")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x83, 0xdb, 0x62, 0xe0))
     }
   ),
   private = list(
@@ -21172,7 +21255,7 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
       list("_" = "InputMessagesFilterDocument")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x88, 0xf1, 0xdd, 0x9e))
     }
   ),
   private = list(
@@ -21199,7 +21282,7 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
       list("_" = "InputMessagesFilterEmpty")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x6c, 0xf6, 0xe2, 0x57))
     }
   ),
   private = list(
@@ -21226,7 +21309,7 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
       list("_" = "InputMessagesFilterGeo")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x0d, 0x6d, 0x02, 0xe7))
     }
   ),
   private = list(
@@ -21253,7 +21336,7 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
       list("_" = "InputMessagesFilterGif")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x87, 0x65, 0xc8, 0xff))
     }
   ),
   private = list(
@@ -21280,7 +21363,7 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
       list("_" = "InputMessagesFilterMusic")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x9e, 0xb4, 0x51, 0x37))
     }
   ),
   private = list(
@@ -21307,7 +21390,7 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
       list("_" = "InputMessagesFilterMyMentions")
     },
     bytes = function() {
-      NULL
+      as.raw(c(0x9a, 0xe6, 0xf8, 0xc1))
     }
   ),
   private = list(
@@ -21955,7 +22038,7 @@ InputPeerChannelFromMessage <- R6::R6Class(
         as.raw(c(0x40, 0x08, 0x2A, 0xBD)),
         self$peer$bytes(),
         writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little"),
-        writeBin(as.numeric(self$channel_id), raw(), size = 8, endian = "little")
+        packInt64(self$channel_id)
       )
     }
   ),
@@ -22252,6 +22335,7 @@ InputPeerUser <- R6::R6Class(
 #  @noRd
 InputPeerUserFromMessage <- R6::R6Class(
   "InputPeerUserFromMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -22291,6 +22375,7 @@ InputPeerUserFromMessage <- R6::R6Class(
 #  @noRd
 InputPhoneCall <- R6::R6Class(
   "InputPhoneCall",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -22327,6 +22412,7 @@ InputPhoneCall <- R6::R6Class(
 #  @noRd
 InputPhoneContact <- R6::R6Class(
   "InputPhoneContact",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -22369,6 +22455,7 @@ InputPhoneContact <- R6::R6Class(
 #  @noRd
 InputPhoto <- R6::R6Class(
   "InputPhoto",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -22508,6 +22595,7 @@ InputPhotoFileLocation <- R6::R6Class(
 #  @noRd
 InputPhotoLegacyFileLocation <- R6::R6Class(
   "InputPhotoLegacyFileLocation",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -22640,7 +22728,7 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0xbfdfb0426,
+    CONSTRUCTOR_ID = 0xbdfb0426,
     #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
@@ -22961,6 +23049,7 @@ InputPrivacyValueAllowBots <- R6::R6Class(
 #  @noRd
 InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   "InputPrivacyValueAllowChatParticipants",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23076,6 +23165,7 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
 #  @noRd
 InputPrivacyValueAllowUsers <- R6::R6Class(
   "InputPrivacyValueAllowUsers",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23164,6 +23254,7 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
 #  @noRd
 InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   "InputPrivacyValueDisallowChatParticipants",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23225,6 +23316,7 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
 #  @noRd
 InputPrivacyValueDisallowUsers <- R6::R6Class(
   "InputPrivacyValueDisallowUsers",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23259,6 +23351,7 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
 #  @noRd
 InputQuickReplyShortcut <- R6::R6Class(
   "InputQuickReplyShortcut",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23292,6 +23385,7 @@ InputQuickReplyShortcut <- R6::R6Class(
 #  @noRd
 InputQuickReplyShortcutId <- R6::R6Class(
   "InputQuickReplyShortcutId",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23325,6 +23419,7 @@ InputQuickReplyShortcutId <- R6::R6Class(
 #  @noRd
 InputReplyToMessage <- R6::R6Class(
   "InputReplyToMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23393,6 +23488,7 @@ InputReplyToMessage <- R6::R6Class(
 #  @noRd
 InputReplyToMonoForum <- R6::R6Class(
   "InputReplyToMonoForum",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23426,6 +23522,7 @@ InputReplyToMonoForum <- R6::R6Class(
 #  @noRd
 InputReplyToStory <- R6::R6Class(
   "InputReplyToStory",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23577,7 +23674,7 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
       list("_" = "InputReportReasonIllegalDrugs")
     },
     bytes = function() {
-      as.raw(c(0xbe, 0x2b, 0x8e, 0x0a))
+      as.raw(c(0xbe, 0xb2, 0x8e, 0x0a))
     }
   ),
   private = list(
@@ -23729,6 +23826,7 @@ InputReportReasonViolence <- R6::R6Class(
 #  @noRd
 InputSavedStarGiftChat <- R6::R6Class(
   "InputSavedStarGiftChat",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23762,6 +23860,7 @@ InputSavedStarGiftChat <- R6::R6Class(
 #  @noRd
 InputSavedStarGiftSlug <- R6::R6Class(
   "InputSavedStarGiftSlug",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23793,6 +23892,7 @@ InputSavedStarGiftSlug <- R6::R6Class(
 #  @noRd
 InputSavedStarGiftUser <- R6::R6Class(
   "InputSavedStarGiftUser",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23824,6 +23924,7 @@ InputSavedStarGiftUser <- R6::R6Class(
 #  @noRd
 InputSecureFile <- R6::R6Class(
   "InputSecureFile",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23857,6 +23958,7 @@ InputSecureFile <- R6::R6Class(
 #  @noRd
 InputSecureFileLocation <- R6::R6Class(
   "InputSecureFileLocation",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23890,6 +23992,7 @@ InputSecureFileLocation <- R6::R6Class(
 #  @noRd
 InputSecureFileUploaded <- R6::R6Class(
   "InputSecureFileUploaded",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23929,6 +24032,7 @@ InputSecureFileUploaded <- R6::R6Class(
 #  @noRd
 InputSecureValue <- R6::R6Class(
   "InputSecureValue",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -23986,6 +24090,7 @@ InputSecureValue <- R6::R6Class(
 #  @noRd
 InputSingleMedia <- R6::R6Class(
   "InputSingleMedia",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24030,6 +24135,7 @@ InputSingleMedia <- R6::R6Class(
 #  @noRd
 InputStarsTransaction <- R6::R6Class(
   "InputStarsTransaction",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24102,7 +24208,7 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
       list("_" = "InputStickerSetAnimatedEmojiAnimations")
     },
     bytes = function() {
-      as.raw(c(0x39, 0x73, 0xde, 0x0c))
+      as.raw(c(0x39, 0x37, 0xde, 0x0c))
     }
   ),
   private = list(
@@ -24119,6 +24225,7 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
 #  @noRd
 InputStickerSetDice <- R6::R6Class(
   "InputStickerSetDice",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24285,6 +24392,7 @@ InputStickerSetEmpty <- R6::R6Class(
 #  @noRd
 InputStickerSetID <- R6::R6Class(
   "InputStickerSetID",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24318,6 +24426,7 @@ InputStickerSetID <- R6::R6Class(
 #  @noRd
 InputStickerSetItem <- R6::R6Class(
   "InputStickerSetItem",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24384,6 +24493,7 @@ InputStickerSetPremiumGifts <- R6::R6Class(
 #  @noRd
 InputStickerSetShortName <- R6::R6Class(
   "InputStickerSetShortName",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24415,6 +24525,7 @@ InputStickerSetShortName <- R6::R6Class(
 #  @noRd
 InputStickerSetThumb <- R6::R6Class(
   "InputStickerSetThumb",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24475,6 +24586,7 @@ InputStickerSetTonGifts <- R6::R6Class(
 #  @noRd
 InputStickeredMediaDocument <- R6::R6Class(
   "InputStickeredMediaDocument",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24506,6 +24618,7 @@ InputStickeredMediaDocument <- R6::R6Class(
 #  @noRd
 InputStickeredMediaPhoto <- R6::R6Class(
   "InputStickeredMediaPhoto",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24537,6 +24650,7 @@ InputStickeredMediaPhoto <- R6::R6Class(
 #  @noRd
 InputStorePaymentAuthCode <- R6::R6Class(
   "InputStorePaymentAuthCode",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24578,6 +24692,7 @@ InputStorePaymentAuthCode <- R6::R6Class(
 #  @noRd
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -24982,6 +25097,7 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
 #  @noRd
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -25171,8 +25287,8 @@ InputUser <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(0xc6), as.raw(0x58), as.raw(0x11), as.raw(0xf2),
-        writeBin(self$user_id, raw(), size = 8),
-        writeBin(self$access_hash, raw(), size = 8)
+        packInt64(self$user_id),
+        packInt64(self$access_hash)
       )
     }
   ),
@@ -25317,8 +25433,8 @@ InputWallPaper <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xe6, 0x30, 0xb9, 0x79)),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+        packInt64(self$id),
+        packInt64(self$access_hash)
       )
     }
   ),
@@ -25354,7 +25470,7 @@ InputWallPaperNoFile <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x96, 0x7a, 0x46, 0x2e)),
-        writeBin(as.integer(self$id), raw(), size = 8, endian = "little")
+        packInt64(self$id)
       )
     }
   ),
@@ -25550,7 +25666,7 @@ InputWebFileGeoPointLocation <- R6::R6Class(
       c(
         as.raw(c(0xc9, 0x21, 0x22, 0x9f)),
         self$geo_point$bytes(),
-        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        packInt64(self$access_hash),
         writeBin(self$w, raw(), size = 4, endian = "little"),
         writeBin(self$h, raw(), size = 4, endian = "little"),
         writeBin(self$zoom, raw(), size = 4, endian = "little"),
@@ -25603,7 +25719,7 @@ InputWebFileLocation <- R6::R6Class(
       c(
         as.raw(c(0x86, 0xd6, 0x39, 0xc2)),
         serialize_bytes(self$url),
-        writeBin(self$access_hash, raw(), size = 8, endian = "little")
+        packInt64(self$access_hash)
       )
     }
   ),
@@ -26130,6 +26246,7 @@ JsonString <- R6::R6Class(
 #  @noRd
 KeyboardButton <- R6::R6Class(
   "KeyboardButton",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -26166,6 +26283,7 @@ KeyboardButton <- R6::R6Class(
 #  @noRd
 KeyboardButtonBuy <- R6::R6Class(
   "KeyboardButtonBuy",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -26202,6 +26320,7 @@ KeyboardButtonBuy <- R6::R6Class(
 #  @noRd
 KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -26658,7 +26777,7 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
       list("_" = "KeyboardButtonUserProfile", text = self$text, user_id = self$user_id)
     },
     bytes = function() {
-      c(as.raw(c(0xc1, 0x60, 0x86, 0x30)), self$serializebytes(self$text), writeBin(self$user_id, raw(), size = 8, endian = "little"))
+      c(as.raw(c(0xc1, 0x60, 0x86, 0x30)), self$serializebytes(self$text), packInt64(self$user_id))
     }
   ),
   private = list(
@@ -26710,6 +26829,7 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
 #  @noRd
 #  @noRd
 KeyboardButton <- R6::R6Class("KeyboardButton",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -26741,6 +26861,7 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
 #  @noRd
 #  @noRd
 KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -26772,6 +26893,7 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
 #  @noRd
 #  @noRd
 KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -28559,7 +28681,7 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
       c(
         as.raw(c(0xe9, 0x48, 0x39, 0xea)),
         serialize_bytes(self$title),
-        writeBin(self$chat_id, raw(), size = 8, endian = "little")
+        packInt64(self$chat_id)
       )
     }
   ),
@@ -28597,7 +28719,7 @@ MessageActionChatAddUser <- R6::R6Class(
       c(
         as.raw(c(0x00, 0xfd, 0xce, 0x15)),
         writeBin(length(self$users), raw(), size = 4, endian = "little"),
-        unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+        unlist(lapply(self$users, function(x) packInt64(x)))
       )
     }
   ),
@@ -28647,7 +28769,7 @@ MessageActionChatCreate <- R6::R6Class(
         serialize_bytes(self$title),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$users), raw(), size = 4, endian = "little"),
-        unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+        unlist(lapply(self$users, function(x) packInt64(x)))
       )
     }
   ),
@@ -35951,7 +36073,7 @@ PageBlockAnchor <- R6::R6Class(
     },
     bytes = function() {
       c(
-        as.raw(c(0xb0, 0x7d, 0x0d, 0xce)),
+        as.raw(c(0xb0, 0x37, 0x0d, 0xce)),
         self$serialize_bytes(self$name)
       )
     }
@@ -37211,10 +37333,10 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
         as.raw(c(0x08, 0xdc, 0x90, 0xb3)),
         packBits(intToBits((if (is.null(self$title)) 0 else 1) | (if (is.null(self$description)) 0 else 2) | (if (is.null(self$photo_id)) 0 else 4) | (if (is.null(self$author)) 0 else 8) | (if (is.null(self$published_date)) 0 else 16)), type = "raw")[1:4],
         self$serializebytes(self$url),
-        writeBin(as.double(self$webpage_id), raw(), size = 8, endian = "little"),
+        packInt64(self$webpage_id),
         if (!is.null(self$title)) self$serializebytes(self$title) else raw(0),
         if (!is.null(self$description)) self$serializebytes(self$description) else raw(0),
-        if (!is.null(self$photo_id)) writeBin(as.double(self$photo_id), raw(), size = 8, endian = "little") else raw(0),
+        if (!is.null(self$photo_id)) packInt64(self$photo_id) else raw(0),
         if (!is.null(self$author)) self$serializebytes(self$author) else raw(0),
         if (!is.null(self$published_date)) self$serialize_datetime(self$published_date) else raw(0)
       )
@@ -37724,7 +37846,7 @@ PeerChannel <- R6::R6Class("PeerChannel",
     bytes = function() {
       c(
         as.raw(c(0x1e, 0x37, 0xa5, 0xa2)),
-        writeBin(as.double(self$channel_id), raw(), size = 8, endian = "little")
+        packInt64(self$channel_id)
       )
     }
   ),
@@ -37758,7 +37880,7 @@ PeerChat <- R6::R6Class("PeerChat",
     bytes = function() {
       c(
         as.raw(c(0x9a, 0x01, 0xc6, 0x36)),
-        writeBin(as.double(self$chat_id), raw(), size = 8, endian = "little")
+        packInt64(self$chat_id)
       )
     }
   ),
@@ -37797,7 +37919,7 @@ PeerColor <- R6::R6Class("PeerColor",
         as.raw(c(0xcf, 0x5a, 0x4b, 0xb5)),
         packBits(intToBits((if (is.null(self$color)) 0 else 1) | (if (is.null(self$background_emoji_id)) 0 else 2)), type = "raw")[1:4],
         if (!is.null(self$color)) packBits(intToBits(self$color), type = "raw")[1:4] else raw(0),
-        if (!is.null(self$background_emoji_id)) writeBin(as.double(self$background_emoji_id), raw(), size = 8, endian = "little") else raw(0)
+        if (!is.null(self$background_emoji_id)) packInt64(self$background_emoji_id) else raw(0)
       )
     }
   ),
@@ -39197,7 +39319,7 @@ PhotoEmpty <- R6::R6Class("PhotoEmpty",
     to_dict = function() list(`_` = "PhotoEmpty", id = self$id),
     bytes = function() {
       cid <- as.raw(c(0x2d, 0xb2, 0x31, 0x23))
-      idbytes <- writeBin(self$id, raw(), size = 8, endian = "little")
+      idbytes <- packInt64(self$id)
       c(cid, idbytes)
     }
   ),
@@ -39444,7 +39566,7 @@ Poll <- R6::R6Class("Poll",
       cid <- as.raw(c(0x31, 0x71, 0x74, 0x58))
       flags <- (if (is.null(self$closed) || !self$closed) 0 else 1) | (if (is.null(self$public_voters) || !self$public_voters) 0 else 2) | (if (is.null(self$multiple_choice) || !self$multiple_choice) 0 else 4) | (if (is.null(self$quiz) || !self$quiz) 0 else 8) | (if (is.null(self$close_period)) 0 else 16) | (if (is.null(self$close_date)) 0 else 32)
       flagsbytes <- writeBin(flags, raw(), size = 4, endian = "little")
-      idbytes <- writeBin(self$id, raw(), size = 8, endian = "little")
+      idbytes <- packInt64(self$id)
       questionbytes <- self$question$bytes()
       answersbytes <- c(writeBin(length(self$answers), raw(), size = 4, endian = "little"), unlist(lapply(self$answers, function(x) x$bytes())))
       close_periodbytes <- if (!is.null(self$close_period)) writeBin(self$close_period, raw(), size = 4, endian = "little") else raw()
@@ -39667,8 +39789,8 @@ Pong <- R6::R6Class("Pong",
     to_dict = function() list(`_` = "Pong", msg_id = self$msg_id, ping_id = self$ping_id),
     bytes = function() {
       cid <- as.raw(c(0xc5, 0x73, 0x77, 0x34))
-      msg_idbytes <- writeBin(self$msg_id, raw(), size = 8, endian = "little")
-      ping_idbytes <- writeBin(self$ping_id, raw(), size = 8, endian = "little")
+      msg_idbytes <- packInt64(self$msg_id)
+      ping_idbytes <- packInt64(self$ping_id)
       c(cid, msg_idbytes, ping_idbytes)
     }
   ),
@@ -39701,7 +39823,7 @@ PopularContact <- R6::R6Class("PopularContact",
     to_dict = function() list(`_` = "PopularContact", client_id = self$client_id, importers = self$importers),
     bytes = function() {
       cid <- as.raw(c(0x75, 0x41, 0xe1, 0x5c))
-      client_idbytes <- writeBin(self$client_id, raw(), size = 8, endian = "little")
+      client_idbytes <- packInt64(self$client_id)
       importersbytes <- writeBin(self$importers, raw(), size = 4, endian = "little")
       c(cid, client_idbytes, importersbytes)
     }
@@ -39888,7 +40010,7 @@ PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
       store_productbytes <- if (!is.null(self$store_product)) charToRaw(self$store_product) else raw()
       store_quantitybytes <- if (!is.null(self$store_quantity)) writeBin(self$store_quantity, raw(), size = 4, endian = "little") else raw()
       currencybytes <- charToRaw(self$currency)
-      amountbytes <- writeBin(self$amount, raw(), size = 8, endian = "little")
+      amountbytes <- packInt64(self$amount)
       c(cid, flagsbytes, usersbytes, monthsbytes, store_productbytes, store_quantitybytes, currencybytes, amountbytes)
     }
   ),
@@ -39953,7 +40075,7 @@ PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
       transactionbytes <- if (!is.null(self$transaction)) charToRaw(self$transaction) else raw()
       monthsbytes <- writeBin(self$months, raw(), size = 4, endian = "little")
       currencybytes <- charToRaw(self$currency)
-      amountbytes <- writeBin(self$amount, raw(), size = 8, endian = "little")
+      amountbytes <- packInt64(self$amount)
       bot_urlbytes <- charToRaw(self$bot_url)
       store_productbytes <- if (!is.null(self$store_product)) charToRaw(self$store_product) else raw()
       c(cid, flagsbytes, transactionbytes, monthsbytes, currencybytes, amountbytes, bot_urlbytes, store_productbytes)
@@ -40005,7 +40127,7 @@ PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
     to_dict = function() list(`_` = "PrepaidGiveaway", id = self$id, months = self$months, quantity = self$quantity, date = self$date),
     bytes = function() {
       cid <- as.raw(c(0x54, 0x9d, 0x53, 0xb2))
-      idbytes <- writeBin(self$id, raw(), size = 8, endian = "little")
+      idbytes <- packInt64(self$id)
       monthsbytes <- writeBin(self$months, raw(), size = 4, endian = "little")
       quantitybytes <- writeBin(self$quantity, raw(), size = 4, endian = "little")
       datebytes <- self$serialize_datetime(self$date)
@@ -40050,8 +40172,8 @@ PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
     to_dict = function() list(`_` = "PrepaidStarsGiveaway", id = self$id, stars = self$stars, quantity = self$quantity, boosts = self$boosts, date = self$date),
     bytes = function() {
       cid <- as.raw(c(0xe0, 0x77, 0x9d, 0x9a))
-      idbytes <- writeBin(self$id, raw(), size = 8, endian = "little")
-      starsbytes <- writeBin(self$stars, raw(), size = 8, endian = "little")
+      idbytes <- packInt64(self$id)
+      starsbytes <- packInt64(self$stars)
       quantitybytes <- writeBin(self$quantity, raw(), size = 4, endian = "little")
       boostsbytes <- writeBin(self$boosts, raw(), size = 4, endian = "little")
       datebytes <- self$serialize_datetime(self$date)
@@ -40399,7 +40521,7 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
     to_dict = function() list(`_` = "PrivacyValueAllowChatParticipants", chats = if (is.null(self$chats)) list() else self$chats),
     bytes = function() {
       cid <- as.raw(c(0x8e, 0x4e, 0x13, 0x6b))
-      chatsbytes <- c(writeBin(length(self$chats), raw(), size = 4, endian = "little"), unlist(lapply(self$chats, function(x) writeBin(x, raw(), size = 8, endian = "little"))))
+      chatsbytes <- c(writeBin(length(self$chats), raw(), size = 4, endian = "little"), unlist(lapply(self$chats, function(x) packInt64(x))))
       c(cid, chatsbytes)
     }
   ),
@@ -40499,7 +40621,7 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
     to_dict = function() list(`_` = "PrivacyValueAllowUsers", users = if (is.null(self$users)) list() else self$users),
     bytes = function() {
       cid <- as.raw(c(0xb2, 0x5f, 0x90, 0xb8))
-      usersbytes <- c(writeBin(length(self$users), raw(), size = 4, endian = "little"), unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little"))))
+      usersbytes <- c(writeBin(length(self$users), raw(), size = 4, endian = "little"), unlist(lapply(self$users, function(x) packInt64(x))))
       c(cid, usersbytes)
     }
   ),
@@ -40853,7 +40975,7 @@ PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
     to_dict = function() list(`_` = "PublicForwardMessage", message = if (is.null(self$message)) NULL else self$message$to_dict()),
     bytes = function() {
       b <- c()
-      b <- c(b, as.raw(c(0x4a, 0xf4, 0x2b, 0x01)))
+      b <- c(b, as.raw(c(0x4a, 0xbf, 0xf2, 0x01)))
       b <- c(b, self$message$bytes())
       as.raw(b)
     }
@@ -43378,6 +43500,7 @@ SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
 #  @noRd
 #  @noRd
 SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43418,6 +43541,7 @@ SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
 #  @noRd
 #  @noRd
 SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43463,6 +43587,7 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
 #  @noRd
 #  @noRd
 SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43503,6 +43628,7 @@ SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
 #  @noRd
 #  @noRd
 SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43543,6 +43669,7 @@ SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
 #  @noRd
 #  @noRd
 SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43583,6 +43710,7 @@ SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
 #  @noRd
 #  @noRd
 SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43623,6 +43751,7 @@ SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile"
 #  @noRd
 #  @noRd
 SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFiles",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -43668,6 +43797,7 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
 #  @noRd
 #  @noRd
 SecureValueHash <- R6::R6Class("SecureValueHash",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44056,6 +44186,7 @@ SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
 #  @noRd
 #  @noRd
 SendAsPeer <- R6::R6Class("SendAsPeer",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44175,6 +44306,7 @@ SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
 #  @noRd
 #  @noRd
 SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44215,6 +44347,7 @@ SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
 #  @noRd
 #  @noRd
 SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44629,6 +44762,7 @@ SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
 #  @noRd
 #  @noRd
 ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44679,6 +44813,7 @@ ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
 #  @noRd
 ServerDHParamsFail <- R6::R6Class(
   "ServerDHParamsFail",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44724,6 +44859,7 @@ ServerDHParamsFail <- R6::R6Class(
 #  @noRd
 ServerDHParamsOk <- R6::R6Class(
   "ServerDHParamsOk",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44769,6 +44905,7 @@ ServerDHParamsOk <- R6::R6Class(
 #  @noRd
 ShippingOption <- R6::R6Class(
   "ShippingOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44819,6 +44956,7 @@ ShippingOption <- R6::R6Class(
 #  @noRd
 SmsJob <- R6::R6Class(
   "SmsJob",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -44892,6 +45030,7 @@ SpeakingInGroupCallAction <- R6::R6Class(
 #  @noRd
 SponsoredMessage <- R6::R6Class(
   "SponsoredMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45029,6 +45168,7 @@ SponsoredMessage <- R6::R6Class(
 #  @noRd
 SponsoredMessageReportOption <- R6::R6Class(
   "SponsoredMessageReportOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45070,6 +45210,7 @@ SponsoredMessageReportOption <- R6::R6Class(
 #  @noRd
 SponsoredPeer <- R6::R6Class(
   "SponsoredPeer",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45126,6 +45267,7 @@ SponsoredPeer <- R6::R6Class(
 #  @noRd
 StarGift <- R6::R6Class(
   "StarGift",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45305,6 +45447,7 @@ StarGift <- R6::R6Class(
 #  @noRd
 StarGiftAttributeBackdrop <- R6::R6Class(
   "StarGiftAttributeBackdrop",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45366,6 +45509,7 @@ StarGiftAttributeBackdrop <- R6::R6Class(
 #  @noRd
 StarGiftAttributeCounter <- R6::R6Class(
   "StarGiftAttributeCounter",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45407,6 +45551,7 @@ StarGiftAttributeCounter <- R6::R6Class(
 #  @noRd
 StarGiftAttributeIdBackdrop <- R6::R6Class(
   "StarGiftAttributeIdBackdrop",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45444,6 +45589,7 @@ StarGiftAttributeIdBackdrop <- R6::R6Class(
 #  @noRd
 StarGiftAttributeIdModel <- R6::R6Class(
   "StarGiftAttributeIdModel",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45481,6 +45627,7 @@ StarGiftAttributeIdModel <- R6::R6Class(
 #  @noRd
 StarGiftAttributeIdPattern <- R6::R6Class(
   "StarGiftAttributeIdPattern",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45518,6 +45665,7 @@ StarGiftAttributeIdPattern <- R6::R6Class(
 #  @noRd
 StarGiftAttributeModel <- R6::R6Class(
   "StarGiftAttributeModel",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45563,6 +45711,7 @@ StarGiftAttributeModel <- R6::R6Class(
 #  @noRd
 StarGiftAttributeOriginalDetails <- R6::R6Class(
   "StarGiftAttributeOriginalDetails",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45619,6 +45768,7 @@ StarGiftAttributeOriginalDetails <- R6::R6Class(
 #  @noRd
 StarGiftAttributePattern <- R6::R6Class(
   "StarGiftAttributePattern",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45664,6 +45814,7 @@ StarGiftAttributePattern <- R6::R6Class(
 #  @noRd
 StarGiftCollection <- R6::R6Class(
   "StarGiftCollection",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45724,6 +45875,7 @@ StarGiftCollection <- R6::R6Class(
 #  @noRd
 StarGiftUnique <- R6::R6Class(
   "StarGiftUnique",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45887,6 +46039,7 @@ StarGiftUnique <- R6::R6Class(
 #  @noRd
 StarRefProgram <- R6::R6Class(
   "StarRefProgram",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45951,6 +46104,7 @@ StarRefProgram <- R6::R6Class(
 #  @noRd
 StarsAmount <- R6::R6Class(
   "StarsAmount",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -45992,6 +46146,7 @@ StarsAmount <- R6::R6Class(
 #  @noRd
 StarsGiftOption <- R6::R6Class(
   "StarsGiftOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46050,6 +46205,7 @@ StarsGiftOption <- R6::R6Class(
 #  @noRd
 #  @noRd
 StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46116,6 +46272,7 @@ StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
 #  @noRd
 #  @noRd
 StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46162,6 +46319,7 @@ StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
 #  @noRd
 #  @noRd
 StarsRating <- R6::R6Class("StarsRating",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46213,6 +46371,7 @@ StarsRating <- R6::R6Class("StarsRating",
 #  @noRd
 #  @noRd
 StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46267,6 +46426,7 @@ StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
 #  @noRd
 #  @noRd
 StarsSubscription <- R6::R6Class("StarsSubscription",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46372,6 +46532,7 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
 #  @noRd
 #  @noRd
 StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46391,7 +46552,7 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
     },
     bytes = function() {
       c(
-        as.raw(c(0x58, 0xd5, 0x16, 0x05)),
+        as.raw(c(0x58, 0x6d, 0x41, 0x05)),
         pack("i", self$period),
         pack("q", self$amount)
       )
@@ -46413,6 +46574,7 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
 #  @noRd
 #  @noRd
 StarsTonAmount <- R6::R6Class("StarsTonAmount",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46450,6 +46612,7 @@ StarsTonAmount <- R6::R6Class("StarsTonAmount",
 #  @noRd
 #  @noRd
 StarsTopupOption <- R6::R6Class("StarsTopupOption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46504,6 +46667,7 @@ StarsTopupOption <- R6::R6Class("StarsTopupOption",
 #  @noRd
 #  @noRd
 StarsTransaction <- R6::R6Class("StarsTransaction",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46669,6 +46833,7 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
 #  @noRd
 #  @noRd
 StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46895,6 +47060,7 @@ StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported"
 #  @noRd
 #  @noRd
 StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -46936,6 +47102,7 @@ StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
 #  @noRd
 #  @noRd
 StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(min_date = NULL, max_date = NULL) {
@@ -46965,6 +47132,7 @@ StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
 #  @noRd
 #  @noRd
 StatsGraph <- R6::R6Class("StatsGraph",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(json = NULL, zoom_token = NULL) {
@@ -46995,6 +47163,7 @@ StatsGraph <- R6::R6Class("StatsGraph",
 #  @noRd
 #  @noRd
 StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(token = NULL) {
@@ -47022,6 +47191,7 @@ StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
 #  @noRd
 #  @noRd
 StatsGraphError <- R6::R6Class("StatsGraphError",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(error = NULL) {
@@ -47049,6 +47219,7 @@ StatsGraphError <- R6::R6Class("StatsGraphError",
 #  @noRd
 #  @noRd
 StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(user_id = NULL, deleted = NULL, kicked = NULL, banned = NULL) {
@@ -47082,6 +47253,7 @@ StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
 #  @noRd
 #  @noRd
 StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(user_id = NULL, invitations = NULL) {
@@ -47111,6 +47283,7 @@ StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
 #  @noRd
 #  @noRd
 StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(user_id = NULL, messages = NULL, avg_chars = NULL) {
@@ -47142,6 +47315,7 @@ StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
 #  @noRd
 #  @noRd
 StatsPercentValue <- R6::R6Class("StatsPercentValue",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(part = NULL, total = NULL) {
@@ -47171,6 +47345,7 @@ StatsPercentValue <- R6::R6Class("StatsPercentValue",
 #  @noRd
 #  @noRd
 StatsURL <- R6::R6Class("StatsURL",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(url = NULL) {
@@ -47198,6 +47373,7 @@ StatsURL <- R6::R6Class("StatsURL",
 #  @noRd
 #  @noRd
 StickerKeyword <- R6::R6Class("StickerKeyword",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(document_id = NULL, keyword = NULL) {
@@ -47232,6 +47408,7 @@ StickerKeyword <- R6::R6Class("StickerKeyword",
 #  @noRd
 #  @noRd
 StickerPack <- R6::R6Class("StickerPack",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(emoticon = NULL, documents = NULL) {
@@ -47266,6 +47443,7 @@ StickerPack <- R6::R6Class("StickerPack",
 #  @noRd
 #  @noRd
 StickerSet <- R6::R6Class("StickerSet",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(id = NULL, access_hash = NULL, title = NULL, short_name = NULL, count = NULL, hash = NULL, archived = NULL, official = NULL, masks = NULL, emojis = NULL, text_color = NULL, channel_emoji_status = NULL, creator = NULL, installed_date = NULL, thumbs = NULL, thumb_dc_id = NULL, thumb_version = NULL, thumb_document_id = NULL) {
@@ -47338,6 +47516,7 @@ StickerSet <- R6::R6Class("StickerSet",
 #  @noRd
 #  @noRd
 StickerSetCovered <- R6::R6Class("StickerSetCovered",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(set = NULL, cover = NULL) {
@@ -47367,6 +47546,7 @@ StickerSetCovered <- R6::R6Class("StickerSetCovered",
 #  @noRd
 #  @noRd
 StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(set = NULL, packs = NULL, keywords = NULL, documents = NULL) {
@@ -47412,6 +47592,7 @@ StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
 #  @noRd
 #  @noRd
 StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     initialize = function(set = NULL, covers = NULL) {
@@ -47931,6 +48112,7 @@ TextFixed <- R6::R6Class("TextFixed",
 #  @noRd
 #  @noRd
 TlsBlockString <- R6::R6Class("TlsBlockString",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -47957,6 +48139,7 @@ TlsBlockString <- R6::R6Class("TlsBlockString",
 #  @noRd
 #  @noRd
 TlsBlockZero <- R6::R6Class("TlsBlockZero",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -47983,6 +48166,7 @@ TlsBlockZero <- R6::R6Class("TlsBlockZero",
 #  @noRd
 #  @noRd
 TextImage <- R6::R6Class("TextImage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48011,6 +48195,7 @@ TextImage <- R6::R6Class("TextImage",
 #  @noRd
 #  @noRd
 TextItalic <- R6::R6Class("TextItalic",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48037,6 +48222,7 @@ TextItalic <- R6::R6Class("TextItalic",
 #  @noRd
 #  @noRd
 TextMarked <- R6::R6Class("TextMarked",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48063,6 +48249,7 @@ TextMarked <- R6::R6Class("TextMarked",
 #  @noRd
 #  @noRd
 TextPhone <- R6::R6Class("TextPhone",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48090,6 +48277,7 @@ TextPhone <- R6::R6Class("TextPhone",
 #  @noRd
 #  @noRd
 TextPlain <- R6::R6Class("TextPlain",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48116,6 +48304,7 @@ TextPlain <- R6::R6Class("TextPlain",
 #  @noRd
 #  @noRd
 TextStrike <- R6::R6Class("TextStrike",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48142,6 +48331,7 @@ TextStrike <- R6::R6Class("TextStrike",
 #  @noRd
 #  @noRd
 TextSubscript <- R6::R6Class("TextSubscript",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48168,6 +48358,7 @@ TextSubscript <- R6::R6Class("TextSubscript",
 #  @noRd
 #  @noRd
 TextSuperscript <- R6::R6Class("TextSuperscript",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48194,6 +48385,7 @@ TextSuperscript <- R6::R6Class("TextSuperscript",
 #  @noRd
 #  @noRd
 TextUnderline <- R6::R6Class("TextUnderline",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48220,6 +48412,7 @@ TextUnderline <- R6::R6Class("TextUnderline",
 #  @noRd
 #  @noRd
 TextUrl <- R6::R6Class("TextUrl",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48248,6 +48441,7 @@ TextUrl <- R6::R6Class("TextUrl",
 #  @noRd
 #  @noRd
 TextWithEntities <- R6::R6Class("TextWithEntities",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48280,6 +48474,7 @@ TextWithEntities <- R6::R6Class("TextWithEntities",
 #  @noRd
 #  @noRd
 Theme <- R6::R6Class("Theme",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48338,6 +48533,7 @@ Theme <- R6::R6Class("Theme",
 #  @noRd
 #  @noRd
 ThemeSettings <- R6::R6Class("ThemeSettings",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48386,6 +48582,7 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
 #  @noRd
 #  @noRd
 Timezone <- R6::R6Class("Timezone",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48437,6 +48634,7 @@ TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
 #  @noRd
 #  @noRd
 TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48486,6 +48684,7 @@ TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
 #  @noRd
 #  @noRd
 TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -48512,6 +48711,7 @@ TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
 #  @noRd
 #  @noRd
 TlsBlockScope <- R6::R6Class("TlsBlockScope",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49000,7 +49200,7 @@ TopPeerCategoryGroups <- R6::R6Class(
       list(`_` = "TopPeerCategoryGroups")
     },
     bytes = function() {
-      as.raw(c(0xbd, 0x17, 0xa1, 0x4a))
+      as.raw(c(0x4a, 0xa1, 0x17, 0xbd))
     }
   ),
   private = list(
@@ -49018,6 +49218,7 @@ TopPeerCategoryGroups <- R6::R6Class(
 #  @noRd
 TopPeerCategoryPeers <- R6::R6Class(
   "TopPeerCategoryPeers",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49151,6 +49352,7 @@ UpdateAutoSaveSettings <- R6::R6Class(
 #  @noRd
 UpdateBotBusinessConnect <- R6::R6Class(
   "UpdateBotBusinessConnect",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49193,6 +49395,7 @@ UpdateBotBusinessConnect <- R6::R6Class(
 #  @noRd
 UpdateBotCallbackQuery <- R6::R6Class(
   "UpdateBotCallbackQuery",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49255,6 +49458,7 @@ UpdateBotCallbackQuery <- R6::R6Class(
 #  @noRd
 UpdateBotChatBoost <- R6::R6Class(
   "UpdateBotChatBoost",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49299,6 +49503,7 @@ UpdateBotChatBoost <- R6::R6Class(
 #  @noRd
 UpdateBotChatInviteRequester <- R6::R6Class(
   "UpdateBotChatInviteRequester",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49357,6 +49562,7 @@ UpdateBotChatInviteRequester <- R6::R6Class(
 #  @noRd
 UpdateBotCommands <- R6::R6Class(
   "UpdateBotCommands",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49378,7 +49584,7 @@ UpdateBotCommands <- R6::R6Class(
     },
     bytes = function() {
       c(
-        as.raw(c(0x2e, 0x71, 0xd7, 0x4d)),
+        as.raw(c(0x2e, 0x2f, 0x71, 0x4d)),
         self$peer$bytes(),
         pack("q", self$bot_id),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -49409,6 +49615,7 @@ UpdateBotCommands <- R6::R6Class(
 #  @noRd
 UpdateBotDeleteBusinessMessage <- R6::R6Class(
   "UpdateBotDeleteBusinessMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -49432,7 +49639,7 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class(
     },
     bytes = function() {
       c(
-        as.raw(c(0xa0, 0x2a, 0x98, 0x2e)),
+        as.raw(c(0x2e, 0x98, 0x2a, 0xa0)),
         self$serialize_bytes(self$connection_id),
         self$peer$bytes(),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -49462,6 +49669,7 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class(
 #  @noRd
 UpdateBotEditBusinessMessage <- R6::R6Class(
   "UpdateBotEditBusinessMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -50764,6 +50972,7 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
 #  @noRd
 #  @noRd
 UpdateChat <- R6::R6Class("UpdateChat",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -50801,6 +51010,7 @@ UpdateChat <- R6::R6Class("UpdateChat",
 #  @noRd
 #  @noRd
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -50846,6 +51056,7 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
 #  @noRd
 #  @noRd
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -50911,6 +51122,7 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
 #  @noRd
 #  @noRd
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -50964,6 +51176,7 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
 #  @noRd
 #  @noRd
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51438,6 +51651,7 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
 #  @noRd
 #  @noRd
 UpdateChat <- R6::R6Class("UpdateChat",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51469,6 +51683,7 @@ UpdateChat <- R6::R6Class("UpdateChat",
 #  @noRd
 #  @noRd
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51504,6 +51719,7 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
 #  @noRd
 #  @noRd
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51551,6 +51767,7 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
 #  @noRd
 #  @noRd
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51590,6 +51807,7 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
 #  @noRd
 #  @noRd
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51627,6 +51845,7 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
 #  @noRd
 #  @noRd
 UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51662,6 +51881,7 @@ UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
 #  @noRd
 #  @noRd
 UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51696,6 +51916,7 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
 #  @noRd
 #  @noRd
 UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51790,6 +52011,7 @@ UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
 #  @noRd
 #  @noRd
 UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51825,6 +52047,7 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
 #  @noRd
 #  @noRd
 UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51869,6 +52092,7 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
 #  @noRd
 #  @noRd
 UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51910,6 +52134,7 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
 #  @noRd
 #  @noRd
 UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51944,6 +52169,7 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
 #  @noRd
 #  @noRd
 UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -51982,6 +52208,7 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
 #  @noRd
 #  @noRd
 UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52030,6 +52257,7 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
 #  @noRd
 #  @noRd
 UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52069,6 +52297,7 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
 #  @noRd
 #  @noRd
 UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52131,6 +52360,7 @@ UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
 #  @noRd
 #  @noRd
 UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52173,6 +52403,7 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
 #  @noRd
 #  @noRd
 UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52215,6 +52446,7 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
 #  @noRd
 #  @noRd
 UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52253,6 +52485,7 @@ UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
 #  @noRd
 #  @noRd
 UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52288,6 +52521,7 @@ UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
 #  @noRd
 #  @noRd
 UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52323,6 +52557,7 @@ UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
 #  @noRd
 #  @noRd
 UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52354,6 +52589,7 @@ UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
 #  @noRd
 #  @noRd
 UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52389,6 +52625,7 @@ UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
 #  @noRd
 #  @noRd
 UpdateEncryption <- R6::R6Class("UpdateEncryption",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52447,6 +52684,7 @@ UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
 #  @noRd
 #  @noRd
 UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52483,6 +52721,7 @@ UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
 #  @noRd
 #  @noRd
 UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52516,6 +52755,7 @@ UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
 #  @noRd
 #  @noRd
 UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52550,6 +52790,7 @@ UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
 #  @noRd
 #  @noRd
 UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52605,6 +52846,7 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
 #  @noRd
 #  @noRd
 UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52624,7 +52866,7 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
     },
     bytes = function() {
       c(
-        as.raw(c(0x82, 0x39, 0x83, 0x0b)),
+        as.raw(c(0x82, 0x39, 0x78, 0x0b)),
         pack("I", if (is.null(self$presentation) || !self$presentation) 0 else 1),
         self$params$bytes()
       )
@@ -52648,6 +52890,7 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
 #  @noRd
 #  @noRd
 UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52699,6 +52942,7 @@ UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
 #  @noRd
 #  @noRd
 UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52759,6 +53003,7 @@ UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
 #  @noRd
 #  @noRd
 UpdateLangPack <- R6::R6Class("UpdateLangPack",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52797,6 +53042,7 @@ UpdateLangPack <- R6::R6Class("UpdateLangPack",
 #  @noRd
 #  @noRd
 UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52862,6 +53108,7 @@ UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
 #  @noRd
 #  @noRd
 UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52913,6 +53160,7 @@ UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
 #  @noRd
 #  @noRd
 UpdateMessageID <- R6::R6Class("UpdateMessageID",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -52955,6 +53203,7 @@ UpdateMessageID <- R6::R6Class("UpdateMessageID",
 #  @noRd
 #  @noRd
 UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53003,6 +53252,7 @@ UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
 #  @noRd
 #  @noRd
 UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53058,6 +53308,7 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
 #  @noRd
 #  @noRd
 UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53114,6 +53365,7 @@ UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
 #  @noRd
 #  @noRd
 UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53161,6 +53413,7 @@ UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
 #  @noRd
 #  @noRd
 UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53207,6 +53460,7 @@ UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
 #  @noRd
 #  @noRd
 UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53263,6 +53517,7 @@ UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
 #  @noRd
 #  @noRd
 UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53309,6 +53564,7 @@ UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
 #  @noRd
 #  @noRd
 UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53351,6 +53607,7 @@ UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
 #  @noRd
 #  @noRd
 UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53397,6 +53654,7 @@ UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
 #  @noRd
 #  @noRd
 UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53435,6 +53693,7 @@ UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
 #  @noRd
 #  @noRd
 UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53469,6 +53728,7 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
 #  @noRd
 #  @noRd
 UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53503,6 +53763,7 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
 #  @noRd
 #  @noRd
 UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53543,6 +53804,7 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
 #  @noRd
 #  @noRd
 UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53580,6 +53842,7 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
 #  @noRd
 #  @noRd
 UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53614,6 +53877,7 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
 #  @noRd
 #  @noRd
 UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53656,6 +53920,7 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
 #  @noRd
 #  @noRd
 UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53695,6 +53960,7 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
 #  @noRd
 #  @noRd
 UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53730,6 +53996,7 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
 #  @noRd
 #  @noRd
 UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53767,6 +54034,7 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
 #  @noRd
 #  @noRd
 UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53809,6 +54077,7 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
 #  @noRd
 #  @noRd
 UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53850,6 +54119,7 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
 #  @noRd
 #  @noRd
 UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53884,6 +54154,7 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
 #  @noRd
 #  @noRd
 UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53921,6 +54192,7 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
 #  @noRd
 #  @noRd
 UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -53970,6 +54242,7 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
 #  @noRd
 #  @noRd
 UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54014,6 +54287,7 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
 #  @noRd
 #  @noRd
 UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54063,6 +54337,7 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
 #  @noRd
 #  @noRd
 UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54104,6 +54379,7 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
 #  @noRd
 #  @noRd
 UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54169,6 +54445,7 @@ UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
 #  @noRd
 #  @noRd
 UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54213,6 +54490,7 @@ UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
 #  @noRd
 #  @noRd
 UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54250,6 +54528,7 @@ UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
 #  @noRd
 #  @noRd
 UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54306,6 +54585,7 @@ UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbo
 #  @noRd
 #  @noRd
 UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOutbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54351,6 +54631,7 @@ UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOut
 #  @noRd
 #  @noRd
 UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54407,6 +54688,7 @@ UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
 #  @noRd
 #  @noRd
 UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54502,6 +54784,7 @@ UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
 #  @noRd
 #  @noRd
 UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54562,6 +54845,7 @@ UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
 #  @noRd
 #  @noRd
 UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54611,6 +54895,7 @@ UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
 #  @noRd
 #  @noRd
 UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54670,6 +54955,7 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
 #  @noRd
 #  @noRd
 UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54715,6 +55001,7 @@ UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
 #  @noRd
 #  @noRd
 UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54760,6 +55047,7 @@ UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
 #  @noRd
 #  @noRd
 UpdateReadStories <- R6::R6Class("UpdateReadStories",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -54882,6 +55170,7 @@ UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
 #  @noRd
 #  @noRd
 UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55006,6 +55295,7 @@ UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
 #  @noRd
 #  @noRd
 UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55043,6 +55333,7 @@ UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
 #  @noRd
 #  @noRd
 UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55088,6 +55379,7 @@ UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
 #  @noRd
 #  @noRd
 UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55157,6 +55449,7 @@ UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
 #  @noRd
 #  @noRd
 UpdateShort <- R6::R6Class("UpdateShort",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55198,6 +55491,7 @@ UpdateShort <- R6::R6Class("UpdateShort",
 #  @noRd
 #  @noRd
 UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55321,6 +55615,7 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
 #  @noRd
 #  @noRd
 UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55417,6 +55712,7 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
 #  @noRd
 #  @noRd
 UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55488,6 +55784,7 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
 #  @noRd
 #  @noRd
 UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55525,6 +55822,7 @@ UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
 #  @noRd
 #  @noRd
 UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55562,6 +55860,7 @@ UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
 #  @noRd
 #  @noRd
 UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55603,6 +55902,7 @@ UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
 #  @noRd
 #  @noRd
 UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55644,6 +55944,7 @@ UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
 #  @noRd
 #  @noRd
 UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55690,6 +55991,7 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
 #  @noRd
 #  @noRd
 UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55727,6 +56029,7 @@ UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
 #  @noRd
 #  @noRd
 UpdateStory <- R6::R6Class("UpdateStory",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55768,6 +56071,7 @@ UpdateStory <- R6::R6Class("UpdateStory",
 #  @noRd
 #  @noRd
 UpdateStoryID <- R6::R6Class("UpdateStoryID",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55809,6 +56113,7 @@ UpdateStoryID <- R6::R6Class("UpdateStoryID",
 #  @noRd
 #  @noRd
 UpdateTheme <- R6::R6Class("UpdateTheme",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55846,6 +56151,7 @@ UpdateTheme <- R6::R6Class("UpdateTheme",
 #  @noRd
 #  @noRd
 UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55900,6 +56206,7 @@ UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
 #  @noRd
 #  @noRd
 UpdateUser <- R6::R6Class("UpdateUser",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55937,6 +56244,7 @@ UpdateUser <- R6::R6Class("UpdateUser",
 #  @noRd
 #  @noRd
 UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -55978,6 +56286,7 @@ UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
 #  @noRd
 #  @noRd
 UpdateUserName <- R6::R6Class("UpdateUserName",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56028,6 +56337,7 @@ UpdateUserName <- R6::R6Class("UpdateUserName",
 #  @noRd
 #  @noRd
 UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56069,6 +56379,7 @@ UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
 #  @noRd
 #  @noRd
 UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56110,6 +56421,7 @@ UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
 #  @noRd
 #  @noRd
 UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56149,6 +56461,7 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
 #  @noRd
 #  @noRd
 UpdateWebPage <- R6::R6Class("UpdateWebPage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56191,6 +56504,7 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
 #  @noRd
 #  @noRd
 UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56227,6 +56541,7 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
 #  @noRd
 #  @noRd
 Updates <- R6::R6Class("Updates",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56283,6 +56598,7 @@ Updates <- R6::R6Class("Updates",
 #  @noRd
 #  @noRd
 UpdatesCombined <- R6::R6Class("UpdatesCombined",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56370,6 +56686,7 @@ UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
 #  @noRd
 #  @noRd
 UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56433,6 +56750,7 @@ UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
 #  @noRd
 #  @noRd
 UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -56732,6 +57050,7 @@ UserEmpty <- R6::R6Class("UserEmpty",
 #  @noRd
 #  @noRd
 UserFull <- R6::R6Class("UserFull",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57083,6 +57402,7 @@ UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
 #  @noRd
 #  @noRd
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57121,6 +57441,7 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
 #  @noRd
 #  @noRd
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57159,6 +57480,7 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
 #  @noRd
 #  @noRd
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57196,6 +57518,7 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
 #  @noRd
 #  @noRd
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57233,6 +57556,7 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
 #  @noRd
 #  @noRd
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57271,6 +57595,7 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
 #  @noRd
 #  @noRd
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57303,6 +57628,7 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
 #  @noRd
 #  @noRd
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57335,6 +57661,7 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
 #  @noRd
 #  @noRd
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57366,6 +57693,7 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
 #  @noRd
 #  @noRd
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57397,6 +57725,7 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
 #  @noRd
 #  @noRd
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57429,6 +57758,7 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
 #  @noRd
 #  @noRd
 Username <- R6::R6Class("Username",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57465,6 +57795,7 @@ Username <- R6::R6Class("Username",
 #  @noRd
 #  @noRd
 VideoSize <- R6::R6Class("VideoSize",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57509,6 +57840,7 @@ VideoSize <- R6::R6Class("VideoSize",
 #  @noRd
 #  @noRd
 VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57543,6 +57875,7 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
 #  @noRd
 #  @noRd
 VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57579,6 +57912,7 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
 #  @noRd
 #  @noRd
 WallPaper <- R6::R6Class("WallPaper",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57631,6 +57965,7 @@ WallPaper <- R6::R6Class("WallPaper",
 #  @noRd
 #  @noRd
 WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57673,6 +58008,7 @@ WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
 #  @noRd
 #  @noRd
 WallPaperSettings <- R6::R6Class("WallPaperSettings",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57749,6 +58085,7 @@ WallPaperSettings <- R6::R6Class("WallPaperSettings",
 #  @noRd
 #  @noRd
 WebAuthorization <- R6::R6Class("WebAuthorization",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57807,6 +58144,7 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
 #  @noRd
 #  @noRd
 WebDocument <- R6::R6Class("WebDocument",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57854,6 +58192,7 @@ WebDocument <- R6::R6Class("WebDocument",
 #  @noRd
 #  @noRd
 WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57898,6 +58237,7 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
 #  @noRd
 #  @noRd
 WebPage <- R6::R6Class("WebPage",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -57954,7 +58294,7 @@ WebPage <- R6::R6Class("WebPage",
     bytes = function() {
       stopifnot(((is.null(self$embed_url) || self$embed_url == "") && (is.null(self$embed_type) || self$embed_type == "")) || ((!is.null(self$embed_url) && self$embed_url != "") && (!is.null(self$embed_type) && self$embed_type != "")), "embed_url, embed_type parameters must all be False-y (like NULL or empty) or all be True-y")
       stopifnot(((is.null(self$embed_width) || self$embed_width == 0) && (is.null(self$embed_height) || self$embed_height == 0)) || ((!is.null(self$embed_width) && self$embed_width != 0) && (!is.null(self$embed_height) && self$embed_height != 0)), "embed_width, embed_height parameters must all be False-y (like NULL or 0) or all be True-y")
-      as.raw(c(0xe8, 0x9c, 0x45, 0xb2)) +
+      as.raw(c(0xb2, 0x45, 0x9c, 0xe8)) +
         pack("I", (if (is.null(self$has_large_media)) 0 else 8192) | (if (is.null(self$video_cover_photo)) 0 else 16384) | (if (is.null(self$type)) 0 else 1) | (if (is.null(self$site_name)) 0 else 2) | (if (is.null(self$title)) 0 else 4) | (if (is.null(self$description)) 0 else 8) | (if (is.null(self$photo)) 0 else 16) | (if (is.null(self$embed_url)) 0 else 32) | (if (is.null(self$embed_type)) 0 else 32) | (if (is.null(self$embed_width)) 0 else 64) | (if (is.null(self$embed_height)) 0 else 64) | (if (is.null(self$duration)) 0 else 128) | (if (is.null(self$author)) 0 else 256) | (if (is.null(self$document)) 0 else 512) | (if (is.null(self$cached_page)) 0 else 1024) | (if (is.null(self$attributes)) 0 else 4096)) +
         pack("q", self$id) +
         self$serializebytes(self$url) +
@@ -58068,6 +58408,7 @@ WebPage <- R6::R6Class("WebPage",
 #  @noRd
 #  @noRd
 WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftCollection",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58084,7 +58425,7 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
       )
     },
     bytes = function() {
-      as.raw(c(0x31, 0xca, 0xd3, 0x03)) +
+      as.raw(c(0x03, 0xd3, 0xca, 0x31)) +
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$icons)) + do.call(c, lapply(self$icons, function(x) x$bytes()))
     }
   ),
@@ -58104,6 +58445,7 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
 #  @noRd
 #  @noRd
 WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58124,7 +58466,7 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
       )
     },
     bytes = function() {
-      as.raw(c(0x50, 0xcc, 0x03, 0xd3)) +
+      as.raw(c(0xd3, 0x03, 0xcc, 0x50)) +
         pack("I", (if (is.null(self$emojis)) 0 else 1) | (if (is.null(self$text_color)) 0 else 2)) +
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$stickers)) + do.call(c, lapply(self$stickers, function(x) x$bytes()))
     }
@@ -58148,6 +58490,7 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
 #  @noRd
 #  @noRd
 WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58168,7 +58511,7 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
       )
     },
     bytes = function() {
-      as.raw(c(0x2e, 0x94, 0xc3, 0xe7)) +
+      as.raw(c(0xe7, 0xc3, 0x94, 0x2e)) +
         pack("I", if (is.null(self$story)) 0 else 1) +
         self$peer$bytes() +
         pack("i", self$id) +
@@ -58193,6 +58536,7 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
 #  @noRd
 #  @noRd
 WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58212,7 +58556,7 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
     },
     bytes = function() {
       flags <- (if (is.null(self$documents)) 0 else 1) | (if (is.null(self$settings)) 0 else 2)
-      as.raw(c(0x54, 0xb5, 0x66, 0x17)) +
+      as.raw(c(0x17, 0x66, 0xb5, 0x54)) +
         pack("I", flags) +
         if (is.null(self$documents)) {
           raw(0)
@@ -58244,6 +58588,7 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
 #  @noRd
 #  @noRd
 WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58260,7 +58605,7 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
       )
     },
     bytes = function() {
-      as.raw(c(0xcf, 0x6f, 0x6d, 0xb8)) + self$gift$bytes()
+      as.raw(c(0xb8, 0x6d, 0x6f, 0xcf)) + self$gift$bytes()
     }
   ),
   private = list(
@@ -58278,6 +58623,7 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
 #  @noRd
 #  @noRd
 WebPageEmpty <- R6::R6Class("WebPageEmpty",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58296,7 +58642,7 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
       )
     },
     bytes = function() {
-      as.raw(c(0x21, 0x1a, 0x17, 0x88)) +
+      as.raw(c(0x88, 0x17, 0x1a, 0x21)) +
         pack("I", if (is.null(self$url)) 0 else 1) +
         pack("q", self$id) +
         if (is.null(self$url)) raw(0) else self$serializebytes(self$url)
@@ -58319,6 +58665,7 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
 #  @noRd
 #  @noRd
 WebPageNotModified <- R6::R6Class("WebPageNotModified",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58335,7 +58682,7 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
       )
     },
     bytes = function() {
-      as.raw(c(0x73, 0x11, 0xca, 0x11)) +
+      as.raw(c(0x11, 0xca, 0x11, 0x73)) +
         pack("I", if (is.null(self$cached_page_views)) 0 else 1) +
         if (is.null(self$cached_page_views)) raw(0) else pack("i", self$cached_page_views)
     }
@@ -58356,6 +58703,7 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
 #  @noRd
 #  @noRd
 WebPagePending <- R6::R6Class("WebPagePending",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58376,7 +58724,7 @@ WebPagePending <- R6::R6Class("WebPagePending",
       )
     },
     bytes = function() {
-      as.raw(c(0xb0, 0xd1, 0x3e, 0x47)) +
+      as.raw(c(0x47, 0x3e, 0xd1, 0xb0)) +
         pack("I", if (is.null(self$url)) 0 else 1) +
         pack("q", self$id) +
         if (is.null(self$url)) {
@@ -58405,6 +58753,7 @@ WebPagePending <- R6::R6Class("WebPagePending",
 #  @noRd
 #  @noRd
 WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58421,7 +58770,7 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
       )
     },
     bytes = function() {
-      as.raw(c(0x0c, 0x94, 0x51, 0x0c)) +
+      as.raw(c(0x1c, 0x51, 0x94, 0x0c)) +
         pack("I", if (is.null(self$msg_id)) 0 else 1) +
         if (is.null(self$msg_id)) raw(0) else self$msg_id$bytes()
     }
@@ -58442,6 +58791,7 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
 #  @noRd
 #  @noRd
 WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
+  lock_objects = FALSE,
   inherit = TLObject,
   public = list(
     #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
@@ -58467,7 +58817,7 @@ WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
       flags <- (if (is.null(self$fullsize) || !self$fullsize) 0 else 2) |
         (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 4) |
         (if (is.null(self$query_id)) 0 else 1)
-      as.raw(c(0x4d, 0x22, 0xff, 0x98)) +
+      as.raw(c(0x98, 0xff, 0x22, 0x4d)) +
         pack("I", flags) +
         if (is.null(self$query_id)) {
           raw(0)

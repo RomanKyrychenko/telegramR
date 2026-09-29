@@ -52,9 +52,9 @@ GetCollectibleInfoRequest <- R6::R6Class(
       constructor_raw <- as.raw(c(0xba, 0x85, 0x1e, 0xbe)) # little-endian bytes for 0xbe1e85ba
 
       collectible_bytes <- if (inherits(self$collectible, "TLObject")) {
-        if (!is.null(self$collectible$to_bytes)) {
+        if (.telegramR_defines(self$collectible, "to_bytes")) {
           self$collectible$to_bytes()
-        } else if (!is.null(self$collectible$bytes)) {
+        } else if (.telegramR_defines(self$collectible, "bytes")) {
           self$collectible$bytes()
         } else {
           stop("collectible does not provide a to_bytes / bytes method")

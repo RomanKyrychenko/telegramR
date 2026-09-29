@@ -1085,7 +1085,7 @@ GetAlbumsRequest <- R6::R6Class(
       }
 
       # hash int64 little-endian (8 bytes)
-      parts[[length(parts) + 1]] <- writeBin(as.numeric(self$hash), raw(), size = 8, endian = "little")
+      parts[[length(parts) + 1]] <- packInt64(self$hash)
 
       do.call(c, parts)
     }
@@ -3246,7 +3246,7 @@ SendStoryRequest <- R6::R6Class(
       }
 
       # random_id as 64-bit little-endian
-      parts[[length(parts) + 1]] <- writeBin(as.numeric(self$random_id), raw(), size = 8, endian = "little")
+      parts[[length(parts) + 1]] <- packInt64(self$random_id)
 
       # period
       if (!is.null(self$period)) {

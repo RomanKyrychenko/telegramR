@@ -248,7 +248,7 @@ GetUserPhotosRequest <- R6::R6Class(
 
       writeBin(as.integer(self$offset), con, size = 4, endian = "little")
       # write max_id as 8-byte little-endian. Represented as numeric (double) in R.
-      writeBin(as.double(self$max_id), con, size = 8, endian = "little")
+      writeBin(packInt64(self$max_id), con)
       writeBin(as.integer(self$limit), con, size = 4, endian = "little")
 
       rawConnectionValue(con)

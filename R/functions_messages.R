@@ -242,6 +242,7 @@ AddChatUserRequest$fromReader <- function(reader) {
 #  @noRd
 AppendTodoListRequest <- R6::R6Class(
   "AppendTodoListRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -366,6 +367,7 @@ CheckChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 CheckHistoryImportRequest <- R6::R6Class(
   "CheckHistoryImportRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -417,6 +419,7 @@ CheckHistoryImportRequest$fromReader <- function(reader) {
 #  @noRd
 CheckHistoryImportPeerRequest <- R6::R6Class(
   "CheckHistoryImportPeerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -474,6 +477,7 @@ CheckHistoryImportPeerRequest$fromReader <- function(reader) {
 #  @noRd
 CheckQuickReplyShortcutRequest <- R6::R6Class(
   "CheckQuickReplyShortcutRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -599,6 +603,7 @@ ClearRecentReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 ClearRecentStickersRequest <- R6::R6Class(
   "ClearRecentStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -651,6 +656,7 @@ ClearRecentStickersRequest$fromReader <- function(reader) {
 #  @noRd
 ClickSponsoredMessageRequest <- R6::R6Class(
   "ClickSponsoredMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -719,6 +725,7 @@ ClickSponsoredMessageRequest$fromReader <- function(reader) {
 #  @noRd
 CreateChatRequest <- R6::R6Class(
   "CreateChatRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -798,6 +805,7 @@ CreateChatRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteChatRequest <- R6::R6Class(
   "DeleteChatRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -848,6 +856,7 @@ DeleteChatRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteChatUserRequest <- R6::R6Class(
   "DeleteChatUserRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -917,6 +926,7 @@ DeleteChatUserRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteExportedChatInviteRequest <- R6::R6Class(
   "DeleteExportedChatInviteRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -979,6 +989,7 @@ DeleteExportedChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteFactCheckRequest <- R6::R6Class(
   "DeleteFactCheckRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1041,6 +1052,7 @@ DeleteFactCheckRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1128,6 +1140,7 @@ DeleteHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1190,6 +1203,7 @@ DeleteMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 DeletePhoneCallHistoryRequest <- R6::R6Class(
   "DeletePhoneCallHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1242,6 +1256,7 @@ DeletePhoneCallHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteQuickReplyMessagesRequest <- R6::R6Class(
   "DeleteQuickReplyMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1303,6 +1318,7 @@ DeleteQuickReplyMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteQuickReplyShortcutRequest <- R6::R6Class(
   "DeleteQuickReplyShortcutRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1353,6 +1369,7 @@ DeleteQuickReplyShortcutRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
   "DeleteRevokedExportedChatInvitesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1416,6 +1433,7 @@ DeleteRevokedExportedChatInvitesRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteSavedHistoryRequest <- R6::R6Class(
   "DeleteSavedHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1502,6 +1520,7 @@ DeleteSavedHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 DeleteScheduledMessagesRequest <- R6::R6Class(
   "DeleteScheduledMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1569,6 +1588,7 @@ DeleteScheduledMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 DiscardEncryptionRequest <- R6::R6Class(
   "DiscardEncryptionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1625,6 +1645,7 @@ DiscardEncryptionRequest$fromReader <- function(reader) {
 #  @noRd
 EditChatAboutRequest <- R6::R6Class(
   "EditChatAboutRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1688,6 +1709,7 @@ EditChatAboutRequest$fromReader <- function(reader) {
 #  @noRd
 EditChatAdminRequest <- R6::R6Class(
   "EditChatAdminRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1755,6 +1777,7 @@ EditChatAdminRequest$fromReader <- function(reader) {
 #  @noRd
 EditChatDefaultBannedRightsRequest <- R6::R6Class(
   "EditChatDefaultBannedRightsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1817,6 +1840,7 @@ EditChatDefaultBannedRightsRequest$fromReader <- function(reader) {
 #  @noRd
 EditChatPhotoRequest <- R6::R6Class(
   "EditChatPhotoRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1880,6 +1904,7 @@ EditChatPhotoRequest$fromReader <- function(reader) {
 #  @noRd
 EditChatTitleRequest <- R6::R6Class(
   "EditChatTitleRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -1935,6 +1960,7 @@ EditChatTitleRequest$fromReader <- function(reader) {
 #  @noRd
 EditExportedChatInviteRequest <- R6::R6Class(
   "EditExportedChatInviteRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2028,6 +2054,7 @@ EditExportedChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 EditFactCheckRequest <- R6::R6Class(
   "EditFactCheckRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2096,6 +2123,7 @@ EditFactCheckRequest$fromReader <- function(reader) {
 #  @noRd
 EditInlineBotMessageRequest <- R6::R6Class(
   "EditInlineBotMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2196,6 +2224,7 @@ EditInlineBotMessageRequest$fromReader <- function(reader) {
 #  @noRd
 EditMessageRequest <- R6::R6Class(
   "EditMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2315,6 +2344,7 @@ EditMessageRequest$fromReader <- function(reader) {
 #  @noRd
 EditQuickReplyShortcutRequest <- R6::R6Class(
   "EditQuickReplyShortcutRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2370,6 +2400,7 @@ EditQuickReplyShortcutRequest$fromReader <- function(reader) {
 #  @noRd
 ExportChatInviteRequest <- R6::R6Class(
   "ExportChatInviteRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2464,6 +2495,7 @@ ExportChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 FaveStickerRequest <- R6::R6Class(
   "FaveStickerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2526,6 +2558,7 @@ FaveStickerRequest$fromReader <- function(reader) {
 #  @noRd
 ForwardMessagesRequest <- R6::R6Class(
   "ForwardMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2704,6 +2737,7 @@ ForwardMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetAdminsWithInvitesRequest <- R6::R6Class(
   "GetAdminsWithInvitesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2850,6 +2884,7 @@ GetAllStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetArchivedStickersRequest <- R6::R6Class(
   "GetArchivedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -2919,6 +2954,7 @@ GetArchivedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetAttachMenuBotRequest <- R6::R6Class(
   "GetAttachMenuBotRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3027,6 +3063,7 @@ GetAttachMenuBotsRequest$fromReader <- function(reader) {
 #  @noRd
 GetAttachedStickersRequest <- R6::R6Class(
   "GetAttachedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3078,6 +3115,7 @@ GetAttachedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetAvailableEffectsRequest <- R6::R6Class(
   "GetAvailableEffectsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3104,7 +3142,7 @@ GetAvailableEffectsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xde, 0xa2, 0x0a, 0x39)),
+        as.raw(c(0x39, 0x0a, 0xa2, 0xde)),
         pack("<i", self$hash)
       )
     }
@@ -3128,6 +3166,7 @@ GetAvailableEffectsRequest$fromReader <- function(reader) {
 #  @noRd
 GetAvailableReactionsRequest <- R6::R6Class(
   "GetAvailableReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3154,7 +3193,7 @@ GetAvailableReactionsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x18, 0xde, 0xa0, 0xac)),
+        as.raw(c(0xac, 0xa0, 0xde, 0x18)),
         pack("<i", self$hash)
       )
     }
@@ -3178,6 +3217,7 @@ GetAvailableReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetBotAppRequest <- R6::R6Class(
   "GetBotAppRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3207,7 +3247,7 @@ GetBotAppRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x34, 0xfd, 0xc5, 0xc3)),
+        as.raw(c(0xc3, 0xc5, 0xfd, 0x34)),
         self$app$bytes(),
         pack("<q", self$hash)
       )
@@ -3233,6 +3273,7 @@ GetBotAppRequest$fromReader <- function(reader) {
 #  @noRd
 GetBotCallbackAnswerRequest <- R6::R6Class(
   "GetBotCallbackAnswerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3281,7 +3322,7 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
         (if (is.null(self$data) || !length(self$data)) 0 else 1) |
         (if (is.null(self$password)) 0 else 4)
       c(
-        as.raw(c(0x93, 0x42, 0xca, 0x07)),
+        as.raw(c(0x07, 0xca, 0x42, 0x93)),
         pack("<I", flags),
         self$peer$bytes(),
         pack("<i", self$msgId),
@@ -3315,6 +3356,7 @@ GetBotCallbackAnswerRequest$fromReader <- function(reader) {
 #  @noRd
 GetChatInviteImportersRequest <- R6::R6Class(
   "GetChatInviteImportersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3374,7 +3416,7 @@ GetChatInviteImportersRequest <- R6::R6Class(
         (if (is.null(self$link) || !nchar(self$link)) 0 else 2) |
         (if (is.null(self$q) || !nchar(self$q)) 0 else 4)
       c(
-        as.raw(c(0xdf, 0x04, 0xdd, 0x4e)),
+        as.raw(c(0x4e, 0xdd, 0x04, 0xdf)),
         pack("<I", flags),
         self$peer$bytes(),
         if (is.null(self$link) || !nchar(self$link)) raw(0) else self$serialize_bytes(self$link),
@@ -3412,6 +3454,7 @@ GetChatInviteImportersRequest$fromReader <- function(reader) {
 #  @noRd
 GetChatsRequest <- R6::R6Class(
   "GetChatsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3438,7 +3481,7 @@ GetChatsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x49, 0xe9, 0x52, 0x8f)),
+        as.raw(c(0x8f, 0x52, 0xe9, 0x49)),
         as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
         pack("<i", length(self$id)),
         do.call(c, lapply(self$id, function(x) pack("<q", x)))
@@ -3469,6 +3512,7 @@ GetChatsRequest$fromReader <- function(reader) {
 #  @noRd
 GetCommonChatsRequest <- R6::R6Class(
   "GetCommonChatsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3508,7 +3552,7 @@ GetCommonChatsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xe4, 0x0c, 0xa1, 0x04)),
+        as.raw(c(0x04, 0xa1, 0x0c, 0xe4)),
         self$userId$bytes(),
         pack("<q", self$maxId),
         pack("<i", self$limit)
@@ -3537,6 +3581,7 @@ GetCommonChatsRequest$fromReader <- function(reader) {
 #  @noRd
 GetCustomEmojiDocumentsRequest <- R6::R6Class(
   "GetCustomEmojiDocumentsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3563,7 +3608,7 @@ GetCustomEmojiDocumentsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xd9, 0xab, 0x0f, 0x54)),
+        as.raw(c(0x54, 0x0f, 0xab, 0xd9)),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         pack("<i", length(self$documentId)),
         do.call(c, lapply(self$documentId, function(x) pack("<q", x)))
@@ -3610,7 +3655,7 @@ GetDefaultHistoryTTLRequest <- R6::R6Class(
     #  @description Serialize the object to bytes.
     #  @return A raw vector of bytes.
     bytes = function() {
-      as.raw(c(0x65, 0x8b, 0x71, 0x88))
+      as.raw(c(0x88, 0x71, 0x8b, 0x65))
     }
   )
 )
@@ -3631,6 +3676,7 @@ GetDefaultHistoryTTLRequest$fromReader <- function(reader) {
 #  @noRd
 GetDefaultTagReactionsRequest <- R6::R6Class(
   "GetDefaultTagReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3657,7 +3703,7 @@ GetDefaultTagReactionsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xbd, 0xf9, 0x34, 0x28)),
+        as.raw(c(0x28, 0x34, 0xf9, 0xbd)),
         pack("<q", self$hash)
       )
     }
@@ -3681,6 +3727,7 @@ GetDefaultTagReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetDhConfigRequest <- R6::R6Class(
   "GetDhConfigRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3710,7 +3757,7 @@ GetDhConfigRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x26, 0xcf, 0x89, 0x50)),
+        as.raw(c(0x50, 0x89, 0xcf, 0x26)),
         pack("<i", self$version),
         pack("<i", self$randomLength)
       )
@@ -3753,7 +3800,7 @@ GetDialogFiltersRequest <- R6::R6Class(
     #  @description Serialize the object to bytes.
     #  @return A raw vector of bytes.
     bytes = function() {
-      as.raw(c(0xef, 0xd4, 0x8c, 0x89))
+      as.raw(c(0x89, 0x8c, 0xd4, 0xef))
     }
   )
 )
@@ -3774,6 +3821,7 @@ GetDialogFiltersRequest$fromReader <- function(reader) {
 #  @noRd
 GetDialogUnreadMarksRequest <- R6::R6Class(
   "GetDialogUnreadMarksRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3810,7 +3858,7 @@ GetDialogUnreadMarksRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$parentPeer)) 0 else 1
       c(
-        as.raw(c(0x21, 0x20, 0x22, 0x22)),
+        as.raw(c(0x22, 0x22, 0x20, 0x21)),
         pack("<I", flags),
         if (is.null(self$parentPeer)) raw(0) else self$parentPeer$bytes()
       )
@@ -3836,6 +3884,7 @@ GetDialogUnreadMarksRequest$fromReader <- function(reader) {
 #  @noRd
 GetDialogsRequest <- R6::R6Class(
   "GetDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3889,7 +3938,7 @@ GetDialogsRequest <- R6::R6Class(
       flags <- (if (is.null(self$excludePinned) || !self$excludePinned) 0 else 1) |
         (if (is.null(self$folderId)) 0 else 2)
       c(
-        as.raw(c(0xa0, 0xf4, 0xcb, 0x4f)),
+        as.raw(c(0x4f, 0xcb, 0xf4, 0xa0)),
         pack("<I", flags),
         if (is.null(self$folderId)) raw(0) else pack("<i", self$folderId),
         self$serialize_datetime(self$offsetDate),
@@ -3927,6 +3976,7 @@ GetDialogsRequest$fromReader <- function(reader) {
 #  @noRd
 GetDiscussionMessageRequest <- R6::R6Class(
   "GetDiscussionMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -3989,6 +4039,7 @@ GetDiscussionMessageRequest$fromReader <- function(reader) {
 #  @noRd
 GetDocumentByHashRequest <- R6::R6Class(
   "GetDocumentByHashRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4049,6 +4100,7 @@ GetDocumentByHashRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiGroupsRequest <- R6::R6Class(
   "GetEmojiGroupsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4099,6 +4151,7 @@ GetEmojiGroupsRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiKeywordsRequest <- R6::R6Class(
   "GetEmojiKeywordsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4150,6 +4203,7 @@ GetEmojiKeywordsRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
   "GetEmojiKeywordsDifferenceRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4205,6 +4259,7 @@ GetEmojiKeywordsDifferenceRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
   "GetEmojiKeywordsLanguagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4262,6 +4317,7 @@ GetEmojiKeywordsLanguagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
   "GetEmojiProfilePhotoGroupsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4312,6 +4368,7 @@ GetEmojiProfilePhotoGroupsRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiStatusGroupsRequest <- R6::R6Class(
   "GetEmojiStatusGroupsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4363,6 +4420,7 @@ GetEmojiStatusGroupsRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiStickerGroupsRequest <- R6::R6Class(
   "GetEmojiStickerGroupsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4413,6 +4471,7 @@ GetEmojiStickerGroupsRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiStickersRequest <- R6::R6Class(
   "GetEmojiStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4463,6 +4522,7 @@ GetEmojiStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetEmojiURLRequest <- R6::R6Class(
   "GetEmojiURLRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4513,6 +4573,7 @@ GetEmojiURLRequest$fromReader <- function(reader) {
 #  @noRd
 GetExportedChatInviteRequest <- R6::R6Class(
   "GetExportedChatInviteRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4576,6 +4637,7 @@ GetExportedChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 GetExportedChatInvitesRequest <- R6::R6Class(
   "GetExportedChatInvitesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4668,6 +4730,7 @@ GetExportedChatInvitesRequest$fromReader <- function(reader) {
 #  @noRd
 GetExtendedMediaRequest <- R6::R6Class(
   "GetExtendedMediaRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4737,6 +4800,7 @@ GetExtendedMediaRequest$fromReader <- function(reader) {
 #  @noRd
 GetFactCheckRequest <- R6::R6Class(
   "GetFactCheckRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4807,6 +4871,7 @@ GetFactCheckRequest$fromReader <- function(reader) {
 #  @noRd
 GetFavedStickersRequest <- R6::R6Class(
   "GetFavedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4857,6 +4922,7 @@ GetFavedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetFeaturedEmojiStickersRequest <- R6::R6Class(
   "GetFeaturedEmojiStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4907,6 +4973,7 @@ GetFeaturedEmojiStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetFeaturedStickersRequest <- R6::R6Class(
   "GetFeaturedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -4957,6 +5024,7 @@ GetFeaturedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetFullChatRequest <- R6::R6Class(
   "GetFullChatRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5008,6 +5076,7 @@ GetFullChatRequest$fromReader <- function(reader) {
 #  @noRd
 GetGameHighScoresRequest <- R6::R6Class(
   "GetGameHighScoresRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5048,7 +5117,7 @@ GetGameHighScoresRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x9d, 0xd2, 0x22, 0xe8)),
+        as.raw(c(0x9d, 0x64, 0x22, 0xe8)),
         self$peer$bytes(),
         pack("<i", self$id),
         self$userId$bytes()
@@ -5169,6 +5238,7 @@ GetHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 GetInlineBotResultsRequest <- R6::R6Class(
   "GetInlineBotResultsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5251,6 +5321,7 @@ GetInlineBotResultsRequest$fromReader <- function(reader) {
 #  @noRd
 GetInlineGameHighScoresRequest <- R6::R6Class(
   "GetInlineGameHighScoresRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5313,6 +5384,7 @@ GetInlineGameHighScoresRequest$fromReader <- function(reader) {
 #  @noRd
 GetMaskStickersRequest <- R6::R6Class(
   "GetMaskStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5363,6 +5435,7 @@ GetMaskStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetMessageEditDataRequest <- R6::R6Class(
   "GetMessageEditDataRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5426,6 +5499,7 @@ GetMessageEditDataRequest$fromReader <- function(reader) {
 #  @noRd
 GetMessageReactionsListRequest <- R6::R6Class(
   "GetMessageReactionsListRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5506,6 +5580,7 @@ GetMessageReactionsListRequest$fromReader <- function(reader) {
 #  @noRd
 GetMessageReadParticipantsRequest <- R6::R6Class(
   "GetMessageReadParticipantsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5568,6 +5643,7 @@ GetMessageReadParticipantsRequest$fromReader <- function(reader) {
 #  @noRd
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5637,6 +5713,7 @@ GetMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetMessagesReactionsRequest <- R6::R6Class(
   "GetMessagesReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5786,6 +5863,7 @@ GetMessagesViewsRequest$fromReader <- function(reader) {
 #  @noRd
 GetMyStickersRequest <- R6::R6Class(
   "GetMyStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5842,6 +5920,7 @@ GetMyStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetOldFeaturedStickersRequest <- R6::R6Class(
   "GetOldFeaturedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5902,6 +5981,7 @@ GetOldFeaturedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 GetOnlinesRequest <- R6::R6Class(
   "GetOnlinesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -5959,6 +6039,7 @@ GetOnlinesRequest$fromReader <- function(reader) {
 #  @noRd
 GetOutboxReadDateRequest <- R6::R6Class(
   "GetOutboxReadDateRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6061,6 +6142,7 @@ GetPaidReactionPrivacyRequest$fromReader <- function(reader) {
 #  @noRd
 GetPeerDialogsRequest <- R6::R6Class(
   "GetPeerDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6129,6 +6211,7 @@ GetPeerDialogsRequest$fromReader <- function(reader) {
 #  @noRd
 GetPeerSettingsRequest <- R6::R6Class(
   "GetPeerSettingsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6186,6 +6269,7 @@ GetPeerSettingsRequest$fromReader <- function(reader) {
 #  @noRd
 GetPinnedDialogsRequest <- R6::R6Class(
   "GetPinnedDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6279,6 +6363,7 @@ GetPinnedSavedDialogsRequest$fromReader <- function(reader) {
 #  @noRd
 GetPollResultsRequest <- R6::R6Class(
   "GetPollResultsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6341,6 +6426,7 @@ GetPollResultsRequest$fromReader <- function(reader) {
 #  @noRd
 GetPollVotesRequest <- R6::R6Class(
   "GetPollVotesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6421,6 +6507,7 @@ GetPollVotesRequest$fromReader <- function(reader) {
 #  @noRd
 GetPreparedInlineMessageRequest <- R6::R6Class(
   "GetPreparedInlineMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6484,6 +6571,7 @@ GetPreparedInlineMessageRequest$fromReader <- function(reader) {
 #  @noRd
 GetQuickRepliesRequest <- R6::R6Class(
   "GetQuickRepliesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6534,6 +6622,7 @@ GetQuickRepliesRequest$fromReader <- function(reader) {
 #  @noRd
 GetQuickReplyMessagesRequest <- R6::R6Class(
   "GetQuickReplyMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6606,6 +6695,7 @@ GetQuickReplyMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetRecentLocationsRequest <- R6::R6Class(
   "GetRecentLocationsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6674,6 +6764,7 @@ GetRecentLocationsRequest$fromReader <- function(reader) {
 #  @noRd
 GetRecentReactionsRequest <- R6::R6Class(
   "GetRecentReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6729,6 +6820,7 @@ GetRecentReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetRecentStickersRequest <- R6::R6Class(
   "GetRecentStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6884,6 +6976,7 @@ GetRepliesRequest$fromReader <- function(reader) {
 #  @noRd
 GetSavedDialogsRequest <- R6::R6Class(
   "GetSavedDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -6976,6 +7069,7 @@ GetSavedDialogsRequest$fromReader <- function(reader) {
 #  @noRd
 GetSavedDialogsByIDRequest <- R6::R6Class(
   "GetSavedDialogsByIDRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7053,6 +7147,7 @@ GetSavedDialogsByIDRequest$fromReader <- function(reader) {
 #  @noRd
 GetSavedGifsRequest <- R6::R6Class(
   "GetSavedGifsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7104,6 +7199,7 @@ GetSavedGifsRequest$fromReader <- function(reader) {
 #  @noRd
 GetSavedHistoryRequest <- R6::R6Class(
   "GetSavedHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7165,7 +7261,7 @@ GetSavedHistoryRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$parent_peer) || !self$parent_peer) 0L else 1L
       c(
-        as.raw(c(0x99, 0x8a, 0xb0, 0x09)),
+        as.raw(c(0x09, 0xb0, 0x8a, 0x99)),
         pack("<I", flags),
         if (is.null(self$parent_peer) || !self$parent_peer) raw(0) else self$parent_peer$bytes(),
         self$peer$bytes(),
@@ -7207,6 +7303,7 @@ GetSavedHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 GetSavedReactionTagsRequest <- R6::R6Class(
   "GetSavedReactionTagsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7338,6 +7435,7 @@ GetScheduledHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 GetScheduledMessagesRequest <- R6::R6Class(
   "GetScheduledMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7374,7 +7472,7 @@ GetScheduledMessagesRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xbd, 0xbb, 0x04, 0x64)),
+        as.raw(c(0x64, 0x04, 0xbb, 0xbd)),
         self$peer$bytes(),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$id)), sapply(self$id, function(x) pack("<i", x))
       )
@@ -7405,6 +7503,7 @@ GetScheduledMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetSearchCountersRequest <- R6::R6Class(
   "GetSearchCountersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7451,7 +7550,7 @@ GetSearchCountersRequest <- R6::R6Class(
     bytes = function() {
       flags <- (if (is.null(self$savedPeerId) || !self$savedPeerId) 0L else 4L) | (if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L)
       c(
-        as.raw(c(0x1b, 0xbc, 0xf3, 0x00)),
+        as.raw(c(0x00, 0xf3, 0xbc, 0x1b)),
         pack("<I", flags),
         self$peer$bytes(),
         if (is.null(self$savedPeerId) || !self$savedPeerId) raw(0) else self$savedPeerId$bytes(),
@@ -7488,6 +7587,7 @@ GetSearchCountersRequest$fromReader <- function(reader) {
 #  @noRd
 GetSearchResultsCalendarRequest <- R6::R6Class(
   "GetSearchResultsCalendarRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7537,7 +7637,7 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$savedPeerId) || !self$savedPeerId) 0L else 4L
       c(
-        as.raw(c(0x6a, 0xa3, 0xf6, 0xbd)),
+        as.raw(c(0xbd, 0xf6, 0xa3, 0x6a)),
         pack("<I", flags),
         self$peer$bytes(),
         if (is.null(self$savedPeerId) || !self$savedPeerId) raw(0) else self$savedPeerId$bytes(),
@@ -7572,6 +7672,7 @@ GetSearchResultsCalendarRequest$fromReader <- function(reader) {
 #  @noRd
 GetSearchResultsPositionsRequest <- R6::R6Class(
   "GetSearchResultsPositionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7621,7 +7722,7 @@ GetSearchResultsPositionsRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$saved_peer_id) || !self$saved_peer_id) 0L else 4L
       c(
-        as.raw(c(0x9c, 0x7f, 0x2f, 0x10)),
+        as.raw(c(0x10, 0x2f, 0x7f, 0x9c)),
         pack("<I", flags),
         self$peer$bytes(),
         if (is.null(self$saved_peer_id) || !self$saved_peer_id) raw(0) else self$saved_peer_id$bytes(),
@@ -7673,7 +7774,7 @@ GetSplitRangesRequest <- R6::R6Class(
     #  @description Serialize the object to bytes.
     #  @return A raw vector of bytes.
     bytes = function() {
-      as.raw(c(0x1c, 0xff, 0x7e, 0x08))
+      as.raw(c(0x08, 0x7e, 0xff, 0x1c))
     }
   )
 )
@@ -7694,6 +7795,7 @@ GetSplitRangesRequest$fromReader <- function(reader) {
 #  @noRd
 GetSponsoredMessagesRequest <- R6::R6Class(
   "GetSponsoredMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7731,7 +7833,7 @@ GetSponsoredMessagesRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$msg_id) || !self$msg_id) 0L else 1L
       c(
-        as.raw(c(0x3d, 0x6c, 0xe8, 0x50)),
+        as.raw(c(0x50, 0xe8, 0x6c, 0x3d)),
         pack("<I", flags),
         self$peer$bytes(),
         if (is.null(self$msg_id) || !self$msg_id) raw(0) else pack("<i", self$msg_id)
@@ -7760,6 +7862,7 @@ GetSponsoredMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 GetStickerSetRequest <- R6::R6Class(
   "GetStickerSetRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7789,7 +7892,7 @@ GetStickerSetRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xc8, 0xa0, 0xec, 0x74)),
+        as.raw(c(0x74, 0xec, 0xa0, 0xc8)),
         self$stickerset$bytes(),
         pack("<i", self$hash)
       )
@@ -7815,6 +7918,7 @@ GetStickerSetRequest$fromReader <- function(reader) {
 #  @noRd
 GetStickersRequest <- R6::R6Class(
   "GetStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7844,7 +7948,7 @@ GetStickersRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xd5, 0xa5, 0xd3, 0xa1)),
+        as.raw(c(0xa1, 0xd3, 0xa5, 0xd5)),
         self$serialize_bytes(self$emoticon),
         pack("<q", self$hash)
       )
@@ -7888,7 +7992,7 @@ GetSuggestedDialogFiltersRequest <- R6::R6Class(
     #  @description Serialize the object to bytes.
     #  @return A raw vector of bytes.
     bytes = function() {
-      as.raw(c(0xa2, 0x9c, 0xd4, 0x2c))
+      as.raw(c(0x2c, 0xd4, 0x9c, 0xa2))
     }
   )
 )
@@ -7909,6 +8013,7 @@ GetSuggestedDialogFiltersRequest$fromReader <- function(reader) {
 #  @noRd
 GetTopReactionsRequest <- R6::R6Class(
   "GetTopReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -7938,7 +8043,7 @@ GetTopReactionsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xbb, 0x81, 0x25, 0xba)),
+        as.raw(c(0xba, 0x25, 0x81, 0xbb)),
         pack("<i", self$limit),
         pack("<q", self$hash)
       )
@@ -7965,6 +8070,7 @@ GetTopReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetUnreadMentionsRequest <- R6::R6Class(
   "GetUnreadMentionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8055,6 +8161,7 @@ GetUnreadMentionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetUnreadReactionsRequest <- R6::R6Class(
   "GetUnreadReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8153,6 +8260,7 @@ GetUnreadReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 GetWebPageRequest <- R6::R6Class(
   "GetWebPageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8209,6 +8317,7 @@ GetWebPageRequest$fromReader <- function(reader) {
 #  @noRd
 GetWebPagePreviewRequest <- R6::R6Class(
   "GetWebPagePreviewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8276,6 +8385,7 @@ GetWebPagePreviewRequest$fromReader <- function(reader) {
 #  @noRd
 HideAllChatJoinRequestsRequest <- R6::R6Class(
   "HideAllChatJoinRequestsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8345,6 +8455,7 @@ HideAllChatJoinRequestsRequest$fromReader <- function(reader) {
 #  @noRd
 HideChatJoinRequestRequest <- R6::R6Class(
   "HideChatJoinRequestRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8416,6 +8527,7 @@ HideChatJoinRequestRequest$fromReader <- function(reader) {
 #  @noRd
 HidePeerSettingsBarRequest <- R6::R6Class(
   "HidePeerSettingsBarRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8525,6 +8637,7 @@ ImportChatInviteRequest$fromReader <- function(reader) {
 #  @noRd
 InitHistoryImportRequest <- R6::R6Class(
   "InitHistoryImportRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8593,6 +8706,7 @@ InitHistoryImportRequest$fromReader <- function(reader) {
 #  @noRd
 InstallStickerSetRequest <- R6::R6Class(
   "InstallStickerSetRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8648,6 +8762,7 @@ InstallStickerSetRequest$fromReader <- function(reader) {
 #  @noRd
 MarkDialogUnreadRequest <- R6::R6Class(
   "MarkDialogUnreadRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8722,6 +8837,7 @@ MarkDialogUnreadRequest$fromReader <- function(reader) {
 #  @noRd
 MigrateChatRequest <- R6::R6Class(
   "MigrateChatRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8749,7 +8865,7 @@ MigrateChatRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x19, 0x53, 0x87, 0xa2)),
-        writeBin(self$chatId, raw(), size = 8, endian = "little")
+        packInt64(self$chatId)
       )
     }
   )
@@ -8773,6 +8889,7 @@ MigrateChatRequest$fromReader <- function(reader) {
 #  @noRd
 ProlongWebViewRequest <- R6::R6Class(
   "ProlongWebViewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8833,7 +8950,7 @@ ProlongWebViewRequest <- R6::R6Class(
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         self$bot$bytes(),
-        writeBin(self$queryId, raw(), size = 8, endian = "little"),
+        packInt64(self$queryId),
         if (!is.null(self$replyTo) && self$replyTo) self$replyTo$bytes() else raw(),
         if (!is.null(self$sendAs) && self$sendAs) self$sendAs$bytes() else raw()
       )
@@ -8864,6 +8981,7 @@ ProlongWebViewRequest$fromReader <- function(reader) {
 #  @noRd
 RateTranscribedAudioRequest <- R6::R6Class(
   "RateTranscribedAudioRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -8909,7 +9027,7 @@ RateTranscribedAudioRequest <- R6::R6Class(
         as.raw(c(0x2f, 0x07, 0x1d, 0x7f)),
         self$peer$bytes(),
         writeBin(self$msgId, raw(), size = 4, endian = "little"),
-        writeBin(self$transcriptionId, raw(), size = 8, endian = "little"),
+        packInt64(self$transcriptionId),
         if (self$good) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     }
@@ -8936,6 +9054,7 @@ RateTranscribedAudioRequest$fromReader <- function(reader) {
 #  @noRd
 ReadDiscussionRequest <- R6::R6Class(
   "ReadDiscussionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9004,6 +9123,7 @@ ReadDiscussionRequest$fromReader <- function(reader) {
 #  @noRd
 ReadEncryptedHistoryRequest <- R6::R6Class(
   "ReadEncryptedHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9059,6 +9179,7 @@ ReadEncryptedHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 ReadFeaturedStickersRequest <- R6::R6Class(
   "ReadFeaturedStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9088,7 +9209,7 @@ ReadFeaturedStickersRequest <- R6::R6Class(
         as.raw(c(0x26, 0x81, 0x11, 0x5b)),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$id), raw(), size = 4, endian = "little"),
-        unlist(lapply(self$id, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+        unlist(lapply(self$id, function(x) packInt64(x)))
       )
     }
   )
@@ -9116,6 +9237,7 @@ ReadFeaturedStickersRequest$fromReader <- function(reader) {
 #  @noRd
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9179,6 +9301,7 @@ ReadHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 ReadMentionsRequest <- R6::R6Class(
   "ReadMentionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9216,7 +9339,7 @@ ReadMentionsRequest <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L
       c(
-        as.raw(c(0x36, 0xe5, 0xbf, 0x4d)),
+        as.raw(c(0x4d, 0xbf, 0xe5, 0x36)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         if (!is.null(self$topMsgId) && self$topMsgId) writeBin(self$topMsgId, raw(), size = 4, endian = "little") else raw()
@@ -9244,6 +9367,7 @@ ReadMentionsRequest$fromReader <- function(reader) {
 #  @noRd
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9270,7 +9394,7 @@ ReadMessageContentsRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0x36, 0xa7, 0x3f, 0x77)),
+        as.raw(c(0x77, 0x3f, 0xa7, 0x36)),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$id), raw(), size = 4, endian = "little"),
         unlist(lapply(self$id, function(x) writeBin(x, raw(), size = 4, endian = "little")))
@@ -9301,6 +9425,7 @@ ReadMessageContentsRequest$fromReader <- function(reader) {
 #  @noRd
 ReadReactionsRequest <- R6::R6Class(
   "ReadReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9346,7 +9471,7 @@ ReadReactionsRequest <- R6::R6Class(
       if (!is.null(self$topMsgId) && self$topMsgId) flags <- bitwOr(flags, 1L)
       if (!is.null(self$savedPeerId) && self$savedPeerId) flags <- bitwOr(flags, 2L)
       c(
-        as.raw(c(0x9e, 0xc4, 0x4f, 0x93)),
+        as.raw(c(0x93, 0x4f, 0xc4, 0x9e)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         if (!is.null(self$topMsgId) && self$topMsgId) writeBin(self$topMsgId, raw(), size = 4, endian = "little") else raw(),
@@ -9377,6 +9502,7 @@ ReadReactionsRequest$fromReader <- function(reader) {
 #  @noRd
 ReadSavedHistoryRequest <- R6::R6Class(
   "ReadSavedHistoryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9417,7 +9543,7 @@ ReadSavedHistoryRequest <- R6::R6Class(
     #  @return A raw vector of bytes.
     bytes = function() {
       c(
-        as.raw(c(0xba, 0x4a, 0x3b, 0x5b)),
+        as.raw(c(0x5b, 0x3b, 0x4a, 0xba)),
         self$parentPeer$bytes(),
         self$peer$bytes(),
         writeBin(self$maxId, raw(), size = 4, endian = "little")
@@ -9445,6 +9571,7 @@ ReadSavedHistoryRequest$fromReader <- function(reader) {
 #  @noRd
 ReceivedMessagesRequest <- R6::R6Class(
   "ReceivedMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9495,6 +9622,7 @@ ReceivedMessagesRequest$fromReader <- function(reader) {
 #  @noRd
 ReceivedQueueRequest <- R6::R6Class(
   "ReceivedQueueRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9556,6 +9684,7 @@ ReceivedQueueRequest$readResult <- function(reader) {
 #  @noRd
 ReorderPinnedDialogsRequest <- R6::R6Class(
   "ReorderPinnedDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9636,6 +9765,7 @@ ReorderPinnedDialogsRequest$from_reader <- function(reader) {
 #  @noRd
 ReorderPinnedSavedDialogsRequest <- R6::R6Class(
   "ReorderPinnedSavedDialogsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9711,6 +9841,7 @@ ReorderPinnedSavedDialogsRequest$from_reader <- function(reader) {
 #  @noRd
 ReorderQuickRepliesRequest <- R6::R6Class(
   "ReorderQuickRepliesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9769,6 +9900,7 @@ ReorderQuickRepliesRequest$from_reader <- function(reader) {
 #  @noRd
 ReorderStickerSetsRequest <- R6::R6Class(
   "ReorderStickerSetsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9918,6 +10050,7 @@ ReportRequest$fromReader <- function(reader) {
 #  @noRd
 ReportEncryptedSpamRequest <- R6::R6Class(
   "ReportEncryptedSpamRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -9969,6 +10102,7 @@ ReportEncryptedSpamRequest$fromReader <- function(reader) {
 #  @noRd
 ReportMessagesDeliveryRequest <- R6::R6Class(
   "ReportMessagesDeliveryRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10046,6 +10180,7 @@ ReportMessagesDeliveryRequest$from_reader <- function(reader) {
 #  @noRd
 ReportReactionRequest <- R6::R6Class(
   "ReportReactionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10114,6 +10249,7 @@ ReportReactionRequest$from_reader <- function(reader) {
 #  @noRd
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10171,6 +10307,7 @@ ReportSpamRequest$from_reader <- function(reader) {
 #  @noRd
 ReportSponsoredMessageRequest <- R6::R6Class(
   "ReportSponsoredMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10232,6 +10369,7 @@ ReportSponsoredMessageRequest$from_reader <- function(reader) {
 #  @noRd
 RequestAppWebViewRequest <- R6::R6Class(
   "RequestAppWebViewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10292,7 +10430,7 @@ RequestAppWebViewRequest <- R6::R6Class(
       if (!is.null(self$startParam)) flags <- bitwOr(flags, 2L)
       if (!is.null(self$themeParams)) flags <- bitwOr(flags, 4L)
       c(
-        as.raw(c(0xce, 0x8b, 0xa1, 0x53)), # Note: Adjusted for little-endian if needed, but keeping as is
+        as.raw(c(0xce, 0x8b, 0x61, 0x53)), # Note: Adjusted for little-endian if needed, but keeping as is
         packBits(intToBits(flags), type = "raw")[1:4], # Assuming packBits for flags
         self$peer$bytes(),
         self$app$bytes(),
@@ -10329,6 +10467,7 @@ RequestAppWebViewRequest$from_reader <- function(reader) {
 #  @noRd
 RequestEncryptionRequest <- R6::R6Class(
   "RequestEncryptionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10402,6 +10541,7 @@ RequestEncryptionRequest$from_reader <- function(reader) {
 #  @noRd
 RequestMainWebViewRequest <- R6::R6Class(
   "RequestMainWebViewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10459,7 +10599,7 @@ RequestMainWebViewRequest <- R6::R6Class(
       if (!is.null(self$start_param)) flags <- bitwOr(flags, 2L)
       if (!is.null(self$theme_params)) flags <- bitwOr(flags, 1L)
       c(
-        as.raw(c(0xc9, 0xe0, 0x1e, 0x7b)),
+        as.raw(c(0x7b, 0x1e, 0xe0, 0xc9)),
         packBits(intToBits(flags), type = "raw")[1:4],
         self$peer$bytes(),
         self$bot$bytes(),
@@ -10495,6 +10635,7 @@ RequestMainWebViewRequest$from_reader <- function(reader) {
 #  @noRd
 RequestSimpleWebViewRequest <- R6::R6Class(
   "RequestSimpleWebViewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10560,7 +10701,7 @@ RequestSimpleWebViewRequest <- R6::R6Class(
       if (!is.null(self$start_param)) flags <- bitwOr(flags, 16L)
       if (!is.null(self$theme_params)) flags <- bitwOr(flags, 1L)
       c(
-        as.raw(c(0x41, 0x3a, 0x3e, 0x73)),
+        as.raw(c(0x73, 0x3e, 0x3a, 0x41)),
         packBits(intToBits(flags), type = "raw")[1:4],
         self$bot$bytes(),
         if (!is.null(self$url)) self$serialize_bytes(self$url) else raw(0),
@@ -10598,6 +10739,7 @@ RequestSimpleWebViewRequest$from_reader <- function(reader) {
 #  @noRd
 RequestUrlAuthRequest <- R6::R6Class(
   "RequestUrlAuthRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10692,6 +10834,7 @@ RequestUrlAuthRequest$from_reader <- function(reader) {
 #  @noRd
 RequestWebViewRequest <- R6::R6Class(
   "RequestWebViewRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10836,6 +10979,7 @@ RequestWebViewRequest$from_reader <- function(reader) {
 #  @noRd
 SaveDefaultSendAsRequest <- R6::R6Class(
   "SaveDefaultSendAsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -10899,6 +11043,7 @@ SaveDefaultSendAsRequest$from_reader <- function(reader) {
 #  @noRd
 SaveDraftRequest <- R6::R6Class(
   "SaveDraftRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11013,6 +11158,7 @@ SaveDraftRequest$from_reader <- function(reader) {
 #  @noRd
 SaveGifRequest <- R6::R6Class(
   "SaveGifRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11075,6 +11221,7 @@ SaveGifRequest$from_reader <- function(reader) {
 #  @noRd
 SavePreparedInlineMessageRequest <- R6::R6Class(
   "SavePreparedInlineMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11162,6 +11309,7 @@ SavePreparedInlineMessageRequest$from_reader <- function(reader) {
 #  @noRd
 SaveRecentStickerRequest <- R6::R6Class(
   "SaveRecentStickerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11335,7 +11483,7 @@ SearchRequest <- R6::R6Class(
         writeBin(self$limit, raw(), size = 4, endian = "little"),
         writeBin(self$max_id, raw(), size = 4, endian = "little"),
         writeBin(self$min_id, raw(), size = 4, endian = "little"),
-        writeBin(self$hash, raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     }
   ),
@@ -11410,7 +11558,7 @@ SearchCustomEmojiRequest <- R6::R6Class(
       c(
         as.raw(c(0xd7, 0xc0, 0x11, 0x2c)),
         self$serialize_bytes(self$emoticon),
-        writeBin(self$hash, raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     }
   ),
@@ -11435,6 +11583,7 @@ SearchCustomEmojiRequest$from_reader <- function(reader) {
 #  @noRd
 SearchEmojiStickerSetsRequest <- R6::R6Class(
   "SearchEmojiStickerSetsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11472,7 +11621,7 @@ SearchEmojiStickerSetsRequest <- R6::R6Class(
         as.raw(c(0x4c, 0x49, 0xb4, 0x92)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serialize_bytes(self$q),
-        writeBin(self$hash, raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     }
   )
@@ -11677,6 +11826,7 @@ SearchSentMediaRequest$from_reader <- function(reader) {
 #  @noRd
 SearchStickerSetsRequest <- R6::R6Class(
   "SearchStickerSetsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11714,7 +11864,7 @@ SearchStickerSetsRequest <- R6::R6Class(
         as.raw(c(0x8a, 0x5b, 0x70, 0x35)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serialize_bytes(self$q),
-        writeBin(self$hash, raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     }
   )
@@ -11740,6 +11890,7 @@ SearchStickerSetsRequest$from_reader <- function(reader) {
 #  @noRd
 SearchStickersRequest <- R6::R6Class(
   "SearchStickersRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11794,7 +11945,7 @@ SearchStickersRequest <- R6::R6Class(
         do.call(c, lapply(self$lang_code, self$serialize_bytes)),
         writeBin(self$offset, raw(), size = 4, endian = "little"),
         writeBin(self$limit, raw(), size = 4, endian = "little"),
-        writeBin(self$hash, raw(), size = 8, endian = "little")
+        packInt64(self$hash)
       )
     }
   )
@@ -11828,6 +11979,7 @@ SearchStickersRequest$from_reader <- function(reader) {
 #  @noRd
 SendBotRequestedPeerRequest <- R6::R6Class(
   "SendBotRequestedPeerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11911,6 +12063,7 @@ SendBotRequestedPeerRequest$from_reader <- function(reader) {
 #  @noRd
 SendEncryptedRequest <- R6::R6Class(
   "SendEncryptedRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -11951,7 +12104,7 @@ SendEncryptedRequest <- R6::R6Class(
         as.raw(c(0x15, 0x7a, 0xfa, 0x44)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
-        writeBin(as.integer(self$random_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
         self$serialize_bytes(self$data)
       )
     }
@@ -11979,6 +12132,7 @@ SendEncryptedRequest$from_reader <- function(reader) {
 #  @noRd
 SendEncryptedFileRequest <- R6::R6Class(
   "SendEncryptedFileRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12022,7 +12176,7 @@ SendEncryptedFileRequest <- R6::R6Class(
         as.raw(c(0x1d, 0x48, 0x59, 0x55)),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
-        writeBin(as.integer(self$random_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
         self$serialize_bytes(self$data),
         self$file$bytes()
       )
@@ -12053,6 +12207,7 @@ SendEncryptedFileRequest$from_reader <- function(reader) {
 #  @noRd
 SendEncryptedServiceRequest <- R6::R6Class(
   "SendEncryptedServiceRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12094,7 +12249,7 @@ SendEncryptedServiceRequest <- R6::R6Class(
       c(
         as.raw(c(0xa4, 0x39, 0xd4, 0x32)),
         self$peer$bytes(),
-        writeBin(as.integer(self$random_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
         self$serialize_bytes(self$data)
       )
     }
@@ -12120,6 +12275,7 @@ SendEncryptedServiceRequest$from_reader <- function(reader) {
 #  @noRd
 SendInlineBotResultRequest <- R6::R6Class(
   "SendInlineBotResultRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12206,13 +12362,13 @@ SendInlineBotResultRequest <- R6::R6Class(
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         if (!is.null(self$reply_to)) self$reply_to$bytes() else raw(),
-        writeBin(as.integer(self$random_id), raw(), size = 8, endian = "little"),
-        writeBin(as.integer(self$query_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
+        packInt64(self$query_id),
         self$serialize_bytes(self$id),
         if (!is.null(self$schedule_date)) self$serialize_datetime(self$schedule_date) else raw(),
         if (!is.null(self$send_as)) self$send_as$bytes() else raw(),
         if (!is.null(self$quick_reply_shortcut)) self$quick_reply_shortcut$bytes() else raw(),
-        if (!is.null(self$allow_paid_stars)) writeBin(as.integer(self$allow_paid_stars), raw(), size = 8, endian = "little") else raw()
+        if (!is.null(self$allow_paid_stars)) packInt64(self$allow_paid_stars) else raw()
       )
     }
   )
@@ -12249,6 +12405,7 @@ SendInlineBotResultRequest$from_reader <- function(reader) {
 #  @noRd
 SendMediaRequest <- R6::R6Class(
   "SendMediaRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12422,6 +12579,7 @@ SendMediaRequest$from_reader <- function(reader) {
 #  @noRd
 SendMessageRequest <- R6::R6Class(
   "SendMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12533,7 +12691,7 @@ SendMessageRequest <- R6::R6Class(
       if (!is.null(self$allow_paid_stars)) flags <- bitwOr(flags, 2097152L)
       if (!is.null(self$suggested_post)) flags <- bitwOr(flags, 4194304L)
       c(
-        as.raw(c(0xfe, 0x05, 0xdc, 0x9a)),
+        as.raw(c(0x9a, 0xdc, 0x05, 0xfe)),
         packBits(intToBits(flags), type = "raw")[1:4],
         self$peer$bytes(),
         if (!is.null(self$reply_to)) self$reply_to$bytes() else raw(0),
@@ -12595,6 +12753,7 @@ SendMessageRequest$from_reader <- function(reader) {
 #  @noRd
 SendMultiMediaRequest <- R6::R6Class(
   "SendMultiMediaRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12697,8 +12856,8 @@ SendMultiMediaRequest <- R6::R6Class(
         if (!is.null(self$schedule_date)) self$serialize_datetime(self$schedule_date) else raw(0),
         if (!is.null(self$send_as)) self$send_as$bytes() else raw(0),
         if (!is.null(self$quick_reply_shortcut)) self$quick_reply_shortcut$bytes() else raw(0),
-        if (!is.null(self$effect)) writeBin(as.double(self$effect), raw(), size = 8, endian = "little") else raw(0),
-        if (!is.null(self$allow_paid_stars)) writeBin(as.double(self$allow_paid_stars), raw(), size = 8, endian = "little") else raw(0)
+        if (!is.null(self$effect)) packInt64(self$effect) else raw(0),
+        if (!is.null(self$allow_paid_stars)) packInt64(self$allow_paid_stars) else raw(0)
       )
     }
   )
@@ -12741,6 +12900,7 @@ SendMultiMediaRequest$from_reader <- function(reader) {
 #  @noRd
 SendPaidReactionRequest <- R6::R6Class(
   "SendPaidReactionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12793,7 +12953,7 @@ SendPaidReactionRequest <- R6::R6Class(
         self$peer$bytes(),
         packBits(intToBits(self$msg_id), type = "raw")[1:4],
         packBits(intToBits(self$count), type = "raw")[1:4],
-        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
         if (!is.null(self$private)) self$private$bytes() else raw(0)
       )
     }
@@ -12823,6 +12983,7 @@ SendPaidReactionRequest$from_reader <- function(reader) {
 #  @noRd
 SendQuickReplyMessagesRequest <- R6::R6Class(
   "SendQuickReplyMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -12877,7 +13038,7 @@ SendQuickReplyMessagesRequest <- R6::R6Class(
         unlist(lapply(self$id, function(x) packBits(intToBits(x), type = "raw")[1:4])),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         packBits(intToBits(length(self$random_id)), type = "raw")[1:4],
-        unlist(lapply(self$random_id, function(x) writeBin(as.double(x), raw(), size = 8, endian = "little")))
+        unlist(lapply(self$random_id, function(x) packInt64(x)))
       )
     }
   )
@@ -13005,6 +13166,7 @@ SendReactionRequest$from_reader <- function(reader) {
 #  @noRd
 SendScheduledMessagesRequest <- R6::R6Class(
   "SendScheduledMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13074,6 +13236,7 @@ SendScheduledMessagesRequest$from_reader <- function(reader) {
 #  @noRd
 SendScreenshotNotificationRequest <- R6::R6Class(
   "SendScreenshotNotificationRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13116,7 +13279,7 @@ SendScreenshotNotificationRequest <- R6::R6Class(
         as.raw(c(0x17, 0x58, 0x40, 0xa1)),
         self$peer$bytes(),
         self$reply_to$bytes(),
-        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little")
+        packInt64(self$random_id)
       )
     }
   )
@@ -13141,6 +13304,7 @@ SendScreenshotNotificationRequest$from_reader <- function(reader) {
 #  @noRd
 SendVoteRequest <- R6::R6Class(
   "SendVoteRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13214,6 +13378,7 @@ SendVoteRequest$from_reader <- function(reader) {
 #  @noRd
 SendWebViewDataRequest <- R6::R6Class(
   "SendWebViewDataRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13258,7 +13423,7 @@ SendWebViewDataRequest <- R6::R6Class(
       c(
         as.raw(c(0xc8, 0x42, 0x02, 0xdc)),
         self$bot$bytes(),
-        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little"),
+        packInt64(self$random_id),
         self$serialize_bytes(self$button_text),
         self$serialize_bytes(self$data)
       )
@@ -13287,6 +13452,7 @@ SendWebViewDataRequest$from_reader <- function(reader) {
 #  @noRd
 SendWebViewResultMessageRequest <- R6::R6Class(
   "SendWebViewResultMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13342,6 +13508,7 @@ SendWebViewResultMessageRequest$from_reader <- function(reader) {
 #  @noRd
 SetBotCallbackAnswerRequest <- R6::R6Class(
   "SetBotCallbackAnswerRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13386,7 +13553,7 @@ SetBotCallbackAnswerRequest <- R6::R6Class(
       c(
         as.raw(c(0x0a, 0x13, 0x8f, 0xd5)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
+        packInt64(self$query_id),
         if (!is.null(self$message) && self$message != FALSE) self$serialize_bytes(self$message) else raw(0),
         if (!is.null(self$url) && self$url != FALSE) self$serialize_bytes(self$url) else raw(0),
         packBits(intToBits(self$cache_time), type = "raw")[1:4]
@@ -13417,6 +13584,7 @@ SetBotCallbackAnswerRequest$from_reader <- function(reader) {
 #  @noRd
 SetBotPrecheckoutResultsRequest <- R6::R6Class(
   "SetBotPrecheckoutResultsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13454,7 +13622,7 @@ SetBotPrecheckoutResultsRequest <- R6::R6Class(
       c(
         as.raw(c(0x95, 0xdd, 0xc2, 0x09)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
+        packInt64(self$query_id),
         if (!is.null(self$error) && self$error != FALSE) self$serialize_bytes(self$error) else raw(0)
       )
     }
@@ -13482,6 +13650,7 @@ SetBotPrecheckoutResultsRequest$from_reader <- function(reader) {
 #  @noRd
 SetBotShippingResultsRequest <- R6::R6Class(
   "SetBotShippingResultsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13519,7 +13688,7 @@ SetBotShippingResultsRequest <- R6::R6Class(
       c(
         as.raw(c(0xfa, 0x72, 0xf6, 0xe5)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
+        packInt64(self$query_id),
         if (!is.null(self$error) && self$error != FALSE) self$serialize_bytes(self$error) else raw(0),
         if (!is.null(self$shipping_options) && self$shipping_options != FALSE) c(as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$shipping_options)), type = "raw")[1:4], do.call(c, lapply(self$shipping_options, function(x) x$bytes()))) else raw(0)
       )
@@ -13552,6 +13721,7 @@ SetBotShippingResultsRequest$from_reader <- function(reader) {
 #  @noRd
 SetChatAvailableReactionsRequest <- R6::R6Class(
   "SetChatAvailableReactionsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13629,6 +13799,7 @@ SetChatAvailableReactionsRequest$from_reader <- function(reader) {
 #  @noRd
 SetChatThemeRequest <- R6::R6Class(
   "SetChatThemeRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13692,6 +13863,7 @@ SetChatThemeRequest$from_reader <- function(reader) {
 #  @noRd
 SetChatWallPaperRequest <- R6::R6Class(
   "SetChatWallPaperRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13780,6 +13952,7 @@ SetChatWallPaperRequest$from_reader <- function(reader) {
 #  @noRd
 SetDefaultHistoryTTLRequest <- R6::R6Class(
   "SetDefaultHistoryTTLRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13830,6 +14003,7 @@ SetDefaultHistoryTTLRequest$from_reader <- function(reader) {
 #  @noRd
 SetDefaultReactionRequest <- R6::R6Class(
   "SetDefaultReactionRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13881,6 +14055,7 @@ SetDefaultReactionRequest$from_reader <- function(reader) {
 #  @noRd
 SetEncryptedTypingRequest <- R6::R6Class(
   "SetEncryptedTypingRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -13936,6 +14111,7 @@ SetEncryptedTypingRequest$from_reader <- function(reader) {
 #  @noRd
 SetGameScoreRequest <- R6::R6Class(
   "SetGameScoreRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14022,6 +14198,7 @@ SetGameScoreRequest$from_reader <- function(reader) {
 #  @noRd
 SetHistoryTTLRequest <- R6::R6Class(
   "SetHistoryTTLRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14085,6 +14262,7 @@ SetHistoryTTLRequest$from_reader <- function(reader) {
 #  @noRd
 SetInlineBotResultsRequest <- R6::R6Class(
   "SetInlineBotResultsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14182,6 +14360,7 @@ SetInlineBotResultsRequest$from_reader <- function(reader) {
 #  @noRd
 SetInlineGameScoreRequest <- R6::R6Class(
   "SetInlineGameScoreRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14262,6 +14441,7 @@ SetInlineGameScoreRequest$from_reader <- function(reader) {
 #  @noRd
 SetTypingRequest <- R6::R6Class(
   "SetTypingRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14334,6 +14514,7 @@ SetTypingRequest$from_reader <- function(reader) {
 #  @noRd
 StartBotRequest <- R6::R6Class(
   "StartBotRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14411,6 +14592,7 @@ StartBotRequest$from_reader <- function(reader) {
 #  @noRd
 StartHistoryImportRequest <- R6::R6Class(
   "StartHistoryImportRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14473,6 +14655,7 @@ StartHistoryImportRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleBotInAttachMenuRequest <- R6::R6Class(
   "ToggleBotInAttachMenuRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14544,6 +14727,7 @@ ToggleBotInAttachMenuRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleDialogFilterTagsRequest <- R6::R6Class(
   "ToggleDialogFilterTagsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14594,6 +14778,7 @@ ToggleDialogFilterTagsRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleDialogPinRequest <- R6::R6Class(
   "ToggleDialogPinRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14659,6 +14844,7 @@ ToggleDialogPinRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleNoForwardsRequest <- R6::R6Class(
   "ToggleNoForwardsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14722,6 +14908,7 @@ ToggleNoForwardsRequest$from_reader <- function(reader) {
 #  @noRd
 TogglePaidReactionPrivacyRequest <- R6::R6Class(
   "TogglePaidReactionPrivacyRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14789,6 +14976,7 @@ TogglePaidReactionPrivacyRequest$from_reader <- function(reader) {
 #  @noRd
 TogglePeerTranslationsRequest <- R6::R6Class(
   "TogglePeerTranslationsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14854,6 +15042,7 @@ TogglePeerTranslationsRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleSavedDialogPinRequest <- R6::R6Class(
   "ToggleSavedDialogPinRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14920,6 +15109,7 @@ ToggleSavedDialogPinRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleStickerSetsRequest <- R6::R6Class(
   "ToggleStickerSetsRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -14994,6 +15184,7 @@ ToggleStickerSetsRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleSuggestedPostApprovalRequest <- R6::R6Class(
   "ToggleSuggestedPostApprovalRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15076,6 +15267,7 @@ ToggleSuggestedPostApprovalRequest$from_reader <- function(reader) {
 #  @noRd
 ToggleTodoCompletedRequest <- R6::R6Class(
   "ToggleTodoCompletedRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15161,6 +15353,7 @@ ToggleTodoCompletedRequest$from_reader <- function(reader) {
 #  @noRd
 TranscribeAudioRequest <- R6::R6Class(
   "TranscribeAudioRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15223,6 +15416,7 @@ TranscribeAudioRequest$from_reader <- function(reader) {
 #  @noRd
 TranslateTextRequest <- R6::R6Class(
   "TranslateTextRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15327,6 +15521,7 @@ TranslateTextRequest$from_reader <- function(reader) {
 #  @noRd
 UninstallStickerSetRequest <- R6::R6Class(
   "UninstallStickerSetRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15378,6 +15573,7 @@ UninstallStickerSetRequest$from_reader <- function(reader) {
 #  @noRd
 UnpinAllMessagesRequest <- R6::R6Class(
   "UnpinAllMessagesRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15453,6 +15649,7 @@ UnpinAllMessagesRequest$from_reader <- function(reader) {
 #  @noRd
 UpdateDialogFilterRequest <- R6::R6Class(
   "UpdateDialogFilterRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15512,6 +15709,7 @@ UpdateDialogFilterRequest$from_reader <- function(reader) {
 #  @noRd
 UpdateDialogFiltersOrderRequest <- R6::R6Class(
   "UpdateDialogFiltersOrderRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15569,6 +15767,7 @@ UpdateDialogFiltersOrderRequest$from_reader <- function(reader) {
 #  @noRd
 UpdatePinnedMessageRequest <- R6::R6Class(
   "UpdatePinnedMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15649,6 +15848,7 @@ UpdatePinnedMessageRequest$from_reader <- function(reader) {
 #  @noRd
 UpdateSavedReactionTagRequest <- R6::R6Class(
   "UpdateSavedReactionTagRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15708,6 +15908,7 @@ UpdateSavedReactionTagRequest$from_reader <- function(reader) {
 #  @noRd
 UploadEncryptedFileRequest <- R6::R6Class(
   "UploadEncryptedFileRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15764,6 +15965,7 @@ UploadEncryptedFileRequest$from_reader <- function(reader) {
 #  @noRd
 UploadImportedMediaRequest <- R6::R6Class(
   "UploadImportedMediaRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15837,6 +16039,7 @@ UploadImportedMediaRequest$from_reader <- function(reader) {
 #  @noRd
 UploadMediaRequest <- R6::R6Class(
   "UploadMediaRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.
@@ -15909,6 +16112,7 @@ UploadMediaRequest$from_reader <- function(reader) {
 #  @noRd
 ViewSponsoredMessageRequest <- R6::R6Class(
   "ViewSponsoredMessageRequest",
+  lock_objects = FALSE,
   inherit = TLRequest,
   public = list(
     #  @field CONSTRUCTOR_ID The constructor ID.

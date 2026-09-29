@@ -167,8 +167,9 @@ test_that("classes without declared fields still run initialize up to field assi
       lock_errors <- lock_errors + 1L
     }
   }
-  # Most failures should be the locked-environment variety (known issue)
-  expect_gt(lock_errors, 50L)
+  # Generated classes that assign undeclared fields are created with
+  # lock_objects = FALSE, so none of them may fail with a locked-environment error.
+  expect_equal(lock_errors, 0L)
 })
 
 test_that("spot-check: well-known TL types produce correct to_dict", {
