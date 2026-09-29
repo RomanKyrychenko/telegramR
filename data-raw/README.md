@@ -128,3 +128,23 @@ hand-written `.telegramR_read_*` readers once their generated counterparts are
 confirmed. That is an iterative, live-validated pass best done per type against
 `inst/integration/smoke.R`. Both full attempts were reverted; the package stays
 on its working layer where all documented flows pass live.
+
+## RESOLVED: full regeneration at layer 229 landed
+
+The full regeneration is now done and validated. Run `bash data-raw/regenerate.sh`
+to reproduce (audit -> dedupe -> --all-types -> stale functions -> add missing
+-> bump LAYER). Key fixes that made it work end to end:
+
+- **dedupe** the 110 duplicate class definitions (R uses the last one loaded);
+- **add ~491 missing types** so parsing never hits an unknown nested ctor;
+- **bare-vs-namespaced** pascal collisions resolve to the bare type, and
+  **function** namespace collisions (e.g. channels vs account `checkUsername`)
+  are disambiguated by argument overlap with the existing class;
+- keep the `bytes` data field where a type has one, serialising via `to_bytes()`;
+- preserve each class's serializer name (`bytes`/`to_bytes`) and dict method.
+
+Validation: 959/959 scalar-constructible types round-trip byte-for-byte; unit
+suite 0 failures; inst/integration/smoke.R passes all 12 documented flows live
+at layer 229. To bump to a future layer: drop the new api.tl into data-raw/,
+run regenerate.sh, run the round-trip check and the live smoke, and update the
+few tests that assert specific constructor ids.
