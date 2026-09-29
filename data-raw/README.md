@@ -68,3 +68,29 @@ Recommended procedure:
 Until then the package works at its current mixed layer: the object reader
 tolerates unknown update subtypes, and all documented flows pass the live
 smoke test.
+
+## Finding: a stale-constructor fix is NOT enough (attempted 2026-09-29)
+
+An automated in-place overwrite of the 111 stale classes + `LAYER <- 229` was
+built and tried end to end. It regenerated cleanly (multi-flag types like
+`Channel` round-trip byte-for-byte, conventions preserved) and unit PASS rose,
+but the **live** smoke test regressed the parsing hot path: dialogs and message
+history failed with "No more data left to read".
+
+Root cause: at layer 229 the server sends **nested types the repo does not
+have at all** — e.g. a `WebPage` subtype (`0xe8a93b72`) inside
+`MessageMediaWebPage`. An unknown constructor makes `tgread_object()` consume
+the rest of the stream, so the enclosing `Message`/`Dialog` fails to parse.
+`python3 generate_tl.py api.tl --missing` reports ~575 schema defs with no R6
+class in `R/`.
+
+Conclusion: a correct layer bump is a **full regeneration** (add the missing
+types AND fix the stale ones AND move the hand-written `.telegramR_read_*`
+readers), not a stale-constructor patch. The overwrite was reverted; the
+package stays at its working mixed layer, where the tolerant object reader
+skips unknown updates and all documented flows pass the live smoke.
+
+Use `generate_tl.py --emit NAME` to generate each class, `--audit` for stale
+constructor ids, and `--missing` for types to add. The emitter is validated;
+the remaining work is the hand-reader reconciliation and live validation of
+every message/dialog/media flow, one at a time.
