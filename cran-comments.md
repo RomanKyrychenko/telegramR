@@ -7,17 +7,22 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 3 notes
+0 errors | 0 warnings | 2 notes
 
-The two warnings seen only in the local run are toolchain artefacts, not
-package issues, and do not occur on CRAN's build machines:
+One warning appears only in the local run and is a toolchain artefact, not a
+package issue; it does not occur on CRAN's build machines:
 
 * `unknown warning group '-Wfixed-enum-extension'` originates in R's own
-  header `R_ext/Boolean.h` when compiled with a bleeding-edge Apple clang
-  (clang 21) under `-Wall -pedantic`; the package's own C/C++ compiles
-  cleanly.
-* "A complete check needs the 'checkbashisms' script" reflects that script
-  being absent from the local machine, not a problem in the package.
+  header `R_ext/Boolean.h`, whose `#pragma clang diagnostic` names a warning
+  group that a bleeding-edge Apple clang (clang 21) no longer recognises, so
+  clang emits it via the default-on `-Wunknown-warning-option`. It is
+  independent of the package's flags, and CRAN's clang recognises the group.
+  The package's own C/C++ compiles cleanly.
+
+(The "checkbashisms" warning and the "unable to verify current time" note seen
+in earlier local runs were purely local: the script was not installed and the
+machine was offline. The `configure`/`cleanup` scripts are POSIX `sh` and pass
+`checkbashisms`.)
 
 ### NOTE 1: Possibly unsafe call — `unlockBinding`
 
@@ -36,16 +41,15 @@ not exposed to users.
 ### NOTE 2: Installed size
 
 ```
-installed size is ~20.6Mb
+installed size is ~17.4Mb
 sub-directories of 1Mb or more:
-  R        14.2Mb
-  extdata   5.7Mb
+  R        14.3Mb
 ```
 
 `R/types.R` is auto-generated from Telegram's TL (Type Language) schema and
 contains the full set of protocol classes; this is unavoidable for complete
 MTProto coverage and is consistent with other auto-generated protocol-binding
-packages. `extdata` holds small sample media used by the vignette.
+packages. The source tarball is ~3.4Mb.
 
 ### NOTE 3: Overall check time
 

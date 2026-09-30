@@ -1,5 +1,8 @@
 # telegramR 0.0.2
 
+* Removed unused sample video files from `inst/extdata`, shrinking the source
+  tarball to ~3.4Mb (under CRAN's 5Mb guideline).
+
 * Exported `TelegramClient`, the high-level client class, so `TelegramClient$new()`
   works after `library(telegramR)` (its `@export` had been in a comment that
   roxygen ignored, leaving it inaccessible).
