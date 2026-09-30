@@ -1,9 +1,27 @@
 # Import methods from . (equivalent to importing in Python)
 # In R6, we'll integrate these methods directly into the class
 
-#  TelegramClient: the high-level Telegram MTProto client. Documentation lives
-#  in the hand-maintained man/TelegramClient.Rd; this tag only exports it so
-#  users can call TelegramClient$new() after library(telegramR).
+#' TelegramClient
+#'
+#' High-level 'Telegram' 'MTProto' client. Create one with
+#' \code{TelegramClient$new(session, api_id, api_hash)}, then \code{$start()}
+#' (interactive login) or \code{$connect()} together with
+#' \code{$send_code_request()} and \code{$sign_in()} to authenticate. Once
+#' connected it exposes the messaging, channel, media and download methods used
+#' throughout the package documentation.
+#'
+#' @details
+#' This is an R6 class. Typical usage:
+#' \preformatted{
+#' client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")
+#' client$connect()
+#' }
+#' @return An R6 generator object of class \code{TelegramClient}.
+#' @examples
+#' \dontrun{
+#' client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")
+#' client$start()
+#' }
 #' @export
 TelegramClient <- R6::R6Class(
   "TelegramClient",
