@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">telegramR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,15 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.2" id="telegramr-002">telegramR 0.0.2<a class="anchor" aria-label="anchor" href="#telegramr-002"></a></h2>
+<ul><li><p>Removed unused sample video files from <code>inst/extdata</code>, shrinking the source tarball to ~3.4Mb (under CRAN’s 5Mb guideline).</p></li>
+<li><p>Exported <code>TelegramClient</code>, the high-level client class, so <code>TelegramClient$new()</code> works after <code><a href="https://romankyrychenko.github.io/telegramR/">library(telegramR)</a></code> (its <code>@export</code> had been in a comment that roxygen ignored, leaving it inaccessible).</p></li>
+<li><p>Synced the bundled ‘Telegram’ TL schema to layer 229 and regenerated all TL type and request classes, fixing dialog and message parsing against current ‘Telegram’ servers.</p></li>
+<li><p>Reworked the schema code-generation tooling in <code>data-raw/</code> entirely in R (<code>generate_tl.R</code>, <code>overwrite_stale.R</code>, <code>dedupe_types.R</code>, <code>emit_missing.R</code>, and the <code>regenerate.R</code> pipeline), replacing the previous scripts. The pipeline is idempotent and documents every generated class with roxygen.</p></li>
+<li><p>Fixed serialisation of 64-bit integers and byte fields, and the send-media chain.</p></li>
+<li><p>Fixed the asynchronous test helpers to resolve <code>promises</code> objects, and a latent unqualified <code><a href="https://jeroen.r-universe.dev/openssl/reference/rand_bytes.html" class="external-link">openssl::rand_bytes()</a></code> call in the obfuscated transport.</p></li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="telegramr-001">telegramR 0.0.1<a class="anchor" aria-label="anchor" href="#telegramr-001"></a></h2><p class="text-muted">CRAN release: 2026-06-02</p>
 <ul><li>Initial CRAN release.</li>
 <li>Full MTProto client for Telegram: authentication, serialisation/deserialisation of the TL schema, encrypted transport, and session management.</li>
@@ -46,7 +55,8 @@
 <li>Two-factor authentication support via <code>PasswordKdf</code>.</li>
 <li>Story support via <code>functions_stories.R</code> request classes.</li>
 </ul></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
@@ -54,7 +64,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

@@ -2,8 +2,6 @@
 
 ## All functions
 
-- [`TelegramBaseClient`](https://romankyrychenko.github.io/telegramR/reference/TelegramBaseClient.md)
-  : TelegramBaseClient
 - [`TelegramClient`](https://romankyrychenko.github.io/telegramR/reference/TelegramClient.md)
   : TelegramClient
 - [`add_user_to_chat()`](https://romankyrychenko.github.io/telegramR/reference/add_user_to_chat.md)
