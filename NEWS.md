@@ -1,5 +1,9 @@
 # telegramR 0.0.2
 
+* Exported `TelegramClient`, the high-level client class, so `TelegramClient$new()`
+  works after `library(telegramR)` (its `@export` had been in a comment that
+  roxygen ignored, leaving it inaccessible).
+
 * Synced the bundled 'Telegram' TL schema to layer 229 and regenerated all TL
   type and request classes, fixing dialog and message parsing against current
   'Telegram' servers.

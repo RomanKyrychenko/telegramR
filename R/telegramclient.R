@@ -1,15 +1,10 @@
 # Import methods from . (equivalent to importing in Python)
 # In R6, we'll integrate these methods directly into the class
 
-#  TelegramClient Class
-# 
-#  An R6 class that combines functionality from multiple method classes to interact with Telegram API
-# 
-#  @title TelegramClient
-#  @description Telegram API type TelegramClient
-#  @export
-#  @noRd
-#  @noRd
+#  TelegramClient: the high-level Telegram MTProto client. Documentation lives
+#  in the hand-maintained man/TelegramClient.Rd; this tag only exports it so
+#  users can call TelegramClient$new() after library(telegramR).
+#' @export
 TelegramClient <- R6::R6Class(
   "TelegramClient",
   inherit = TelegramBaseClient,
