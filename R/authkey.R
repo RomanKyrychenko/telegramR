@@ -1,11 +1,9 @@
-#  AuthKey Class
-# 
-# 
-#  @title AuthKey
-#  @description Telegram API type AuthKey
-#  @export
-#  @noRd
-#  @noRd
+#' AuthKey Class
+#'
+#'
+#' @title AuthKey
+#' @description Telegram API type AuthKey
+#' @noRd
 AuthKey <- R6::R6Class(
   "AuthKey",
   public = list(

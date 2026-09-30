@@ -1,16 +1,15 @@
-#  DestroyAuthKeyRequest R6 class
-# 
-#  Represents the TL request `DestroyAuthKeyRequest`.
-# 
-#  Fields:
-#  - (no fields)
-# 
-#  Methods:
-#  - new(): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  @noRd
-#  @noRd
+#' DestroyAuthKeyRequest R6 class
+#'
+#' Represents the TL request `DestroyAuthKeyRequest`.
+#'
+#' Fields:
+#' - (no fields)
+#'
+#' Methods:
+#' - new(): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' @noRd
 DestroyAuthKeyRequest <- R6::R6Class(
   classname = "DestroyAuthKeyRequest",
   public = list(
@@ -54,19 +53,18 @@ DestroyAuthKeyRequest$from_reader <- function(reader) {
 }
 
 
-#  DestroySessionRequest R6 class
-# 
-#  Represents the TL request `DestroySessionRequest`.
-# 
-#  Fields:
-#  - session_id: numeric/integer (64-bit placeholder)
-# 
-#  Methods:
-#  - new(session_id): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  @noRd
-#  @noRd
+#' DestroySessionRequest R6 class
+#'
+#' Represents the TL request `DestroySessionRequest`.
+#'
+#' Fields:
+#' - session_id: numeric/integer (64-bit placeholder)
+#'
+#' Methods:
+#' - new(session_id): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' @noRd
 DestroySessionRequest <- R6::R6Class(
   classname = "DestroySessionRequest",
   public = list(
@@ -124,19 +122,18 @@ DestroySessionRequest$from_reader <- function(reader) {
 }
 
 
-#  GetFutureSaltsRequest R6 class
-# 
-#  Represents the TL request `GetFutureSaltsRequest`.
-# 
-#  Fields:
-#  - num: integer (32-bit)
-# 
-#  Methods:
-#  - new(num): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  @noRd
-#  @noRd
+#' GetFutureSaltsRequest R6 class
+#'
+#' Represents the TL request `GetFutureSaltsRequest`.
+#'
+#' Fields:
+#' - num: integer (32-bit)
+#'
+#' Methods:
+#' - new(num): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' @noRd
 GetFutureSaltsRequest <- R6::R6Class(
   classname = "GetFutureSaltsRequest",
   public = list(
@@ -1391,22 +1388,21 @@ InvokeWithoutUpdatesRequest$from_reader <- function(reader) {
 }
 
 
-#  PingRequest R6 class
-# 
-#  Represents the TL request `PingRequest`.
-# 
-#  Fields:
-#  - ping_id: numeric/integer (64-bit placeholder)
-# 
-#  Methods:
-#  - new(ping_id): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  - from_reader(reader): construct instance from a reader with read_long().
-# 
-#  Note: 64-bit integer handling uses numeric placeholders via writeBin.
-#  @noRd
-#  @noRd
+#' PingRequest R6 class
+#'
+#' Represents the TL request `PingRequest`.
+#'
+#' Fields:
+#' - ping_id: numeric/integer (64-bit placeholder)
+#'
+#' Methods:
+#' - new(ping_id): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' - from_reader(reader): construct instance from a reader with read_long().
+#'
+#' Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#' @noRd
 PingRequest <- R6::R6Class(
   classname = "PingRequest",
   public = list(
@@ -1463,22 +1459,21 @@ PingRequest$from_reader <- function(reader) {
 }
 
 
-#  PingDelayDisconnectRequest R6 class
-# 
-#  Represents the TL request `PingDelayDisconnectRequest`.
-# 
-#  Fields:
-#  - ping_id: numeric/integer (64-bit placeholder)
-#  - disconnect_delay: integer (32-bit)
-# 
-#  Methods:
-#  - new(ping_id, disconnect_delay): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-# 
-#  Note: 64-bit integer handling uses numeric placeholders via writeBin.
-#  @noRd
-#  @noRd
+#' PingDelayDisconnectRequest R6 class
+#'
+#' Represents the TL request `PingDelayDisconnectRequest`.
+#'
+#' Fields:
+#' - ping_id: numeric/integer (64-bit placeholder)
+#' - disconnect_delay: integer (32-bit)
+#'
+#' Methods:
+#' - new(ping_id, disconnect_delay): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#'
+#' Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#' @noRd
 PingDelayDisconnectRequest <- R6::R6Class(
   classname = "PingDelayDisconnectRequest",
   public = list(
@@ -1547,28 +1542,27 @@ PingDelayDisconnectRequest$from_reader <- function(reader) {
 }
 
 
-#  ReqDHParamsRequest R6 class
-# 
-#  Represents the TL request `ReqDHParamsRequest`.
-# 
-#  Fields:
-#  - nonce: numeric/integer 128-bit nonce (placeholder representation)
-#  - server_nonce: numeric/integer 128-bit server nonce (placeholder)
-#  - p: raw, bytes
-#  - q: raw, bytes
-#  - public_key_fingerprint: numeric/integer 64-bit
-#  - encrypted_data: raw, bytes
-# 
-#  Methods:
-#  - new(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-# 
-#  Note: 128-bit integer handling is represented as numeric/double placeholders.
-#  For precise 128-bit two's-complement behavior, use a big-integer library and
-#  implement a precise serializer.
-#  @noRd
-#  @noRd
+#' ReqDHParamsRequest R6 class
+#'
+#' Represents the TL request `ReqDHParamsRequest`.
+#'
+#' Fields:
+#' - nonce: numeric/integer 128-bit nonce (placeholder representation)
+#' - server_nonce: numeric/integer 128-bit server nonce (placeholder)
+#' - p: raw, bytes
+#' - q: raw, bytes
+#' - public_key_fingerprint: numeric/integer 64-bit
+#' - encrypted_data: raw, bytes
+#'
+#' Methods:
+#' - new(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#'
+#' Note: 128-bit integer handling is represented as numeric/double placeholders.
+#' For precise 128-bit two's-complement behavior, use a big-integer library and
+#' implement a precise serializer.
+#' @noRd
 ReqDHParamsRequest <- R6::R6Class(
   classname = "ReqDHParamsRequest",
   public = list(
@@ -1696,22 +1690,21 @@ ReqDHParamsRequest$from_reader <- function(reader) {
 }
 
 
-#  ReqPqRequest R6 class
-# 
-#  Represents the TL request `ReqPqRequest`.
-# 
-# 
-#  @description
-#  Methods:
-#  - new(nonce): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-# 
-#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#  For precise 128-bit two's-complement behavior, use a big-integer library and
-#  implement a precise serializer.
-#  @noRd
-#  @noRd
+#' ReqPqRequest R6 class
+#'
+#' Represents the TL request `ReqPqRequest`.
+#'
+#'
+#' @description
+#' Methods:
+#' - new(nonce): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#'
+#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#' For precise 128-bit two's-complement behavior, use a big-integer library and
+#' implement a precise serializer.
+#' @noRd
 ReqPqRequest <- R6::R6Class(
   classname = "ReqPqRequest",
   public = list(
@@ -1769,22 +1762,21 @@ ReqPqRequest$from_reader <- function(reader) {
 }
 
 
-#  ReqPqMultiRequest R6 class
-# 
-#  Represents the TL request `ReqPqMultiRequest`.
-# 
-# 
-#  @description
-#  Methods:
-#  - new(nonce): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-# 
-#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#  For precise 128-bit two's-complement behavior, use a big-integer library and
-#  implement a precise serializer.
-#  @noRd
-#  @noRd
+#' ReqPqMultiRequest R6 class
+#'
+#' Represents the TL request `ReqPqMultiRequest`.
+#'
+#'
+#' @description
+#' Methods:
+#' - new(nonce): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#'
+#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#' For precise 128-bit two's-complement behavior, use a big-integer library and
+#' implement a precise serializer.
+#' @noRd
 ReqPqMultiRequest <- R6::R6Class(
   classname = "ReqPqMultiRequest",
   public = list(
@@ -1842,25 +1834,23 @@ ReqPqMultiRequest$from_reader <- function(reader) {
 }
 
 
-#  RpcDropAnswerRequest R6 class
-# 
-#  Represents the TL request `RpcDropAnswerRequest`.
-# 
-# 
-#  @description
-#  Methods:
-#  - new(req_msg_id): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  - from_reader(reader): class method, construct instance from a `reader` object
-#    that exposes `read_long()` (returns numeric/integer) and similar methods.
-# 
-#  Note: to_raw() uses writeBin on numeric for 8-byte values. If exact 64-bit
-#  two's-complement preservation is required, replace with a dedicated 64-bit
-#  integer serialization utility.
-# 
-#  @noRd
-#  @noRd
+#' RpcDropAnswerRequest R6 class
+#'
+#' Represents the TL request `RpcDropAnswerRequest`.
+#'
+#'
+#' @description
+#' Methods:
+#' - new(req_msg_id): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' - from_reader(reader): class method, construct instance from a `reader` object
+#'   that exposes `read_long()` (returns numeric/integer) and similar methods.
+#'
+#' Note: to_raw() uses writeBin on numeric for 8-byte values. If exact 64-bit
+#' two's-complement preservation is required, replace with a dedicated 64-bit
+#' integer serialization utility.
+#' @noRd
 RpcDropAnswerRequest <- R6::R6Class(
   classname = "RpcDropAnswerRequest",
   public = list(
@@ -1920,25 +1910,23 @@ RpcDropAnswerRequest$from_reader <- function(reader) {
 }
 
 
-#  SetClientDHParamsRequest R6 class
-# 
-#  Represents the TL request `SetClientDHParamsRequest`.
-# 
-# 
-#  @description
-#  Methods:
-#  - new(nonce, server_nonce, encrypted_data): create new instance.
-#  - to_list(): return an R list representation.
-#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#  - from_reader(reader): class method, construct instance from a `reader` object
-#    that exposes `read_large_int(bits = 128)` and `tgread_bytes()`.
-# 
-#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#  For precise 128-bit two's-complement behavior, use a big-integer library and
-#  implement a precise serializer.
-# 
-#  @noRd
-#  @noRd
+#' SetClientDHParamsRequest R6 class
+#'
+#' Represents the TL request `SetClientDHParamsRequest`.
+#'
+#'
+#' @description
+#' Methods:
+#' - new(nonce, server_nonce, encrypted_data): create new instance.
+#' - to_list(): return an R list representation.
+#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#' - from_reader(reader): class method, construct instance from a `reader` object
+#'   that exposes `read_large_int(bits = 128)` and `tgread_bytes()`.
+#'
+#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#' For precise 128-bit two's-complement behavior, use a big-integer library and
+#' implement a precise serializer.
+#' @noRd
 SetClientDHParamsRequest <- R6::R6Class(
   classname = "SetClientDHParamsRequest",
   public = list(

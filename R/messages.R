@@ -1,18 +1,16 @@
 .MAX_CHUNK_SIZE <- 100
 
 
-#  MessagesIter R6 class
-# 
-#  Iterator over messages with support for search, filters, reply threads,
-#  scheduled history, ranges (min_id/max_id), and reverse iteration.
-#  This is a translation of the original async RequestIter-based logic into R6.
-#  It delegates fetching to the provided client via iter_messages().
-# 
-#  @title MessagesIter
-#  @description Telegram API type MessagesIter
-#  @export
-#  @noRd
-#  @noRd
+#' MessagesIter R6 class
+#'
+#' Iterator over messages with support for search, filters, reply threads,
+#' scheduled history, ranges (min_id/max_id), and reverse iteration.
+#' This is a translation of the original async RequestIter-based logic into R6.
+#' It delegates fetching to the provided client via iter_messages().
+#'
+#' @title MessagesIter
+#' @description Telegram API type MessagesIter
+#' @noRd
 MessagesIter <- R6::R6Class(
   "MessagesIter",
   public = list(
@@ -482,19 +480,17 @@ MessagesIter <- R6::R6Class(
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
 
-#  IDsIter R6 class
-# 
-#  Iterator over explicit message IDs, fetching results in chunks.
-#  It optionally validates that returned messages belong to a given entity.
-# 
-#  @section Initialization:
-#  it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
-# 
-#  @title IDsIter
-#  @description Telegram API type IDsIter
-#  @export
-#  @noRd
-#  @noRd
+#' IDsIter R6 class
+#'
+#' Iterator over explicit message IDs, fetching results in chunks.
+#' It optionally validates that returned messages belong to a given entity.
+#'
+#' @section Initialization:
+#' it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
+#'
+#' @title IDsIter
+#' @description Telegram API type IDsIter
+#' @noRd
 IDsIter <- R6::R6Class(
   "IDsIter",
   public = list(

@@ -1,9 +1,8 @@
-#  DestroyAuthKeyRequest
-# 
-#  R6 class representing a request to destroy the authentication key.
-#  Contains methods for serialization to list and bytes.
-#  @noRd
-#  @noRd
+#' DestroyAuthKeyRequest
+#'
+#' R6 class representing a request to destroy the authentication key.
+#' Contains methods for serialization to list and bytes.
+#' @noRd
 DestroyAuthKeyRequest <- R6::R6Class(
   "DestroyAuthKeyRequest",
   public = list(
@@ -30,18 +29,20 @@ DestroyAuthKeyRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create DestroyAuthKeyRequest from a reader
-# 
-#  @param reader Reader object (unused)
-#  @return Instance of DestroyAuthKeyRequest
+#' Create DestroyAuthKeyRequest from a reader
+#'
+#' @param reader Reader object (unused)
+#' @return Instance of DestroyAuthKeyRequest
+#' @noRd
 DestroyAuthKeyRequest_from_reader <- function(reader) {
   DestroyAuthKeyRequest$new()
 }
 
-#  Pack a 64-bit integer as little-endian raw bytes
-# 
-#  @param value Integer, numeric, bigz, or raw value to pack
-#  @keywords internal
+#' Pack a 64-bit integer as little-endian raw bytes
+#'
+#' @param value Integer, numeric, bigz, or raw value to pack
+#' @keywords internal
+#' @noRd
 packInt64_le <- function(value) {
   if (is.raw(value)) {
     if (length(value) == 8) {
@@ -68,10 +69,9 @@ packInt128_le <- function(value) {
   int_to_bytes(value, length = 16, endian = "little")
 }
 
-#  R6 class representing a request to destroy a session.
-#  Contains methods for serialization to list and bytes.
-#  @noRd
-#  @noRd
+#' R6 class representing a request to destroy a session.
+#' Contains methods for serialization to list and bytes.
+#' @noRd
 DestroySessionRequest <- R6::R6Class(
   "DestroySessionRequest",
   public = list(
@@ -113,21 +113,21 @@ DestroySessionRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create DestroySessionRequest from a reader
-# 
-#  @param reader Reader object
-#  @return Instance of DestroySessionRequest
+#' Create DestroySessionRequest from a reader
+#'
+#' @param reader Reader object
+#' @return Instance of DestroySessionRequest
+#' @noRd
 DestroySessionRequest_from_reader <- function(reader) {
   session_id <- reader$read_long()
   DestroySessionRequest$new(session_id = session_id)
 }
 
-#  GetFutureSaltsRequest
-# 
-#  R6 class representing a request to get future salts.
-#  Contains methods for serialization to list and bytes.
-#  @noRd
-#  @noRd
+#' GetFutureSaltsRequest
+#'
+#' R6 class representing a request to get future salts.
+#' Contains methods for serialization to list and bytes.
+#' @noRd
 GetFutureSaltsRequest <- R6::R6Class(
   "GetFutureSaltsRequest",
   public = list(
@@ -166,11 +166,12 @@ GetFutureSaltsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create GetFutureSaltsRequest from a reader
-# 
-#  @param reader Reader object
-#  Subclass ID for the request
-#  @return Instance of GetFutureSaltsRequest
+#' Create GetFutureSaltsRequest from a reader
+#'
+#' @param reader Reader object
+#' Subclass ID for the request
+#' @return Instance of GetFutureSaltsRequest
+#' @noRd
 GetFutureSaltsRequest_from_reader <- function(reader) {
   num <- reader$read_int()
   GetFutureSaltsRequest$new(num = num)
@@ -302,31 +303,32 @@ InitConnectionRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InitConnectionRequest from a binary reader
-# 
-#  Read and parse an InitConnectionRequest from a `reader` that provides
-#  binary-reading helpers. The function reads a 32-bit `flags` field first,
-#  followed by `api_id` and a sequence of UTF-8 strings:
-#  `device_model`, `system_version`, `app_version`, `system_lang_code`,
-#  `lang_pack`, and `lang_code`.
-# 
-#  Optional fields are controlled by bits in `flags`:
-#  - bit 0 (value 1): `proxy` is present and will be read via `tgread_object()`
-#  - bit 1 (value 2): `params` is present and will be read via `tgread_object()`
-# 
-#  The nested `query` object is read last using `tgread_object()`.
-# 
-#  @param reader Reader object providing:
-#    - `read_int()` to read 32-bit integers,
-#    - `tgread_string()` to read Telegram-style strings,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return An instance of `InitConnectionRequest` populated with values read
-#          from the `reader`.
-#  @examples
-#  \donttest{
-#  # reader <- Reader$new(source)
-#  # req <- InitConnectionRequest_from_reader(reader)
-#  }
+#' Create InitConnectionRequest from a binary reader
+#'
+#' Read and parse an InitConnectionRequest from a `reader` that provides
+#' binary-reading helpers. The function reads a 32-bit `flags` field first,
+#' followed by `api_id` and a sequence of UTF-8 strings:
+#' `device_model`, `system_version`, `app_version`, `system_lang_code`,
+#' `lang_pack`, and `lang_code`.
+#'
+#' Optional fields are controlled by bits in `flags`:
+#' - bit 0 (value 1): `proxy` is present and will be read via `tgread_object()`
+#' - bit 1 (value 2): `params` is present and will be read via `tgread_object()`
+#'
+#' The nested `query` object is read last using `tgread_object()`.
+#'
+#' @param reader Reader object providing:
+#'   - `read_int()` to read 32-bit integers,
+#'   - `tgread_string()` to read Telegram-style strings,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return An instance of `InitConnectionRequest` populated with values read
+#'         from the `reader`.
+#' @examples
+#' \donttest{
+#' # reader <- Reader$new(source)
+#' # req <- InitConnectionRequest_from_reader(reader)
+#' }
+#' @noRd
 InitConnectionRequest_from_reader <- function(reader) {
   flags <- reader$read_int()
   api_id <- reader$read_int()
@@ -413,13 +415,14 @@ InvokeAfterMsgRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeAfterMsgRequest from a binary reader
-# 
-#  Reads a message identifier and a nested object from \code{reader} and
-#  constructs an \code{InvokeAfterMsgRequest} instance.
-# 
-#  @param reader Reader object providing \code{read_long()} and \code{tgread_object()}.
-#  @return Instance of \code{InvokeAfterMsgRequest}.
+#' Create InvokeAfterMsgRequest from a binary reader
+#'
+#' Reads a message identifier and a nested object from \code{reader} and
+#' constructs an \code{InvokeAfterMsgRequest} instance.
+#'
+#' @param reader Reader object providing \code{read_long()} and \code{tgread_object()}.
+#' @return Instance of \code{InvokeAfterMsgRequest}.
+#' @noRd
 InvokeAfterMsgRequest_from_reader <- function(reader) {
   msg_id <- reader$read_long()
   query <- reader$tgread_object()
@@ -494,18 +497,19 @@ InvokeAfterMsgsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeAfterMsgsRequest from a binary reader
-# 
-#  Read and parse an `InvokeAfterMsgsRequest` from a `reader`.
-#  The reader is expected to provide a vector constructor marker (ignored),
-#  the number of message ids, each message id as a 64-bit integer, and then
-#  a nested object for `query`.
-# 
-#  @param reader Reader object providing:
-#    - `read_int()` to read 32-bit integers,
-#    - `read_long()` to read 64-bit integers,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of `InvokeAfterMsgsRequest` with `msg_ids` (list of longs) and `query`.
+#' Create InvokeAfterMsgsRequest from a binary reader
+#'
+#' Read and parse an `InvokeAfterMsgsRequest` from a `reader`.
+#' The reader is expected to provide a vector constructor marker (ignored),
+#' the number of message ids, each message id as a 64-bit integer, and then
+#' a nested object for `query`.
+#'
+#' @param reader Reader object providing:
+#'   - `read_int()` to read 32-bit integers,
+#'   - `read_long()` to read 64-bit integers,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of `InvokeAfterMsgsRequest` with `msg_ids` (list of longs) and `query`.
+#' @noRd
 InvokeAfterMsgsRequest_from_reader <- function(reader) {
   reader$read_int()
   msg_ids <- list()
@@ -586,20 +590,21 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithApnsSecretRequest from a binary reader
-# 
-#  Reads `nonce` and `secret` as Telegram-style strings and then reads the
-#  nested `query` object using the reader's `tgread_object()` method.
-# 
-#  @param reader Reader object providing:
-#    - `tgread_string()` to read Telegram-style strings,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of `InvokeWithApnsSecretRequest`.
-#  @examples
-#  \donttest{
-#  # reader <- Reader$new(source)
-#  # req <- InvokeWithApnsSecretRequest_from_reader(reader)
-#  }
+#' Create InvokeWithApnsSecretRequest from a binary reader
+#'
+#' Reads `nonce` and `secret` as Telegram-style strings and then reads the
+#' nested `query` object using the reader's `tgread_object()` method.
+#'
+#' @param reader Reader object providing:
+#'   - `tgread_string()` to read Telegram-style strings,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of `InvokeWithApnsSecretRequest`.
+#' @examples
+#' \donttest{
+#' # reader <- Reader$new(source)
+#' # req <- InvokeWithApnsSecretRequest_from_reader(reader)
+#' }
+#' @noRd
 InvokeWithApnsSecretRequest_from_reader <- function(reader) {
   nonce <- reader$tgread_string()
   secret <- reader$tgread_string()
@@ -667,16 +672,17 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithBusinessConnectionRequest from a reader
-# 
-#  Reads a `connection_id` (Telegram-style string) and a nested `query`
-#  object from the provided `reader`, then constructs an
-#  `InvokeWithBusinessConnectionRequest` instance.
-# 
-#  @param reader Reader object providing:
-#    - `tgread_string()` to read Telegram-style strings,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of `InvokeWithBusinessConnectionRequest`.
+#' Create InvokeWithBusinessConnectionRequest from a reader
+#'
+#' Reads a `connection_id` (Telegram-style string) and a nested `query`
+#' object from the provided `reader`, then constructs an
+#' `InvokeWithBusinessConnectionRequest` instance.
+#'
+#' @param reader Reader object providing:
+#'   - `tgread_string()` to read Telegram-style strings,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of `InvokeWithBusinessConnectionRequest`.
+#' @noRd
 InvokeWithBusinessConnectionRequest_from_reader <- function(reader) {
   connection_id <- reader$tgread_string()
   query <- reader$tgread_object()
@@ -751,15 +757,16 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithGooglePlayIntegrityRequest from a reader
-# 
-#  Reads `nonce` and `token` as Telegram-style strings and then reads the
-#  nested `query` object using the reader's `tgread_object()` method.
-# 
-#  @param reader Reader object providing:
-#    - `tgread_string()` to read Telegram-style strings,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of `InvokeWithGooglePlayIntegrityRequest`.
+#' Create InvokeWithGooglePlayIntegrityRequest from a reader
+#'
+#' Reads `nonce` and `token` as Telegram-style strings and then reads the
+#' nested `query` object using the reader's `tgread_object()` method.
+#'
+#' @param reader Reader object providing:
+#'   - `tgread_string()` to read Telegram-style strings,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of `InvokeWithGooglePlayIntegrityRequest`.
+#' @noRd
 InvokeWithGooglePlayIntegrityRequest_from_reader <- function(reader) {
   nonce <- reader$tgread_string()
   token <- reader$tgread_string()
@@ -829,13 +836,14 @@ InvokeWithLayerRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithLayerRequest from a binary reader
-# 
-#  Reads an integer `layer` and a nested `query` object from `reader` and
-#  constructs an `InvokeWithLayerRequest` instance.
-# 
-#  @param reader Reader object providing `read_int()` and `tgread_object()`.
-#  @return Instance of `InvokeWithLayerRequest`.
+#' Create InvokeWithLayerRequest from a binary reader
+#'
+#' Reads an integer `layer` and a nested `query` object from `reader` and
+#' constructs an `InvokeWithLayerRequest` instance.
+#'
+#' @param reader Reader object providing `read_int()` and `tgread_object()`.
+#' @return Instance of `InvokeWithLayerRequest`.
+#' @noRd
 InvokeWithLayerRequest_from_reader <- function(reader) {
   layer <- reader$read_int()
   query <- reader$tgread_object()
@@ -903,14 +911,15 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithMessagesRangeRequest from a binary reader
-# 
-#  Reads two nested Telegram-style objects from the provided `reader`:
-#  first the `range` object, then the `query` object. Both are read using
-#  the reader's `tgread_object()` method.
-# 
-#  @param reader Reader object providing `tgread_object()` to read nested objects.
-#  @return Instance of `InvokeWithMessagesRangeRequest`.
+#' Create InvokeWithMessagesRangeRequest from a binary reader
+#'
+#' Reads two nested Telegram-style objects from the provided `reader`:
+#' first the `range` object, then the `query` object. Both are read using
+#' the reader's `tgread_object()` method.
+#'
+#' @param reader Reader object providing `tgread_object()` to read nested objects.
+#' @return Instance of `InvokeWithMessagesRangeRequest`.
+#' @noRd
 InvokeWithMessagesRangeRequest_from_reader <- function(reader) {
   range <- reader$tgread_object()
   query <- reader$tgread_object()
@@ -979,15 +988,16 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithReCaptchaRequest from a binary reader
-# 
-#  Reads a `token` as a Telegram-style string and then reads the nested `query`
-#  object using the reader's `tgread_object()` method.
-# 
-#  @param reader Reader object providing:
-#    - `tgread_string()` to read Telegram-style strings,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of `InvokeWithReCaptchaRequest`.
+#' Create InvokeWithReCaptchaRequest from a binary reader
+#'
+#' Reads a `token` as a Telegram-style string and then reads the nested `query`
+#' object using the reader's `tgread_object()` method.
+#'
+#' @param reader Reader object providing:
+#'   - `tgread_string()` to read Telegram-style strings,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of `InvokeWithReCaptchaRequest`.
+#' @noRd
 InvokeWithReCaptchaRequest_from_reader <- function(reader) {
   token <- reader$tgread_string()
   query <- reader$tgread_object()
@@ -1055,20 +1065,21 @@ InvokeWithTakeoutRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithTakeoutRequest from a binary reader
-# 
-#  Reads a 64-bit `takeout_id` and a nested `query` object from the provided
-#  `reader`, then constructs an \code{InvokeWithTakeoutRequest} instance.
-# 
-#  @param reader Reader object providing:
-#    - `read_long()` to read 64-bit integers,
-#    - `tgread_object()` to read nested Telegram objects.
-#  @return Instance of \code{InvokeWithTakeoutRequest}.
-#  @examples
-#  \donttest{
-#  # reader <- Reader$new(source)
-#  # req <- InvokeWithTakeoutRequest_from_reader(reader)
-#  }
+#' Create InvokeWithTakeoutRequest from a binary reader
+#'
+#' Reads a 64-bit `takeout_id` and a nested `query` object from the provided
+#' `reader`, then constructs an \code{InvokeWithTakeoutRequest} instance.
+#'
+#' @param reader Reader object providing:
+#'   - `read_long()` to read 64-bit integers,
+#'   - `tgread_object()` to read nested Telegram objects.
+#' @return Instance of \code{InvokeWithTakeoutRequest}.
+#' @examples
+#' \donttest{
+#' # reader <- Reader$new(source)
+#' # req <- InvokeWithTakeoutRequest_from_reader(reader)
+#' }
+#' @noRd
 InvokeWithTakeoutRequest_from_reader <- function(reader) {
   takeout_id <- reader$read_long()
   query <- reader$tgread_object()
@@ -1129,27 +1140,27 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create InvokeWithoutUpdatesRequest from a binary reader
-# 
-#  Reads a nested Telegram-style object using \code{reader$tgread_object()} and
-#  constructs an \code{InvokeWithoutUpdatesRequest}.
-# 
-#  @param reader Reader object providing \code{tgread_object()}.
-#  @return Instance of \code{InvokeWithoutUpdatesRequest}.
+#' Create InvokeWithoutUpdatesRequest from a binary reader
+#'
+#' Reads a nested Telegram-style object using \code{reader$tgread_object()} and
+#' constructs an \code{InvokeWithoutUpdatesRequest}.
+#'
+#' @param reader Reader object providing \code{tgread_object()}.
+#' @return Instance of \code{InvokeWithoutUpdatesRequest}.
+#' @noRd
 InvokeWithoutUpdatesRequest_from_reader <- function(reader) {
   query <- reader$tgread_object()
   InvokeWithoutUpdatesRequest$new(query = query)
 }
 
 
-#  PingRequest R6 class
-# 
-#  Represents a simple ping request used to check connectivity/latency.
-#  Contains a 64-bit \code{ping_id} and methods to serialize to a list or raw bytes.
-# 
-#  @return An R6 object of class \code{PingRequest}.
-#  @noRd
-#  @noRd
+#' PingRequest R6 class
+#'
+#' Represents a simple ping request used to check connectivity/latency.
+#' Contains a 64-bit \code{ping_id} and methods to serialize to a list or raw bytes.
+#'
+#' @return An R6 object of class \code{PingRequest}.
+#' @noRd
 PingRequest <- R6::R6Class(
   "PingRequest",
   public = list(
@@ -1197,26 +1208,25 @@ PingRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create PingRequest from a binary reader
-# 
-#  Reads a 64-bit \code{ping_id} from \code{reader} and constructs a \code{PingRequest}.
-# 
-#  @param reader Reader object providing \code{read_long()}.
-#  @return Instance of \code{PingRequest}.
+#' Create PingRequest from a binary reader
+#'
+#' Reads a 64-bit \code{ping_id} from \code{reader} and constructs a \code{PingRequest}.
+#'
+#' @param reader Reader object providing \code{read_long()}.
+#' @return Instance of \code{PingRequest}.
+#' @noRd
 PingRequest_from_reader <- function(reader) {
   ping_id <- reader$read_long()
   PingRequest$new(ping_id = ping_id)
 }
 
 
-#  PingDelayDisconnectRequest R6 class
-# 
-#  R6 class representing a ping request that asks the server to delay a disconnect.
-#  Contains a 64-bit \code{ping_id} and an integer \code{disconnect_delay} (seconds).
-#  Provides methods to convert to a list and to serialize to raw bytes.
-# 
-#  @noRd
-#  @noRd
+#' PingDelayDisconnectRequest R6 class
+#'
+#' R6 class representing a ping request that asks the server to delay a disconnect.
+#' Contains a 64-bit \code{ping_id} and an integer \code{disconnect_delay} (seconds).
+#' Provides methods to convert to a list and to serialize to raw bytes.
+#' @noRd
 PingDelayDisconnectRequest <- R6::R6Class(
   "PingDelayDisconnectRequest",
   public = list(
@@ -1271,13 +1281,14 @@ PingDelayDisconnectRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create PingDelayDisconnectRequest from a binary reader
-# 
-#  Reads a 64-bit \code{ping_id} and a 32-bit \code{disconnect_delay} from the
-#  provided \code{reader} and constructs a \code{PingDelayDisconnectRequest}.
-# 
-#  @param reader Reader object providing \code{read_long()} and \code{read_int()}.
-#  @return Instance of \code{PingDelayDisconnectRequest}.
+#' Create PingDelayDisconnectRequest from a binary reader
+#'
+#' Reads a 64-bit \code{ping_id} and a 32-bit \code{disconnect_delay} from the
+#' provided \code{reader} and constructs a \code{PingDelayDisconnectRequest}.
+#'
+#' @param reader Reader object providing \code{read_long()} and \code{read_int()}.
+#' @return Instance of \code{PingDelayDisconnectRequest}.
+#' @noRd
 PingDelayDisconnectRequest_from_reader <- function(reader) {
   ping_id <- reader$read_long()
   disconnect_delay <- reader$read_int()
@@ -1285,17 +1296,15 @@ PingDelayDisconnectRequest_from_reader <- function(reader) {
 }
 
 
-#  ReqDHParamsRequest R6 class
-# 
-#  R6 class representing a request for Diffie-Hellman parameters during
-#  the key exchange phase. This request carries:
-#  - `nonce` and `server_nonce`: 128-bit nonces used for the DH handshake,
-#  - `p` and `q`: byte sequences containing prime parameters,
-#  - `public_key_fingerprint`: 64-bit fingerprint of the server public key,
-#  - `encrypted_data`: bytes with encrypted DH payload.
-# 
-#  @noRd
-#  @noRd
+#' ReqDHParamsRequest R6 class
+#'
+#' R6 class representing a request for Diffie-Hellman parameters during
+#' the key exchange phase. This request carries:
+#' - `nonce` and `server_nonce`: 128-bit nonces used for the DH handshake,
+#' - `p` and `q`: byte sequences containing prime parameters,
+#' - `public_key_fingerprint`: 64-bit fingerprint of the server public key,
+#' - `encrypted_data`: bytes with encrypted DH payload.
+#' @noRd
 ReqDHParamsRequest <- R6::R6Class(
   "ReqDHParamsRequest",
   public = list(
@@ -1375,16 +1384,17 @@ ReqDHParamsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create ReqDHParamsRequest from a binary reader
-# 
-#  Reads fields for a ReqDHParamsRequest from a `reader` and constructs the
-#  corresponding R6 instance. Expected reader helpers:
-#  - \code{read_large_int(bits = 128)} for 128-bit nonces,
-#  - \code{tgread_bytes()} for Telegram-style byte arrays,
-#  - \code{read_long()} for 64-bit integers.
-# 
-#  @param reader Reader object providing binary read helpers as described above.
-#  @return Instance of \code{ReqDHParamsRequest}.
+#' Create ReqDHParamsRequest from a binary reader
+#'
+#' Reads fields for a ReqDHParamsRequest from a `reader` and constructs the
+#' corresponding R6 instance. Expected reader helpers:
+#' - \code{read_large_int(bits = 128)} for 128-bit nonces,
+#' - \code{tgread_bytes()} for Telegram-style byte arrays,
+#' - \code{read_long()} for 64-bit integers.
+#'
+#' @param reader Reader object providing binary read helpers as described above.
+#' @return Instance of \code{ReqDHParamsRequest}.
+#' @noRd
 ReqDHParamsRequest_from_reader <- function(reader) {
   nonce <- reader$read_large_int(bits = 128)
   server_nonce <- reader$read_large_int(bits = 128)
@@ -1402,13 +1412,11 @@ ReqDHParamsRequest_from_reader <- function(reader) {
   )
 }
 
-#  ReqPqRequest R6 class
-# 
-#  Represents a request for the server's PQ (prime factor) during the initial
-#  key exchange. Holds a 128-bit `nonce` generated by the client.
-# 
-#  @noRd
-#  @noRd
+#' ReqPqRequest R6 class
+#'
+#' Represents a request for the server's PQ (prime factor) during the initial
+#' key exchange. Holds a 128-bit `nonce` generated by the client.
+#' @noRd
 ReqPqRequest <- R6::R6Class(
   "ReqPqRequest",
   public = list(
@@ -1457,26 +1465,24 @@ ReqPqRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create ReqPqRequest from a binary reader
-# 
-#  Reads a 128-bit `nonce` from the provided `reader` and constructs a
-#  `ReqPqRequest` instance.
-# 
-#  @param reader Reader object providing `read_large_int(bits = 128)`.
-#  @return A new instance of `ReqPqRequest`.
+#' Create ReqPqRequest from a binary reader
+#'
+#' Reads a 128-bit `nonce` from the provided `reader` and constructs a
+#' `ReqPqRequest` instance.
+#'
+#' @param reader Reader object providing `read_large_int(bits = 128)`.
+#' @return A new instance of `ReqPqRequest`.
+#' @noRd
 ReqPqRequest_from_reader <- function(reader) {
   nonce <- reader$read_large_int(bits = 128)
   ReqPqRequest$new(nonce = nonce)
 }
 
-#  ReqPqMultiRequest R6 class
-# 
-#  Represents a request for the server's PQ (prime factor) during the initial
-#  key exchange (multi variant). Holds a 128-bit `nonce` generated by the client.
-# 
-#  @export
-#  @noRd
-#  @noRd
+#' ReqPqMultiRequest R6 class
+#'
+#' Represents a request for the server's PQ (prime factor) during the initial
+#' key exchange (multi variant). Holds a 128-bit `nonce` generated by the client.
+#' @noRd
 ReqPqMultiRequest <- R6::R6Class(
   "ReqPqMultiRequest",
   public = list(
@@ -1523,29 +1529,29 @@ ReqPqMultiRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create ReqPqMultiRequest from a binary reader
-# 
-#  Reads a 128-bit `nonce` from the provided `reader` and constructs a
-#  `ReqPqMultiRequest` instance.
-# 
-#  @param reader Reader object providing `read_large_int(bits = 128)`.
-#  @return A new instance of `ReqPqMultiRequest`.
+#' Create ReqPqMultiRequest from a binary reader
+#'
+#' Reads a 128-bit `nonce` from the provided `reader` and constructs a
+#' `ReqPqMultiRequest` instance.
+#'
+#' @param reader Reader object providing `read_large_int(bits = 128)`.
+#' @return A new instance of `ReqPqMultiRequest`.
+#' @noRd
 ReqPqMultiRequest_from_reader <- function(reader) {
   nonce <- reader$read_large_int(bits = 128)
   ReqPqMultiRequest$new(nonce = nonce)
 }
 
 
-#  RpcDropAnswerRequest R6 class
-# 
-#  R6 class representing a request to drop an RPC answer for a previously sent
-#  request message. The server will respond with one of the \code{RpcAnswer*}
-#  response variants (e.g. \code{RpcAnswerUnknown}, \code{RpcAnswerDroppedRunning},
-#  \code{RpcAnswerDropped}).
-# 
-#  @return An R6 object of class \code{RpcDropAnswerRequest}.
-#  @noRd
-#  @noRd
+#' RpcDropAnswerRequest R6 class
+#'
+#' R6 class representing a request to drop an RPC answer for a previously sent
+#' request message. The server will respond with one of the \code{RpcAnswer*}
+#' response variants (e.g. \code{RpcAnswerUnknown}, \code{RpcAnswerDroppedRunning},
+#' \code{RpcAnswerDropped}).
+#'
+#' @return An R6 object of class \code{RpcDropAnswerRequest}.
+#' @noRd
 RpcDropAnswerRequest <- R6::R6Class(
   "RpcDropAnswerRequest",
   public = list(
@@ -1585,28 +1591,28 @@ RpcDropAnswerRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create RpcDropAnswerRequest from a binary reader
-# 
-#  Reads a 64-bit \code{req_msg_id} from the provided \code{reader} and
-#  constructs an instance of \code{RpcDropAnswerRequest}.
-# 
-#  @param reader Reader object providing \code{read_long()} to read 64-bit integers.
-#  @return Instance of \code{RpcDropAnswerRequest}.
+#' Create RpcDropAnswerRequest from a binary reader
+#'
+#' Reads a 64-bit \code{req_msg_id} from the provided \code{reader} and
+#' constructs an instance of \code{RpcDropAnswerRequest}.
+#'
+#' @param reader Reader object providing \code{read_long()} to read 64-bit integers.
+#' @return Instance of \code{RpcDropAnswerRequest}.
+#' @noRd
 RpcDropAnswerRequest_from_reader <- function(reader) {
   req_msg_id <- reader$read_long()
   RpcDropAnswerRequest$new(req_msg_id = req_msg_id)
 }
 
 
-#  SetClientDHParamsRequest R6 class
-# 
-#  Represents the client's response during the Diffie-Hellman key exchange.
-#  Contains the client's \code{nonce}, the server's \code{server_nonce}, and
-#  the \code{encrypted_data} payload sent to the server for verification.
-# 
-#  @return An R6 object of class \code{SetClientDHParamsRequest}.
-#  @noRd
-#  @noRd
+#' SetClientDHParamsRequest R6 class
+#'
+#' Represents the client's response during the Diffie-Hellman key exchange.
+#' Contains the client's \code{nonce}, the server's \code{server_nonce}, and
+#' the \code{encrypted_data} payload sent to the server for verification.
+#'
+#' @return An R6 object of class \code{SetClientDHParamsRequest}.
+#' @noRd
 SetClientDHParamsRequest <- R6::R6Class(
   "SetClientDHParamsRequest",
   public = list(
@@ -1669,16 +1675,17 @@ SetClientDHParamsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#  Create SetClientDHParamsRequest from a binary reader
-# 
-#  Reads a 128-bit \code{nonce}, a 128-bit \code{server_nonce}, and the
-#  \code{encrypted_data} byte array from the provided \code{reader} and
-#  constructs a \code{SetClientDHParamsRequest} instance.
-# 
-#  @param reader Reader object providing:
-#    - \code{read_large_int(bits = 128)} to read 128-bit nonces,
-#    - \code{tgread_bytes()} to read Telegram-style byte arrays.
-#  @return Instance of \code{SetClientDHParamsRequest}.
+#' Create SetClientDHParamsRequest from a binary reader
+#'
+#' Reads a 128-bit \code{nonce}, a 128-bit \code{server_nonce}, and the
+#' \code{encrypted_data} byte array from the provided \code{reader} and
+#' constructs a \code{SetClientDHParamsRequest} instance.
+#'
+#' @param reader Reader object providing:
+#'   - \code{read_large_int(bits = 128)} to read 128-bit nonces,
+#'   - \code{tgread_bytes()} to read Telegram-style byte arrays.
+#' @return Instance of \code{SetClientDHParamsRequest}.
+#' @noRd
 SetClientDHParamsRequest_from_reader <- function(reader) {
   nonce <- reader$read_large_int(bits = 128)
   server_nonce <- reader$read_large_int(bits = 128)

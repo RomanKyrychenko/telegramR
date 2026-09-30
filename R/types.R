@@ -1,11 +1,9 @@
 #  @include tlobject.R
 NULL
 
-#  @title AccessPointRule
-#  @description Telegram API type AccessPointRule
-#  @export
-#  @noRd
-#  @noRd
+#' @title AccessPointRule
+#' @description Telegram API type AccessPointRule
+#' @noRd
 AccessPointRule <- R6::R6Class(
   "AccessPointRule",
   inherit = TLObject,
@@ -1285,11 +1283,9 @@ BadMsgNotification <- R6::R6Class(
   )
 )
 
-#  @title BadServerSalt
-#  @description Telegram API type BadServerSalt
-#  @export
-#  @noRd
-#  @noRd
+#' @title BadServerSalt
+#' @description Telegram API type BadServerSalt
+#' @noRd
 BadServerSalt <- R6::R6Class(
   "BadServerSalt",
   inherit = TLObject,
@@ -11807,11 +11803,9 @@ DestroyAuthKeyFail <- R6::R6Class(
   )
 )
 
-#  @title DestroyAuthKeyNone
-#  @description Telegram API type DestroyAuthKeyNone
-#  @export
-#  @noRd
-#  @noRd
+#' @title DestroyAuthKeyNone
+#' @description Telegram API type DestroyAuthKeyNone
+#' @noRd
 DestroyAuthKeyNone <- R6::R6Class(
   "DestroyAuthKeyNone",
   inherit = TLObject,
@@ -11834,11 +11828,9 @@ DestroyAuthKeyNone <- R6::R6Class(
   )
 )
 
-#  @title DestroyAuthKeyOk
-#  @description Telegram API type DestroyAuthKeyOk
-#  @export
-#  @noRd
-#  @noRd
+#' @title DestroyAuthKeyOk
+#' @description Telegram API type DestroyAuthKeyOk
+#' @noRd
 DestroyAuthKeyOk <- R6::R6Class(
   "DestroyAuthKeyOk",
   inherit = TLObject,
@@ -11861,11 +11853,9 @@ DestroyAuthKeyOk <- R6::R6Class(
   )
 )
 
-#  @title DestroySessionNone
-#  @description Telegram API type DestroySessionNone
-#  @export
-#  @noRd
-#  @noRd
+#' @title DestroySessionNone
+#' @description Telegram API type DestroySessionNone
+#' @noRd
 DestroySessionNone <- R6::R6Class(
   "DestroySessionNone",
   inherit = TLObject,
@@ -11900,11 +11890,9 @@ DestroySessionNone <- R6::R6Class(
   )
 )
 
-#  @title DestroySessionOk
-#  @description Telegram API type DestroySessionOk
-#  @export
-#  @noRd
-#  @noRd
+#' @title DestroySessionOk
+#' @description Telegram API type DestroySessionOk
+#' @noRd
 DestroySessionOk <- R6::R6Class(
   "DestroySessionOk",
   inherit = TLObject,
@@ -11939,11 +11927,9 @@ DestroySessionOk <- R6::R6Class(
   )
 )
 
-#  @title DhGenFail
-#  @description Telegram API type DhGenFail
-#  @export
-#  @noRd
-#  @noRd
+#' @title DhGenFail
+#' @description Telegram API type DhGenFail
+#' @noRd
 DhGenFail <- R6::R6Class(
   "DhGenFail",
   inherit = TLObject,
@@ -11982,11 +11968,9 @@ DhGenFail <- R6::R6Class(
   )
 )
 
-#  @title DhGenOk
-#  @description Telegram API type DhGenOk
-#  @export
-#  @noRd
-#  @noRd
+#' @title DhGenOk
+#' @description Telegram API type DhGenOk
+#' @noRd
 DhGenOk <- R6::R6Class(
   "DhGenOk",
   inherit = TLObject,
@@ -12025,11 +12009,9 @@ DhGenOk <- R6::R6Class(
   )
 )
 
-#  @title DhGenRetry
-#  @description Telegram API type DhGenRetry
-#  @export
-#  @noRd
-#  @noRd
+#' @title DhGenRetry
+#' @description Telegram API type DhGenRetry
+#' @noRd
 DhGenRetry <- R6::R6Class(
   "DhGenRetry",
   inherit = TLObject,
@@ -15828,11 +15810,9 @@ FutureSalt <- R6::R6Class("FutureSalt",
   )
 )
 
-#  @title FutureSalts
-#  @description Telegram API type FutureSalts
-#  @export
-#  @noRd
-#  @noRd
+#' @title FutureSalts
+#' @description Telegram API type FutureSalts
+#' @noRd
 FutureSalts <- R6::R6Class("FutureSalts",
   inherit = TLObject,
   public = list(
@@ -21574,11 +21554,9 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   )
 )
 
-#  @title InputKeyboardButtonUrlAuth
-#  @description Telegram API type InputKeyboardButtonUrlAuth
-#  @export
-#  @noRd
-#  @noRd
+#' @title InputKeyboardButtonUrlAuth
+#' @description Telegram API type InputKeyboardButtonUrlAuth
+#' @noRd
 InputKeyboardButtonUrlAuth <- R6::R6Class(
   "InputKeyboardButtonUrlAuth",
   inherit = TLObject,
@@ -21621,11 +21599,9 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   )
 )
 
-#  @title InputKeyboardButtonUserProfile
-#  @description Telegram API type InputKeyboardButtonUserProfile
-#  @export
-#  @noRd
-#  @noRd
+#' @title InputKeyboardButtonUserProfile
+#' @description Telegram API type InputKeyboardButtonUserProfile
+#' @noRd
 InputKeyboardButtonUserProfile <- R6::R6Class(
   "InputKeyboardButtonUserProfile",
   inherit = TLObject,
@@ -29563,11 +29539,9 @@ IpPort <- R6::R6Class(
   )
 )
 
-#  @title IpPortSecret
-#  @description Telegram API type IpPortSecret
-#  @export
-#  @noRd
-#  @noRd
+#' @title IpPortSecret
+#' @description Telegram API type IpPortSecret
+#' @noRd
 IpPortSecret <- R6::R6Class(
   "IpPortSecret",
   inherit = TLObject,
@@ -30009,11 +29983,9 @@ KeyboardButtonBuy <- R6::R6Class(
   )
 )
 
-#  @title KeyboardButtonCallback
-#  @description Telegram API type KeyboardButtonCallback
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonCallback
+#' @description Telegram API type KeyboardButtonCallback
+#' @noRd
 KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
   lock_objects = FALSE,
@@ -30057,11 +30029,9 @@ KeyboardButtonCallback <- R6::R6Class(
   )
 )
 
-#  @title KeyboardButtonCopy
-#  @description Telegram API type KeyboardButtonCopy
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonCopy
+#' @description Telegram API type KeyboardButtonCopy
+#' @noRd
 KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
@@ -30090,11 +30060,9 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   )
 )
 
-#  @title KeyboardButtonGame
-#  @description Telegram API type KeyboardButtonGame
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonGame
+#' @description Telegram API type KeyboardButtonGame
+#' @noRd
 KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   inherit = TLObject,
   public = list(
@@ -30121,11 +30089,9 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   )
 )
 
-#  @title KeyboardButtonRequestGeoLocation
-#  @description Telegram API type KeyboardButtonRequestGeoLocation
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonRequestGeoLocation
+#' @description Telegram API type KeyboardButtonRequestGeoLocation
+#' @noRd
 KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
@@ -30152,11 +30118,9 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
   )
 )
 
-#  @title KeyboardButtonRequestPeer
-#  @description Telegram API type KeyboardButtonRequestPeer
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonRequestPeer
+#' @description Telegram API type KeyboardButtonRequestPeer
+#' @noRd
 KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
@@ -30189,11 +30153,9 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   )
 )
 
-#  @title KeyboardButtonRequestPhone
-#  @description Telegram API type KeyboardButtonRequestPhone
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonRequestPhone
+#' @description Telegram API type KeyboardButtonRequestPhone
+#' @noRd
 KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
@@ -30220,11 +30182,9 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   )
 )
 
-#  @title KeyboardButtonRequestPoll
-#  @description Telegram API type KeyboardButtonRequestPoll
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonRequestPoll
+#' @description Telegram API type KeyboardButtonRequestPoll
+#' @noRd
 KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
@@ -30331,11 +30291,9 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   )
 )
 
-#  @title KeyboardButtonSwitchInline
-#  @description Telegram API type KeyboardButtonSwitchInline
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonSwitchInline
+#' @description Telegram API type KeyboardButtonSwitchInline
+#' @noRd
 KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
@@ -30380,11 +30338,9 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   )
 )
 
-#  @title KeyboardButtonUrl
-#  @description Telegram API type KeyboardButtonUrl
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonUrl
+#' @description Telegram API type KeyboardButtonUrl
+#' @noRd
 KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
@@ -30413,11 +30369,9 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   )
 )
 
-#  @title KeyboardButtonUrlAuth
-#  @description Telegram API type KeyboardButtonUrlAuth
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonUrlAuth
+#' @description Telegram API type KeyboardButtonUrlAuth
+#' @noRd
 KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
@@ -30456,11 +30410,9 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   )
 )
 
-#  @title KeyboardButtonUserProfile
-#  @description Telegram API type KeyboardButtonUserProfile
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonUserProfile
+#' @description Telegram API type KeyboardButtonUserProfile
+#' @noRd
 KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
@@ -30489,11 +30441,9 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   )
 )
 
-#  @title KeyboardButtonWebView
-#  @description Telegram API type KeyboardButtonWebView
-#  @export
-#  @noRd
-#  @noRd
+#' @title KeyboardButtonWebView
+#' @description Telegram API type KeyboardButtonWebView
+#' @noRd
 KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
@@ -38922,11 +38872,9 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   class = TRUE
 )
 
-#  @title MsgNewDetailedInfo
-#  @description Telegram API type MsgNewDetailedInfo
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgNewDetailedInfo
+#' @description Telegram API type MsgNewDetailedInfo
+#' @noRd
 MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   inherit = TLObject,
   public = list(
@@ -38964,11 +38912,9 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   class = TRUE
 )
 
-#  @title MsgResendReq
-#  @description Telegram API type MsgResendReq
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgResendReq
+#' @description Telegram API type MsgResendReq
+#' @noRd
 MsgResendReq <- R6::R6Class("MsgResendReq",
   inherit = TLObject,
   public = list(
@@ -39001,11 +38947,9 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
   class = TRUE
 )
 
-#  @title MsgsAck
-#  @description Telegram API type MsgsAck
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgsAck
+#' @description Telegram API type MsgsAck
+#' @noRd
 MsgsAck <- R6::R6Class("MsgsAck",
   inherit = TLObject,
   public = list(
@@ -39040,11 +38984,9 @@ MsgsAck <- R6::R6Class("MsgsAck",
   class = TRUE
 )
 
-#  @title MsgsAllInfo
-#  @description Telegram API type MsgsAllInfo
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgsAllInfo
+#' @description Telegram API type MsgsAllInfo
+#' @noRd
 MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   inherit = TLObject,
   public = list(
@@ -39076,11 +39018,9 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   class = TRUE
 )
 
-#  @title MsgsStateInfo
-#  @description Telegram API type MsgsStateInfo
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgsStateInfo
+#' @description Telegram API type MsgsStateInfo
+#' @noRd
 MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   inherit = TLObject,
   public = list(
@@ -39107,11 +39047,9 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   class = TRUE
 )
 
-#  @title MsgsStateReq
-#  @description Telegram API type MsgsStateReq
-#  @export
-#  @noRd
-#  @noRd
+#' @title MsgsStateReq
+#' @description Telegram API type MsgsStateReq
+#' @noRd
 MsgsStateReq <- R6::R6Class("MsgsStateReq",
   inherit = TLObject,
   public = list(
@@ -39766,11 +39704,9 @@ PQInnerData <- R6::R6Class("PQInnerData",
   class = TRUE
 )
 
-#  @title PQInnerDataDc
-#  @description Telegram API type PQInnerDataDc
-#  @export
-#  @noRd
-#  @noRd
+#' @title PQInnerDataDc
+#' @description Telegram API type PQInnerDataDc
+#' @noRd
 PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   inherit = TLObject,
   public = list(
@@ -39810,11 +39746,9 @@ PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   class = TRUE
 )
 
-#  @title PQInnerDataTemp
-#  @description Telegram API type PQInnerDataTemp
-#  @export
-#  @noRd
-#  @noRd
+#' @title PQInnerDataTemp
+#' @description Telegram API type PQInnerDataTemp
+#' @noRd
 PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   inherit = TLObject,
   public = list(
@@ -39854,11 +39788,9 @@ PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   class = TRUE
 )
 
-#  @title PQInnerDataTempDc
-#  @description Telegram API type PQInnerDataTempDc
-#  @export
-#  @noRd
-#  @noRd
+#' @title PQInnerDataTempDc
+#' @description Telegram API type PQInnerDataTempDc
+#' @noRd
 PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   inherit = TLObject,
   public = list(
@@ -48863,11 +48795,9 @@ RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   class = TRUE
 )
 
-#  @title RpcAnswerDroppedRunning
-#  @description Telegram API type RpcAnswerDroppedRunning
-#  @export
-#  @noRd
-#  @noRd
+#' @title RpcAnswerDroppedRunning
+#' @description Telegram API type RpcAnswerDroppedRunning
+#' @noRd
 RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   inherit = TLObject,
   public = list(
@@ -48884,11 +48814,9 @@ RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   class = TRUE
 )
 
-#  @title RpcAnswerUnknown
-#  @description Telegram API type RpcAnswerUnknown
-#  @export
-#  @noRd
-#  @noRd
+#' @title RpcAnswerUnknown
+#' @description Telegram API type RpcAnswerUnknown
+#' @noRd
 RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   inherit = TLObject,
   public = list(
@@ -48905,11 +48833,9 @@ RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   class = TRUE
 )
 
-#  @title RpcError
-#  @description Telegram API type RpcError
-#  @export
-#  @noRd
-#  @noRd
+#' @title RpcError
+#' @description Telegram API type RpcError
+#' @noRd
 RpcError <- R6::R6Class("RpcError",
   inherit = TLObject,
   public = list(
@@ -52072,11 +51998,9 @@ ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   class = TRUE
 )
 
-#  @title ServerDHParamsFail
-#  @description Telegram API type ServerDHParamsFail
-#  @export
-#  @noRd
-#  @noRd
+#' @title ServerDHParamsFail
+#' @description Telegram API type ServerDHParamsFail
+#' @noRd
 ServerDHParamsFail <- R6::R6Class(
   "ServerDHParamsFail",
   lock_objects = FALSE,
@@ -52118,11 +52042,9 @@ ServerDHParamsFail <- R6::R6Class(
   class = TRUE
 )
 
-#  @title ServerDHParamsOk
-#  @description Telegram API type ServerDHParamsOk
-#  @export
-#  @noRd
-#  @noRd
+#' @title ServerDHParamsOk
+#' @description Telegram API type ServerDHParamsOk
+#' @noRd
 ServerDHParamsOk <- R6::R6Class(
   "ServerDHParamsOk",
   lock_objects = FALSE,
@@ -57137,11 +57059,9 @@ TlsBlockString <- R6::R6Class("TlsBlockString",
   class = TRUE
 )
 
-#  @title TlsBlockZero
-#  @description Telegram API type TlsBlockZero
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsBlockZero
+#' @description Telegram API type TlsBlockZero
+#' @noRd
 TlsBlockZero <- R6::R6Class("TlsBlockZero",
   lock_objects = FALSE,
   inherit = TLObject,
@@ -57949,11 +57869,9 @@ TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   class = TRUE
 )
 
-#  @title TlsBlockGrease
-#  @description Telegram API type TlsBlockGrease
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsBlockGrease
+#' @description Telegram API type TlsBlockGrease
+#' @noRd
 TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   lock_objects = FALSE,
   inherit = TLObject,
@@ -57976,11 +57894,9 @@ TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   class = TRUE
 )
 
-#  @title TlsBlockPublicKey
-#  @description Telegram API type TlsBlockPublicKey
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsBlockPublicKey
+#' @description Telegram API type TlsBlockPublicKey
+#' @noRd
 TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   inherit = TLObject,
   public = list(
@@ -57999,11 +57915,9 @@ TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   class = TRUE
 )
 
-#  @title TlsBlockRandom
-#  @description Telegram API type TlsBlockRandom
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsBlockRandom
+#' @description Telegram API type TlsBlockRandom
+#' @noRd
 TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   lock_objects = FALSE,
   inherit = TLObject,
@@ -58026,11 +57940,9 @@ TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   class = TRUE
 )
 
-#  @title TlsBlockScope
-#  @description Telegram API type TlsBlockScope
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsBlockScope
+#' @description Telegram API type TlsBlockScope
+#' @noRd
 TlsBlockScope <- R6::R6Class("TlsBlockScope",
   lock_objects = FALSE,
   inherit = TLObject,
@@ -58057,11 +57969,9 @@ TlsBlockScope <- R6::R6Class("TlsBlockScope",
   class = TRUE
 )
 
-#  @title TlsClientHello
-#  @description Telegram API type TlsClientHello
-#  @export
-#  @noRd
-#  @noRd
+#' @title TlsClientHello
+#' @description Telegram API type TlsClientHello
+#' @noRd
 TlsClientHello <- R6::R6Class(
   "TlsClientHello",
   inherit = TLObject,
@@ -60471,11 +60381,9 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   class = TRUE
 )
 
-#  @title UpdateChannelPinnedTopics
-#  @description Telegram API type UpdateChannelPinnedTopics
-#  @export
-#  @noRd
-#  @noRd
+#' @title UpdateChannelPinnedTopics
+#' @description Telegram API type UpdateChannelPinnedTopics
+#' @noRd
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
   public = list(

@@ -1,9 +1,7 @@
-#  @title RequestState
-#  @description Holds information relevant to sent messages, including the message ID assigned to the request,
-#  the container ID to which it belongs, the request itself, the request as raw bytes, and a future result.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestState
+#' @description Holds information relevant to sent messages, including the message ID assigned to the request,
+#' the container ID to which it belongs, the request itself, the request as raw bytes, and a future result.
+#' @noRd
 RequestState <- R6::R6Class("RequestState",
   public = list(
     #  @field container_id Field.

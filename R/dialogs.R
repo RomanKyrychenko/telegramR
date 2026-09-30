@@ -4,11 +4,11 @@ NULL
 #  Constants
 .MAX_CHUNK_SIZE <- 100
 
-#  Helper function to get dialog message key
-#  @param peer The peer object
-#  @param message_id The message ID
-#  @return A list containing the channel ID and message ID
-#  @export
+#' Helper function to get dialog message key
+#' @param peer The peer object
+#' @param message_id The message ID
+#' @return A list containing the channel ID and message ID
+#' @noRd
 dialog_message_key <- function(peer, message_id) {
   # Get the key to get messages from a dialog.
   #
@@ -20,20 +20,18 @@ dialog_message_key <- function(peer, message_id) {
   return(list(channel_id = channel_id, message_id = message_id))
 }
 
-#  DialogsIter class
-# 
-# 
-#  @details
-#  This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
-#  The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
-# 
-#  @title DialogsIter
-#  @description Telegram API type DialogsIter
-#  @export
-#  @noRd
-#  @noRd
-# Marked peer id (Telethon convention: users positive, chats -id,
-# channels -100xxxxxxxxxx) for entities, hand-parsed chats and Peer objects.
+#' DialogsIter class
+#'
+#'
+#' @details
+#' This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
+#' The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
+#'
+#' @title DialogsIter
+#' @description Telegram API type DialogsIter
+#' Marked peer id (Telethon convention: users positive, chats -id,
+#' channels -100xxxxxxxxxx) for entities, hand-parsed chats and Peer objects.
+#' @noRd
 .telegramR_marked_id <- function(x) {
   num <- function(v) as.numeric(as.character(v))
   if (inherits(x, "PeerUser")) return(num(x$user_id))
@@ -204,12 +202,10 @@ print.telegramR_dialog <- function(x, ...) {
   invisible(x)
 }
 
-#  DraftsIter class
-#  @title DraftsIter
-#  @description Telegram API type DraftsIter
-#  @export
-#  @noRd
-#  @noRd
+#' DraftsIter class
+#' @title DraftsIter
+#' @description Telegram API type DraftsIter
+#' @noRd
 DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,
   public = list(

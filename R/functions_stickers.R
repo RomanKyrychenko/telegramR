@@ -90,7 +90,6 @@ AddStickerToSetRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return AddStickerToSetRequest instance
-#  @export
 AddStickerToSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   sticker_obj <- reader$tgread_object()
@@ -222,7 +221,6 @@ ChangeStickerRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return ChangeStickerRequest instance
-#  @export
 ChangeStickerRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   sticker_obj <- reader$tgread_object()
@@ -333,7 +331,6 @@ ChangeStickerPositionRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return ChangeStickerPositionRequest instance
-#  @export
 ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   position_val <- reader$read_int()
@@ -409,7 +406,6 @@ CheckShortNameRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return CheckShortNameRequest instance
-#  @export
 CheckShortNameRequest$set("public", "from_reader", function(reader) {
   short_name_val <- reader$tgread_string()
   CheckShortNameRequest$new(short_name = short_name_val)
@@ -596,7 +592,6 @@ CreateStickerSetRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return CreateStickerSetRequest instance
-#  @export
 CreateStickerSetRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   masks_val <- bitwAnd(flags, 1L) != 0L
@@ -699,7 +694,6 @@ DeleteStickerSetRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return DeleteStickerSetRequest instance
-#  @export
 DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   DeleteStickerSetRequest$new(stickerset = stickerset_obj)
@@ -780,7 +774,6 @@ RemoveStickerFromSetRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return RemoveStickerFromSetRequest instance
-#  @export
 RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   RemoveStickerFromSetRequest$new(sticker = sticker_obj)
@@ -874,7 +867,6 @@ RenameStickerSetRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return RenameStickerSetRequest instance
-#  @export
 RenameStickerSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   title_val <- reader$tgread_string()
@@ -970,7 +962,6 @@ ReplaceStickerRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return ReplaceStickerRequest instance
-#  @export
 ReplaceStickerRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   new_sticker_obj <- reader$tgread_object()
@@ -1106,7 +1097,6 @@ SetStickerSetThumbRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return SetStickerSetThumbRequest instance
-#  @export
 SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   stickerset_obj <- reader$tgread_object()
@@ -1180,7 +1170,6 @@ SuggestShortNameRequest <- R6::R6Class(
 # 
 #  @param reader Reader object
 #  @return SuggestShortNameRequest instance
-#  @export
 SuggestShortNameRequest$set("public", "from_reader", function(reader) {
   title_val <- reader$tgread_string()
   SuggestShortNameRequest$new(title = title_val)

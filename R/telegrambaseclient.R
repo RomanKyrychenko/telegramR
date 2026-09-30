@@ -1,7 +1,3 @@
-#  @import logger
-#  @import jsonlite
-#  @import httr
-#  @import R6
 NULL
 #  Constants
 DEFAULT_DC_ID <- 2
@@ -15,17 +11,15 @@ LAYER <- 229 # regenerated from Telethon v1 api.tl (data-raw/api.tl)
 # Time in seconds before disconnecting exported senders
 DISCONNECT_EXPORTED_AFTER <- 60
 
-#  Export State Class
-# 
-#  Tracks the state of exported MTProto senders
-# 
-#  @description
-#  This class manages the state of exported MTProto senders, including
-#  tracking the number of borrowed senders and the time since the last
-#  borrowed sender was returned.
-#  @export
-#  @noRd
-#  @noRd
+#' Export State Class
+#'
+#' Tracks the state of exported MTProto senders
+#'
+#' @description
+#' This class manages the state of exported MTProto senders, including
+#' tracking the number of borrowed senders and the time since the last
+#' borrowed sender was returned.
+#' @noRd
 ExportState <- R6::R6Class("ExportState",
   public = list(
     #  @description
@@ -87,17 +81,15 @@ ExportState <- R6::R6Class("ExportState",
   )
 )
 
-#  Telegram Base Client
-# 
-#  Abstract base class for telegram client implementation
-# 
-#  @description
-#  This class provides the core functionality for a Telegram client,
-#  including connection management, session handling, and
-#  message processing.
-#  @export
-#  @noRd
-#  @noRd
+#' Telegram Base Client
+#'
+#' Abstract base class for telegram client implementation
+#'
+#' @description
+#' This class provides the core functionality for a Telegram client,
+#' including connection management, session handling, and
+#' message processing.
+#' @noRd
 TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
   public = list(
     #  @description Initialize a new Telegram client
@@ -1136,8 +1128,6 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
 )
 
 if (!exists("Queue", inherits = FALSE)) {
-#  @noRd
-#  @noRd
   Queue <- R6::R6Class(
     "Queue",
     public = list(
@@ -1154,12 +1144,12 @@ if (!exists("Queue", inherits = FALSE)) {
   )
 }
 
-#  Null coalescing operator
-#  @name null-coalesce
-#  @param x The first value
-#  @param y The second value
-#  @return The first value if not NULL, otherwise the second value
-#  @export
+#' Null coalescing operator
+#' @name null-coalesce
+#' @param x The first value
+#' @param y The second value
+#' @return The first value if not NULL, otherwise the second value
+#' @noRd
 `%||%` <- function(x, y) {
   if (is.null(x)) y else x
 }

@@ -1,9 +1,6 @@
-#  @importFrom openssl rand_bytes
-#  @title ObfuscatedIO
-#  @description Handles obfuscated I/O operations for Telegram obfuscation.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ObfuscatedIO
+#' @description Handles obfuscated I/O operations for Telegram obfuscation.
+#' @noRd
 ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
   public = list(
     #  @field header The obfuscation header as a raw vector.
@@ -93,11 +90,9 @@ ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
   )
 )
 
-#  @title ConnectionTcpObfuscated
-#  @description Telegram obfuscated2 connection that encrypts every message with a randomly generated key using AES-CTR.
-#  @export
-#  @noRd
-#  @noRd
+#' @title ConnectionTcpObfuscated
+#' @description Telegram obfuscated2 connection that encrypts every message with a randomly generated key using AES-CTR.
+#' @noRd
 ConnectionTcpObfuscated <- R6::R6Class("ConnectionTcpObfuscated",
   inherit = ObfuscatedConnection,
   public = list(

@@ -66,7 +66,6 @@ CheckChatlistInviteRequest <- R6::R6Class(
 #  Reads slug from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_string
 #  @return CheckChatlistInviteRequest instance
-#  @export
 CheckChatlistInviteRequest$set("public", "from_reader", function(reader) {
   slug_val <- reader$tgread_string()
   CheckChatlistInviteRequest$new(slug = slug_val)
@@ -151,7 +150,6 @@ DeleteExportedInviteRequest <- R6::R6Class(
 #  Reads chatlist and slug from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object and tgread_string
 #  @return DeleteExportedInviteRequest instance
-#  @export
 DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   slug_val <- reader$tgread_string()
@@ -300,7 +298,6 @@ EditExportedInviteRequest <- R6::R6Class(
 #  Reads flags, chatlist, slug, optional title and optional peers from a reader and returns a new instance.
 #  @param reader Reader object providing read_int, tgread_object and tgread_string
 #  @return EditExportedInviteRequest instance
-#  @export
 EditExportedInviteRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   has_title <- bitwAnd(flags, 2L) != 0L
@@ -453,7 +450,6 @@ ExportChatlistInviteRequest <- R6::R6Class(
 #  Reads chatlist, title and peers from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object, tgread_string and read_int
 #  @return ExportChatlistInviteRequest instance
-#  @export
 ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   title_val <- reader$tgread_string()
@@ -523,7 +519,6 @@ GetChatlistUpdatesRequest <- R6::R6Class(
 #  Reads chatlist from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object
 #  @return GetChatlistUpdatesRequest instance
-#  @export
 GetChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetChatlistUpdatesRequest$new(chatlist = chatlist_obj)
@@ -582,7 +577,6 @@ GetExportedInvitesRequest <- R6::R6Class(
 #  Reads chatlist from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object
 #  @return GetExportedInvitesRequest instance
-#  @export
 GetExportedInvitesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetExportedInvitesRequest$new(chatlist = chatlist_obj)
@@ -641,7 +635,6 @@ GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
 #  Reads chatlist from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object
 #  @return GetLeaveChatlistSuggestionsRequest instance
-#  @export
 GetLeaveChatlistSuggestionsRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetLeaveChatlistSuggestionsRequest$new(chatlist = chatlist_obj)
@@ -701,7 +694,6 @@ HideChatlistUpdatesRequest <- R6::R6Class(
 #  Reads chatlist from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object
 #  @return HideChatlistUpdatesRequest instance
-#  @export
 HideChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   HideChatlistUpdatesRequest$new(chatlist = chatlist_obj)
@@ -823,7 +815,6 @@ JoinChatlistInviteRequest <- R6::R6Class(
 #  Reads slug and peers from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_string, read_int and tgread_object
 #  @return JoinChatlistInviteRequest instance
-#  @export
 JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
   slug_val <- reader$tgread_string()
   # read and ignore an int (vector marker)
@@ -932,7 +923,6 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
 #  Reads chatlist and peers from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object and read_int
 #  @return JoinChatlistUpdatesRequest instance
-#  @export
 JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)
@@ -1033,7 +1023,6 @@ LeaveChatlistRequest <- R6::R6Class(
 #  Reads chatlist and peers from a reader and returns a new instance.
 #  @param reader Reader object providing tgread_object and read_int
 #  @return LeaveChatlistRequest instance
-#  @export
 LeaveChatlistRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)

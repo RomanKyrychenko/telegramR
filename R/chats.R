@@ -5,16 +5,13 @@ NULL
 .MAX_ADMIN_LOG_CHUNK_SIZE <- 100
 .MAX_PROFILE_PHOTO_CHUNK_SIZE <- 100
 
-#  _ChatAction R6 Class
-# 
-#  A context manager-like class for representing a "chat action" in Telegram,
-#  such as "user is typing" or uploading a file with progress.
-#  This class handles sending the appropriate action to the chat and optionally
-#  cancelling it when done. It is designed to be used synchronously in R.
-# 
-#  @export
-#  @noRd
-#  @noRd
+#' _ChatAction R6 Class
+#'
+#' A context manager-like class for representing a "chat action" in Telegram,
+#' such as "user is typing" or uploading a file with progress.
+#' This class handles sending the appropriate action to the chat and optionally
+#' cancelling it when done. It is designed to be used synchronously in R.
+#' @noRd
 .ChatAction <- R6::R6Class(
   "_ChatAction",
   public = list(
@@ -112,15 +109,12 @@ NULL
 )
 
 
-#  _ParticipantsIter R6 Class
-# 
-#  An iterator over the participants belonging to the specified chat.
-#  The order is unspecified.
-#  Inherits from RequestIter.
-# 
-#  @export
-#  @noRd
-#  @noRd
+#' _ParticipantsIter R6 Class
+#'
+#' An iterator over the participants belonging to the specified chat.
+#' The order is unspecified.
+#' Inherits from RequestIter.
+#' @noRd
 .ParticipantsIter <- R6::R6Class(
   "_ParticipantsIter",
   inherit = RequestIter,
@@ -318,15 +312,12 @@ NULL
   )
 )
 
-#  _AdminLogIter R6 Class
-# 
-#  An iterator over the admin log for the specified channel.
-#  The default order is from the most recent event to the oldest.
-#  Inherits from RequestIter.
-# 
-#  @export
-#  @noRd
-#  @noRd
+#' _AdminLogIter R6 Class
+#'
+#' An iterator over the admin log for the specified channel.
+#' The default order is from the most recent event to the oldest.
+#' Inherits from RequestIter.
+#' @noRd
 .AdminLogIter <- R6::R6Class(
   "_AdminLogIter",
   inherit = RequestIter,

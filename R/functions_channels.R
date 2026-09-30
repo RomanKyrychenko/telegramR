@@ -44,11 +44,12 @@ CheckSearchPostsFloodRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name CheckSearchPostsFloodRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of CheckSearchPostsFloodRequest.
+#' Deserialize from a reader.
+#' @name CheckSearchPostsFloodRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of CheckSearchPostsFloodRequest.
+#' @noRd
 CheckSearchPostsFloodRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   query <- if ((flags && 1) != 0) reader$tgread_string() else NULL
@@ -160,11 +161,12 @@ ConvertToGigagroupRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ConvertToGigagroupRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of ConvertToGigagroupRequest.
+#' Deserialize from a reader.
+#' @name ConvertToGigagroupRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of ConvertToGigagroupRequest.
+#' @noRd
 ConvertToGigagroupRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   ConvertToGigagroupRequest$new(channel = channel)
@@ -266,10 +268,11 @@ CreateChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name CreateChannelRequest_from_reader
-# @param reader The reader object.
-# @return An instance of CreateChannelRequest.
+#' Deserialize from a reader.
+#' @name CreateChannelRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of CreateChannelRequest.
+#' @noRd
 CreateChannelRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   broadcast <- (flags & 1) != 0
@@ -427,11 +430,12 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name DeactivateAllUsernamesRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeactivateAllUsernamesRequest.
+#' Deserialize from a reader.
+#' @name DeactivateAllUsernamesRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of DeactivateAllUsernamesRequest.
+#' @noRd
 DeactivateAllUsernamesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   DeactivateAllUsernamesRequest$new(channel = channel)
@@ -488,11 +492,12 @@ DeleteChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name DeleteChannelRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeleteChannelRequest.
+#' Deserialize from a reader.
+#' @name DeleteChannelRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of DeleteChannelRequest.
+#' @noRd
 DeleteChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   DeleteChannelRequest$new(channel = channel)
@@ -563,11 +568,12 @@ DeleteHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name DeleteHistoryRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeleteHistoryRequest.
+#' Deserialize from a reader.
+#' @name DeleteHistoryRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of DeleteHistoryRequest.
+#' @noRd
 DeleteHistoryRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_everyone <- (flags & 1) != 0
@@ -635,11 +641,12 @@ DeleteMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name DeleteMessagesRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeleteMessagesRequest.
+#' Deserialize from a reader.
+#' @name DeleteMessagesRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of DeleteMessagesRequest.
+#' @noRd
 DeleteMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -709,11 +716,12 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name DeleteParticipantHistoryRequest_from_reader
-#
-# @param reader The reader object.
-# @return An instance of DeleteParticipantHistoryRequest.
+#' Deserialize from a reader.
+#' @name DeleteParticipantHistoryRequest_from_reader
+#'
+#' @param reader The reader object.
+#' @return An instance of DeleteParticipantHistoryRequest.
+#' @noRd
 DeleteParticipantHistoryRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -910,10 +918,11 @@ EditBannedRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name EditBannedRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditBannedRequest.
+#' Deserialize from a reader.
+#' @name EditBannedRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of EditBannedRequest.
+#' @noRd
 EditBannedRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -922,11 +931,9 @@ EditBannedRequest$from_reader <- function(reader) {
 }
 
 
-#  @title EditCreatorRequest
-#  @description Represents a request to edit the creator of a channel.
-#  @export
-#  @noRd
-#  @noRd
+#' @title EditCreatorRequest
+#' @description Represents a request to edit the creator of a channel.
+#' @noRd
 EditCreatorRequest <- R6::R6Class(
   "EditCreatorRequest",
   inherit = TLRequest,
@@ -986,10 +993,11 @@ EditCreatorRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name EditCreatorRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditCreatorRequest.
+#' Deserialize from a reader.
+#' @name EditCreatorRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of EditCreatorRequest.
+#' @noRd
 EditCreatorRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   user_id <- reader$tgread_object()
@@ -1145,10 +1153,11 @@ EditLocationRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name EditLocationRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditLocationRequest.
+#' Deserialize from a reader.
+#' @name EditLocationRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of EditLocationRequest.
+#' @noRd
 EditLocationRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   geo_point <- reader$tgread_object()
@@ -1215,10 +1224,11 @@ EditPhotoRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name EditPhotoRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditPhotoRequest.
+#' Deserialize from a reader.
+#' @name EditPhotoRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of EditPhotoRequest.
+#' @noRd
 EditPhotoRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   photo <- reader$tgread_object()
@@ -1282,10 +1292,11 @@ EditTitleRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name EditTitleRequest_from_reader
-# @param reader The reader object.
-# @return An instance of EditTitleRequest.
+#' Deserialize from a reader.
+#' @name EditTitleRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of EditTitleRequest.
+#' @noRd
 EditTitleRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   title <- reader$tgread_string()
@@ -1362,10 +1373,11 @@ ExportMessageLinkRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ExportMessageLinkRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ExportMessageLinkRequest.
+#' Deserialize from a reader.
+#' @name ExportMessageLinkRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ExportMessageLinkRequest.
+#' @noRd
 ExportMessageLinkRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   grouped <- (flags & 1) != 0
@@ -1473,10 +1485,11 @@ GetAdminLogRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetAdminLogRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetAdminLogRequest.
+#' Deserialize from a reader.
+#' @name GetAdminLogRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetAdminLogRequest.
+#' @noRd
 GetAdminLogRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
@@ -1556,10 +1569,11 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetAdminedPublicChannelsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetAdminedPublicChannelsRequest.
+#' Deserialize from a reader.
+#' @name GetAdminedPublicChannelsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetAdminedPublicChannelsRequest.
+#' @noRd
 GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   by_location <- (flags & 1) != 0
@@ -1623,10 +1637,11 @@ GetChannelRecommendationsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetChannelRecommendationsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetChannelRecommendationsRequest.
+#' Deserialize from a reader.
+#' @name GetChannelRecommendationsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetChannelRecommendationsRequest.
+#' @noRd
 GetChannelRecommendationsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- if ((flags && 1) != 0) reader$tgread_object() else NULL
@@ -1691,10 +1706,11 @@ GetChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetChannelsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetChannelsRequest.
+#' Deserialize from a reader.
+#' @name GetChannelsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetChannelsRequest.
+#' @noRd
 GetChannelsRequest$from_reader <- function(reader) {
   reader$read_int()
   id <- list()
@@ -1892,10 +1908,11 @@ GetFullChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetFullChannelRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetFullChannelRequest.
+#' Deserialize from a reader.
+#' @name GetFullChannelRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetFullChannelRequest.
+#' @noRd
 GetFullChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   GetFullChannelRequest$new(channel = channel)
@@ -1938,10 +1955,11 @@ GetGroupsForDiscussionRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetGroupsForDiscussionRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetGroupsForDiscussionRequest.
+#' Deserialize from a reader.
+#' @name GetGroupsForDiscussionRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetGroupsForDiscussionRequest.
+#' @noRd
 GetGroupsForDiscussionRequest$from_reader <- function(reader) {
   GetGroupsForDiscussionRequest$new()
 }
@@ -1983,10 +2001,11 @@ GetInactiveChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetInactiveChannelsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetInactiveChannelsRequest.
+#' Deserialize from a reader.
+#' @name GetInactiveChannelsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetInactiveChannelsRequest.
+#' @noRd
 GetInactiveChannelsRequest$from_reader <- function(reader) {
   GetInactiveChannelsRequest$new()
 }
@@ -2036,10 +2055,11 @@ GetLeftChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetLeftChannelsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetLeftChannelsRequest.
+#' Deserialize from a reader.
+#' @name GetLeftChannelsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetLeftChannelsRequest.
+#' @noRd
 GetLeftChannelsRequest$from_reader <- function(reader) {
   offset <- reader$read_int()
   GetLeftChannelsRequest$new(offset = offset)
@@ -2102,10 +2122,11 @@ GetMessageAuthorRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetMessageAuthorRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetMessageAuthorRequest.
+#' Deserialize from a reader.
+#' @name GetMessageAuthorRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetMessageAuthorRequest.
+#' @noRd
 GetMessageAuthorRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   id <- reader$read_int()
@@ -2180,10 +2201,11 @@ GetMessagesRequest <- R6::R6Class(
 # collisions with messages.GetMessagesRequest defined later.
 ChannelsGetMessagesRequest <- GetMessagesRequest
 
-# Deserialize from a reader.
-# @name GetMessagesRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetMessagesRequest.
+#' Deserialize from a reader.
+#' @name GetMessagesRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetMessagesRequest.
+#' @noRd
 GetMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2254,10 +2276,11 @@ GetParticipantRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetParticipantRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetParticipantRequest.
+#' Deserialize from a reader.
+#' @name GetParticipantRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetParticipantRequest.
+#' @noRd
 GetParticipantRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -2339,10 +2362,11 @@ GetParticipantsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetParticipantsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetParticipantsRequest.
+#' Deserialize from a reader.
+#' @name GetParticipantsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetParticipantsRequest.
+#' @noRd
 GetParticipantsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   filter <- reader$tgread_object()
@@ -2410,10 +2434,11 @@ GetSendAsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name GetSendAsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of GetSendAsRequest.
+#' Deserialize from a reader.
+#' @name GetSendAsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of GetSendAsRequest.
+#' @noRd
 GetSendAsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_paid_reactions <- (flags & 1) != 0
@@ -2486,10 +2511,11 @@ InviteToChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name InviteToChannelRequest_from_reader
-# @param reader The reader object.
-# @return An instance of InviteToChannelRequest.
+#' Deserialize from a reader.
+#' @name InviteToChannelRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of InviteToChannelRequest.
+#' @noRd
 InviteToChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2600,10 +2626,11 @@ LeaveChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name LeaveChannelRequest_from_reader
-# @param reader The reader object.
-# @return An instance of LeaveChannelRequest.
+#' Deserialize from a reader.
+#' @name LeaveChannelRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of LeaveChannelRequest.
+#' @noRd
 LeaveChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   LeaveChannelRequest$new(channel = channel)
@@ -2667,10 +2694,11 @@ ReadHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ReadHistoryRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReadHistoryRequest.
+#' Deserialize from a reader.
+#' @name ReadHistoryRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ReadHistoryRequest.
+#' @noRd
 ReadHistoryRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   max_id <- reader$read_int()
@@ -2736,10 +2764,11 @@ ReadMessageContentsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ReadMessageContentsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReadMessageContentsRequest.
+#' Deserialize from a reader.
+#' @name ReadMessageContentsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ReadMessageContentsRequest.
+#' @noRd
 ReadMessageContentsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2874,10 +2903,11 @@ ReorderUsernamesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ReorderUsernamesRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReorderUsernamesRequest.
+#' Deserialize from a reader.
+#' @name ReorderUsernamesRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ReorderUsernamesRequest.
+#' @noRd
 ReorderUsernamesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2946,10 +2976,11 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ReportAntiSpamFalsePositiveRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReportAntiSpamFalsePositiveRequest.
+#' Deserialize from a reader.
+#' @name ReportAntiSpamFalsePositiveRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ReportAntiSpamFalsePositiveRequest.
+#' @noRd
 ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -3023,10 +3054,11 @@ ReportSpamRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ReportSpamRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ReportSpamRequest.
+#' Deserialize from a reader.
+#' @name ReportSpamRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ReportSpamRequest.
+#' @noRd
 ReportSpamRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -3096,10 +3128,11 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name RestrictSponsoredMessagesRequest_from_reader
-# @param reader The reader object.
-# @return An instance of RestrictSponsoredMessagesRequest.
+#' Deserialize from a reader.
+#' @name RestrictSponsoredMessagesRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of RestrictSponsoredMessagesRequest.
+#' @noRd
 RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   restricted <- reader$tgread_bool()
@@ -3254,10 +3287,11 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name SetBoostsToUnblockRestrictionsRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SetBoostsToUnblockRestrictionsRequest.
+#' Deserialize from a reader.
+#' @name SetBoostsToUnblockRestrictionsRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of SetBoostsToUnblockRestrictionsRequest.
+#' @noRd
 SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   boosts <- reader$read_int()
@@ -3323,10 +3357,11 @@ SetDiscussionGroupRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name SetDiscussionGroupRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SetDiscussionGroupRequest.
+#' Deserialize from a reader.
+#' @name SetDiscussionGroupRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of SetDiscussionGroupRequest.
+#' @noRd
 SetDiscussionGroupRequest$from_reader <- function(reader) {
   broadcast <- reader$tgread_object()
   group <- reader$tgread_object()
@@ -3390,10 +3425,11 @@ SetEmojiStickersRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name SetEmojiStickersRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SetEmojiStickersRequest.
+#' Deserialize from a reader.
+#' @name SetEmojiStickersRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of SetEmojiStickersRequest.
+#' @noRd
 SetEmojiStickersRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   stickerset <- reader$tgread_object()
@@ -3511,10 +3547,11 @@ SetStickersRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name SetStickersRequest_from_reader
-# @param reader The reader object.
-# @return An instance of SetStickersRequest.
+#' Deserialize from a reader.
+#' @name SetStickersRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of SetStickersRequest.
+#' @noRd
 SetStickersRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   stickerset <- reader$tgread_object()
@@ -3578,10 +3615,11 @@ ToggleAntiSpamRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleAntiSpamRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleAntiSpamRequest.
+#' Deserialize from a reader.
+#' @name ToggleAntiSpamRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleAntiSpamRequest.
+#' @noRd
 ToggleAntiSpamRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3645,10 +3683,11 @@ ToggleAutotranslationRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleAutotranslationRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleAutotranslationRequest.
+#' Deserialize from a reader.
+#' @name ToggleAutotranslationRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleAutotranslationRequest.
+#' @noRd
 ToggleAutotranslationRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3719,10 +3758,11 @@ ToggleForumRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleForumRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleForumRequest.
+#' Deserialize from a reader.
+#' @name ToggleForumRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleForumRequest.
+#' @noRd
 ToggleForumRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3858,10 +3898,11 @@ ToggleJoinToSendRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleJoinToSendRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleJoinToSendRequest.
+#' Deserialize from a reader.
+#' @name ToggleJoinToSendRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleJoinToSendRequest.
+#' @noRd
 ToggleJoinToSendRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3926,10 +3967,11 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleParticipantsHiddenRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleParticipantsHiddenRequest.
+#' Deserialize from a reader.
+#' @name ToggleParticipantsHiddenRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleParticipantsHiddenRequest.
+#' @noRd
 ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3993,10 +4035,11 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name TogglePreHistoryHiddenRequest_from_reader
-# @param reader The reader object.
-# @return An instance of TogglePreHistoryHiddenRequest.
+#' Deserialize from a reader.
+#' @name TogglePreHistoryHiddenRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of TogglePreHistoryHiddenRequest.
+#' @noRd
 TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -4067,10 +4110,11 @@ ToggleSignaturesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleSignaturesRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleSignaturesRequest.
+#' Deserialize from a reader.
+#' @name ToggleSignaturesRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleSignaturesRequest.
+#' @noRd
 ToggleSignaturesRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   signatures_enabled <- (flags & 1) != 0
@@ -4137,10 +4181,11 @@ ToggleSlowModeRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleSlowModeRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleSlowModeRequest.
+#' Deserialize from a reader.
+#' @name ToggleSlowModeRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleSlowModeRequest.
+#' @noRd
 ToggleSlowModeRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   seconds <- reader$read_int()
@@ -4210,10 +4255,11 @@ ToggleUsernameRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleUsernameRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleUsernameRequest.
+#' Deserialize from a reader.
+#' @name ToggleUsernameRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleUsernameRequest.
+#' @noRd
 ToggleUsernameRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   username <- reader$tgread_string()
@@ -4278,10 +4324,11 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name ToggleViewForumAsMessagesRequest_from_reader
-# @param reader The reader object.
-# @return An instance of ToggleViewForumAsMessagesRequest.
+#' Deserialize from a reader.
+#' @name ToggleViewForumAsMessagesRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of ToggleViewForumAsMessagesRequest.
+#' @noRd
 ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -4478,10 +4525,11 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
   class = TRUE
 )
 
-# Deserialize from a reader.
-# @name UpdatePaidMessagesPriceRequest_from_reader
-# @param reader The reader object.
-# @return An instance of UpdatePaidMessagesPriceRequest.
+#' Deserialize from a reader.
+#' @name UpdatePaidMessagesPriceRequest_from_reader
+#' @param reader The reader object.
+#' @return An instance of UpdatePaidMessagesPriceRequest.
+#' @noRd
 UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   broadcast_messages_allowed <- (flags & 1) != 0

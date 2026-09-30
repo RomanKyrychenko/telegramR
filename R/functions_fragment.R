@@ -65,9 +65,9 @@ GetCollectibleInfoRequest <- R6::R6Class(
   )
 )
 
-#  from_reader for GetCollectibleInfoRequest
-#  @param reader reader
-#  @export
+#' from_reader for GetCollectibleInfoRequest
+#' @param reader reader
+#' @noRd
 GetCollectibleInfoRequest$from_reader <- function(reader) {
   collectible_obj <- reader$tgread_object()
   GetCollectibleInfoRequest$new(collectible = collectible_obj)

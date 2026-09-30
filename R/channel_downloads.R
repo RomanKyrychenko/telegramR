@@ -1,5 +1,5 @@
-#  @noRd
-# Write a data frame as CSV, using readr if available and base utils otherwise.
+#' Write a data frame as CSV, using readr if available and base utils otherwise.
+#' @noRd
 .write_csv_compat <- function(df, file, append = FALSE, col_names = TRUE) {
   if (requireNamespace("readr", quietly = TRUE)) {
     readr::write_csv(df, file = file, append = append, col_names = col_names)
@@ -10,7 +10,7 @@
   }
 }
 
-#  @noRd
+#' @noRd
 .telegramR_safe_to_dict <- function(x) {
   if (inherits(x, "TLObject")) {
     # Avoid calling to_dict on Message/MessageService to prevent noisy failures

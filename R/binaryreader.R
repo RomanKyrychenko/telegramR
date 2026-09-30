@@ -1,14 +1,12 @@
-#  BinaryReader Class
-# 
-# 
-#  @details
-#  Provides methods to read various data types and handle stream positions.
-# 
-#  @title BinaryReader
-#  @description Telegram API type BinaryReader
-#  @export
-#  @noRd
-#  @noRd
+#' BinaryReader Class
+#'
+#'
+#' @details
+#' Provides methods to read various data types and handle stream positions.
+#'
+#' @title BinaryReader
+#' @description Telegram API type BinaryReader
+#' @noRd
 BinaryReader <- R6::R6Class(
   "BinaryReader",
   public = list(

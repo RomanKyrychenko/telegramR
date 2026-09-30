@@ -1,10 +1,8 @@
-#  @title RequestIter
-#  @description
-#  Helper class to deal with requests that need offsets to iterate.
-#  Provides facilities such as sleeping between requests and handling limits.
-#  @export
-#  @noRd
-#  @noRd
+#' @title RequestIter
+#' @description
+#' Helper class to deal with requests that need offsets to iterate.
+#' Provides facilities such as sleeping between requests and handling limits.
+#' @noRd
 RequestIter <- R6::R6Class(
   "RequestIter",
   public = list(
