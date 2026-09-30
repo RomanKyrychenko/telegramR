@@ -887,10 +887,9 @@ create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL
 }
 
 #  @method value promise
-#  @export
-#  @noRd
 # S3 method to make future::value() work with promises::promise objects used here.
-# This lets tests call future::value(promise) and block until the promise resolves.
+# This lets callers future::value(promise) and block until the promise resolves.
+#' @exportS3Method future::value
 value.promise <- function(x, ...) {
   done <- FALSE
   val <- NULL

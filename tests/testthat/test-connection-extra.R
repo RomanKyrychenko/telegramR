@@ -19,16 +19,16 @@ test_that("Connection connects in test mode and reports state", {
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
 
   conn <- Connection$new("127.0.0.1", 80, 1)
-  res <- value(conn$connect())
+  res <- future::value(conn$connect())
   expect_true(isTRUE(res))
   expect_true(conn$is_connected())
   expect_match(conn$to_string(), "127\\.0\\.0\\.1:80")
 
   # send should work when connected
-  expect_silent(value(conn$send(as.raw(c(1, 2, 3)))))
+  expect_silent(future::value(conn$send(as.raw(c(1, 2, 3)))))
 
   # disconnect and ensure recv errors
-  value(conn$disconnect())
+  future::value(conn$disconnect())
   expect_error(conn$recv(), "Not connected")
 })
 
@@ -39,7 +39,7 @@ test_that("Reader readexactly reads bytes from socket", {
 
   reader <- Reader$new()
   reader$socket <- con
-  out <- value(reader$readexactly(5))
+  out <- future::value(reader$readexactly(5))
   expect_equal(out, as.raw(1:5))
 })
 
@@ -75,7 +75,7 @@ test_that("PacketCodec encodes and decodes a packet", {
     }
   )
 
-  out <- value(pc$read_packet(reader))
+  out <- future::value(pc$read_packet(reader))
   expect_equal(out, payload)
 })
 
@@ -84,7 +84,7 @@ test_that("async_open_connection works with provided socket", {
   con <- rawConnection(raw(), open = "r+b")
   on.exit(close(con), add = TRUE)
 
-  res <- value(async_open_connection(sock = con))
+  res <- future::value(async_open_connection(sock = con))
   expect_true(is.list(res))
   expect_true(inherits(res$reader, "Reader"))
   expect_true(inherits(res$writer, "Writer"))
