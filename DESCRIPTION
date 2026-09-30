@@ -1,7 +1,7 @@
 Package: telegramR
 Type: Package
 Title: Interact with the 'Telegram' 'MTProto' API
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person(
       "Roman", "Kyrychenko",

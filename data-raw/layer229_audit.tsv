@@ -1,0 +1,21 @@
+# Schema layer classes matched in R/: 2167; stale constructor ids: 19
+ReorderUsernamesRequest	0x9709b1c2	0xef500eab	functions_bots.R
+ToggleUsernameRequest	0x053ca973	0x58d6b376	functions_bots.R
+CheckUsernameRequest	0x10e6bd2c	0x2714d86c	functions_channels.R
+DeleteHistoryRequest	0x9baa9647	0xb08f922a	functions_channels.R
+DeleteMessagesRequest	0x84c1fd4e	0xe58e95d2	functions_channels.R
+GetMessagesRequest	0xad8c9a23	0x63c66506	functions_channels.R
+ReadHistoryRequest	0xcc104937	0x0e306d3a	functions_channels.R
+ReadMessageContentsRequest	0xeab5dc38	0x36a73f77	functions_channels.R
+ReorderUsernamesRequest	0xb45ced1d	0xef500eab	functions_channels.R
+ReportSpamRequest	0xf44a8315	0xcf1592db	functions_channels.R
+SetMainProfileTabRequest	0x3583fcb1	0x5dee78b0	functions_channels.R
+ToggleUsernameRequest	0x50f24105	0x58d6b376	functions_channels.R
+UpdateColorRequest	0xd8aa3671	0x684d214e	functions_channels.R
+UpdateEmojiStatusRequest	0xf0d3e6a8	0xfbd3de6b	functions_channels.R
+UpdateUsernameRequest	0x3514b3de	0x3e0bdd7c	functions_channels.R
+SearchRequest	0x29ee847a	0x05f58d0f	functions_messages.R
+ReportRequest	0x19d8eb45	0xfc78af9b	functions_stories.R
+SearchPostsRequest	0xd1810907	0xf2c4f24d	functions_stories.R
+SendReactionRequest	0x7fd736b2	0xd30d78d4	functions_stories.R
+

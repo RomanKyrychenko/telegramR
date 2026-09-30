@@ -38,3 +38,4 @@
 ^vignette_session\.rds$
 cran-comments.md
 ^CRAN-SUBMISSION$
+^data-raw$
