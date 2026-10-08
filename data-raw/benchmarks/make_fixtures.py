@@ -34,4 +34,8 @@ for n in (1, 10, 100):
                  "replies": m.replies.replies, "reactions": sum(r.count for r in m.reactions.results),
                  "has_photo": m.media is not None, "post_author": m.post_author} for m in obj.messages]
     print(n, len(b), "bytes")
+    if n == 100:
+        # Per-object encodings, used by bench_r.R for the byte-exact re-encode check
+        open(f"{OUT}/msgs100_each.bin","wb").write(b"".join(bytes(m) for m in obj.messages))
+        open(f"{OUT}/users10_each.bin","wb").write(b"".join(bytes(u) for u in obj.users))
 json.dump(truth, open(f"{OUT}/truth.json","w"), ensure_ascii=False)
