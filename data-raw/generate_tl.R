@@ -139,7 +139,7 @@ deser_scalar <- function(typ) {
                    double = "reader$read_double()", string = "reader$tgread_string()",
                    bytes = "reader$tgread_bytes()", NA_character_)
     if (!is.na(prim)) {
-      return(sprintf("{ reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) %s) else list() }", prim))
+      return(sprintf("{ reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) %s) else list() }", prim))
     }
     return("reader$tgread_vector()")
   }

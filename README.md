@@ -198,6 +198,8 @@ for (m in messages) {
   `download_channel_replies()` decode messages as lightweight lists, which is
   several times faster than full objects. Set
   `options(telegramR.lite_messages = FALSE)` to get full objects everywhere.
+  These messages are decoded by compiled code; `options(telegramR.fast_decode = FALSE)`
+  switches back to the (identical, slower) R decoder.
 - If a response cannot be fully decoded (for example after a Telegram schema
   change), telegramR raises a warning of class `telegramR_parse_warning`, and a
   page of channel messages is marked `incomplete`. Silence these warnings with

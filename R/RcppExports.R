@@ -57,3 +57,11 @@ bytes_to_int64_str_cpp <- function(bytes, is_signed) {
     .Call(`_telegramR_bytes_to_int64_str_cpp`, bytes, is_signed)
 }
 
+tl_table_build_cpp <- function(keys, entries) {
+    .Call(`_telegramR_tl_table_build_cpp`, keys, entries)
+}
+
+tl_decode_object_cpp <- function(table, data, pos, fallback) {
+    .Call(`_telegramR_tl_decode_object_cpp`, table, data, pos, fallback)
+}
+

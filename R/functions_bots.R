@@ -1864,7 +1864,7 @@ ReorderUsernamesRequest <- R6::R6Class("ReorderUsernamesRequest",
   private = list(
     from_reader = function(reader) {
       self$bot <- reader$tgread_object()
-      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),

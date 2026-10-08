@@ -1849,7 +1849,7 @@ GetForumTopicsByIDRequest <- R6::R6Class("GetForumTopicsByIDRequest",
   private = list(
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
-      self$topics <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$topics <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -2836,7 +2836,7 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class("ReorderPinnedForumTopicsRequest"
       flags <- reader$read_int()
       self$force <- bitwAnd(flags, 1L) != 0
       self$peer <- reader$tgread_object()
-      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),

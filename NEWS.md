@@ -12,9 +12,21 @@
 * `download_channel_messages()`, `download_channel_reactions()` and
   `download_channel_replies()` decode messages as lightweight lists instead of
   R6 objects (opt out with `options(telegramR.lite_messages = FALSE)`); with
-  the other changes a 100-message page decodes about 7x faster than in 0.0.2
-  (about 5x faster from raw response to tibble rows).
+  the other changes below, going from a raw 100-message response to tibble
+  rows is about 20x faster than in 0.0.2 (1.7 s -> 80 ms).
 * 64-bit TL longs are decoded natively (still returned as `gmp::bigz`).
+* In those download functions, messages are now decoded by a compiled,
+  table-driven decoder (`src/tl_decode.cpp`) built at install time from the
+  generated TL parsers: a 100-message page decodes in ~15 ms instead of
+  ~1.7 s in 0.0.2 (~100x). Its output is identical to the R decoder's (checked
+  on ~4800 random objects covering every constructor, clean and corrupted);
+  anything it does not cover is decoded by R. Disable with
+  `options(telegramR.fast_decode = FALSE)`.
+* Building rows from messages is faster: timestamps no longer re-parse the
+  origin string on every call.
+* A corrupted vector length in a response no longer triggers a
+  multi-gigabyte allocation (which could get the R session killed): every
+  count read from the wire is checked against the bytes left.
 * Fixed `download_channel_reactions()` and `download_channel_replies()`
   reporting zero reactions (`reactions_json = "[]"`) for every message.
 * Decoding problems are no longer silent: an unknown constructor or a parser

@@ -1169,7 +1169,7 @@ DeleteMessagesRequest <- R6::R6Class("DeleteMessagesRequest",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$revoke <- bitwAnd(flags, 1L) != 0
-      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -2702,8 +2702,8 @@ ForwardMessagesRequest <- R6::R6Class("ForwardMessagesRequest",
       self$allowPaidFloodskip <- bitwAnd(flags, 524288L) != 0
       self$from_ephemeral <- bitwAnd(flags, 33554432L) != 0
       self$fromPeer <- reader$tgread_object()
-      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
-      self$randomId <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
+      self$randomId <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self$toPeer <- reader$tgread_object()
       self$topMsgId <- if (bitwAnd(flags, 512L) != 0) reader$read_int() else NULL
       self$replyTo <- if (bitwAnd(flags, 4194304L) != 0) reader$tgread_object() else NULL
@@ -9344,7 +9344,7 @@ ReadMessageContentsRequest <- R6::R6Class("ReadMessageContentsRequest",
   ),
   private = list(
     from_reader = function(reader) {
-      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -9954,7 +9954,7 @@ ReportRequest <- R6::R6Class("ReportRequest",
   private = list(
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
-      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$option <- reader$tgread_bytes()
       self$message <- reader$tgread_string()
       self
@@ -15371,7 +15371,7 @@ TranslateTextRequest <- R6::R6Class("TranslateTextRequest",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$peer <- if (bitwAnd(flags, 1L) != 0) reader$tgread_object() else NULL
-      self$id <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$id <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$text <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
       self$to_lang <- reader$tgread_string()
       self$tone <- if (bitwAnd(flags, 4L) != 0) reader$tgread_string() else NULL

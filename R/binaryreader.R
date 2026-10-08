@@ -123,6 +123,28 @@ BinaryReader <- R6::R6Class(
     },
 
     #  @description
+    #  Read one TL object, using the compiled table-driven decoder when this
+    #  reader is in lite mode (see R/tl_fast.R). Falls back to tgread_object()
+    #  for anything the compiled decoder does not handle.
+    #  @return A TL object.
+    tgread_object_lite = function() {
+      ptr <- if (private$.lite) .telegramR_tl_fast_ptr() else NULL
+      if (!is.null(ptr)) {
+        start <- private$.pos
+        res <- tryCatch(
+          tl_decode_object_cpp(ptr, private$.data, start, private$fallback()),
+          error = function(e) NULL
+        )
+        if (!is.null(res)) {
+          private$.pos <- res[[2]]
+          return(res[[1]])
+        }
+        private$.pos <- start
+      }
+      self$tgread_object()
+    },
+
+    #  @description
     #  Gets the byte array representing the current buffer as a whole.
     #  @return A raw vector of the entire buffer.
     get_bytes = function() {
@@ -262,6 +284,11 @@ BinaryReader <- R6::R6Class(
         stop(sprintf("Invalid constructor code %s, expected Vector", sprintf("%.0f", as.numeric(ctor))))
       }
       n <- self$read_int()
+      # every element takes at least 4 bytes; reject impossible counts before
+      # allocating (a corrupted count would otherwise allocate gigabytes)
+      if (n < 0 || n > (length(private$.data) - private$.pos) / 4) {
+        stop(sprintf("Invalid vector length %s at byte %s", as.character(n), as.character(private$.pos)))
+      }
       out <- vector("list", n)
       if (n > 0) for (i in seq_len(n)) out[[i]] <- self$tgread_object()
       out
@@ -485,7 +512,20 @@ BinaryReader <- R6::R6Class(
     .last = NULL,
     .data = NULL,
     .pos = 0L,
-    .lite = FALSE
+    .lite = FALSE,
+    .fallback = NULL,
+    # Callback used by the compiled decoder for objects it does not handle:
+    # decode the object at byte offset `pos` with the R path.
+    fallback = function() {
+      if (is.null(private$.fallback)) {
+        private$.fallback <- function(pos) {
+          private$.pos <- pos
+          obj <- self$tgread_object()
+          list(obj, private$.pos)
+        }
+      }
+      private$.fallback
+    }
   )
 )
 
@@ -497,7 +537,7 @@ BinaryReader <- R6::R6Class(
     stop(sprintf("Expected Vector constructor, got %s", as.character(vec_ctor)))
   }
   n <- reader$read_int()
-  out <- vector("list", n)
+  out <- vector("list", length(.telegramR_seq_count(reader, n)))
   if (n > 0) for (i in seq_len(n)) out[[i]] <- reader$tgread_object()
   out
 }
@@ -704,6 +744,20 @@ BinaryReader <- R6::R6Class(
   warning(cond)
 }
 
+# seq_len(n) for a count read from the wire, after checking that n elements
+# (at least 4 bytes each) can fit in the rest of the buffer. A corrupted count
+# would otherwise make lapply()/vector() allocate gigabytes up front. Mock
+# readers without get_bytes()/tell_position() skip the check.
+.telegramR_seq_count <- function(reader, n) {
+  if (length(n) == 1 && !is.na(n) && n > 0) {
+    remaining <- tryCatch(length(reader$get_bytes()) - reader$tell_position(), error = function(e) NA)
+    if (is.numeric(remaining) && length(remaining) == 1 && !is.na(remaining) && n > remaining / 4) {
+      stop(sprintf("Invalid vector length %s with %s bytes left", as.character(n), as.character(remaining)))
+    }
+  }
+  seq_len(n)
+}
+
 # "0x1cb5c415"-style label for an (unsigned) constructor key; sprintf("%x")
 # cannot format ids above 2^31, which R holds as doubles.
 .telegramR_ctor_hex <- function(key) {
@@ -823,12 +877,10 @@ BinaryReader <- R6::R6Class(
   map
 }
 
-# Combined table of hand-written readers keyed by constructor key.
-.telegramR_special_readers <- function() {
-  tbl <- .telegramR_state$special_readers
-  if (!is.null(tbl)) return(tbl)
-  tbl <- list2env(.telegramR_hand_readers, parent = emptyenv())
-  specials <- list(
+# Constructors decoded by hand-written readers instead of their generated
+# class (newer-layer ids, or generated parsers that were unreliable).
+.telegramR_special_reader_list <- function() {
+  list(
     list(34280482, .telegramR_read_user),                         # user (newer layer)
     list(0x7f077ad9, .telegramR_read_contacts_resolved_peer),     # contacts.resolvedPeer
     list(0xc776ba4e, .telegramR_read_channel_messages),           # messages.channelMessages
@@ -840,7 +892,16 @@ BinaryReader <- R6::R6Class(
     list(0xfe685355, .telegramR_read_channel),                    # channel
     list(0xe5d7d19c, .telegramR_read_messages_chat_full)          # messages.chatFull
   )
-  for (sp in specials) assign(.telegramR_norm_ctor_id(sp[[1]]), sp[[2]], envir = tbl)
+}
+
+# Combined table of hand-written readers keyed by constructor key.
+.telegramR_special_readers <- function() {
+  tbl <- .telegramR_state$special_readers
+  if (!is.null(tbl)) return(tbl)
+  tbl <- list2env(.telegramR_hand_readers, parent = emptyenv())
+  for (sp in .telegramR_special_reader_list()) {
+    assign(.telegramR_norm_ctor_id(sp[[1]]), sp[[2]], envir = tbl)
+  }
   .telegramR_state$special_readers <- tbl
   tbl
 }
@@ -977,7 +1038,7 @@ BinaryReader <- R6::R6Class(
     return(list(peer = peer, users = list(), chats = list()))
   }
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
   # Vector<Chat>
   vec_ctor2 <- reader$read_int(signed = FALSE)
   if (!identical(.telegramR_norm_ctor_id(vec_ctor2), .telegramR_norm_ctor_id(481674261))) {
@@ -985,7 +1046,7 @@ BinaryReader <- R6::R6Class(
     return(ContactsResolvedPeer$new(peer = peer, users = users, chats = list()))
   }
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
   ContactsResolvedPeer$new(peer = peer, users = users, chats = chats)
 }
 
@@ -1012,7 +1073,7 @@ BinaryReader <- R6::R6Class(
   if (n_messages > 0) {
     prev_lite <- reader$set_lite(isTRUE(getOption("telegramR.lite_messages")))
     for (i in seq_len(n_messages)) {
-      obj <- tryCatch(reader$tgread_object(), error = function(e) NULL)
+      obj <- tryCatch(reader$tgread_object_lite(), error = function(e) NULL)
       if (is.null(obj) || .telegramR_is_unparsed(obj)) {
         incomplete <- TRUE
         break
@@ -1035,7 +1096,7 @@ BinaryReader <- R6::R6Class(
     reader$read_int()
     n_topics <- reader$read_int()
     if (n_topics > 0) {
-      topics <- lapply(seq_len(n_topics), function(i) reader$tgread_object())
+      topics <- lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object())
     }
   }, error = function(e) {
     topics_ok <<- FALSE
@@ -1061,7 +1122,7 @@ BinaryReader <- R6::R6Class(
     reader$read_int()
     n_chats <- reader$read_int()
     if (n_chats > 0) {
-      chats <- lapply(seq_len(n_chats), function(i) reader$tgread_object())
+      chats <- lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object())
     }
   }, error = function(e) {
     chats_ok <<- FALSE
@@ -1087,7 +1148,7 @@ BinaryReader <- R6::R6Class(
     reader$read_int()
     n_users <- reader$read_int()
     if (n_users > 0) {
-      users <- lapply(seq_len(n_users), function(i) reader$tgread_object())
+      users <- lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object())
     }
   }, error = function(e) {
     users_ok <<- FALSE
@@ -1113,7 +1174,7 @@ BinaryReader <- R6::R6Class(
   if (n <= 0) return(list())
   prev <- reader$set_lite(isTRUE(getOption("telegramR.lite_messages")))
   on.exit(reader$set_lite(prev), add = TRUE)
-  lapply(seq_len(n), function(i) reader$tgread_object())
+  lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object_lite())
 }
 
 .telegramR_read_messages <- function(reader) {
@@ -1125,17 +1186,17 @@ BinaryReader <- R6::R6Class(
   # Vector<ForumTopic>
   reader$read_int()
   n_topics <- reader$read_int()
-  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+  topics <- if (n_topics > 0) lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object()) else list()
 
   # Vector<Chat>
   reader$read_int()
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
 
   # Vector<User>
   reader$read_int()
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
 
   list(
     messages = messages,
@@ -1161,17 +1222,17 @@ BinaryReader <- R6::R6Class(
   # Vector<ForumTopic>
   reader$read_int()
   n_topics <- reader$read_int()
-  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+  topics <- if (n_topics > 0) lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object()) else list()
 
   # Vector<Chat>
   reader$read_int()
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
 
   # Vector<User>
   reader$read_int()
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
 
   list(
     count = count,
@@ -1272,7 +1333,7 @@ BinaryReader <- R6::R6Class(
       stop("invalid chats vector length")
     }
     if (n_chats > 0) {
-      chats <- lapply(seq_len(n_chats), function(i) safe_read_object())
+      chats <- lapply(.telegramR_seq_count(reader, n_chats), function(i) safe_read_object())
     }
 
     vec_ctor2 <- safe_read_int(signed = FALSE)
@@ -1287,7 +1348,7 @@ BinaryReader <- R6::R6Class(
       stop("invalid users vector length")
     }
     if (n_users > 0) {
-      users <- lapply(seq_len(n_users), function(i) safe_read_object())
+      users <- lapply(.telegramR_seq_count(reader, n_users), function(i) safe_read_object())
     }
   }, error = function(e) {
     # Return partial if parsing failed mid-way
@@ -1381,7 +1442,7 @@ BinaryReader <- R6::R6Class(
     if (!is.null(n_bot) && (n_bot < 0 || n_bot > max_bot)) {
       stop("invalid bot_info vector length")
     }
-    bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(seq_len(n_bot), function(i) safe_read_object()) else list()
+    bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(.telegramR_seq_count(reader, n_bot), function(i) safe_read_object()) else list()
 
     migrated_from_chat_id <- if (bitwAnd(flags, 16) != 0) safe_read_long() else NULL
     migrated_from_max_id <- if (bitwAnd(flags, 16) != 0) safe_read_int() else NULL
@@ -1406,7 +1467,7 @@ BinaryReader <- R6::R6Class(
       if (!is.null(n) && (n < 0 || n > max_sugg)) {
         stop("invalid pending_suggestions length")
       }
-      pending_suggestions <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_string()) else list()
+      pending_suggestions <- if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_string()) else list()
     }
 
     groupcall_default_join_as <- if (bitwAnd(flags, 67108864) != 0) safe_read_object() else NULL
@@ -1421,7 +1482,7 @@ BinaryReader <- R6::R6Class(
       if (!is.null(n) && (n < 0 || n > max_req)) {
         stop("invalid recent_requesters length")
       }
-      recent_requesters <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_long()) else list()
+      recent_requesters <- if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_long()) else list()
     }
 
     default_send_as <- if (bitwAnd(flags, 536870912) != 0) safe_read_object() else NULL
@@ -1597,7 +1658,7 @@ BinaryReader <- R6::R6Class(
     restriction_reason <- if (bitwAnd(flags, 512) != 0) {
       safe_read_int(signed = FALSE) # vector ctor
       n <- safe_read_int()
-      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+      if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_object()) else list()
     } else {
       NULL
     }
@@ -1610,7 +1671,7 @@ BinaryReader <- R6::R6Class(
     usernames <- if (bitwAnd(flags2, 1) != 0) {
       safe_read_int(signed = FALSE)
       n <- safe_read_int()
-      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+      if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_object()) else list()
     } else {
       NULL
     }
@@ -1734,7 +1795,7 @@ BinaryReader <- R6::R6Class(
   restriction_reason <- if (bitwAnd(flags, 262144) != 0) {
     reader$read_int()
     n <- reader$read_int()
-    lapply(seq_len(n), function(i) reader$tgread_object())
+    lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object())
   } else {
     NULL
   }
@@ -1746,7 +1807,7 @@ BinaryReader <- R6::R6Class(
   usernames <- if (bitwAnd(flags2, 1) != 0) {
     reader$read_int()
     n <- reader$read_int()
-    lapply(seq_len(n), function(i) reader$tgread_object())
+    lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object())
   } else {
     NULL
   }

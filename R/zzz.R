@@ -8,6 +8,9 @@ NULL
 # memory, which took several seconds on the first parsed response.
 .telegramR_ctor_index <- .telegramR_scan_ctor_index(environment()) # nolint: object_name_linter.
 
+# Decoding table for the compiled lite decoder (R/tl_fast.R, src/tl_decode.cpp).
+.telegramR_tl_table <- .telegramR_build_tl_table(environment(), .telegramR_ctor_index) # nolint: object_name_linter.
+
 # Byte-compile BinaryReader's methods at install time. R6 copies methods into
 # every new reader (one per response), and R's JIT would otherwise recompile
 # the large tgread_object() for each of them.

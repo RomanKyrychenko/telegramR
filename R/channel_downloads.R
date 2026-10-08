@@ -253,7 +253,10 @@
 
 # Helper: convert a unix timestamp or NULL to POSIXct (UTC).
 .ts <- function(x) {
-  if (is.null(x) || length(x) == 0) return(as.POSIXct(NA_real_, origin = "1970-01-01", tz = "UTC"))
+  # .POSIXct() avoids re-parsing the origin string on every call (~50x faster
+  # than as.POSIXct(x, origin = ...)); results are identical for numeric input.
+  if (is.null(x) || length(x) == 0) return(.POSIXct(NA_real_, tz = "UTC"))
+  if (is.numeric(x) || inherits(x, "POSIXct")) return(.POSIXct(as.numeric(x), tz = "UTC"))
   as.POSIXct(x, origin = "1970-01-01", tz = "UTC")
 }
 

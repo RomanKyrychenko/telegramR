@@ -149,6 +149,7 @@ Collate:
     'telegrambaseclient.R'
     'telegramclient.R'
     'tlmessage.R'
+    'tl_fast.R'
     'updates.R'
     'users_profile.R'
     'utils.R'

@@ -136,6 +136,35 @@ This round also fixed a bug that the comparison exposed: with R6 messages,
 `download_channel_reactions()` and `download_channel_replies()` reported
 `reactions_json = "[]"` and a reaction total of 0 for every message.
 
+## After the third round: compiled lite decoder
+
+`src/tl_decode.cpp` is a table-driven TL decoder. The table is derived at install time from
+the generated R parsers (`R/tl_fast.R`), and it covers 1 655 of 2 289 constructors.
+
+- **Same output as R.** For those constructors it builds exactly the classed lists the R
+  lite path builds. Anything else (hand-written readers, gzip) is handed to the R reader at
+  that byte position, and a message that fails in C++ is re-decoded in R.
+- **Verified on a random corpus.** `make_fuzz_corpus.py` builds 4 787 random objects for
+  every constructor with Telethon, with random flags, nesting and vectors. `check_fuzz.R`
+  confirms that the C++ and R paths return `identical()` results for all of them, both clean
+  and with each record truncated or byte-corrupted.
+
+On a 100-message page (median of 15 runs, 0.0.2 and this build measured alternately):
+
+| Path | 0.0.2 | R lite | **Compiled lite** | Telethon |
+|---|---:|---:|---:|---:|
+| Decode | 1 567 ms | 206 ms | **15 ms** | 5.4 ms |
+| Raw response → tibble rows | 1 683 ms | 299 ms | **79 ms** | n/a |
+
+What is left in "decode" is mostly the page's users and chats, which are still R6 objects
+because they feed the entity cache. Row building (79 − 15 ms) is now the larger cost, and
+most of it is `jsonlite::toJSON()` for the reactions column.
+
+The corruption fuzzing found a crash in the R decoder that predates this work. A corrupted
+`Vector<int>` count made `lapply(seq_len(n))` allocate about 16 GB up front, and the OS
+killed the R session. Every count read from the wire is now checked against the remaining
+bytes.
+
 ## Correctness
 
 | Check | Result |
