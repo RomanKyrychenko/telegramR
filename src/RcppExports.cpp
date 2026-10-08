@@ -161,6 +161,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// bytes_to_int64_str_cpp
+String bytes_to_int64_str_cpp(RawVector bytes, bool is_signed);
+RcppExport SEXP _telegramR_bytes_to_int64_str_cpp(SEXP bytesSEXP, SEXP is_signedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type bytes(bytesSEXP);
+    Rcpp::traits::input_parameter< bool >::type is_signed(is_signedSEXP);
+    rcpp_result_gen = Rcpp::wrap(bytes_to_int64_str_cpp(bytes, is_signed));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_aes_ige_encrypt", (DL_FUNC) &_telegramR_aes_ige_encrypt, 3},
@@ -176,6 +188,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_encode_waveform_cpp", (DL_FUNC) &_telegramR_encode_waveform_cpp, 1},
     {"_telegramR_decode_waveform_cpp", (DL_FUNC) &_telegramR_decode_waveform_cpp, 1},
     {"_telegramR_factorize_pq_cpp", (DL_FUNC) &_telegramR_factorize_pq_cpp, 1},
+    {"_telegramR_bytes_to_int64_str_cpp", (DL_FUNC) &_telegramR_bytes_to_int64_str_cpp, 2},
     {NULL, NULL, 0}
 };
 

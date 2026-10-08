@@ -145,8 +145,11 @@
 }
 
 .telegramR_message_reactions <- function(m) {
+  # Accept dicts, lightweight lists and R6 objects alike (R6 objects are
+  # environments, so is.list() alone used to drop every reaction).
+  is_obj <- function(x) is.list(x) || is.environment(x)
   results <- NULL
-  if (is.list(m$reactions) && !is.null(m$reactions$results)) {
+  if (is_obj(m$reactions) && !is.null(m$reactions$results)) {
     results <- m$reactions$results
   }
   if (is.null(results) || length(results) == 0) {
@@ -159,7 +162,7 @@
     cnt <- rc$count %||% 0
     total <- total + cnt
     key <- NA_character_
-    if (is.list(rc$reaction)) {
+    if (is_obj(rc$reaction)) {
       key <- rc$reaction$emoticon %||% rc$reaction$emoji %||% rc$reaction$reactions %||% NA_character_
     }
     if (is.null(key) || is.na(key)) next
@@ -344,7 +347,7 @@
   is_forward <- !is.null(md$fwd_from)
   fwd_from <- md$fwd_from %||% list()
   forward_from_id <- NA_real_
-  if (is.list(fwd_from$from_id)) {
+  if (is.list(fwd_from$from_id) || is.environment(fwd_from$from_id)) {
     forward_from_id <- fwd_from$from_id$channel_id %||% fwd_from$from_id$user_id %||% fwd_from$from_id$chat_id %||% NA_real_
   }
   forward_from_message_id <- fwd_from$channel_post %||% NA_real_
@@ -573,6 +576,14 @@ download_channel_messages <- function(client, channel,
                                       ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
+  }
+
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
   }
 
   old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
@@ -1113,6 +1124,14 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
     stop("client is required")
   }
 
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
+  }
+
   resolved <- .telegramR_resolve_channel(client, channel)
   ent <- resolved$entity
 
@@ -1363,6 +1382,14 @@ download_channel_replies <- function(client, channel, message_ids = NULL,
                                      output_file = NULL, chunk_size = 5000L, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
+  }
+
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
   }
 
   resolved <- .telegramR_resolve_channel(client, channel)
@@ -1658,10 +1685,6 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
                  max_attempts,
                  if (!is.null(last_resolve_err)) conditionMessage(last_resolve_err) else "unknown error"))
   }
-  # Refresh constructor map to pick up newer ChannelFull ctor IDs
-  old_ctor <- getOption("telegramR.ctor_map")
-  on.exit(options(telegramR.ctor_map = old_ctor), add = TRUE)
-  options(telegramR.ctor_map = NULL)
   full <- NULL
   last_full_err <- NULL
   for (attempt in seq_len(max_attempts)) {

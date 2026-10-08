@@ -41,11 +41,8 @@ test_that("throws error when decrypting with invalid auth key", {
 
 test_that("throws error when session ID is invalid during decryption", {
   skip_on_cran()
-  auth_key <- list(key = raw(256), key_id = 123456789)
-  loggers <- list(MTProtoState = function(...) NULL)
-  state <- MTProtoState$new(auth_key, loggers)
-  # first 8 bytes = correct auth_key_id, next 8 bytes = wrong session id
-  body <- c(packInt64(state$auth_key$key_id), packInt64(as.integer(state$id) + 1), raw(100))
+  state <- MTProtoState$new(AuthKey$new(as.raw(sample(0:255, 256, replace = TRUE))), NULL)
+  body <- server_encrypt(state, peer_channel_bytes(), session_id = state$id + 1)
   expect_error(state$decrypt_message_data(body), "SecurityError: Server replied with a wrong session ID")
 })
 

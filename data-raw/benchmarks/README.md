@@ -104,6 +104,38 @@ Decoding is still about 120× slower than Telethon. Most of the remaining time i
 instantiation itself (about 200 µs per object, even when flattened), so closing the gap
 further means a lighter object representation for decoded TL types.
 
+## After the second round
+
+The changes:
+
+1. **Lightweight lists for downloads.** `download_channel_messages()`,
+   `download_channel_reactions()` and `download_channel_replies()` decode the messages
+   vector as classed named lists instead of R6 objects. Users and chats are still decoded
+   as full objects, because they feed the entity cache.
+2. **Native 64-bit longs.** They are decoded in C++, though still returned as
+   `gmp::bigz`.
+3. **Cheaper parser bookkeeping.** Each object's fields are read with one `as.list()` call,
+   and the class vector is cached per class.
+4. **`BinaryReader` compiled at install time.**
+
+On a 100-message page (median of 12 runs, machine partly busy, 0.0.2 and the new build
+measured alternately):
+
+| Path | 0.0.2 | Now | Telethon |
+|---|---:|---:|---:|
+| Decode only, lite (download functions) | 1.65 s | **~0.22 s** (7.5×) | 5.4 ms |
+| Decode only, full R6 objects | 1.65 s | ~0.55 s (3×) | 5.4 ms |
+| Raw response → tibble rows (`download_channel_messages`) | 2.65 s | **~0.50 s** (5×) | n/a |
+
+Lite and full decoding produce identical message, reaction and reply rows on the fixtures,
+and re-encoding is still byte-identical to Telethon. In the lite path, the remaining time is
+about 200 µs of interpreted R per TL object (about 1 100 objects per page). Going much
+further would need a compiled decoder for the message subtree.
+
+This round also fixed a bug that the comparison exposed: with R6 messages,
+`download_channel_reactions()` and `download_channel_replies()` reported
+`reactions_json = "[]"` and a reaction total of 0 for every message.
+
 ## Correctness
 
 | Check | Result |

@@ -4953,7 +4953,6 @@ TelegramClient <- R6::R6Class(
               !is.null(me$data) && is.raw(me$data)) {
               tryCatch(
                 {
-                  options(telegramR.ctor_map = NULL)
                   raw_obj <- c(pack("<I", as.integer(me$CONSTRUCTOR_ID)), me$data)
                   reader <- BinaryReader$new(raw_obj)
                   parsed <- reader$tgread_object()

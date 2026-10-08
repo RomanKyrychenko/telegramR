@@ -113,9 +113,9 @@ MTProtoState <- R6::R6Class("MTProtoState",
 
     #  @description Reset the state
     reset = function() {
-      # Session IDs can be random on every connection
-      # Keep within 32-bit signed range to avoid precision/NA issues in tests
-      self$id <- as.numeric(sample.int(.Machine$integer.max, 1))
+      # Session IDs are random 64-bit values, new on every connection
+      # (stored as gmp::bigz so no precision is lost).
+      self$id <- BinaryReader$new(openssl::rand_bytes(8))$read_long()
       private$sequence <- 0
       private$last_msg_id <- 0
       private$recent_remote_ids$clear()
@@ -247,17 +247,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
         if (key_id != self$auth_key$key_id) {
           stop("SecurityError: Server replied with an invalid auth key")
         }
-      }
-
-      if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
-        if (length(body) < 16) {
-          stop("InvalidBufferError: Buffer too small")
-        }
-        reader <- BinaryReader$new(body[9:length(body)])
-        if (reader$read_long() != self$id) {
-          stop("SecurityError: Server replied with a wrong session ID")
-        }
-        return(raw(0))
       }
 
       # Extract message key and decrypt

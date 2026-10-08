@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <string>
 #include <algorithm>
+#include <cstdio>
 
 using namespace Rcpp;
 
@@ -549,4 +550,28 @@ NumericVector factorize_pq_cpp(std::string pq_str) {
   // Only report factors that survive the round-trip to double exactly
   if ((uint64_t) out[0] != p || (uint64_t) out[1] != q) return NumericVector::create(0, 0);
   return out;
+}
+
+// ─────────────────────────────────────────────────────
+// 11. 8 LITTLE-ENDIAN BYTES → DECIMAL STRING
+//
+// Used by BinaryReader$bytes_to_int for 64-bit TL longs. Building the
+// gmp::bigz from a decimal string avoids the hex/paste and bigz sign
+// arithmetic (pow.bigz, comparison, subtraction) on every read_long().
+// ─────────────────────────────────────────────────────
+// [[Rcpp::export(name = "bytes_to_int64_str_cpp")]]
+String bytes_to_int64_str_cpp(RawVector bytes, bool is_signed) {
+  if (bytes.size() != 8) stop("bytes_to_int64_str_cpp: expected 8 bytes");
+  const uint8_t* b = (const uint8_t*) RAW(bytes);
+  uint64_t u = 0;
+  for (int i = 0; i < 8; ++i) u |= ((uint64_t) b[i]) << (8 * i);
+  char buf[32];
+  if (is_signed && (u >> 63)) {
+    // two's complement magnitude; works for INT64_MIN too
+    uint64_t mag = ~u + 1;
+    snprintf(buf, sizeof(buf), "-%llu", (unsigned long long) mag);
+  } else {
+    snprintf(buf, sizeof(buf), "%llu", (unsigned long long) u);
+  }
+  return String(buf);
 }

@@ -255,9 +255,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
                           updates_queue = NULL, auto_reconnect_callback = NULL) {
-      # Invalidate cached ctor_map so it rebuilds with current environment
-      options(telegramR.ctor_map = NULL)
-
       null_logger <- list(
         debug = function(...) NULL,
         info = function(...) NULL,

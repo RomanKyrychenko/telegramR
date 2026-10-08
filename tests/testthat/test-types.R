@@ -1,37 +1,14 @@
 test_that("basic TL types provide to_list and to_bytes", {
   skip_on_cran()
-  # Some types are defined in R/types.R and should be available when sourcing the package
   types_to_test <- c(
     "MessageActionEmpty", "MessageActionChatCreate", "MessageActionChatAddUser",
     "MessageActionChatDeleteUser", "MessageActionChatJoinedByLink", "MessageActionChatJoinedByRequest",
     "MessageActionChannelCreate", "MessageActionContactSignUp", "MessageActionCustomAction",
     "MessageService", "MessageViews", "MessageActionGameScore"
   )
-
-  for (tname in types_to_test) {
-    if (!exists(tname, mode = "function")) {
-      skip(paste("type", tname, "not found in environment"))
-    }
-    cls <- get(tname)
-    obj <- tryCatch(cls$new(), error = function(e) {
-      # If instantiation requires args, skip (but still recorded)
-      skip(paste("cannot instantiate", tname, e$message))
-    })
-
-    lst <- obj$to_list()
-    expect_true(is.list(lst))
-    expect_true(!is.null(lst[["_"]]))
-
-    # to_bytes (or bytes) may be named differently; try common names
-    bytes_fun <- NULL
-    if (is.function(obj$to_bytes)) bytes_fun <- obj$to_bytes
-    if (is.function(obj$bytes)) bytes_fun <- obj$bytes
-    if (is.null(bytes_fun)) next
-
-    b <- bytes_fun()
-    expect_true(is.raw(b))
-    expect_true(length(b) >= 4)
-  }
+  expect_gt(smoke_tl_types(types_to_test), 0)
+  lst <- MessageActionEmpty$new()$to_list()
+  expect_false(is.null(lst[["_"]]))
 })
 
 
@@ -119,57 +96,31 @@ test_that("InputPeerEmpty TLObject helpers", {
 })
 
 
-# Extra: check that a few more type constructors can be instantiated with minimal args when possible
 test_that("instantiate a broader set of types (skip if unavailable/require args)", {
   skip_on_cran()
   additional <- c(
     "MessageActionConferenceCall", "MessageActionChatMigrateTo", "MessageActionChannelCreate",
-    "MessageActionGeoProximityReached", "MessageService", "MessageViews"
+    "MessageActionGeoProximityReached", "MessageService", "MessageViews",
+    "MessageActionEmpty", "MessageActionHistoryClear", "InputPeerEmpty", "InputPeerSelf"
   )
-  for (tname in additional) {
-    if (!exists(tname, mode = "function")) {
-      skip(paste("type", tname, "not found"))
-    }
-    cls <- get(tname)
-    obj <- tryCatch(cls$new(), error = function(e) skip(paste("cannot instantiate", tname, e$message)))
-    # check to_list exists
-    expect_true(is.list(obj$to_list()))
-    # check bytes if available
-    if (is.function(obj$to_bytes)) expect_true(is.raw(obj$to_bytes()))
-    if (is.function(obj$bytes)) expect_true(is.raw(obj$bytes()))
-  }
+  expect_gt(smoke_tl_types(additional), 0)
 })
 
 
 test_that("instantiate all MessageAction classes and exercise to_list/to_bytes when possible", {
   skip_on_cran()
-  action_names <- ls(pattern = "^MessageAction")
-  if (length(action_names) == 0) skip("no MessageAction classes found")
-  for (name in action_names) {
-    cls <- get(name)
-    obj <- tryCatch(cls$new(), error = function(e) skip(paste("cannot instantiate", name, e$message)))
-    expect_true(is.list(obj$to_list()))
-    if (is.function(obj$to_bytes)) expect_true(is.raw(obj$to_bytes()))
-    if (is.function(obj$bytes)) expect_true(is.raw(obj$bytes()))
-  }
+  action_names <- ls(tl_types_ns, pattern = "^MessageAction")
+  expect_gt(length(action_names), 0)
+  expect_gt(smoke_tl_types(action_names), 0)
 })
 
 
-# Try a broader sweep for classes beginning with 'Message' but skip ones that are clearly heavy
 test_that("smoke-test a selection of Message* classes", {
   skip_on_cran()
-  all_msg <- ls(pattern = "^Message")
-  # keep sample small to avoid constructors requiring many args
-  if (length(all_msg) == 0) skip("no Message* classes")
-  sample_names <- unique(c("MessageService", "MessageViews", all_msg))
-  sample_names <- head(sample_names, 20)
-  for (name in sample_names) {
-    if (!exists(name, mode = "function")) next
-    cls <- get(name)
-    obj <- tryCatch(cls$new(), error = function(e) skip(paste("cannot instantiate", name, e$message)))
-    expect_true(is.list(obj$to_list()))
-    if (is.function(obj$to_bytes)) expect_true(is.raw(obj$to_bytes()))
-  }
+  all_msg <- ls(tl_types_ns, pattern = "^Message")
+  expect_gt(length(all_msg), 0)
+  sample_names <- head(unique(c("MessageService", "MessageViews", all_msg)), 40)
+  expect_gt(smoke_tl_types(sample_names), 0)
 })
 
 
@@ -279,17 +230,7 @@ test_that("TLObject equality for identical dicts and inequality for different", 
 
 test_that("try to instantiate many types (wider sweep) but skip on errors", {
   skip_on_cran()
-  all_types <- ls()
-  candidates <- grep("(Message|MessageAction|Input)\\w+", all_types, value = TRUE)
-  candidates <- unique(c(head(candidates, 100)))
-  for (nm in candidates) {
-    if (!exists(nm, mode = "function")) next
-    cls <- tryCatch(get(nm), error = function(e) NULL)
-    if (is.null(cls)) next
-    obj <- tryCatch(cls$new(), error = function(e) NULL)
-    if (is.null(obj)) next
-    if (is.function(obj$to_list)) expect_true(is.list(obj$to_list()))
-    if (is.function(obj$to_bytes)) expect_true(is.raw(obj$to_bytes()))
-  }
+  candidates <- grep("^(Message|MessageAction|Input)\\w+", ls(tl_types_ns), value = TRUE)
+  expect_gt(smoke_tl_types(head(candidates, 100)), 0)
 })
 

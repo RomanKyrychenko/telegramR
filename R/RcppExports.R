@@ -53,3 +53,7 @@ factorize_pq_cpp <- function(pq_str) {
     .Call(`_telegramR_factorize_pq_cpp`, pq_str)
 }
 
+bytes_to_int64_str_cpp <- function(bytes, is_signed) {
+    .Call(`_telegramR_bytes_to_int64_str_cpp`, bytes, is_signed)
+}
+

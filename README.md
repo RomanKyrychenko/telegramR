@@ -194,6 +194,14 @@ for (m in messages) {
 - To trace hangs in channel info/message downloads, enable:
   `options(telegramR.trace_hang = TRUE, telegramR.trace_parse = TRUE)` to see step-by-step parsing and network waits.
  - Some channels send photos as documents with `image/*` MIME types. `download_channel_media()` treats `image` as a photo-type alias when `photo` is requested.
+- `download_channel_messages()`, `download_channel_reactions()` and
+  `download_channel_replies()` decode messages as lightweight lists, which is
+  several times faster than full objects. Set
+  `options(telegramR.lite_messages = FALSE)` to get full objects everywhere.
+- If a response cannot be fully decoded (for example after a Telegram schema
+  change), telegramR raises a warning of class `telegramR_parse_warning`, and a
+  page of channel messages is marked `incomplete`. Silence these warnings with
+  `options(telegramR.parse_warnings = FALSE)`.
 
 **Citation**
 
