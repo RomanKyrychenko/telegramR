@@ -4,10 +4,10 @@
 # decoding; see data-raw/benchmarks/make_fixtures.py.
 
 fixture_bytes <- function() {
-  readBin(test_path("fixtures", "channel_messages_10.bin"), "raw", 1e6)
+  readBin(testthat::test_path("fixtures", "channel_messages_10.bin"), "raw", 1e6)
 }
 fixture_truth <- function() {
-  jsonlite::fromJSON(test_path("fixtures", "channel_messages_10.json"), simplifyVector = FALSE)
+  jsonlite::fromJSON(testthat::test_path("fixtures", "channel_messages_10.json"), simplifyVector = FALSE)
 }
 decode_fixture <- function(lite = FALSE) {
   withr::local_options(telegramR.lite_messages = lite)

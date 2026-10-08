@@ -13,10 +13,10 @@ smoke_tl_types <- function(names) {
     obj <- tryCatch(cls$new(), error = function(e) NULL)
     if (is.null(obj)) next
     checked <- checked + 1L
-    expect_true(is.list(obj$to_list()), info = name)
+    testthat::expect_true(is.list(obj$to_list()), info = name)
     if (is.function(obj$to_bytes)) {
       out <- tryCatch(obj$to_bytes(), error = function(e) NULL)
-      if (!is.null(out)) expect_true(is.raw(out), info = name)
+      if (!is.null(out)) testthat::expect_true(is.raw(out), info = name)
     }
   }
   checked
