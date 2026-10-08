@@ -131,9 +131,22 @@ check("download_channel_media", {
   ws <- character(0)
   md <- withCallingHandlers(
     download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d),
-    warning = function(w) { ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning") }
+    warning = function(w) {
+      if (inherits(w, "telegramR_parse_warning") && !length(ws)) {
+        calls <- vapply(sys.calls(), function(cl) paste(deparse(cl[[1]], nlines = 1), collapse = ""), character(1))
+        cat("      first parse warning raised from:", paste(utils::tail(calls, 25), collapse = " < "), "\n")
+      }
+      ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning")
+    }
   )
   expect(is.data.frame(md), "not df")
+  for (f in list.files(d, full.names = TRUE)) {
+    b <- readBin(f, "raw", file.size(f))
+    jpeg <- grepl("\\.jpe?g$", f, ignore.case = TRUE)
+    ok <- if (jpeg) length(b) > 4 && identical(b[1:2], as.raw(c(0xff, 0xd8))) && identical(utils::tail(b, 2), as.raw(c(0xff, 0xd9))) else NA
+    cat(sprintf("      file %s: %s bytes%s\n", basename(f), format(length(b), big.mark = ","),
+                if (is.na(ok)) "" else if (ok) ", valid JPEG" else ", NOT a complete JPEG"))
+  }
   if (nrow(md) > 0 && "error" %in% names(md)) {
     for (k in which(!is.na(md$error))) {
       cat(sprintf("      media %s (%s) failed: %s\n", md$message_id[k], md$media_type[k], substr(md$error[k], 1, 160)))
