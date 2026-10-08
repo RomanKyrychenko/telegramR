@@ -1600,7 +1600,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           tryCatch(
             {
               reader <- BinaryReader$new(rpc_result$body)
-              obj <- reader$tgread_object()
+              # Decoded only to decide what to log, so a body that does not
+              # parse should not surface as a user-facing warning.
+              obj <- suppressWarnings(reader$tgread_object())
               if (!inherits(obj, "upload.File")) {
                 private$log$info("Received response without parent request: %s", rpc_result$body)
               }

@@ -704,7 +704,8 @@ BinaryReader <- R6::R6Class(
     dialogs = 0x15ba6c40, dialogsSlice = 0x71e094f3, dialogsNotModified = 0xf0e3e596,
     chats = 0x64ff9fd5, chatsSlice = 0x9cd81144,
     chat = 0x41cbf256, chatEmpty = 0x29562865, chatForbidden = 0x6592a1a7,
-    emojiStatus = 0xe7ff068a, emojiStatusCollectible = 0x7184603b, emojiStatusEmpty = 0x2de11aae
+    emojiStatus = 0xe7ff068a, emojiStatusCollectible = 0x7184603b, emojiStatusEmpty = 0x2de11aae,
+    authAuthorization = 0x2ea2c0d4
   )
   fns <- list(
     updates = function(r) .telegramR_read_updates(r),
@@ -725,11 +726,59 @@ BinaryReader <- R6::R6Class(
     chatForbidden = function(r) .telegramR_read_chat_forbidden(r),
     emojiStatus = function(r) .telegramR_read_emoji_status(r),
     emojiStatusCollectible = function(r) .telegramR_read_emoji_status_collectible(r),
-    emojiStatusEmpty = function(r) EmojiStatusEmpty$new()
+    emojiStatusEmpty = function(r) EmojiStatusEmpty$new(),
+    authAuthorization = function(r) .telegramR_read_auth_authorization(r)
   )
   # keys match .telegramR_norm_ctor_id(): unsigned constructor id as a string
   stats::setNames(fns[names(ctors)], sprintf("%.0f", ctors))
 })
+
+# auth.authorization#2ea2c0d4 (sign-in and ImportAuthorization result). The
+# generated types have no class for it because its name clashes with
+# account authorization#ad01d61d ("Authorization").
+AuthAuthorization <- R6::R6Class("AuthAuthorization",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x2ea2c0d4,
+    SUBCLASS_OF_ID = 0xb9e04e39,
+    setup_password_required = NULL,
+    otherwise_relogin_days = NULL,
+    tmp_sessions = NULL,
+    future_auth_token = NULL,
+    user = NULL,
+    initialize = function(setup_password_required = NULL, otherwise_relogin_days = NULL,
+                          tmp_sessions = NULL, future_auth_token = NULL, user = NULL) {
+      self$setup_password_required <- setup_password_required
+      self$otherwise_relogin_days <- otherwise_relogin_days
+      self$tmp_sessions <- tmp_sessions
+      self$future_auth_token <- future_auth_token
+      self$user <- user
+    },
+    to_dict = function() {
+      list(
+        `_` = "AuthAuthorization",
+        setup_password_required = self$setup_password_required,
+        otherwise_relogin_days = self$otherwise_relogin_days,
+        tmp_sessions = self$tmp_sessions,
+        future_auth_token = self$future_auth_token,
+        user = if (inherits(self$user, "TLObject")) self$user$to_dict() else self$user
+      )
+    }
+  ),
+  class = TRUE,
+  lock_objects = FALSE
+)
+
+.telegramR_read_auth_authorization <- function(r) {
+  flags <- r$read_int()
+  AuthAuthorization$new(
+    setup_password_required = bitwAnd(flags, 2L) != 0,
+    otherwise_relogin_days = if (bitwAnd(flags, 2L) != 0) r$read_int() else NULL,
+    tmp_sessions = if (bitwAnd(flags, 1L) != 0) r$read_int() else NULL,
+    future_auth_token = if (bitwAnd(flags, 4L) != 0) r$tgread_bytes() else NULL,
+    user = r$tgread_object()
+  )
+}
 
 # Signal a recoverable decoding problem. Decoding falls back to raw bytes so
 # a session keeps working across schema changes, but the caller is told: the

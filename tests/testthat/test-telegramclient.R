@@ -742,6 +742,13 @@ test_that("get_proper_filename generates sensible names and handles collisions",
   expect_true(grepl(paste0(base_name, "_1\\.txt$"), res3) || grepl(paste0(base_name, "\\.txt$"), res3))
 })
 
+test_that("get_proper_filename accepts Unix timestamp dates", {
+  skip_on_cran()
+  # Photo and message dates are decoded as integer Unix timestamps.
+  res <- dm$get_proper_filename(NULL, "photo", ".jpg", date = 1577836800L)
+  expect_true(grepl("^photo_2020-01-01_00-00-00.*\\.jpg$", basename(res)))
+})
+
 test_that("get_kind_and_names extracts kind and possible names from attributes", {
   skip_on_cran()
   attrs <- list(

@@ -2183,6 +2183,8 @@ TelegramClient <- R6::R6Class(
           if (is.null(date)) {
             date <- Sys.time()
           }
+          # Message and photo dates arrive as Unix timestamps.
+          if (is.numeric(date)) date <- as.POSIXct(date, origin = "1970-01-01", tz = "UTC")
           date_str <- format(date, "%Y-%m-%d_%H-%M-%S")
           name <- paste0(kind, "_", date_str)
         }
