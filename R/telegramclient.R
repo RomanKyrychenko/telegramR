@@ -1269,7 +1269,7 @@ TelegramClient <- R6::R6Class(
               }
 
               step <- "extract_bytes"
-              if (inherits(res, "upload.File") && !is.null(res$bytes)) {
+              if (inherits(res, c("upload.File", "File")) && is.raw(res$bytes)) {
                 chunk <- res$bytes
               } else if (is.raw(res)) {
                 chunk <- res

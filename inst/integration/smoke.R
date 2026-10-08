@@ -158,6 +158,7 @@ check("download_channel_media", {
     for (k in seq_len(min(5, length(tab)))) cat(sprintf("      warning x%d: %s\n", tab[[k]], names(tab)[k]))
   }
   if (nrow(md) > 0) expect(any(file.size(list.files(d, full.names = TRUE)) > 0), "empty files")
+  expect(!any(grepl("^Failed to decode", ws)), "decode failures during media download")
   md
 }, cap = 400)
 check("check_username_on_telegram", check_username_on_telegram(client, "durov"))

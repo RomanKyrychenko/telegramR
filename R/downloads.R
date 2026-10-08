@@ -5,7 +5,10 @@ MAX_CHUNK_SIZE <- 512 * 1024
 TIMED_OUT_SLEEP <- 1
 
 #' @title upload.File class
-#' @description Minimal implementation of the upload.File TL type.
+#' @description Minimal container for a downloaded chunk. It has no
+#'   CONSTRUCTOR_ID on purpose: wire decoding uses the generated File class
+#'   (upload.file#096a18d5). An id here once took over storage.filePartial
+#'   (0x40bc6f52), which broke every mid-file chunk of a video download.
 #' @noRd
 upload.File <- R6::R6Class(
   "upload.File",
@@ -14,9 +17,6 @@ upload.File <- R6::R6Class(
     mtime = NULL,
     #  @field bytes Raw file bytes for this chunk.
     bytes = NULL,
-    #  @field CONSTRUCTOR_ID TL constructor ID.
-    CONSTRUCTOR_ID = 1086091090L,
-
     #  @description Initialize upload.File
     #  @param mtime int
     #  @param bytes raw
