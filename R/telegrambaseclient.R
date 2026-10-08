@@ -352,13 +352,10 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         private$loop <- "running" # Placeholder for the event loop
       }
 
-      log_info <- function(msg) {
-        if (!isTRUE(getOption("telegramR.test_mode"))) {
-          logger::log_info(msg)
-        }
-      }
-
-      log_info("Connecting to Telegram...")
+      quiet <- isTRUE(getOption("telegramR.test_mode"))
+      dc_id <- tryCatch(private$session$dc_id, error = function(e) NULL)
+      where <- if (length(dc_id) == 1 && !is.na(dc_id)) paste0(" (data centre ", dc_id, ")") else ""
+      if (!quiet) .tg_info("Connecting to Telegram{where}")
 
       # Configure the sender with session details
       if (!is.null(private$sender) && is.function(private$sender$is_connected) && !private$sender$is_connected()) {
@@ -379,7 +376,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         if (is.function(private$sender$set_update_callback)) {
           private$sender$set_update_callback(function(update) {
             if (!private$no_updates) {
-              logger::log_debug("Received update: {class(update)[1]}")
+              .tg_debug("Received update: {class(update)[1]}")
               if (!is.null(private$updates_queue) && is.function(private$updates_queue$put)) {
                 private$updates_queue$put(update)
               }
@@ -397,7 +394,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       private$save_session()
 
       if (private$catch_up && !is.null(private$message_box)) {
-        log_info("Catching up on missed updates...")
+        if (!quiet) .tg_info("Catching up on missed updates")
       }
 
       # Try to send init request if supported; otherwise fall back to a default config
@@ -425,7 +422,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           }
         },
         error = function(e) {
-          logger::log_warn("Skipping init request: {e$message}")
+          .tg_warn("Could not fetch the server configuration: {e$message}")
           list(dc_options = list())
         }
       )
@@ -438,7 +435,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         private$keepalive_handle <- "active"
       }
 
-      log_info("Connected to Telegram!")
+      if (!quiet) .tg_success("Connected to Telegram")
 
       if (isTRUE(getOption("telegramR.auth_status_message", TRUE)) &&
           is.function(self$is_user_authorized)) {
@@ -454,13 +451,13 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           error = function(e) NULL
         )
         if (isTRUE(auth_val)) {
-          log_info("Authorized session detected. No login required.")
+          if (!quiet) .tg_success("Logged in with the saved session")
         } else if (identical(auth_val, FALSE)) {
-          log_info("Not authorized. Request a login code with `client$send_code_request()`.")
+          if (!quiet) .tg_info("Not logged in yet; run {.code client$start()} to sign in")
         } else if (!is.null(private$session$auth_key)) {
-          log_info("Auth key is present. This does NOT guarantee authorization; you may still need to log in.")
+          if (!quiet) .tg_info("Login status unknown; run {.code client$start()} if requests fail")
         } else {
-          log_info("Authorization status unknown. If needed, request a login code with `client$send_code_request()`.")
+          if (!quiet) .tg_info("Login status unknown; run {.code client$start()} if requests fail")
         }
       }
 
@@ -503,7 +500,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       # Update init request with new proxy
       # Would need to update the actual connection in a real implementation
 
-      logger::log_info("Proxy updated. Will take effect on reconnection.")
+      .tg_info("Proxy updated; it takes effect on the next connection")
     },
 
     #  Get client version
@@ -657,7 +654,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     # Methods
     disconnect_internal = function() {
       if (!isTRUE(getOption("telegramR.test_mode"))) {
-        logger::log_info("Disconnecting from Telegram")
+        .tg_debug("Disconnecting from Telegram")
       }
 
       # Cancel update and keepalive handles
@@ -669,13 +666,13 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         state_sender <- private$borrowed_senders[[dc_id]]
         state <- state_sender[[1]]
         sender <- state_sender[[2]]
-        logger::log_debug("Disconnecting borrowed sender for DC {dc_id}")
+        .tg_debug("Disconnecting borrowed sender for DC {dc_id}")
         tryCatch(
           {
             sender$disconnect()
           },
           error = function(e) {
-            logger::log_warn("Error disconnecting sender for DC {dc_id}: {e$message}")
+            .tg_warn("Error disconnecting sender for DC {dc_id}: {e$message}")
           }
         )
       }
@@ -693,7 +690,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     },
     save_session = function() {
       if (is.null(private$session)) {
-        logger::log_warn("Cannot save session, session is NULL")
+        .tg_warn("Session could not be saved (no session is open)")
         return(NULL)
       }
 
@@ -708,7 +705,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           bot_token = private$session$bot_token
         )
         saveRDS(session_data, private$session$path)
-        logger::log_debug("Session data saved to {private$session$path}")
+        .tg_debug("Session data saved to {private$session$path}")
       }
     },
     close_session = function() {
@@ -726,7 +723,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
             private$sender$disconnect()
           },
           error = function(e) {
-            logger::log_warn("Error disconnecting sender: {e$message}")
+            .tg_warn("Error disconnecting sender: {e$message}")
           }
         )
       }
@@ -734,14 +731,14 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       # Clear session data
       private$session <- NULL
       if (!isTRUE(getOption("telegramR.test_mode"))) {
-        logger::log_info("Session closed")
+        .tg_success("Disconnected from Telegram")
       }
     },
     save_states_and_entities = function() {
       # Save message box state if it exists
       if (!is.null(private$message_box)) {
         # Would save message states in a real implementation
-        logger::log_debug("Saving message box states")
+        .tg_debug("Saving message box states")
       }
 
       # Save entity cache to session if supported
@@ -753,7 +750,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         }
         if (cache_len > 0) {
           private$session$entities <- private$mb_entity_cache
-          logger::log_debug("Saved {cache_len} entities to session")
+          .tg_debug("Saved {cache_len} entities to session")
         }
       }
     },
@@ -820,9 +817,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         }
 
         # Retry ignoring IPv6
-        logger::log_warn(
-          "Failed to get DC {dc_id} (cdn = {cdn}) with use_ipv6 = {private$use_ipv6}; retrying ignoring IPv6 check"
-        )
+        .tg_debug("No data centre {dc_id} (cdn = {cdn}) for use_ipv6 = {private$use_ipv6}; retrying without the IPv6 check")
 
         for (dc in dc_options) {
           if (dc$id == dc_id && identical(isTRUE(dc$cdn), cdn)) {
@@ -862,7 +857,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       future({
         dc_id <- as.integer(dc_id)
         dc <- future::value(private$get_dc(dc_id))
-        logger::log_info("Exporting auth for new borrowed sender in DC {dc_id}")
+        .tg_debug("Exporting authorisation to data centre {dc_id}")
 
         sender_cls <- base::get0("MTProtoSender", envir = asNamespace("telegramR"))
         sender <- sender_cls$new(
@@ -910,14 +905,14 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     borrow_exported_sender = function(dc_id) {
       future({
         dc_key <- as.character(dc_id)
-        logger::log_debug("Borrowing sender for DC {dc_id}")
+        .tg_debug("Borrowing sender for DC {dc_id}")
 
         # --- Connection pool: reuse an idle sender if one is available ---
         pool <- private$sender_pool[[dc_key]]
         if (!is.null(pool) && length(pool) > 0) {
           sender <- pool[[length(pool)]]
           private$sender_pool[[dc_key]] <- pool[-length(pool)]
-          logger::log_debug("Reused pooled sender for DC {dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
+          .tg_debug("Reused pooled sender for DC {dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
 
           # Track in borrowed_senders for state management
           state_sender <- private$borrowed_senders[[dc_key]]
@@ -956,7 +951,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     return_exported_sender = function(sender) {
       future({
         dc_key <- as.character(sender$dc_id)
-        logger::log_debug("Returning borrowed sender for DC {sender$dc_id}")
+        .tg_debug("Returning borrowed sender for DC {sender$dc_id}")
 
         state_sender <- private$borrowed_senders[[dc_key]]
         if (!is.null(state_sender)) {
@@ -968,7 +963,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         pool <- private$sender_pool[[dc_key]] %||% list()
         if (length(pool) < private$sender_pool_max) {
           private$sender_pool[[dc_key]] <- c(pool, list(sender))
-          logger::log_debug("Returned sender to pool for DC {sender$dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
+          .tg_debug("Returned sender to pool for DC {sender$dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
         }
         # If pool is full the sender is simply dropped (will be GC'd)
 
@@ -983,7 +978,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           sender <- state_sender[[2]]
 
           if (state$should_disconnect()) {
-            logger::log_info("Disconnecting borrowed sender for DC {dc_id}")
+            .tg_debug("Disconnecting borrowed sender for data centre {dc_id}")
             # Would disconnect the sender in a real implementation
             state$mark_disconnected()
             # Also drain any pooled senders for this DC
@@ -1011,7 +1006,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           private$exported_sessions[[as.character(cdn_redirect$dc_id)]] <- session
         }
 
-        logger::log_info("Creating new CDN client")
+        .tg_debug("Creating CDN client")
 
         # Would create a new MTProtoSender for this CDN connection
         # and configure it with the CDN session
@@ -1083,7 +1078,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           error = function(e) {
             call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
             msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
-            logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+            .tg_warn("Connection attempt failed: {msg_txt}")
             stop(e)
           }
         )
@@ -1105,7 +1100,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           error = function(e) {
             call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
             msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
-            logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+            .tg_warn("Connection attempt failed: {msg_txt}")
             stop(e)
           }
         )
@@ -1114,12 +1109,12 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         res <- tryCatch(future::value(res), error = function(e) {
           call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
           msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
-          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+          .tg_warn("Connection attempt failed: {msg_txt}")
           stop(e)
         })
       }
       if (is.null(private$sender) || !is.function(private$sender$is_connected) || !isTRUE(private$sender$is_connected())) {
-        logger::log_warn("Sender still disconnected after connect()")
+        .tg_warn("Still not connected after connect(); check your network or proxy settings")
         return(invisible(FALSE))
       }
       invisible(TRUE)

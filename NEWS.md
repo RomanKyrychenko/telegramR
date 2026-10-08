@@ -37,6 +37,17 @@
   `BinaryReader` (it gained the camelCase method names they call).
 * `MTProtoState$decrypt_message_data()` no longer short-circuits when running
   under testthat; its tests now decrypt real server-direction messages.
+* Consistent, informative console output built on 'cli': connection and
+  sign-in status, rate-limit waits and data-centre switches are reported as
+  short `ℹ`/`✔`/`!` lines; the download functions show a progress bar with
+  rate and ETA (interactive sessions) and finish with a one-line summary
+  (rows, date range, elapsed time, output file). Internal details (server
+  salts, sender pools) are only shown with `options(telegramR.verbose =
+  "debug")`; `options(telegramR.verbose = FALSE)` silences everything. The
+  'logger' dependency is dropped.
+* Fixed file-download retries (timeouts, files in another data centre,
+  expired file references) and CDN redirects calling logging methods that
+  did not exist, which turned a recoverable situation into an error.
 * Removed compiled objects (`src/*.o`, `src/*.so`) from version control; they
   broke installation from a git checkout on other platforms.
 

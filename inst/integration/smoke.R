@@ -65,7 +65,7 @@ for (fn in c("download_channel_info", "download_channel_messages",
 }
 
 client <- TelegramClient$new(session = sess, api_id = api_id, api_hash = api_hash)
-val(client$connect())
+invisible(val(client$connect()))
 if (!isTRUE(tryCatch(val(client$is_user_authorized()), error = function(e) FALSE))) {
   message("Integration smoke: session not authorised; skipping.")
   quit(status = 0)

@@ -367,11 +367,10 @@ get_running_loop <- function() {
 #' @return Formatted flood wait message
 #' @noRd
 fmt_flood <- function(delay, request, early = FALSE, td = as.difftime) {
-  sprintf(
-    "Sleeping%s for %ds (%s) on %s flood wait",
-    if (early) " early" else "",
-    delay,
-    as.character(td(delay, units = "secs")),
-    class(request)[1]
-  )
+  what <- sub("Request$", "", class(request)[1])
+  if (early) {
+    sprintf("Telegram rate limit on %s is still active: waiting %ds before sending", what, as.integer(delay))
+  } else {
+    sprintf("Telegram rate limit (FLOOD_WAIT) on %s: waiting %ds before retrying", what, as.integer(delay))
+  }
 }

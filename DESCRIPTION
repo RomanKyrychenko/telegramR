@@ -32,7 +32,6 @@ Imports:
     R6,
     future,
     httr,
-    logger,
     promises,
     later,
     bitops,
@@ -42,6 +41,7 @@ Imports:
     tibble,
     dplyr,
     callr,
+    cli (>= 3.4.0),
     compiler
 LinkingTo:
     Rcpp
@@ -156,6 +156,7 @@ Collate:
     'check_invite_link.R'
     'increase_view_count.R'
     'utils_bridge.R'
+    'ui.R'
     'zzz.R'
 URL: https://romankyrychenko.github.io/telegramR/, https://github.com/RomanKyrychenko/telegramR
 BugReports: https://github.com/RomanKyrychenko/telegramR/issues

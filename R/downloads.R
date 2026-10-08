@@ -249,18 +249,18 @@ DirectDownloadIter <- R6::R6Class(
           error = function(e) {
             if (inherits(e, "TimedOutError")) {
               if (self$timed_out) {
-                self$client$log_warning("Got two timeouts in a row while downloading file")
+                .tg_warn("File download timed out twice in a row; giving up")
                 stop(e)
               }
 
               self$timed_out <- TRUE
-              self$client$log_info("Got timeout while downloading file, retrying once")
+              .tg_warn("File download timed out; retrying once")
               Sys.sleep(TIMED_OUT_SLEEP)
               return(self$request())
             }
 
             if (inherits(e, "FileMigrateError")) {
-              self$client$log_info("File lives in another DC")
+              .tg_debug("File is stored in data centre {e$new_dc}; switching")
               self$sender <- self$client$borrow_exported_sender(e$new_dc)
               self$exported <- TRUE
               return(self$request())
@@ -274,7 +274,7 @@ DirectDownloadIter <- R6::R6Class(
                 stop(e)
               }
 
-              self$client$log_info("File ref expired during download; refetching message")
+              .tg_debug("File reference expired; fetching the message again")
               chat <- self$msg_data[[1]]
               msg_id <- self$msg_data[[2]]
               msg <- self$client$get_messages(chat, ids = msg_id)

@@ -1757,12 +1757,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     },
     handle_bad_notification = function(message) {
       bad_msg <- message$obj
-      message(sprintf(
-        "[handle_bad_notification] bad_msg_id=%s, error_code=%s, pending_keys=%s",
-        as.character(bad_msg$bad_msg_id),
-        as.character(bad_msg$error_code),
-        paste(names(private$pending_state), collapse = ",")
-      ))
+      bad_id <- as.character(bad_msg$bad_msg_id)
+      .tg_debug("Server rejected message {bad_id} (error code {bad_msg$error_code}); resending")
       states <- private$pop_states(bad_msg$bad_msg_id)
       if (bad_msg$error_code %in% c(16, 17)) {
         # Sent msg_id too low or too high (respectively).
@@ -1800,7 +1796,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack$add(msg_id)
     },
     handle_new_session_created = function(message) {
-      message(sprintf("[handle_new_session] server_salt=%s", as.character(message$obj$server_salt)))
+      salt <- as.character(message$obj$server_salt)
+      .tg_debug("New server session (salt {salt})")
       new_salt <- message$obj$server_salt
       if (!is.null(new_salt) && length(new_salt) >= 1) {
         private$state$salt <- new_salt

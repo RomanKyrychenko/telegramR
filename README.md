@@ -189,6 +189,12 @@ for (m in messages) {
 - Most high-level methods (like `get_entity`, `download_media`) return
   [future](https://cran.r-project.org/package=future) objects. Unwrap
   them with `future::value()`.
+- Status output (connecting, signing in, rate-limit waits, download progress
+  bars with ETA and a one-line summary of each download) is controlled by
+  `options(telegramR.verbose = TRUE)` (default), `FALSE` (silent) or `"debug"`
+  (adds low-level connection details). It is emitted as R messages, so
+  `suppressMessages()` also works. `show_progress = FALSE` turns off the
+  progress bar and summary of a single download call.
 - To silence pump/process debug messages, keep these options disabled:
   `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.
 - To trace hangs in channel info/message downloads, enable:
