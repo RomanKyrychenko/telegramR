@@ -133,7 +133,9 @@ check("download_channel_media", {
   md <- withCallingHandlers(
     download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d),
     warning = function(w) {
-      if (!length(ws)) cat("      first warning:", conditionMessage(w), "\n")
+      if (inherits(w, "telegramR_parse_warning") && !any(grepl("^Failed to decode", ws))) {
+        cat("      first parse warning:", conditionMessage(w), "\n")
+      }
       ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning")
     }
   )
