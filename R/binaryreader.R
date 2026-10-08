@@ -786,6 +786,18 @@ AuthAuthorization <- R6::R6Class("AuthAuthorization",
 # (options(telegramR.parse_warnings = FALSE) turns these off).
 .telegramR_parse_warning <- function(msg, constructor_id = NULL, class_name = NULL) {
   if (isFALSE(getOption("telegramR.parse_warnings"))) return(invisible(NULL))
+  # Debugging aid: name the functions that led here, since the warning is
+  # often relayed by a future after the original stack is gone.
+  if (isTRUE(getOption("telegramR.parse_warning_calls"))) {
+    calls <- vapply(sys.calls(), function(cl) {
+      f <- cl[[1]]
+      if (is.name(f)) return(as.character(f))
+      if (is.call(f) && identical(f[[1]], as.name("$"))) return(paste0("$", as.character(f[[3]])))
+      "<fn>"
+    }, character(1))
+    calls <- calls[!calls %in% c("<fn>", "tryCatch", "tryCatchList", "tryCatchOne", "doTryCatch", "withCallingHandlers")]
+    msg <- paste0(msg, " [calls: ", paste(utils::tail(calls, 12), collapse = " > "), "]")
+  }
   cond <- structure(
     class = c("telegramR_parse_warning", "warning", "condition"),
     list(message = msg, call = NULL, constructor_id = constructor_id, class_name = class_name)

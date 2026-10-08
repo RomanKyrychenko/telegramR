@@ -129,16 +129,15 @@ check("download_channel_reactions", {
 check("download_channel_media", {
   d <- tempfile(); dir.create(d)
   ws <- character(0)
+  op <- options(telegramR.parse_warning_calls = TRUE)
   md <- withCallingHandlers(
     download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d),
     warning = function(w) {
-      if (inherits(w, "telegramR_parse_warning") && !length(ws)) {
-        calls <- vapply(sys.calls(), function(cl) paste(deparse(cl[[1]], nlines = 1), collapse = ""), character(1))
-        cat("      first parse warning raised from:", paste(utils::tail(calls, 25), collapse = " < "), "\n")
-      }
+      if (!length(ws)) cat("      first warning:", conditionMessage(w), "\n")
       ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning")
     }
   )
+  options(op)
   expect(is.data.frame(md), "not df")
   for (f in list.files(d, full.names = TRUE)) {
     b <- readBin(f, "raw", file.size(f))
