@@ -2,11 +2,9 @@
 #
 # All user-facing status output goes through these so it looks the same
 # everywhere (cli's ℹ / ✔ / ! / ✖ bullets, progress bars with rate and ETA)
-# and can be controlled in one place:
-#
-#   options(telegramR.verbose = TRUE)     # default: status, summaries, progress
-#   options(telegramR.verbose = FALSE)    # silent
-#   options(telegramR.verbose = "debug")  # also low-level connection details
+# and can be controlled in one place, the telegramR.verbose option: TRUE
+# (default) shows status, summaries and progress, FALSE is silent, and "debug"
+# adds low-level connection details.
 #
 # Everything is emitted as R messages, so suppressMessages() works too.
 # Messages are cli templates: interpolate values with {var} from the calling
@@ -48,15 +46,15 @@
   invisible(NULL)
 }
 
-# 12345 -> "12,345"
+# Thousands separators, e.g. 12345 becomes "12,345".
 .tg_num <- function(n) format(as.numeric(n), big.mark = ",", scientific = FALSE, trim = TRUE)
 
-# "1 message" / "1,234 messages"
+# Count with a singular or plural noun, e.g. "1 message", "1,234 messages".
 .tg_plural <- function(n, noun, plural = paste0(noun, "s")) {
   paste(.tg_num(n), if (isTRUE(as.numeric(n) == 1)) noun else plural)
 }
 
-# Seconds -> "4.2s", "3m 07s", "1h 05m"
+# Elapsed seconds as text, e.g. "4.2s", "3m 07s", "1h 05m".
 .tg_duration <- function(secs) {
   secs <- as.numeric(secs)
   if (!is.finite(secs)) return("?")
