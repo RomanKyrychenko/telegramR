@@ -118,11 +118,31 @@ check("fast decoder rows == R decoder rows", {
   TRUE
 }, cap = 400)
 check("estimate_channel_post_count", { e <- estimate_channel_post_count(client, channel); expect(e$last_message_id > 0, "bad estimate"); e })
-check("download_channel_reactions", { r <- download_channel_reactions(client, channel, limit = 20); expect(is.data.frame(r), "not df"); r })
+check("download_channel_reactions", {
+  r <- download_channel_reactions(client, channel, limit = 20)
+  expect(is.data.frame(r), "not df")
+  cat(sprintf("      posts with reactions: %d/%d; reactions_json sample: %s\n",
+              sum(r$reactions_total > 0, na.rm = TRUE), nrow(r),
+              paste(utils::head(unique(r$reactions_json), 3), collapse = " | ")))
+  r
+})
 check("download_channel_media", {
   d <- tempfile(); dir.create(d)
-  md <- download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d)
+  ws <- character(0)
+  md <- withCallingHandlers(
+    download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d),
+    warning = function(w) { ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning") }
+  )
   expect(is.data.frame(md), "not df")
+  if (nrow(md) > 0 && "error" %in% names(md)) {
+    for (k in which(!is.na(md$error))) {
+      cat(sprintf("      media %s (%s) failed: %s\n", md$message_id[k], md$media_type[k], substr(md$error[k], 1, 160)))
+    }
+  }
+  if (length(ws)) {
+    tab <- sort(table(substr(ws, 1, 140)), decreasing = TRUE)
+    for (k in seq_len(min(5, length(tab)))) cat(sprintf("      warning x%d: %s\n", tab[[k]], names(tab)[k]))
+  }
   if (nrow(md) > 0) expect(any(file.size(list.files(d, full.names = TRUE)) > 0), "empty files")
   md
 }, cap = 400)
