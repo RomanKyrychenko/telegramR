@@ -81,6 +81,29 @@ telegramR encodes only the 100 messages, because its special-case reader returns
 * **PQ factorisation** runs Pollard-rho in interpreted R over `gmp::bigz`. One
   `mod.bigz` allocation happens per step.
 
+## After the first round of fixes
+
+The changes:
+
+1. The constructor index is built at install time and cached outside `options()`.
+2. TL classes are flattened on first use, so there is no R6 `super` object per instance.
+3. Each class parser is compiled once, and the blank instance is no longer built twice.
+4. `read_int()` has a fast path.
+5. PQ factorisation runs in C++.
+
+Same machine, old and new builds measured alternately:
+
+| Operation | Before | After | Telethon |
+|---|---:|---:|---:|
+| Decode `ChannelMessages`, 1 msg | 46 ms | 23–30 ms | 0.21 ms |
+| Decode `ChannelMessages`, 100 msgs | 1.65 s | **0.66–0.69 s** (2.4×) | 5.4 ms |
+| Load + first decode (cold start) | 6.9 s | **0.78 s** (9×) | 0.45 s |
+| PQ factorisation | 4.5–5.2 s | **5 ms** (~1000×) | 33 ms |
+
+Decoding is still about 120× slower than Telethon. Most of the remaining time is R6
+instantiation itself (about 200 µs per object, even when flattened), so closing the gap
+further means a lighter object representation for decoded TL types.
+
 ## Correctness
 
 | Check | Result |

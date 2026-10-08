@@ -41,7 +41,8 @@ Imports:
     mime,
     tibble,
     dplyr,
-    callr
+    callr,
+    compiler
 LinkingTo:
     Rcpp
 Suggests:

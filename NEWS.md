@@ -1,3 +1,17 @@
+# telegramR (development version)
+
+* Faster TL decoding: a 100-message `messages.ChannelMessages` page now parses
+  about 2.5x faster, and the first parsed response after loading the package no
+  longer spends ~8 s building the constructor map. The constructor index is
+  computed at install time, cached outside `options()`, and TL classes are
+  flattened on first use so R6 no longer builds a `super` object per instance.
+* PQ factorisation during the auth-key handshake now runs in C++ (about 1000x
+  faster), cutting several seconds from each new login or DC connection.
+* Strings read from the wire are now marked as UTF-8, so non-ASCII text is no
+  longer garbled under non-UTF-8 locales.
+* Removed compiled objects (`src/*.o`, `src/*.so`) from version control; they
+  broke installation from a git checkout on other platforms.
+
 # telegramR 0.0.2
 
 * Removed unused sample video files from `inst/extdata`, shrinking the source

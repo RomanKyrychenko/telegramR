@@ -17,6 +17,11 @@ Factorization <- R6::R6Class(
     #  @return A numeric vector containing the two factors `p` and `q`.
     factorize = function(pq) {
       pq <- gmp::as.bigz(pq)
+      # Fast path: native 64-bit Pollard-Brent (Telegram's pq is < 2^63)
+      pq_fast <- factorize_pq_cpp(as.character(pq))
+      if (all(pq_fast > 0)) {
+        return(list(p = gmp::as.bigz(pq_fast[1]), q = gmp::as.bigz(pq_fast[2])))
+      }
       if (gmp::mod.bigz(pq, 2) == 0) {
         return(list(p = gmp::as.bigz(2), q = gmp::divq.bigz(pq, 2)))
       }

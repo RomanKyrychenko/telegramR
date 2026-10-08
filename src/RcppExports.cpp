@@ -150,6 +150,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// factorize_pq_cpp
+NumericVector factorize_pq_cpp(std::string pq_str);
+RcppExport SEXP _telegramR_factorize_pq_cpp(SEXP pq_strSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type pq_str(pq_strSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorize_pq_cpp(pq_str));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_aes_ige_encrypt", (DL_FUNC) &_telegramR_aes_ige_encrypt, 3},
@@ -164,6 +175,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_hex_to_bytes", (DL_FUNC) &_telegramR_hex_to_bytes, 3},
     {"_telegramR_encode_waveform_cpp", (DL_FUNC) &_telegramR_encode_waveform_cpp, 1},
     {"_telegramR_decode_waveform_cpp", (DL_FUNC) &_telegramR_decode_waveform_cpp, 1},
+    {"_telegramR_factorize_pq_cpp", (DL_FUNC) &_telegramR_factorize_pq_cpp, 1},
     {NULL, NULL, 0}
 };
 

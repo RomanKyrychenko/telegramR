@@ -49,3 +49,7 @@ decode_waveform_cpp <- function(waveform) {
     .Call(`_telegramR_decode_waveform_cpp`, waveform)
 }
 
+factorize_pq_cpp <- function(pq_str) {
+    .Call(`_telegramR_factorize_pq_cpp`, pq_str)
+}
+
