@@ -100,8 +100,8 @@ test_that("the channel fixture decodes identically with and without the compiled
 })
 
 test_that("a corrupted vector count fails fast instead of allocating", {
-  # updateDeleteGroupCallMessages#3e85e92c flags:# call:InputGroupCall messages:Vector<int>
-  # truncated right after a huge Vector<int> count: must error, not allocate ~16 GB
+  # A Vector constructor followed by a count of 2^31 - 1 and no elements: reading
+  # it must error, not allocate ~16 GB.
   huge <- c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), as.raw(c(0xff, 0xff, 0xff, 0x7f)))
   r <- BinaryReader$new(huge)
   expect_error(r$tgread_vector(), "Invalid vector length")

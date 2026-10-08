@@ -91,6 +91,29 @@ check("download_channel_messages", { m <- download_channel_messages(client, chan
 if (inherits(info, "data.frame")) {
   check("download_channel_messages(numeric id)", { m <- download_channel_messages(client, as.numeric(info$channel_id), limit = 3, show_progress = FALSE); expect(nrow(m) > 0, "no messages by id"); m })
 }
+# The compiled lite decoder must give the same rows as the original R6 decoder
+# on live data. Counters (views, forwards, replies, reactions) can change
+# between the two downloads, so compare the stable columns on common ids.
+check("fast decoder rows == R decoder rows", {
+  n_warn <- 0L
+  dl <- function() withCallingHandlers(
+    download_channel_messages(client, channel, limit = 100, show_progress = FALSE),
+    telegramR_parse_warning = function(w) { n_warn <<- n_warn + 1L; invokeRestart("muffleWarning") }
+  )
+  fast <- dl()
+  old <- options(telegramR.fast_decode = FALSE, telegramR.lite_messages = FALSE)
+  slow <- tryCatch(dl(), finally = options(old))
+  cols <- c("message_id", "date", "text", "media_type", "is_forward", "forward_from_id",
+            "forward_from_message_id", "reply_to_msg_id", "post_author")
+  ids <- intersect(fast$message_id, slow$message_id)
+  expect(length(ids) >= 50, sprintf("only %d common messages", length(ids)))
+  a <- fast[match(ids, fast$message_id), cols]
+  b <- slow[match(ids, slow$message_id), cols]
+  expect(identical(a, b), "rows differ between compiled and R decoders")
+  expect(n_warn == 0L, sprintf("%d telegramR_parse_warning(s)", n_warn))
+  cat(sprintf("      compared %d messages\n", length(ids)))
+  TRUE
+}, cap = 400)
 check("estimate_channel_post_count", { e <- estimate_channel_post_count(client, channel); expect(e$last_message_id > 0, "bad estimate"); e })
 check("download_channel_reactions", { r <- download_channel_reactions(client, channel, limit = 20); expect(is.data.frame(r), "not df"); r })
 check("download_channel_media", {
