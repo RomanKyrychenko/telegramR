@@ -431,9 +431,14 @@ BinaryReader <- R6::R6Class(
           ))
         }
         parsed <- tryCatch(from_reader_fn(self), error = function(e) {
+          detail <- if (isTRUE(getOption("telegramR.parse_warning_calls"))) {
+            d <- private$.data
+            sprintf(" [object at byte %d of %d; first bytes: %s]", pos_after_ctor - 4L, length(d),
+                    paste(as.character(utils::head(d, 64)), collapse = ""))
+          } else ""
           .telegramR_parse_warning(sprintf(
-            "Failed to decode %s (constructor %s): %s. The remaining bytes of this response were not decoded.",
-            cls$classname[1], .telegramR_ctor_hex(ctor_key), conditionMessage(e)
+            "Failed to decode %s (constructor %s): %s. The remaining bytes of this response were not decoded.%s",
+            cls$classname[1], .telegramR_ctor_hex(ctor_key), conditionMessage(e), detail
           ), constructor_id = constructor_id, class_name = cls$classname[1])
           # Rewind reader to position right after constructor_id so the
           # fallback data contains ALL the object bytes.
