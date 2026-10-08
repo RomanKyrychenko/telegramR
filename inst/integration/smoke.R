@@ -28,7 +28,10 @@ options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR
 
 api_id   <- Sys.getenv("TELEGRAMR_API_ID")
 api_hash <- Sys.getenv("TELEGRAMR_API_HASH")
-channel  <- Sys.getenv("TELEGRAMR_TEST_CHANNEL", "telegram")
+# The workflow always sets this variable (empty when the optional secret is
+# missing), so treat empty the same as unset.
+channel  <- Sys.getenv("TELEGRAMR_TEST_CHANNEL")
+if (!nzchar(channel)) channel <- "telegram"
 
 if (!nzchar(api_id) || !nzchar(api_hash)) {
   message("Integration smoke: credentials not set; skipping.")
