@@ -3900,8 +3900,8 @@ BusinessBotRecipients <- R6::R6Class("BusinessBotRecipients",
       self$contacts <- bitwAnd(flags, 4L) != 0
       self$non_contacts <- bitwAnd(flags, 8L) != 0
       self$exclude_selected <- bitwAnd(flags, 32L) != 0
-      self$users <- if (bitwAnd(flags, 16L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
-      self$exclude_users <- if (bitwAnd(flags, 64L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$users <- if (bitwAnd(flags, 16L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
+      self$exclude_users <- if (bitwAnd(flags, 64L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self
     }
   ),
@@ -4347,7 +4347,7 @@ BusinessRecipients <- R6::R6Class("BusinessRecipients",
       self$contacts <- bitwAnd(flags, 4L) != 0
       self$non_contacts <- bitwAnd(flags, 8L) != 0
       self$exclude_selected <- bitwAnd(flags, 32L) != 0
-      self$users <- if (bitwAnd(flags, 16L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$users <- if (bitwAnd(flags, 16L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self
     }
   ),
@@ -5673,8 +5673,8 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
   ),
   private = list(
     from_reader = function(reader) {
-      self$prev_value <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
-      self$new_value <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$prev_value <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
+      self$new_value <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -8087,11 +8087,11 @@ ChannelFull <- R6::R6Class("ChannelFull",
       self$pts <- reader$read_int()
       self$call <- if (bitwAnd(flags, 2097152L) != 0) reader$tgread_object() else NULL
       self$ttl_period <- if (bitwAnd(flags, 16777216L) != 0) reader$read_int() else NULL
-      self$pending_suggestions <- if (bitwAnd(flags, 33554432L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$pending_suggestions <- if (bitwAnd(flags, 33554432L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$groupcall_default_join_as <- if (bitwAnd(flags, 67108864L) != 0) reader$tgread_object() else NULL
       self$theme_emoticon <- if (bitwAnd(flags, 134217728L) != 0) reader$tgread_string() else NULL
       self$requests_pending <- if (bitwAnd(flags, 268435456L) != 0) reader$read_int() else NULL
-      self$recent_requesters <- if (bitwAnd(flags, 268435456L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$recent_requesters <- if (bitwAnd(flags, 268435456L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self$default_send_as <- if (bitwAnd(flags, 536870912L) != 0) reader$tgread_object() else NULL
       self$available_reactions <- if (bitwAnd(flags, 1073741824L) != 0) reader$tgread_object() else NULL
       self$reactions_limit <- if (bitwAnd(flags2, 8192L) != 0) reader$read_int() else NULL
@@ -9621,7 +9621,7 @@ ChatFull <- R6::R6Class("ChatFull",
       self$groupcall_default_join_as <- if (bitwAnd(flags, 32768L) != 0) reader$tgread_object() else NULL
       self$theme_emoticon <- if (bitwAnd(flags, 65536L) != 0) reader$tgread_string() else NULL
       self$requests_pending <- if (bitwAnd(flags, 131072L) != 0) reader$read_int() else NULL
-      self$recent_requesters <- if (bitwAnd(flags, 131072L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$recent_requesters <- if (bitwAnd(flags, 131072L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self$available_reactions <- if (bitwAnd(flags, 262144L) != 0) reader$tgread_object() else NULL
       self$reactions_limit <- if (bitwAnd(flags, 1048576L) != 0) reader$read_int() else NULL
       self
@@ -10927,7 +10927,7 @@ CodeSettings <- R6::R6Class("CodeSettings",
       self$allow_missed_call <- bitwAnd(flags, 32L) != 0
       self$allow_firebase <- bitwAnd(flags, 128L) != 0
       self$unknown_number <- bitwAnd(flags, 512L) != 0
-      self$logout_tokens <- if (bitwAnd(flags, 64L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() } else NULL
+      self$logout_tokens <- if (bitwAnd(flags, 64L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() } else NULL
       self$token <- if (bitwAnd(flags, 256L) != 0) reader$tgread_string() else NULL
       self$app_sandbox <- if (bitwAnd(flags, 256L) != 0) reader$tgread_bool() else NULL
       self
@@ -13838,7 +13838,7 @@ EmojiGroup <- R6::R6Class("EmojiGroup",
     from_reader = function(reader) {
       self$title <- reader$tgread_string()
       self$icon_emoji_id <- reader$read_long()
-      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -13894,7 +13894,7 @@ EmojiGroupGreeting <- R6::R6Class("EmojiGroupGreeting",
     from_reader = function(reader) {
       self$title <- reader$tgread_string()
       self$icon_emoji_id <- reader$read_long()
-      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -13994,7 +13994,7 @@ EmojiKeyword <- R6::R6Class("EmojiKeyword",
   private = list(
     from_reader = function(reader) {
       self$keyword <- reader$tgread_string()
-      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -14044,7 +14044,7 @@ EmojiKeywordDeleted <- R6::R6Class("EmojiKeywordDeleted",
   private = list(
     from_reader = function(reader) {
       self$keyword <- reader$tgread_string()
-      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$emoticons <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -14200,7 +14200,7 @@ EmojiList <- R6::R6Class("EmojiList",
   private = list(
     from_reader = function(reader) {
       self$hash <- reader$read_long()
-      self$document_id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$document_id <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -16742,7 +16742,7 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class("GroupCallParticipantVideoSo
   private = list(
     from_reader = function(reader) {
       self$semantics <- reader$tgread_string()
-      self$sources <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$sources <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -22567,7 +22567,7 @@ InputMediaPoll <- R6::R6Class("InputMediaPoll",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$poll <- reader$tgread_object()
-      self$correct_answers <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$correct_answers <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$attached_media <- if (bitwAnd(flags, 8L) != 0) reader$tgread_object() else NULL
       self$solution <- if (bitwAnd(flags, 2L) != 0) reader$tgread_string() else NULL
       self$solution_entities <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
@@ -25729,7 +25729,7 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class("InputPrivacyValueAllowCha
   ),
   private = list(
     from_reader = function(reader) {
-      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -26007,7 +26007,7 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class("InputPrivacyValueDisal
   ),
   private = list(
     from_reader = function(reader) {
-      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -28265,7 +28265,7 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class("InputStorePaymentPremiumGiveawa
       self$winners_are_visible <- bitwAnd(flags, 8L) != 0
       self$boost_peer <- reader$tgread_object()
       self$additional_peers <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
-      self$countries_iso2 <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$countries_iso2 <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$prize_description <- if (bitwAnd(flags, 16L) != 0) reader$tgread_string() else NULL
       self$random_id <- reader$read_long()
       self$until_date <- reader$read_int()
@@ -28495,7 +28495,7 @@ InputStorePaymentStarsGiveaway <- R6::R6Class("InputStorePaymentStarsGiveaway",
       self$stars <- reader$read_long()
       self$boost_peer <- reader$tgread_object()
       self$additional_peers <- if (bitwAnd(flags, 2L) != 0) reader$tgread_vector() else NULL
-      self$countries_iso2 <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$countries_iso2 <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$prize_description <- if (bitwAnd(flags, 16L) != 0) reader$tgread_string() else NULL
       self$random_id <- reader$read_long()
       self$until_date <- reader$read_int()
@@ -28740,7 +28740,7 @@ InputThemeSettings <- R6::R6Class("InputThemeSettings",
       self$base_theme <- reader$tgread_object()
       self$accent_color <- reader$read_int()
       self$outbox_accent_color <- if (bitwAnd(flags, 8L) != 0) reader$read_int() else NULL
-      self$message_colors <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$message_colors <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$wallpaper <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
       self$wallpaper_settings <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
       self
@@ -29493,7 +29493,7 @@ Invoice <- R6::R6Class("Invoice",
       self$currency <- reader$tgread_string()
       self$prices <- reader$tgread_vector()
       self$max_tip_amount <- if (bitwAnd(flags, 256L) != 0) reader$read_long() else NULL
-      self$suggested_tip_amounts <- if (bitwAnd(flags, 256L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$suggested_tip_amounts <- if (bitwAnd(flags, 256L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self$terms_url <- if (bitwAnd(flags, 1024L) != 0) reader$tgread_string() else NULL
       self$subscription_period <- if (bitwAnd(flags, 2048L) != 0) reader$read_int() else NULL
       self
@@ -32046,7 +32046,7 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   ),
   private = list(
     from_reader = function(reader) {
-      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -32096,7 +32096,7 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   private = list(
     from_reader = function(reader) {
       self$title <- reader$tgread_string()
-      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -33335,7 +33335,7 @@ MessageActionInviteToGroupCall <- R6::R6Class("MessageActionInviteToGroupCall",
   private = list(
     from_reader = function(reader) {
       self$call <- reader$tgread_object()
-      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -34910,8 +34910,8 @@ MessageActionTodoCompletions <- R6::R6Class("MessageActionTodoCompletions",
   ),
   private = list(
     from_reader = function(reader) {
-      self$completed <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
-      self$incompleted <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$completed <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
+      self$incompleted <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -36989,8 +36989,8 @@ MessageMediaGiveaway <- R6::R6Class("MessageMediaGiveaway",
       flags <- reader$read_int()
       self$only_new_subscribers <- bitwAnd(flags, 1L) != 0
       self$winners_are_visible <- bitwAnd(flags, 4L) != 0
-      self$channels <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
-      self$countries_iso2 <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$channels <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
+      self$countries_iso2 <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$prize_description <- if (bitwAnd(flags, 8L) != 0) reader$tgread_string() else NULL
       self$quantity <- reader$read_int()
       self$months <- if (bitwAnd(flags, 16L) != 0) reader$read_int() else NULL
@@ -37108,7 +37108,7 @@ MessageMediaGiveawayResults <- R6::R6Class("MessageMediaGiveawayResults",
       self$launch_msg_id <- reader$read_int()
       self$winners_count <- reader$read_int()
       self$unclaimed_count <- reader$read_int()
-      self$winners <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$winners <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self$months <- if (bitwAnd(flags, 16L) != 0) reader$read_int() else NULL
       self$stars <- if (bitwAnd(flags, 32L) != 0) reader$read_long() else NULL
       self$prize_description <- if (bitwAnd(flags, 2L) != 0) reader$tgread_string() else NULL
@@ -37941,7 +37941,7 @@ MessagePeerVoteMultiple <- R6::R6Class("MessagePeerVoteMultiple",
   private = list(
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
-      self$options <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() }
+      self$options <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() }
       self$date <- reader$read_int()
       self
     }
@@ -43817,7 +43817,7 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
       self$udp_reflector <- bitwAnd(flags, 2L) != 0
       self$min_layer <- reader$read_int()
       self$max_layer <- reader$read_int()
-      self$library_versions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$library_versions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -44576,7 +44576,7 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
       self$type <- reader$tgread_string()
       self$w <- reader$read_int()
       self$h <- reader$read_int()
-      self$sizes <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$sizes <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -44771,7 +44771,7 @@ Poll <- R6::R6Class("Poll",
       self$answers <- reader$tgread_vector()
       self$close_period <- if (bitwAnd(flags, 16L) != 0) reader$read_int() else NULL
       self$close_date <- if (bitwAnd(flags, 32L) != 0) reader$read_int() else NULL
-      self$countries_iso2 <- if (bitwAnd(flags, 4096L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$countries_iso2 <- if (bitwAnd(flags, 4096L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$hash <- reader$read_long()
       self
     }
@@ -46211,7 +46211,7 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
   ),
   private = list(
     from_reader = function(reader) {
-      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -46369,7 +46369,7 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   ),
   private = list(
     from_reader = function(reader) {
-      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -46489,7 +46489,7 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
   ),
   private = list(
     from_reader = function(reader) {
-      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$chats <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -46571,7 +46571,7 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   ),
   private = list(
     from_reader = function(reader) {
-      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$users <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -49227,7 +49227,7 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
       self$transfer_stars <- if (bitwAnd(flags, 256L) != 0) reader$read_long() else NULL
       self$can_transfer_at <- if (bitwAnd(flags, 8192L) != 0) reader$read_int() else NULL
       self$can_resell_at <- if (bitwAnd(flags, 16384L) != 0) reader$read_int() else NULL
-      self$collection_id <- if (bitwAnd(flags, 32768L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$collection_id <- if (bitwAnd(flags, 32768L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$prepaid_upgrade_hash <- if (bitwAnd(flags, 65536L) != 0) reader$tgread_string() else NULL
       self$drop_original_details_stars <- if (bitwAnd(flags, 262144L) != 0) reader$read_long() else NULL
       self$gift_num <- if (bitwAnd(flags, 524288L) != 0) reader$read_int() else NULL
@@ -50361,7 +50361,7 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   private = list(
     from_reader = function(reader) {
       self$type <- reader$tgread_object()
-      self$file_hash <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() }
+      self$file_hash <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() }
       self$text <- reader$tgread_string()
       self
     }
@@ -50641,7 +50641,7 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
   private = list(
     from_reader = function(reader) {
       self$type <- reader$tgread_object()
-      self$file_hash <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() }
+      self$file_hash <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() }
       self$text <- reader$tgread_string()
       self
     }
@@ -55361,7 +55361,7 @@ StickerKeyword <- R6::R6Class("StickerKeyword",
   private = list(
     from_reader = function(reader) {
       self$document_id <- reader$read_long()
-      self$keyword <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$keyword <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -55411,7 +55411,7 @@ StickerPack <- R6::R6Class("StickerPack",
   private = list(
     from_reader = function(reader) {
       self$emoticon <- reader$tgread_string()
-      self$documents <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$documents <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -56149,7 +56149,7 @@ StoryItem <- R6::R6Class("StoryItem",
       self$privacy <- if (bitwAnd(flags, 4L) != 0) reader$tgread_vector() else NULL
       self$views <- if (bitwAnd(flags, 8L) != 0) reader$tgread_object() else NULL
       self$sent_reaction <- if (bitwAnd(flags, 32768L) != 0) reader$tgread_object() else NULL
-      self$albums <- if (bitwAnd(flags, 524288L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$albums <- if (bitwAnd(flags, 524288L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$music <- if (bitwAnd(flags, 1048576L) != 0) reader$tgread_object() else NULL
       self
     }
@@ -56692,7 +56692,7 @@ StoryViews <- R6::R6Class("StoryViews",
       self$forwards_count <- if (bitwAnd(flags, 4L) != 0) reader$read_int() else NULL
       self$reactions <- if (bitwAnd(flags, 8L) != 0) reader$tgread_vector() else NULL
       self$reactions_count <- if (bitwAnd(flags, 16L) != 0) reader$read_int() else NULL
-      self$recent_viewers <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() } else NULL
+      self$recent_viewers <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() } else NULL
       self
     }
   ),
@@ -57786,7 +57786,7 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
       self$base_theme <- reader$tgread_object()
       self$accent_color <- reader$read_int()
       self$outbox_accent_color <- if (bitwAnd(flags, 8L) != 0) reader$read_int() else NULL
-      self$message_colors <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$message_colors <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$wallpaper <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
       self
     }
@@ -59095,7 +59095,7 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class("UpdateBotDeleteBusinessMessage",
     from_reader = function(reader) {
       self$connection_id <- reader$tgread_string()
       self$peer <- reader$tgread_object()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$qts <- reader$read_int()
       self
     }
@@ -60487,7 +60487,7 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
       self$channel_id <- reader$read_long()
       self$top_msg_id <- if (bitwAnd(flags, 1L) != 0) reader$read_int() else NULL
       self$savedpeer_id <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -61377,7 +61377,7 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   private = list(
     from_reader = function(reader) {
       self$channel_id <- reader$read_long()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self
@@ -61433,7 +61433,7 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   ),
   private = list(
     from_reader = function(reader) {
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self
@@ -61529,7 +61529,7 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   private = list(
     from_reader = function(reader) {
       self$shortcut_id <- reader$read_int()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -61588,8 +61588,8 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$peer <- reader$tgread_object()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
-      self$sent_messages <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
+      self$sent_messages <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self
     }
   ),
@@ -61687,7 +61687,7 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   ),
   private = list(
     from_reader = function(reader) {
-      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -62439,7 +62439,7 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
     from_reader = function(reader) {
       self$call <- reader$tgread_object()
       self$sub_chain_id <- reader$read_int()
-      self$blocks <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() }
+      self$blocks <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() }
       self$next_offset <- reader$read_int()
       self
     }
@@ -63007,8 +63007,8 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
     from_reader = function(reader) {
       self$poll_id <- reader$read_long()
       self$peer <- reader$tgread_object()
-      self$options <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_bytes()) else list() }
-      self$positions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$options <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_bytes()) else list() }
+      self$positions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$qts <- reader$read_int()
       self
     }
@@ -64041,7 +64041,7 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
       self$requests_pending <- reader$read_int()
-      self$recent_requesters <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$recent_requesters <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -64204,7 +64204,7 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
       flags <- reader$read_int()
       self$pinned <- bitwAnd(flags, 1L) != 0
       self$channel_id <- reader$read_long()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self
@@ -64330,7 +64330,7 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
       flags <- reader$read_int()
       self$pinned <- bitwAnd(flags, 1L) != 0
       self$peer <- reader$tgread_object()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self
@@ -65093,7 +65093,7 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self$date <- if (bitwAnd(flags, 1L) != 0) reader$read_int() else NULL
@@ -66393,7 +66393,7 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
       flags <- reader$read_int()
       self$masks <- bitwAnd(flags, 1L) != 0
       self$emojis <- bitwAnd(flags, 2L) != 0
-      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$order <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -67458,7 +67458,7 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
       self$platform <- if (bitwAnd(flags, 4L) != 0) reader$tgread_string() else NULL
       self$ip <- if (bitwAnd(flags, 4L) != 0) reader$tgread_string() else NULL
       self$region <- if (bitwAnd(flags, 4L) != 0) reader$tgread_string() else NULL
-      self$match_codes <- if (bitwAnd(flags, 8L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$match_codes <- if (bitwAnd(flags, 8L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self$user_id_hint <- if (bitwAnd(flags, 16L) != 0) reader$read_long() else NULL
       self$verified_app_name <- if (bitwAnd(flags, 128L) != 0) reader$tgread_string() else NULL
       self
@@ -68858,7 +68858,7 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   private = list(
     from_reader = function(reader) {
       self$emoji_id <- reader$read_long()
-      self$background_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$background_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -68914,7 +68914,7 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
     from_reader = function(reader) {
       self$stickerset <- reader$tgread_object()
       self$sticker_id <- reader$read_long()
-      self$background_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$background_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -72875,7 +72875,7 @@ ImportedContacts <- R6::R6Class("ImportedContacts",
     from_reader = function(reader) {
       self$imported <- reader$tgread_vector()
       self$popular_invites <- reader$tgread_vector()
-      self$retry_contacts <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$retry_contacts <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self$users <- reader$tgread_vector()
       self
     }
@@ -73869,7 +73869,7 @@ UpdatePinnedForumTopics <- R6::R6Class("UpdatePinnedForumTopics",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$peer <- reader$tgread_object()
-      self$order <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$order <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self
     }
   ),
@@ -73919,7 +73919,7 @@ UpdateDeleteGroupCallMessages <- R6::R6Class("UpdateDeleteGroupCallMessages",
   private = list(
     from_reader = function(reader) {
       self$call <- reader$tgread_object()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -74660,7 +74660,7 @@ UpdateDeleteEphemeralMessages <- R6::R6Class("UpdateDeleteEphemeralMessages",
   private = list(
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
-      self$ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -79166,7 +79166,7 @@ FeaturedStickers <- R6::R6Class("FeaturedStickers",
       self$hash <- reader$read_long()
       self$count <- reader$read_int()
       self$sets <- reader$tgread_vector()
-      self$unread <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$unread <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -79266,7 +79266,7 @@ RecentStickers <- R6::R6Class("RecentStickers",
       self$hash <- reader$read_long()
       self$packs <- reader$tgread_vector()
       self$stickers <- reader$tgread_vector()
-      self$dates <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$dates <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -83301,7 +83301,7 @@ InactiveChats <- R6::R6Class("InactiveChats",
   ),
   private = list(
     from_reader = function(reader) {
-      self$dates <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$dates <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$chats <- reader$tgread_vector()
       self$users <- reader$tgread_vector()
       self
@@ -83834,8 +83834,8 @@ PromoData <- R6::R6Class("PromoData",
       self$peer <- if (bitwAnd(flags, 8L) != 0) reader$tgread_object() else NULL
       self$psa_type <- if (bitwAnd(flags, 2L) != 0) reader$tgread_string() else NULL
       self$psa_message <- if (bitwAnd(flags, 4L) != 0) reader$tgread_string() else NULL
-      self$pending_suggestions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
-      self$dismissed_suggestions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$pending_suggestions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
+      self$dismissed_suggestions <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self$custom_pending_suggestion <- if (bitwAnd(flags, 16L) != 0) reader$tgread_object() else NULL
       self$chats <- reader$tgread_vector()
       self$users <- reader$tgread_vector()
@@ -84038,8 +84038,8 @@ CountryCode <- R6::R6Class("CountryCode",
     from_reader = function(reader) {
       flags <- reader$read_int()
       self$country_code <- reader$tgread_string()
-      self$prefixes <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
-      self$patterns <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$prefixes <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
+      self$patterns <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() } else NULL
       self
     }
   ),
@@ -84575,7 +84575,7 @@ AffectedFoundMessages <- R6::R6Class("AffectedFoundMessages",
       self$pts <- reader$read_int()
       self$pts_count <- reader$read_int()
       self$offset <- reader$read_int()
-      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$messages <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -86414,7 +86414,7 @@ PremiumPromo <- R6::R6Class("PremiumPromo",
     from_reader = function(reader) {
       self$status_text <- reader$tgread_string()
       self$status_entities <- reader$tgread_vector()
-      self$video_sections <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$video_sections <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self$videos <- reader$tgread_vector()
       self$period_options <- reader$tgread_vector()
       self$users <- reader$tgread_vector()
@@ -87515,7 +87515,7 @@ Stories <- R6::R6Class("Stories",
       flags <- reader$read_int()
       self$count <- reader$read_int()
       self$stories <- reader$tgread_vector()
-      self$pinned_to_top <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$pinned_to_top <- if (bitwAnd(flags, 1L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$chats <- reader$tgread_vector()
       self$users <- reader$tgread_vector()
       self
@@ -88150,7 +88150,7 @@ BoostsStatus <- R6::R6Class("BoostsStatus",
       self$premium_audience <- if (bitwAnd(flags, 2L) != 0) reader$tgread_object() else NULL
       self$boost_url <- reader$tgread_string()
       self$prepaid_giveaways <- if (bitwAnd(flags, 8L) != 0) reader$tgread_vector() else NULL
-      self$my_boost_slots <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$my_boost_slots <- if (bitwAnd(flags, 4L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self
     }
   ),
@@ -88355,9 +88355,9 @@ PeerColorCollectible <- R6::R6Class("PeerColorCollectible",
       self$gift_emoji_id <- reader$read_long()
       self$background_emoji_id <- reader$read_long()
       self$accent_color <- reader$read_int()
-      self$colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$dark_accent_color <- if (bitwAnd(flags, 1L) != 0) reader$read_int() else NULL
-      self$dark_colors <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$dark_colors <- if (bitwAnd(flags, 2L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self
     }
   ),
@@ -88445,7 +88445,7 @@ PeerColorSet <- R6::R6Class("PeerColorSet",
   ),
   private = list(
     from_reader = function(reader) {
-      self$colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -88499,9 +88499,9 @@ PeerColorProfileSet <- R6::R6Class("PeerColorProfileSet",
   ),
   private = list(
     from_reader = function(reader) {
-      self$palette_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
-      self$bg_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
-      self$story_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$palette_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
+      self$bg_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
+      self$story_colors <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self
     }
   ),
@@ -90431,7 +90431,7 @@ PreviewInfo <- R6::R6Class("PreviewInfo",
   private = list(
     from_reader = function(reader) {
       self$media <- reader$tgread_vector()
-      self$lang_codes <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$tgread_string()) else list() }
+      self$lang_codes <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$tgread_string()) else list() }
       self
     }
   ),
@@ -92017,7 +92017,7 @@ SavedMusicIds <- R6::R6Class("SavedMusicIds",
   ),
   private = list(
     from_reader = function(reader) {
-      self$ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self
     }
   ),
@@ -92607,7 +92607,7 @@ StarGiftAuctionState <- R6::R6Class("StarGiftAuctionState",
       self$end_date <- reader$read_int()
       self$min_bid_amount <- reader$read_long()
       self$bid_levels <- reader$tgread_vector()
-      self$top_bidders <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$top_bidders <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self$next_round_at <- reader$read_int()
       self$last_gift_num <- reader$read_int()
       self$gifts_left <- reader$read_int()
@@ -93953,7 +93953,7 @@ EmojiGameDiceInfo <- R6::R6Class("EmojiGameDiceInfo",
       self$game_hash <- reader$tgread_string()
       self$prev_stake <- reader$read_long()
       self$current_streak <- reader$read_int()
-      self$params <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() }
+      self$params <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() }
       self$plays_left <- if (bitwAnd(flags, 1L) != 0) reader$read_int() else NULL
       self
     }
@@ -96248,8 +96248,8 @@ ParticipantJoinedChats <- R6::R6Class("ParticipantJoinedChats",
   ),
   private = list(
     from_reader = function(reader) {
-      self$creator_chat_ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
-      self$joined_chat_ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_long()) else list() }
+      self$creator_chat_ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
+      self$joined_chat_ids <- { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_long()) else list() }
       self$chats <- reader$tgread_vector()
       self$users <- reader$tgread_vector()
       self

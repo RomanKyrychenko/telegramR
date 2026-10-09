@@ -49,3 +49,19 @@ decode_waveform_cpp <- function(waveform) {
     .Call(`_telegramR_decode_waveform_cpp`, waveform)
 }
 
+factorize_pq_cpp <- function(pq_str) {
+    .Call(`_telegramR_factorize_pq_cpp`, pq_str)
+}
+
+bytes_to_int64_str_cpp <- function(bytes, is_signed) {
+    .Call(`_telegramR_bytes_to_int64_str_cpp`, bytes, is_signed)
+}
+
+tl_table_build_cpp <- function(keys, entries) {
+    .Call(`_telegramR_tl_table_build_cpp`, keys, entries)
+}
+
+tl_decode_object_cpp <- function(table, data, pos, fallback) {
+    .Call(`_telegramR_tl_decode_object_cpp`, table, data, pos, fallback)
+}
+

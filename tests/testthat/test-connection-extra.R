@@ -89,3 +89,11 @@ test_that("async_open_connection works with provided socket", {
   expect_true(inherits(res$reader, "Reader"))
   expect_true(inherits(res$writer, "Writer"))
 })
+
+test_that("a failed socket write closes the socket and errors", {
+  con <- rawConnection(raw(0), open = "rb") # read-only: writes fail
+  w <- Writer$new()
+  w$socket <- con
+  expect_error(w$write(as.raw(1:4)), "connection was closed")
+  expect_false(isTRUE(tryCatch(isOpen(con), error = function(e) FALSE)))
+})

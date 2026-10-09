@@ -2787,7 +2787,7 @@ SendStoryRequest <- R6::R6Class("SendStoryRequest",
       self$period <- if (bitwAnd(flags, 8L) != 0) reader$read_int() else NULL
       self$fwd_from_id <- if (bitwAnd(flags, 64L) != 0) reader$tgread_object() else NULL
       self$fwd_from_story <- if (bitwAnd(flags, 64L) != 0) reader$read_int() else NULL
-      self$albums <- if (bitwAnd(flags, 256L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(seq_len(n_), function(.i) reader$read_int()) else list() } else NULL
+      self$albums <- if (bitwAnd(flags, 256L) != 0) { reader$read_int(); n_ <- reader$read_int(); if (n_ > 0) lapply(.telegramR_seq_count(reader, n_), function(.i) reader$read_int()) else list() } else NULL
       self$music <- if (bitwAnd(flags, 512L) != 0) reader$tgread_object() else NULL
       self
     }

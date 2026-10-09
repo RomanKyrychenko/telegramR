@@ -145,8 +145,11 @@
 }
 
 .telegramR_message_reactions <- function(m) {
+  # Accept dicts, lightweight lists and R6 objects alike (R6 objects are
+  # environments, so is.list() alone used to drop every reaction).
+  is_obj <- function(x) is.list(x) || is.environment(x)
   results <- NULL
-  if (is.list(m$reactions) && !is.null(m$reactions$results)) {
+  if (is_obj(m$reactions) && !is.null(m$reactions$results)) {
     results <- m$reactions$results
   }
   if (is.null(results) || length(results) == 0) {
@@ -159,7 +162,7 @@
     cnt <- rc$count %||% 0
     total <- total + cnt
     key <- NA_character_
-    if (is.list(rc$reaction)) {
+    if (is_obj(rc$reaction)) {
       key <- rc$reaction$emoticon %||% rc$reaction$emoji %||% rc$reaction$reactions %||% NA_character_
     }
     if (is.null(key) || is.na(key)) next
@@ -250,7 +253,10 @@
 
 # Helper: convert a unix timestamp or NULL to POSIXct (UTC).
 .ts <- function(x) {
-  if (is.null(x) || length(x) == 0) return(as.POSIXct(NA_real_, origin = "1970-01-01", tz = "UTC"))
+  # .POSIXct() avoids re-parsing the origin string on every call (~50x faster
+  # than as.POSIXct(x, origin = ...)); results are identical for numeric input.
+  if (is.null(x) || length(x) == 0) return(.POSIXct(NA_real_, tz = "UTC"))
+  if (is.numeric(x) || inherits(x, "POSIXct")) return(.POSIXct(as.numeric(x), tz = "UTC"))
   as.POSIXct(x, origin = "1970-01-01", tz = "UTC")
 }
 
@@ -344,7 +350,7 @@
   is_forward <- !is.null(md$fwd_from)
   fwd_from <- md$fwd_from %||% list()
   forward_from_id <- NA_real_
-  if (is.list(fwd_from$from_id)) {
+  if (is.list(fwd_from$from_id) || is.environment(fwd_from$from_id)) {
     forward_from_id <- fwd_from$from_id$channel_id %||% fwd_from$from_id$user_id %||% fwd_from$from_id$chat_id %||% NA_real_
   }
   forward_from_message_id <- fwd_from$channel_post %||% NA_real_
@@ -575,6 +581,14 @@ download_channel_messages <- function(client, channel,
     stop("client is required")
   }
 
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
+  }
+
   old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
   on.exit(options(telegramR.promise_timeout = old_promise_timeout), add = TRUE)
   if (is.numeric(timeout_sec) && is.finite(timeout_sec) && timeout_sec > 0) {
@@ -612,12 +626,15 @@ download_channel_messages <- function(client, channel,
     }
   }
 
-  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
-  pb <- NULL
-  if (show_pb) {
-    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
-    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  label <- .tg_channel_label(ent, if (is.character(channel)) channel else NULL)
+  t0 <- Sys.time()
+  if (isTRUE(show_progress)) {
+    upto <- if (is.finite(limit)) paste0(" (up to ", .tg_num(limit), ")") else ""
+    .tg_info("Downloading messages from {.strong {label}}{upto}")
   }
+  pb <- .tg_progress_start(show_progress, total_est, "messages", label)
+  date_min <- Inf
+  date_max <- -Inf
 
   streaming <- !is.null(output_file)
   chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
@@ -697,10 +714,26 @@ download_channel_messages <- function(client, channel,
     } else {
       rows[[n]] <- row
     }
-    if (show_pb) utils::setTxtProgressBar(pb, n)
+    if (inherits(row$date, "POSIXt") && !is.na(row$date)) {
+      d <- as.numeric(row$date)
+      if (d < date_min) date_min <- d
+      if (d > date_max) date_max <- d
+    }
+    .tg_progress_update(pb, n, total_est)
   }
+  .tg_progress_done(pb)
 
   if (n > 0) options(telegramR.needs_reconnect_after_bulk = TRUE)
+
+  if (isTRUE(show_progress)) {
+    range <- .tg_date_range(date_min, date_max)
+    elapsed <- .tg_duration(difftime(Sys.time(), t0, units = "secs"))
+    .tg_success(paste0(
+      "Downloaded {(.tg_plural(n, 'message'))} from {.strong {label}}",
+      if (!is.null(range)) " ({range})" else "", " in ", elapsed,
+      if (streaming) " to {.file {output_file}}" else ""
+    ))
+  }
 
   if (streaming) {
     .flush(rows, n_buf)   # flush any remaining buffer
@@ -799,6 +832,7 @@ batch_download_channels <- function(channels,
   if (missing(api_hash)) stop("api_hash is required")
   if (is.null(info_file)) stop("info_file must be provided (path to the output CSV for channel info)")
   if (is.null(msgs_file)) stop("msgs_file must be provided (path to the output CSV for messages)")
+  batch_t0 <- Sys.time()
 
   pkg_path       <- if (!is.null(pkg_path)) normalizePath(pkg_path, mustWork = FALSE) else NULL
   info_path      <- normalizePath(info_file, mustWork = FALSE)
@@ -950,8 +984,10 @@ batch_download_channels <- function(channels,
       ch_str <- as.character(ch)
 
       if (norm(ch_str) %in% norm_done) {
-        if (verbose) message(sprintf("[%d/%d] Skipping (already downloaded): %s",
-                                     idx, length(channels), ch_str))
+        if (verbose) {
+          pos <- sprintf("[%d/%d]", idx, length(channels))
+          .tg_info("{pos} {.strong {ch_str}}: already downloaded, skipping")
+        }
         results[[idx]] <- list(channel = ch_str, status = "skipped",
                                rows_downloaded = NA_integer_, time_elapsed_sec = 0,
                                error_message   = NA_character_)
@@ -962,12 +998,9 @@ batch_download_channels <- function(channels,
       since_id <- norm_id_map[[norm(ch_str)]]
 
       if (verbose) {
-        if (!is.null(since_id)) {
-          message(sprintf("[%d/%d] Downloading (since id %s): %s",
-                          idx, length(channels), since_id, ch_str))
-        } else {
-          message(sprintf("[%d/%d] Downloading: %s", idx, length(channels), ch_str))
-        }
+        pos <- sprintf("[%d/%d]", idx, length(channels))
+        since <- if (!is.null(since_id)) paste0(" (new posts after id ", since_id, ")") else ""
+        .tg_info("{pos} {.strong {ch_str}}: downloading{since}")
       }
 
       # When running parallel workers, give each channel its own temp output
@@ -1068,13 +1101,18 @@ batch_download_channels <- function(channels,
       }
 
       if (inherits(outcome, "error")) {
-        if (verbose) message(sprintf("  [%s] ERROR: %s", ch_str, conditionMessage(outcome)))
+        if (verbose) {
+          err <- conditionMessage(outcome)
+          .tg_danger("{.strong {ch_str}}: failed after {(.tg_duration(elapsed))}: {err}")
+        }
         results[[idx]] <- list(channel = ch_str, status = "error",
                                rows_downloaded  = NA_integer_,
                                time_elapsed_sec = elapsed,
                                error_message    = conditionMessage(outcome))
       } else {
-        if (verbose) message(sprintf("  [%s] OK: %d rows (%.1fs)", ch_str, outcome, elapsed))
+        if (verbose) {
+          .tg_success("{.strong {ch_str}}: {(.tg_plural(outcome, 'message'))} in {(.tg_duration(elapsed))}")
+        }
         results[[idx]] <- list(channel = ch_str, status = "ok",
                                rows_downloaded  = outcome,
                                time_elapsed_sec = elapsed,
@@ -1086,7 +1124,21 @@ batch_download_channels <- function(channels,
     i <- batch_end + 1L
   }
 
-  dplyr::bind_rows(results)
+  out <- dplyr::bind_rows(results)
+  if (verbose && nrow(out) > 0) {
+    n_ok <- sum(out$status == "ok")
+    n_skip <- sum(out$status == "skipped")
+    n_err <- sum(out$status == "error")
+    total_rows <- sum(out$rows_downloaded, na.rm = TRUE)
+    elapsed <- .tg_duration(difftime(Sys.time(), batch_t0, units = "secs"))
+    summary <- paste0(
+      .tg_num(n_ok), " ok", if (n_skip) paste0(", ", .tg_num(n_skip), " skipped") else "",
+      if (n_err) paste0(", ", .tg_num(n_err), " failed") else ""
+    )
+    done <- if (n_err) .tg_warn else .tg_success
+    done("Finished {(.tg_plural(nrow(out), 'channel'))} ({summary}): {(.tg_plural(total_rows, 'message'))} in {elapsed}")
+  }
+  out
 }
 
 #' Download Channel Reactions By Channel
@@ -1113,6 +1165,14 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
     stop("client is required")
   }
 
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
+  }
+
   resolved <- .telegramR_resolve_channel(client, channel)
   ent <- resolved$entity
 
@@ -1126,12 +1186,14 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
   it <- do.call(client$iter_messages, iter_args)
 
   total_est <- if (is.finite(limit)) as.numeric(limit) else NA_real_
-  show_pb   <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
-  pb <- NULL
-  if (show_pb) {
-    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
-    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  label <- .tg_channel_label(ent, if (is.character(channel)) channel else NULL)
+  t0 <- Sys.time()
+  if (isTRUE(show_progress)) {
+    upto <- if (is.finite(limit)) paste0(" (up to ", .tg_num(limit), " posts)") else ""
+    .tg_info("Collecting reactions from {.strong {label}}{upto}")
   }
+  pb <- .tg_progress_start(show_progress, total_est, "posts", label)
+  n_reactions <- 0
 
   streaming  <- !is.null(output_file)
   chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
@@ -1174,7 +1236,18 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
     } else {
       rows[[n]] <- row
     }
-    if (show_pb) utils::setTxtProgressBar(pb, n)
+    n_reactions <- n_reactions + (suppressWarnings(as.numeric(row$reactions_total)) %||% 0)
+    .tg_progress_update(pb, n, total_est)
+  }
+  .tg_progress_done(pb)
+
+  if (isTRUE(show_progress)) {
+    elapsed <- .tg_duration(difftime(Sys.time(), t0, units = "secs"))
+    .tg_success(paste0(
+      "Collected {(.tg_plural(n_reactions, 'reaction'))} on {(.tg_plural(n, 'post'))} ",
+      "from {.strong {label}} in ", elapsed,
+      if (streaming) " to {.file {output_file}}" else ""
+    ))
   }
 
   if (streaming) {
@@ -1242,12 +1315,14 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
   if (is.finite(limit)) {
     total_est <- as.numeric(limit)
   }
-  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
-  pb <- NULL
-  if (show_pb) {
-    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
-    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  label <- .tg_channel_label(ent, if (is.character(channel)) channel else NULL)
+  t0 <- Sys.time()
+  if (isTRUE(show_progress)) {
+    upto <- if (is.finite(limit)) paste0(" (scanning up to ", .tg_num(limit), " posts)") else ""
+    kinds <- paste(unique(media_types), collapse = ", ")
+    .tg_info("Downloading {kinds} from {.strong {label}} into {.path {out_dir}}{upto}")
   }
+  pb <- .tg_progress_start(show_progress, total_est, "posts scanned", label)
 
   rows <- list()
   n <- 0L
@@ -1270,7 +1345,7 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
       }
     }
     if (is.null(raw_msg)) {
-      if (show_pb) utils::setTxtProgressBar(pb, i)
+      .tg_progress_update(pb, i, total_est)
       next
     }
 
@@ -1286,7 +1361,7 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
 
     mtype <- tolower(row$media_type %||% "")
     if (!nzchar(mtype) || !(mtype %in% media_types)) {
-      if (show_pb) utils::setTxtProgressBar(pb, i)
+      .tg_progress_update(pb, i, total_est)
       next
     }
 
@@ -1335,10 +1410,28 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
       rows[[n]]$error <- err_msg
     }
 
-    if (show_pb) utils::setTxtProgressBar(pb, i)
+    .tg_progress_update(pb, i, total_est)
   }
 
-  if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+  .tg_progress_done(pb)
+
+  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+  if (isTRUE(show_progress)) {
+    ok <- if (nrow(tbl)) !is.na(tbl$file_path) else logical(0)
+    n_ok <- sum(ok)
+    n_failed <- sum(!ok)
+    bytes <- sum(suppressWarnings(file.size(as.character(tbl$file_path[ok]))), na.rm = TRUE)
+    size <- format(structure(bytes, class = "object_size"), units = "auto", standard = "SI")
+    elapsed <- .tg_duration(difftime(Sys.time(), t0, units = "secs"))
+    .tg_success(paste0(
+      "Downloaded {(.tg_plural(n_ok, 'file'))} ({size}) from {.strong {label}} in ", elapsed,
+      " ({(.tg_plural(i, 'post'))} scanned)"
+    ))
+    if (n_failed > 0) {
+      .tg_warn("{(.tg_plural(n_failed, 'file'))} failed to download; see the {.field error} column.")
+    }
+  }
+  tbl
 }
 
 #' Download Channel Replies/Comments By Channel
@@ -1365,10 +1458,23 @@ download_channel_replies <- function(client, channel, message_ids = NULL,
     stop("client is required")
   }
 
+  # Messages are only turned into rows here, so decode them as lightweight
+  # lists rather than R6 objects (several times faster). Opt out with
+  # options(telegramR.lite_messages = FALSE).
+  if (is.null(getOption("telegramR.lite_messages"))) {
+    options(telegramR.lite_messages = TRUE)
+    on.exit(options(telegramR.lite_messages = NULL), add = TRUE)
+  }
+
   resolved <- .telegramR_resolve_channel(client, channel)
   ent <- resolved$entity
 
+  label <- .tg_channel_label(ent, if (is.character(channel)) channel else NULL)
+  t0 <- Sys.time()
   if (is.null(message_ids)) {
+    if (isTRUE(show_progress)) {
+      .tg_info("Finding the latest {(.tg_plural(message_limit, 'post'))} in {.strong {label}}")
+    }
     root_it <- do.call(client$iter_messages, c(list(entity = ent, limit = message_limit), list(...)))
     ids <- list()
     i <- 0L
@@ -1381,17 +1487,17 @@ download_channel_replies <- function(client, channel, message_ids = NULL,
   }
 
   if (length(message_ids) == 0) {
+    if (isTRUE(show_progress)) .tg_warn("No posts found in {.strong {label}}; nothing to download.")
     if (!is.null(output_file)) return(invisible(0L))
     return(tibble::tibble())
   }
 
   total_est <- length(message_ids)
-  show_pb   <- isTRUE(show_progress) && interactive() && total_est > 0
-  pb <- NULL
-  if (show_pb) {
-    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
-    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  if (isTRUE(show_progress)) {
+    .tg_info("Downloading comments on {(.tg_plural(total_est, 'post'))} from {.strong {label}}")
   }
+  pb <- .tg_progress_start(show_progress, total_est, "posts", label)
+  posts_with_replies <- 0L
 
   streaming  <- !is.null(output_file)
   chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
@@ -1417,6 +1523,7 @@ download_channel_replies <- function(client, channel, message_ids = NULL,
   for (i in seq_along(message_ids)) {
     msg_id <- message_ids[[i]]
     rep_it <- client$iter_messages(ent, limit = reply_limit, reply_to = msg_id)
+    n_before <- n
     repeat {
       rep_item <- rep_it$.next()
       if (is.null(rep_item)) break
@@ -1434,7 +1541,18 @@ download_channel_replies <- function(client, channel, message_ids = NULL,
         rows[[n]] <- row
       }
     }
-    if (show_pb) utils::setTxtProgressBar(pb, i)
+    if (n > n_before) posts_with_replies <- posts_with_replies + 1L
+    .tg_progress_update(pb, i, total_est)
+  }
+  .tg_progress_done(pb)
+
+  if (isTRUE(show_progress)) {
+    elapsed <- .tg_duration(difftime(Sys.time(), t0, units = "secs"))
+    .tg_success(paste0(
+      "Downloaded {(.tg_plural(n, 'comment'))} on {(.tg_plural(posts_with_replies, 'post'))} ",
+      "from {.strong {label}} in ", elapsed,
+      if (streaming) " to {.file {output_file}}" else ""
+    ))
   }
 
   if (streaming) {
@@ -1473,12 +1591,13 @@ download_channel_members <- function(client, channel, limit = Inf, search = "", 
     total_est <- as.numeric(limit)
   }
 
-  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
-  pb <- NULL
-  if (show_pb) {
-    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
-    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  label <- .tg_channel_label(ent, if (is.character(channel)) channel else NULL)
+  t0 <- Sys.time()
+  if (isTRUE(show_progress)) {
+    upto <- if (is.finite(limit)) paste0(" (up to ", .tg_num(limit), ")") else ""
+    .tg_info("Downloading members of {.strong {label}}{upto}")
   }
+  pb <- .tg_progress_start(show_progress, total_est, "members", label)
 
   rows <- list()
   n <- 0L
@@ -1487,8 +1606,9 @@ download_channel_members <- function(client, channel, limit = Inf, search = "", 
     if (is.null(item)) break
     n <- n + 1L
     rows[[n]] <- .telegramR_extract_member_row(item, ent)
-    if (show_pb) utils::setTxtProgressBar(pb, n)
+    .tg_progress_update(pb, n, total_est)
   }
+  .tg_progress_done(pb)
 
   tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
   if (nrow(tbl) == 0) {
@@ -1497,12 +1617,16 @@ download_channel_members <- function(client, channel, limit = Inf, search = "", 
     hidden <- isTRUE(tryCatch(ent$participants_hidden, error = function(e) FALSE))
     is_broadcast <- isTRUE(tryCatch(ent$broadcast, error = function(e) FALSE))
     if (hidden || is_broadcast) {
-      message("download_channel_members: no members returned. This channel hides its ",
-              "member list (broadcast channels expose members only to admins).")
+      .tg_warn(paste0(
+        "No members returned for {.strong {label}}: its member list is hidden ",
+        "(broadcast channels show members only to admins)."
+      ))
     } else {
-      message("download_channel_members: no members returned (the group may be empty ",
-              "or its members are hidden).")
+      .tg_warn("No members returned for {.strong {label}}: the group may be empty or hide its members.")
     }
+  } else if (isTRUE(show_progress)) {
+    elapsed <- .tg_duration(difftime(Sys.time(), t0, units = "secs"))
+    .tg_success("Downloaded {(.tg_plural(nrow(tbl), 'member'))} of {.strong {label}} in {elapsed}")
   }
   if (!isTRUE(include_channel)) {
     tbl$channel_id <- NULL
@@ -1658,10 +1782,6 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
                  max_attempts,
                  if (!is.null(last_resolve_err)) conditionMessage(last_resolve_err) else "unknown error"))
   }
-  # Refresh constructor map to pick up newer ChannelFull ctor IDs
-  old_ctor <- getOption("telegramR.ctor_map")
-  on.exit(options(telegramR.ctor_map = old_ctor), add = TRUE)
-  options(telegramR.ctor_map = NULL)
   full <- NULL
   last_full_err <- NULL
   for (attempt in seq_len(max_attempts)) {

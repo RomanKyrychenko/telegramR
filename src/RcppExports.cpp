@@ -150,6 +150,55 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// factorize_pq_cpp
+NumericVector factorize_pq_cpp(std::string pq_str);
+RcppExport SEXP _telegramR_factorize_pq_cpp(SEXP pq_strSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type pq_str(pq_strSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorize_pq_cpp(pq_str));
+    return rcpp_result_gen;
+END_RCPP
+}
+// bytes_to_int64_str_cpp
+String bytes_to_int64_str_cpp(RawVector bytes, bool is_signed);
+RcppExport SEXP _telegramR_bytes_to_int64_str_cpp(SEXP bytesSEXP, SEXP is_signedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type bytes(bytesSEXP);
+    Rcpp::traits::input_parameter< bool >::type is_signed(is_signedSEXP);
+    rcpp_result_gen = Rcpp::wrap(bytes_to_int64_str_cpp(bytes, is_signed));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tl_table_build_cpp
+SEXP tl_table_build_cpp(NumericVector keys, List entries);
+RcppExport SEXP _telegramR_tl_table_build_cpp(SEXP keysSEXP, SEXP entriesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type keys(keysSEXP);
+    Rcpp::traits::input_parameter< List >::type entries(entriesSEXP);
+    rcpp_result_gen = Rcpp::wrap(tl_table_build_cpp(keys, entries));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tl_decode_object_cpp
+SEXP tl_decode_object_cpp(SEXP table, RawVector data, double pos, Function fallback);
+RcppExport SEXP _telegramR_tl_decode_object_cpp(SEXP tableSEXP, SEXP dataSEXP, SEXP posSEXP, SEXP fallbackSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type table(tableSEXP);
+    Rcpp::traits::input_parameter< RawVector >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< double >::type pos(posSEXP);
+    Rcpp::traits::input_parameter< Function >::type fallback(fallbackSEXP);
+    rcpp_result_gen = Rcpp::wrap(tl_decode_object_cpp(table, data, pos, fallback));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_aes_ige_encrypt", (DL_FUNC) &_telegramR_aes_ige_encrypt, 3},
@@ -164,6 +213,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_hex_to_bytes", (DL_FUNC) &_telegramR_hex_to_bytes, 3},
     {"_telegramR_encode_waveform_cpp", (DL_FUNC) &_telegramR_encode_waveform_cpp, 1},
     {"_telegramR_decode_waveform_cpp", (DL_FUNC) &_telegramR_decode_waveform_cpp, 1},
+    {"_telegramR_factorize_pq_cpp", (DL_FUNC) &_telegramR_factorize_pq_cpp, 1},
+    {"_telegramR_bytes_to_int64_str_cpp", (DL_FUNC) &_telegramR_bytes_to_int64_str_cpp, 2},
+    {"_telegramR_tl_table_build_cpp", (DL_FUNC) &_telegramR_tl_table_build_cpp, 2},
+    {"_telegramR_tl_decode_object_cpp", (DL_FUNC) &_telegramR_tl_decode_object_cpp, 4},
     {NULL, NULL, 0}
 };
 

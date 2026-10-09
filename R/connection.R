@@ -797,6 +797,12 @@ Writer <- R6::R6Class(
     .buffer = list(),
     writing = FALSE,
 
+    .socket_failed = function(cond) {
+      try(close(self$socket), silent = TRUE)
+      private$.buffer <- list()
+      stop(sprintf("ConnectionError: the connection was closed (%s)", conditionMessage(cond)), call. = FALSE)
+    },
+
     # Added: internal write-to-socket implementation
     .write_to_socket = function() {
       if (private$writing) {
@@ -817,9 +823,18 @@ Writer <- R6::R6Class(
       # Flush buffered chunks
       while (length(private$.buffer) > 0 && !is.null(self$socket) && isOpen(self$socket)) {
         chunk <- private$.buffer[[1]]
-        # Write raw vector to socket
-        writeBin(chunk, self$socket, useBytes = TRUE)
-        flush(self$socket)
+        # Write raw vector to socket. A peer-closed socket only produces a
+        # warning here and stays "open", so requests would wait for their
+        # timeout and the transport would never be reconnected. Close it so
+        # is_connected() turns FALSE and the next send reconnects.
+        tryCatch(
+          {
+            writeBin(chunk, self$socket, useBytes = TRUE)
+            flush(self$socket)
+          },
+          warning = function(w) private$.socket_failed(w),
+          error = function(e) private$.socket_failed(e)
+        )
         # Pop the written chunk
         if (length(private$.buffer) == 1) {
           private$.buffer <- list()

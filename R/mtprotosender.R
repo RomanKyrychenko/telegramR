@@ -255,9 +255,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
                           updates_queue = NULL, auto_reconnect_callback = NULL) {
-      # Invalidate cached ctor_map so it rebuilds with current environment
-      options(telegramR.ctor_map = NULL)
-
       null_logger <- list(
         debug = function(...) NULL,
         info = function(...) NULL,
@@ -1603,8 +1600,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           tryCatch(
             {
               reader <- BinaryReader$new(rpc_result$body)
-              obj <- reader$tgread_object()
-              if (!inherits(obj, "upload.File")) {
+              # Decoded only to decide what to log, so a body that does not
+              # parse should not surface as a user-facing warning.
+              obj <- suppressWarnings(reader$tgread_object())
+              if (!inherits(obj, c("upload.File", "File"))) {
                 private$log$info("Received response without parent request: %s", rpc_result$body)
               }
             },
@@ -1760,12 +1759,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     },
     handle_bad_notification = function(message) {
       bad_msg <- message$obj
-      message(sprintf(
-        "[handle_bad_notification] bad_msg_id=%s, error_code=%s, pending_keys=%s",
-        as.character(bad_msg$bad_msg_id),
-        as.character(bad_msg$error_code),
-        paste(names(private$pending_state), collapse = ",")
-      ))
+      bad_id <- as.character(bad_msg$bad_msg_id)
+      .tg_debug("Server rejected message {bad_id} (error code {bad_msg$error_code}); resending")
       states <- private$pop_states(bad_msg$bad_msg_id)
       if (bad_msg$error_code %in% c(16, 17)) {
         # Sent msg_id too low or too high (respectively).
@@ -1803,7 +1798,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack$add(msg_id)
     },
     handle_new_session_created = function(message) {
-      message(sprintf("[handle_new_session] server_salt=%s", as.character(message$obj$server_salt)))
+      salt <- as.character(message$obj$server_salt)
+      .tg_debug("New server session (salt {salt})")
       new_salt <- message$obj$server_salt
       if (!is.null(new_salt) && length(new_salt) >= 1) {
         private$state$salt <- new_salt

@@ -4,6 +4,8 @@
 #include <cstring>
 #include <cstdint>
 #include <string>
+#include <algorithm>
+#include <cstdio>
 
 using namespace Rcpp;
 
@@ -463,4 +465,113 @@ RawVector decode_waveform_cpp(RawVector waveform) {
     dst[i] = (uint8_t)((val >> bit_off) & 0x1Fu);
   }
   return out;
+}
+
+// ─────────────────────────────────────────────────────
+// 10. PQ FACTORISATION  (auth-key handshake)
+//
+// Pollard's rho with Brent's cycle detection on 64-bit integers.
+// Replaces the interpreted gmp::bigz loop in Factorization$factorize(),
+// which took seconds per handshake. `pq_str` is a decimal string;
+// returns c(p, q) with p <= q, or c(0, 0) if pq does not fit in 64 bits
+// or no factor was found (the R fallback then takes over).
+// ─────────────────────────────────────────────────────
+static inline uint64_t mulmod_u64(uint64_t a, uint64_t b, uint64_t m) {
+#ifdef __SIZEOF_INT128__
+  return (uint64_t)(((unsigned __int128) a * b) % m);
+#else
+  uint64_t r = 0;
+  a %= m;
+  while (b) {
+    if (b & 1) r = (r >= m - a) ? r - (m - a) : r + a;
+    a = (a >= m - a) ? a - (m - a) : a + a;
+    b >>= 1;
+  }
+  return r;
+#endif
+}
+
+static inline uint64_t gcd_u64(uint64_t a, uint64_t b) {
+  while (b) { uint64_t t = a % b; a = b; b = t; }
+  return a;
+}
+
+static uint64_t brent_factor(uint64_t n, uint64_t c) {
+  uint64_t y = 2, m = 128, g = 1, r = 1, q = 1, x = 0, ys = 0;
+  auto f = [&](uint64_t v) { uint64_t s = mulmod_u64(v, v, n) + c; return s >= n ? s - n : s; };
+  while (g == 1) {
+    x = y;
+    for (uint64_t i = 0; i < r; ++i) y = f(y);
+    uint64_t k = 0;
+    while (k < r && g == 1) {
+      ys = y;
+      uint64_t lim = std::min(m, r - k);
+      for (uint64_t i = 0; i < lim; ++i) {
+        y = f(y);
+        q = mulmod_u64(q, x > y ? x - y : y - x, n);
+      }
+      g = gcd_u64(q, n);
+      k += m;
+    }
+    r <<= 1;
+  }
+  if (g == n) {
+    do {
+      ys = f(ys);
+      g = gcd_u64(x > ys ? x - ys : ys - x, n);
+    } while (g == 1);
+  }
+  return g;
+}
+
+// [[Rcpp::export(name = "factorize_pq_cpp")]]
+NumericVector factorize_pq_cpp(std::string pq_str) {
+  NumericVector out = NumericVector::create(0, 0);
+  if (pq_str.empty() || pq_str.size() > 20) return out;
+  uint64_t n = 0;
+  for (char ch : pq_str) {
+    if (ch < '0' || ch > '9') return out;
+    uint64_t d = (uint64_t)(ch - '0');
+    if (n > (UINT64_MAX - d) / 10) return out;  // overflow: not a 64-bit value
+    n = n * 10 + d;
+  }
+  if (n < 4) return out;
+  uint64_t p = 0;
+  if ((n & 1) == 0) {
+    p = 2;
+  } else {
+    for (uint64_t c = 1; c < 64 && (p == 0 || p == n); ++c) p = brent_factor(n, c);
+    if (p == 0 || p == n) return out;
+  }
+  uint64_t q = n / p;
+  if (p > q) std::swap(p, q);
+  out[0] = (double) p;
+  out[1] = (double) q;
+  // Only report factors that survive the round-trip to double exactly
+  if ((uint64_t) out[0] != p || (uint64_t) out[1] != q) return NumericVector::create(0, 0);
+  return out;
+}
+
+// ─────────────────────────────────────────────────────
+// 11. 8 LITTLE-ENDIAN BYTES → DECIMAL STRING
+//
+// Used by BinaryReader$bytes_to_int for 64-bit TL longs. Building the
+// gmp::bigz from a decimal string avoids the hex/paste and bigz sign
+// arithmetic (pow.bigz, comparison, subtraction) on every read_long().
+// ─────────────────────────────────────────────────────
+// [[Rcpp::export(name = "bytes_to_int64_str_cpp")]]
+String bytes_to_int64_str_cpp(RawVector bytes, bool is_signed) {
+  if (bytes.size() != 8) stop("bytes_to_int64_str_cpp: expected 8 bytes");
+  const uint8_t* b = (const uint8_t*) RAW(bytes);
+  uint64_t u = 0;
+  for (int i = 0; i < 8; ++i) u |= ((uint64_t) b[i]) << (8 * i);
+  char buf[32];
+  if (is_signed && (u >> 63)) {
+    // two's complement magnitude; works for INT64_MIN too
+    uint64_t mag = ~u + 1;
+    snprintf(buf, sizeof(buf), "-%llu", (unsigned long long) mag);
+  } else {
+    snprintf(buf, sizeof(buf), "%llu", (unsigned long long) u);
+  }
+  return String(buf);
 }

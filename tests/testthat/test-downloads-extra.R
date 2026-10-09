@@ -119,3 +119,18 @@ test_that("GenericDownloadIter chunks offset-aligned data", {
   expect_equal(iter$request_data$offset, 5L)
   expect_equal(iter$last_part, as.raw(0x06))
 })
+
+test_that("upload.file chunks with storage.filePartial type decode fully", {
+  le <- function(x) writeBin(as.integer(x), raw(), size = 4, endian = "little")
+  payload <- as.raw(sample(0:255, 1000, TRUE))
+  body <- c(
+    le(0x096a18d5), # upload.file
+    le(0x40bc6f52), # storage.filePartial (mid-file video chunks)
+    le(1700000000L),
+    as.raw(254), le(1000)[1:3], payload
+  )
+  obj <- expect_silent(BinaryReader$new(body)$tgread_object())
+  expect_s3_class(obj, "File")
+  expect_s3_class(obj$type, "FilePartial")
+  expect_identical(obj$bytes, payload)
+})

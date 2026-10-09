@@ -219,7 +219,7 @@ TelegramClient <- R6::R6Class(
             result$user <- reader$tgread_object()
           },
           error = function(e) {
-            message(sprintf("[sign_in] Failed to parse auth.Authorization fallback: %s", e$message))
+            .tg_debug("Could not parse the auth.Authorization fallback: {e$message}")
           }
         )
       }
@@ -654,7 +654,7 @@ TelegramClient <- R6::R6Class(
 
       # If auth key is unregistered/invalid, reset it and reconnect
       if (!is.null(auth_err) && grepl("AUTH_KEY", conditionMessage(auth_err), ignore.case = TRUE)) {
-        message("Session auth key is no longer valid, generating a new one...")
+        .tg_warn("The saved session is no longer valid; creating a new one")
         private$session$auth_key <- NULL
         if (!is.null(private$sender)) {
           private$sender$auth_key <- AuthKey$new(NULL)
@@ -709,7 +709,7 @@ TelegramClient <- R6::R6Class(
               "PhoneCodeEmptyError", "PhoneCodeExpiredError",
               "PhoneCodeHashEmptyError", "PhoneCodeInvalidError"
             ) %in% class(e))) {
-              cat("Invalid code. Please try again.\n", file = stderr())
+              .tg_danger("That code is not valid; please try again")
             } else {
               stop(e)
             }
@@ -738,7 +738,7 @@ TelegramClient <- R6::R6Class(
               },
               error = function(e) {
                 if (inherits(e, "PasswordHashInvalidError")) {
-                  cat("Invalid password. Please try again\n", file = stderr())
+                  .tg_danger("That password is not correct; please try again")
                 } else {
                   stop(e)
                 }
@@ -753,19 +753,8 @@ TelegramClient <- R6::R6Class(
         }
       }
 
-      signed_msg <- "Signed in successfully as "
       name <- self$get_display_name(me)
-      tos_msg <- "; remember to not break the ToS or you will risk an account ban!"
-
-      tryCatch(
-        {
-          cat(signed_msg, name, tos_msg, sep = "")
-        },
-        error = function(e) {
-          name_encoded <- iconv(name, "UTF-8", "ASCII", sub = "")
-          cat(signed_msg, name_encoded, tos_msg, sep = "")
-        }
-      )
+      .tg_success("Signed in as {.strong {name}}")
 
       return(self)
     },
@@ -1280,7 +1269,7 @@ TelegramClient <- R6::R6Class(
               }
 
               step <- "extract_bytes"
-              if (inherits(res, "upload.File") && !is.null(res$bytes)) {
+              if (inherits(res, c("upload.File", "File")) && is.raw(res$bytes)) {
                 chunk <- res$bytes
               } else if (is.raw(res)) {
                 chunk <- res
@@ -1437,7 +1426,7 @@ TelegramClient <- R6::R6Class(
           return(file)
         }, error = function(e) {
           if (inherits(e, "CdnRedirect")) {
-            self$log_info(paste("FileCdnRedirect to CDN data center", e$redirect$dc_id))
+            .tg_debug("File is served from CDN data centre {e$redirect$dc_id}")
             return(self$download_file(
               input_location = input_location,
               file = file,
@@ -1573,24 +1562,14 @@ TelegramClient <- R6::R6Class(
             if (is.null(cls) || !base::is.function(cls$new)) {
               stop("DirectDownloadIter$new is not a function")
             }
-            if (base::is.function(self$log_info)) {
-              self$log_info(sprintf(
-                "Starting direct file download in chunks of %d at %d, stride %d",
-                request_size, offset, stride
-              ))
-            }
+            .tg_debug("Direct file download: chunks of {request_size} from offset {offset}, stride {stride}")
           } else {
             cls <- base::get0("GenericDownloadIter", envir = asNamespace("telegramR"))
             cls_name <- "GenericDownloadIter"
             if (is.null(cls) || !base::is.function(cls$new)) {
               stop("GenericDownloadIter$new is not a function")
             }
-            if (base::is.function(self$log_info)) {
-              self$log_info(sprintf(
-                "Starting indirect file download in chunks of %d at %d, stride %d",
-                request_size, offset, stride
-              ))
-            }
+            .tg_debug("Indirect file download: chunks of {request_size} from offset {offset}, stride {stride}")
           }
 
           step <- "iter_new"
@@ -2204,6 +2183,8 @@ TelegramClient <- R6::R6Class(
           if (is.null(date)) {
             date <- Sys.time()
           }
+          # Message and photo dates arrive as Unix timestamps.
+          if (is.numeric(date)) date <- as.POSIXct(date, origin = "1970-01-01", tz = "UTC")
           date_str <- format(date, "%Y-%m-%d_%H-%M-%S")
           name <- paste0(kind, "_", date_str)
         }
@@ -4743,7 +4724,8 @@ TelegramClient <- R6::R6Class(
           if (diff <= 3) {
             private$flood_waited_requests[[ctor_key]] <- NULL
           } else if (diff <= flood_sleep_threshold) {
-            message(fmt_flood(diff, r, early = TRUE))
+            flood_msg <- fmt_flood(diff, r, early = TRUE)
+            .tg_warn("{flood_msg}")
             Sys.sleep(diff)
             private$flood_waited_requests[[ctor_key]] <- NULL
           } else {
@@ -4843,10 +4825,8 @@ TelegramClient <- R6::R6Class(
               "TimedOutError", "InterdcCallRichErrorError"
             ))) {
               last_error <<- e
-              message(sprintf(
-                "Telegram is having internal issues %s: %s",
-                class(e)[1], e$message
-              ))
+              err_class <- class(e)[1]
+              .tg_warn("Telegram server error ({err_class}): {e$message}; retrying")
               Sys.sleep(2)
             } else if (inherits(e, c(
               "FloodWaitError", "FloodPremiumWaitError",
@@ -4869,7 +4849,8 @@ TelegramClient <- R6::R6Class(
               }
 
               if (e$seconds <= flood_sleep_threshold) {
-                message(fmt_flood(e$seconds, request))
+                flood_msg <- fmt_flood(e$seconds, request)
+                .tg_warn("{flood_msg}")
                 Sys.sleep(e$seconds)
               } else {
                 stop(e)
@@ -4882,7 +4863,7 @@ TelegramClient <- R6::R6Class(
                 stop(e)
               }
               last_error <<- e
-              message(sprintf("Phone migrated to %d", e$new_dc))
+              .tg_info("Your account lives in data centre {e$new_dc}; reconnecting there")
               should_raise <- inherits(e, c("PhoneMigrateError", "NetworkMigrateError"))
 
               auth <- FALSE
@@ -4953,7 +4934,6 @@ TelegramClient <- R6::R6Class(
               !is.null(me$data) && is.raw(me$data)) {
               tryCatch(
                 {
-                  options(telegramR.ctor_map = NULL)
                   raw_obj <- c(pack("<I", as.integer(me$CONSTRUCTOR_ID)), me$data)
                   reader <- BinaryReader$new(raw_obj)
                   parsed <- reader$tgread_object()

@@ -110,8 +110,9 @@ test_that("strip_text trims text when entities empty and leaves adjusted text re
 test_that("fmt_flood formats messages correctly", {
   skip_on_cran()
   msg <- fmt_flood(10, request = GetStateRequest$new(), early = TRUE, td = function(d, units) as.difftime(d, units = units))
-  expect_true(grepl("Sleeping early for 10s", msg))
-  expect_true(grepl("GetStateRequest", msg))
+  expect_match(msg, "rate limit on GetState is still active: waiting 10s")
+  msg2 <- fmt_flood(25, request = GetStateRequest$new())
+  expect_match(msg2, "FLOOD_WAIT\\) on GetState: waiting 25s before retrying")
 })
 
 

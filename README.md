@@ -189,11 +189,27 @@ for (m in messages) {
 - Most high-level methods (like `get_entity`, `download_media`) return
   [future](https://cran.r-project.org/package=future) objects. Unwrap
   them with `future::value()`.
+- Status output (connecting, signing in, rate-limit waits, download progress
+  bars with ETA and a one-line summary of each download) is controlled by
+  `options(telegramR.verbose = TRUE)` (default), `FALSE` (silent) or `"debug"`
+  (adds low-level connection details). It is emitted as R messages, so
+  `suppressMessages()` also works. `show_progress = FALSE` turns off the
+  progress bar and summary of a single download call.
 - To silence pump/process debug messages, keep these options disabled:
   `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.
 - To trace hangs in channel info/message downloads, enable:
   `options(telegramR.trace_hang = TRUE, telegramR.trace_parse = TRUE)` to see step-by-step parsing and network waits.
  - Some channels send photos as documents with `image/*` MIME types. `download_channel_media()` treats `image` as a photo-type alias when `photo` is requested.
+- `download_channel_messages()`, `download_channel_reactions()` and
+  `download_channel_replies()` decode messages as lightweight lists, which is
+  several times faster than full objects. Set
+  `options(telegramR.lite_messages = FALSE)` to get full objects everywhere.
+  These messages are decoded by compiled code; `options(telegramR.fast_decode = FALSE)`
+  switches back to the (identical, slower) R decoder.
+- If a response cannot be fully decoded (for example after a Telegram schema
+  change), telegramR raises a warning of class `telegramR_parse_warning`, and a
+  page of channel messages is marked `incomplete`. Silence these warnings with
+  `options(telegramR.parse_warnings = FALSE)`.
 
 **Citation**
 

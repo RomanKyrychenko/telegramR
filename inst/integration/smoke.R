@@ -28,7 +28,10 @@ options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR
 
 api_id   <- Sys.getenv("TELEGRAMR_API_ID")
 api_hash <- Sys.getenv("TELEGRAMR_API_HASH")
-channel  <- Sys.getenv("TELEGRAMR_TEST_CHANNEL", "telegram")
+# The workflow always sets this variable (empty when the optional secret is
+# missing), so treat empty the same as unset.
+channel  <- Sys.getenv("TELEGRAMR_TEST_CHANNEL")
+if (!nzchar(channel)) channel <- "telegram"
 
 if (!nzchar(api_id) || !nzchar(api_hash)) {
   message("Integration smoke: credentials not set; skipping.")
@@ -62,7 +65,7 @@ for (fn in c("download_channel_info", "download_channel_messages",
 }
 
 client <- TelegramClient$new(session = sess, api_id = api_id, api_hash = api_hash)
-val(client$connect())
+invisible(val(client$connect()))
 if (!isTRUE(tryCatch(val(client$is_user_authorized()), error = function(e) FALSE))) {
   message("Integration smoke: session not authorised; skipping.")
   quit(status = 0)
@@ -91,13 +94,71 @@ check("download_channel_messages", { m <- download_channel_messages(client, chan
 if (inherits(info, "data.frame")) {
   check("download_channel_messages(numeric id)", { m <- download_channel_messages(client, as.numeric(info$channel_id), limit = 3, show_progress = FALSE); expect(nrow(m) > 0, "no messages by id"); m })
 }
+# The compiled lite decoder must give the same rows as the original R6 decoder
+# on live data. Counters (views, forwards, replies, reactions) can change
+# between the two downloads, so compare the stable columns on common ids.
+check("fast decoder rows == R decoder rows", {
+  n_warn <- 0L
+  dl <- function() withCallingHandlers(
+    download_channel_messages(client, channel, limit = 100, show_progress = FALSE),
+    telegramR_parse_warning = function(w) { n_warn <<- n_warn + 1L; invokeRestart("muffleWarning") }
+  )
+  fast <- dl()
+  old <- options(telegramR.fast_decode = FALSE, telegramR.lite_messages = FALSE)
+  slow <- tryCatch(dl(), finally = options(old))
+  cols <- c("message_id", "date", "text", "media_type", "is_forward", "forward_from_id",
+            "forward_from_message_id", "reply_to_msg_id", "post_author")
+  ids <- intersect(fast$message_id, slow$message_id)
+  expect(length(ids) >= 50, sprintf("only %d common messages", length(ids)))
+  a <- fast[match(ids, fast$message_id), cols]
+  b <- slow[match(ids, slow$message_id), cols]
+  expect(identical(a, b), "rows differ between compiled and R decoders")
+  expect(n_warn == 0L, sprintf("%d telegramR_parse_warning(s)", n_warn))
+  cat(sprintf("      compared %d messages\n", length(ids)))
+  TRUE
+}, cap = 400)
 check("estimate_channel_post_count", { e <- estimate_channel_post_count(client, channel); expect(e$last_message_id > 0, "bad estimate"); e })
-check("download_channel_reactions", { r <- download_channel_reactions(client, channel, limit = 20); expect(is.data.frame(r), "not df"); r })
+check("download_channel_reactions", {
+  r <- download_channel_reactions(client, channel, limit = 20)
+  expect(is.data.frame(r), "not df")
+  cat(sprintf("      posts with reactions: %d/%d; reactions_json sample: %s\n",
+              sum(r$reactions_total > 0, na.rm = TRUE), nrow(r),
+              paste(utils::head(unique(r$reactions_json), 3), collapse = " | ")))
+  r
+})
 check("download_channel_media", {
   d <- tempfile(); dir.create(d)
-  md <- download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d)
+  ws <- character(0)
+  op <- options(telegramR.parse_warning_calls = TRUE)
+  md <- withCallingHandlers(
+    download_channel_media(client, channel, limit = 5, media_types = c("photo", "video"), out_dir = d),
+    warning = function(w) {
+      if (grepl("^Failed to decode", conditionMessage(w)) && !any(grepl("^Failed to decode", ws))) {
+        cat("      first parse warning:", conditionMessage(w), "\n")
+      }
+      ws <<- c(ws, conditionMessage(w)); invokeRestart("muffleWarning")
+    }
+  )
+  options(op)
   expect(is.data.frame(md), "not df")
+  for (f in list.files(d, full.names = TRUE)) {
+    b <- readBin(f, "raw", file.size(f))
+    jpeg <- grepl("\\.jpe?g$", f, ignore.case = TRUE)
+    ok <- if (jpeg) length(b) > 4 && identical(b[1:2], as.raw(c(0xff, 0xd8))) && identical(utils::tail(b, 2), as.raw(c(0xff, 0xd9))) else NA
+    cat(sprintf("      file %s: %s bytes%s\n", basename(f), format(length(b), big.mark = ","),
+                if (is.na(ok)) "" else if (ok) ", valid JPEG" else ", NOT a complete JPEG"))
+  }
+  if (nrow(md) > 0 && "error" %in% names(md)) {
+    for (k in which(!is.na(md$error))) {
+      cat(sprintf("      media %s (%s) failed: %s\n", md$message_id[k], md$media_type[k], substr(md$error[k], 1, 160)))
+    }
+  }
+  if (length(ws)) {
+    tab <- sort(table(substr(ws, 1, 140)), decreasing = TRUE)
+    for (k in seq_len(min(5, length(tab)))) cat(sprintf("      warning x%d: %s\n", tab[[k]], names(tab)[k]))
+  }
   if (nrow(md) > 0) expect(any(file.size(list.files(d, full.names = TRUE)) > 0), "empty files")
+  expect(!any(grepl("^Failed to decode", ws)), "decode failures during media download")
   md
 }, cap = 400)
 check("check_username_on_telegram", check_username_on_telegram(client, "durov"))

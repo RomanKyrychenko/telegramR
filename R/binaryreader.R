@@ -32,8 +32,16 @@ BinaryReader <- R6::R6Class(
     #  @param signed A logical indicating whether the integer is signed.
     #  @return An integer value.
     read_int = function(signed = TRUE) {
-      bytes <- self$read(4)
-      return(self$bytes_to_int(bytes, signed))
+      # Hot path: inline read(4) + bytes_to_int(); short reads fall back to
+      # read() so the usual "No more data left to read" error is raised.
+      pos <- private$.pos
+      if (pos + 4L > length(private$.data)) {
+        return(self$bytes_to_int(self$read(4), signed))
+      }
+      bytes <- private$.data[(pos + 1L):(pos + 4L)]
+      private$.last <- bytes
+      private$.pos <- pos + 4L
+      bytes_to_int32_cpp(bytes, isTRUE(signed))
     },
 
     #  @description
@@ -103,6 +111,40 @@ BinaryReader <- R6::R6Class(
     },
 
     #  @description
+    #  Toggle "lite" decoding: generated TL types are returned as classed
+    #  named lists instead of R6 objects (much cheaper to build). Used for
+    #  bulk message downloads, where only field values are needed.
+    #  @param value TRUE/FALSE.
+    #  @return The previous setting (invisibly).
+    set_lite = function(value) {
+      prev <- private$.lite
+      private$.lite <- isTRUE(value)
+      invisible(prev)
+    },
+
+    #  @description
+    #  Read one TL object, using the compiled table-driven decoder when this
+    #  reader is in lite mode (see R/tl_fast.R). Falls back to tgread_object()
+    #  for anything the compiled decoder does not handle.
+    #  @return A TL object.
+    tgread_object_lite = function() {
+      ptr <- if (private$.lite) .telegramR_tl_fast_ptr() else NULL
+      if (!is.null(ptr)) {
+        start <- private$.pos
+        res <- tryCatch(
+          tl_decode_object_cpp(ptr, private$.data, start, private$fallback()),
+          error = function(e) NULL
+        )
+        if (!is.null(res)) {
+          private$.pos <- res[[2]]
+          return(res[[1]])
+        }
+        private$.pos <- start
+      }
+      self$tgread_object()
+    },
+
+    #  @description
     #  Gets the byte array representing the current buffer as a whole.
     #  @return A raw vector of the entire buffer.
     get_bytes = function() {
@@ -143,6 +185,10 @@ BinaryReader <- R6::R6Class(
     #  @param signed A logical indicating whether the integer is signed.
     #  @return An integer value.
     bytes_to_int = function(bytes, signed = TRUE) {
+      if (length(bytes) == 8) {
+        # 64-bit TL long: decode natively, keep full precision as bigz.
+        return(gmp::as.bigz(bytes_to_int64_str_cpp(bytes, isTRUE(signed))))
+      }
       if (length(bytes) > 4) {
         # Use big integer arithmetic to preserve full 64-bit precision.
         val <- gmp::as.bigz(paste0("0x", bytes_to_hex_be_cpp(bytes)))
@@ -193,11 +239,26 @@ BinaryReader <- R6::R6Class(
       self$tgread_bytes()
     },
 
+    #  camelCase aliases used by the generated request classes' $fromReader()
+    #  methods (previously calling methods that did not exist).
+    readInt = function(signed = TRUE) self$read_int(signed),
+    readLong = function(signed = TRUE) self$read_long(signed),
+    readRaw = function(length = -1) self$read(length),
+    tgreadObject = function() self$tgread_object(),
+    tgreadString = function() self$tgread_string(),
+    tgreadBytes = function() self$tgread_bytes(),
+    tgreadBool = function() self$tgread_bool(),
+    tgreadDate = function() self$tgread_date(),
+
     #  @description
     #  Reads a Telegram-encoded string.
     #  @return A character string.
     tgread_string = function() {
-      return(rawToChar(self$tgread_bytes()))
+      # TL strings are always UTF-8; mark them so they are not interpreted
+      # in the native encoding (mojibake under non-UTF-8 locales).
+      out <- rawToChar(self$tgread_bytes())
+      Encoding(out) <- "UTF-8"
+      out
     },
 
     #  @description
@@ -223,6 +284,11 @@ BinaryReader <- R6::R6Class(
         stop(sprintf("Invalid constructor code %s, expected Vector", sprintf("%.0f", as.numeric(ctor))))
       }
       n <- self$read_int()
+      # every element takes at least 4 bytes; reject impossible counts before
+      # allocating (a corrupted count would otherwise allocate gigabytes)
+      if (n < 0 || n > (length(private$.data) - private$.pos) / 4) {
+        stop(sprintf("Invalid vector length %s at byte %s", as.character(n), as.character(private$.pos)))
+      }
       out <- vector("list", n)
       if (n > 0) for (i in seq_len(n)) out[[i]] <- self$tgread_object()
       out
@@ -241,7 +307,9 @@ BinaryReader <- R6::R6Class(
     #  @return A TL object or raw bytes if type unknown.
     tgread_object = function() {
       constructor_id <- self$read_int(signed = FALSE)
-      if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+      trace <- isTRUE(getOption("telegramR.trace_parse", FALSE))
+      ctor_key <- .telegramR_norm_ctor_id(constructor_id)
+      if (trace) {
         message(sprintf(
           "[trace] tgread_object ctor=%s pos=%s rem=%s",
           as.character(constructor_id),
@@ -249,8 +317,7 @@ BinaryReader <- R6::R6Class(
           as.character(length(private$.data) - self$tell_position())
         ))
       }
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x3072cfa1))) {
+      if (identical(ctor_key, "812830625")) { # GzipPacked (0x3072cfa1)
         # GzipPacked: decompress and parse inner object
         packed <- self$tgread_bytes()
         inner <- tryCatch(memDecompress(packed, type = "gzip"), error = function(e) NULL)
@@ -261,9 +328,9 @@ BinaryReader <- R6::R6Class(
         on.exit(tryCatch(inner_reader$close(), error = function(e) NULL), add = TRUE)
         return(inner_reader$tgread_object())
       }
-      if (!is.null(constructor_id) && constructor_id == 481674261) { # Vector (0x1cb5c415)
+      if (identical(ctor_key, "481674261")) { # Vector (0x1cb5c415)
         count <- self$read_int()
-        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+        if (trace) {
           message(sprintf(
             "[trace] tgread_object vector count=%s rem=%s",
             as.character(count),
@@ -276,143 +343,75 @@ BinaryReader <- R6::R6Class(
           remaining <- length(private$.data) - cur
           return(list(CONSTRUCTOR_ID = constructor_id, data = if (remaining > 0) self$read(remaining) else raw(0)))
         }
-        res <- list()
-        if (count > 0) {
-          for (i in seq_len(count)) {
-            res[[i]] <- self$tgread_object()
-          }
+        res <- vector("list", count)
+        for (i in seq_len(count)) {
+          res[[i]] <- self$tgread_object()
         }
         return(res)
       }
-      # Special-case User constructor (newer layer) to avoid parse failures
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(34280482))) {
-        return(.telegramR_read_user(self))
-      }
-      # Special-case contacts.ResolvedPeer (newer layer) to avoid parse failures
-      if (!isTRUE(getOption("telegramR.disable_contacts_resolved_peer")) &&
-        !is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(2131196633))) {
-        return(.telegramR_read_contacts_resolved_peer(self))
-      }
-      # Special-case messages.ChannelMessages to ensure messages parse correctly
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(3346446926))) {
-        return(.telegramR_read_channel_messages(self))
-      }
-      # Special-case messages.Messages
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(494135274))) {
-        return(.telegramR_read_messages(self))
-      }
-      # Special-case messages.MessagesSlice
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(1595959062))) {
-        return(.telegramR_read_messages_slice(self))
-      }
-      # Special-case messages.MessagesNotModified
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(1951620897))) {
-        return(.telegramR_read_messages_not_modified(self))
-      }
-      # Special-case MessageService to avoid stale R6 from_reader
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x7a800e0a))) {
-        return(.telegramR_read_message_service(self))
-      }
-      # Special-case ChannelFull
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xe4e0b29d))) {
-        return(.telegramR_read_channel_full(self))
-      }
-      # Special-case Channel to avoid parse failures on newer flags
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xfe685355))) {
-        return(.telegramR_read_channel(self))
-      }
-      # Special-case messages.ChatFull (used by channels.getFullChannel)
-      if (!is.null(constructor_id) &&
-        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xe5d7d19c))) {
-        return(.telegramR_read_messages_chat_full(self))
-      }
-      ctor_key <- .telegramR_norm_ctor_id(constructor_id)
-      hand <- .telegramR_hand_readers[[ctor_key]]
-      if (is.function(hand)) {
+      # Hand-written readers for constructors whose generated parsers are
+      # missing or unreliable (User, Channel, messages.*, ...).
+      hand <- .telegramR_special_readers()[[ctor_key]]
+      if (is.function(hand) &&
+        !(identical(ctor_key, "2131196633") && isTRUE(getOption("telegramR.disable_contacts_resolved_peer")))) {
         return(hand(self))
       }
-      ctor_map <- .telegramR_get_ctor_map()
-      cls <- ctor_map[[ctor_key]]
-      if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+      cls <- .telegramR_get_ctor_map()[[ctor_key]]
+      if (trace) {
         message(sprintf(
           "[trace] tgread_object ctor=%s class=%s pos=%s rem=%s",
           as.character(constructor_id),
-          if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "NULL",
+          if (!is.null(cls) && !is.null(cls$classname)) cls$classname[1] else "NULL",
           as.character(self$tell_position()),
           as.character(length(private$.data) - self$tell_position())
         ))
       }
 
       if (is.null(cls)) {
-        if (isTRUE(getOption("telegramR.debug_parse"))) {
-          message(sprintf(
-            "[tgread_object] unknown ctor=%s at pos=%s",
-            as.character(constructor_id),
-            as.character(self$tell_position())
-          ))
-        }
-        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
-          message(sprintf(
-            "[trace] unknown ctor=%s pos=%s rem=%s",
-            as.character(constructor_id),
-            as.character(self$tell_position()),
-            as.character(length(private$.data) - self$tell_position())
-          ))
-        }
         cur <- self$tell_position()
         remaining <- length(private$.data) - cur
+        .telegramR_parse_warning(sprintf(
+          "Unknown TL constructor %s at byte %s; the remaining %d bytes of this response were not decoded.",
+          .telegramR_ctor_hex(ctor_key), as.character(cur - 4), as.integer(remaining)
+        ), constructor_id = constructor_id)
         if (remaining <= 0) {
-          if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
-            message(sprintf("[trace] unknown ctor=%s return empty", as.character(constructor_id)))
-          }
           return(list(CONSTRUCTOR_ID = constructor_id, data = raw(0)))
         }
-        data <- self$read(remaining)
-        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
-          message(sprintf("[trace] unknown ctor=%s read remaining=%d", as.character(constructor_id), length(data)))
-        }
-        return(list(CONSTRUCTOR_ID = constructor_id, data = data))
+        return(list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining)))
       }
+      cls <- .telegramR_fast_class(cls)
 
       # Save position right after reading constructor_id so we can rewind
       # on from_reader failure (it may have consumed bytes before failing).
       pos_after_ctor <- self$tell_position()
 
-      # Most generated classes expose parser as private$from_reader.
-      # Try to instantiate; if the constructor requires args, create with
-      # a zero-arg tryCatch and fall back to using the class generator directly.
-      obj <- tryCatch(cls$new(), error = function(e) NULL)
+      # A blank instance is only needed when the class has no class-level
+      # parser (or as the last-resort return value), so build it lazily.
+      obj <- NULL
+      blank <- function() {
+        if (is.null(obj)) obj <<- tryCatch(cls$new(), error = function(e) NULL)
+        obj
+      }
 
-      # Prefer class-level from_reader to avoid relying on instance methods
-      # (some classes lack a working self$new on instances).
       from_reader_fn <- NULL
       self_proxy <- NULL
       captured <- new.env(parent = emptyenv())   # holds the instance built via self$initialize()/self$new()
-      if (!is.null(cls$private_methods) && is.function(cls$private_methods$from_reader)) {
-        from_reader_fn <- cls$private_methods$from_reader
-        # Fix the function's environment so it can find the class it needs
-        # to construct (e.g. BadServerSalt$new inside from_reader).
-        fn_env <- new.env(parent = environment(from_reader_fn))
-        fn_env[[cls$classname]] <- cls
-        # Provide a `self` proxy so from_reader methods that call
+      reader_entry <- .telegramR_class_reader(cls)
+      if (!is.null(reader_entry)) {
+        # Bind a `self` proxy so from_reader methods that call
         # self$initialize(...) / self$new(...) work outside R6 context. The
         # created instance is captured so the common `self$initialize(...); self`
-        # idiom returns a populated object rather than the empty proxy.
+        # idiom returns a populated object rather than the empty proxy. The
+        # parser itself is compiled once per class; only this small per-call
+        # environment is new (so nested parses of the same class are safe).
         self_proxy <- new.env(parent = emptyenv())
         self_proxy$initialize <- function(...) { captured$obj <- cls$new(...); invisible(captured$obj) }
         self_proxy$new <- function(...) { captured$obj <- cls$new(...); captured$obj }
-        fn_env$self <- self_proxy
-        environment(from_reader_fn) <- fn_env
-      } else if (!is.null(obj)) {
+        call_env <- new.env(parent = reader_entry$env)
+        call_env$self <- self_proxy
+        from_reader_fn <- reader_entry$fn
+        environment(from_reader_fn) <- call_env
+      } else if (!is.null(blank())) {
         private_env <- obj$.__enclos_env__$private
         if (is.environment(private_env) && is.function(private_env$from_reader)) {
           from_reader_fn <- private_env$from_reader
@@ -425,34 +424,22 @@ BinaryReader <- R6::R6Class(
       }
 
       if (!is.null(from_reader_fn)) {
-        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+        if (trace) {
           message(sprintf(
             "[trace] from_reader start ctor=%s class=%s pos=%s",
-            as.character(constructor_id),
-            if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "unknown",
-            as.character(self$tell_position())
+            as.character(constructor_id), cls$classname[1], as.character(self$tell_position())
           ))
         }
         parsed <- tryCatch(from_reader_fn(self), error = function(e) {
-          if (isTRUE(getOption("telegramR.debug_parse"))) {
-            msg <- sprintf(
-              "[tgread_object] from_reader failed for ctor=%s class=%s at pos=%s: %s",
-              as.character(constructor_id),
-              if (!is.null(cls$classname)) cls$classname else "unknown",
-              as.character(self$tell_position()),
-              conditionMessage(e)
-            )
-            message(msg)
-          }
-          if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
-            message(sprintf(
-              "[trace] from_reader error ctor=%s class=%s pos=%s: %s",
-              as.character(constructor_id),
-              if (!is.null(cls$classname)) cls$classname else "unknown",
-              as.character(self$tell_position()),
-              conditionMessage(e)
-            ))
-          }
+          detail <- if (isTRUE(getOption("telegramR.parse_warning_calls"))) {
+            d <- private$.data
+            sprintf(" [object at byte %d of %d; first bytes: %s]", pos_after_ctor - 4L, length(d),
+                    paste(as.character(utils::head(d, 64)), collapse = ""))
+          } else ""
+          .telegramR_parse_warning(sprintf(
+            "Failed to decode %s (constructor %s): %s. The remaining bytes of this response were not decoded.%s",
+            cls$classname[1], .telegramR_ctor_hex(ctor_key), conditionMessage(e), detail
+          ), constructor_id = constructor_id, class_name = cls$classname[1])
           # Rewind reader to position right after constructor_id so the
           # fallback data contains ALL the object bytes.
           tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
@@ -464,12 +451,10 @@ BinaryReader <- R6::R6Class(
             list(CONSTRUCTOR_ID = constructor_id, data = raw(0))
           }
         })
-        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+        if (trace) {
           message(sprintf(
             "[trace] from_reader done ctor=%s class=%s pos=%s",
-            as.character(constructor_id),
-            if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "unknown",
-            as.character(self$tell_position())
+            as.character(constructor_id), cls$classname[1], as.character(self$tell_position())
           ))
         }
         if (inherits(parsed, "R6")) {
@@ -479,21 +464,26 @@ BinaryReader <- R6::R6Class(
         # via self$initialize()/self$new(); otherwise rebuild from any direct
         # field writes it made on the proxy (the `self$field <- x; self` idiom).
         if (!is.null(self_proxy) && is.environment(parsed) && identical(parsed, self_proxy)) {
-          extra <- setdiff(ls(self_proxy), c("initialize", "new"))
+          fields <- as.list.environment(self_proxy, sorted = TRUE)
+          fields$initialize <- NULL
+          fields$new <- NULL
           if (!is.null(captured$obj)) {
-            for (nm in extra) try(captured$obj[[nm]] <- get(nm, envir = self_proxy), silent = TRUE)
+            for (nm in names(fields)) try(captured$obj[[nm]] <- fields[[nm]], silent = TRUE)
             return(captured$obj)
           }
-          fields <- mget(extra, envir = self_proxy)
+          if (private$.lite) {
+            return(structure(c(list(CONSTRUCTOR_ID = constructor_id), fields),
+                             class = reader_entry$lite_class))
+          }
           built <- tryCatch(do.call(cls$new, fields), error = function(e) NULL)
           if (!is.null(built)) return(built)
           return(structure(c(list(CONSTRUCTOR_ID = constructor_id), fields),
-                           class = c(cls$classname, "TLObject", "list")))
+                           class = c(cls$classname[1], "TLObject", "list")))
         }
         if (!is.null(captured$obj)) {
           return(captured$obj)
         }
-        if (inherits(parsed, class(cls$classname)[1]) || inherits(parsed, cls$classname)) {
+        if (inherits(parsed, cls$classname[1])) {
           return(parsed)
         }
         if (is.list(parsed)) {
@@ -506,7 +496,7 @@ BinaryReader <- R6::R6Class(
       }
 
       # Fallback: return blank object or raw data
-      if (!is.null(obj)) {
+      if (!is.null(blank())) {
         return(obj)
       }
       tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
@@ -526,7 +516,21 @@ BinaryReader <- R6::R6Class(
     stream = NULL,
     .last = NULL,
     .data = NULL,
-    .pos = 0L
+    .pos = 0L,
+    .lite = FALSE,
+    .fallback = NULL,
+    # Callback used by the compiled decoder for objects it does not handle:
+    # decode the object at byte offset `pos` with the R path.
+    fallback = function() {
+      if (is.null(private$.fallback)) {
+        private$.fallback <- function(pos) {
+          private$.pos <- pos
+          obj <- self$tgread_object()
+          list(obj, private$.pos)
+        }
+      }
+      private$.fallback
+    }
   )
 )
 
@@ -538,7 +542,7 @@ BinaryReader <- R6::R6Class(
     stop(sprintf("Expected Vector constructor, got %s", as.character(vec_ctor)))
   }
   n <- reader$read_int()
-  out <- vector("list", n)
+  out <- vector("list", length(.telegramR_seq_count(reader, n)))
   if (n > 0) for (i in seq_len(n)) out[[i]] <- reader$tgread_object()
   out
 }
@@ -705,7 +709,8 @@ BinaryReader <- R6::R6Class(
     dialogs = 0x15ba6c40, dialogsSlice = 0x71e094f3, dialogsNotModified = 0xf0e3e596,
     chats = 0x64ff9fd5, chatsSlice = 0x9cd81144,
     chat = 0x41cbf256, chatEmpty = 0x29562865, chatForbidden = 0x6592a1a7,
-    emojiStatus = 0xe7ff068a, emojiStatusCollectible = 0x7184603b, emojiStatusEmpty = 0x2de11aae
+    emojiStatus = 0xe7ff068a, emojiStatusCollectible = 0x7184603b, emojiStatusEmpty = 0x2de11aae,
+    authAuthorization = 0x2ea2c0d4
   )
   fns <- list(
     updates = function(r) .telegramR_read_updates(r),
@@ -726,11 +731,113 @@ BinaryReader <- R6::R6Class(
     chatForbidden = function(r) .telegramR_read_chat_forbidden(r),
     emojiStatus = function(r) .telegramR_read_emoji_status(r),
     emojiStatusCollectible = function(r) .telegramR_read_emoji_status_collectible(r),
-    emojiStatusEmpty = function(r) EmojiStatusEmpty$new()
+    emojiStatusEmpty = function(r) EmojiStatusEmpty$new(),
+    authAuthorization = function(r) .telegramR_read_auth_authorization(r)
   )
   # keys match .telegramR_norm_ctor_id(): unsigned constructor id as a string
   stats::setNames(fns[names(ctors)], sprintf("%.0f", ctors))
 })
+
+# auth.authorization#2ea2c0d4 (sign-in and ImportAuthorization result). The
+# generated types have no class for it because its name clashes with
+# account authorization#ad01d61d ("Authorization").
+AuthAuthorization <- R6::R6Class("AuthAuthorization",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x2ea2c0d4,
+    SUBCLASS_OF_ID = 0xb9e04e39,
+    setup_password_required = NULL,
+    otherwise_relogin_days = NULL,
+    tmp_sessions = NULL,
+    future_auth_token = NULL,
+    user = NULL,
+    initialize = function(setup_password_required = NULL, otherwise_relogin_days = NULL,
+                          tmp_sessions = NULL, future_auth_token = NULL, user = NULL) {
+      self$setup_password_required <- setup_password_required
+      self$otherwise_relogin_days <- otherwise_relogin_days
+      self$tmp_sessions <- tmp_sessions
+      self$future_auth_token <- future_auth_token
+      self$user <- user
+    },
+    to_dict = function() {
+      list(
+        `_` = "AuthAuthorization",
+        setup_password_required = self$setup_password_required,
+        otherwise_relogin_days = self$otherwise_relogin_days,
+        tmp_sessions = self$tmp_sessions,
+        future_auth_token = self$future_auth_token,
+        user = if (inherits(self$user, "TLObject")) self$user$to_dict() else self$user
+      )
+    }
+  ),
+  class = TRUE,
+  lock_objects = FALSE
+)
+
+.telegramR_read_auth_authorization <- function(r) {
+  flags <- r$read_int()
+  AuthAuthorization$new(
+    setup_password_required = bitwAnd(flags, 2L) != 0,
+    otherwise_relogin_days = if (bitwAnd(flags, 2L) != 0) r$read_int() else NULL,
+    tmp_sessions = if (bitwAnd(flags, 1L) != 0) r$read_int() else NULL,
+    future_auth_token = if (bitwAnd(flags, 4L) != 0) r$tgread_bytes() else NULL,
+    user = r$tgread_object()
+  )
+}
+
+# Signal a recoverable decoding problem. Decoding falls back to raw bytes so
+# a session keeps working across schema changes, but the caller is told: the
+# warning has class "telegramR_parse_warning" so it can be caught or muffled
+# (options(telegramR.parse_warnings = FALSE) turns these off).
+.telegramR_parse_warning <- function(msg, constructor_id = NULL, class_name = NULL) {
+  if (isFALSE(getOption("telegramR.parse_warnings"))) return(invisible(NULL))
+  # Debugging aid: name the functions that led here, since the warning is
+  # often relayed by a future after the original stack is gone.
+  if (isTRUE(getOption("telegramR.parse_warning_calls"))) {
+    calls <- vapply(sys.calls(), function(cl) {
+      f <- cl[[1]]
+      if (is.name(f)) return(as.character(f))
+      if (is.call(f) && identical(f[[1]], as.name("$"))) return(paste0("$", as.character(f[[3]])))
+      "<fn>"
+    }, character(1))
+    calls <- calls[!calls %in% c("<fn>", "tryCatch", "tryCatchList", "tryCatchOne", "doTryCatch", "withCallingHandlers")]
+    msg <- paste0(msg, " [calls: ", paste(utils::tail(calls, 12), collapse = " > "), "]")
+  }
+  cond <- structure(
+    class = c("telegramR_parse_warning", "warning", "condition"),
+    list(message = msg, call = NULL, constructor_id = constructor_id, class_name = class_name)
+  )
+  warning(cond)
+}
+
+# seq_len(n) for a count read from the wire, after checking that n elements
+# (at least 4 bytes each) can fit in the rest of the buffer. A corrupted count
+# would otherwise make lapply()/vector() allocate gigabytes up front. Mock
+# readers without get_bytes()/tell_position() skip the check.
+.telegramR_seq_count <- function(reader, n) {
+  if (length(n) == 1 && !is.na(n) && n > 0) {
+    remaining <- tryCatch(length(reader$get_bytes()) - reader$tell_position(), error = function(e) NA)
+    if (is.numeric(remaining) && length(remaining) == 1 && !is.na(remaining) && n > remaining / 4) {
+      stop(sprintf("Invalid vector length %s with %s bytes left", as.character(n), as.character(remaining)))
+    }
+  }
+  seq_len(n)
+}
+
+# "0x1cb5c415"-style label for an (unsigned) constructor key; sprintf("%x")
+# cannot format ids above 2^31, which R holds as doubles.
+.telegramR_ctor_hex <- function(key) {
+  v <- as.numeric(key)
+  if (is.na(v)) return("<unknown>")
+  sprintf("0x%04x%04x", as.integer(v %/% 65536), as.integer(v %% 65536))
+}
+
+# TRUE for the raw-bytes placeholder tgread_object() returns when it could not
+# decode an object.
+.telegramR_is_unparsed <- function(x) {
+  is.list(x) && !inherits(x, "TLObject") && !inherits(x, "R6") &&
+    !is.null(x$CONSTRUCTOR_ID) && is.raw(x$data)
+}
 
 .telegramR_norm_ctor_id <- function(x) {
   v <- as.numeric(x)[1]
@@ -741,105 +848,198 @@ BinaryReader <- R6::R6Class(
   sprintf("%.0f", v)
 }
 
-.telegramR_get_ctor_map <- function() {
-  cache <- getOption("telegramR.ctor_map")
-  if (!isTRUE(getOption("telegramR.debug_parse")) &&
-    is.list(cache) && length(cache) > 0) {
-    return(cache)
-  }
+# Package-level caches (constructor map, special readers). Kept out of
+# options(): getOption() copies its value, which for a ~2300-entry map costs
+# tens of microseconds on every parsed object.
+.telegramR_state <- new.env(parent = emptyenv())
 
-  # Search multiple environments to handle both installed package and
-  # devtools::load_all() / source() workflows.
-  envs_to_search <- list()
-  tryCatch(
-    {
-      pkg_name <- utils::packageName()
-      if (!is.null(pkg_name) && nzchar(pkg_name)) {
-        envs_to_search <- c(envs_to_search, list(asNamespace(pkg_name)))
-      }
-    },
-    error = function(e) NULL
-  )
-  tryCatch(
-    {
-      ns <- asNamespace("telegramR")
-      if (!any(vapply(envs_to_search, identical, logical(1), ns))) {
-        envs_to_search <- c(envs_to_search, list(ns))
-      }
-    },
-    error = function(e) NULL
-  )
-  # Also search the global environment (for source()'d code)
-  envs_to_search <- c(envs_to_search, list(.GlobalEnv))
-  if (isTRUE(getOption("telegramR.debug_parse"))) {
-    # Prefer freshly loaded classes in the global environment
-    envs_to_search <- c(list(.GlobalEnv), envs_to_search)
+# Constructor key (unsigned id as string) of an R6 generator, or NULL.
+.telegramR_generator_ctor_key <- function(obj) {
+  cid <- NULL
+  pf <- obj$public_fields
+  if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
+    cid <- tryCatch(
+      {
+        v <- pf$CONSTRUCTOR_ID
+        if (is.function(v)) v <- v()
+        v
+      },
+      error = function(e) NULL
+    )
   }
+  if (is.null(cid)) {
+    af <- obj$active
+    if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
+      cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
+        tryCatch(obj$new()$CONSTRUCTOR_ID, error = function(e2) NULL)
+      })
+    }
+  }
+  if (is.null(cid)) return(NULL)
+  key <- .telegramR_norm_ctor_id(cid)
+  if (is.na(key)) NULL else key
+}
 
+# Named character vector: constructor key -> generator name, for every R6
+# generator in `env`. Later definitions of the same key win.
+.telegramR_scan_ctor_index <- function(env) {
+  nms <- ls(envir = env, all.names = TRUE)
+  keys <- vapply(nms, function(nm) {
+    obj <- get(nm, envir = env, inherits = FALSE)
+    if (!inherits(obj, "R6ClassGenerator")) return(NA_character_)
+    key <- .telegramR_generator_ctor_key(obj)
+    if (is.null(key)) NA_character_ else key
+  }, character(1), USE.NAMES = FALSE)
+  keep <- !is.na(keys)
+  idx <- stats::setNames(nms[keep], keys[keep])
+  idx <- idx[!duplicated(names(idx), fromLast = TRUE)]
+  # Newer-layer User constructor id reuses the existing User class
+  user_new <- .telegramR_norm_ctor_id(34280482)
+  user_old <- .telegramR_norm_ctor_id(0x57258a18)
+  if (is.na(idx[user_new]) && !is.na(idx[user_old])) idx[[user_new]] <- idx[[user_old]]
+  idx
+}
+
+# Slow path: scan environments directly (used with telegramR.debug_parse so
+# classes re-sourced into the global environment take precedence).
+.telegramR_build_ctor_map_slow <- function() {
+  envs <- list(.GlobalEnv, environment(.telegramR_build_ctor_map_slow))
   out <- list()
-  seen_names <- character(0)
-  for (env in envs_to_search) {
-    for (nm in ls(envir = env, all.names = TRUE)) {
-      if (nm %in% seen_names) next
-      seen_names <- c(seen_names, nm)
-      obj <- tryCatch(get(nm, envir = env, inherits = FALSE), error = function(e) NULL)
-      if (!inherits(obj, "R6ClassGenerator")) next
-      cid <- NULL
-      pf <- obj$public_fields
-      if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
-        cid <- tryCatch(
-          {
-            v <- pf$CONSTRUCTOR_ID
-            if (is.function(v)) v <- v()
-            v
-          },
-          error = function(e) NULL
-        )
-      }
-      if (is.null(cid)) {
-        af <- obj$active
-        if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
-          cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
-            tryCatch(
-              {
-                inst <- obj$new()
-                inst$CONSTRUCTOR_ID
-              },
-              error = function(e2) NULL
-            )
-          })
-        }
-      }
-      if (is.null(cid)) next
-
-      key <- .telegramR_norm_ctor_id(cid)
-      if (is.na(key)) next
-      out[[key]] <- obj
-    }
-  }
-
-  # Map newer User constructor ID (seen in Telegram layer) to existing User class
-  if (!is.null(out) && is.null(out[[.telegramR_norm_ctor_id(34280482)]])) {
-    user_cls <- out[[.telegramR_norm_ctor_id(0x57258a18)]]
-    if (inherits(user_cls, "R6ClassGenerator")) {
-      out[[.telegramR_norm_ctor_id(34280482)]] <- user_cls
-    }
-  }
-
-  # Map newer contacts.ResolvedPeer constructor ID to existing class if needed
-  if (!is.null(out) && is.null(out[[.telegramR_norm_ctor_id(2131196633)]])) {
-    crp_cls <- out[[.telegramR_norm_ctor_id(0x7f077ad9)]]
-    if (inherits(crp_cls, "R6ClassGenerator")) {
-      out[[.telegramR_norm_ctor_id(2131196633)]] <- crp_cls
-    }
-  }
-
-
-  # Only cache if we found at least some classes; otherwise retry next time
-  if (length(out) > 0) {
-    options(telegramR.ctor_map = out)
+  for (env in rev(envs)) {
+    idx <- .telegramR_scan_ctor_index(env)
+    for (key in names(idx)) out[[key]] <- get(idx[[key]], envir = env)
   }
   out
+}
+
+# Environment mapping constructor key -> generator. Generators are fetched
+# (and flattened) lazily on first use, so loading the map does not force the
+# whole lazy-load database into memory.
+.telegramR_ctor_map_from_index <- function() {
+  ns <- environment(.telegramR_ctor_map_from_index)
+  idx <- if (exists(".telegramR_ctor_index", envir = ns, inherits = FALSE)) {
+    get(".telegramR_ctor_index", envir = ns)
+  } else {
+    .telegramR_scan_ctor_index(ns)
+  }
+  map <- new.env(parent = emptyenv(), hash = TRUE, size = length(idx))
+  bind <- function(key, nm) {
+    force(nm)
+    delayedAssign(key, .telegramR_fast_class(get(nm, envir = ns)), assign.env = map)
+  }
+  for (key in names(idx)) bind(key, idx[[key]])
+  map
+}
+
+.telegramR_get_ctor_map <- function() {
+  if (isTRUE(getOption("telegramR.debug_parse"))) {
+    return(.telegramR_build_ctor_map_slow())
+  }
+  map <- .telegramR_state$ctor_map
+  if (is.null(map)) {
+    map <- .telegramR_ctor_map_from_index()
+    .telegramR_state$ctor_map <- map
+  }
+  map
+}
+
+# Constructors decoded by hand-written readers instead of their generated
+# class (newer-layer ids, or generated parsers that were unreliable).
+.telegramR_special_reader_list <- function() {
+  list(
+    list(34280482, .telegramR_read_user),                         # user (newer layer)
+    list(0x7f077ad9, .telegramR_read_contacts_resolved_peer),     # contacts.resolvedPeer
+    list(0xc776ba4e, .telegramR_read_channel_messages),           # messages.channelMessages
+    list(0x1d73e7ea, .telegramR_read_messages),                   # messages.messages
+    list(0x5f206716, .telegramR_read_messages_slice),             # messages.messagesSlice
+    list(0x74535f21, .telegramR_read_messages_not_modified),      # messages.messagesNotModified
+    list(0x7a800e0a, .telegramR_read_message_service),            # messageService
+    list(0xe4e0b29d, .telegramR_read_channel_full),               # channelFull
+    list(0xfe685355, .telegramR_read_channel),                    # channel
+    list(0xe5d7d19c, .telegramR_read_messages_chat_full)          # messages.chatFull
+  )
+}
+
+# Combined table of hand-written readers keyed by constructor key.
+.telegramR_special_readers <- function() {
+  tbl <- .telegramR_state$special_readers
+  if (!is.null(tbl)) return(tbl)
+  tbl <- list2env(.telegramR_hand_readers, parent = emptyenv())
+  for (sp in .telegramR_special_reader_list()) {
+    assign(.telegramR_norm_ctor_id(sp[[1]]), sp[[2]], envir = tbl)
+  }
+  .telegramR_state$special_readers <- tbl
+  tbl
+}
+
+# Flatten a TL class (TLObject / TLRequest subclass) into a single R6
+# generator. R6 builds a separate `super` object for every inherited level on
+# each $new(), which made object construction ~5x slower than for a flat
+# class. Members are merged parent-first so child definitions win, the class
+# vector is preserved (e.g. c("PeerChannel", "TLObject", "R6")). Classes that
+# use `super$` are left untouched.
+.telegramR_fast_class <- function(cls) {
+  if (!inherits(cls, "R6ClassGenerator") || isTRUE(cls$.telegramR_flat)) return(cls)
+  cls$.telegramR_flat <- TRUE
+  chain <- list()
+  g <- cls$get_inherit()
+  while (!is.null(g)) {
+    chain <- c(list(g), chain)
+    g <- g$get_inherit()
+  }
+  if (!length(chain)) return(cls)
+  names_ok <- all(vapply(chain, function(x) x$classname[1] %in% c("TLObject", "TLRequest"), logical(1)))
+  if (!names_ok) return(cls)
+  gens <- c(chain, list(cls))
+  slots <- c("public_fields", "public_methods", "private_fields", "private_methods", "active")
+  uses_super <- function(f) is.function(f) && "super" %in% all.names(body(f))
+  for (gen in gens) {
+    for (slot in c("public_methods", "private_methods", "active")) {
+      fns <- gen[[slot]]
+      # R6's own clone() references `super` generically and copes without it
+      if (slot == "public_methods") fns <- fns[setdiff(names(fns), "clone")]
+      if (any(vapply(fns, uses_super, logical(1)))) return(cls)
+    }
+    if (!identical(gen$portable, cls$portable)) return(cls)
+  }
+  merged <- lapply(stats::setNames(slots, slots), function(slot) {
+    out <- list()
+    for (gen in gens) {
+      x <- gen[[slot]]
+      if (length(x)) out[names(x)] <- x
+    }
+    if (length(out)) out else NULL
+  })
+  classnames <- c(cls$classname[1], rev(vapply(chain, function(x) x$classname[1], character(1))))
+  for (slot in slots) cls[[slot]] <- merged[[slot]]
+  cls$classname <- classnames
+  cls$inherit <- NULL
+  cls
+}
+
+# Compiled class-level parser for a generator, cached on the generator.
+# Returns list(fn, env) or NULL when the class has no private from_reader.
+.telegramR_class_reader <- function(cls) {
+  entry <- cls$.telegramR_reader
+  if (!is.null(entry)) return(if (isFALSE(entry)) NULL else entry)
+  fn <- cls$private_methods$from_reader
+  if (!is.function(fn)) {
+    cls$.telegramR_reader <- FALSE
+    return(NULL)
+  }
+  # The parser runs outside an R6 instance, so give it access to its own
+  # class (e.g. BadServerSalt$new inside from_reader).
+  env <- new.env(parent = environment(fn))
+  env[[cls$classname[1]]] <- cls
+  # Byte-compile once (R6 copies are otherwise JIT-compiled repeatedly);
+  # compilation is only an optimisation, so fall back to the plain closure.
+  compiled <- tryCatch(compiler::cmpfun(fn), error = function(e) fn)
+  entry <- list(
+    fn = compiled, env = env,
+    lite_class = unique(c(cls$classname, "TLObject", "telegramR_lite", "list"))
+  )
+  cls$.telegramR_reader <- entry
+  entry
 }
 
 .telegramR_read_user_profile_photo <- function(reader) {
@@ -904,7 +1104,7 @@ BinaryReader <- R6::R6Class(
     return(list(peer = peer, users = list(), chats = list()))
   }
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
   # Vector<Chat>
   vec_ctor2 <- reader$read_int(signed = FALSE)
   if (!identical(.telegramR_norm_ctor_id(vec_ctor2), .telegramR_norm_ctor_id(481674261))) {
@@ -912,7 +1112,7 @@ BinaryReader <- R6::R6Class(
     return(ContactsResolvedPeer$new(peer = peer, users = users, chats = list()))
   }
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
   ContactsResolvedPeer$new(peer = peer, users = users, chats = chats)
 }
 
@@ -935,32 +1135,23 @@ BinaryReader <- R6::R6Class(
     ))
   }
   messages <- list()
+  incomplete <- FALSE
   if (n_messages > 0) {
+    prev_lite <- reader$set_lite(isTRUE(getOption("telegramR.lite_messages")))
     for (i in seq_len(n_messages)) {
-      if (isTRUE(getOption("telegramR.debug_parse"))) {
-        pos <- tryCatch(reader$tell_position(), error = function(e) NA)
-        ctor <- tryCatch({
-          peek_pos <- reader$tell_position()
-          v <- reader$read_int(signed = FALSE)
-          reader$set_position(peek_pos)
-          v
-        }, error = function(e) NA)
-        message(sprintf("[channel_messages] message[%d] pos=%s ctor=%s", i, as.character(pos), as.character(ctor)))
+      obj <- tryCatch(reader$tgread_object_lite(), error = function(e) NULL)
+      if (is.null(obj) || .telegramR_is_unparsed(obj)) {
+        incomplete <- TRUE
+        break
       }
-      obj <- tryCatch(
-        reader$tgread_object(),
-        error = function(e) {
-          if (isTRUE(getOption("telegramR.debug_parse"))) {
-            message(sprintf(
-              "[channel_messages] message[%d] parse error: %s",
-              i, conditionMessage(e)
-            ))
-          }
-          NULL
-        }
-      )
-      if (is.null(obj)) break
       messages[[length(messages) + 1L]] <- obj
+    }
+    reader$set_lite(prev_lite)
+    if (incomplete) {
+      .telegramR_parse_warning(sprintf(
+        "messages.channelMessages: decoded %d of %d messages; the rest of the page (and its users/chats) could not be parsed, so results are incomplete.",
+        length(messages), as.integer(n_messages)
+      ))
     }
   }
 
@@ -971,7 +1162,7 @@ BinaryReader <- R6::R6Class(
     reader$read_int()
     n_topics <- reader$read_int()
     if (n_topics > 0) {
-      topics <- lapply(seq_len(n_topics), function(i) reader$tgread_object())
+      topics <- lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object())
     }
   }, error = function(e) {
     topics_ok <<- FALSE
@@ -985,7 +1176,8 @@ BinaryReader <- R6::R6Class(
       chats = list(),
       users = list(),
       inexact = inexact,
-      offset_id_offset = offset_id_offset
+      offset_id_offset = offset_id_offset,
+    incomplete = TRUE
     ))
   }
 
@@ -996,7 +1188,7 @@ BinaryReader <- R6::R6Class(
     reader$read_int()
     n_chats <- reader$read_int()
     if (n_chats > 0) {
-      chats <- lapply(seq_len(n_chats), function(i) reader$tgread_object())
+      chats <- lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object())
     }
   }, error = function(e) {
     chats_ok <<- FALSE
@@ -1010,20 +1202,22 @@ BinaryReader <- R6::R6Class(
       chats = chats,
       users = list(),
       inexact = inexact,
-      offset_id_offset = offset_id_offset
+      offset_id_offset = offset_id_offset,
+    incomplete = TRUE
     ))
   }
 
   # Vector<User>
   users <- list()
+  users_ok <- TRUE
   tryCatch({
     reader$read_int()
     n_users <- reader$read_int()
     if (n_users > 0) {
-      users <- lapply(seq_len(n_users), function(i) reader$tgread_object())
+      users <- lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object())
     }
   }, error = function(e) {
-    users <- list()
+    users_ok <<- FALSE
   })
 
   list(
@@ -1034,30 +1228,41 @@ BinaryReader <- R6::R6Class(
     chats = chats,
     users = users,
     inexact = inexact,
-    offset_id_offset = offset_id_offset
+    offset_id_offset = offset_id_offset,
+    incomplete = incomplete || !users_ok
   )
+}
+
+# Read `n` messages, decoding them as lightweight lists when the
+# telegramR.lite_messages option is set (bulk downloads). Users and chats in
+# the same response are still decoded as full objects.
+.telegramR_read_message_list <- function(reader, n) {
+  if (n <= 0) return(list())
+  prev <- reader$set_lite(isTRUE(getOption("telegramR.lite_messages")))
+  on.exit(reader$set_lite(prev), add = TRUE)
+  lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object_lite())
 }
 
 .telegramR_read_messages <- function(reader) {
   # Vector<Message>
   reader$read_int()
   n_messages <- reader$read_int()
-  messages <- if (n_messages > 0) lapply(seq_len(n_messages), function(i) reader$tgread_object()) else list()
+  messages <- .telegramR_read_message_list(reader, n_messages)
 
   # Vector<ForumTopic>
   reader$read_int()
   n_topics <- reader$read_int()
-  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+  topics <- if (n_topics > 0) lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object()) else list()
 
   # Vector<Chat>
   reader$read_int()
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
 
   # Vector<User>
   reader$read_int()
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
 
   list(
     messages = messages,
@@ -1078,22 +1283,22 @@ BinaryReader <- R6::R6Class(
   # Vector<Message>
   reader$read_int()
   n_messages <- reader$read_int()
-  messages <- if (n_messages > 0) lapply(seq_len(n_messages), function(i) reader$tgread_object()) else list()
+  messages <- .telegramR_read_message_list(reader, n_messages)
 
   # Vector<ForumTopic>
   reader$read_int()
   n_topics <- reader$read_int()
-  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+  topics <- if (n_topics > 0) lapply(.telegramR_seq_count(reader, n_topics), function(i) reader$tgread_object()) else list()
 
   # Vector<Chat>
   reader$read_int()
   n_chats <- reader$read_int()
-  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+  chats <- if (n_chats > 0) lapply(.telegramR_seq_count(reader, n_chats), function(i) reader$tgread_object()) else list()
 
   # Vector<User>
   reader$read_int()
   n_users <- reader$read_int()
-  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+  users <- if (n_users > 0) lapply(.telegramR_seq_count(reader, n_users), function(i) reader$tgread_object()) else list()
 
   list(
     count = count,
@@ -1194,7 +1399,7 @@ BinaryReader <- R6::R6Class(
       stop("invalid chats vector length")
     }
     if (n_chats > 0) {
-      chats <- lapply(seq_len(n_chats), function(i) safe_read_object())
+      chats <- lapply(.telegramR_seq_count(reader, n_chats), function(i) safe_read_object())
     }
 
     vec_ctor2 <- safe_read_int(signed = FALSE)
@@ -1209,7 +1414,7 @@ BinaryReader <- R6::R6Class(
       stop("invalid users vector length")
     }
     if (n_users > 0) {
-      users <- lapply(seq_len(n_users), function(i) safe_read_object())
+      users <- lapply(.telegramR_seq_count(reader, n_users), function(i) safe_read_object())
     }
   }, error = function(e) {
     # Return partial if parsing failed mid-way
@@ -1303,7 +1508,7 @@ BinaryReader <- R6::R6Class(
     if (!is.null(n_bot) && (n_bot < 0 || n_bot > max_bot)) {
       stop("invalid bot_info vector length")
     }
-    bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(seq_len(n_bot), function(i) safe_read_object()) else list()
+    bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(.telegramR_seq_count(reader, n_bot), function(i) safe_read_object()) else list()
 
     migrated_from_chat_id <- if (bitwAnd(flags, 16) != 0) safe_read_long() else NULL
     migrated_from_max_id <- if (bitwAnd(flags, 16) != 0) safe_read_int() else NULL
@@ -1328,7 +1533,7 @@ BinaryReader <- R6::R6Class(
       if (!is.null(n) && (n < 0 || n > max_sugg)) {
         stop("invalid pending_suggestions length")
       }
-      pending_suggestions <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_string()) else list()
+      pending_suggestions <- if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_string()) else list()
     }
 
     groupcall_default_join_as <- if (bitwAnd(flags, 67108864) != 0) safe_read_object() else NULL
@@ -1343,7 +1548,7 @@ BinaryReader <- R6::R6Class(
       if (!is.null(n) && (n < 0 || n > max_req)) {
         stop("invalid recent_requesters length")
       }
-      recent_requesters <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_long()) else list()
+      recent_requesters <- if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_long()) else list()
     }
 
     default_send_as <- if (bitwAnd(flags, 536870912) != 0) safe_read_object() else NULL
@@ -1519,7 +1724,7 @@ BinaryReader <- R6::R6Class(
     restriction_reason <- if (bitwAnd(flags, 512) != 0) {
       safe_read_int(signed = FALSE) # vector ctor
       n <- safe_read_int()
-      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+      if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_object()) else list()
     } else {
       NULL
     }
@@ -1532,7 +1737,7 @@ BinaryReader <- R6::R6Class(
     usernames <- if (bitwAnd(flags2, 1) != 0) {
       safe_read_int(signed = FALSE)
       n <- safe_read_int()
-      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+      if (!is.null(n) && n > 0) lapply(.telegramR_seq_count(reader, n), function(i) safe_read_object()) else list()
     } else {
       NULL
     }
@@ -1656,7 +1861,7 @@ BinaryReader <- R6::R6Class(
   restriction_reason <- if (bitwAnd(flags, 262144) != 0) {
     reader$read_int()
     n <- reader$read_int()
-    lapply(seq_len(n), function(i) reader$tgread_object())
+    lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object())
   } else {
     NULL
   }
@@ -1668,7 +1873,7 @@ BinaryReader <- R6::R6Class(
   usernames <- if (bitwAnd(flags2, 1) != 0) {
     reader$read_int()
     n <- reader$read_int()
-    lapply(seq_len(n), function(i) reader$tgread_object())
+    lapply(.telegramR_seq_count(reader, n), function(i) reader$tgread_object())
   } else {
     NULL
   }
