@@ -39,7 +39,28 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.0.2" id="telegramr-002">telegramR 0.0.2<a class="anchor" aria-label="anchor" href="#telegramr-002"></a></h2>
+<h2 class="pkg-version" data-toc-text="development version" id="telegramr-development-version">telegramR (development version)<a class="anchor" aria-label="anchor" href="#telegramr-development-version"></a></h2>
+<ul><li>Faster TL decoding: a 100-message <code>messages.ChannelMessages</code> page now parses about 2.5x faster as full objects, and the first parsed response after loading the package no longer spends ~8 s building the constructor map. The constructor index is computed at install time, cached outside <code><a href="https://rdrr.io/r/base/options.html" class="external-link">options()</a></code>, and TL classes are flattened on first use so R6 no longer builds a <code>super</code> object per instance.</li>
+<li>PQ factorisation during the auth-key handshake now runs in C++ (about 1000x faster), cutting several seconds from each new login or DC connection.</li>
+<li>Strings read from the wire are now marked as UTF-8, so non-ASCII text is no longer garbled under non-UTF-8 locales.</li>
+<li>
+<code><a href="../reference/download_channel_messages.html">download_channel_messages()</a></code>, <code><a href="../reference/download_channel_reactions.html">download_channel_reactions()</a></code> and <code><a href="../reference/download_channel_replies.html">download_channel_replies()</a></code> decode messages as lightweight lists instead of R6 objects (opt out with <code>options(telegramR.lite_messages = FALSE)</code>); with the other changes below, going from a raw 100-message response to tibble rows is about 20x faster than in 0.0.2 (1.7 s -&gt; 80 ms).</li>
+<li>64-bit TL longs are decoded natively (still returned as <code><a href="https://rdrr.io/pkg/gmp/man/biginteger.html" class="external-link">gmp::bigz</a></code>).</li>
+<li>In those download functions, messages are now decoded by a compiled, table-driven decoder (<code>src/tl_decode.cpp</code>) built at install time from the generated TL parsers: a 100-message page decodes in ~15 ms instead of ~1.7 s in 0.0.2 (~100x). Its output is identical to the R decoder’s (checked on ~4800 random objects covering every constructor, clean and corrupted); anything it does not cover is decoded by R. Disable with <code>options(telegramR.fast_decode = FALSE)</code>.</li>
+<li>Building rows from messages is faster: timestamps no longer re-parse the origin string on every call.</li>
+<li>A corrupted vector length in a response no longer triggers a multi-gigabyte allocation (which could get the R session killed): every count read from the wire is checked against the bytes left.</li>
+<li>Fixed <code><a href="../reference/download_channel_reactions.html">download_channel_reactions()</a></code> and <code><a href="../reference/download_channel_replies.html">download_channel_replies()</a></code> reporting zero reactions (<code>reactions_json = "[]"</code>) for every message.</li>
+<li>Decoding problems are no longer silent: an unknown constructor or a parser error raises a <code>telegramR_parse_warning</code>, and a <code>messages.channelMessages</code> page that could not be fully decoded is marked <code>incomplete = TRUE</code>.</li>
+<li>MTProto session ids are now random 64-bit values (previously 31-bit).</li>
+<li>The request classes’ <code>$fromReader()</code> methods now work with a real <code>BinaryReader</code> (it gained the camelCase method names they call).</li>
+<li>
+<code>MTProtoState$decrypt_message_data()</code> no longer short-circuits when running under testthat; its tests now decrypt real server-direction messages.</li>
+<li>Consistent, informative console output built on ‘cli’: connection and sign-in status, rate-limit waits and data-centre switches are reported as short <code>ℹ</code>/<code>✔</code>/<code>!</code> lines; the download functions show a progress bar with rate and ETA (interactive sessions) and finish with a one-line summary (rows, date range, elapsed time, output file). Internal details (server salts, sender pools) are only shown with <code>options(telegramR.verbose = "debug")</code>; <code>options(telegramR.verbose = FALSE)</code> silences everything. The ‘logger’ dependency is dropped.</li>
+<li>Fixed file-download retries (timeouts, files in another data centre, expired file references) and CDN redirects calling logging methods that did not exist, which turned a recoverable situation into an error.</li>
+<li>Removed compiled objects (<code>src/*.o</code>, <code>src/*.so</code>) from version control; they broke installation from a git checkout on other platforms.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.2" id="telegramr-002">telegramR 0.0.2<a class="anchor" aria-label="anchor" href="#telegramr-002"></a></h2><p class="text-muted">CRAN release: 2026-09-30</p>
 <ul><li><p>Removed unused sample video files from <code>inst/extdata</code>, shrinking the source tarball to ~3.4Mb (under CRAN’s 5Mb guideline).</p></li>
 <li><p>Exported <code>TelegramClient</code>, the high-level client class, so <code>TelegramClient$new()</code> works after <code><a href="https://romankyrychenko.github.io/telegramR/">library(telegramR)</a></code> (its <code>@export</code> had been in a comment that roxygen ignored, leaving it inaccessible).</p></li>
 <li><p>Synced the bundled ‘Telegram’ TL schema to layer 229 and regenerated all TL type and request classes, fixing dialog and message parsing against current ‘Telegram’ servers.</p></li>
